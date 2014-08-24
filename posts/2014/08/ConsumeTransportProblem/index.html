@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"
->
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="https://www.facebook.com/2008/fbml">
 <head>
     <title>Puzzle 2 - Sadanand's Notes</title>
     <!-- Using the latest rendering mode for IE -->
@@ -17,10 +18,25 @@
         <meta name="keywords" content="Puzzle,Math" />
         <meta name="description" content="Tansporting Apples via Monkeys" />
 
+        <meta property="fb:app_id" content="1447063782243264"/>
+        <meta property="og:site_name" content="Sadanand's Notes" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Puzzle 2"/>
+        <meta property="og:url" content="http://sadanand-singh.github.io/posts/2014/08/ConsumeTransportProblem/"/>
+        <meta property="og:description" content="Tansporting Apples via Monkeys"/>
+        <meta property="article:published_time" content="2014-08-23" />
+            <meta property="article:section" content="Puzzle" />
+            <meta property="article:tag" content="Puzzle" />
+            <meta property="article:tag" content="Math" />
+            <meta property="article:author" content="Sadanand Singh" />
 
+    <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@sadanandsingh">
+        <meta name="twitter:creator" content="@sadanandsingh">
+    <meta name="twitter:domain" content="http://sadanand-singh.github.io">
 
     <!-- Bootstrap -->
-        <link rel="stylesheet" href="http://sadanand-singh.github.io/theme/css/bootstrap.cosmo.min.css" type="text/css"/>
+        <link rel="stylesheet" href="http://sadanand-singh.github.io/theme/css/bootstrap.cerulean.min.css" type="text/css"/>
     <link href="http://sadanand-singh.github.io/theme/css/font-awesome.min.css" rel="stylesheet">
 
     <link href="http://sadanand-singh.github.io/theme/css/pygments/bw.css" rel="stylesheet">
@@ -92,9 +108,16 @@ Sadanand's Notes            </a>
 </footer><!-- /.post-info -->                    </div>
                 </div>
                 <p><strong>Problem Statement:</strong></p>
-<p>The owner of an apple plantation has a monkey. He wants to transport his 10000 apples to the market, which is located after the forest. The distance between his apple plantation and the market is about 1000 kilometer. So he decided to take his monkey to carry the apples. The monkey can carry at the maximum of 2000 apples at a time, and it eats one apple and throws another one for every kilometer it travels.</p>
+<p>The owner of an apple plantation has a monkey. He wants to transport his 10000 apples to the market, which is located after the forest. The distance
+between his apple plantation and the market is about 1000 kilometer. So he decided to take his monkey to carry the apples. The monkey can carry at the
+maximum of 2000 apples at a time, and it eats one apple and throws another one for every kilometer it travels.</p>
 <p>What is the largest number of apples that can be delivered to the market?</p>
 <p>Please give your solutions in the comments below.</p>
+<p><strong>SOLUTION</strong></p>
+<p>If the owner lets the monkey carry apples all the way to the end of the forest, in the first trip itself, all of 2000 aplles will be lost and the monkey will never return back, as the monkey will be out of any food and play.</p>
+<p>Lets approach this in a different way. Lets break the monkey's journey by per unit distance. To carry 10000 apples for 1 km, monkey has to make 2 x 5 - 1 = 9 trips! On each trip, the owner will loose 2 apples. Hence, for each km distance travelled untill number of apples is greater than 8000, monkey requires 9 x 2 = 18 apples. So, distance travelled by monkey until number of apples is less than 8000 is int(2000 / 18) + 1 = 112 km, and by this time, 10,000 - 112 x 18 = 7984 apples are left. Similarily, until 6000 apples are left, the monkey will require 2 x 4 - 1 = 7 trips for every km. Hence, the total distance travelled until no. of apples left is less than 6000 is 112 + int(2000 / 14) + 1 = 255 km, and by this time no. of apples left is 7984 - 143 x 14 = 5982. Now proceeding in a similar manner, until 4000 apples are left, the monkey will require 5 trips for each km. Total distance travelled until no. of apples left is less than 4000 is 255 + int(2000/10) = 455 km. By this time, number of apples left is 5982 - 200 x 10 = 3982. Until 2000 apples are left, the monkey will require 3 trips per km travelled. Total distance travelled till this time is 455 + int(2000/6) + 1 = 789 km. By this time, no. of apples left is 3982 - 334 x 6 = 1978. Below 2000 apples, the mokey will require only one trip to reach to market. Distance left is 1000 - 789 = 211 km. Number of apples required by the monkey to travel this distance is 211 x 2 = 422. Hence, total number of apples that can reach the market is just 1978 - 422 = 1556! That's just 15.56% of all apples.</p>
+<p>That's quite bad monkey. Moral of the story is, avoid dealing with fools :)</p>
+<p>Thank you all who tried this.</p>
 <p><strong>Disclaimer:</strong> This puzzle has been inspired by a problem at the <a href="http://www.mytechinterviews.com/">Blog</a> on Technical Interviews.</p>
             </div>
             <!-- /.entry-content -->
@@ -146,6 +169,13 @@ Sadanand's Notes            </a>
 <aside>
     <section>
         <ul class="list-group list-group-flush">
+                <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+                  <ul class="list-group" id="social">
+                    <li class="list-group-item"><a href="https://github.com/sadanand-singh"><i class="fa fa-github-square fa-lg"></i> Github</a></li>
+                    <li class="list-group-item"><a href="https://twitter.com/sadanandsingh"><i class="fa fa-twitter-square fa-lg"></i> Twitter</a></li>
+                    <li class="list-group-item"><a href="https://www.linkedin.com/in/sadanandsingh"><i class="fa fa-linkedin-square fa-lg"></i> Linkedin</a></li>
+                  </ul>
+                </li>
 
                 <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
                     <ul class="list-group" id="recentposts">
@@ -181,6 +211,14 @@ Sadanand's Notes            </a>
                         </li>
                     </ul>
                 </li>
+
+
+    <li class="list-group-item"><h4><i class="fa fa-twitter fa-lg"></i><span class="icon-label">Latest Tweets</span></h4></li>
+    <div id="twitter_timeline">
+        <a class="twitter-timeline" data-chrome="noheader" href="https://twitter.com/sadanandsingh" data-widget-id="503446585972240384">Tweets by sadanandsingh</a>
+    </div>
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
     <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
       <ul class="list-group" id="links">

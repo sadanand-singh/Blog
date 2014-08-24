@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"
->
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="https://www.facebook.com/2008/fbml">
 <head>
     <title>Articles by Sadanand Singh - Sadanand's Notes</title>
     <!-- Using the latest rendering mode for IE -->
@@ -15,15 +16,20 @@
         <meta name="author" content="Sadanand Singh" />
 
     <!-- Open Graph tags -->
+            <meta property="fb:app_id" content="1447063782243264"/>
         <meta property="og:site_name" content="Sadanand's Notes" />
         <meta property="og:type" content="website"/>
         <meta property="og:title" content="Sadanand's Notes"/>
         <meta property="og:url" content="http://sadanand-singh.github.io"/>
         <meta property="og:description" content="Sadanand's Notes"/>
 
+    <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@sadanandsingh">
+        <meta name="twitter:creator" content="@sadanandsingh">
+    <meta name="twitter:domain" content="http://sadanand-singh.github.io">
 
     <!-- Bootstrap -->
-        <link rel="stylesheet" href="http://sadanand-singh.github.io/theme/css/bootstrap.cosmo.min.css" type="text/css"/>
+        <link rel="stylesheet" href="http://sadanand-singh.github.io/theme/css/bootstrap.cerulean.min.css" type="text/css"/>
     <link href="http://sadanand-singh.github.io/theme/css/font-awesome.min.css" rel="stylesheet">
 
     <link href="http://sadanand-singh.github.io/theme/css/pygments/bw.css" rel="stylesheet">
@@ -136,6 +142,13 @@ Sadanand's Notes            </a>
 <aside>
     <section>
         <ul class="list-group list-group-flush">
+                <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+                  <ul class="list-group" id="social">
+                    <li class="list-group-item"><a href="https://github.com/sadanand-singh"><i class="fa fa-github-square fa-lg"></i> Github</a></li>
+                    <li class="list-group-item"><a href="https://twitter.com/sadanandsingh"><i class="fa fa-twitter-square fa-lg"></i> Twitter</a></li>
+                    <li class="list-group-item"><a href="https://www.linkedin.com/in/sadanandsingh"><i class="fa fa-linkedin-square fa-lg"></i> Linkedin</a></li>
+                  </ul>
+                </li>
 
                 <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
                     <ul class="list-group" id="recentposts">
@@ -171,6 +184,14 @@ Sadanand's Notes            </a>
                         </li>
                     </ul>
                 </li>
+
+
+    <li class="list-group-item"><h4><i class="fa fa-twitter fa-lg"></i><span class="icon-label">Latest Tweets</span></h4></li>
+    <div id="twitter_timeline">
+        <a class="twitter-timeline" data-chrome="noheader" href="https://twitter.com/sadanandsingh" data-widget-id="503446585972240384">Tweets by sadanandsingh</a>
+    </div>
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
     <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
       <ul class="list-group" id="links">
