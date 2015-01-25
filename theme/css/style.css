@@ -6,7 +6,11 @@ h1, h2, h3, h4, h5, h5 {
     font-family: Baskerville, Garamond, Georgia, "DejaVu Serif", "Times New Roman", Times, serif;
     font-weight: normal;
 }
-    
+
+h4 {
+    color:#CC6600;
+}
+
 #content-sans-footer{
     min-height:100%;
 }
@@ -357,9 +361,9 @@ ul.top-menu li a {
 }
 
 .amp {
-    font-family:"Warnock Pro", "Goudy Old Style","Palatino","Book Antiqua",serif; 
+    font-family:"Warnock Pro", "Goudy Old Style","Palatino","Book Antiqua",serif;
     font-style:italic;
-}    
+}
 
 img {
     border: 1px solid #EEEEEE;
@@ -394,4 +398,60 @@ h6:hover > a.headerlink,
 dt:hover > a.headerlink {
     visibility: visible;
     text-decoration:none;
+}
+
+
+.sidebar-social-links {
+    border-radius: 20%;
+    border: solid transparent 1px;
+    color: #A2A2A2;
+    font-size: 1.3em;
+    margin: 0;
+    padding: 1px;
+    text-align: center;
+    text-decoration: none;
+    width: 12%;
+}
+.sidebar-social-links:hover {
+    background-color: #A2A2A2;
+    color: #fff;
+}
+.fa-twitter:hover, .fa-twitter-square:hover {
+    background-color: #00ACED;
+}
+.fa-facebook:hover, .fa-facebook-square:hover {
+    background-color: #3B5998;
+}
+.fa-google-plus:hover, .fa-google-plus-square:hover {
+    background-color: #D34836;
+}
+.fa-adn:hover {
+    background-color: #49484D;
+}
+.fa-envelope:hover {
+    background-color: #5E9EDA;
+}
+.fa-github:hover, .fa-github-square:hover, .fa-github-alt:hover {
+    background-color: #BC272F;
+}
+.fa-flickr:hover {
+    background-color: #FF0084;
+}
+.fa-youtube:hover, .fa-youtube-square:hover, .fa-youtube-play:hover {
+    background-color: #BC272F;
+}
+.fa-linkedin:hover, .fa-linkedin-square:hover {
+    background-color: #107FB9;
+}
+.fa-gittip:hover {
+    background-color: #663300;
+}
+.fa-rss:hover, .fa-rss-square:hover {
+    background-color: #FF6600;
+}
+.fa-bitbucket:hover, .fa-bitbucket-square:hover {
+    background-color: #205081;
+}
+.fa-stack-exchange:hover {
+    background-color: #3A7BC8;
 }
