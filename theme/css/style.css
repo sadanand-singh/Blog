@@ -298,6 +298,10 @@ a {
     color:rgb(56, 117, 215);
 }
 
+.shared_links {
+    color:#006600;
+}
+
 /* archives */
 ul.list-all-articles {
     list-style:none;
