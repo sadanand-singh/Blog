@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Sadanand Singh" />
+        <meta name="copyright" content="Sadanand Singh" />
+
+<meta name="keywords" content="Linux, Arch, Computers, Computers, " />
+
+<meta property="og:title" content="Arch Installation Guide "/>
+<meta property="og:url" content="http://sadanand-singh.github.io/archInstall" />
+<meta property="og:description" content="Installing Arch Linux with BTRFS drive, UEFI and Plasma5" />
+<meta property="og:site_name" content="Sadanand&#39;s Notes" />
+<meta property="og:article:author" content="Sadanand Singh" />
+<meta property="og:article:published_time" content="2015-06-19T21:35:00-07:00" />
+<meta property="" content="2015-06-20T21:05:00-07:00" />
+<meta name="twitter:title" content="Arch Installation Guide ">
+<meta name="twitter:description" content="Installing Arch Linux with BTRFS drive, UEFI and Plasma5">
+<meta property="og:image" content="http://sadanand-singh.github.io/theme/images/apple-touch-icon-152x152.png" />
+<meta name="twitter:image" content="http://sadanand-singh.github.io/theme/images/apple-touch-icon-152x152.png" >
+
+        <title>Arch Installation&nbsp;Guide  · Sadanand's Notes
+</title>
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="http://sadanand-singh.github.io/theme/css/style.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://sadanand-singh.github.io/theme/css/pygments2.css" media="screen">
+        <link rel="shortcut icon" href="http://sadanand-singh.github.io/theme/images/favicon.ico" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="http://sadanand-singh.github.io/theme/images/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="http://sadanand-singh.github.io/theme/images/apple-touch-icon-57x57.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="http://sadanand-singh.github.io/theme/images/apple-touch-icon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="http://sadanand-singh.github.io/theme/images/apple-touch-icon-114x114.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="http://sadanand-singh.github.io/theme/images/apple-touch-icon-144x144.png" />
+        <link rel="icon" href="http://sadanand-singh.github.io/theme/images/apple-touch-icon-144x144.png" />
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-54080172-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="http://sadanand-singh.github.io/"><span class=site-name>Sadanand's Notes</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="http://sadanand-singh.github.io">Home</a></li>
+                            <li ><a href="http://sadanand-singh.github.io/categories.html">Categories</a></li>
+                            <li ><a href="http://sadanand-singh.github.io/tags.html">Tags</a></li>
+                            <li ><a href="http://sadanand-singh.github.io/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="http://sadanand-singh.github.io/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page_header span10 offset2">
+    <h1><a href="http://sadanand-singh.github.io/archInstall"> Arch Installation&nbsp;Guide  </a></h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+        <div class="span8 offset2 article-content">
+
+            <p>I know what you must be thinking - yet another installation guide!
+There is no dearth of &#8220;<em>Installation</em>&#8221; guides of Arch on web. So why
+another&nbsp;one?</p>
+<p>With advancements like <span class="caps">BTRFS</span> file system, <span class="caps">UEFI</span> motherboards and modern
+<em>in-development</em> desktop environment like Plasma 5; traditional <a href="https://wiki.archlinux.org/index.php/Installation_guide">Arch
+Wiki</a> guide
+and <a href="https://wiki.archlinux.org/index.php/Beginners%27_guide">Arch Beginners&#8217;
+Guide</a> can
+only be of  a limited help. After I got my new
+<a href="http://sadanand-singh.github.io/myNewCompSpecs">desktop</a>, my goal was
+to setup it with a <em>modern</em> setup. I decided to go with Arch Linux
+with btrfs file system and Plasma 5 desktop. Coming from <span class="caps">OSX</span>, I just
+love how far linux has come in terms of looks - <em>far better than
+<span class="caps">OSX</span>!</em></p>
+<p>I will cover this in two parts. First in this post, I will install the base system. Then, in a follow up post, I will discuss details of setting up final working Plasma5&nbsp;desktop.</p>
+<p><img alt="Plasma 5 Looks" src="http://i.imgur.com/f10HO0r.jpg" /></p>
+<h1 id="initial-setup">Initial Setup<a class="headerlink" href="#initial-setup" title="Permanent link">&para;</a></h1>
+<p>Download the latest iso from Arch website and create the uefi usb
+installation media. I used my mac to do this on&nbsp;terminal:</p>
+<div class="highlight"><pre><span class="nv">$ </span>diskutil list
+<span class="nv">$ </span>diskutil unmountDisk /dev/disk1
+<span class="nv">$ </span>dd <span class="k">if</span><span class="o">=</span>image.iso <span class="nv">of</span><span class="o">=</span>/dev/rdisk1 <span class="nv">bs</span><span class="o">=</span>1m
+20480+0 records in
+20480+0 records out
+<span class="m">167772160</span> bytes transferred in 220.016918 secs <span class="o">(</span><span class="m">762542</span> bytes/sec<span class="o">)</span>
+
+<span class="nv">$ </span>diskutil eject /dev/disk1
+</pre></div>
+
+
+<p>Use this media to boot into your machine. You should boot into <span class="caps">UEFI</span>
+mode if you have a
+<a href="https://wiki.archlinux.org/index.php/Unified_Extensible_Firmware_Interface"><span class="caps">UEFI</span></a>
+motherboard and <span class="caps">UEFI</span> mode&nbsp;enabled.</p>
+<p>To verify you have booted in <span class="caps">UEFU</span> mode,&nbsp;run:</p>
+<div class="highlight"><pre><span class="nv">$ </span>efivar -l
+</pre></div>
+
+
+<p>This should give you a list of set <span class="caps">UEFI</span> variables. Please look at the
+<a href="https://wiki.archlinux.org/index.php/Beginners%27_guide">Begineers&#8217;
+Guide</a> in
+case you do not get any list of <span class="caps">UEFI</span>&nbsp;variables.</p>
+<h2 id="wifi">Wifi<a class="headerlink" href="#wifi" title="Permanent link">&para;</a></h2>
+<p>To setup wifi simply&nbsp;run:</p>
+<div class="highlight"><pre><span class="nv">$ </span>wifi-menu
+</pre></div>
+
+
+<p>This is a pretty straight forward tool and will setup wifi for you for this installation&nbsp;session.</p>
+<p>This will also create a file at <em>/etc/netctl/</em>. We will use this file
+later to enable wifi at the first session after&nbsp;installation.</p>
+<p>For editing different configurations, I tend to use <em>vim</em>. So we will update our package cache and install&nbsp;vim.</p>
+<div class="highlight"><pre><span class="nv">$ </span>pacman -Syy
+<span class="nv">$ </span>pacman -S vim
+</pre></div>
+
+
+<h2 id="hard-drives">Hard Drives<a class="headerlink" href="#hard-drives" title="Permanent link">&para;</a></h2>
+<p>In my desktop, I have two hard drives, one 256 <span class="caps">GB</span> solid state drive
+(<span class="caps">SDD</span>) and another <span class="caps">1TB</span> hard drive (<span class="caps">HDD</span>). I set up my drives as follows:
+- <span class="caps">SDD</span> for root(/), /boot, /opt and /home partitions
+- <span class="caps">HDD</span> for /var and /media&nbsp;partitions.</p>
+<p>For <span class="caps">UEFI</span> machines, we need to use a <span class="caps">GPT</span> partition table and /boot
+partition has to be a fat32 partition with a minimum size of 512 <span class="caps">MB</span>.
+We will format rest other partitions with <span class="caps">BTRFS</span>. See this
+<a href="http://www.makeuseof.com/tag/ext4-btrfs-making-switch-linux/">link</a>
+for benefits of using btrfs&nbsp;partitions.</p>
+<p>First list your hard drives with the&nbsp;following:</p>
+<div class="highlight"><pre><span class="nv">$ </span>lsblk
+<span class="nv">$ </span>cat /proc/partitions
+</pre></div>
+
+
+<p>Assuming, my setup above, now create gpt partitions and format&nbsp;them.</p>
+<div class="highlight"><pre><span class="nv">$ </span>dd <span class="k">if</span><span class="o">=</span>/dev/zero <span class="nv">of</span><span class="o">=</span>/dev/sda <span class="nv">bs</span><span class="o">=</span>1M <span class="nv">count</span><span class="o">=</span>5000
+<span class="nv">$ </span>gdisk /dev/sda
+Found invalid MBR and corrupt GPT. What <span class="k">do</span> you want to <span class="k">do</span>? <span class="o">(</span>Using the
+GPT MAY permit recovery of GPT data.<span class="o">)</span>
+ <span class="m">1</span> - Use current GPT
+ <span class="m">2</span> - Create blank GPT
+</pre></div>
+
+
+<p>Then press 2 to create a blank <span class="caps">GPT</span> and start&nbsp;fresh</p>
+<div class="highlight"><pre>ZAP:
+<span class="nv">$ </span>press x - to go to extended menu
+<span class="nv">$ </span>press z - to zap
+<span class="nv">$ </span>press Y - to confirm
+<span class="nv">$ </span>press Y - to delete MBR
+</pre></div>
+
+
+<p>It might now kick us out of gdisk, so get back into&nbsp;it:</p>
+<div class="highlight"><pre><span class="nv">$ </span>gdisk /dev/sda
+
+<span class="nv">$ </span>Command <span class="o">(</span>? <span class="k">for</span> <span class="nb">help</span><span class="o">)</span>: m
+<span class="nv">$ </span>Command <span class="o">(</span>? <span class="k">for</span> <span class="nb">help</span><span class="o">)</span>: n
+
+<span class="nv">$ </span>Partition number <span class="o">(</span>1-128, default 1<span class="o">)</span>:
+<span class="nv">$ </span>First sector <span class="o">(</span>34-500118158, <span class="nv">default</span> <span class="o">=</span> 2048<span class="o">)</span> or <span class="o">{</span>+-<span class="o">}</span>size<span class="o">{</span>KMGTP<span class="o">}</span>:
+<span class="nv">$ </span>Last sector <span class="o">(</span>2048-500118, <span class="nv">default</span> <span class="o">=</span> 500118<span class="o">)</span> or <span class="o">{</span>+-<span class="o">}</span>size<span class="o">{</span>KMGTP<span class="o">}</span>: 512M
+<span class="nv">$ </span>Current <span class="nb">type </span>is <span class="s1">&#39;Linux filesystem&#39;</span>
+<span class="nv">$ </span>Hex code or GUID <span class="o">(</span>L to show codes, <span class="nv">Enter</span> <span class="o">=</span> 8300<span class="o">)</span>: ef00
+<span class="nv">$ </span>Changed <span class="nb">type </span>of partition to <span class="s1">&#39;EFI System&#39;</span>
+
+<span class="nv">$ </span>Partition number <span class="o">(</span>2-128, default 2<span class="o">)</span>:
+<span class="nv">$ </span>First sector <span class="o">(</span>34-500118, <span class="nv">default</span> <span class="o">=</span> 16779264<span class="o">)</span> or <span class="o">{</span>+-<span class="o">}</span>size<span class="o">{</span>KMGTP<span class="o">}</span>:
+<span class="nv">$ </span>Last sector <span class="o">(</span>16779264-500118, <span class="nv">default</span> <span class="o">=</span> 500118<span class="o">)</span> or <span class="o">{</span>+-<span class="o">}</span>size<span class="o">{</span>KMGTP<span class="o">}</span>:
+<span class="nv">$ </span>Current <span class="nb">type </span>is <span class="s1">&#39;Linux filesystem&#39;</span>
+<span class="nv">$ </span>Hex code or GUID <span class="o">(</span>L to show codes, <span class="nv">Enter</span> <span class="o">=</span> 8300<span class="o">)</span>:
+<span class="nv">$ </span>Changed <span class="nb">type </span>of partition to <span class="s1">&#39;Linux filesystem&#39;</span>
+
+<span class="nv">$ </span>Command <span class="o">(</span>? <span class="k">for</span> <span class="nb">help</span><span class="o">)</span>: p
+<span class="nv">$ </span>Press w to write to disk
+<span class="nv">$ </span>Press Y to confirm
+</pre></div>
+
+
+<p>Repeat the above procedure for <em>/dev/sdb</em>, but create just one
+partition with all values as default. At the end we will have three
+partitions:
+/dev/sda1, /dev/sda2 and&nbsp;/dev/sdb1</p>
+<p>Now we will format these&nbsp;partitions.</p>
+<div class="highlight"><pre><span class="nv">$ </span>mkfs.vfat -F32 /dev/sda1
+<span class="nv">$ </span>mkfs.btrfs -L arch /dev/sda2
+<span class="nv">$ </span>mkfs.btrfs -L data /dev/sdb1
+</pre></div>
+
+
+<p>Now, we will create btrfs subvolumes and mount them properly for
+installation and final&nbsp;setup.</p>
+<div class="highlight"><pre><span class="nv">$ </span>mount /dev/sda2 /mnt
+<span class="nv">$ </span>btrfs subvolume create /mnt/ROOT
+<span class="nv">$ </span>btrfs subvolume create /mnt/opt
+<span class="nv">$ </span>btrfs subvolume create /mnt/home
+<span class="nv">$ </span>umount /mnt
+
+<span class="nv">$ </span>mount /dev/sdb1 /mnt
+<span class="nv">$ </span>btrfs subvolume create /mnt/var
+<span class="nv">$ </span>btrfs subvolume create /mnt/media
+<span class="nv">$ </span>umount /mnt
+</pre></div>
+
+
+<p>Now, once the subvolumes have been created, we will mount them in
+appropriate locations with optimal&nbsp;flags.</p>
+<div class="highlight"><pre><span class="nv">$SSD_MOUNTS</span><span class="o">=</span><span class="s2">&quot;rw,noatime,nodev,compress=lzo,ssd,discard,space_cache,aut odefrag,inode_cache&quot;</span>
+<span class="nv">$ HDD_MOUNTS</span><span class="o">=</span><span class="s2">&quot;rw,nosuid,nodev,relatime,space_cache&quot;</span>
+<span class="nv">$ EFI_MOUNTS</span><span class="o">=</span><span class="s2">&quot;rw,noatime,discard,nodev,nosuid,noexec&quot;</span>
+<span class="nv">$ </span>mount -o <span class="nv">$SSD_MOUNTS</span>,subvol<span class="o">=</span>ROOT /dev/sda2 /mnt
+<span class="nv">$ </span>mkdir -p /mnt/opt
+<span class="nv">$ </span>mkdir -p /mnt/home
+<span class="nv">$ </span>mkdir -p /mnt/var
+<span class="nv">$ </span>mkdir -p /mnt/media
+<span class="nv">$ </span>mount -o <span class="nv">$SSD_MOUNTS</span>,nosuid,subvol<span class="o">=</span>opt /dev/sda2 /mnt/opt
+<span class="nv">$ </span>mount -o <span class="nv">$SSD_MOUNTS</span>,nosuid,subvol<span class="o">=</span>home /dev/sda2 /mnt/home
+<span class="nv">$ </span>mount -o <span class="nv">$HDD_MOUNTS</span>,subvol<span class="o">=</span>var /dev/sdb1 /mnt/var
+<span class="nv">$ </span>mount -o <span class="nv">$HDD_MOUNTS</span>,subvol<span class="o">=</span>media /dev/sdb1 /mnt/media
+
+<span class="nv">$ </span>mkdir -p /mnt/boot
+<span class="nv">$ </span>mount -o <span class="nv">$EFI_MOUNTS</span> /dev/sda1 /mnt/boot
+</pre></div>
+
+
+<h1 id="base-installation">Base Installation<a class="headerlink" href="#base-installation" title="Permanent link">&para;</a></h1>
+<p>Now, we will do the actuall installation of base&nbsp;packages.</p>
+<div class="highlight"><pre><span class="nv">$ </span>pacstrap /mnt base base-devel btrfs-progs
+<span class="nv">$ </span>genfstab -U -p /mnt &gt;&gt; /mnt/etc/fstab
+</pre></div>
+
+
+<p>Edit the /mnt/ect/fstab file to add following /tmp&nbsp;mounts.</p>
+<div class="highlight"><pre>tmpfs /tmp tmpfs rw,nodev,nosuid 0 0
+tmpfs /dev/shm tmpfs rw,nodev,nosuid,noexec 0 0
+</pre></div>
+
+
+<p>Copy our current wifi setup file into the new system. This will enable
+wifi at first boot. Next, chroot into our newly installed&nbsp;system:</p>
+<div class="highlight"><pre><span class="nv">$ </span>cp /etc/netctl/wl* /mnt/etc/netctl/
+<span class="nv">$ </span>arch-chroot /mnt /bin/bash
+</pre></div>
+
+
+<p>Some basic&nbsp;setup:</p>
+<div class="highlight"><pre><span class="nv">$ </span>vim /etc/locale.gen
+
+...
+<span class="nv">$en_SG</span> ISO-8859-1
+en_US.UTF-8 UTF-8
+<span class="nv">$en_US</span> ISO-8859-1
+...
+
+<span class="nv">$ </span>locale-gen
+<span class="nv">$ </span><span class="nb">echo </span><span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8 &gt; /etc/locale.conf
+<span class="nv">$ </span><span class="nb">export </span><span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8
+<span class="nv">$ </span>ls -l /usr/share/zoneinfo
+<span class="nv">$ </span>ln -sf /usr/share/zoneinfo/Zone/SubZone /etc/localtime
+<span class="nv">$ </span>hwclock --systohc --utc
+<span class="nv">$ </span>sed -i <span class="s2">&quot;s/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/&quot;</span> /etc/sudoers
+<span class="nv">$ </span><span class="nb">echo</span> <span class="nv">$HOSTNAME</span> &gt; /etc/hostname
+<span class="nv">$ </span>sed -i <span class="s1">&#39;s/^\(HOOKS=.*fsck\)\(.*$\)/\1 btrfs\2/g&#39;</span> /etc/mkinitcpio.conf
+<span class="nv">$ </span>mkinitcpio -p linux
+<span class="nv">$ </span>gummiboot install
+<span class="nv">$ </span>passwd
+</pre></div>
+
+
+<p>We will do the final setup now, that should enable us to login into
+our newly installed system. Make sure following two files look as&nbsp;follows:</p>
+<div class="highlight"><pre><span class="nv">$ </span>vim /boot/loader/loader.conf
+...
+timeout 3
+default arch
+...
+<span class="nv">$ </span>vim /boot/loader/entries/arch.conf
+...
+
+title Arch Linux
+linux /vmlinuz-linux
+initrd /initramfs-linux.img
+options <span class="nv">root</span><span class="o">=</span><span class="nv">UUID</span><span class="o">=</span>1c27fa42-ca19-482f-b49a-3b8366eb7783 rw <span class="nv">rootfstype</span><span class="o">=</span>btrfs <span class="nv">rootflags</span><span class="o">=</span><span class="nv">subvol</span><span class="o">=</span>ROOT
+...
+</pre></div>
+
+
+<p>Awesome! We are ready to play with our new system. Please see my next post for&nbsp;more.</p>
+
+            <div class="shared_links">
+            <section>
+    <p id="post-share-links">
+    Like this post? Share on:
+    <a href="http://twitter.com/home?status=b'Arch%20Installation%C2%A0Guide%20http%3A//sadanand-singh.github.io/archInstall'" target="_blank" title="Share on Twitter">Twitter</a>
+    ❄
+    <a href="http://www.facebook.com/sharer/sharer.php?s=100&amp;p%5Burl%5D=http%3A//sadanand-singh.github.io/archInstall" target="_blank" title="Share on Facebook">Facebook</a>
+    ❄
+    <a href="https://plus.google.com/share?url=http%3A//sadanand-singh.github.io/archInstall" target="_blank" title="Share on Google Plus">Google+</a>
+    ❄
+    <a href="mailto:?subject=Arch%20Installation%C2%A0Guide&amp;body=http%3A//sadanand-singh.github.io/archInstall" target="_blank" title="Share via Email">Email</a>
+    </p>
+</section>
+
+            </div>
+
+<section>
+<p id="comment-message">So what do you think? Did I miss something? Is any part unclear? Leave your comments below. </p>
+<div class="accordion" id="accordion2">
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
+                    data-disqus-identifier="archInstall.sadanand"
+                href="http://sadanand-singh.github.io/archInstall#disqus_thread">
+                Comments
+            </a>
+        </div>
+        <div id="disqus_thread" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <div class="comments">
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'sadanandsblog';
+        var disqus_identifier = 'archInstall.sadanand';
+    var disqus_url = 'http://sadanand-singh.github.io/archInstall';
+
+    (function() {
+         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+            <aside>
+            <hr/>
+            <nav>
+            <ul class="articles_timeline">
+                <li class="previous_article">« <a href="http://sadanand-singh.github.io/PalakPaneer" title="Previous: Palak Paneer&nbsp;Recipe">Palak Paneer&nbsp;Recipe</a></li>
+            </ul>
+            </nav>
+            </aside>
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2015-06-19T21:35:00-07:00">Jun 19, 2015</time>
+            <h4>Last Updated</h4>
+            <div class="last_updated">2015-06-20 21:05:00-07:00</div>
+            <h4>Category</h4>
+            <a class="category-link" href="/categories.html#Computers-ref">Computers</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="/tags.html#Arch-ref">Arch
+                    <span>1</span>
+</a></li>
+                <li><a href="/tags.html#Computers-ref">Computers
+                    <span>1</span>
+</a></li>
+                <li><a href="/tags.html#Linux-ref">Linux
+                    <span>1</span>
+</a></li>
+            </ul>
+
+<h4>Stay in Touch</h4>
+    <a href="http://twitter.com/sadanandsingh" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="https://www.facebook.com/sadanand4singh" title="My Facebook Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-facebook sidebar-social-links"></i></a>
+    <a href="http://github.com/sadanand-singh" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="https://www.linkedin.com/in/sadanandsingh" title="My Linkedin Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-linkedin sidebar-social-links"></i></a>
+
+
+
+            <!-- Begin MailChimp Signup Form -->
+            <div id="mc_embed_signup">
+                <form action="empty" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                    <h4>Get Monthly Updates</h4>
+                    <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Enter your email..." required>
+                    <div class="clear"><input type="submit" value="Send me Free updates" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+                </form>
+            </div>
+
+            <!--End mc_embed_signup-->
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-license"><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"> "Sadanand's Notes" </span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://oncrashreboot.com" property="cc:attributionName" rel="cc:attributionURL">Sadanand Singh</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="http://code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+<script type="text/javascript">
+    var disqus_shortname = 'sadanandsblog';
+
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+    </script>
+        <script  language="javascript" type="text/javascript">
+            function uncollapse() {
+                var hash_str = window.location.hash;
+                if (window.location.hash.match(/^#comment-\d+$/))
+                {
+                    var hash_str = '#disqus_thread';
+                }
+                $(hash_str).collapse({
+                    toggle: true
+                    })
+            }
+        </script>
+
+        <script type="text/javascript" language="JavaScript">
+            uncollapse();
+        </script>
+    </body>
+</html>

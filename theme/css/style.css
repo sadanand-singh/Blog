@@ -71,8 +71,8 @@ padding-right:10px;
 }
 
 /* Syntax Highlight */
-.highlight pre {
-    background-color:rgb(253,246,227);
+/*.highlight pre {
+    background-color:rgba(0, 0, 0, 0.0392157);
     border-radius:3px 3px 3px 3px;
 }
 
@@ -82,7 +82,7 @@ td.code .highlight pre {
 
 td.code {
     width:100%;
-}
+}*/
 
 .linenodiv pre {
     border-radius:3px 0px 0px 3px;
