@@ -10,13 +10,13 @@
 
 <meta property="og:title" content="Arch Installation Guide "/>
 <meta property="og:url" content="http://sadanand-singh.github.io/archInstall" />
-<meta property="og:description" content="Installing Arch Linux with BTRFS drive, UEFI and Plasma5" />
+<meta property="og:description" content="Installing Arch Linux with BTRFS drive, UEFI and Plasma 5" />
 <meta property="og:site_name" content="Sadanand&#39;s Notes" />
 <meta property="og:article:author" content="Sadanand Singh" />
-<meta property="og:article:published_time" content="2015-06-19T21:35:00-07:00" />
-<meta property="" content="2015-06-20T21:05:00-07:00" />
+<meta property="og:article:published_time" content="2015-06-20T18:30:00-07:00" />
+<meta property="" content="2015-06-21T11:00:00-07:00" />
 <meta name="twitter:title" content="Arch Installation Guide ">
-<meta name="twitter:description" content="Installing Arch Linux with BTRFS drive, UEFI and Plasma5">
+<meta name="twitter:description" content="Installing Arch Linux with BTRFS drive, UEFI and Plasma 5">
 <meta property="og:image" content="http://sadanand-singh.github.io/theme/images/apple-touch-icon-152x152.png" />
 <meta name="twitter:image" content="http://sadanand-singh.github.io/theme/images/apple-touch-icon-152x152.png" >
 
@@ -82,7 +82,7 @@
 <div class="row-fluid">
         <div class="span8 offset2 article-content">
 
-            <p>I know what you must be thinking - yet another installation guide!
+            <p>You must be thinking - yet another installation guide!
 There is no dearth of &#8220;<em>Installation</em>&#8221; guides of Arch on web. So why
 another&nbsp;one?</p>
 <p>With advancements like <span class="caps">BTRFS</span> file system, <span class="caps">UEFI</span> motherboards and modern
@@ -96,7 +96,7 @@ to setup it with a <em>modern</em> setup. I decided to go with Arch Linux
 with btrfs file system and Plasma 5 desktop. Coming from <span class="caps">OSX</span>, I just
 love how far linux has come in terms of looks - <em>far better than
 <span class="caps">OSX</span>!</em></p>
-<p>I will cover this in two parts. First in this post, I will install the base system. Then, in a follow up post, I will discuss details of setting up final working Plasma5&nbsp;desktop.</p>
+<p>I will cover this in two parts. First in this post, I will install the base system. Then, in a follow up post, I will discuss details of setting up final working Plasma 5&nbsp;desktop.</p>
 <p><img alt="Plasma 5 Looks" src="http://i.imgur.com/f10HO0r.jpg" /></p>
 <h1 id="initial-setup">Initial Setup<a class="headerlink" href="#initial-setup" title="Permanent link">&para;</a></h1>
 <p>Download the latest iso from Arch website and create the uefi usb
@@ -248,7 +248,7 @@ appropriate locations with optimal&nbsp;flags.</p>
 
 
 <h1 id="base-installation">Base Installation<a class="headerlink" href="#base-installation" title="Permanent link">&para;</a></h1>
-<p>Now, we will do the actuall installation of base&nbsp;packages.</p>
+<p>Now, we will do the actually installation of base&nbsp;packages.</p>
 <div class="highlight"><pre><span class="nv">$ </span>pacstrap /mnt base base-devel btrfs-progs
 <span class="nv">$ </span>genfstab -U -p /mnt &gt;&gt; /mnt/etc/fstab
 </pre></div>
@@ -268,7 +268,9 @@ wifi at first boot. Next, chroot into our newly installed&nbsp;system:</p>
 
 
 <p>Some basic&nbsp;setup:</p>
-<div class="highlight"><pre><span class="nv">$ </span>vim /etc/locale.gen
+<div class="highlight"><pre><span class="nv">$ </span>pacman -Syy
+<span class="nv">$ </span>pacman -S sudo vim
+<span class="nv">$ </span>vim /etc/locale.gen
 
 ...
 <span class="nv">$en_SG</span> ISO-8859-1
@@ -283,11 +285,27 @@ en_US.UTF-8 UTF-8
 <span class="nv">$ </span>ln -sf /usr/share/zoneinfo/Zone/SubZone /etc/localtime
 <span class="nv">$ </span>hwclock --systohc --utc
 <span class="nv">$ </span>sed -i <span class="s2">&quot;s/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/&quot;</span> /etc/sudoers
+<span class="nv">$ HOSTNAME</span><span class="o">=</span>euler
 <span class="nv">$ </span><span class="nb">echo</span> <span class="nv">$HOSTNAME</span> &gt; /etc/hostname
+<span class="nv">$ </span>pacman -S dosfstools efibootmgr
 <span class="nv">$ </span>sed -i <span class="s1">&#39;s/^\(HOOKS=.*fsck\)\(.*$\)/\1 btrfs\2/g&#39;</span> /etc/mkinitcpio.conf
 <span class="nv">$ </span>mkinitcpio -p linux
 <span class="nv">$ </span>gummiboot install
 <span class="nv">$ </span>passwd
+</pre></div>
+
+
+<p>We also need to install following packages for wifi to work at first&nbsp;boot:</p>
+<div class="highlight"><pre><span class="nv">$ </span>pacman -S iw wpa_supplicant
+</pre></div>
+
+
+<p>We will also add <em>hostname</em> to our /etc/hosts&nbsp;file:</p>
+<div class="highlight"><pre><span class="nv">$ </span>vim /etc/hosts
+...
+127.0.0.1       localhost.localdomain   localhost <span class="nv">$HOSTNAME</span>
+::1             localhost.localdomain   localhost <span class="nv">$HOSTNAME</span>
+...
 </pre></div>
 
 
@@ -306,6 +324,9 @@ linux /vmlinuz-linux
 initrd /initramfs-linux.img
 options <span class="nv">root</span><span class="o">=</span><span class="nv">UUID</span><span class="o">=</span>1c27fa42-ca19-482f-b49a-3b8366eb7783 rw <span class="nv">rootfstype</span><span class="o">=</span>btrfs <span class="nv">rootflags</span><span class="o">=</span><span class="nv">subvol</span><span class="o">=</span>ROOT
 ...
+<span class="nv">$ </span><span class="nb">exit</span>
+<span class="nv">$ </span>umount -R /mnt
+<span class="nv">$ </span>reboot
 </pre></div>
 
 
@@ -365,6 +386,7 @@ options <span class="nv">root</span><span class="o">=</span><span class="nv">UUI
             <nav>
             <ul class="articles_timeline">
                 <li class="previous_article">« <a href="http://sadanand-singh.github.io/PalakPaneer" title="Previous: Palak Paneer&nbsp;Recipe">Palak Paneer&nbsp;Recipe</a></li>
+                <li class="next_article"><a href="http://sadanand-singh.github.io/plasmaInstall" title="Next: Arch Installation Guide - <span class="caps">II</span>">Arch Installation Guide - <span class="caps">II</span></a> »</li>
             </ul>
             </nav>
             </aside>
@@ -372,21 +394,21 @@ options <span class="nv">root</span><span class="o">=</span><span class="nv">UUI
         <section>
         <div class="span2" style="float:right;font-size:0.9em;">
             <h4>Published</h4>
-            <time pubdate="pubdate" datetime="2015-06-19T21:35:00-07:00">Jun 19, 2015</time>
+            <time pubdate="pubdate" datetime="2015-06-20T18:30:00-07:00">Jun 20, 2015</time>
             <h4>Last Updated</h4>
-            <div class="last_updated">2015-06-20 21:05:00-07:00</div>
+            <div class="last_updated">2015-06-21 11:00:00-07:00</div>
             <h4>Category</h4>
             <a class="category-link" href="/categories.html#Computers-ref">Computers</a>
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article">
                 <li><a href="/tags.html#Arch-ref">Arch
-                    <span>1</span>
+                    <span>2</span>
 </a></li>
                 <li><a href="/tags.html#Computers-ref">Computers
-                    <span>1</span>
+                    <span>2</span>
 </a></li>
                 <li><a href="/tags.html#Linux-ref">Linux
-                    <span>1</span>
+                    <span>2</span>
 </a></li>
             </ul>
 
