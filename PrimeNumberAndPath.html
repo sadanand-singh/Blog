@@ -107,15 +107,14 @@ chess naming conventions, from &#8220;a1&#8221; to&nbsp;&#8220;h8&#8221;.</p>
 <p><img alt="Chess Board" src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Ternblad_grid_chess_problem.png" /></p>
 <p>Can you find the generic answer for the case of <span class="math">\(N\times M\)</span>&nbsp;grid.</p>
 <h4 id="solution_1">Solution<a class="headerlink" href="#solution_1" title="Permanent link">&para;</a></h4>
+<p><strong><em>Correction: For an <span class="math">\(N\times M\)</span> grid, we need only <span class="math">\(N-1\)</span> right and <span class="math">\(M-1\)</span> up moves. Thank you Devin for pointing this&nbsp;out.</em></strong></p>
 <p>Given only forward moves are allowed, for any arbitrary grid of
-<span class="math">\(N\times M\)</span>, a total of <span class="math">\(N+M\)</span> moves are&nbsp;needed.</p>
-<p>Any <span class="math">\(N\)</span> of these moves can be of type  <em>right</em> and <span class="math">\(M\)</span> of type <em>up</em>.
-In short, this is a combinatorial problem of distributing <span class="math">\(N+M\)</span>
-objects into groups of <span class="math">\(N\)</span> and <span class="math">\(M\)</span>. This is&nbsp;simply,</p>
-<div class="math">$$\dbinom{N+M}{N} = \frac{(N+M)!}{N! M!}$$</div>
+<span class="math">\(N\times M\)</span>, a total of <span class="math">\((N-1) + (M-1)\)</span> moves are&nbsp;needed.</p>
+<p>Any <span class="math">\(N-1\)</span> of these moves can be of type  <em>right</em> and <span class="math">\(M-1\)</span> of type <em>up</em>. In short, this is a combinatorial problem of distributing <span class="math">\(N+M-2\)</span> objects into groups of <span class="math">\(N-1\)</span> and <span class="math">\(M-1\)</span>. This is&nbsp;simply,</p>
+<div class="math">$$\dbinom{N+M-2}{N-1} = \frac{(N+M-2)!}{(N-1)! (M-1)!}$$</div>
 <p>In the particular case of the chess board, <span class="math">\(N = M = 8\)</span>. Hence, total
 number of possible paths&nbsp;are:</p>
-<div class="math">$$ \mbox{No. of Paths} = \frac{16!}{8! 8!} = 12870$$</div>
+<div class="math">$$ \mbox{No. of Paths} = \frac{14!}{7! 7!} =3432$$</div>
 <p>Thank you Rohit and Amber for posting quick&nbsp;solutions!</p>
 <p>Let me know if you have any other interesting alternative solutions to
 these&nbsp;problems.</p>
