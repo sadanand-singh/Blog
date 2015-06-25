@@ -85,14 +85,40 @@
             <h2 id="puzzle-1-prime-numbers">Puzzle 1: Prime Numbers<a class="headerlink" href="#puzzle-1-prime-numbers" title="Permanent link">&para;</a></h2>
 <p>Prove that <span class="math">\(p^2-1\)</span> is divisible by 24, where <span class="math">\(p\)</span> is a prime number with <span class="math">\(p&gt;3\)</span>.</p>
 <p>This is a simple one - do not go by the technicality of the problem&nbsp;statement.</p>
+<h4 id="solution">Solution<a class="headerlink" href="#solution" title="Permanent link">&para;</a></h4>
+<p><span class="math">\(p^2-1 = (p-1)\times (p+1)\)</span>
+Given, <span class="math">\(p\)</span> is a prime number <span class="math">\(&gt;3\)</span>, <span class="math">\(p-1\)</span> and <span class="math">\(p+1\)</span> are even.
+We can also&nbsp;write,
+</p>
+<div class="math">$$p-1 = 2K, \mbox{ and   }  p+1 = 2K+2 = 2(K+1)$$</div>
+<p>
+Given, <span class="math">\(K \in \mathbb{N}\)</span>, either <span class="math">\(K\)</span> or <span class="math">\(K+1\)</span> are also even.
+Hence, <span class="math">\((p-1)\times (p+1)\)</span> is divisible by <span class="math">\(2\times 4 = 8\)</span>.</p>
+<p>Furthermore, as <span class="math">\(p\)</span> is prime, we can write it as either <span class="math">\(p = 3s+1\)</span> or
+<span class="math">\(p = 3s-1\)</span>, where <span class="math">\(s \in \mathbb{N}\)</span>. In either case, one of <span class="math">\(p-1\)</span> or
+<span class="math">\(p+1\)</span> are divisible by 3 as&nbsp;well.</p>
+<p>Hence, <span class="math">\(p^2-1\)</span> is divisible by <span class="math">\(8\times 3 = 24\)</span>.</p>
 <h2 id="puzzle-2-hopping-on-a-chess-board">Puzzle 2: Hopping on a Chess Board<a class="headerlink" href="#puzzle-2-hopping-on-a-chess-board" title="Permanent link">&para;</a></h2>
-<p>On a chess board, basically a <span class="math">\(8\times 8\)</span> grid, how many ways one can go from the right most bottom corner to the left most upper corner? In chess naming conventions, from &#8220;a1&#8221; to&nbsp;&#8220;h8&#8221;.</p>
+<p>On a chess board, basically a <span class="math">\(8\times 8\)</span> grid, how many ways one can
+go from the left most bottom corner to the right most upper corner? In
+chess naming conventions, from &#8220;a1&#8221; to&nbsp;&#8220;h8&#8221;.</p>
 <p><strong><em>Clarification: In the original post this problem was ill&nbsp;defined.</em></strong></p>
 <p><strong><em>Please solve this problem with the constraints that only <em>up</em> and <em>right</em> moves are&nbsp;allowed.</em></strong></p>
 <p><img alt="Chess Board" src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Ternblad_grid_chess_problem.png" /></p>
 <p>Can you find the generic answer for the case of <span class="math">\(N\times M\)</span>&nbsp;grid.</p>
-<p>I will post answers of these some time next&nbsp;week.</p>
-<p>Happy&nbsp;solving!</p>
+<h4 id="solution_1">Solution<a class="headerlink" href="#solution_1" title="Permanent link">&para;</a></h4>
+<p>Given only forward moves are allowed, for any arbitrary grid of
+<span class="math">\(N\times M\)</span>, a total of <span class="math">\(N+M\)</span> moves are&nbsp;needed.</p>
+<p>Any <span class="math">\(N\)</span> of these moves can be of type  <em>right</em> and <span class="math">\(M\)</span> of type <em>up</em>.
+In short, this is a combinatorial problem of distributing <span class="math">\(N+M\)</span>
+objects into groups of <span class="math">\(N\)</span> and <span class="math">\(M\)</span>. This is&nbsp;simply,</p>
+<div class="math">$$\dbinom{N+M}{N} = \frac{(N+M)!}{N! M!}$$</div>
+<p>In the particular case of the chess board, <span class="math">\(N = M = 8\)</span>. Hence, total
+number of possible paths&nbsp;are:</p>
+<div class="math">$$ \mbox{No. of Paths} = \frac{16!}{8! 8!} = 12870$$</div>
+<p>Thank you Rohit and Amber for posting quick&nbsp;solutions!</p>
+<p>Let me know if you have any other interesting alternative solutions to
+these&nbsp;problems.</p>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "center",
         indent = "0em",
