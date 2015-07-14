@@ -157,8 +157,8 @@ this issue by storing each calculation and avoiding any&nbsp;re-calculation!</p>
     <span class="n">b</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">0</span>
-    <span class="n">f</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
         <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
         <span class="n">a</span> <span class="o">=</span> <span class="n">b</span>
         <span class="n">b</span> <span class="o">=</span> <span class="n">c</span>
@@ -171,7 +171,7 @@ this issue by storing each calculation and avoiding any&nbsp;re-calculation!</p>
 consider each addition as one operation. However, we should realize
 that as <span class="math">\(n\)</span> increases, addition can not be assumed as a single
 operation, rather every step of addition is an <span class="math">\(\mathcal{O}(n)\)</span>
-operation, recall first grade Math to adding numbers digit by digit!!
+operation, recall first grade Math for adding numbers digit by digit!!
 Hence, this algorithm is an <span class="math">\(\mathcal{O}(n^2)\)</span> scheme. Can we do&nbsp;better?</p>
 <p>You bet, we can! Lets consider the following&nbsp;scheme:
 </p>
