@@ -82,54 +82,42 @@
 <div class="row-fluid">
         <div class="span8 offset2 article-content">
 
-            <h3 id="problem">Problem<a class="headerlink" href="#problem" title="Permanent link">&para;</a></h3>
+            <h3 id="problem">Problem</h3>
 <p>Given an alphanumeric string, find the shortest substring that occurs exactly once as a (contiguous) substring in it. Overlapping occurrences are counted as distinct. If there are several candidates of the same length, you must output all of them in the order of occurrence. The &#8220;<em>space</em>&#8221; is <span style="color:red;"><span class="caps">NOT</span></span> considered as a valid non-repeating&nbsp;substring.</p>
 <p><strong>Example:</strong></p>
 <p>Consider the following&nbsp;cases:</p>
-<p>Case 1:
-If the given string is <code>asdfsasa</code>,
-the answer should be <code>['d', 'f']</code></p>
-<p>Case 2:
-If the given string is <code>sadanands</code>,</p>
+<p>Case 1: If the given string is <code>asdfsasa</code>, the answer should be <code>['d', 'f']</code></p>
+<p>Case 2: If the given string is <code>sadanands</code>,</p>
 <p>the answer should be <code>['sa', 'ad', 'da', 'na', 'nd', 'ds']</code></p>
-<p>Case 3:
-If the given string is <code>wwwwwwww</code>,
-the answer should be <code>['wwwwwwww']</code></p>
-<h3 id="my-solution">My Solution<a class="headerlink" href="#my-solution" title="Permanent link">&para;</a></h3>
+<p>Case 3: If the given string is <code>wwwwwwww</code>, the answer should be <code>['wwwwwwww']</code></p>
+<h3 id="my-solution">My&nbsp;Solution</h3>
 <p>Here is my solution in <em>Python</em>.</p>
-<p>It is quite brute force. I am not sure about the order of <em>find()</em> and <em>rfind()</em> built-in methods in Python.
-Assuming these are <em>O(n)</em>, my algorithm is in <em>O(n<sup>3</sup>)</em>. Please put your answers in comments below, if your answer has a better&nbsp;scaling.</p>
+<p>It is quite brute force. I am not sure about the order of <em>find()</em> and <em>rfind()</em> built-in methods in Python. Assuming these are <em>O(n)</em>, my algorithm is in <em>O(n<sup>3</sup>)</em>. Please put your answers in comments below, if your answer has a better&nbsp;scaling.</p>
 <p>The function definition that I use for finding non-empty non-repeating strings is&nbsp;recurcive.</p>
-<div class="highlight"><pre><span class="k">def</span> <span class="nf">findNsubString</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
-    <span class="n">subS</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="p">:</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="n">index</span><span class="p">:</span><span class="n">index</span><span class="o">+</span><span class="n">n</span><span class="p">]</span>
-        <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">==</span><span class="n">s</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">:</span>
-            <span class="n">subS</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">subS</span> <span class="p">:</span>
-        <span class="k">return</span> <span class="n">subS</span>
-    <span class="k">else</span> <span class="p">:</span>
-        <span class="k">return</span> <span class="n">findNsubString</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-
-
+<pre class="py"><code>def findNsubString(s,n):
+    subS = []
+    for index in range(len(s)+1) :
+        x = s[index:index+n]
+        if s.find(x)==s.rfind(x) :
+            subS.append(x)
+    if subS :
+        return subS
+    else :
+        return findNsubString(s,n+1)</code></pre>
 <p>I call this method as follows to get the desired&nbsp;results:</p>
-<div class="highlight"><pre><span class="c">#! /usr/bin/python</span>
-<span class="kn">import</span> <span class="nn">argparse</span>
-<span class="c"># Parse Command Line Arguements</span>
-<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
-<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;-s&quot;</span><span class="p">,</span> <span class="s">&quot;--string&quot;</span><span class="p">,</span> <span class="n">default</span> <span class="o">=</span> <span class="s">&quot;asdfdfa&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">&quot;String Input&quot;</span><span class="p">)</span>
-<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
-<span class="n">s</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">string</span>
-<span class="c"># Call Method to find smallest non-repeating sub-string</span>
-<span class="n">ans</span> <span class="o">=</span> <span class="n">findNsubString</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">ans</span>
-</pre></div>
-
-
-<p>A similar solution can also be written in <span class="caps">JAVA</span> or C++. The corresponding <em>find()</em> and <em>rfind()</em> methods in <span class="caps">JAVA</span> are called <em>indexOf()</em> and <em>lastIndexOf()</em>, respectively.
-In C++, these methods are called same as in&nbsp;Python.</p>
+<pre class="py"><code>#! /usr/bin/python
+import argparse
+# Parse Command Line Arguements
+parser = argparse.ArgumentParser()
+parser.add_argument(&quot;-s&quot;, &quot;--string&quot;, default = &quot;asdfdfa&quot;, help=&quot;String Input&quot;)
+args = parser.parse_args()
+s = args.string
+# Call Method to find smallest non-repeating sub-string
+ans = findNsubString(s,1)
+print ans</code></pre>
+<p>A similar solution can also be written in <span class="caps">JAVA</span> or C++. The corresponding <em>find()</em> and <em>rfind()</em> methods in <span class="caps">JAVA</span> are called <em>indexOf()</em> and <em>lastIndexOf()</em>, respectively. In C++, these methods are called same as in&nbsp;Python.</p>
 <p>Please feel free to put your method definition in any programming&nbsp;language.</p>
+
 
             <div class="shared_links">
             <section>
@@ -217,16 +205,6 @@ In C++, these methods are called same as in&nbsp;Python.</p>
 
 
 
-            <!-- Begin MailChimp Signup Form -->
-            <div id="mc_embed_signup">
-                <form action="empty" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-                    <h4>Get Monthly Updates</h4>
-                    <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Enter your email..." required>
-                    <div class="clear"><input type="submit" value="Send me Free updates" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
-                </form>
-            </div>
-
-            <!--End mc_embed_signup-->
         </div>
         </section>
 </div>

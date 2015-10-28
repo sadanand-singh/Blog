@@ -82,235 +82,98 @@
 <div class="row-fluid">
         <div class="span8 offset2 article-content">
 
-            <p>The world of computers is moving fast. While going through some
-materials on algorithms, I have come across an interesting discussion
--enhancements in hardware (cpu) vis-a-vis&nbsp;algorithms.</p>
-<p>One side of the coin is the hardware - the speed of computers.The famous
-<a href="http://www.techradar.com/news/computing/moore-s-law-how-long-will-it-last--1226772">Moore&#8217;s
-law</a> states&nbsp;that:</p>
-<p><strong><em>The complexity for minimum component costs has increased at a rate of <em>roughly</em> a factor of <em>two per year</em>. Certainly over the short term this rate can be expected to continue, if not to increase. Over the longer term, the rate of increase is a bit more uncertain, although there is no reason to believe it will not remain nearly constant for at least 10&nbsp;years.</em></strong></p>
-<h4 id="-g-moore-1965">&#8212; G. Moore, 1965<a class="headerlink" href="#-g-moore-1965" title="Permanent link">&para;</a></h4>
-<p>In simple words, <a href="https://en.wikipedia.org/wiki/Moore%27s_law"><em>Moore&#8217;s
-law</em></a> is the observation
-that, over the history of computing hardware, the number of
-transistors in a dense integrated circuit has doubled approximately
-every two years. More precisely, the number of transistors in a dense
-integrated circuit has increased by a factor of 1.6 every two years.
-More recently, keeping up with this has been challenging. In the
-context of this discussion, the inherent assumption is that number of
-transistors is directly proportional to the speed of&nbsp;computers.</p>
-<p>Now, looking at the other side of the coin - speed of algorithms.
-According to Excerpt from   <a href="https://www.whitehouse.gov/sites/default/files/microsites/ostp/pcast-nitrd-report-2010.pdf#97"> Report to the President and Congress:
-Designing a Digital Future, December 2010 (page
-97)</a>:</p>
-<p><em>Everyone knows Moore’s Law – a prediction made in 1965 by Intel
-co-­founder Gordon Moore that the density of transistors in integrated
-circuits would continue to double every 1 to 2 years&#8230;. in many
-areas, performance gains due to improvements in algorithms have vastly
-exceeded even the dramatic performance gains due to increased
-processor&nbsp;speed.</em></p>
-<p>The gain in computing speed due to algorithms have been simply
-phenomenal, unprecedented, to say the least! Being actively involved
-with realization of Moore&#8217;s law (<em>guess where I work!</em>), I have been
-naturally attracted in the study and design of&nbsp;algorithms.</p>
-<p>To get a more practical perspective on this, lets look at the problem
-of finding large <a href="https://en.wikipedia.org/wiki/Fibonacci_number">Fibonacci
-numbers</a>. These
-numbers have been used in wide areas ranging from arts to economics to
-biology to computer science to the game of poker! The simple
-definition of these numbers&nbsp;are:
-</p>
-<div class="math">$$F_{n} = \begin{cases} F_{n-2} + F_{n-1} &amp; \text{if } n &gt; 1 \\ 1 &amp;
-\text{if } n = 1 \\ 0 &amp; \text{if } n = 0 \end{cases}$$</div>
-<p>So, first few Fibonacci numbers are: <span class="math">\(0, 1, 1, 2, 3, 5, 8, 13, 21, 34,
-55, 89, 144 \ldots\)</span> These numbers grow <em>almost</em> as fast as powers of
-2: for example, <span class="math">\(F_{30}\)</span> is over a million, and <span class="math">\(F_{100}\)</span> is 21 digits
-long! In general, <span class="math">\(F_n \approx 2^{0.694n}\)</span> Clearly, we need a
-computing device to calculate say <span class="math">\(F_{200}\)</span>.</p>
-<p>The most basic algorithm, that comes to mind is a recursive scheme
-that taps directly into the above definition of Fibonacci&nbsp;series.</p>
-<div class="highlight"><pre><span class="k">def</span> <span class="nf">fibRecursive</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">0</span>
-    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="n">fibRecursive</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="n">fibRecursive</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
+            <p>The world of computers is moving fast. While going through some materials on algorithms, I have come across an interesting discussion -enhancements in hardware (cpu) vis-a-vis&nbsp;algorithms.</p>
+<p>One side of the coin is the hardware - the speed of computers.The famous <a href="http://www.techradar.com/news/computing/moore-s-law-how-long-will-it-last--1226772">Moore&#8217;s law</a> states&nbsp;that:</p>
+<p><strong><em>The complexity for minimum component costs has increased at a rate of <em>roughly</em> a factor of <em>two per year</em>. Certainly over the short term this rate can be expected to continue, if not to increase. Over the longer term, the rate of increase is a bit more uncertain, although there is no reason to believe it will not remain nearly constant for at least 10 years.</em></strong> ####&#8212; G. Moore,&nbsp;1965</p>
+<p>In simple words, <a href="https://en.wikipedia.org/wiki/Moore%27s_law"><em>Moore&#8217;s law</em></a> is the observation that, over the history of computing hardware, the number of transistors in a dense integrated circuit has doubled approximately every two years. More precisely, the number of transistors in a dense integrated circuit has increased by a factor of 1.6 every two years. More recently, keeping up with this has been challenging. In the context of this discussion, the inherent assumption is that number of transistors is directly proportional to the speed of&nbsp;computers.</p>
+<p>Now, looking at the other side of the coin - speed of algorithms. According to Excerpt from <a href="https://www.whitehouse.gov/sites/default/files/microsites/ostp/pcast-nitrd-report-2010.pdf#97">Report to the President and Congress: Designing a Digital Future, December 2010 (page 97)</a>:</p>
+<p><em>Everyone knows Moore’s Law – a prediction made in 1965 by Intel co-­founder Gordon Moore that the density of transistors in integrated circuits would continue to double every 1 to 2 years&#8230;. in many areas, performance gains due to improvements in algorithms have vastly exceeded even the dramatic performance gains due to increased processor&nbsp;speed.</em></p>
+<p>The gain in computing speed due to algorithms have been simply phenomenal, unprecedented, to say the least! Being actively involved with realization of Moore&#8217;s law (<em>guess where I work!</em>), I have been naturally attracted in the study and design of&nbsp;algorithms.</p>
+<p>To get a more practical perspective on this, lets look at the problem of finding large <a href="https://en.wikipedia.org/wiki/Fibonacci_number">Fibonacci numbers</a>. These numbers have been used in wide areas ranging from arts to economics to biology to computer science to the game of poker! The simple definition of these numbers are: <br /><span class="math display">$$F_{n} = \begin{cases} F_{n-2} + F_{n-1} <span class="amp">&amp;</span> \text{if } n &gt; 1 &#92; 1 <span class="amp">&amp;</span>
+\text{if } n = 1 &#92; 0 <span class="amp">&amp;</span> \text{if } n = 0 \end{cases}$$</span><br /></p>
+<p>So, first few Fibonacci numbers are: <span class="math inline">0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144…</span> These numbers grow <em>almost</em> as fast as powers of 2: for example, <span class="math inline"><em>F</em><sub>30</sub></span> is over a million, and <span class="math inline"><em>F</em><sub>100</sub></span> is 21 digits long! In general, <span class="math inline"><em>F</em><sub><em>n</em></sub> ≈ 2<sup>0.694<em>n</em></sup></span> Clearly, we need a computing device to calculate say <span class="math inline"><em>F</em><sub>200</sub></span>.</p>
+<p>The most basic algorithm, that comes to mind is a recursive scheme that taps directly into the above definition of Fibonacci&nbsp;series.</p>
+<pre class="py"><code>def fibRecursive(n):
+    if n == 0:
+        return 0
+    if n == 1:
+        return 1
+    return fibRecursive(n-2)+fibRecursive(n-1)</code></pre>
+<p>If you analyze this scheme, this is in fact an exponential algorithm, i.e. fibRecursive( n ) is proportional to <span class="math inline">2<sup>0.694<em>n</em></sup> ≈ (1.6)<sup><em>n</em></sup></span>, so it takes 1.6 times longer to compute <span class="math inline"><em>F</em><sub><em>n</em> + 1</sub></span> than <span class="math inline"><em>F</em><sub><em>n</em></sub></span>. This is interesting. Recall, under Moore&#8217;s law, computers get roughly 1.6 times faster every 2 years. So if we can reasonably compute <span class="math inline"><em>F</em><sub>100</sub></span> with this year&#8217;s technology, then only after 2 years we will manage to get <span class="math inline"><em>F</em><sub>101</sub></span>! Only one more Fibonacci number every 2&nbsp;years!</p>
+<p>Luckily, algorithms have grown at a much faster pace. Let&#8217;s consider improvements w.r.t to this current problem of finding <span class="math inline"><em>n</em><sup><em>t</em><em>h</em></sup></span> Fibonacci number, <span class="math inline"><em>F</em><sub><em>n</em></sub></span>.</p>
+<p>First problem we should realize in the above recursive scheme is that we are recalculating lower <span class="math inline"><em>F</em><sub><em>n</em></sub></span> at each recursion level. Lets solve this issue by storing each calculation and avoiding any&nbsp;re-calculation!</p>
+<pre class="py"><code>def fibN2(n):
+    a = 0
+    b = 1
+    if n == 0:
+        return 0
 
+    for i in range(1,n+1):
+        c = a + b
+        a = b
+        b = c
 
-<p>If you analyze this scheme, this is in fact an exponential algorithm,
-i.e. fibRecursive( n ) is proportional to <span class="math">\(2^{0.694n} \approx
-(1.6)^n\)</span>, so it takes 1.6 times longer to compute <span class="math">\(F_{n+1}\)</span> than
-<span class="math">\(F_n\)</span>. This is interesting. Recall, under Moore&#8217;s law, computers get
-roughly 1.6 times faster every 2 years. So if we can reasonably
-compute <span class="math">\(F_{100}\)</span> with this year&#8217;s technology, then only after 2 years
-we will manage to get <span class="math">\(F_{101}\)</span>! Only one more Fibonacci number every
-2&nbsp;years!</p>
-<p>Luckily, algorithms have grown at a much faster pace. Let&#8217;s consider
-improvements w.r.t to this current problem of finding <span class="math">\(n^{th}\)</span>
-Fibonacci number, <span class="math">\(F_n\)</span>.</p>
-<p>First problem we should realize in the above recursive scheme is that
-we are recalculating lower <span class="math">\(F_n\)</span> at each recursion level. Lets solve
-this issue by storing each calculation and avoiding any&nbsp;re-calculation!</p>
-<div class="highlight"><pre><span class="k">def</span> <span class="nf">fibN2</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">b</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">0</span>
+    return b</code></pre>
+<p>On first glance this looks like an <span class="math inline">𝒪(<em>n</em>)</span> scheme, as we consider each addition as one operation. However, we should realize that as <span class="math inline"><em>n</em></span> increases, addition can not be assumed as a single operation, rather every step of addition is an <span class="math inline">𝒪(<em>n</em>)</span> operation, recall first grade Math for adding numbers digit by digit!! Hence, this algorithm is an <span class="math inline">𝒪(<em>n</em><sup>2</sup>)</span> scheme. Can we do&nbsp;better?</p>
+<p>You bet, we can! Lets consider the following scheme: <br /><span class="math display">$$\begin{pmatrix} 1&amp;1 &#92; 1&amp;0 \end{pmatrix}^n = \begin{pmatrix} F_{n+1}&amp;F_n &#92; F_n&amp;F_{n-1} \end{pmatrix}$$</span><br /></p>
+<p>We can use a recursive scheme to calculate this matrix power using a divide and conquer scheme in <span class="math inline">𝒪(log<em>n</em>)</span>&nbsp;time.</p>
+<pre class="py"><code>def mul(A, B):
+    a, b, c = A
+    d, e, f = B
+    return a*d + b*e, a*e + b*f, b*e + c*f
 
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
-        <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
-        <span class="n">a</span> <span class="o">=</span> <span class="n">b</span>
-        <span class="n">b</span> <span class="o">=</span> <span class="n">c</span>
+def pow(A, n):
+    if n == 1:     return A
+    if n &amp; 1 == 0: return pow(mul(A, A), n//2)
+    else:          return mul(A, pow(mul(A, A), (n-1)//2))
 
-    <span class="k">return</span> <span class="n">b</span>
-</pre></div>
+def fibLogN(n):
+    if n &lt; 2: return n
+    return pow((1,1,0), n-1)[0]</code></pre>
+<p>Lets think a bit harder about this. Is it really an <span class="math inline">𝒪(log<em>n</em>)</span> scheme? It involves multiplication of numbers, the method mul(A, B). What happens when <span class="math inline"><em>n</em></span> is very large? Sure, this will blow up, as typical multiplication would be an <span class="math inline">𝒪(<em>n</em><sup>2</sup>)</span> operation. So, in fact, our new scheme is <span class="math inline">𝒪(<em>n</em><sup>2</sup>log<em>n</em>)</span>!</p>
+<p>Luckily, we can solve even large multiplications in <span class="math inline">𝒪(<em>n</em><sup><em>l</em><em>o</em><em>g</em><sub>2</sub>3</sup> ≈ <em>n</em><sup>1.585</sup>)</span>, using <a href="https://en.wikipedia.org/wiki/Karatsuba_algorithm">Karatsuba multiplication</a>, which is again a divide and conquer&nbsp;scheme.</p>
+<p>Here is one simple implementation (Same as the above scheme, but with the following mul(A,B)&nbsp;method):</p>
+<pre class="py"><code>_CUTOFF = 1536
 
+def mul(A, B):
+    a, b, c = A
+    d, e, f = B
+    return multiply(a,d) + multiply(b,e), multiply(a,e) + multiply(b,f), multiply(b,e) + multiply(c,f)
 
-<p>On first glance this looks like an <span class="math">\(\mathcal{O}(n)\)</span> scheme, as we
-consider each addition as one operation. However, we should realize
-that as <span class="math">\(n\)</span> increases, addition can not be assumed as a single
-operation, rather every step of addition is an <span class="math">\(\mathcal{O}(n)\)</span>
-operation, recall first grade Math for adding numbers digit by digit!!
-Hence, this algorithm is an <span class="math">\(\mathcal{O}(n^2)\)</span> scheme. Can we do&nbsp;better?</p>
-<p>You bet, we can! Lets consider the following&nbsp;scheme:
-</p>
-<div class="math">$$\begin{pmatrix} 1&amp;1 \\ 1&amp;0 \end{pmatrix}^n = \begin{pmatrix} F_{n+1}&amp;F_n \\ F_n&amp;F_{n-1} \end{pmatrix}$$</div>
-<p>We can use a recursive scheme to calculate this matrix power using a
-divide and conquer scheme in <span class="math">\(\mathcal{O}(\log{}n)\)</span>&nbsp;time.</p>
-<div class="highlight"><pre><span class="k">def</span> <span class="nf">mul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>
-    <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">A</span>
-    <span class="n">d</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="n">B</span>
-    <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="n">d</span> <span class="o">+</span> <span class="n">b</span><span class="o">*</span><span class="n">e</span><span class="p">,</span> <span class="n">a</span><span class="o">*</span><span class="n">e</span> <span class="o">+</span> <span class="n">b</span><span class="o">*</span><span class="n">f</span><span class="p">,</span> <span class="n">b</span><span class="o">*</span><span class="n">e</span> <span class="o">+</span> <span class="n">c</span><span class="o">*</span><span class="n">f</span>
+def multiply(x, y):
+    if x.bit_length() &lt;= _CUTOFF or y.bit_length() &lt;= _CUTOFF:
+        return x * y
 
-<span class="k">def</span> <span class="nf">pow</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>     <span class="k">return</span> <span class="n">A</span>
-    <span class="k">if</span> <span class="n">n</span> <span class="o">&amp;</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="k">return</span> <span class="nb">pow</span><span class="p">(</span><span class="n">mul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">A</span><span class="p">),</span> <span class="n">n</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>          <span class="k">return</span> <span class="n">mul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="nb">pow</span><span class="p">(</span><span class="n">mul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">A</span><span class="p">),</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">))</span>
+    else:
+        n = max(x.bit_length(), y.bit_length())
+        half = (n + 32) // 64 * 32
+        mask = (1 &lt;&lt; half) - 1
+        xlow = x &amp; mask
+        ylow = y &amp; mask
+        xhigh = x &gt;&gt; half
+        yhigh = y &gt;&gt; half
 
-<span class="k">def</span> <span class="nf">fibLogN</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span> <span class="k">return</span> <span class="n">n</span>
-    <span class="k">return</span> <span class="nb">pow</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-</pre></div>
-
-
-<p>Lets think a bit harder about this. Is it really an
-<span class="math">\(\mathcal{O}(\log{}n)\)</span> scheme? It involves multiplication of numbers,
-the method mul(A, B). What happens when <span class="math">\(n\)</span> is very large? Sure, this
-will blow up, as typical multiplication would be an <span class="math">\(\mathcal{O}(n^2)\)</span>
-operation. So, in fact, our new scheme is <span class="math">\(\mathcal{O}(n^2 \log{}n)\)</span>!</p>
-<p>Luckily, we can solve even large multiplications in
-<span class="math">\(\mathcal{O}(n^{log_2{3}} \approx n^{1.585})\)</span>, using <a href="https://en.wikipedia.org/wiki/Karatsuba_algorithm">Karatsuba
-multiplication</a>,
-which is again a divide and conquer&nbsp;scheme.</p>
-<p>Here is one simple implementation (Same as the above scheme, but with
-the following mul(A,B)&nbsp;method):</p>
-<div class="highlight"><pre><span class="n">_CUTOFF</span> <span class="o">=</span> <span class="mi">1536</span>
-
-<span class="k">def</span> <span class="nf">mul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>
-    <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">A</span>
-    <span class="n">d</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="n">B</span>
-    <span class="k">return</span> <span class="n">multiply</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">d</span><span class="p">)</span> <span class="o">+</span> <span class="n">multiply</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">e</span><span class="p">),</span> <span class="n">multiply</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">e</span><span class="p">)</span> <span class="o">+</span> <span class="n">multiply</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">f</span><span class="p">),</span> <span class="n">multiply</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">e</span><span class="p">)</span> <span class="o">+</span> <span class="n">multiply</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">f</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">multiply</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">bit_length</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="n">_CUTOFF</span> <span class="ow">or</span> <span class="n">y</span><span class="o">.</span><span class="n">bit_length</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="n">_CUTOFF</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span>
-
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">n</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">bit_length</span><span class="p">(),</span> <span class="n">y</span><span class="o">.</span><span class="n">bit_length</span><span class="p">())</span>
-        <span class="n">half</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">32</span><span class="p">)</span> <span class="o">//</span> <span class="mi">64</span> <span class="o">*</span> <span class="mi">32</span>
-        <span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">half</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
-        <span class="n">xlow</span> <span class="o">=</span> <span class="n">x</span> <span class="o">&amp;</span> <span class="n">mask</span>
-        <span class="n">ylow</span> <span class="o">=</span> <span class="n">y</span> <span class="o">&amp;</span> <span class="n">mask</span>
-        <span class="n">xhigh</span> <span class="o">=</span> <span class="n">x</span> <span class="o">&gt;&gt;</span> <span class="n">half</span>
-        <span class="n">yhigh</span> <span class="o">=</span> <span class="n">y</span> <span class="o">&gt;&gt;</span> <span class="n">half</span>
-
-        <span class="n">a</span> <span class="o">=</span> <span class="n">multiply</span><span class="p">(</span><span class="n">xhigh</span><span class="p">,</span> <span class="n">yhigh</span><span class="p">)</span>
-        <span class="n">b</span> <span class="o">=</span> <span class="n">multiply</span><span class="p">(</span><span class="n">xlow</span> <span class="o">+</span> <span class="n">xhigh</span><span class="p">,</span> <span class="n">ylow</span> <span class="o">+</span> <span class="n">yhigh</span><span class="p">)</span>
-        <span class="n">c</span> <span class="o">=</span> <span class="n">multiply</span><span class="p">(</span><span class="n">xlow</span><span class="p">,</span> <span class="n">ylow</span><span class="p">)</span>
-        <span class="n">d</span> <span class="o">=</span> <span class="n">b</span> <span class="o">-</span> <span class="n">a</span> <span class="o">-</span> <span class="n">c</span>
-        <span class="k">return</span> <span class="p">(((</span><span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">half</span><span class="p">)</span> <span class="o">+</span> <span class="n">d</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">half</span><span class="p">)</span> <span class="o">+</span> <span class="n">c</span>
-</pre></div>
-
-
-<p>So, this final scheme is in <span class="math">\(\mathcal{O}(n^{1.585}\log{}n)\)</span>&nbsp;time.</p>
-<p>Here is one final way of solving this problem in the same
-<span class="math">\(\mathcal{O}(n^{1.585}\log{}n)\)</span> time, but using a somewhat simpler&nbsp;scheme!</p>
-<p>If we know <span class="math">\(F_K\)</span> and <span class="math">\(F_{K+1}\)</span>, then we can&nbsp;find,
-</p>
-<div class="math">$$F_{2K} = F_K \left [ 2F_{K+1}-F_K \right ]$$</div>
-<div class="math">$$F_{2K+1} = {F_{K+1}}^2+{F_K}^2$$</div>
+        a = multiply(xhigh, yhigh)
+        b = multiply(xlow + xhigh, ylow + yhigh)
+        c = multiply(xlow, ylow)
+        d = b - a - c
+        return (((a &lt;&lt; half) + d) &lt;&lt; half) + c</code></pre>
+<p>So, this final scheme is in <span class="math inline">𝒪(<em>n</em><sup>1.585</sup>log<em>n</em>)</span>&nbsp;time.</p>
+<p>Here is one final way of solving this problem in the same <span class="math inline">𝒪(<em>n</em><sup>1.585</sup>log<em>n</em>)</span> time, but using a somewhat simpler&nbsp;scheme!</p>
+<p>If we know <span class="math inline"><em>F</em><sub><em>K</em></sub></span> and <span class="math inline"><em>F</em><sub><em>K</em> + 1</sub></span>, then we can find, <br /><span class="math display"><em>F</em><sub>2<em>K</em></sub> = <em>F</em><sub><em>K</em></sub>[2<em>F</em><sub><em>K</em> + 1</sub>−<em>F</em><sub><em>K</em></sub>]</span><br /> <br /><span class="math display"><em>F</em><sub>2<em>K</em> + 1</sub> = <em>F</em><sub><em>K</em> + 1</sub><sup>2</sup> + <em>F</em><sub><em>K</em></sub><sup>2</sup></span><br /></p>
 <p>We can implement this using the Karatsuba multiplication as&nbsp;follows:</p>
-<div class="highlight"><pre><span class="k">def</span> <span class="nf">fibFast</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">1</span>
-    <span class="n">k</span> <span class="o">=</span> <span class="n">n</span> <span class="o">//</span> <span class="mi">2</span>
-    <span class="n">a</span> <span class="o">=</span> <span class="n">fibFast</span><span class="p">(</span><span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="n">b</span> <span class="o">=</span> <span class="n">fibFast</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">multiply</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">a</span><span class="p">)</span> <span class="o">+</span> <span class="n">multiply</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">multiply</span><span class="p">(</span><span class="n">b</span><span class="p">,(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">))</span>
-</pre></div>
+<pre class="py"><code>def fibFast(n):
+    if n &lt;= 2:
+        return 1
+    k = n // 2
+    a = fibFast(k + 1)
+    b = fibFast(k)
+    if n % 2 == 1:
+        return multiply(a,a) + multiply(b,b)
+    else:
+        return multiply(b,(2*a - b))</code></pre>
+<p>That&#8217;s it for today. We saw how far algorithms can go in speed for such simple problems. Let me know in the comments below, if you have any faster or alternate algorithms in mind. Have fun, May zero be with&nbsp;you!</p>
 
-
-<p>That&#8217;s it for today. We saw how far algorithms can go in speed for
-such simple problems. Let me know in the comments below, if you have
-any faster or alternate algorithms in mind. Have fun, May zero be with&nbsp;you!</p>
-<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
-        indent = "0em",
-        linebreak = "false";
-
-    if (false) {
-        align = (screen.width < 768) ? "left" : align;
-        indent = (screen.width < 768) ? "0em" : indent;
-        linebreak = (screen.width < 768) ? 'true' : linebreak;
-    }
-    
-    var mathjaxscript = document.createElement('script');
-    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
-    mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
-    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
-        "MathJax.Hub.Config({" +
-        "    config: ['MMLorHTML.js']," +
-        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
-        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
-        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-        "    displayAlign: '"+ align +"'," +
-        "    displayIndent: '"+ indent +"'," +
-        "    showMathMenu: true," +
-        "    tex2jax: { " +
-        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
-        "        displayMath: [ ['$$','$$'] ]," +
-        "        processEscapes: true," +
-        "        preview: 'TeX'," +
-        "    }, " +
-        "    'HTML-CSS': { " +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
-        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
-        "    }, " +
-        "}); " +
-        "if ('default' !== 'default') {" +
-            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-        "}";
-    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
-}
-</script>
 
             <div class="shared_links">
             <section>
@@ -404,16 +267,6 @@ any faster or alternate algorithms in mind. Have fun, May zero be with&nbsp;you!
 
 
 
-            <!-- Begin MailChimp Signup Form -->
-            <div id="mc_embed_signup">
-                <form action="empty" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-                    <h4>Get Monthly Updates</h4>
-                    <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Enter your email..." required>
-                    <div class="clear"><input type="submit" value="Send me Free updates" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
-                </form>
-            </div>
-
-            <!--End mc_embed_signup-->
         </div>
         </section>
 </div>
