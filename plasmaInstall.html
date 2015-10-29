@@ -1,7 +1,4 @@
 <!DOCTYPE html>
-<!-- <script type="text/javascript"
-  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script> -->
 <html lang="en-US"  prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
     <head>
         <meta charset="utf-8">
@@ -1830,137 +1827,94 @@ jQuery(document).ready(function($) {
   data-show-faces="false"
   data-share="true">
 </div>
-            <p>In my last post on Arch Installation, We installed the base system and
-we can now login into our new system as root using the password that
-we&nbsp;set.</p>
-<p><img alt="Plasma 5 Looks" src="http://imgur.com/IjJYMR0.jpg" /></p>
+            <p>In my last post on Arch Installation, We installed the base system and we can now login into our new system as root using the password that we&nbsp;set.</p>
+<figure>
+<img src="http://imgur.com/IjJYMR0.jpg" alt="Plasma 5 Looks" /><figcaption>Plasma 5 Looks</figcaption>
+</figure>
 <p>Now, we will proceed further to install the Plasma 5&nbsp;desktop.</p>
 <h2 id="add-new-user">Add New&nbsp;User</h2>
-<p>Choose $<span class="caps">USER</span> per your liking. I chose ssingh, so in future commands
-whenever you see <em>ssingh</em> please replace it with your $<span class="caps">USER</span>.</p>
-<div class="highlight"><pre><span class="nv">$ </span>useradd -m -G wheel -s /bin/bash <span class="nv">$USERNAME</span>
-<span class="nv">$ </span>chfn --full-name <span class="s2">&quot;</span><span class="nv">$FULL_NAME</span><span class="s2">&quot;</span> <span class="nv">$USERNAME</span>
-<span class="nv">$ </span>passwd <span class="nv">$USERNAME</span>
-</pre></div>
-
-
+<p>Choose $<span class="caps">USER</span> per your liking. I chose ssingh, so in future commands whenever you see <em>ssingh</em> please replace it with your $<span class="caps">USER</span>.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">useradd</span> -m -G wheel -s /bin/bash <span class="ot">$USERNAME</span>
+$ <span class="kw">chfn</span> --full-name <span class="st">&quot;</span><span class="ot">$FULL_NAME</span><span class="st">&quot;</span> <span class="ot">$USERNAME</span>
+$ <span class="kw">passwd</span> <span class="ot">$USERNAME</span></code></pre></div>
 <h2 id="plasma-5-desktop">Plasma 5&nbsp;Desktop</h2>
-<p>To install anything new, we first need to enable wifi for this
-session. To do this I will use the wl* file that we saved from the
-initial installation setup at&nbsp;/etc/netctl.</p>
-<div class="highlight"><pre><span class="nv">$ </span>netctl start /etc/netctl/wl*
-</pre></div>
-
-
-<p>To setup a graphical desktop, first we need to install some basic X
-related packages, and some <em>essential</em> packages (including&nbsp;fonts):</p>
-<div class="highlight"><pre><span class="nv">$ </span>pacman -S intel-dri xf86-video-intel xorg-server xorg-server-utils
-<span class="nv">$ </span>pacman -S intel xorg xorg-xinit xorg-twm xorg-xclock xterm mesa
-<span class="nv">$ </span>pacman -S tlp tlp-rdw acpi_call bash-completion git meld
-<span class="nv">$ </span>pacman -S firefox flashplugin
-<span class="nv">$ </span>pacman -S ttf-dejavu ttf-freefont ttf-liberation ttf-anonymous-pro
-<span class="nv">$ </span>pacman -S adobe-source-code-pro-fonts
-</pre></div>
-
-
+<p>To install anything new, we first need to enable wifi for this session. To do this I will use the wl* file that we saved from the initial installation setup at&nbsp;/etc/netctl.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">netctl</span> start /etc/netctl/wl*</code></pre></div>
+<p>To setup a graphical desktop, first we need to install some basic X related packages, and some <em>essential</em> packages (including&nbsp;fonts):</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">pacman</span> -S intel-dri xf86-video-intel xorg-server xorg-server-utils
+$ <span class="kw">pacman</span> -S intel xorg xorg-xinit xorg-twm xorg-xclock xterm mesa
+$ <span class="kw">pacman</span> -S tlp tlp-rdw acpi_call bash-completion git meld
+$ <span class="kw">pacman</span> -S firefox flashplugin
+$ <span class="kw">pacman</span> -S ttf-dejavu ttf-freefont ttf-liberation ttf-anonymous-pro
+$ <span class="kw">pacman</span> -S adobe-source-code-pro-fonts</code></pre></div>
 <p>Now, we will install the packages related to Plasma&nbsp;5:</p>
-<div class="highlight"><pre><span class="nv">$ </span>pacman -S kf5 kf5-aids
-<span class="nv">$ </span>pacman -S plasma kdebase kdeutils-kwalletmanager
-<span class="nv">$ </span>pacman -S kdegraphics-ksnapshot gwenview
-<span class="nv">$ </span>pacman -R plasma-mediacenter
-<span class="nv">$ </span>pacman -S networkmanager plasma-nm
-</pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">pacman</span> -S kf5 kf5-aids
+$ <span class="kw">pacman</span> -S plasma kdebase kdeutils-kwalletmanager
+$ <span class="kw">pacman</span> -S kdegraphics-ksnapshot gwenview
+$ <span class="kw">pacman</span> -R plasma-mediacenter
+$ <span class="kw">pacman</span> -S networkmanager plasma-nm</code></pre></div>
+<p>Now we have to setup a display manager. I chose recommended <span class="caps">SDDM</span> for plasma&nbsp;5.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">pacman</span> -S sddm sddm-kcm
+$ <span class="kw">vim</span> /etc/sddm.conf
 
+<span class="kw">...</span>
+[<span class="kw">Theme</span>]
+<span class="co"># Current theme name</span>
+<span class="ot">Current=</span>breeze
 
-<p>Now we have to setup a display manager. I chose recommended <span class="caps">SDDM</span> for
-plasma&nbsp;5.</p>
-<div class="highlight"><pre><span class="nv">$ </span>pacman -S sddm sddm-kcm
-<span class="nv">$ </span>vim /etc/sddm.conf
+<span class="co"># Cursor theme</span>
+<span class="ot">CursorTheme=</span>breeze_cursors
+<span class="kw">...</span>
 
-...
-<span class="o">[</span>Theme<span class="o">]</span>
-<span class="c"># Current theme name</span>
-<span class="nv">Current</span><span class="o">=</span>breeze
-
-<span class="c"># Cursor theme</span>
-<span class="nv">CursorTheme</span><span class="o">=</span>breeze_cursors
-...
-
-<span class="nv">$ </span>systemctl <span class="nb">enable </span>sddm
-</pre></div>
-
-
+$ <span class="kw">systemctl</span> enable sddm</code></pre></div>
 <p>Also make sure that networkmanager starts at&nbsp;boot:</p>
-<div class="highlight"><pre><span class="nv">$ </span>systemctl disable dhcpcd.service
-<span class="nv">$ </span>systemctl <span class="nb">enable </span>NetworkManager
-</pre></div>
-
-
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">systemctl</span> disable dhcpcd.service
+$ <span class="kw">systemctl</span> enable NetworkManager</code></pre></div>
 <h2 id="audio-setup">Audio&nbsp;Setup</h2>
 <p>This is pretty simple. Install following packages and you should be&nbsp;done:</p>
-<div class="highlight"><pre><span class="nv">$ </span>pacman -S alsa-utils pulseaudio pulseaudio-alsa libcanberra-pulse
-<span class="nv">$ </span>pacman -S libcanberra-gstreamer jack2-dbus kmix
-<span class="nv">$ </span>pacman -S vlc mplayer
-</pre></div>
-
-
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">pacman</span> -S alsa-utils pulseaudio pulseaudio-alsa libcanberra-pulse
+$ <span class="kw">pacman</span> -S libcanberra-gstreamer jack2-dbus kmix
+$ <span class="kw">pacman</span> -S vlc mplayer</code></pre></div>
 <h2 id="useful-tips">Useful&nbsp;Tips</h2>
-<p>This part is optional and you can choose as per your taste.
-Sync&nbsp;time:</p>
-<div class="highlight"><pre><span class="nv">$ </span>pacman -S ntp
-<span class="nv">$ </span>systemctl <span class="nb">enable </span>ntpd
-</pre></div>
+<p>This part is optional and you can choose as per your taste. Sync&nbsp;time:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">pacman</span> -S ntp
+$ <span class="kw">systemctl</span> enable ntpd</code></pre></div>
+<p>On Plasma 5, It is recommended to enable no-bitmaps to improve the font&nbsp;rendering:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">sudo</span> ln -s /etc/fonts/conf.avail/70-no-bitmaps.conf /etc/fonts/conf.d</code></pre></div>
+<p>I prefer to use zsh over bash. I also use the awesome <a href="https://github.com/sorin-ionescu/prezto">prezto</a> for zsh configuration. However, I ran into an issue with sddm, where use of their configurations will lead sddm to freeze. To fix these you need to do the following before you reboot/logout your&nbsp;system.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">vim</span> /usr/share/sddm/scripts/Xsession
+<span class="kw">...</span>
+<span class="kw">*/zsh</span>)
+   <span class="kw"> [</span> <span class="ot">-z</span> <span class="st">&quot;</span><span class="ot">$ZSH_NAME</span><span class="st">&quot;</span><span class="kw"> ]</span> <span class="kw">&amp;&amp;</span> <span class="kw">exec</span> <span class="ot">$SHELL</span> <span class="ot">$0</span> <span class="st">&quot;</span><span class="ot">$@</span><span class="st">&quot;</span>
+    <span class="kw">emulate</span> -R sh
+   <span class="kw"> [</span> <span class="ot">-d</span> /etc/zsh<span class="kw"> ]</span> <span class="kw">&amp;&amp;</span> <span class="ot">zdir=</span>/etc/zsh <span class="kw">||</span> <span class="ot">zdir=</span>/etc
+    <span class="ot">zhome=${ZDOTDIR:-$HOME}</span>
+    <span class="co"># zshenv is always sourced automatically.</span>
+   <span class="kw"> [</span> <span class="ot">-f</span> <span class="ot">$zdir</span>/zprofile<span class="kw"> ]</span> <span class="kw">&amp;&amp;</span> <span class="kw">.</span> <span class="ot">$zdir</span><span class="kw">/zprofile</span>
+   <span class="kw"> [</span> <span class="ot">-f</span> <span class="ot">$zhome</span>/.zprofile<span class="kw"> ]</span> <span class="kw">&amp;&amp;</span> <span class="kw">.</span> <span class="ot">$zhome</span><span class="kw">/.zprofile</span>
+   <span class="kw"> [</span> <span class="ot">-f</span> <span class="ot">$zdir</span>/zlogin<span class="kw"> ]</span> <span class="kw">&amp;&amp;</span> <span class="kw">.</span> <span class="ot">$zdir</span><span class="kw">/zlogin</span>
+   <span class="kw"> [</span> <span class="ot">-f</span> <span class="ot">$zhome</span>/.zlogin<span class="kw"> ]</span> <span class="kw">&amp;&amp;</span> <span class="kw">.</span> <span class="ot">$zhome</span><span class="kw">/.zlogin</span>
+    ;;
+<span class="kw">...</span>
 
-
-<p>On Plasma 5, It is recommended to enable no-bitmaps to improve the
-font&nbsp;rendering:</p>
-<div class="highlight"><pre><span class="nv">$ </span>sudo ln -s /etc/fonts/conf.avail/70-no-bitmaps.conf /etc/fonts/conf.d
-</pre></div>
-
-
-<p>I prefer to use zsh over bash. I also use the awesome
-<a href="https://github.com/sorin-ionescu/prezto">prezto</a> for zsh
-configuration. However, I ran into an issue with sddm, where use of
-their configurations will lead sddm to freeze. To fix these you need
-to do the following before you reboot/logout your&nbsp;system.</p>
-<div class="highlight"><pre><span class="nv">$ </span>vim /usr/share/sddm/scripts/Xsession
-...
-*/zsh<span class="o">)</span>
-    <span class="o">[</span> -z <span class="s2">&quot;</span><span class="nv">$ZSH_NAME</span><span class="s2">&quot;</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nb">exec</span> <span class="nv">$SHELL</span> <span class="nv">$0</span> <span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span>
-    emulate -R sh
-    <span class="o">[</span> -d /etc/zsh <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nv">zdir</span><span class="o">=</span>/etc/zsh <span class="o">||</span> <span class="nv">zdir</span><span class="o">=</span>/etc
-    <span class="nv">zhome</span><span class="o">=</span><span class="si">${</span><span class="nv">ZDOTDIR</span><span class="k">:-</span><span class="nv">$HOME</span><span class="si">}</span>
-    <span class="c"># zshenv is always sourced automatically.</span>
-    <span class="o">[</span> -f <span class="nv">$zdir</span>/zprofile <span class="o">]</span> <span class="o">&amp;&amp;</span> . <span class="nv">$zdir</span>/zprofile
-    <span class="o">[</span> -f <span class="nv">$zhome</span>/.zprofile <span class="o">]</span> <span class="o">&amp;&amp;</span> . <span class="nv">$zhome</span>/.zprofile
-    <span class="o">[</span> -f <span class="nv">$zdir</span>/zlogin <span class="o">]</span> <span class="o">&amp;&amp;</span> . <span class="nv">$zdir</span>/zlogin
-    <span class="o">[</span> -f <span class="nv">$zhome</span>/.zlogin <span class="o">]</span> <span class="o">&amp;&amp;</span> . <span class="nv">$zhome</span>/.zlogin
-    <span class="p">;;</span>
-...
-
-Should be changed to:
-...
-*/zsh<span class="o">)</span>
-    <span class="o">[</span> -z <span class="s2">&quot;</span><span class="nv">$ZSH_NAME</span><span class="s2">&quot;</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nb">exec</span> <span class="nv">$SHELL</span> <span class="nv">$0</span> <span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span>
-    <span class="o">[</span> -d /etc/zsh <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nv">zdir</span><span class="o">=</span>/etc/zsh <span class="o">||</span> <span class="nv">zdir</span><span class="o">=</span>/etc
-    <span class="nv">zhome</span><span class="o">=</span><span class="si">${</span><span class="nv">ZDOTDIR</span><span class="k">:-</span><span class="nv">$HOME</span><span class="si">}</span>
-    <span class="c"># zshenv is always sourced automatically.</span>
-    <span class="o">[</span> -f <span class="nv">$zdir</span>/zprofile <span class="o">]</span> <span class="o">&amp;&amp;</span> . <span class="nv">$zdir</span>/zprofile
-    <span class="o">[</span> -f <span class="nv">$zhome</span>/.zprofile <span class="o">]</span> <span class="o">&amp;&amp;</span> . <span class="nv">$zhome</span>/.zprofile
-    <span class="o">[</span> -f <span class="nv">$zdir</span>/zlogin <span class="o">]</span> <span class="o">&amp;&amp;</span> . <span class="nv">$zdir</span>/zlogin
-    <span class="o">[</span> -f <span class="nv">$zhome</span>/.zlogin <span class="o">]</span> <span class="o">&amp;&amp;</span> . <span class="nv">$zhome</span>/.zlogin
-    emulate -R sh
-    <span class="p">;;</span>
-...
-</pre></div>
-
-
-<p>If you use vim as your primary editor, you may find
-<a href="https://github.com/amix/vimrc">this</a> vimrc quite&nbsp;useful.</p>
-<p>That&#8217;s It. You are done. Start playing your new beautiful desktop.
-Please leave your comments with suggestions or any word of
-appreciation if this has been of any help to&nbsp;you.</p>
+<span class="kw">Should</span> be changed to:
+<span class="kw">...</span>
+<span class="kw">*/zsh</span>)
+   <span class="kw"> [</span> <span class="ot">-z</span> <span class="st">&quot;</span><span class="ot">$ZSH_NAME</span><span class="st">&quot;</span><span class="kw"> ]</span> <span class="kw">&amp;&amp;</span> <span class="kw">exec</span> <span class="ot">$SHELL</span> <span class="ot">$0</span> <span class="st">&quot;</span><span class="ot">$@</span><span class="st">&quot;</span>
+   <span class="kw"> [</span> <span class="ot">-d</span> /etc/zsh<span class="kw"> ]</span> <span class="kw">&amp;&amp;</span> <span class="ot">zdir=</span>/etc/zsh <span class="kw">||</span> <span class="ot">zdir=</span>/etc
+    <span class="ot">zhome=${ZDOTDIR:-$HOME}</span>
+    <span class="co"># zshenv is always sourced automatically.</span>
+   <span class="kw"> [</span> <span class="ot">-f</span> <span class="ot">$zdir</span>/zprofile<span class="kw"> ]</span> <span class="kw">&amp;&amp;</span> <span class="kw">.</span> <span class="ot">$zdir</span><span class="kw">/zprofile</span>
+   <span class="kw"> [</span> <span class="ot">-f</span> <span class="ot">$zhome</span>/.zprofile<span class="kw"> ]</span> <span class="kw">&amp;&amp;</span> <span class="kw">.</span> <span class="ot">$zhome</span><span class="kw">/.zprofile</span>
+   <span class="kw"> [</span> <span class="ot">-f</span> <span class="ot">$zdir</span>/zlogin<span class="kw"> ]</span> <span class="kw">&amp;&amp;</span> <span class="kw">.</span> <span class="ot">$zdir</span><span class="kw">/zlogin</span>
+   <span class="kw"> [</span> <span class="ot">-f</span> <span class="ot">$zhome</span>/.zlogin<span class="kw"> ]</span> <span class="kw">&amp;&amp;</span> <span class="kw">.</span> <span class="ot">$zhome</span><span class="kw">/.zlogin</span>
+    <span class="kw">emulate</span> -R sh
+    ;;
+<span class="kw">...</span></code></pre></div>
+<p>If you use vim as your primary editor, you may find <a href="https://github.com/amix/vimrc">this</a> vimrc quite&nbsp;useful.</p>
+<p>That&#8217;s It. You are done. Start playing your new beautiful desktop. Please leave your comments with suggestions or any word of appreciation if this has been of any help to&nbsp;you.</p>
 <p>Follow my blog for any further suggestions or improvements in this&nbsp;guide.</p>
+
 
 <a href="https://twitter.com/share"
   class="twitter-share-button"
@@ -2048,6 +2002,8 @@ class="twitter-follow-button"
 data-show-count="false" data-size="large">Follow @sadanandsingh </a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
+    <a href="http://twitter.com/sadanandsingh" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
     <a href="https://www.facebook.com/sadanand4singh" title="My Facebook Profile" class="sidebar-social-links" target="_blank">
     <i class="fa fa-facebook sidebar-social-links"></i></a>
     <a href="http://github.com/sadanand-singh" title="My Github Profile" class="sidebar-social-links" target="_blank">

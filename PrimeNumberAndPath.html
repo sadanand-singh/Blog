@@ -1,7 +1,4 @@
 <!DOCTYPE html>
-<!-- <script type="text/javascript"
-  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script> -->
 <html lang="en-US"  prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
     <head>
         <meta charset="utf-8">
@@ -1831,97 +1828,30 @@ jQuery(document).ready(function($) {
   data-share="true">
 </div>
             <h2 id="puzzle-1-prime-numbers">Puzzle 1: Prime&nbsp;Numbers</h2>
-<p>Prove that <span class="math">\(p^2-1\)</span> is divisible by 24, where <span class="math">\(p\)</span> is a prime number with <span class="math">\(p&gt;3\)</span>.</p>
+<p>Prove that <span class="math inline"><em>p</em><sup>2</sup> − 1</span> is divisible by 24, where <span class="math inline"><em>p</em></span> is a prime number with <span class="math inline"><em>p</em> &gt; 3</span>.</p>
 <p>This is a simple one - do not go by the technicality of the problem&nbsp;statement.</p>
 <h4 id="solution">Solution</h4>
-<p><span class="math">\(p^2-1 = (p-1)\times (p+1)\)</span>
-Given, <span class="math">\(p\)</span> is a prime number <span class="math">\(&gt;3\)</span>, <span class="math">\(p-1\)</span> and <span class="math">\(p+1\)</span> are even.
-We can also&nbsp;write,
-</p>
-<div class="math">$$p-1 = 2K, \mbox{ and   }  p+1 = 2K+2 = 2(K+1)$$</div>
-<p>
-Given, <span class="math">\(K \in \mathbb{N}\)</span>, either <span class="math">\(K\)</span> or <span class="math">\(K+1\)</span> are also even.
-Hence, <span class="math">\((p-1)\times (p+1)\)</span> is divisible by <span class="math">\(2\times 4 = 8\)</span>.</p>
-<p>Furthermore, as <span class="math">\(p\)</span> is prime, we can write it as either <span class="math">\(p = 3s+1\)</span> or
-<span class="math">\(p = 3s-1\)</span>, where <span class="math">\(s \in \mathbb{N}\)</span>. In either case, one of <span class="math">\(p-1\)</span> or
-<span class="math">\(p+1\)</span> are divisible by 3 as&nbsp;well.</p>
-<p>Hence, <span class="math">\(p^2-1\)</span> is divisible by <span class="math">\(8\times 3 = 24\)</span>.</p>
+<p><span class="math inline"><em>p</em><sup>2</sup> − 1 = (<em>p</em> − 1)×(<em>p</em> + 1)</span> Given, <span class="math inline"><em>p</em></span> is a prime number <span class="math inline">&gt;3</span>, <span class="math inline"><em>p</em> − 1</span> and <span class="math inline"><em>p</em> + 1</span> are even. We can also write, <br /><span class="math display"><em>p</em> − 1 = 2<em>K</em>, <em>a</em><em>n</em><em>d</em><em>p</em> + 1 = 2<em>K</em> + 2 = 2(<em>K</em> + 1)</span><br /> Given, <span class="math inline"><em>K</em> ∈ ℕ</span>, either <span class="math inline"><em>K</em></span> or <span class="math inline"><em>K</em> + 1</span> are also even. Hence, <span class="math inline">(<em>p</em> − 1)×(<em>p</em> + 1)</span> is divisible by <span class="math inline">2 × 4 = 8</span>.</p>
+<p>Furthermore, as <span class="math inline"><em>p</em></span> is prime, we can write it as either <span class="math inline"><em>p</em> = 3<em>s</em> + 1</span> or <span class="math inline"><em>p</em> = 3<em>s</em> − 1</span>, where <span class="math inline"><em>s</em> ∈ ℕ</span>. In either case, one of <span class="math inline"><em>p</em> − 1</span> or <span class="math inline"><em>p</em> + 1</span> are divisible by 3 as&nbsp;well.</p>
+<p>Hence, <span class="math inline"><em>p</em><sup>2</sup> − 1</span> is divisible by <span class="math inline">8 × 3 = 24</span>.</p>
 <h2 id="puzzle-2-hopping-on-a-chess-board">Puzzle 2: Hopping on a Chess&nbsp;Board</h2>
-<p>On a chess board, basically a <span class="math">\(8\times 8\)</span> grid, how many ways one can
-go from the left most bottom corner to the right most upper corner? In
-chess naming conventions, from &#8220;a1&#8221; to&nbsp;&#8220;h8&#8221;.</p>
+<p>On a chess board, basically a <span class="math inline">8 × 8</span> grid, how many ways one can go from the left most bottom corner to the right most upper corner? In chess naming conventions, from &#8220;a1&#8221; to&nbsp;&#8220;h8&#8221;.</p>
 <p><strong><em>Clarification: In the original post this problem was ill&nbsp;defined.</em></strong></p>
 <p><strong><em>Please solve this problem with the constraints that only <em>up</em> and <em>right</em> moves are&nbsp;allowed.</em></strong></p>
-<p><img alt="Chess Board" src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Ternblad_grid_chess_problem.png" /></p>
-<p>Can you find the generic answer for the case of <span class="math">\(N\times M\)</span>&nbsp;grid.</p>
-<h4 id="solution_1">Solution</h4>
-<p><strong><em>Correction: For an <span class="math">\(N\times M\)</span> grid, we need only <span class="math">\(N-1\)</span> right and <span class="math">\(M-1\)</span> up moves. Thank you Devin for pointing this&nbsp;out.</em></strong></p>
-<p>Given only forward moves are allowed, for any arbitrary grid of
-<span class="math">\(N\times M\)</span>, a total of <span class="math">\((N-1) + (M-1)\)</span> moves are&nbsp;needed.</p>
-<p>Any <span class="math">\(N-1\)</span> of these moves can be of type  <em>right</em> and <span class="math">\(M-1\)</span> of type <em>up</em>. In short, this is a combinatorial problem of distributing <span class="math">\(N+M-2\)</span> objects into groups of <span class="math">\(N-1\)</span> and <span class="math">\(M-1\)</span>. This is&nbsp;simply,</p>
-<div class="math">$$\dbinom{N+M-2}{N-1} = \frac{(N+M-2)!}{(N-1)! (M-1)!}$$</div>
-<p>In the particular case of the chess board, <span class="math">\(N = M = 8\)</span>. Hence, total
-number of possible paths&nbsp;are:</p>
-<div class="math">$$\mbox{No. of Paths} = \frac{14!}{7! 7!} =3432$$</div>
+<figure>
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Ternblad_grid_chess_problem.png" alt="Chess Board" /><figcaption>Chess Board</figcaption>
+</figure>
+<p>Can you find the generic answer for the case of <span class="math inline"><em>N</em> × <em>M</em></span>&nbsp;grid.</p>
+<h4 id="solution-1">Solution</h4>
+<p><strong><em>Correction: For an <span class="math inline"><em>N</em> × <em>M</em></span> grid, we need only <span class="math inline"><em>N</em> − 1</span> right and <span class="math inline"><em>M</em> − 1</span> up moves. Thank you Devin for pointing this&nbsp;out.</em></strong></p>
+<p>Given only forward moves are allowed, for any arbitrary grid of <span class="math inline"><em>N</em> × <em>M</em></span>, a total of <span class="math inline">(<em>N</em> − 1)+(<em>M</em> − 1)</span> moves are&nbsp;needed.</p>
+<p>Any <span class="math inline"><em>N</em> − 1</span> of these moves can be of type <em>right</em> and <span class="math inline"><em>M</em> − 1</span> of type <em>up</em>. In short, this is a combinatorial problem of distributing <span class="math inline"><em>N</em> + <em>M</em> − 2</span> objects into groups of <span class="math inline"><em>N</em> − 1</span> and <span class="math inline"><em>M</em> − 1</span>. This is&nbsp;simply,</p>
+<p><br /><span class="math display">$$\dbinom{N+M-2}{N-1} = \frac{(N+M-2)!}{(N-1)! (M-1)!}$$</span><br /></p>
+<p>In the particular case of the chess board, <span class="math inline"><em>N</em> = <em>M</em> = 8</span>. Hence, total number of possible paths&nbsp;are:</p>
+<p><br /><span class="math display">$$\mbox{No. of Paths} = \frac{14!}{7! 7!} =3432$$</span><br /></p>
 <p>Thank you Rohit and Amber for posting quick&nbsp;solutions!</p>
-<p>Let me know if you have any other interesting alternative solutions to
-these&nbsp;problems.</p>
-<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
-        indent = "0em",
-        linebreak = "false";
+<p>Let me know if you have any other interesting alternative solutions to these&nbsp;problems.</p>
 
-    if (false) {
-        align = (screen.width < 768) ? "left" : align;
-        indent = (screen.width < 768) ? "0em" : indent;
-        linebreak = (screen.width < 768) ? 'true' : linebreak;
-    }
-    
-    var mathjaxscript = document.createElement('script');
-    var location_protocol = (false) ? 'https' : document.location.protocol;
-    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
-    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
-    mathjaxscript.type = 'text/javascript'; 
-    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
-    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
-        "MathJax.Hub.Config({" +
-        "    config: ['MMLorHTML.js']," +
-        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js','begingroup.js','AMSmath.js','AMSsymbols.js'], equationNumbers: { autoNumber: 'AMS' } }," +
-        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
-        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-        "    displayAlign: '"+ align +"'," +
-        "    displayIndent: '"+ indent +"'," +
-        "    showMathMenu: true," +
-        "    tex2jax: { " +
-        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
-        "        displayMath: [ ['$$','$$'] ]," +
-        "        processEscapes: true," +
-        "        preview: 'TeX'," +
-        "    }, " +
-        "    'HTML-CSS': { " +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
-        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
-        "    }, " +
-        "}); " +
-        "if ('default' !== 'default') {" +
-            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-        "}";
-    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
-}
-</script>
 
 <a href="https://twitter.com/share"
   class="twitter-share-button"
@@ -2009,6 +1939,8 @@ class="twitter-follow-button"
 data-show-count="false" data-size="large">Follow @sadanandsingh </a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
+    <a href="http://twitter.com/sadanandsingh" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
     <a href="https://www.facebook.com/sadanand4singh" title="My Facebook Profile" class="sidebar-social-links" target="_blank">
     <i class="fa fa-facebook sidebar-social-links"></i></a>
     <a href="http://github.com/sadanand-singh" title="My Github Profile" class="sidebar-social-links" target="_blank">

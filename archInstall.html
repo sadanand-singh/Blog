@@ -1,7 +1,4 @@
 <!DOCTYPE html>
-<!-- <script type="text/javascript"
-  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script> -->
 <html lang="en-US"  prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
     <head>
         <meta charset="utf-8">
@@ -1830,255 +1827,170 @@ jQuery(document).ready(function($) {
   data-show-faces="false"
   data-share="true">
 </div>
-            <p>You must be thinking - yet another installation guide!
-There is no dearth of &#8220;<em>Installation</em>&#8221; guides of Arch on web. So why
-another&nbsp;one?</p>
-<p>With advancements like <span class="caps">BTRFS</span> file system, <span class="caps">UEFI</span> motherboards and modern
-<em>in-development</em> desktop environment like Plasma 5; traditional <a href="https://wiki.archlinux.org/index.php/Installation_guide">Arch
-Wiki</a> guide
-and <a href="https://wiki.archlinux.org/index.php/Beginners%27_guide">Arch Beginners&#8217;
-Guide</a> can
-only be of  a limited help. After I got my new
-<a href="http://sadanand-singh.github.io/myNewCompSpecs">desktop</a>, my goal was
-to setup it with a <em>modern</em> setup. I decided to go with Arch Linux
-with btrfs file system and Plasma 5 desktop. Coming from <span class="caps">OSX</span>, I just
-love how far linux has come in terms of looks - <em>far better than
-<span class="caps">OSX</span>!</em></p>
+            <p>You must be thinking - yet another installation guide! There is no dearth of &#8220;<em>Installation</em>&#8221; guides of Arch on web. So why another&nbsp;one?</p>
+<p>With advancements like <span class="caps">BTRFS</span> file system, <span class="caps">UEFI</span> motherboards and modern <em>in-development</em> desktop environment like Plasma 5; traditional <a href="https://wiki.archlinux.org/index.php/Installation_guide">Arch Wiki</a> guide and <a href="https://wiki.archlinux.org/index.php/Beginners%27_guide">Arch Beginners&#8217; Guide</a> can only be of a limited help. After I got my new <a href="http://sadanand-singh.github.io/myNewCompSpecs">desktop</a>, my goal was to setup it with a <em>modern</em> setup. I decided to go with Arch Linux with btrfs file system and Plasma 5 desktop. Coming from <span class="caps">OSX</span>, I just love how far linux has come in terms of looks - <em>far better than <span class="caps">OSX</span>!</em></p>
 <p>I will cover this in two parts. First in this post, I will install the base system. Then, in a follow up post, I will discuss details of setting up final working Plasma 5&nbsp;desktop.</p>
-<p><img alt="Plasma 5 Looks" src="http://i.imgur.com/f10HO0r.jpg" /></p>
+<figure>
+<img src="http://i.imgur.com/f10HO0r.jpg" alt="Plasma 5 Looks" /><figcaption>Plasma 5 Looks</figcaption>
+</figure>
 <h1 id="initial-setup">Initial&nbsp;Setup</h1>
-<p>Download the latest iso from Arch website and create the uefi usb
-installation media. I used my mac to do this on&nbsp;terminal:</p>
-<div class="highlight"><pre><span class="nv">$ </span>diskutil list
-<span class="nv">$ </span>diskutil unmountDisk /dev/disk1
-<span class="nv">$ </span>dd <span class="k">if</span><span class="o">=</span>image.iso <span class="nv">of</span><span class="o">=</span>/dev/rdisk1 <span class="nv">bs</span><span class="o">=</span>1m
-20480+0 records in
-20480+0 records out
-<span class="m">167772160</span> bytes transferred in 220.016918 secs <span class="o">(</span><span class="m">762542</span> bytes/sec<span class="o">)</span>
+<p>Download the latest iso from Arch website and create the uefi usb installation media. I used my mac to do this on&nbsp;terminal:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">diskutil</span> list
+$ <span class="kw">diskutil</span> unmountDisk /dev/disk1
+$ <span class="kw">dd</span> if=image.iso of=/dev/rdisk1 bs=1m
+<span class="kw">20480+0</span> records in
+<span class="kw">20480+0</span> records out
+<span class="kw">167772160</span> bytes transferred in 220.016918 secs (762542 bytes/sec)
 
-<span class="nv">$ </span>diskutil eject /dev/disk1
-</pre></div>
-
-
-<p>Use this media to boot into your machine. You should boot into <span class="caps">UEFI</span>
-mode if you have a
-<a href="https://wiki.archlinux.org/index.php/Unified_Extensible_Firmware_Interface"><span class="caps">UEFI</span></a>
-motherboard and <span class="caps">UEFI</span> mode&nbsp;enabled.</p>
+$ <span class="kw">diskutil</span> eject /dev/disk1</code></pre></div>
+<p>Use this media to boot into your machine. You should boot into <span class="caps">UEFI</span> mode if you have a <a href="https://wiki.archlinux.org/index.php/Unified_Extensible_Firmware_Interface"><span class="caps">UEFI</span></a> motherboard and <span class="caps">UEFI</span> mode&nbsp;enabled.</p>
 <p>To verify you have booted in <span class="caps">UEFU</span> mode,&nbsp;run:</p>
-<div class="highlight"><pre><span class="nv">$ </span>efivar -l
-</pre></div>
-
-
-<p>This should give you a list of set <span class="caps">UEFI</span> variables. Please look at the
-<a href="https://wiki.archlinux.org/index.php/Beginners%27_guide">Begineers&#8217;
-Guide</a> in
-case you do not get any list of <span class="caps">UEFI</span>&nbsp;variables.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">efivar</span> -l</code></pre></div>
+<p>This should give you a list of set <span class="caps">UEFI</span> variables. Please look at the <a href="https://wiki.archlinux.org/index.php/Beginners%27_guide">Begineers&#8217; Guide</a> in case you do not get any list of <span class="caps">UEFI</span>&nbsp;variables.</p>
 <h2 id="wifi">Wifi</h2>
 <p>To setup wifi simply&nbsp;run:</p>
-<div class="highlight"><pre><span class="nv">$ </span>wifi-menu
-</pre></div>
-
-
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">wifi-menu</span></code></pre></div>
 <p>This is a pretty straight forward tool and will setup wifi for you for this installation&nbsp;session.</p>
-<p>This will also create a file at <em>/etc/netctl/</em>. We will use this file
-later to enable wifi at the first session after&nbsp;installation.</p>
+<p>This will also create a file at <em>/etc/netctl/</em>. We will use this file later to enable wifi at the first session after&nbsp;installation.</p>
 <p>For editing different configurations, I tend to use <em>vim</em>. So we will update our package cache and install&nbsp;vim.</p>
-<div class="highlight"><pre><span class="nv">$ </span>pacman -Syy
-<span class="nv">$ </span>pacman -S vim
-</pre></div>
-
-
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">pacman</span> -Syy
+$ <span class="kw">pacman</span> -S vim</code></pre></div>
 <h2 id="hard-drives">Hard&nbsp;Drives</h2>
-<p>In my desktop, I have two hard drives, one 256 <span class="caps">GB</span> solid state drive
-(<span class="caps">SDD</span>) and another <span class="caps">1TB</span> hard drive (<span class="caps">HDD</span>). I set up my drives as follows:
-- <span class="caps">SDD</span> for root(/), /boot, /opt and /home partitions
-- <span class="caps">HDD</span> for /var and /media&nbsp;partitions.</p>
-<p>For <span class="caps">UEFI</span> machines, we need to use a <span class="caps">GPT</span> partition table and /boot
-partition has to be a fat32 partition with a minimum size of 512 <span class="caps">MB</span>.
-We will format rest other partitions with <span class="caps">BTRFS</span>. See this
-<a href="http://www.makeuseof.com/tag/ext4-btrfs-making-switch-linux/">link</a>
-for benefits of using btrfs&nbsp;partitions.</p>
+<p>In my desktop, I have two hard drives, one 256 <span class="caps">GB</span> solid state drive (<span class="caps">SDD</span>) and another <span class="caps">1TB</span> hard drive (<span class="caps">HDD</span>). I set up my drives as follows: - <span class="caps">SDD</span> for root(/), /boot, /opt and /home partitions - <span class="caps">HDD</span> for /var and /media&nbsp;partitions.</p>
+<p>For <span class="caps">UEFI</span> machines, we need to use a <span class="caps">GPT</span> partition table and /boot partition has to be a fat32 partition with a minimum size of 512 <span class="caps">MB</span>. We will format rest other partitions with <span class="caps">BTRFS</span>. See this <a href="http://www.makeuseof.com/tag/ext4-btrfs-making-switch-linux/">link</a> for benefits of using btrfs&nbsp;partitions.</p>
 <p>First list your hard drives with the&nbsp;following:</p>
-<div class="highlight"><pre><span class="nv">$ </span>lsblk
-<span class="nv">$ </span>cat /proc/partitions
-</pre></div>
-
-
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">lsblk</span>
+$ <span class="kw">cat</span> /proc/partitions</code></pre></div>
 <p>Assuming, my setup above, now create gpt partitions and format&nbsp;them.</p>
-<div class="highlight"><pre><span class="nv">$ </span>dd <span class="k">if</span><span class="o">=</span>/dev/zero <span class="nv">of</span><span class="o">=</span>/dev/sda <span class="nv">bs</span><span class="o">=</span>1M <span class="nv">count</span><span class="o">=</span>5000
-<span class="nv">$ </span>gdisk /dev/sda
-Found invalid MBR and corrupt GPT. What <span class="k">do</span> you want to <span class="k">do</span>? <span class="o">(</span>Using the
-GPT MAY permit recovery of GPT data.<span class="o">)</span>
- <span class="m">1</span> - Use current GPT
- <span class="m">2</span> - Create blank GPT
-</pre></div>
-
-
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">dd</span> if=/dev/zero of=/dev/sda bs=1M count=5000
+$ <span class="kw">gdisk</span> /dev/sda
+<span class="kw">Found</span> invalid MBR and corrupt GPT. What do you want to do? (Using the
+<span class="kw">GPT</span> MAY permit recovery of GPT data.)
+ <span class="kw">1</span> - Use current GPT
+ <span class="kw">2</span> - Create blank GPT</code></pre></div>
 <p>Then press 2 to create a blank <span class="caps">GPT</span> and start&nbsp;fresh</p>
-<div class="highlight"><pre>ZAP:
-<span class="nv">$ </span>press x - to go to extended menu
-<span class="nv">$ </span>press z - to zap
-<span class="nv">$ </span>press Y - to confirm
-<span class="nv">$ </span>press Y - to delete MBR
-</pre></div>
-
-
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">ZAP</span>:
+$ <span class="kw">press</span> x - to go to extended menu
+$ <span class="kw">press</span> z - to zap
+$ <span class="kw">press</span> Y - to confirm
+$ <span class="kw">press</span> Y - to delete MBR</code></pre></div>
 <p>It might now kick us out of gdisk, so get back into&nbsp;it:</p>
-<div class="highlight"><pre><span class="nv">$ </span>gdisk /dev/sda
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">gdisk</span> /dev/sda
 
-<span class="nv">$ </span>Command <span class="o">(</span>? <span class="k">for</span> <span class="nb">help</span><span class="o">)</span>: m
-<span class="nv">$ </span>Command <span class="o">(</span>? <span class="k">for</span> <span class="nb">help</span><span class="o">)</span>: n
+$ <span class="kw">Command</span> (? for help)<span class="kw">:</span> m
+$ <span class="kw">Command</span> (? for help)<span class="kw">:</span> n
 
-<span class="nv">$ </span>Partition number <span class="o">(</span>1-128, default 1<span class="o">)</span>:
-<span class="nv">$ </span>First sector <span class="o">(</span>34-500118158, <span class="nv">default</span> <span class="o">=</span> 2048<span class="o">)</span> or <span class="o">{</span>+-<span class="o">}</span>size<span class="o">{</span>KMGTP<span class="o">}</span>:
-<span class="nv">$ </span>Last sector <span class="o">(</span>2048-500118, <span class="nv">default</span> <span class="o">=</span> 500118<span class="o">)</span> or <span class="o">{</span>+-<span class="o">}</span>size<span class="o">{</span>KMGTP<span class="o">}</span>: 512M
-<span class="nv">$ </span>Current <span class="nb">type </span>is <span class="s1">&#39;Linux filesystem&#39;</span>
-<span class="nv">$ </span>Hex code or GUID <span class="o">(</span>L to show codes, <span class="nv">Enter</span> <span class="o">=</span> 8300<span class="o">)</span>: ef00
-<span class="nv">$ </span>Changed <span class="nb">type </span>of partition to <span class="s1">&#39;EFI System&#39;</span>
+$ <span class="kw">Partition</span> number (1-128, default 1)<span class="kw">:</span>
+$ <span class="kw">First</span> sector (34-500118158, default = 2048) <span class="kw">or</span> <span class="dt">{+-}size{KMGTP}</span>:
+$ <span class="kw">Last</span> sector (2048-500118, default = 500118) <span class="kw">or</span> <span class="dt">{+-}size{KMGTP}</span>: 512M
+$ <span class="kw">Current</span> type is <span class="st">&#39;Linux filesystem&#39;</span>
+$ <span class="kw">Hex</span> code or GUID (L to show codes, Enter = 8300)<span class="kw">:</span> ef00
+$ <span class="kw">Changed</span> type of partition to <span class="st">&#39;EFI System&#39;</span>
 
-<span class="nv">$ </span>Partition number <span class="o">(</span>2-128, default 2<span class="o">)</span>:
-<span class="nv">$ </span>First sector <span class="o">(</span>34-500118, <span class="nv">default</span> <span class="o">=</span> 16779264<span class="o">)</span> or <span class="o">{</span>+-<span class="o">}</span>size<span class="o">{</span>KMGTP<span class="o">}</span>:
-<span class="nv">$ </span>Last sector <span class="o">(</span>16779264-500118, <span class="nv">default</span> <span class="o">=</span> 500118<span class="o">)</span> or <span class="o">{</span>+-<span class="o">}</span>size<span class="o">{</span>KMGTP<span class="o">}</span>:
-<span class="nv">$ </span>Current <span class="nb">type </span>is <span class="s1">&#39;Linux filesystem&#39;</span>
-<span class="nv">$ </span>Hex code or GUID <span class="o">(</span>L to show codes, <span class="nv">Enter</span> <span class="o">=</span> 8300<span class="o">)</span>:
-<span class="nv">$ </span>Changed <span class="nb">type </span>of partition to <span class="s1">&#39;Linux filesystem&#39;</span>
+$ <span class="kw">Partition</span> number (2-128, default 2)<span class="kw">:</span>
+$ <span class="kw">First</span> sector (34-500118, default = 16779264) <span class="kw">or</span> <span class="dt">{+-}size{KMGTP}</span>:
+$ <span class="kw">Last</span> sector (16779264-500118, default = 500118) <span class="kw">or</span> <span class="dt">{+-}size{KMGTP}</span>:
+$ <span class="kw">Current</span> type is <span class="st">&#39;Linux filesystem&#39;</span>
+$ <span class="kw">Hex</span> code or GUID (L to show codes, Enter = 8300)<span class="kw">:</span>
+$ <span class="kw">Changed</span> type of partition to <span class="st">&#39;Linux filesystem&#39;</span>
 
-<span class="nv">$ </span>Command <span class="o">(</span>? <span class="k">for</span> <span class="nb">help</span><span class="o">)</span>: p
-<span class="nv">$ </span>Press w to write to disk
-<span class="nv">$ </span>Press Y to confirm
-</pre></div>
-
-
-<p>Repeat the above procedure for <em>/dev/sdb</em>, but create just one
-partition with all values as default. At the end we will have three
-partitions:
-/dev/sda1, /dev/sda2 and&nbsp;/dev/sdb1</p>
+$ <span class="kw">Command</span> (? for help)<span class="kw">:</span> p
+$ <span class="kw">Press</span> w to write to disk
+$ <span class="kw">Press</span> Y to confirm</code></pre></div>
+<p>Repeat the above procedure for <em>/dev/sdb</em>, but create just one partition with all values as default. At the end we will have three partitions: /dev/sda1, /dev/sda2 and&nbsp;/dev/sdb1</p>
 <p>Now we will format these&nbsp;partitions.</p>
-<div class="highlight"><pre><span class="nv">$ </span>mkfs.vfat -F32 /dev/sda1
-<span class="nv">$ </span>mkfs.btrfs -L arch /dev/sda2
-<span class="nv">$ </span>mkfs.btrfs -L data /dev/sdb1
-</pre></div>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">mkfs.vfat</span> -F32 /dev/sda1
+$ <span class="kw">mkfs.btrfs</span> -L arch /dev/sda2
+$ <span class="kw">mkfs.btrfs</span> -L data /dev/sdb1</code></pre></div>
+<p>Now, we will create btrfs subvolumes and mount them properly for installation and final&nbsp;setup.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">mount</span> /dev/sda2 /mnt
+$ <span class="kw">btrfs</span> subvolume create /mnt/ROOT
+$ <span class="kw">btrfs</span> subvolume create /mnt/opt
+$ <span class="kw">btrfs</span> subvolume create /mnt/home
+$ <span class="kw">umount</span> /mnt
 
+$ <span class="kw">mount</span> /dev/sdb1 /mnt
+$ <span class="kw">btrfs</span> subvolume create /mnt/var
+$ <span class="kw">btrfs</span> subvolume create /mnt/media
+$ <span class="kw">umount</span> /mnt</code></pre></div>
+<p>Now, once the subvolumes have been created, we will mount them in appropriate locations with optimal&nbsp;flags.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ot">$SSD_MOUNTS</span>=<span class="st">&quot;rw,noatime,nodev,compress=lzo,ssd,discard,space_cache,aut odefrag,inode_cache&quot;</span>
+$ <span class="ot">HDD_MOUNTS=</span><span class="st">&quot;rw,nosuid,nodev,relatime,space_cache&quot;</span>
+$ <span class="ot">EFI_MOUNTS=</span><span class="st">&quot;rw,noatime,discard,nodev,nosuid,noexec&quot;</span>
+$ <span class="kw">mount</span> -o <span class="ot">$SSD_MOUNTS</span>,subvol=ROOT /dev/sda2 /mnt
+$ <span class="kw">mkdir</span> -p /mnt/opt
+$ <span class="kw">mkdir</span> -p /mnt/home
+$ <span class="kw">mkdir</span> -p /mnt/var
+$ <span class="kw">mkdir</span> -p /mnt/media
+$ <span class="kw">mount</span> -o <span class="ot">$SSD_MOUNTS</span>,nosuid,subvol=opt /dev/sda2 /mnt/opt
+$ <span class="kw">mount</span> -o <span class="ot">$SSD_MOUNTS</span>,nosuid,subvol=home /dev/sda2 /mnt/home
+$ <span class="kw">mount</span> -o <span class="ot">$HDD_MOUNTS</span>,subvol=var /dev/sdb1 /mnt/var
+$ <span class="kw">mount</span> -o <span class="ot">$HDD_MOUNTS</span>,subvol=media /dev/sdb1 /mnt/media
 
-<p>Now, we will create btrfs subvolumes and mount them properly for
-installation and final&nbsp;setup.</p>
-<div class="highlight"><pre><span class="nv">$ </span>mount /dev/sda2 /mnt
-<span class="nv">$ </span>btrfs subvolume create /mnt/ROOT
-<span class="nv">$ </span>btrfs subvolume create /mnt/opt
-<span class="nv">$ </span>btrfs subvolume create /mnt/home
-<span class="nv">$ </span>umount /mnt
-
-<span class="nv">$ </span>mount /dev/sdb1 /mnt
-<span class="nv">$ </span>btrfs subvolume create /mnt/var
-<span class="nv">$ </span>btrfs subvolume create /mnt/media
-<span class="nv">$ </span>umount /mnt
-</pre></div>
-
-
-<p>Now, once the subvolumes have been created, we will mount them in
-appropriate locations with optimal&nbsp;flags.</p>
-<div class="highlight"><pre><span class="nv">$SSD_MOUNTS</span><span class="o">=</span><span class="s2">&quot;rw,noatime,nodev,compress=lzo,ssd,discard,space_cache,aut odefrag,inode_cache&quot;</span>
-<span class="nv">$ HDD_MOUNTS</span><span class="o">=</span><span class="s2">&quot;rw,nosuid,nodev,relatime,space_cache&quot;</span>
-<span class="nv">$ EFI_MOUNTS</span><span class="o">=</span><span class="s2">&quot;rw,noatime,discard,nodev,nosuid,noexec&quot;</span>
-<span class="nv">$ </span>mount -o <span class="nv">$SSD_MOUNTS</span>,subvol<span class="o">=</span>ROOT /dev/sda2 /mnt
-<span class="nv">$ </span>mkdir -p /mnt/opt
-<span class="nv">$ </span>mkdir -p /mnt/home
-<span class="nv">$ </span>mkdir -p /mnt/var
-<span class="nv">$ </span>mkdir -p /mnt/media
-<span class="nv">$ </span>mount -o <span class="nv">$SSD_MOUNTS</span>,nosuid,subvol<span class="o">=</span>opt /dev/sda2 /mnt/opt
-<span class="nv">$ </span>mount -o <span class="nv">$SSD_MOUNTS</span>,nosuid,subvol<span class="o">=</span>home /dev/sda2 /mnt/home
-<span class="nv">$ </span>mount -o <span class="nv">$HDD_MOUNTS</span>,subvol<span class="o">=</span>var /dev/sdb1 /mnt/var
-<span class="nv">$ </span>mount -o <span class="nv">$HDD_MOUNTS</span>,subvol<span class="o">=</span>media /dev/sdb1 /mnt/media
-
-<span class="nv">$ </span>mkdir -p /mnt/boot
-<span class="nv">$ </span>mount -o <span class="nv">$EFI_MOUNTS</span> /dev/sda1 /mnt/boot
-</pre></div>
-
-
+$ <span class="kw">mkdir</span> -p /mnt/boot
+$ <span class="kw">mount</span> -o <span class="ot">$EFI_MOUNTS</span> /dev/sda1 /mnt/boot</code></pre></div>
 <h1 id="base-installation">Base&nbsp;Installation</h1>
 <p>Now, we will do the actually installation of base&nbsp;packages.</p>
-<div class="highlight"><pre><span class="nv">$ </span>pacstrap /mnt base base-devel btrfs-progs
-<span class="nv">$ </span>genfstab -U -p /mnt &gt;&gt; /mnt/etc/fstab
-</pre></div>
-
-
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">pacstrap</span> /mnt base base-devel btrfs-progs
+$ <span class="kw">genfstab</span> -U -p /mnt <span class="kw">&gt;&gt;</span> /mnt/etc/fstab</code></pre></div>
 <p>Edit the /mnt/ect/fstab file to add following /tmp&nbsp;mounts.</p>
-<div class="highlight"><pre>tmpfs /tmp tmpfs rw,nodev,nosuid 0 0
-tmpfs /dev/shm tmpfs rw,nodev,nosuid,noexec 0 0
-</pre></div>
-
-
-<p>Copy our current wifi setup file into the new system. This will enable
-wifi at first boot. Next, chroot into our newly installed&nbsp;system:</p>
-<div class="highlight"><pre><span class="nv">$ </span>cp /etc/netctl/wl* /mnt/etc/netctl/
-<span class="nv">$ </span>arch-chroot /mnt /bin/bash
-</pre></div>
-
-
+<pre><code>tmpfs /tmp tmpfs rw,nodev,nosuid 0 0
+tmpfs /dev/shm tmpfs rw,nodev,nosuid,noexec 0 0</code></pre>
+<p>Copy our current wifi setup file into the new system. This will enable wifi at first boot. Next, chroot into our newly installed&nbsp;system:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cp</span> /etc/netctl/wl* /mnt/etc/netctl/
+$ <span class="kw">arch-chroot</span> /mnt /bin/bash</code></pre></div>
 <p>Some basic&nbsp;setup:</p>
-<div class="highlight"><pre><span class="nv">$ </span>pacman -Syy
-<span class="nv">$ </span>pacman -S sudo vim
-<span class="nv">$ </span>vim /etc/locale.gen
+<pre><code>$ pacman -Syy
+$ pacman -S sudo vim
+$ vim /etc/locale.gen
 
 ...
-<span class="nv">$en_SG</span> ISO-8859-1
+$en_SG ISO-8859-1
 en_US.UTF-8 UTF-8
-<span class="nv">$en_US</span> ISO-8859-1
+$en_US ISO-8859-1
 ...
 
-<span class="nv">$ </span>locale-gen
-<span class="nv">$ </span><span class="nb">echo </span><span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8 &gt; /etc/locale.conf
-<span class="nv">$ </span><span class="nb">export </span><span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8
-<span class="nv">$ </span>ls -l /usr/share/zoneinfo
-<span class="nv">$ </span>ln -sf /usr/share/zoneinfo/Zone/SubZone /etc/localtime
-<span class="nv">$ </span>hwclock --systohc --utc
-<span class="nv">$ </span>sed -i <span class="s2">&quot;s/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/&quot;</span> /etc/sudoers
-<span class="nv">$ HOSTNAME</span><span class="o">=</span>euler
-<span class="nv">$ </span><span class="nb">echo</span> <span class="nv">$HOSTNAME</span> &gt; /etc/hostname
-<span class="nv">$ </span>pacman -S dosfstools efibootmgr
-<span class="nv">$ </span>sed -i <span class="s1">&#39;s/^\(HOOKS=.*fsck\)\(.*$\)/\1 btrfs\2/g&#39;</span> /etc/mkinitcpio.conf
-<span class="nv">$ </span>mkinitcpio -p linux
-<span class="nv">$ </span>gummiboot install
-<span class="nv">$ </span>passwd
-</pre></div>
-
-
+$ locale-gen
+$ echo LANG=en_US.UTF-8 &gt; /etc/locale.conf
+$ export LANG=en_US.UTF-8
+$ ls -l /usr/share/zoneinfo
+$ ln -sf /usr/share/zoneinfo/Zone/SubZone /etc/localtime
+$ hwclock --systohc --utc
+$ sed -i &quot;s/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/&quot; /etc/sudoers
+$ HOSTNAME=euler
+$ echo $HOSTNAME &gt; /etc/hostname
+$ pacman -S dosfstools efibootmgr
+$ sed -i &#39;s/^\(HOOKS=.*fsck\)\(.*$\)/\1 btrfs\2/g&#39; /etc/mkinitcpio.conf
+$ mkinitcpio -p linux
+$ gummiboot install
+$ passwd</code></pre>
 <p>We also need to install following packages for wifi to work at first&nbsp;boot:</p>
-<div class="highlight"><pre><span class="nv">$ </span>pacman -S iw wpa_supplicant
-</pre></div>
-
-
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">pacman</span> -S iw wpa_supplicant</code></pre></div>
 <p>We will also add <em>hostname</em> to our /etc/hosts&nbsp;file:</p>
-<div class="highlight"><pre><span class="nv">$ </span>vim /etc/hosts
-...
-127.0.0.1       localhost.localdomain   localhost <span class="nv">$HOSTNAME</span>
-::1             localhost.localdomain   localhost <span class="nv">$HOSTNAME</span>
-...
-</pre></div>
-
-
-<p>We will do the final setup now, that should enable us to login into
-our newly installed system. Make sure following two files look as&nbsp;follows:</p>
-<div class="highlight"><pre><span class="nv">$ </span>vim /boot/loader/loader.conf
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">vim</span> /etc/hosts
+<span class="kw">...</span>
+<span class="kw">127.0.0.1</span>       localhost.localdomain   localhost <span class="ot">$HOSTNAME</span>
+::<span class="kw">1</span>             localhost.localdomain   localhost <span class="ot">$HOSTNAME</span>
+<span class="kw">...</span></code></pre></div>
+<p>We will do the final setup now, that should enable us to login into our newly installed system. Make sure following two files look as&nbsp;follows:</p>
+<pre><code>$ vim /boot/loader/loader.conf
 ...
 timeout 3
 default arch
 ...
-<span class="nv">$ </span>vim /boot/loader/entries/arch.conf
+$ vim /boot/loader/entries/arch.conf
 ...
 
 title Arch Linux
 linux /vmlinuz-linux
 initrd /initramfs-linux.img
-options <span class="nv">root</span><span class="o">=</span><span class="nv">UUID</span><span class="o">=</span>1c27fa42-ca19-482f-b49a-3b8366eb7783 rw <span class="nv">rootfstype</span><span class="o">=</span>btrfs <span class="nv">rootflags</span><span class="o">=</span><span class="nv">subvol</span><span class="o">=</span>ROOT
+options root=UUID=1c27fa42-ca19-482f-b49a-3b8366eb7783 rw rootfstype=btrfs rootflags=subvol=ROOT
 ...
-<span class="nv">$ </span><span class="nb">exit</span>
-<span class="nv">$ </span>umount -R /mnt
-<span class="nv">$ </span>reboot
-</pre></div>
-
-
+$ exit
+$ umount -R /mnt
+$ reboot</code></pre>
 <p>Awesome! We are ready to play with our new system. Please see my next post for&nbsp;more.</p>
+
 
 <a href="https://twitter.com/share"
   class="twitter-share-button"
@@ -2166,6 +2078,8 @@ class="twitter-follow-button"
 data-show-count="false" data-size="large">Follow @sadanandsingh </a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
+    <a href="http://twitter.com/sadanandsingh" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
     <a href="https://www.facebook.com/sadanand4singh" title="My Facebook Profile" class="sidebar-social-links" target="_blank">
     <i class="fa fa-facebook sidebar-social-links"></i></a>
     <a href="http://github.com/sadanand-singh" title="My Github Profile" class="sidebar-social-links" target="_blank">
