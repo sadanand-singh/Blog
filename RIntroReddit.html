@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en-US"  prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Sadanand Singh" />
+        <meta name="copyright" content="Sadanand Singh" />
+
+<meta name="keywords" content="Data, R, R, Data Science, Statistics, " />
+        <title>Reddit Survey: Introduction to&nbsp;R  · Sadanand's Notes
+</title>
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="http://sadanand-singh.github.io/theme/css/style.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="http://sadanand-singh.github.io/theme/css/github.css" media="screen">
+        <link rel="shortcut icon" href="http://sadanand-singh.github.io/theme/images/favicon.ico" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="http://sadanand-singh.github.io/theme/images/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="http://sadanand-singh.github.io/theme/images/apple-touch-icon-57x57.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="http://sadanand-singh.github.io/theme/images/apple-touch-icon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="http://sadanand-singh.github.io/theme/images/apple-touch-icon-114x114.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="http://sadanand-singh.github.io/theme/images/apple-touch-icon-144x144.png" />
+        <link rel="icon" href="http://sadanand-singh.github.io/theme/images/apple-touch-icon-144x144.png" />
+
+            <meta property="fb:app_id" content="993596464012237"/>
+        <meta property="og:site_name" content="Sadanand's Notes" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Reddit Survey: Introduction to R"/>
+        <meta property="og:url" content="http://sadanand-singh.github.io/RIntroReddit"/>
+        <meta property="og:description" content="Intro to R Using a Simple Reddit Survey Data Set"/>
+        <meta property="article:published_time" content="2015-12-08" />
+            <meta property="article:section" content="R, Data Science, Statistics" />
+            <meta property="article:tag" content="Data" />
+            <meta property="article:tag" content="R" />
+            <meta property="article:author" content="Sadanand Singh" />
+            <meta property="og:image"
+                  content="http://sadanand-singh.github.io//theme/images/apple-touch-icon-152x152.png"/>
+
+            <meta name="twitter:card" content="summary">
+                <meta name="twitter:site" content="@sadanandsingh">
+                <meta name="twitter:creator" content="@sadanandsingh">
+            <meta name="twitter:domain" content="http://sadanand-singh.github.io">
+                    <meta property="twitter:image"
+                          content="http://sadanand-singh.github.io//theme/images/apple-touch-icon-152x152.png"/>
+
+
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-54080172-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+    </head>
+    <body>
+        <script>
+            window.fbAsyncInit = function() {
+                FB.init({
+                  appId      : "993596464012237",
+                  xfbml      : true,
+                  version    : 'v2.5'
+                });
+              };
+
+            (function(d, s, id){
+             var js, fjs = d.getElementsByTagName(s)[0];
+             if (d.getElementById(id)) {return;}
+             js = d.createElement(s); js.id = id;
+             js.src = "//connect.facebook.net/en_US/sdk.js";
+             fjs.parentNode.insertBefore(js, fjs);
+           }(document, 'script', 'facebook-jssdk'));
+        </script>
+
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="http://sadanand-singh.github.io/"><span class=site-name>Sadanand's Notes</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="http://sadanand-singh.github.io">Home</a></li>
+                            <li ><a href="http://sadanand-singh.github.io/categories.html">Categories</a></li>
+                            <li ><a href="http://sadanand-singh.github.io/tags.html">Tags</a></li>
+                            <li ><a href="http://sadanand-singh.github.io/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="http://sadanand-singh.github.io/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page_header span10 offset2">
+    <h1><a href="http://sadanand-singh.github.io/RIntroReddit"> Reddit Survey: Introduction to&nbsp;R  </a></h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+        <div class="span8 offset2 article-content">
+
+<a href="https://twitter.com/share"
+  class="twitter-share-button"
+  data-via="sadanandsingh"
+  data-related="sadanandsingh">Tweet</a>
+  <script>
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+  </script>
+
+<div class="fb-like"
+  data-href="http://sadanand-singh.github.io/RIntroReddit"
+  data-layout="standard"
+  data-action="like"
+  data-show-faces="false"
+  data-share="true">
+</div>
+            <p>The data set used here is part of a project from <span class="caps">UD651</span> course on <a href="https://www.udacity.com/">udacity</a> by&nbsp;Facebook.</p>
+<p>The data from the project corresponds to a survey from <a href="http://reddit.com">http://reddit.com</a>. You can load the data through the following command.We will first look at the different attributes of this data using the str()&nbsp;method.</p>
+<div class="highlight"><pre>reddit <span class="o">&lt;-</span> read.csv<span class="p">(</span><span class="s">&quot;https://s3.amazonaws.com/udacity-hosted-downloads/ud651/reddit.csv&quot;</span><span class="p">)</span>
+str<span class="p">((</span>reddit<span class="p">))</span>
+</pre></div>
+
+
+<div class="highlight"><pre>## &#39;data.frame&#39;:    32754 obs. of  14 variables:
+##  $ id               : int  1 2 3 4 5 6 7 8 9 10 ...
+##  $ gender           : int  0 0 1 0 1 0 0 0 0 0 ...
+##  $ age.range        : Factor w/ 7 levels &quot;18-24&quot;,&quot;25-34&quot;,..: 2 2 1 2 2 2 2 1 3 2 ...
+##  $ marital.status   : Factor w/ 6 levels &quot;Engaged&quot;,&quot;Forever Alone&quot;,..: NA NA NA NA NA 4 3 4 4 3 ...
+##  $ employment.status: Factor w/ 6 levels &quot;Employed full time&quot;,..: 1 1 2 2 1 1 1 4 1 2 ...
+##  $ military.service : Factor w/ 2 levels &quot;No&quot;,&quot;Yes&quot;: NA NA NA NA NA 1 1 1 1 1 ...
+##  $ children         : Factor w/ 2 levels &quot;No&quot;,&quot;Yes&quot;: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ education        : Factor w/ 7 levels &quot;Associate degree&quot;,..: 2 2 5 2 2 2 5 2 2 5 ...
+##  $ country          : Factor w/ 439 levels &quot; Canada&quot;,&quot; Canada eh&quot;,..: 394 394 394 394 394 394 125 394 394 125 ...
+##  $ state            : Factor w/ 53 levels &quot;&quot;,&quot;Alabama&quot;,&quot;Alaska&quot;,..: 33 33 48 33 6 33 1 6 33 1 ...
+##  $ income.range     : Factor w/ 8 levels &quot;$100,000 - $149,999&quot;,..: 2 2 8 2 7 2 NA 7 2 7 ...
+##  $ fav.reddit       : Factor w/ 1834 levels &quot;&quot;,&quot;___&quot;,&quot;-&quot;,&quot;?&quot;,..: 720 691 1511 1528 188 691 1318 571 1629 1 ...
+##  $ dog.cat          : Factor w/ 3 levels &quot;I like cats.&quot;,..: NA NA NA NA NA 2 2 2 1 1 ...
+##  $ cheese           : Factor w/ 11 levels &quot;American&quot;,&quot;Brie&quot;,..: NA NA NA NA NA 3 3 1 10 7 ...
+</pre></div>
+
+
+<p>This gives us the details about different columns of data in this data set. More closely, we find two types of variables being used in this dataset: <em>int</em> and <em>Factor</em>. &#8220;id&#8221;&#8221; and &#8220;gender&#8221; are integers, while rest of the variables are of type <em>Factor</em>. These <em>Factor</em> type variables have multiple levels. We can also look at a brief summary of the data set using the summary()&nbsp;method.</p>
+<div class="highlight"><pre><span class="kp">summary</span><span class="p">(</span>reddit<span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre>##        id            gender          age.range    
+##  Min.   :    1   Min.   :0.0000   18-24   :15802  
+##  1st Qu.: 8189   1st Qu.:0.0000   25-34   :11575  
+##  Median :16380   Median :0.0000   Under 18: 2330  
+##  Mean   :16379   Mean   :0.1885   35-44   : 2257  
+##  3rd Qu.:24568   3rd Qu.:0.0000   45-54   :  502  
+##  Max.   :32756   Max.   :1.0000   (Other) :  200  
+##                  NA&#39;s   :201      NA&#39;s    :   88  
+##                                   marital.status 
+##  Engaged                                 : 1109  
+##  Forever Alone                           : 5850  
+##  In a relationship                       : 9828  
+##  Married/civil union/domestic partnership: 5490  
+##  Single                                  :10428  
+##  Widowed                                 :   44  
+##  NA&#39;s                                    :    5  
+##                              employment.status military.service
+##  Employed full time                   :14814   No  :30526      
+##  Freelance                            : 1948   Yes : 2223      
+##  Not employed and not looking for work:  682   NA&#39;s:    5      
+##  Not employed, but looking for work   : 2087                   
+##  Retired                              :   85                   
+##  Student                              :12987                   
+##  NA&#39;s                                 :  151                   
+##  children                                  education    
+##  No  :27488   Bachelor&#39;s degree                 :11046  
+##  Yes : 5047   Some college                      : 9600  
+##  NA&#39;s:  219   Graduate or professional degree   : 4722  
+##               High school graduate or equivalent: 3272  
+##               Some high school                  : 1924  
+##               (Other)                           : 2046  
+##               NA&#39;s                              :  144  
+##            country             state                    income.range 
+##  United States :20967             :11908   Under $20,000      :7892  
+##  Canada        : 2888   California: 3401   $50,000 - $69,999  :4133  
+##  United Kingdom: 1782   Texas     : 1541   $70,000 - $99,999  :4101  
+##  Australia     : 1051   New York  : 1418   $100,000 - $149,999:3522  
+##  Germany       :  407   Illinois  :  976   $20,000 - $29,999  :3206  
+##  (Other)       : 5482   Washington:  910   (Other)            :8285  
+##  NA&#39;s          :  177   (Other)   :12600   NA&#39;s               :1615  
+##                fav.reddit               dog.cat            cheese    
+##                     : 4335   I like cats.   :11156   Other    :6563  
+##  askreddit          : 2123   I like dogs.   :17151   Cheddar  :6102  
+##  fffffffuuuuuuuuuuuu: 1746   I like turtles.: 4442   Brie     :3742  
+##  pics               : 1651   NA&#39;s           :    5   Provolone:3456  
+##  trees              : 1311                           Swiss    :3214  
+##  (Other)            :21562                           (Other)  :9672  
+##  NA&#39;s               :   26                           NA&#39;s     :   5
+</pre></div>
+
+
+<p>The summary() method provides a more detailed analysis of the data, albeit only numerically. We can see that the <em>int</em> types are reported with important statistics like min,max and 4 Quartiles. The <em>Factor</em> types are listed with frequency of different&nbsp;levels.</p>
+<div class="highlight"><pre><span class="kp">levels</span><span class="p">(</span>reddit<span class="o">$</span>age.range<span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre>## [1] &quot;18-24&quot;       &quot;25-34&quot;       &quot;35-44&quot;       &quot;45-54&quot;       &quot;55-64&quot;      
+## [6] &quot;65 or Above&quot; &quot;Under 18&quot;
+</pre></div>
+
+
+<p>Let us look at the age.range variable in more detail. We can look at the different levels of this variables using the levels() method. This shows there are 7 possible values of this variable and some where no data is available (<span class="caps">NA</span>).</p>
+<p>A more pictorial view of this can be seen using a histogram plot of&nbsp;this.</p>
+<p><img alt="plot of chunk unnamed-chunk-4" src="figure/unnamed-chunk-4-1.png" /> </p>
+<p>Similarly, we can also plot a distribution of&nbsp;income.range.</p>
+<p><img alt="plot of chunk unnamed-chunk-5" src="figure/unnamed-chunk-5-1.png" /> </p>
+<p>One problem with the above plots is that the different levels are not ordered. This can be fixed using ordered Factors, instead of regular factor type variables. Additionally, We need to use a more reasonable x-label for plotting&nbsp;income.range.</p>
+<div class="highlight"><pre>reddit<span class="o">$</span>age.range <span class="o">&lt;-</span> <span class="kp">factor</span><span class="p">(</span>reddit<span class="o">$</span>age.range<span class="p">,</span>
+                levels <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;Under 18&quot;</span><span class="p">,</span> <span class="s">&quot;18-24&quot;</span><span class="p">,</span> <span class="s">&quot;25-34&quot;</span><span class="p">,</span> <span class="s">&quot;35-44&quot;</span><span class="p">,</span> <span class="s">&quot;45-54&quot;</span><span class="p">,</span> <span class="s">&quot;55-64&quot;</span><span class="p">,</span> <span class="s">&quot;65 or Above&quot;</span><span class="p">),</span> ordered <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+<span class="kp">levels</span><span class="p">(</span>reddit<span class="o">$</span>income.range<span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre>## [1] &quot;$100,000 - $149,999&quot; &quot;$150,000 or more&quot;    &quot;$20,000 - $29,999&quot;  
+## [4] &quot;$30,000 - $39,999&quot;   &quot;$40,000 - $49,999&quot;   &quot;$50,000 - $69,999&quot;  
+## [7] &quot;$70,000 - $99,999&quot;   &quot;Under $20,000&quot;
+</pre></div>
+
+
+<div class="highlight"><pre>incomes_ordered <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;Under $20,000&quot;</span><span class="p">,</span> <span class="s">&quot;$20,000 - $29,999&quot;</span><span class="p">,</span><span class="s">&quot;$30,000 - $39,999&quot;</span><span class="p">,</span> <span class="s">&quot;$40,000 - $49,999&quot;</span><span class="p">,</span> <span class="s">&quot;$50,000 - $69,999&quot;</span><span class="p">,</span> <span class="s">&quot;$70,000 - $99,999&quot;</span><span class="p">,</span> <span class="s">&quot;$100,000 - $149,999&quot;</span><span class="p">,</span> <span class="s">&quot;$150,000 or more&quot;</span><span class="p">)</span>
+incomes_ordered_lab <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;&lt;20K&quot;</span><span class="p">,</span> <span class="s">&quot;20K&quot;</span><span class="p">,</span><span class="s">&quot;30K&quot;</span><span class="p">,</span> <span class="s">&quot;40K&quot;</span><span class="p">,</span> <span class="s">&quot;50K&quot;</span><span class="p">,</span> <span class="s">&quot;70K&quot;</span><span class="p">,</span> <span class="s">&quot;100K&quot;</span><span class="p">,</span> <span class="s">&quot;&gt;150K&quot;</span><span class="p">)</span>
+reddit<span class="o">$</span>income.range <span class="o">&lt;-</span> <span class="kp">factor</span><span class="p">(</span>reddit<span class="o">$</span>income.range<span class="p">,</span> levels <span class="o">=</span> incomes_ordered<span class="p">,</span> ordered <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+qplot<span class="p">(</span>data <span class="o">=</span> reddit<span class="p">,</span> x <span class="o">=</span> age.range<span class="p">)</span>
+</pre></div>
+
+
+<p><img alt="plot of chunk unnamed-chunk-6" src="figure/unnamed-chunk-6-1.png" /> </p>
+<div class="highlight"><pre>hplot <span class="o">&lt;-</span> ggplot<span class="p">(</span>data <span class="o">=</span> reddit<span class="p">,</span> aes<span class="p">(</span>x <span class="o">=</span> income.range<span class="p">))</span> <span class="o">+</span> geom_histogram<span class="p">()</span>
+hplot <span class="o">&lt;-</span> hplot <span class="o">+</span> theme<span class="p">(</span>axis.text.x<span class="o">=</span>element_text<span class="p">(</span>color <span class="o">=</span> <span class="s">&quot;black&quot;</span><span class="p">,</span> size<span class="o">=</span><span class="m">11</span><span class="p">,</span> angle<span class="o">=</span><span class="m">30</span><span class="p">,</span> vjust<span class="o">=</span><span class="m">.8</span><span class="p">,</span> hjust<span class="o">=</span><span class="m">0.8</span><span class="p">))</span>
+<span class="kp">print</span><span class="p">(</span>hplot<span class="p">)</span>
+</pre></div>
+
+
+<p><img alt="plot of chunk unnamed-chunk-6" src="figure/unnamed-chunk-6-2.png" /> </p>
+
+<a href="https://twitter.com/share"
+  class="twitter-share-button"
+  data-via="sadanandsingh"
+  data-related="sadanandsingh">Tweet</a>
+  <script>
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+  </script>
+
+<div class="fb-like"
+  data-href="http://sadanand-singh.github.io/RIntroReddit"
+  data-layout="standard"
+  data-action="like"
+  data-show-faces="false"
+  data-share="true">
+</div>
+<section>
+<p id="comment-message">So what do you think? Did I miss something? Is any part unclear? Leave your comments below. </p>
+<div class="accordion" id="accordion2">
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
+                    data-disqus-identifier="RIntroReddit.sadanand"
+                href="http://sadanand-singh.github.io/RIntroReddit#disqus_thread">
+                Comments
+            </a>
+        </div>
+        <div id="disqus_thread" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <div class="comments">
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'sadanandsblog';
+        var disqus_identifier = 'RIntroReddit.sadanand';
+    var disqus_url = 'http://sadanand-singh.github.io/RIntroReddit';
+
+    (function() {
+         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+            <aside>
+            <hr/>
+            <nav>
+            <ul class="articles_timeline">
+                <li class="previous_article">« <a href="http://sadanand-singh.github.io/PythonTutWeek1" title="Previous: Python Tutorial Week&nbsp;1">Python Tutorial Week&nbsp;1</a></li>
+            </ul>
+            </nav>
+            </aside>
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2015-12-08T20:15:00-08:00">Dec 8, 2015</time>
+            <h4>Last Updated</h4>
+            <div class="last_updated">2015-12-08 21:05:00-08:00</div>
+            <h4>Category</h4>
+            <a class="category-link" href="/categories.html#R,-Data-Science,-Statistics-ref">R, Data Science, Statistics</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="/tags.html#Data-ref">Data
+                    <span>1</span>
+</a></li>
+                <li><a href="/tags.html#R-ref">R
+                    <span>1</span>
+</a></li>
+            </ul>
+
+<h4>Stay in Touch</h4>
+<a href="https://twitter.com/sadanandsingh"
+class="twitter-follow-button"
+data-show-count="false" data-size="large">Follow @sadanandsingh </a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+    <a href="http://twitter.com/sadanandsingh" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="https://www.facebook.com/sadanand4singh" title="My Facebook Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-facebook sidebar-social-links"></i></a>
+    <a href="http://github.com/sadanand-singh" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="https://www.linkedin.com/in/sadanandsingh" title="My Linkedin Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-linkedin sidebar-social-links"></i></a>
+
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-license"><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"> "Sadanand's Notes" </span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://sadanand-singh.github.io" property="cc:attributionName" rel="cc:attributionURL">Sadanand Singh</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="http://code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+<script type="text/javascript">
+    var disqus_shortname = 'sadanandsblog';
+
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+    </script>
+        <script  language="javascript" type="text/javascript">
+            function uncollapse() {
+                var hash_str = window.location.hash;
+                if (window.location.hash.match(/^#comment-\d+$/))
+                {
+                    var hash_str = '#disqus_thread';
+                }
+                $(hash_str).collapse({
+                    toggle: true
+                    })
+            }
+        </script>
+
+        <script type="text/javascript" language="JavaScript">
+            uncollapse();
+        </script>
+    </body>
+</html>
