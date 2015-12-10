@@ -218,9 +218,9 @@ str<span class="p">((</span>reddit<span class="p">))</span>
 
 <p>Let us look at the age.range variable in more detail. We can look at the different levels of this variables using the levels() method. This shows there are 7 possible values of this variable and some where no data is available (<span class="caps">NA</span>).</p>
 <p>A more pictorial view of this can be seen using a histogram plot of&nbsp;this.</p>
-<p><img alt="plot of chunk unnamed-chunk-4" src="figure/unnamed-chunk-4-1.png" /> </p>
+<p><img alt="plot of chunk unnamed-chunk-4" src="http://sadanand-singh.github.io/images/R/reddit_unnamed-chunk-4-1.png" /> </p>
 <p>Similarly, we can also plot a distribution of&nbsp;income.range.</p>
-<p><img alt="plot of chunk unnamed-chunk-5" src="figure/unnamed-chunk-5-1.png" /> </p>
+<p><img alt="plot of chunk unnamed-chunk-5" src="http://sadanand-singh.github.io/images/R/reddit_unnamed-chunk-5-1.png" /> </p>
 <p>One problem with the above plots is that the different levels are not ordered. This can be fixed using ordered Factors, instead of regular factor type variables. Additionally, We need to use a more reasonable x-label for plotting&nbsp;income.range.</p>
 <div class="highlight"><pre>reddit<span class="o">$</span>age.range <span class="o">&lt;-</span> <span class="kp">factor</span><span class="p">(</span>reddit<span class="o">$</span>age.range<span class="p">,</span>
                 levels <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;Under 18&quot;</span><span class="p">,</span> <span class="s">&quot;18-24&quot;</span><span class="p">,</span> <span class="s">&quot;25-34&quot;</span><span class="p">,</span> <span class="s">&quot;35-44&quot;</span><span class="p">,</span> <span class="s">&quot;45-54&quot;</span><span class="p">,</span> <span class="s">&quot;55-64&quot;</span><span class="p">,</span> <span class="s">&quot;65 or Above&quot;</span><span class="p">),</span> ordered <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
@@ -241,14 +241,14 @@ qplot<span class="p">(</span>data <span class="o">=</span> reddit<span class="p"
 </pre></div>
 
 
-<p><img alt="plot of chunk unnamed-chunk-6" src="figure/unnamed-chunk-6-1.png" /> </p>
+<p><img alt="plot of chunk unnamed-chunk-6" src="http://sadanand-singh.github.io/images/R/reddit_unnamed-chunk-6-1.png" /> </p>
 <div class="highlight"><pre>hplot <span class="o">&lt;-</span> ggplot<span class="p">(</span>data <span class="o">=</span> reddit<span class="p">,</span> aes<span class="p">(</span>x <span class="o">=</span> income.range<span class="p">))</span> <span class="o">+</span> geom_histogram<span class="p">()</span>
 hplot <span class="o">&lt;-</span> hplot <span class="o">+</span> theme<span class="p">(</span>axis.text.x<span class="o">=</span>element_text<span class="p">(</span>color <span class="o">=</span> <span class="s">&quot;black&quot;</span><span class="p">,</span> size<span class="o">=</span><span class="m">11</span><span class="p">,</span> angle<span class="o">=</span><span class="m">30</span><span class="p">,</span> vjust<span class="o">=</span><span class="m">.8</span><span class="p">,</span> hjust<span class="o">=</span><span class="m">0.8</span><span class="p">))</span>
 <span class="kp">print</span><span class="p">(</span>hplot<span class="p">)</span>
 </pre></div>
 
 
-<p><img alt="plot of chunk unnamed-chunk-6" src="figure/unnamed-chunk-6-2.png" /> </p>
+<p><img alt="plot of chunk unnamed-chunk-6" src="http://sadanand-singh.github.io/images/R/reddit_unnamed-chunk-6-2.png" /> </p>
 
 <a href="https://twitter.com/share"
   class="twitter-share-button"
@@ -304,6 +304,7 @@ hplot <span class="o">&lt;-</span> hplot <span class="o">+</span> theme<span cla
             <nav>
             <ul class="articles_timeline">
                 <li class="previous_article">« <a href="http://sadanand-singh.github.io/PythonTutWeek1" title="Previous: Python Tutorial Week&nbsp;1">Python Tutorial Week&nbsp;1</a></li>
+                <li class="next_article"><a href="http://sadanand-singh.github.io/RplotsFacebbok" title="Next: Pseudo Facebook Data - Plots in&nbsp;R">Pseudo Facebook Data - Plots in&nbsp;R</a> »</li>
             </ul>
             </nav>
             </aside>
@@ -313,16 +314,16 @@ hplot <span class="o">&lt;-</span> hplot <span class="o">+</span> theme<span cla
             <h4>Published</h4>
             <time pubdate="pubdate" datetime="2015-12-08T20:15:00-08:00">Dec 8, 2015</time>
             <h4>Last Updated</h4>
-            <div class="last_updated">2015-12-08 21:05:00-08:00</div>
+            <div class="last_updated">2015-12-09 21:25:00-08:00</div>
             <h4>Category</h4>
             <a class="category-link" href="/categories.html#R,-Data-Science,-Statistics-ref">R, Data Science, Statistics</a>
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article">
                 <li><a href="/tags.html#Data-ref">Data
-                    <span>1</span>
+                    <span>2</span>
 </a></li>
                 <li><a href="/tags.html#R-ref">R
-                    <span>1</span>
+                    <span>2</span>
 </a></li>
             </ul>
 
