@@ -295,7 +295,10 @@ pf.fc_by_age <span class="o">&lt;-</span> arrange<span class="p">(</span>pf.fc_b
 </pre></div>
 
 
-<p><img alt="plot of chunk unnamed-chunk-9" src="http://sadanand-singh.github.io/images/R/fbTwoVar_unnamed-chunk-9-1.png" /> </p>
+<div class="highlight"><pre>## Error: Unknown parameters: probs
+</pre></div>
+
+
 <p>In the above plot, we can see that between the age group 30-69, 90% of population has less than 250&nbsp;freinds.</p>
 <p>In stead of using 4 different summary measures to analyze the above data, we can use a single&nbsp;number!</p>
 <p>Often analysts will use correlation coefficients to summarize this. We will use the Pearson product moment correlation (r).
@@ -354,14 +357,19 @@ You can look at the cor.test() method for details. This measures a linear correl
 <p>Correlation between two variables might not be a good thing always. For example in the above case, it was simply due to the artifact of the two data sets were highly coupled, one was a super set of the&nbsp;other.</p>
 <p>We can look at the caution with which correlations should be used in more detail using the &#8220;Mitchell&#8221; data set from the alr3 package. We can look at more details of Mitchell data set using its help method. This data set lists Data collected by Kenneth G. Hubbard on soil temperature at 20 cm depth in Mitchell, Nebraska for 17 years (1976-1992)&nbsp;.</p>
 <div class="highlight"><pre><span class="kn">library</span><span class="p">(</span>alr3<span class="p">)</span>
-data<span class="p">(</span>Mitchell<span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre>## Error in library(alr3): there is no package called &#39;alr3&#39;
+</pre></div>
+
+
+<div class="highlight"><pre>data<span class="p">(</span>Mitchell<span class="p">)</span>
 str<span class="p">(</span>Mitchell<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre>## &#39;data.frame&#39;:    204 obs. of  2 variables:
-##  $ Month: int  0 1 2 3 4 5 6 7 8 9 ...
-##  $ Temp : num  -5.18 -1.65 2.49 10.4 14.99 ...
+<div class="highlight"><pre>## Error in str(Mitchell): object &#39;Mitchell&#39; not found
 </pre></div>
 
 
@@ -372,7 +380,10 @@ str<span class="p">(</span>Mitchell<span class="p">)</span>
 </pre></div>
 
 
-<p><img alt="plot of chunk unnamed-chunk-14" src="http://sadanand-singh.github.io/images/R/fbTwoVar_unnamed-chunk-14-1.png" /> </p>
+<div class="highlight"><pre>## Error in ggplot(data = Mitchell, aes(x = Month, y = Temp)): object &#39;Mitchell&#39; not found
+</pre></div>
+
+
 <p>One direct observation we can make is in terms of cyclic nature of the data, Temp. is fluctuating every 12 months. This tells us the importance scales when we are looking at Data set. Clearly, a direct use of cor.test() would give us a un-physical correlation&nbsp;coeffieicnt!</p>
 <p>Now, we will return back to out pseudo Facebook data. Let us take a look again at the modified data frame created using the dplyr methods. We want to remove any noise in the average&nbsp;values.</p>
 <p>Firse, we want to create a new data frame where age is measured in fractions of months. Then we can plot two means&nbsp;together.</p>
@@ -473,6 +484,7 @@ grid.arrange<span class="p">(</span>p2<span class="p">,</span> p1<span class="p"
             <nav>
             <ul class="articles_timeline">
                 <li class="previous_article">« <a href="http://sadanand-singh.github.io/RplotsFacebbok" title="Previous: Pseudo Facebook Data - Plots in&nbsp;R">Pseudo Facebook Data - Plots in&nbsp;R</a></li>
+                <li class="next_article"><a href="http://sadanand-singh.github.io/RplotsMultiVariables" title="Next: Pseudo Facebook Data - Exploring Many&nbsp;Variables">Pseudo Facebook Data - Exploring Many&nbsp;Variables</a> »</li>
             </ul>
             </nav>
             </aside>
@@ -488,10 +500,10 @@ grid.arrange<span class="p">(</span>p2<span class="p">,</span> p1<span class="p"
             <h4>Tags</h4>
             <ul class="list-of-tags tags-in-article">
                 <li><a href="/tags.html#Data-ref">Data
-                    <span>3</span>
+                    <span>4</span>
 </a></li>
                 <li><a href="/tags.html#R-ref">R
-                    <span>3</span>
+                    <span>4</span>
 </a></li>
             </ul>
 
