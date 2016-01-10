@@ -173,7 +173,7 @@ long! In general, <span class="math">\(F_n \approx 2^{0.694n}\)</span> Clearly, 
 computing device to calculate say <span class="math">\(F_{200}\)</span>.</p>
 <p>The most basic algorithm, that comes to mind is a recursive scheme
 that taps directly into the above definition of Fibonacci&nbsp;series.</p>
-<div class="highlight"><pre><span class="k">def</span> <span class="nf">fibRecursive</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fibRecursive</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">0</span>
     <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
@@ -196,7 +196,7 @@ Fibonacci number, <span class="math">\(F_n\)</span>.</p>
 <p>First problem we should realize in the above recursive scheme is that
 we are recalculating lower <span class="math">\(F_n\)</span> at each recursion level. Lets solve
 this issue by storing each calculation and avoiding any&nbsp;re-calculation!</p>
-<div class="highlight"><pre><span class="k">def</span> <span class="nf">fibN2</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fibN2</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">b</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
@@ -222,7 +222,7 @@ Hence, this algorithm is an <span class="math">\(\mathcal{O}(n^2)\)</span> schem
 <div class="math">$$\begin{pmatrix} 1&amp;1 \\ 1&amp;0 \end{pmatrix}^n = \begin{pmatrix} F_{n+1}&amp;F_n \\ F_n&amp;F_{n-1} \end{pmatrix}$$</div>
 <p>We can use a recursive scheme to calculate this matrix power using a
 divide and conquer scheme in <span class="math">\(\mathcal{O}(\log{}n)\)</span>&nbsp;time.</p>
-<div class="highlight"><pre><span class="k">def</span> <span class="nf">mul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>
     <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">A</span>
     <span class="n">d</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="n">B</span>
     <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="n">d</span> <span class="o">+</span> <span class="n">b</span><span class="o">*</span><span class="n">e</span><span class="p">,</span> <span class="n">a</span><span class="o">*</span><span class="n">e</span> <span class="o">+</span> <span class="n">b</span><span class="o">*</span><span class="n">f</span><span class="p">,</span> <span class="n">b</span><span class="o">*</span><span class="n">e</span> <span class="o">+</span> <span class="n">c</span><span class="o">*</span><span class="n">f</span>
@@ -249,7 +249,7 @@ multiplication</a>,
 which is again a divide and conquer&nbsp;scheme.</p>
 <p>Here is one simple implementation (Same as the above scheme, but with
 the following mul(A,B)&nbsp;method):</p>
-<div class="highlight"><pre><span class="n">_CUTOFF</span> <span class="o">=</span> <span class="mi">1536</span>
+<div class="highlight"><pre><span></span><span class="n">_CUTOFF</span> <span class="o">=</span> <span class="mi">1536</span>
 
 <span class="k">def</span> <span class="nf">mul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">):</span>
     <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">A</span>
@@ -285,7 +285,7 @@ the following mul(A,B)&nbsp;method):</p>
 <div class="math">$$F_{2K} = F_K \left [ 2F_{K+1}-F_K \right ]$$</div>
 <div class="math">$$F_{2K+1} = {F_{K+1}}^2+{F_K}^2$$</div>
 <p>We can implement this using the Karatsuba multiplication as&nbsp;follows:</p>
-<div class="highlight"><pre><span class="k">def</span> <span class="nf">fibFast</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fibFast</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">1</span>
     <span class="n">k</span> <span class="o">=</span> <span class="n">n</span> <span class="o">//</span> <span class="mi">2</span>
@@ -311,12 +311,12 @@ any faster or alternate algorithms in mind. Have fun, May zero be with&nbsp;you!
         indent = (screen.width < 768) ? "0em" : indent;
         linebreak = (screen.width < 768) ? 'true' : linebreak;
     }
-    
+
     var mathjaxscript = document.createElement('script');
     var location_protocol = (false) ? 'https' : document.location.protocol;
     if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
-    mathjaxscript.type = 'text/javascript'; 
+    mathjaxscript.type = 'text/javascript';
     mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
     mathjaxscript[(window.opera ? "innerHTML" : "text")] =
         "MathJax.Hub.Config({" +
@@ -327,6 +327,7 @@ any faster or alternate algorithms in mind. Have fun, May zero be with&nbsp;you!
         "    displayAlign: '"+ align +"'," +
         "    displayIndent: '"+ indent +"'," +
         "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
         "    tex2jax: { " +
         "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
         "        displayMath: [ ['$$','$$'] ]," +

@@ -127,12 +127,12 @@
 </div>
             <p>The data set used here is part of a project from <span class="caps">UD651</span> course on <a href="https://www.udacity.com/">udacity</a> by&nbsp;Facebook.</p>
 <p>The data from the project corresponds to a survey from <a href="http://reddit.com">http://reddit.com</a>. You can load the data through the following command.We will first look at the different attributes of this data using the str()&nbsp;method.</p>
-<div class="highlight"><pre>reddit <span class="o">&lt;-</span> read.csv<span class="p">(</span><span class="s">&quot;https://s3.amazonaws.com/udacity-hosted-downloads/ud651/reddit.csv&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span>reddit <span class="o">&lt;-</span> read.csv<span class="p">(</span><span class="s">&quot;https://s3.amazonaws.com/udacity-hosted-downloads/ud651/reddit.csv&quot;</span><span class="p">)</span>
 str<span class="p">((</span>reddit<span class="p">))</span>
 </pre></div>
 
 
-<div class="highlight"><pre>## &#39;data.frame&#39;:    32754 obs. of  14 variables:
+<div class="highlight"><pre><span></span>## &#39;data.frame&#39;:    32754 obs. of  14 variables:
 ##  $ id               : int  1 2 3 4 5 6 7 8 9 10 ...
 ##  $ gender           : int  0 0 1 0 1 0 0 0 0 0 ...
 ##  $ age.range        : Factor w/ 7 levels &quot;18-24&quot;,&quot;25-34&quot;,..: 2 2 1 2 2 2 2 1 3 2 ...
@@ -141,21 +141,21 @@ str<span class="p">((</span>reddit<span class="p">))</span>
 ##  $ military.service : Factor w/ 2 levels &quot;No&quot;,&quot;Yes&quot;: NA NA NA NA NA 1 1 1 1 1 ...
 ##  $ children         : Factor w/ 2 levels &quot;No&quot;,&quot;Yes&quot;: 1 1 1 1 1 1 1 1 1 1 ...
 ##  $ education        : Factor w/ 7 levels &quot;Associate degree&quot;,..: 2 2 5 2 2 2 5 2 2 5 ...
-##  $ country          : Factor w/ 439 levels &quot; Canada&quot;,&quot; Canada eh&quot;,..: 394 394 394 394 394 394 125 394 394 125 ...
+##  $ country          : Factor w/ 439 levels &quot;/&quot;,&quot;Afghanistan&quot;,..: 391 391 391 391 391 391 124 391 391 124 ...
 ##  $ state            : Factor w/ 53 levels &quot;&quot;,&quot;Alabama&quot;,&quot;Alaska&quot;,..: 33 33 48 33 6 33 1 6 33 1 ...
 ##  $ income.range     : Factor w/ 8 levels &quot;$100,000 - $149,999&quot;,..: 2 2 8 2 7 2 NA 7 2 7 ...
-##  $ fav.reddit       : Factor w/ 1834 levels &quot;&quot;,&quot;___&quot;,&quot;-&quot;,&quot;?&quot;,..: 720 691 1511 1528 188 691 1318 571 1629 1 ...
+##  $ fav.reddit       : Factor w/ 1834 levels &quot;&quot;,&quot;___&quot;,&quot;-&quot;,&quot;?&quot;,..: 717 688 1511 1528 185 688 1318 568 1629 1 ...
 ##  $ dog.cat          : Factor w/ 3 levels &quot;I like cats.&quot;,..: NA NA NA NA NA 2 2 2 1 1 ...
 ##  $ cheese           : Factor w/ 11 levels &quot;American&quot;,&quot;Brie&quot;,..: NA NA NA NA NA 3 3 1 10 7 ...
 </pre></div>
 
 
 <p>This gives us the details about different columns of data in this data set. More closely, we find two types of variables being used in this dataset: <em>int</em> and <em>Factor</em>. &#8220;id&#8221;&#8221; and &#8220;gender&#8221; are integers, while rest of the variables are of type <em>Factor</em>. These <em>Factor</em> type variables have multiple levels. We can also look at a brief summary of the data set using the summary()&nbsp;method.</p>
-<div class="highlight"><pre><span class="kp">summary</span><span class="p">(</span>reddit<span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="kp">summary</span><span class="p">(</span>reddit<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre>##        id            gender          age.range    
+<div class="highlight"><pre><span></span>##        id            gender          age.range    
 ##  Min.   :    1   Min.   :0.0000   18-24   :15802  
 ##  1st Qu.: 8189   1st Qu.:0.0000   25-34   :11575  
 ##  Median :16380   Median :0.0000   Under 18: 2330  
@@ -207,52 +207,48 @@ str<span class="p">((</span>reddit<span class="p">))</span>
 
 
 <p>The summary() method provides a more detailed analysis of the data, albeit only numerically. We can see that the <em>int</em> types are reported with important statistics like min,max and 4 Quartiles. The <em>Factor</em> types are listed with frequency of different&nbsp;levels.</p>
-<div class="highlight"><pre><span class="kp">levels</span><span class="p">(</span>reddit<span class="o">$</span>age.range<span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="kp">levels</span><span class="p">(</span>reddit<span class="o">$</span>age.range<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre>## [1] &quot;18-24&quot;       &quot;25-34&quot;       &quot;35-44&quot;       &quot;45-54&quot;       &quot;55-64&quot;      
+<div class="highlight"><pre><span></span>## [1] &quot;18-24&quot;       &quot;25-34&quot;       &quot;35-44&quot;       &quot;45-54&quot;       &quot;55-64&quot;      
 ## [6] &quot;65 or Above&quot; &quot;Under 18&quot;
 </pre></div>
 
 
 <p>Let us look at the age.range variable in more detail. We can look at the different levels of this variables using the levels() method. This shows there are 7 possible values of this variable and some where no data is available (<span class="caps">NA</span>).</p>
 <p>A more pictorial view of this can be seen using a histogram plot of&nbsp;this.</p>
-<p><img alt="plot of chunk unnamed-chunk-4" src="http://sadanand-singh.github.io/images/R/reddit_unnamed-chunk-4-1.png" /></p>
+<p><img alt="plot of chunk reddit-5" src="http://sadanand-singh.github.io/images/R/reddit_reddit-5-1.png" /></p>
 <p>Similarly, we can also plot a distribution of&nbsp;income.range.</p>
-<p><img alt="plot of chunk unnamed-chunk-5" src="http://sadanand-singh.github.io/images/R/reddit_unnamed-chunk-5-1.png" /></p>
+<p><img alt="plot of chunk reddit-6" src="http://sadanand-singh.github.io/images/R/reddit_reddit-6-1.png" /></p>
 <p>One problem with the above plots is that the different levels are not ordered. This can be fixed using ordered Factors, instead of regular factor type variables. Additionally, We need to use a more reasonable x-label for plotting&nbsp;income.range.</p>
-<div class="highlight"><pre>reddit<span class="o">$</span>age.range <span class="o">&lt;-</span> <span class="kp">factor</span><span class="p">(</span>reddit<span class="o">$</span>age.range<span class="p">,</span>
+<div class="highlight"><pre><span></span>reddit<span class="o">$</span>age.range <span class="o">&lt;-</span> <span class="kp">factor</span><span class="p">(</span>reddit<span class="o">$</span>age.range<span class="p">,</span>
                 levels <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;Under 18&quot;</span><span class="p">,</span> <span class="s">&quot;18-24&quot;</span><span class="p">,</span> <span class="s">&quot;25-34&quot;</span><span class="p">,</span> <span class="s">&quot;35-44&quot;</span><span class="p">,</span> <span class="s">&quot;45-54&quot;</span><span class="p">,</span> <span class="s">&quot;55-64&quot;</span><span class="p">,</span> <span class="s">&quot;65 or Above&quot;</span><span class="p">),</span> ordered <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
 <span class="kp">levels</span><span class="p">(</span>reddit<span class="o">$</span>income.range<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre>## [1] &quot;$100,000 - $149,999&quot; &quot;$150,000 or more&quot;    &quot;$20,000 - $29,999&quot;  
+<div class="highlight"><pre><span></span>## [1] &quot;$100,000 - $149,999&quot; &quot;$150,000 or more&quot;    &quot;$20,000 - $29,999&quot;  
 ## [4] &quot;$30,000 - $39,999&quot;   &quot;$40,000 - $49,999&quot;   &quot;$50,000 - $69,999&quot;  
 ## [7] &quot;$70,000 - $99,999&quot;   &quot;Under $20,000&quot;
 </pre></div>
 
 
-<div class="highlight"><pre>incomes_ordered <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;Under $20,000&quot;</span><span class="p">,</span> <span class="s">&quot;$20,000 - $29,999&quot;</span><span class="p">,</span><span class="s">&quot;$30,000 - $39,999&quot;</span><span class="p">,</span> <span class="s">&quot;$40,000 - $49,999&quot;</span><span class="p">,</span> <span class="s">&quot;$50,000 - $69,999&quot;</span><span class="p">,</span> <span class="s">&quot;$70,000 - $99,999&quot;</span><span class="p">,</span> <span class="s">&quot;$100,000 - $149,999&quot;</span><span class="p">,</span> <span class="s">&quot;$150,000 or more&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span>incomes_ordered <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;Under $20,000&quot;</span><span class="p">,</span> <span class="s">&quot;$20,000 - $29,999&quot;</span><span class="p">,</span><span class="s">&quot;$30,000 - $39,999&quot;</span><span class="p">,</span> <span class="s">&quot;$40,000 - $49,999&quot;</span><span class="p">,</span> <span class="s">&quot;$50,000 - $69,999&quot;</span><span class="p">,</span> <span class="s">&quot;$70,000 - $99,999&quot;</span><span class="p">,</span> <span class="s">&quot;$100,000 - $149,999&quot;</span><span class="p">,</span> <span class="s">&quot;$150,000 or more&quot;</span><span class="p">)</span>
 incomes_ordered_lab <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;&lt;20K&quot;</span><span class="p">,</span> <span class="s">&quot;20K&quot;</span><span class="p">,</span><span class="s">&quot;30K&quot;</span><span class="p">,</span> <span class="s">&quot;40K&quot;</span><span class="p">,</span> <span class="s">&quot;50K&quot;</span><span class="p">,</span> <span class="s">&quot;70K&quot;</span><span class="p">,</span> <span class="s">&quot;100K&quot;</span><span class="p">,</span> <span class="s">&quot;&gt;150K&quot;</span><span class="p">)</span>
 reddit<span class="o">$</span>income.range <span class="o">&lt;-</span> <span class="kp">factor</span><span class="p">(</span>reddit<span class="o">$</span>income.range<span class="p">,</span> levels <span class="o">=</span> incomes_ordered<span class="p">,</span> ordered <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
-qplot<span class="p">(</span>data <span class="o">=</span> reddit<span class="p">,</span> x <span class="o">=</span> age.range<span class="p">)</span>
+qplot<span class="p">(</span>data <span class="o">=</span> reddit<span class="p">,</span> x <span class="o">=</span> age.range<span class="p">,</span> geom<span class="o">=</span><span class="s">&quot;bar&quot;</span><span class="p">)</span>
 </pre></div>
 
 
-<p><img alt="plot of chunk unnamed-chunk-6" src="http://sadanand-singh.github.io/images/R/reddit_unnamed-chunk-6-1.png" /></p>
-<div class="highlight"><pre>hplot <span class="o">&lt;-</span> ggplot<span class="p">(</span>data <span class="o">=</span> reddit<span class="p">,</span> aes<span class="p">(</span>x <span class="o">=</span> income.range<span class="p">))</span> <span class="o">+</span> geom_histogram<span class="p">()</span>
+<p><img alt="plot of chunk reddit-7" src="http://sadanand-singh.github.io/images/R/reddit_reddit-7-1.png" /></p>
+<div class="highlight"><pre><span></span>hplot <span class="o">&lt;-</span> ggplot<span class="p">(</span>data <span class="o">=</span> reddit<span class="p">,</span> aes<span class="p">(</span>x <span class="o">=</span> income.range<span class="p">))</span> <span class="o">+</span> geom_bar<span class="p">()</span>
 hplot <span class="o">&lt;-</span> hplot <span class="o">+</span> theme<span class="p">(</span>axis.text.x<span class="o">=</span>element_text<span class="p">(</span>color <span class="o">=</span> <span class="s">&quot;black&quot;</span><span class="p">,</span> size<span class="o">=</span><span class="m">11</span><span class="p">,</span> angle<span class="o">=</span><span class="m">30</span><span class="p">,</span> vjust<span class="o">=</span><span class="m">.8</span><span class="p">,</span> hjust<span class="o">=</span><span class="m">0.8</span><span class="p">))</span>
 <span class="kp">print</span><span class="p">(</span>hplot<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre>## Error: StatBin requires a continuous x variable the x variable is discrete. Perhaps you want stat=&quot;count&quot;?
-</pre></div>
-
-
-<p><img alt="plot of chunk unnamed-chunk-6" src="http://sadanand-singh.github.io/images/R/reddit_unnamed-chunk-6-2.png" /></p>
+<p><img alt="plot of chunk reddit-7" src="http://sadanand-singh.github.io/images/R/reddit_reddit-7-2.png" /></p>
 
 <a href="https://twitter.com/share"
   class="twitter-share-button"

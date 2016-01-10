@@ -134,9 +134,9 @@ we&nbsp;set.</p>
 <h2 id="add-new-user">Add New User<a class="headerlink" href="#add-new-user" title="Permanent link">&para;</a></h2>
 <p>Choose $<span class="caps">USER</span> per your liking. I chose ssingh, so in future commands
 whenever you see <em>ssingh</em> please replace it with your $<span class="caps">USER</span>.</p>
-<div class="highlight"><pre><span class="nv">$ </span>useradd -m -G wheel -s /bin/bash <span class="nv">$USERNAME</span>
-<span class="nv">$ </span>chfn --full-name <span class="s2">&quot;</span><span class="nv">$FULL_NAME</span><span class="s2">&quot;</span> <span class="nv">$USERNAME</span>
-<span class="nv">$ </span>passwd <span class="nv">$USERNAME</span>
+<div class="highlight"><pre><span></span>$ useradd -m -G wheel -s /bin/bash <span class="nv">$USERNAME</span>
+$ chfn --full-name <span class="s2">&quot;</span><span class="nv">$FULL_NAME</span><span class="s2">&quot;</span> <span class="nv">$USERNAME</span>
+$ passwd <span class="nv">$USERNAME</span>
 </pre></div>
 
 
@@ -144,73 +144,73 @@ whenever you see <em>ssingh</em> please replace it with your $<span class="caps"
 <p>To install anything new, we first need to enable wifi for this
 session. To do this I will use the wl* file that we saved from the
 initial installation setup at&nbsp;/etc/netctl.</p>
-<div class="highlight"><pre><span class="nv">$ </span>netctl start /etc/netctl/wl*
+<div class="highlight"><pre><span></span>$ netctl start /etc/netctl/wl*
 </pre></div>
 
 
 <p>To setup a graphical desktop, first we need to install some basic X
 related packages, and some <em>essential</em> packages (including&nbsp;fonts):</p>
-<div class="highlight"><pre><span class="nv">$ </span>pacman -S intel-dri xf86-video-intel xorg-server xorg-server-utils
-<span class="nv">$ </span>pacman -S intel xorg xorg-xinit xorg-twm xorg-xclock xterm mesa
-<span class="nv">$ </span>pacman -S tlp tlp-rdw acpi_call bash-completion git meld
-<span class="nv">$ </span>pacman -S firefox flashplugin
-<span class="nv">$ </span>pacman -S ttf-dejavu ttf-freefont ttf-liberation ttf-anonymous-pro
-<span class="nv">$ </span>pacman -S adobe-source-code-pro-fonts
+<div class="highlight"><pre><span></span>$ pacman -S intel-dri xf86-video-intel xorg-server xorg-server-utils
+$ pacman -S intel xorg xorg-xinit xorg-twm xorg-xclock xterm mesa
+$ pacman -S tlp tlp-rdw acpi_call bash-completion git meld
+$ pacman -S firefox flashplugin
+$ pacman -S ttf-dejavu ttf-freefont ttf-liberation ttf-anonymous-pro
+$ pacman -S adobe-source-code-pro-fonts
 </pre></div>
 
 
 <p>Now, we will install the packages related to Plasma&nbsp;5:</p>
-<div class="highlight"><pre><span class="nv">$ </span>pacman -S kf5 kf5-aids
-<span class="nv">$ </span>pacman -S plasma kdebase kdeutils-kwalletmanager
-<span class="nv">$ </span>pacman -S kdegraphics-ksnapshot gwenview
-<span class="nv">$ </span>pacman -R plasma-mediacenter
-<span class="nv">$ </span>pacman -S networkmanager plasma-nm
+<div class="highlight"><pre><span></span>$ pacman -S kf5 kf5-aids
+$ pacman -S plasma kdebase kdeutils-kwalletmanager
+$ pacman -S kdegraphics-ksnapshot gwenview
+$ pacman -R plasma-mediacenter
+$ pacman -S networkmanager plasma-nm
 </pre></div>
 
 
 <p>Now we have to setup a display manager. I chose recommended <span class="caps">SDDM</span> for
 plasma&nbsp;5.</p>
-<div class="highlight"><pre><span class="nv">$ </span>pacman -S sddm sddm-kcm
-<span class="nv">$ </span>vim /etc/sddm.conf
+<div class="highlight"><pre><span></span>$ pacman -S sddm sddm-kcm
+$ vim /etc/sddm.conf
 
 ...
 <span class="o">[</span>Theme<span class="o">]</span>
-<span class="c"># Current theme name</span>
+<span class="c1"># Current theme name</span>
 <span class="nv">Current</span><span class="o">=</span>breeze
 
-<span class="c"># Cursor theme</span>
+<span class="c1"># Cursor theme</span>
 <span class="nv">CursorTheme</span><span class="o">=</span>breeze_cursors
 ...
 
-<span class="nv">$ </span>systemctl <span class="nb">enable </span>sddm
+$ systemctl <span class="nb">enable</span> sddm
 </pre></div>
 
 
 <p>Also make sure that networkmanager starts at&nbsp;boot:</p>
-<div class="highlight"><pre><span class="nv">$ </span>systemctl disable dhcpcd.service
-<span class="nv">$ </span>systemctl <span class="nb">enable </span>NetworkManager
+<div class="highlight"><pre><span></span>$ systemctl disable dhcpcd.service
+$ systemctl <span class="nb">enable</span> NetworkManager
 </pre></div>
 
 
 <h2 id="audio-setup">Audio Setup<a class="headerlink" href="#audio-setup" title="Permanent link">&para;</a></h2>
 <p>This is pretty simple. Install following packages and you should be&nbsp;done:</p>
-<div class="highlight"><pre><span class="nv">$ </span>pacman -S alsa-utils pulseaudio pulseaudio-alsa libcanberra-pulse
-<span class="nv">$ </span>pacman -S libcanberra-gstreamer jack2-dbus kmix
-<span class="nv">$ </span>pacman -S vlc mplayer
+<div class="highlight"><pre><span></span>$ pacman -S alsa-utils pulseaudio pulseaudio-alsa libcanberra-pulse
+$ pacman -S libcanberra-gstreamer jack2-dbus kmix
+$ pacman -S vlc mplayer
 </pre></div>
 
 
 <h2 id="useful-tips">Useful Tips<a class="headerlink" href="#useful-tips" title="Permanent link">&para;</a></h2>
 <p>This part is optional and you can choose as per your taste.
 Sync&nbsp;time:</p>
-<div class="highlight"><pre><span class="nv">$ </span>pacman -S ntp
-<span class="nv">$ </span>systemctl <span class="nb">enable </span>ntpd
+<div class="highlight"><pre><span></span>$ pacman -S ntp
+$ systemctl <span class="nb">enable</span> ntpd
 </pre></div>
 
 
 <p>On Plasma 5, It is recommended to enable no-bitmaps to improve the
 font&nbsp;rendering:</p>
-<div class="highlight"><pre><span class="nv">$ </span>sudo ln -s /etc/fonts/conf.avail/70-no-bitmaps.conf /etc/fonts/conf.d
+<div class="highlight"><pre><span></span>$ sudo ln -s /etc/fonts/conf.avail/70-no-bitmaps.conf /etc/fonts/conf.d
 </pre></div>
 
 
@@ -219,14 +219,14 @@ font&nbsp;rendering:</p>
 configuration. However, I ran into an issue with sddm, where use of
 their configurations will lead sddm to freeze. To fix these you need
 to do the following before you reboot/logout your&nbsp;system.</p>
-<div class="highlight"><pre><span class="nv">$ </span>vim /usr/share/sddm/scripts/Xsession
+<div class="highlight"><pre><span></span>$ vim /usr/share/sddm/scripts/Xsession
 ...
 */zsh<span class="o">)</span>
     <span class="o">[</span> -z <span class="s2">&quot;</span><span class="nv">$ZSH_NAME</span><span class="s2">&quot;</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nb">exec</span> <span class="nv">$SHELL</span> <span class="nv">$0</span> <span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span>
     emulate -R sh
     <span class="o">[</span> -d /etc/zsh <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nv">zdir</span><span class="o">=</span>/etc/zsh <span class="o">||</span> <span class="nv">zdir</span><span class="o">=</span>/etc
     <span class="nv">zhome</span><span class="o">=</span><span class="si">${</span><span class="nv">ZDOTDIR</span><span class="k">:-</span><span class="nv">$HOME</span><span class="si">}</span>
-    <span class="c"># zshenv is always sourced automatically.</span>
+    <span class="c1"># zshenv is always sourced automatically.</span>
     <span class="o">[</span> -f <span class="nv">$zdir</span>/zprofile <span class="o">]</span> <span class="o">&amp;&amp;</span> . <span class="nv">$zdir</span>/zprofile
     <span class="o">[</span> -f <span class="nv">$zhome</span>/.zprofile <span class="o">]</span> <span class="o">&amp;&amp;</span> . <span class="nv">$zhome</span>/.zprofile
     <span class="o">[</span> -f <span class="nv">$zdir</span>/zlogin <span class="o">]</span> <span class="o">&amp;&amp;</span> . <span class="nv">$zdir</span>/zlogin
@@ -240,7 +240,7 @@ Should be changed to:
     <span class="o">[</span> -z <span class="s2">&quot;</span><span class="nv">$ZSH_NAME</span><span class="s2">&quot;</span> <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nb">exec</span> <span class="nv">$SHELL</span> <span class="nv">$0</span> <span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span>
     <span class="o">[</span> -d /etc/zsh <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nv">zdir</span><span class="o">=</span>/etc/zsh <span class="o">||</span> <span class="nv">zdir</span><span class="o">=</span>/etc
     <span class="nv">zhome</span><span class="o">=</span><span class="si">${</span><span class="nv">ZDOTDIR</span><span class="k">:-</span><span class="nv">$HOME</span><span class="si">}</span>
-    <span class="c"># zshenv is always sourced automatically.</span>
+    <span class="c1"># zshenv is always sourced automatically.</span>
     <span class="o">[</span> -f <span class="nv">$zdir</span>/zprofile <span class="o">]</span> <span class="o">&amp;&amp;</span> . <span class="nv">$zdir</span>/zprofile
     <span class="o">[</span> -f <span class="nv">$zhome</span>/.zprofile <span class="o">]</span> <span class="o">&amp;&amp;</span> . <span class="nv">$zhome</span>/.zprofile
     <span class="o">[</span> -f <span class="nv">$zdir</span>/zlogin <span class="o">]</span> <span class="o">&amp;&amp;</span> . <span class="nv">$zdir</span>/zlogin

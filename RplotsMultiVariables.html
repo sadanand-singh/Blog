@@ -127,12 +127,12 @@
 </div>
             <p>In this section, we will be re-using the data from the previous post based on Pseudo Facebook data from <a href="https://www.udacity.com/">udacity</a>.</p>
 <p>The data from the project corresponds to a typical data set at <a href="http://facebook.com">Facebook</a>. You can load the data through the following command. Notice that this is a <TAB> delimited tsv file. This data set consists of 99000 rows of data. We will see the details of different columns using the command&nbsp;below.</p>
-<div class="highlight"><pre>pf <span class="o">&lt;-</span> read.csv<span class="p">(</span><span class="s">&quot;https://s3.amazonaws.com/udacity-hosted-downloads/ud651/pseudo_facebook.tsv&quot;</span><span class="p">,</span> sep <span class="o">=</span> <span class="s">&#39;\t&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span>pf <span class="o">&lt;-</span> read.csv<span class="p">(</span><span class="s">&quot;https://s3.amazonaws.com/udacity-hosted-downloads/ud651/pseudo_facebook.tsv&quot;</span><span class="p">,</span> sep <span class="o">=</span> <span class="s">&#39;\t&#39;</span><span class="p">)</span>
 str<span class="p">(</span>pf<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre>## &#39;data.frame&#39;:    99003 obs. of  15 variables:
+<div class="highlight"><pre><span></span>## &#39;data.frame&#39;:    99003 obs. of  15 variables:
 ##  $ userid               : int  2094382 1192601 2083884 1203168 1733186 1524765 1136133 1680361 1365174 1712567 ...
 ##  $ age                  : int  14 14 14 14 14 14 13 13 13 13 ...
 ##  $ dob_day              : int  19 2 16 25 4 1 14 4 1 2 ...
@@ -151,13 +151,13 @@ str<span class="p">(</span>pf<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span class="kn">library</span><span class="p">(</span>ggplot2<span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="kn">library</span><span class="p">(</span>ggplot2<span class="p">)</span>
 </pre></div>
 
 
 <p>Restarting our analysis from the last blog, finding a relationship between age and friends counts, let us add gender to the&nbsp;equation.</p>
 <p>In order to do this, we will first use summarise() to get group by data. Notice the use of ungroup() to ungroup the data by the second level. The first call of summarize did the ungrouping by default on the first variable, i.e. age. We had to call ungroup() a second time to ungroup around the variable&nbsp;gender.</p>
-<div class="highlight"><pre><span class="kn">library</span><span class="p">(</span>dplyr<span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="kn">library</span><span class="p">(</span>dplyr<span class="p">)</span>
 pf.fc_by_age_gender <span class="o">&lt;-</span> pf <span class="o">%&gt;%</span>
   filter<span class="p">(</span><span class="o">!</span><span class="kp">is.na</span><span class="p">(</span>gender<span class="p">))</span> <span class="o">%&gt;%</span>
   group_by<span class="p">(</span>age<span class="p">,</span> gender<span class="p">)</span> <span class="o">%&gt;%</span>
@@ -170,16 +170,16 @@ pf.fc_by_age_gender <span class="o">&lt;-</span> pf <span class="o">%&gt;%</span
 
 
 <p>Now, we can use ggplot to compare friend counts across age and&nbsp;gender.</p>
-<div class="highlight"><pre>ggplot<span class="p">(</span>data <span class="o">=</span> pf.fc_by_age_gender<span class="p">,</span> aes<span class="p">(</span>x <span class="o">=</span> age<span class="p">,</span> y <span class="o">=</span> median_friend_count<span class="p">))</span> <span class="o">+</span>
+<div class="highlight"><pre><span></span>ggplot<span class="p">(</span>data <span class="o">=</span> pf.fc_by_age_gender<span class="p">,</span> aes<span class="p">(</span>x <span class="o">=</span> age<span class="p">,</span> y <span class="o">=</span> median_friend_count<span class="p">))</span> <span class="o">+</span>
   geom_line<span class="p">(</span>aes<span class="p">(</span>color <span class="o">=</span> gender<span class="p">))</span>
 </pre></div>
 
 
-<p><img alt="plot of chunk unnamed-chunk-3" src="http://sadanand-singh.github.io/images/R/fbMultiVar_unnamed-chunk-3-1.png" /></p>
+<p><img alt="plot of chunk MultiVariablesFacebookData-4" src="http://sadanand-singh.github.io/images/R/fbMultiVar_MultiVariablesFacebookData-4-1.png" /></p>
 <p>It would be helpful to analyze these differences in relative terms. So lets answer a different question - how many times more friends does the average female users have than average male&nbsp;users.</p>
 <p>To answer the above question we will need to transform our data. Right now, our data is in &#8220;long format&#8221; - a row of data different values of different variables. We will need to convert this to a &#8220;wide format&#8221; - where we will create columns called male and female, that will have median counts in&nbsp;them.</p>
 <p>This can be done using either &#8220;<em>reshape2</em>&#8221; or &#8220;<em>tidyr</em>&#8221; package. Here we are using <em>dcast()</em> function (from the <em>reshape2</em> package) as we need data-frame as output. If an array was required, we would have used <em>acast()</em> function. The second argument of this function is formulae that determines which variables to keep and which to compress. The ones on the left of the &#8220;~&#8221; are kept while ones on right are compressed. Multiple variables can be combined using a &#8220;+&#8221;&nbsp;symbol.</p>
-<div class="highlight"><pre><span class="kn">library</span><span class="p">(</span>reshape2<span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="kn">library</span><span class="p">(</span>reshape2<span class="p">)</span>
 pf.fc_by_age_gender_wide <span class="o">&lt;-</span> dcast<span class="p">(</span>pf.fc_by_age_gender<span class="p">,</span>
                                   age <span class="o">~</span> gender<span class="p">,</span>
                                   value.var <span class="o">=</span> <span class="s">&#39;median_friend_count&#39;</span><span class="p">)</span>
@@ -187,7 +187,7 @@ pf.fc_by_age_gender_wide <span class="o">&lt;-</span> dcast<span class="p">(</sp
 </pre></div>
 
 
-<div class="highlight"><pre>##   age female  male
+<div class="highlight"><pre><span></span>##   age female  male
 ## 1  13  148.0  55.0
 ## 2  14  224.0  92.5
 ## 3  15  276.0 106.5
@@ -198,13 +198,13 @@ pf.fc_by_age_gender_wide <span class="o">&lt;-</span> dcast<span class="p">(</sp
 
 
 <p>Similarly, we can use the <em>melt()</em> function to convert a wide format data back to a long format data. The above conversion can also be done quite more elegantly using the <em>tidyr</em> package, as shown below. The <em>tidyr</em> package was created by the original authors of the <em>reshape2</em> package. The main advantage of using the <em>tidyr</em> package that it plays well with the chaining syntax of the <em>dplyr</em> package. Furthermore, each function of the <em>tidyr</em> package does one and one thing only, hence it makes arranging the overall algorithm of cleaning data much robust. In the future version, we will be using <em>tidyr</em> package at most&nbsp;places.</p>
-<div class="highlight"><pre><span class="kn">library</span><span class="p">(</span>tidyr<span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="kn">library</span><span class="p">(</span>tidyr<span class="p">)</span>
 pf.fc_by_age_gender_wide2 <span class="o">&lt;-</span> spread<span class="p">(</span><span class="kp">subset</span><span class="p">(</span>pf.fc_by_age_gender<span class="p">,</span> select <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#39;gender&#39;</span><span class="p">,</span> <span class="s">&#39;age&#39;</span><span class="p">,</span> <span class="s">&#39;median_friend_count&#39;</span><span class="p">)),</span> gender<span class="p">,</span> median_friend_count<span class="p">)</span>
 <span class="kp">head</span><span class="p">(</span>pf.fc_by_age_gender_wide2<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre>## Source: local data frame [6 x 3]
+<div class="highlight"><pre><span></span>## Source: local data frame [6 x 3]
 ## 
 ##     age female  male
 ##   (int)  (dbl) (dbl)
@@ -217,100 +217,100 @@ pf.fc_by_age_gender_wide2 <span class="o">&lt;-</span> spread<span class="p">(</
 </pre></div>
 
 
-<div class="highlight"><pre><span class="kp">rm</span><span class="p">(</span>pf.fc_by_age_gender_wide2<span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="kp">rm</span><span class="p">(</span>pf.fc_by_age_gender_wide2<span class="p">)</span>
 </pre></div>
 
 
 <p>Now lets plot ratio of female to male median friend&nbsp;counts.</p>
-<div class="highlight"><pre>ggplot<span class="p">(</span>data <span class="o">=</span> pf.fc_by_age_gender_wide<span class="p">,</span> aes<span class="p">(</span>x <span class="o">=</span> age<span class="p">,</span> y <span class="o">=</span> female <span class="o">/</span> male<span class="p">))</span> <span class="o">+</span>
+<div class="highlight"><pre><span></span>ggplot<span class="p">(</span>data <span class="o">=</span> pf.fc_by_age_gender_wide<span class="p">,</span> aes<span class="p">(</span>x <span class="o">=</span> age<span class="p">,</span> y <span class="o">=</span> female <span class="o">/</span> male<span class="p">))</span> <span class="o">+</span>
   geom_line<span class="p">()</span> <span class="o">+</span>
   geom_hline<span class="p">(</span>yintercept <span class="o">=</span> <span class="m">1</span><span class="p">,</span> alpha <span class="o">=</span> <span class="m">0.8</span><span class="p">,</span> linetype <span class="o">=</span> <span class="m">2</span><span class="p">,</span> colour <span class="o">=</span> <span class="s">&quot;red&quot;</span><span class="p">,</span> size <span class="o">=</span> <span class="m">1</span><span class="p">)</span>
 </pre></div>
 
 
-<p><img alt="plot of chunk unnamed-chunk-6" src="http://sadanand-singh.github.io/images/R/fbMultiVar_unnamed-chunk-6-1.png" /></p>
+<p><img alt="plot of chunk MultiVariablesFacebookData-7" src="http://sadanand-singh.github.io/images/R/fbMultiVar_MultiVariablesFacebookData-7-1.png" /></p>
 <p>In this particular case of looking at multiple variables, it would make more sense to look at count of friends as function of tenure of Facebook as well. People with a longer tenure of Facebook account are likely to accumulate a larger number of&nbsp;friends.</p>
 <p>In the following section we will look at friend count of females, males at different ages along with their Facebook&nbsp;tenure.</p>
-<div class="highlight"><pre>pf <span class="o">&lt;-</span> <span class="kp">within</span><span class="p">(</span>pf<span class="p">,</span> year_joined <span class="o">&lt;-</span> <span class="kp">floor</span><span class="p">(</span><span class="m">2014</span> <span class="o">-</span> tenure <span class="o">/</span> <span class="m">365</span><span class="p">))</span>
+<div class="highlight"><pre><span></span>pf <span class="o">&lt;-</span> <span class="kp">within</span><span class="p">(</span>pf<span class="p">,</span> year_joined <span class="o">&lt;-</span> <span class="kp">floor</span><span class="p">(</span><span class="m">2014</span> <span class="o">-</span> tenure <span class="o">/</span> <span class="m">365</span><span class="p">))</span>
 </pre></div>
 
 
 <p>Lets look at the summary of this new variable as&nbsp;well.</p>
-<div class="highlight"><pre><span class="kp">summary</span><span class="p">(</span>pf<span class="o">$</span>year_joined<span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="kp">summary</span><span class="p">(</span>pf<span class="o">$</span>year_joined<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
+<div class="highlight"><pre><span></span>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
 ##    2005    2012    2012    2012    2013    2014       2
 </pre></div>
 
 
-<div class="highlight"><pre><span class="kp">table</span><span class="p">(</span>pf<span class="o">$</span>year_joined<span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="kp">table</span><span class="p">(</span>pf<span class="o">$</span>year_joined<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre>## 
+<div class="highlight"><pre><span></span>## 
 ##  2005  2006  2007  2008  2009  2010  2011  2012  2013  2014 
 ##     9    15   581  1507  4557  5448  9860 33366 43588    70
 </pre></div>
 
 
 <p>The tabular view of this shows the distribution. We will next use the <em>cut()</em> method to bin this&nbsp;variable.</p>
-<div class="highlight"><pre>pf<span class="o">$</span>year_joined.bucket <span class="o">&lt;-</span> <span class="kp">cut</span><span class="p">(</span>pf<span class="o">$</span>year_joined<span class="p">,</span> breaks<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="m">2004</span><span class="p">,</span><span class="m">2009</span><span class="p">,</span><span class="m">2011</span><span class="p">,</span><span class="m">2012</span><span class="p">,</span><span class="m">2014</span><span class="p">))</span>
+<div class="highlight"><pre><span></span>pf<span class="o">$</span>year_joined.bucket <span class="o">&lt;-</span> <span class="kp">cut</span><span class="p">(</span>pf<span class="o">$</span>year_joined<span class="p">,</span> breaks<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="m">2004</span><span class="p">,</span><span class="m">2009</span><span class="p">,</span><span class="m">2011</span><span class="p">,</span><span class="m">2012</span><span class="p">,</span><span class="m">2014</span><span class="p">))</span>
 <span class="kp">table</span><span class="p">(</span>pf<span class="o">$</span>year_joined.bucket<span class="p">,</span> useNA <span class="o">=</span> <span class="s">&quot;ifany&quot;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre>## 
+<div class="highlight"><pre><span></span>## 
 ## (2004,2009] (2009,2011] (2011,2012] (2012,2014]        &lt;NA&gt; 
 ##        6669       15308       33366       43658           2
 </pre></div>
 
 
 <p>Let us now plot all these variables together. In particular, we want to create a plot of friend counts vs age where a different line is shown for each bin of year&nbsp;joined.</p>
-<div class="highlight"><pre>ggplot<span class="p">(</span>data <span class="o">=</span> <span class="kp">subset</span><span class="p">(</span>pf<span class="p">,</span> <span class="o">!</span><span class="kp">is.na</span><span class="p">(</span>year_joined.bucket<span class="p">)),</span> aes<span class="p">(</span>x <span class="o">=</span> age<span class="p">,</span> y <span class="o">=</span> friend_count<span class="p">))</span> <span class="o">+</span>
+<div class="highlight"><pre><span></span>ggplot<span class="p">(</span>data <span class="o">=</span> <span class="kp">subset</span><span class="p">(</span>pf<span class="p">,</span> <span class="o">!</span><span class="kp">is.na</span><span class="p">(</span>year_joined.bucket<span class="p">)),</span> aes<span class="p">(</span>x <span class="o">=</span> age<span class="p">,</span> y <span class="o">=</span> friend_count<span class="p">))</span> <span class="o">+</span>
   geom_line<span class="p">(</span>aes<span class="p">(</span>color <span class="o">=</span> year_joined.bucket<span class="p">),</span> stat <span class="o">=</span> <span class="s">&quot;summary&quot;</span><span class="p">,</span> fun.y <span class="o">=</span> median<span class="p">)</span>
 </pre></div>
 
 
-<p><img alt="plot of chunk unnamed-chunk-10" src="http://sadanand-singh.github.io/images/R/fbMultiVar_unnamed-chunk-10-1.png" /></p>
+<p><img alt="plot of chunk MultiVariablesFacebookData-11" src="http://sadanand-singh.github.io/images/R/fbMultiVar_MultiVariablesFacebookData-11-1.png" /></p>
 <p>Our initial hypothesis seems to be correct here - People with larger Facebook tenure tend to have higher friend counts.
 Lets us plot the mean of these bins and also the grand means of&nbsp;data.</p>
-<div class="highlight"><pre>ggplot<span class="p">(</span>data <span class="o">=</span> <span class="kp">subset</span><span class="p">(</span>pf<span class="p">,</span> <span class="o">!</span><span class="kp">is.na</span><span class="p">(</span>year_joined.bucket<span class="p">)),</span> aes<span class="p">(</span>x <span class="o">=</span> age<span class="p">,</span> y <span class="o">=</span> friend_count<span class="p">))</span> <span class="o">+</span>
+<div class="highlight"><pre><span></span>ggplot<span class="p">(</span>data <span class="o">=</span> <span class="kp">subset</span><span class="p">(</span>pf<span class="p">,</span> <span class="o">!</span><span class="kp">is.na</span><span class="p">(</span>year_joined.bucket<span class="p">)),</span> aes<span class="p">(</span>x <span class="o">=</span> age<span class="p">,</span> y <span class="o">=</span> friend_count<span class="p">))</span> <span class="o">+</span>
   geom_line<span class="p">(</span>aes<span class="p">(</span>color <span class="o">=</span> year_joined.bucket<span class="p">),</span> stat <span class="o">=</span> <span class="s">&quot;summary&quot;</span><span class="p">,</span> fun.y <span class="o">=</span> <span class="kp">mean</span><span class="p">)</span> <span class="o">+</span>
   geom_line<span class="p">(</span>stat <span class="o">=</span> <span class="s">&quot;summary&quot;</span><span class="p">,</span> fun.y <span class="o">=</span> <span class="kp">mean</span><span class="p">,</span> linetype <span class="o">=</span> <span class="m">2</span><span class="p">)</span>
 </pre></div>
 
 
-<p><img alt="plot of chunk unnamed-chunk-11" src="http://sadanand-singh.github.io/images/R/fbMultiVar_unnamed-chunk-11-1.png" /></p>
+<p><img alt="plot of chunk MultiVariablesFacebookData-12" src="http://sadanand-singh.github.io/images/R/fbMultiVar_MultiVariablesFacebookData-12-1.png" /></p>
 <p>Since the trend holds up after conditioning on the each of the buckets of year joined, we can increase our confidence that this observation isn&#8217;t just an artifact. Let us look at this from a different&nbsp;angle.</p>
 <p>We can define a variable called &#8220;friend rate&#8221;, i.e. number of friends each person had on a per day&nbsp;basis.</p>
-<div class="highlight"><pre><span class="kp">with</span><span class="p">(</span><span class="kp">subset</span><span class="p">(</span>pf<span class="p">,</span> tenure <span class="o">&gt;=</span> <span class="m">1</span><span class="p">),</span> <span class="kp">summary</span><span class="p">(</span>friend_count <span class="o">/</span> tenure<span class="p">))</span>
+<div class="highlight"><pre><span></span><span class="kp">with</span><span class="p">(</span><span class="kp">subset</span><span class="p">(</span>pf<span class="p">,</span> tenure <span class="o">&gt;=</span> <span class="m">1</span><span class="p">),</span> <span class="kp">summary</span><span class="p">(</span>friend_count <span class="o">/</span> tenure<span class="p">))</span>
 </pre></div>
 
 
-<div class="highlight"><pre>##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+<div class="highlight"><pre><span></span>##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
 ##   0.0000   0.0775   0.2205   0.6096   0.5658 417.0000
 </pre></div>
 
 
 <p>We can now look at the effect of this variable in more detail using the following&nbsp;plot:</p>
-<div class="highlight"><pre>ggplot<span class="p">(</span>data <span class="o">=</span> <span class="kp">subset</span><span class="p">(</span>pf<span class="p">,</span> tenure <span class="o">&gt;=</span> <span class="m">1</span><span class="p">),</span> aes<span class="p">(</span>x <span class="o">=</span> tenure<span class="p">,</span> y <span class="o">=</span> friendships_initiated <span class="o">/</span> tenure<span class="p">))</span> <span class="o">+</span>
+<div class="highlight"><pre><span></span>ggplot<span class="p">(</span>data <span class="o">=</span> <span class="kp">subset</span><span class="p">(</span>pf<span class="p">,</span> tenure <span class="o">&gt;=</span> <span class="m">1</span><span class="p">),</span> aes<span class="p">(</span>x <span class="o">=</span> tenure<span class="p">,</span> y <span class="o">=</span> friendships_initiated <span class="o">/</span> tenure<span class="p">))</span> <span class="o">+</span>
   geom_smooth<span class="p">(</span>aes<span class="p">(</span>color <span class="o">=</span> year_joined.bucket<span class="p">))</span>
 </pre></div>
 
 
-<p><img alt="plot of chunk unnamed-chunk-13" src="http://sadanand-singh.github.io/images/R/fbMultiVar_unnamed-chunk-13-1.png" /></p>
+<p><img alt="plot of chunk MultiVariablesFacebookData-14" src="http://sadanand-singh.github.io/images/R/fbMultiVar_MultiVariablesFacebookData-14-1.png" /></p>
 <p>This shows that people initiate less number of friends as they have longer tenure at&nbsp;Facebook.</p>
 <p>Till now, we have looked at different aspects of the Facebook data set. We will now use  a new data set for some more detailed multivariate analysis, and then finally come back to the Facebook data set for&nbsp;comparison.</p>
 <p>We are going to work with a data set describing household purchases of five flavors of Dannon Yogurt in 8 oz sizes. Their price is recorded with each purchase occasion. This yogurt data set has a quite different structure than our pseudo-Facebook data set. The synthetic Facebook data has one row per individual with that row giving their characteristics and counts of behaviors over a single period of time. On the other hand, the yogurt data has many rows per household, one for each purchase occasion. This kind of micro-data is often useful for answering different types of questions than we&#8217;ve looked at so&nbsp;far.</p>
 <p>We will start by loading the yogurt data set and then looking at its&nbsp;summary.</p>
-<div class="highlight"><pre>yo <span class="o">&lt;-</span> read.csv<span class="p">(</span><span class="s">&quot;https://s3.amazonaws.com/udacity-hosted-downloads/ud651/yogurt.csv&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span>yo <span class="o">&lt;-</span> read.csv<span class="p">(</span><span class="s">&quot;https://s3.amazonaws.com/udacity-hosted-downloads/ud651/yogurt.csv&quot;</span><span class="p">)</span>
 str<span class="p">(</span>yo<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre>## &#39;data.frame&#39;:    2380 obs. of  9 variables:
+<div class="highlight"><pre><span></span>## &#39;data.frame&#39;:    2380 obs. of  9 variables:
 ##  $ obs        : int  1 2 3 4 5 6 7 8 9 10 ...
 ##  $ id         : int  2100081 2100081 2100081 2100081 2100081 2100081 2100081 2100081 2100081 2100081 ...
 ##  $ time       : int  9678 9697 9825 9999 10015 10029 10036 10042 10083 10091 ...
@@ -324,12 +324,12 @@ str<span class="p">(</span>yo<span class="p">)</span>
 
 
 <p>We notice that most of the variables are integers here. We should convert the id variable to factor. This will come handy later since the same household data is available in multiple&nbsp;rows.</p>
-<div class="highlight"><pre>yo <span class="o">&lt;-</span> <span class="kp">within</span><span class="p">(</span>yo<span class="p">,</span> id <span class="o">&lt;-</span> <span class="kp">as.factor</span><span class="p">(</span>id<span class="p">))</span>
+<div class="highlight"><pre><span></span>yo <span class="o">&lt;-</span> <span class="kp">within</span><span class="p">(</span>yo<span class="p">,</span> id <span class="o">&lt;-</span> <span class="kp">as.factor</span><span class="p">(</span>id<span class="p">))</span>
 str<span class="p">(</span>yo<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre>## &#39;data.frame&#39;:    2380 obs. of  9 variables:
+<div class="highlight"><pre><span></span>## &#39;data.frame&#39;:    2380 obs. of  9 variables:
 ##  $ obs        : int  1 2 3 4 5 6 7 8 9 10 ...
 ##  $ id         : Factor w/ 332 levels &quot;2100081&quot;,&quot;2100370&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
 ##  $ time       : int  9678 9697 9825 9999 10015 10029 10036 10042 10083 10091 ...
@@ -343,30 +343,30 @@ str<span class="p">(</span>yo<span class="p">)</span>
 
 
 <p>Let us look at the histogram of yogurt prices&nbsp;first.</p>
-<div class="highlight"><pre>ggplot<span class="p">(</span>data <span class="o">=</span> yo<span class="p">,</span>aes<span class="p">(</span>x <span class="o">=</span> price<span class="p">))</span> <span class="o">+</span>
+<div class="highlight"><pre><span></span>ggplot<span class="p">(</span>data <span class="o">=</span> yo<span class="p">,</span>aes<span class="p">(</span>x <span class="o">=</span> price<span class="p">))</span> <span class="o">+</span>
   geom_histogram<span class="p">()</span>
 </pre></div>
 
 
-<p><img alt="plot of chunk unnamed-chunk-16" src="http://sadanand-singh.github.io/images/R/fbMultiVar_unnamed-chunk-16-1.png" /></p>
+<p><img alt="plot of chunk MultiVariablesFacebookData-17" src="http://sadanand-singh.github.io/images/R/fbMultiVar_MultiVariablesFacebookData-17-1.png" /></p>
 <p>Now that we have some idea about distribution of prices, let&#8217;s figure out on a given purchase occasion how many eight ounce yogurts does a household purchase. To answer this we need to combine counts of the different yogurt flavors into one variable. Then we can look at the&nbsp;histogram.</p>
-<div class="highlight"><pre>yo <span class="o">&lt;-</span> <span class="kp">within</span><span class="p">(</span>yo<span class="p">,</span> all.purchases <span class="o">&lt;-</span> <span class="p">(</span>strawberry <span class="o">+</span> blueberry <span class="o">+</span> pina.colada <span class="o">+</span> plain <span class="o">+</span> mixed.berry<span class="p">))</span>
+<div class="highlight"><pre><span></span>yo <span class="o">&lt;-</span> <span class="kp">within</span><span class="p">(</span>yo<span class="p">,</span> all.purchases <span class="o">&lt;-</span> <span class="p">(</span>strawberry <span class="o">+</span> blueberry <span class="o">+</span> pina.colada <span class="o">+</span> plain <span class="o">+</span> mixed.berry<span class="p">))</span>
 ggplot<span class="p">(</span>data <span class="o">=</span> yo<span class="p">,</span>aes<span class="p">(</span>x <span class="o">=</span> all.purchases<span class="p">))</span> <span class="o">+</span>
   geom_histogram<span class="p">()</span>
 </pre></div>
 
 
-<p><img alt="plot of chunk unnamed-chunk-17" src="http://sadanand-singh.github.io/images/R/fbMultiVar_unnamed-chunk-17-1.png" /></p>
+<p><img alt="plot of chunk MultiVariablesFacebookData-18" src="http://sadanand-singh.github.io/images/R/fbMultiVar_MultiVariablesFacebookData-18-1.png" /></p>
 <p>It seems most household purchase one 8 oz yogurt at any given purchase. Now we will look at the scatter plot of prime vs time&nbsp;data.</p>
-<div class="highlight"><pre>ggplot<span class="p">(</span>data <span class="o">=</span> yo<span class="p">,</span> aes<span class="p">(</span>x <span class="o">=</span> time<span class="p">,</span> y <span class="o">=</span> price<span class="p">))</span> <span class="o">+</span>
+<div class="highlight"><pre><span></span>ggplot<span class="p">(</span>data <span class="o">=</span> yo<span class="p">,</span> aes<span class="p">(</span>x <span class="o">=</span> time<span class="p">,</span> y <span class="o">=</span> price<span class="p">))</span> <span class="o">+</span>
   geom_jitter<span class="p">(</span>alpha <span class="o">=</span> <span class="m">1</span><span class="o">/</span><span class="m">4</span><span class="p">,</span> shape <span class="o">=</span> <span class="m">21</span><span class="p">,</span> fill <span class="o">=</span> <span class="kp">I</span><span class="p">(</span><span class="s">&quot;#F79420&quot;</span><span class="p">))</span>
 </pre></div>
 
 
-<p><img alt="plot of chunk unnamed-chunk-18" src="http://sadanand-singh.github.io/images/R/fbMultiVar_unnamed-chunk-18-1.png" /></p>
+<p><img alt="plot of chunk MultiVariablesFacebookData-19" src="http://sadanand-singh.github.io/images/R/fbMultiVar_MultiVariablesFacebookData-19-1.png" /></p>
 <p>We see the baseline price of yogurt has been increasing over time. We also see some scattered prices around the baseline price, which could be simply due to usage of coupons, sales etc. by&nbsp;customers.</p>
 <p>When familiarizing yourself with a new data set that contains multiple observations of the same units, it&#8217;s often useful to work with a sample of those units so that it&#8217;s easy to display the raw data for that sample. In the case of the yogurt data set, we might want to look at a small sample of households in more detail so that we know what kind of within and between household variation we are working with. This analysis of a sub-sample might come before trying to use within household variation as part of a model. For example, this data set was originally used to model consumer preferences for variety. But, before doing that, we&#8217;d want to look at how often we observe households buying yogurt, how often they buy multiple items, and what prices they&#8217;re buying yogurt at. One way to do this is to look at some sub-sample in more detail. Let&#8217;s pick 16 households at random and take a closer&nbsp;look.</p>
-<div class="highlight"><pre><span class="kp">set.seed</span><span class="p">(</span><span class="m">4230</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="kp">set.seed</span><span class="p">(</span><span class="m">4230</span><span class="p">)</span>
 sample.ids <span class="o">&lt;-</span> <span class="kp">sample</span><span class="p">(</span><span class="kp">levels</span><span class="p">(</span>yo<span class="o">$</span>id<span class="p">),</span> <span class="m">16</span><span class="p">)</span>
 
 ggplot<span class="p">(</span>data <span class="o">=</span> <span class="kp">subset</span><span class="p">(</span>yo<span class="p">,</span> id <span class="o">%in%</span> sample.ids<span class="p">),</span>
@@ -377,7 +377,7 @@ ggplot<span class="p">(</span>data <span class="o">=</span> <span class="kp">sub
 </pre></div>
 
 
-<p><img alt="plot of chunk unnamed-chunk-19" src="http://sadanand-singh.github.io/images/R/fbMultiVar_unnamed-chunk-19-1.png" /></p>
+<p><img alt="plot of chunk MultiVariablesFacebookData-20" src="http://sadanand-singh.github.io/images/R/fbMultiVar_MultiVariablesFacebookData-20-1.png" /></p>
 <p>Notice the <em>%in%</em> syntax above. This helps us create a subset of all ids that belong to the set sample.ids chosen randomly. Also notice that I&#8217;m sampling from the levels because those are all of the different households that I&nbsp;have.</p>
 <p>The above <em>ggplot</em> command gives us a panel plot for each of the randomly selected household ids. We made this possible using the facet_wrap()&nbsp;command.</p>
 <p>From these plots, we can see the variation and how often each household buys yogurt. And it seems that some household purchases more quantities than others with the larger circles. For most of the households, the price of yogurt holds steady, or tends to increase over&nbsp;time.</p>
@@ -390,66 +390,54 @@ ggplot<span class="p">(</span>data <span class="o">=</span> <span class="kp">sub
 <p>We should let the data speak to determine variables of interest. There&#8217;s a tool that we can use to create a number of scatter plots&nbsp;automatically.</p>
 <p>It&#8217;s called a scatter plot matrix. In a scatter plot matrix. There&#8217;s a grid of scatter plots between every pair of variables. As we&#8217;ve seen, scatter plots are great, but not necessarily suited for all types of variables. For example, categorical ones. So there are other types of visualizations that can be created instead of scatter plots. Like box plots or histograms when the variables are&nbsp;categorical.</p>
 <p>Let&#8217;s produce the scatter plot matrix for our pseudo Facebook data set. We&#8217;re going to use the <em>GGally</em> package to do&nbsp;so.</p>
-<div class="highlight"><pre><span class="kn">library</span><span class="p">(</span>GGally<span class="p">)</span>
-</pre></div>
+<div class="highlight"><pre><span></span><span class="kn">library</span><span class="p">(</span>GGally<span class="p">)</span>
 
-
-<div class="highlight"><pre>## Error in library(GGally): there is no package called &#39;GGally&#39;
-</pre></div>
-
-
-<div class="highlight"><pre><span class="c1"># set the seed for reproducible results</span>
+<span class="c1"># set the seed for reproducible results</span>
 <span class="kp">set.seed</span><span class="p">(</span><span class="m">1836</span><span class="p">)</span>
 pf_subset <span class="o">&lt;-</span> pf<span class="p">[,</span> <span class="kt">c</span><span class="p">(</span><span class="m">2</span><span class="o">:</span><span class="m">8</span><span class="p">)]</span>
 <span class="kp">names</span><span class="p">(</span>pf_subset<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre>## [1] &quot;age&quot;          &quot;dob_day&quot;      &quot;dob_year&quot;     &quot;dob_month&quot;   
+<div class="highlight"><pre><span></span>## [1] &quot;age&quot;          &quot;dob_day&quot;      &quot;dob_year&quot;     &quot;dob_month&quot;   
 ## [5] &quot;gender&quot;       &quot;tenure&quot;       &quot;friend_count&quot;
 </pre></div>
 
 
-<div class="highlight"><pre>ggpairs<span class="p">(</span>pf_subset<span class="p">[</span><span class="kp">sample.int</span><span class="p">(</span><span class="kp">nrow</span><span class="p">(</span>pf_subset<span class="p">),</span> <span class="m">1000</span><span class="p">),</span> <span class="p">])</span>
+<div class="highlight"><pre><span></span>ggpairs<span class="p">(</span>pf_subset<span class="p">[</span><span class="kp">sample.int</span><span class="p">(</span><span class="kp">nrow</span><span class="p">(</span>pf_subset<span class="p">),</span> <span class="m">1000</span><span class="p">),</span> <span class="p">])</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span class="err">##</span> <span class="nb">Error</span> <span class="k">in</span> <span class="nb">eval</span><span class="p">(</span><span class="nx">expr</span><span class="p">,</span> <span class="nx">envir</span><span class="p">,</span> <span class="nx">enclos</span><span class="p">)</span><span class="o">:</span> <span class="nx">could</span> <span class="nx">not</span> <span class="nx">find</span> <span class="kd">function</span> <span class="s2">&quot;ggpairs&quot;</span>
-</pre></div>
-
-
+<p><img alt="plot of chunk MultiVariablesFacebookData-21" src="http://sadanand-singh.github.io/images/R/fbMultiVar_MultiVariablesFacebookData-21-1.png" /></p>
 <p>We will sample from the variable set from the pf data frame. However, some variables are not of interest to use, for example, &#8220;<em>useid</em>&#8220;, &#8220;<em>year_joined</em>&#8221; or &#8220;<em>year_joined.bucket</em>&#8220;.</p>
-<div class="highlight"><pre>pf_subset <span class="o">&lt;-</span> pf<span class="p">[,</span> <span class="kt">c</span><span class="p">(</span><span class="m">9</span><span class="o">:</span><span class="m">15</span><span class="p">)]</span>
+<div class="highlight"><pre><span></span>pf_subset <span class="o">&lt;-</span> pf<span class="p">[,</span> <span class="kt">c</span><span class="p">(</span><span class="m">9</span><span class="o">:</span><span class="m">15</span><span class="p">)]</span>
 <span class="kp">names</span><span class="p">(</span>pf_subset<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre>## [1] &quot;friendships_initiated&quot; &quot;likes&quot;                 &quot;likes_received&quot;       
+<div class="highlight"><pre><span></span>## [1] &quot;friendships_initiated&quot; &quot;likes&quot;                 &quot;likes_received&quot;       
 ## [4] &quot;mobile_likes&quot;          &quot;mobile_likes_received&quot; &quot;www_likes&quot;            
 ## [7] &quot;www_likes_received&quot;
 </pre></div>
 
 
-<div class="highlight"><pre>ggpairs<span class="p">(</span>pf_subset<span class="p">[</span><span class="kp">sample.int</span><span class="p">(</span><span class="kp">nrow</span><span class="p">(</span>pf_subset<span class="p">),</span> <span class="m">1000</span><span class="p">),</span> <span class="p">])</span>
+<div class="highlight"><pre><span></span>ggpairs<span class="p">(</span>pf_subset<span class="p">[</span><span class="kp">sample.int</span><span class="p">(</span><span class="kp">nrow</span><span class="p">(</span>pf_subset<span class="p">),</span> <span class="m">1000</span><span class="p">),</span> <span class="p">])</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span class="err">##</span> <span class="nb">Error</span> <span class="k">in</span> <span class="nb">eval</span><span class="p">(</span><span class="nx">expr</span><span class="p">,</span> <span class="nx">envir</span><span class="p">,</span> <span class="nx">enclos</span><span class="p">)</span><span class="o">:</span> <span class="nx">could</span> <span class="nx">not</span> <span class="nx">find</span> <span class="kd">function</span> <span class="s2">&quot;ggpairs&quot;</span>
-</pre></div>
-
-
+<p><img alt="plot of chunk MultiVariablesFacebookData-22" src="http://sadanand-singh.github.io/images/R/fbMultiVar_MultiVariablesFacebookData-22-1.png" /></p>
 <p>The <em>GGpairs()</em> function uses a different plot type for different types of combinations of variables. Hence, we have histograms here and we have scatter plots here. Many of these plots aren&#8217;t quite as nice as they would be if we fine-tuned them for the particular variables. For example, for all the counts of likes, we might want to work on a logarithmic scale. But, <span class="caps">GG</span> Pairs doesn&#8217;t do this for us. At the very least, a scatter plot matrix can be a useful starting point in many&nbsp;analyses.</p>
 <p>A matrix such as this one will be extremely helpful when we have even more variables than those in the pseudo-Facebook data&nbsp;set.</p>
 <p>Examples arise in many areas, but one that has attracted the attention of statisticians is genomic data. In these data sets, they&#8217;re often thousands of genetic measurements for each of a small number of samples. In some cases, some of these samples have a disease, and so we&#8217;d like to identify genes that are associated with the&nbsp;disease.</p>
 <p>We will use an example data set of gene expression in tumors. The data contains the expression of 6,830 genes, compared with a larger baseline reference&nbsp;sample.</p>
-<div class="highlight"><pre>nci <span class="o">&lt;-</span> read.table<span class="p">(</span><span class="s">&quot;https://s3.amazonaws.com/udacity-hosted-downloads/ud651/nci.tsv&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span>nci <span class="o">&lt;-</span> read.table<span class="p">(</span><span class="s">&quot;https://s3.amazonaws.com/udacity-hosted-downloads/ud651/nci.tsv&quot;</span><span class="p">)</span>
 <span class="c1">#Change col names for nicer plots</span>
 <span class="kp">colnames</span><span class="p">(</span>nci<span class="p">)</span> <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">64</span><span class="p">)</span>
 </pre></div>
 
 
 <p>We renamed the column names just for the ease of plotting and x labels. We will now make heat map plot for this data showing distribution of different genes in different&nbsp;tumors.</p>
-<div class="highlight"><pre><span class="c1"># We can use the tidyr package instead of the reshape2 package</span>
+<div class="highlight"><pre><span></span><span class="c1"># We can use the tidyr package instead of the reshape2 package</span>
 <span class="c1">#library(tidyr)</span>
 
 <span class="c1"># nci$gene &lt;- rownames(nci)</span>
@@ -468,7 +456,7 @@ ggplot<span class="p">(</span>aes<span class="p">(</span>y <span class="o">=</sp
 </pre></div>
 
 
-<p><img alt="plot of chunk unnamed-chunk-23" src="http://sadanand-singh.github.io/images/R/fbMultiVar_unnamed-chunk-23-1.png" /></p>
+<p><img alt="plot of chunk MultiVariablesFacebookData-24" src="http://sadanand-singh.github.io/images/R/fbMultiVar_MultiVariablesFacebookData-24-1.png" /></p>
 <p>Heat maps can also be a good way to look at distributions of large dimensional&nbsp;data.</p>
 <p>In summary in this post, we started with simple extensions to the scatter plot, and plots of conditional summaries that you worked with in lesson four, such as adding summaries for multiple groups. Then, we tried some techniques for examining a large number of variables at once, such as scatter-plot matrices and heat maps. We also learned how to reshape data, moving from broad data with one row per case, to aggregate data with one row per combination of variables, and we moved back and forth between long and wide formats for our&nbsp;data.</p>
 <p>In the next and the final post in this series, We will do an in-depth analysis of the <span class="caps">US</span> department of Education dataset on college education, highlighting the role of <span class="caps">EDA</span>.</p>

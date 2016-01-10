@@ -127,12 +127,12 @@
 </div>
             <p>In this section, we will be re-using the data from the previous post based on Pseudo Facebook data from <a href="https://www.udacity.com/">udacity</a>.</p>
 <p>The data from the project corresponds to a typical data set at <a href="http://facebook.com">Facebook</a>. You can load the data through the following command. Notice that this is a <TAB> delimited csv file. This data set consists of 99000 rows of data. We will see the details of different columns using the command&nbsp;below.</p>
-<div class="highlight"><pre>pf <span class="o">&lt;-</span> read.csv<span class="p">(</span><span class="s">&quot;https://s3.amazonaws.com/udacity-hosted-downloads/ud651/pseudo_facebook.tsv&quot;</span><span class="p">,</span> sep <span class="o">=</span> <span class="s">&#39;\t&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span>pf <span class="o">&lt;-</span> read.csv<span class="p">(</span><span class="s">&quot;https://s3.amazonaws.com/udacity-hosted-downloads/ud651/pseudo_facebook.tsv&quot;</span><span class="p">,</span> sep <span class="o">=</span> <span class="s">&#39;\t&#39;</span><span class="p">)</span>
 str<span class="p">(</span>pf<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre>## &#39;data.frame&#39;:    99003 obs. of  15 variables:
+<div class="highlight"><pre><span></span>## &#39;data.frame&#39;:    99003 obs. of  15 variables:
 ##  $ userid               : int  2094382 1192601 2083884 1203168 1733186 1524765 1136133 1680361 1365174 1712567 ...
 ##  $ age                  : int  14 14 14 14 14 14 13 13 13 13 ...
 ##  $ dob_day              : int  19 2 16 25 4 1 14 4 1 2 ...
@@ -151,27 +151,27 @@ str<span class="p">(</span>pf<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span class="kn">library</span><span class="p">(</span>ggplot2<span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="kn">library</span><span class="p">(</span>ggplot2<span class="p">)</span>
 </pre></div>
 
 
 <p>Usually, it is best to use a scatter plot to analyze two&nbsp;variables:</p>
-<div class="highlight"><pre><span class="kp">summary</span><span class="p">(</span>pf<span class="o">$</span>age<span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="kp">summary</span><span class="p">(</span>pf<span class="o">$</span>age<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+<div class="highlight"><pre><span></span>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##   13.00   20.00   28.00   37.28   50.00  113.00
 </pre></div>
 
 
-<div class="highlight"><pre>ggplot<span class="p">(</span>data <span class="o">=</span> pf<span class="p">,</span> aes<span class="p">(</span>x <span class="o">=</span> age<span class="p">,</span> y <span class="o">=</span> friend_count<span class="p">))</span> <span class="o">+</span>
+<div class="highlight"><pre><span></span>ggplot<span class="p">(</span>data <span class="o">=</span> pf<span class="p">,</span> aes<span class="p">(</span>x <span class="o">=</span> age<span class="p">,</span> y <span class="o">=</span> friend_count<span class="p">))</span> <span class="o">+</span>
   geom_point<span class="p">()</span> <span class="o">+</span>
   xlim<span class="p">(</span><span class="m">13</span><span class="p">,</span> <span class="m">90</span><span class="p">)</span>
 </pre></div>
 
 
-<p><img alt="plot of chunk unnamed-chunk-2" src="http://sadanand-singh.github.io/images/R/fbTwoVar_unnamed-chunk-2-1.png" /></p>
+<p><img alt="plot of chunk TwoVariablesFacebookData-3" src="http://sadanand-singh.github.io/images/R/fbTwoVar_TwoVariablesFacebookData-3-1.png" /></p>
 <p>We can notice some really interesting behavior in the ugly scatter plot above:
 1. The age data is binned, as expected (only integers allowed)
 2. Young people around the age of 20 have maximum friend count.
@@ -180,38 +180,38 @@ str<span class="p">(</span>pf<span class="p">)</span>
 <p>We can use summary command to find the bounds on age and then use that to limit age&nbsp;axis.</p>
 <p>Furthermore, we notice at some areas of the plot being too dense, where as some to be really sparse. The areas where points are too dense is called &#8220;over plotting&#8221; - It is impossible to extract any meaningful statistics from this region. In order to overcome this, we can set the transparency of the plots using the alpha parameter in the geo_point(). Using a value of 1/20 means, one point that will plotted will be equal to 20 original&nbsp;points.</p>
 <p>Given age is a discrete variable we can add some noise to this using geom_jitter to get a better feel about its&nbsp;distribution.</p>
-<div class="highlight"><pre>ggplot<span class="p">(</span>data <span class="o">=</span> pf<span class="p">,</span> aes<span class="p">(</span>x <span class="o">=</span> age<span class="p">,</span> y <span class="o">=</span> friend_count<span class="p">))</span> <span class="o">+</span>
+<div class="highlight"><pre><span></span>ggplot<span class="p">(</span>data <span class="o">=</span> pf<span class="p">,</span> aes<span class="p">(</span>x <span class="o">=</span> age<span class="p">,</span> y <span class="o">=</span> friend_count<span class="p">))</span> <span class="o">+</span>
   geom_jitter<span class="p">(</span>alpha <span class="o">=</span> <span class="m">1</span><span class="o">/</span><span class="m">20</span><span class="p">,</span> colour <span class="o">=</span> <span class="s">&quot;red&quot;</span><span class="p">)</span> <span class="o">+</span>
   xlim<span class="p">(</span><span class="m">13</span><span class="p">,</span> <span class="m">90</span><span class="p">)</span>
 </pre></div>
 
 
-<p><img alt="plot of chunk unnamed-chunk-3" src="http://sadanand-singh.github.io/images/R/fbTwoVar_unnamed-chunk-3-1.png" /></p>
+<p><img alt="plot of chunk TwoVariablesFacebookData-4" src="http://sadanand-singh.github.io/images/R/fbTwoVar_TwoVariablesFacebookData-4-1.png" /></p>
 <p>Based on these new plots, we can find bulk to higher friend count for younger people is still less than 600. We still find higher count for age group of&nbsp;70.</p>
 <p>We do a better representation of data using the coord_trans() method. We will be using a square root&nbsp;function.</p>
-<div class="highlight"><pre>ggplot<span class="p">(</span>data <span class="o">=</span> pf<span class="p">,</span> aes<span class="p">(</span>x <span class="o">=</span> age<span class="p">,</span> y <span class="o">=</span> friend_count<span class="p">))</span> <span class="o">+</span>
+<div class="highlight"><pre><span></span>ggplot<span class="p">(</span>data <span class="o">=</span> pf<span class="p">,</span> aes<span class="p">(</span>x <span class="o">=</span> age<span class="p">,</span> y <span class="o">=</span> friend_count<span class="p">))</span> <span class="o">+</span>
   geom_jitter<span class="p">(</span>alpha <span class="o">=</span> <span class="m">1</span><span class="o">/</span><span class="m">20</span><span class="p">,</span> colour <span class="o">=</span> <span class="s">&quot;cyan&quot;</span><span class="p">,</span> position <span class="o">=</span> position_jitter<span class="p">(</span>h <span class="o">=</span> <span class="m">0</span><span class="p">))</span> <span class="o">+</span>
   xlim<span class="p">(</span><span class="m">13</span><span class="p">,</span> <span class="m">90</span><span class="p">)</span> <span class="o">+</span>
   coord_trans<span class="p">(</span>y <span class="o">=</span> <span class="s">&quot;sqrt&quot;</span> <span class="p">)</span>
 </pre></div>
 
 
-<p><img alt="plot of chunk unnamed-chunk-4" src="http://sadanand-singh.github.io/images/R/fbTwoVar_unnamed-chunk-4-1.png" /></p>
+<p><img alt="plot of chunk TwoVariablesFacebookData-5" src="http://sadanand-singh.github.io/images/R/fbTwoVar_TwoVariablesFacebookData-5-1.png" /></p>
 <p>On a similar way, we can look at relationship between friends initiated and&nbsp;age.</p>
-<div class="highlight"><pre>ggplot<span class="p">(</span>data <span class="o">=</span> pf<span class="p">,</span> aes<span class="p">(</span>x <span class="o">=</span> age<span class="p">,</span> y <span class="o">=</span> friendships_initiated<span class="p">))</span> <span class="o">+</span>
+<div class="highlight"><pre><span></span>ggplot<span class="p">(</span>data <span class="o">=</span> pf<span class="p">,</span> aes<span class="p">(</span>x <span class="o">=</span> age<span class="p">,</span> y <span class="o">=</span> friendships_initiated<span class="p">))</span> <span class="o">+</span>
   geom_jitter<span class="p">(</span>alpha <span class="o">=</span> <span class="m">1</span><span class="o">/</span><span class="m">10</span><span class="p">,</span> colour <span class="o">=</span> <span class="s">&quot;#ff33cc&quot;</span><span class="p">,</span> position <span class="o">=</span> position_jitter<span class="p">(</span>h <span class="o">=</span> <span class="m">0</span><span class="p">))</span> <span class="o">+</span>
   xlim<span class="p">(</span><span class="m">13</span><span class="p">,</span> <span class="m">90</span><span class="p">)</span> <span class="o">+</span>
   coord_trans<span class="p">(</span>y <span class="o">=</span> <span class="s">&quot;sqrt&quot;</span> <span class="p">)</span>
 </pre></div>
 
 
-<p><img alt="plot of chunk unnamed-chunk-5" src="http://sadanand-singh.github.io/images/R/fbTwoVar_unnamed-chunk-5-1.png" /></p>
+<p><img alt="plot of chunk TwoVariablesFacebookData-6" src="http://sadanand-singh.github.io/images/R/fbTwoVar_TwoVariablesFacebookData-6-1.png" /></p>
 <p>Interestingly, we find this distribution to be very similar to the one for friend&nbsp;count.</p>
 <p>Scatter plots try to keep us very close to the data. It represents each and evry data point. However, in order to judge the quality of a data, it is important to know its important statisics like mean, median etc. How does average of a variable wrt to the other&nbsp;variable.</p>
 <p>We want to say, study how does average friend count vary with age. In order to study this we will use a package called&nbsp;&#8216;dplyr&#8217;.</p>
 <p>First we want to group our data frame by age. Then, we can create a new data frame that lists friend count mean, median and frequency (n) by using the summarise() method. We can look a first few data of this new data frame using the head() method.
 We notice that by default, data may not be arranged by order of age. We can do that by explicitly calling the arrange()&nbsp;method.</p>
-<div class="highlight"><pre><span class="kn">library</span><span class="p">(</span>dplyr<span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="kn">library</span><span class="p">(</span>dplyr<span class="p">)</span>
 age_groups <span class="o">&lt;-</span> group_by<span class="p">(</span>pf<span class="p">,</span> age<span class="p">)</span>
 pf.fc_by_age <span class="o">&lt;-</span> summarise<span class="p">(</span>age_groups<span class="p">,</span>
           friend_count_mean <span class="o">=</span> <span class="kp">mean</span><span class="p">(</span>friend_count<span class="p">),</span>
@@ -222,7 +222,7 @@ pf.fc_by_age <span class="o">&lt;-</span> arrange<span class="p">(</span>pf.fc_b
 </pre></div>
 
 
-<div class="highlight"><pre>## Source: local data frame [6 x 4]
+<div class="highlight"><pre><span></span>## Source: local data frame [6 x 4]
 ## 
 ##     age friend_count_mean friend_count_median     n
 ##   (int)             (dbl)               (dbl) (int)
@@ -236,7 +236,7 @@ pf.fc_by_age <span class="o">&lt;-</span> arrange<span class="p">(</span>pf.fc_b
 
 
 <p>If you notice one detail about all dplyr method, every method needs one data frame and output needs to be saved to be used by next set of methods. All this can be done as a chain of commands using the following&nbsp;syntax:</p>
-<div class="highlight"><pre>pf.fc_by_age <span class="o">&lt;-</span> pf <span class="o">%&gt;%</span>
+<div class="highlight"><pre><span></span>pf.fc_by_age <span class="o">&lt;-</span> pf <span class="o">%&gt;%</span>
   group_by<span class="p">(</span>age<span class="p">)</span> <span class="o">%&gt;%</span>
   summarise<span class="p">(</span>friend_count_mean <span class="o">=</span> <span class="kp">mean</span><span class="p">(</span>friend_count<span class="p">),</span>
           friend_count_median <span class="o">=</span> median<span class="p">(</span>friend_count<span class="p">),</span>
@@ -246,7 +246,7 @@ pf.fc_by_age <span class="o">&lt;-</span> arrange<span class="p">(</span>pf.fc_b
 </pre></div>
 
 
-<div class="highlight"><pre>## Source: local data frame [20 x 4]
+<div class="highlight"><pre><span></span>## Source: local data frame [20 x 4]
 ## 
 ##      age friend_count_mean friend_count_median     n
 ##    (int)             (dbl)               (dbl) (int)
@@ -274,40 +274,37 @@ pf.fc_by_age <span class="o">&lt;-</span> arrange<span class="p">(</span>pf.fc_b
 
 
 <p>Now, let us look at this new data frame visually. We can first look at the relationship between average friend count and&nbsp;age.</p>
-<div class="highlight"><pre>ggplot<span class="p">(</span>data <span class="o">=</span> pf.fc_by_age<span class="p">,</span> aes<span class="p">(</span>x <span class="o">=</span> age<span class="p">,</span> y <span class="o">=</span> friend_count_mean<span class="p">))</span> <span class="o">+</span>
+<div class="highlight"><pre><span></span>ggplot<span class="p">(</span>data <span class="o">=</span> pf.fc_by_age<span class="p">,</span> aes<span class="p">(</span>x <span class="o">=</span> age<span class="p">,</span> y <span class="o">=</span> friend_count_mean<span class="p">))</span> <span class="o">+</span>
   geom_line<span class="p">()</span>
 </pre></div>
 
 
-<p><img alt="plot of chunk unnamed-chunk-8" src="http://sadanand-singh.github.io/images/R/fbTwoVar_unnamed-chunk-8-1.png" /></p>
+<p><img alt="plot of chunk TwoVariablesFacebookData-9" src="http://sadanand-singh.github.io/images/R/fbTwoVar_TwoVariablesFacebookData-9-1.png" /></p>
 <p>We can use this plot as good summary of the original scatter plot and put the two on top of each other. We can also transform the y axis using the coors_cartesian()&nbsp;method.</p>
-<div class="highlight"><pre>ggplot<span class="p">(</span>data <span class="o">=</span> pf<span class="p">,</span> aes<span class="p">(</span>x <span class="o">=</span> age<span class="p">,</span> y <span class="o">=</span> friend_count<span class="p">))</span> <span class="o">+</span>
+<div class="highlight"><pre><span></span>ggplot<span class="p">(</span>data <span class="o">=</span> pf<span class="p">,</span> aes<span class="p">(</span>x <span class="o">=</span> age<span class="p">,</span> y <span class="o">=</span> friend_count<span class="p">))</span> <span class="o">+</span>
   geom_point<span class="p">(</span>alpha <span class="o">=</span> <span class="m">1</span><span class="o">/</span><span class="m">20</span><span class="p">,</span> colour <span class="o">=</span> <span class="s">&quot;#00bfff&quot;</span><span class="p">,</span>
               position <span class="o">=</span> position_jitter<span class="p">(</span>h <span class="o">=</span> <span class="m">0</span><span class="p">))</span> <span class="o">+</span>
   coord_cartesian<span class="p">(</span>xlim <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="m">13</span><span class="p">,</span><span class="m">70</span><span class="p">),</span> ylim <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">1000</span><span class="p">))</span> <span class="o">+</span>
   geom_line<span class="p">(</span>stat <span class="o">=</span> <span class="s">&#39;summary&#39;</span><span class="p">,</span> fun.y <span class="o">=</span> <span class="kp">mean</span><span class="p">)</span> <span class="o">+</span>
-  geom_line<span class="p">(</span>stat <span class="o">=</span> <span class="s">&#39;summary&#39;</span><span class="p">,</span> fun.y <span class="o">=</span> quantile<span class="p">,</span> probs <span class="o">=</span> <span class="m">0.1</span><span class="p">,</span>
+  geom_line<span class="p">(</span>stat <span class="o">=</span> <span class="s">&#39;summary&#39;</span><span class="p">,</span> fun.y <span class="o">=</span> quantile<span class="p">,</span> fun.args<span class="o">=</span><span class="kt">list</span><span class="p">(</span>probs<span class="o">=</span><span class="m">0.1</span><span class="p">),</span>
             linetype <span class="o">=</span> <span class="m">2</span><span class="p">,</span> color <span class="o">=</span> <span class="s">&quot;blue&quot;</span><span class="p">)</span> <span class="o">+</span>
-  geom_line<span class="p">(</span>stat <span class="o">=</span> <span class="s">&#39;summary&#39;</span><span class="p">,</span> fun.y <span class="o">=</span> quantile<span class="p">,</span> probs <span class="o">=</span> <span class="m">0.5</span><span class="p">,</span>
+  geom_line<span class="p">(</span>stat <span class="o">=</span> <span class="s">&#39;summary&#39;</span><span class="p">,</span> fun.y <span class="o">=</span> quantile<span class="p">,</span> fun.args<span class="o">=</span><span class="kt">list</span><span class="p">(</span>probs<span class="o">=</span><span class="m">0.5</span><span class="p">),</span>
             linetype <span class="o">=</span> <span class="m">1</span><span class="p">,</span> color <span class="o">=</span> <span class="s">&quot;blue&quot;</span><span class="p">)</span> <span class="o">+</span>
-  geom_line<span class="p">(</span>stat <span class="o">=</span> <span class="s">&#39;summary&#39;</span><span class="p">,</span> fun.y <span class="o">=</span> quantile<span class="p">,</span> probs <span class="o">=</span> <span class="m">0.9</span><span class="p">,</span>
+  geom_line<span class="p">(</span>stat <span class="o">=</span> <span class="s">&#39;summary&#39;</span><span class="p">,</span> fun.y <span class="o">=</span> quantile<span class="p">,</span> fun.args<span class="o">=</span><span class="kt">list</span><span class="p">(</span>probs<span class="o">=</span><span class="m">0.9</span><span class="p">),</span>
             linetype <span class="o">=</span> <span class="m">2</span><span class="p">,</span> color <span class="o">=</span> <span class="s">&quot;#ff9900&quot;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre>## Error: Unknown parameters: probs
-</pre></div>
-
-
+<p><img alt="plot of chunk TwoVariablesFacebookData-10" src="http://sadanand-singh.github.io/images/R/fbTwoVar_TwoVariablesFacebookData-10-1.png" /></p>
 <p>In the above plot, we can see that between the age group 30-69, 90% of population has less than 250&nbsp;freinds.</p>
 <p>In stead of using 4 different summary measures to analyze the above data, we can use a single&nbsp;number!</p>
 <p>Often analysts will use correlation coefficients to summarize this. We will use the Pearson product moment correlation (r).
 You can look at the cor.test() method for details. This measures a linear correlation between two&nbsp;variables.</p>
-<div class="highlight"><pre><span class="kp">with</span><span class="p">(</span><span class="kp">subset</span><span class="p">(</span>pf<span class="p">,</span> age <span class="o">&lt;</span> <span class="m">70</span> <span class="o">&amp;</span> age <span class="o">&gt;=</span> <span class="m">13</span><span class="p">),</span> cor.test<span class="p">(</span>age<span class="p">,</span> friend_count<span class="p">,</span> method <span class="o">=</span> <span class="s">&quot;pearson&quot;</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><span class="kp">with</span><span class="p">(</span><span class="kp">subset</span><span class="p">(</span>pf<span class="p">,</span> age <span class="o">&lt;</span> <span class="m">70</span> <span class="o">&amp;</span> age <span class="o">&gt;=</span> <span class="m">13</span><span class="p">),</span> cor.test<span class="p">(</span>age<span class="p">,</span> friend_count<span class="p">,</span> method <span class="o">=</span> <span class="s">&quot;pearson&quot;</span><span class="p">))</span>
 </pre></div>
 
 
-<div class="highlight"><pre>## 
+<div class="highlight"><pre><span></span>## 
 ##  Pearson&#39;s product-moment correlation
 ## 
 ## data:  age and friend_count
@@ -324,7 +321,7 @@ You can look at the cor.test() method for details. This measures a linear correl
 <p>We can also have other measures of relationship. For example, a measure of monotonic relationship would be done using spearman coefficient. Similarly, a measure of strength of dependence between two variables can be done using the &#8220;Kendall Rank Coefficient&#8221;. A more detailed description about these can be found at <a href="http://www.statisticssolutions.com/correlation-pearson-kendall-spearman/">http://www.statisticssolutions.com/correlation-pearson-kendall-spearman/</a>.</p>
 <p>We will now look at variables that are strictly correlated using&nbsp;scatterplots.</p>
 <p>One such example in our datset would be a relationship between likes_received (y) vs. www_likes_received&nbsp;(x).</p>
-<div class="highlight"><pre>ggplot<span class="p">(</span>data <span class="o">=</span> pf<span class="p">,</span> aes<span class="p">(</span>x <span class="o">=</span> www_likes_received<span class="p">,</span>
+<div class="highlight"><pre><span></span>ggplot<span class="p">(</span>data <span class="o">=</span> pf<span class="p">,</span> aes<span class="p">(</span>x <span class="o">=</span> www_likes_received<span class="p">,</span>
                       y <span class="o">=</span> likes_received<span class="p">))</span> <span class="o">+</span>
   geom_point<span class="p">(</span>alpha <span class="o">=</span> <span class="m">1</span><span class="p">,</span> colour <span class="o">=</span> <span class="s">&quot;#996633&quot;</span><span class="p">)</span> <span class="o">+</span>
   xlim<span class="p">(</span><span class="m">0</span><span class="p">,</span> quantile<span class="p">(</span>pf<span class="o">$</span>www_likes_received<span class="p">,</span> <span class="m">0.95</span><span class="p">))</span><span class="o">+</span>
@@ -333,14 +330,14 @@ You can look at the cor.test() method for details. This measures a linear correl
 </pre></div>
 
 
-<p><img alt="plot of chunk unnamed-chunk-11" src="http://sadanand-singh.github.io/images/R/fbTwoVar_unnamed-chunk-11-1.png" /></p>
+<p><img alt="plot of chunk TwoVariablesFacebookData-12" src="http://sadanand-singh.github.io/images/R/fbTwoVar_TwoVariablesFacebookData-12-1.png" /></p>
 <p>We have used quantile() method to find upper limits of x and y data. Additionally, we added a correlation line using the geom_smooth()&nbsp;function.</p>
 <p>We can find the numerical value of the correlation between these two&nbsp;variables.</p>
-<div class="highlight"><pre><span class="kp">with</span><span class="p">(</span>pf<span class="p">,</span> cor.test<span class="p">(</span>www_likes_received<span class="p">,</span> likes_received<span class="p">))</span>
+<div class="highlight"><pre><span></span><span class="kp">with</span><span class="p">(</span>pf<span class="p">,</span> cor.test<span class="p">(</span>www_likes_received<span class="p">,</span> likes_received<span class="p">))</span>
 </pre></div>
 
 
-<div class="highlight"><pre>## 
+<div class="highlight"><pre><span></span>## 
 ##  Pearson&#39;s product-moment correlation
 ## 
 ## data:  www_likes_received and likes_received
@@ -356,31 +353,31 @@ You can look at the cor.test() method for details. This measures a linear correl
 
 <p>Correlation between two variables might not be a good thing always. For example in the above case, it was simply due to the artifact of the two data sets were highly coupled, one was a super set of the&nbsp;other.</p>
 <p>We can look at the caution with which correlations should be used in more detail using the &#8220;Mitchell&#8221; data set from the alr3 package. We can look at more details of Mitchell data set using its help method. This data set lists Data collected by Kenneth G. Hubbard on soil temperature at 20 cm depth in Mitchell, Nebraska for 17 years (1976-1992)&nbsp;.</p>
-<div class="highlight"><pre><span class="kn">library</span><span class="p">(</span>alr3<span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="kn">library</span><span class="p">(</span>alr3<span class="p">)</span>
 data<span class="p">(</span>Mitchell<span class="p">)</span>
 str<span class="p">(</span>Mitchell<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre>## &#39;data.frame&#39;:    204 obs. of  2 variables:
+<div class="highlight"><pre><span></span>## &#39;data.frame&#39;:    204 obs. of  2 variables:
 ##  $ Month: int  0 1 2 3 4 5 6 7 8 9 ...
 ##  $ Temp : num  -5.18 -1.65 2.49 10.4 14.99 ...
 </pre></div>
 
 
 <p>Let use first look at a scatter plot between temperature and&nbsp;month.</p>
-<div class="highlight"><pre>ggplot<span class="p">(</span>data <span class="o">=</span> Mitchell<span class="p">,</span> aes<span class="p">(</span>x <span class="o">=</span> Month<span class="p">,</span> y <span class="o">=</span> Temp<span class="p">))</span> <span class="o">+</span>
+<div class="highlight"><pre><span></span>ggplot<span class="p">(</span>data <span class="o">=</span> Mitchell<span class="p">,</span> aes<span class="p">(</span>x <span class="o">=</span> Month<span class="p">,</span> y <span class="o">=</span> Temp<span class="p">))</span> <span class="o">+</span>
   geom_point<span class="p">()</span> <span class="o">+</span>
   scale_x_discrete<span class="p">(</span>breaks <span class="o">=</span> <span class="kp">seq</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">203</span><span class="p">,</span> <span class="m">12</span><span class="p">))</span>
 </pre></div>
 
 
-<p><img alt="plot of chunk unnamed-chunk-14" src="http://sadanand-singh.github.io/images/R/fbTwoVar_unnamed-chunk-14-1.png" /></p>
+<p><img alt="plot of chunk TwoVariablesFacebookData-15" src="http://sadanand-singh.github.io/images/R/fbTwoVar_TwoVariablesFacebookData-15-1.png" /></p>
 <p>One direct observation we can make is in terms of cyclic nature of the data, Temp. is fluctuating every 12 months. This tells us the importance scales when we are looking at Data set. Clearly, a direct use of cor.test() would give us a un-physical correlation&nbsp;coeffieicnt!</p>
 <p>Now, we will return back to out pseudo Facebook data. Let us take a look again at the modified data frame created using the dplyr methods. We want to remove any noise in the average&nbsp;values.</p>
 <p>Firse, we want to create a new data frame where age is measured in fractions of months. Then we can plot two means&nbsp;together.</p>
 <p>By splitting age into finer bins of months, we have made the age means data noisier. In a similar way, we could smooth the data further, if we measure age in multiples of&nbsp;5!</p>
-<div class="highlight"><pre>pf<span class="o">$</span>age_with_month <span class="o">&lt;-</span> pf<span class="o">$</span>age <span class="o">+</span> <span class="p">(</span><span class="m">12</span><span class="o">-</span>pf<span class="o">$</span>dob_month<span class="p">)</span><span class="o">/</span><span class="m">12</span>
+<div class="highlight"><pre><span></span>pf<span class="o">$</span>age_with_month <span class="o">&lt;-</span> pf<span class="o">$</span>age <span class="o">+</span> <span class="p">(</span><span class="m">12</span><span class="o">-</span>pf<span class="o">$</span>dob_month<span class="p">)</span><span class="o">/</span><span class="m">12</span>
 pf.fc_by_age_month <span class="o">&lt;-</span> pf <span class="o">%&gt;%</span>
   group_by<span class="p">(</span>age_with_month<span class="p">)</span> <span class="o">%&gt;%</span>
   summarise<span class="p">(</span>friend_count_mean <span class="o">=</span> <span class="kp">mean</span><span class="p">(</span>friend_count<span class="p">),</span>
@@ -402,9 +399,9 @@ grid.arrange<span class="p">(</span>p2<span class="p">,</span> p1<span class="p"
 </pre></div>
 
 
-<p><img alt="plot of chunk unnamed-chunk-15" src="http://sadanand-singh.github.io/images/R/fbTwoVar_unnamed-chunk-15-1.png" /></p>
+<p><img alt="plot of chunk TwoVariablesFacebookData-16" src="http://sadanand-singh.github.io/images/R/fbTwoVar_TwoVariablesFacebookData-16-1.png" /></p>
 <p>This is an example of bias variance tradeoff, and is similar to the tradeoff we make when choosing the bin width in histograms. One way, we can do this quite easily in ggplot is using the geom_smooth() function to fit a flexible statistical&nbsp;model.</p>
-<div class="highlight"><pre>p1<span class="o">&lt;-</span> ggplot<span class="p">(</span>data <span class="o">=</span> <span class="kp">subset</span><span class="p">(</span>pf.fc_by_age<span class="p">,</span> age <span class="o">&lt;</span> <span class="m">71</span><span class="p">),</span>
+<div class="highlight"><pre><span></span>p1<span class="o">&lt;-</span> ggplot<span class="p">(</span>data <span class="o">=</span> <span class="kp">subset</span><span class="p">(</span>pf.fc_by_age<span class="p">,</span> age <span class="o">&lt;</span> <span class="m">71</span><span class="p">),</span>
             aes<span class="p">(</span>x <span class="o">=</span> age<span class="p">,</span> y <span class="o">=</span> friend_count_mean<span class="p">))</span> <span class="o">+</span>
   geom_line<span class="p">()</span> <span class="o">+</span>
   geom_smooth<span class="p">()</span>
@@ -418,7 +415,7 @@ grid.arrange<span class="p">(</span>p2<span class="p">,</span> p1<span class="p"
 </pre></div>
 
 
-<p><img alt="plot of chunk unnamed-chunk-16" src="http://sadanand-singh.github.io/images/R/fbTwoVar_unnamed-chunk-16-1.png" /></p>
+<p><img alt="plot of chunk TwoVariablesFacebookData-17" src="http://sadanand-singh.github.io/images/R/fbTwoVar_TwoVariablesFacebookData-17-1.png" /></p>
 <p>By default, geom_smooth() uses <a href="https://en.wikipedia.org/wiki/Local_regression">Loess and Lowess</a> method for smoothing. Here, the model is based on the idea that data is continuous and&nbsp;smooth.</p>
 <p>So, through this blog, we have noticed several ways to plot the same data. The obvious that arises is which plot to choose? In <span class="caps">EDA</span>, however, answer to this is, simply you should choose. The idea in <span class="caps">EDA</span> is that the same data when plotted differently, glean different&nbsp;incites.</p>
 

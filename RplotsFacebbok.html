@@ -128,12 +128,12 @@
             <p>In this post, we will learn about <span class="caps">EDA</span> of single variables using simple plots like histograms, frequency plots and box&nbsp;plots.</p>
 <p>Data sets used below are part of a project from the <span class="caps">UD651</span> course on <a href="https://www.udacity.com/">udacity</a> by&nbsp;Facebook.</p>
 <p>The data from the project corresponds to a typical data set at <a href="http://facebook.com">Facebook</a>. You can load the data through the following command. Notice that this is a <TAB> delimited csv file. This data set consists of 99000 rows of data. We will see the details of different columns using the command&nbsp;below.</p>
-<div class="highlight"><pre>pf <span class="o">&lt;-</span> read.csv<span class="p">(</span><span class="s">&quot;https://s3.amazonaws.com/udacity-hosted-downloads/ud651/pseudo_facebook.tsv&quot;</span><span class="p">,</span> sep <span class="o">=</span> <span class="s">&#39;\t&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span>pf <span class="o">&lt;-</span> read.csv<span class="p">(</span><span class="s">&quot;https://s3.amazonaws.com/udacity-hosted-downloads/ud651/pseudo_facebook.tsv&quot;</span><span class="p">,</span> sep <span class="o">=</span> <span class="s">&#39;\t&#39;</span><span class="p">)</span>
 str<span class="p">(</span>pf<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre>## &#39;data.frame&#39;:    99003 obs. of  15 variables:
+<div class="highlight"><pre><span></span>## &#39;data.frame&#39;:    99003 obs. of  15 variables:
 ##  $ userid               : int  2094382 1192601 2083884 1203168 1733186 1524765 1136133 1680361 1365174 1712567 ...
 ##  $ age                  : int  14 14 14 14 14 14 13 13 13 13 ...
 ##  $ dob_day              : int  19 2 16 25 4 1 14 4 1 2 ...
@@ -155,40 +155,32 @@ str<span class="p">(</span>pf<span class="p">)</span>
 <p>The goal of this analysis is to understand user behavior and their demographics. We want to understand what they are doing on the Facebook and what they use. Please note this is not a real Facebook&nbsp;dataset.</p>
 <p>Our goal is to do some basic <span class="caps">EDA</span> (Exploratory Data Analysis) to understand any underlying patterns in the data.
 We will first look at a histogram of User&#8217;s&nbsp;Birthdays.</p>
-<div class="highlight"><pre><span class="kn">library</span><span class="p">(</span>ggplot2<span class="p">)</span>
-qplot<span class="p">(</span>data <span class="o">=</span> pf<span class="p">,</span> x <span class="o">=</span> dob_day <span class="p">)</span> <span class="o">+</span>
+<div class="highlight"><pre><span></span><span class="kn">library</span><span class="p">(</span>ggplot2<span class="p">)</span>
+qplot<span class="p">(</span>data <span class="o">=</span> pf<span class="p">,</span> x <span class="o">=</span> dob_day<span class="p">,</span> geom<span class="o">=</span><span class="s">&quot;bar&quot;</span> <span class="p">)</span> <span class="o">+</span>
   scale_x_discrete<span class="p">(</span>breaks<span class="o">=</span><span class="m">1</span><span class="o">:</span><span class="m">31</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre>## Error: StatBin requires a continuous x variable the x variable is discrete. Perhaps you want stat=&quot;count&quot;?
-</pre></div>
-
-
-<p><img alt="plot of chunk unnamed-chunk-2" src="http://sadanand-singh.github.io/images/R/pfacebook_unnamed-chunk-2-1.png" /></p>
+<p><img alt="plot of chunk pseudoFacebook-3" src="http://sadanand-singh.github.io/images/R/pfacebook_pseudoFacebook-3-1.png" /></p>
 <p>We see some peculiar behavior of the data on the 1st of the month. Let us plot this data in more detail, in per month&nbsp;basis.</p>
-<div class="highlight"><pre>qplot<span class="p">(</span>data <span class="o">=</span> pf<span class="p">,</span> x <span class="o">=</span> dob_day <span class="p">)</span> <span class="o">+</span>
+<div class="highlight"><pre><span></span>qplot<span class="p">(</span>data <span class="o">=</span> pf<span class="p">,</span> x <span class="o">=</span> dob_day<span class="p">,</span> geom<span class="o">=</span><span class="s">&quot;bar&quot;</span> <span class="p">)</span> <span class="o">+</span>
   scale_x_discrete<span class="p">(</span>breaks<span class="o">=</span><span class="kp">seq</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">31</span><span class="p">,</span><span class="m">4</span><span class="p">))</span> <span class="o">+</span>
   facet_wrap<span class="p">(</span><span class="o">~</span>dob_month<span class="p">,</span> ncol <span class="o">=</span> <span class="m">3</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre>## Error: StatBin requires a continuous x variable the x variable is discrete. Perhaps you want stat=&quot;count&quot;?
-</pre></div>
-
-
-<p><img alt="plot of chunk unnamed-chunk-3" src="http://sadanand-singh.github.io/images/R/pfacebook_unnamed-chunk-3-1.png" /></p>
+<p><img alt="plot of chunk pseudoFacebook-4" src="http://sadanand-singh.github.io/images/R/pfacebook_pseudoFacebook-4-1.png" /></p>
 <p>This explains the above plot. Because of the default settings, or users privacy concerns, numerous people have 1/1 as their&nbsp;birthdays!</p>
 <p>Now, let us explore the distribution of friend counts in this&nbsp;data.</p>
-<div class="highlight"><pre>qplot<span class="p">(</span>data <span class="o">=</span> pf<span class="p">,</span> x <span class="o">=</span> friend_count<span class="p">,</span> binwidth <span class="o">=</span> <span class="m">25</span><span class="p">,</span> color <span class="o">=</span> <span class="kp">I</span><span class="p">(</span><span class="s">&#39;black&#39;</span><span class="p">),</span> fill <span class="o">=</span> <span class="kp">I</span><span class="p">(</span><span class="s">&#39;#099DD9&#39;</span><span class="p">))</span> <span class="o">+</span>
+<div class="highlight"><pre><span></span>qplot<span class="p">(</span>data <span class="o">=</span> pf<span class="p">,</span> x <span class="o">=</span> friend_count<span class="p">,</span> binwidth <span class="o">=</span> <span class="m">25</span><span class="p">,</span> color <span class="o">=</span> <span class="kp">I</span><span class="p">(</span><span class="s">&#39;black&#39;</span><span class="p">),</span> fill <span class="o">=</span> <span class="kp">I</span><span class="p">(</span><span class="s">&#39;#099DD9&#39;</span><span class="p">))</span> <span class="o">+</span>
   theme<span class="p">(</span>axis.text.x<span class="o">=</span>element_text<span class="p">(</span>color <span class="o">=</span> <span class="s">&quot;black&quot;</span><span class="p">,</span> size<span class="o">=</span><span class="m">11</span><span class="p">,</span> angle<span class="o">=</span><span class="m">30</span><span class="p">,</span> vjust<span class="o">=</span><span class="m">.8</span><span class="p">,</span> hjust<span class="o">=</span><span class="m">0.8</span><span class="p">))</span> <span class="o">+</span>
   scale_x_continuous<span class="p">(</span>limits <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">1000</span><span class="p">),</span> breaks <span class="o">=</span> <span class="kp">seq</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">1000</span><span class="p">,</span> <span class="m">50</span><span class="p">))</span>
 </pre></div>
 
 
-<p><img alt="plot of chunk unnamed-chunk-4" src="http://sadanand-singh.github.io/images/R/pfacebook_unnamed-chunk-4-1.png" /></p>
+<p><img alt="plot of chunk pseudoFacebook-5" src="http://sadanand-singh.github.io/images/R/pfacebook_pseudoFacebook-5-1.png" /></p>
 <p>We see the data has some outlier near 5000. This is an example of a long tail data. We want our analysis to be focused on the bunch of Facebook users, so we need to limit the axes of these plots. Additionally, we also want to look at these data as a function of gender. However, We also want to remove any data where gender is <span class="caps">NA</span>.</p>
-<div class="highlight"><pre>qplot<span class="p">(</span>data <span class="o">=</span> <span class="kp">subset</span><span class="p">(</span>pf<span class="p">,</span> <span class="o">!</span><span class="kp">is.na</span><span class="p">(</span>gender<span class="p">)),</span> x <span class="o">=</span> friend_count<span class="p">,</span> binwidth <span class="o">=</span> <span class="m">25</span><span class="p">,</span>
+<div class="highlight"><pre><span></span>qplot<span class="p">(</span>data <span class="o">=</span> <span class="kp">subset</span><span class="p">(</span>pf<span class="p">,</span> <span class="o">!</span><span class="kp">is.na</span><span class="p">(</span>gender<span class="p">)),</span> x <span class="o">=</span> friend_count<span class="p">,</span> binwidth <span class="o">=</span> <span class="m">25</span><span class="p">,</span>
       color <span class="o">=</span> <span class="kp">I</span><span class="p">(</span><span class="s">&#39;black&#39;</span><span class="p">),</span> fill <span class="o">=</span> <span class="kp">I</span><span class="p">(</span><span class="s">&#39;#099DD9&#39;</span><span class="p">))</span> <span class="o">+</span>
   theme<span class="p">(</span>axis.text.x<span class="o">=</span>element_text<span class="p">(</span>color <span class="o">=</span> <span class="s">&quot;black&quot;</span><span class="p">,</span> size<span class="o">=</span><span class="m">11</span><span class="p">,</span> angle<span class="o">=</span><span class="m">30</span><span class="p">,</span> vjust<span class="o">=</span><span class="m">.8</span><span class="p">,</span> hjust<span class="o">=</span><span class="m">0.8</span><span class="p">))</span> <span class="o">+</span>
   scale_x_continuous<span class="p">(</span>limits <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">1000</span><span class="p">),</span> breaks <span class="o">=</span> <span class="kp">seq</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">1000</span><span class="p">,</span> <span class="m">100</span><span class="p">))</span> <span class="o">+</span>
@@ -196,23 +188,23 @@ qplot<span class="p">(</span>data <span class="o">=</span> pf<span class="p">,</
 </pre></div>
 
 
-<p><img alt="plot of chunk unnamed-chunk-5" src="http://sadanand-singh.github.io/images/R/pfacebook_unnamed-chunk-5-1.png" /></p>
+<p><img alt="plot of chunk pseudoFacebook-6" src="http://sadanand-singh.github.io/images/R/pfacebook_pseudoFacebook-6-1.png" /></p>
 <p>If we want to know, mean statistics of our data, we can use the table&nbsp;command.</p>
-<div class="highlight"><pre><span class="kp">table</span><span class="p">(</span>pf<span class="o">$</span>gender<span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="kp">table</span><span class="p">(</span>pf<span class="o">$</span>gender<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre>## 
+<div class="highlight"><pre><span></span>## 
 ## female   male 
 ##  40254  58574
 </pre></div>
 
 
-<div class="highlight"><pre><span class="kp">by</span><span class="p">(</span>pf<span class="o">$</span>friend_count<span class="p">,</span> pf<span class="o">$</span>gender<span class="p">,</span> <span class="kp">summary</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="kp">by</span><span class="p">(</span>pf<span class="o">$</span>friend_count<span class="p">,</span> pf<span class="o">$</span>gender<span class="p">,</span> <span class="kp">summary</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span class="cp">##</span><span class="c"> pf$gender: female</span><span class="x"></span>
+<div class="highlight"><pre><span></span><span class="cp">##</span><span class="c"> pf$gender: female</span><span class="x"></span>
 <span class="cp">##</span><span class="c">    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. </span><span class="x"></span>
 <span class="cp">##</span><span class="c">       0      37      96     242     244    4923 </span><span class="x"></span>
 <span class="cp">##</span><span class="c"> -------------------------------------------------------- </span><span class="x"></span>
@@ -223,7 +215,7 @@ qplot<span class="p">(</span>data <span class="o">=</span> pf<span class="p">,</
 
 
 <p>Let us know look at the tenure of usage (measured in Years) of&nbsp;Facebook.</p>
-<div class="highlight"><pre>qplot<span class="p">(</span>data <span class="o">=</span> pf<span class="p">,</span> x <span class="o">=</span> tenure<span class="o">/</span><span class="m">365</span><span class="p">,</span> binwidth <span class="o">=</span> <span class="m">0.25</span><span class="p">,</span>
+<div class="highlight"><pre><span></span>qplot<span class="p">(</span>data <span class="o">=</span> pf<span class="p">,</span> x <span class="o">=</span> tenure<span class="o">/</span><span class="m">365</span><span class="p">,</span> binwidth <span class="o">=</span> <span class="m">0.25</span><span class="p">,</span>
       color <span class="o">=</span> <span class="kp">I</span><span class="p">(</span><span class="s">&#39;black&#39;</span><span class="p">),</span> fill <span class="o">=</span> <span class="kp">I</span><span class="p">(</span><span class="s">&#39;#F79420&#39;</span><span class="p">))</span> <span class="o">+</span>
   scale_x_continuous<span class="p">(</span>breaks <span class="o">=</span> <span class="kp">seq</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">7</span><span class="p">,</span><span class="m">1</span><span class="p">),</span> lim <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">7</span><span class="p">))</span> <span class="o">+</span>
   xlab<span class="p">(</span><span class="s">&#39;Number of years using Facebook&#39;</span><span class="p">)</span> <span class="o">+</span>
@@ -231,9 +223,9 @@ qplot<span class="p">(</span>data <span class="o">=</span> pf<span class="p">,</
 </pre></div>
 
 
-<p><img alt="plot of chunk unnamed-chunk-7" src="http://sadanand-singh.github.io/images/R/pfacebook_unnamed-chunk-7-1.png" /></p>
+<p><img alt="plot of chunk pseudoFacebook-8" src="http://sadanand-singh.github.io/images/R/pfacebook_pseudoFacebook-8-1.png" /></p>
 <p>We will now look at any pattern in the ages of Facebook users in this&nbsp;dataset.</p>
-<div class="highlight"><pre>qplot<span class="p">(</span>data <span class="o">=</span> pf<span class="p">,</span> x <span class="o">=</span> age<span class="p">,</span> binwidth <span class="o">=</span> <span class="m">1</span><span class="p">,</span>
+<div class="highlight"><pre><span></span>qplot<span class="p">(</span>data <span class="o">=</span> pf<span class="p">,</span> x <span class="o">=</span> age<span class="p">,</span> binwidth <span class="o">=</span> <span class="m">1</span><span class="p">,</span>
       color <span class="o">=</span> <span class="kp">I</span><span class="p">(</span><span class="s">&#39;black&#39;</span><span class="p">),</span> fill <span class="o">=</span> <span class="kp">I</span><span class="p">(</span><span class="s">&#39;#5760AB&#39;</span><span class="p">))</span> <span class="o">+</span>
   scale_x_continuous<span class="p">(</span>breaks <span class="o">=</span> <span class="kp">seq</span><span class="p">(</span><span class="m">8</span><span class="p">,</span><span class="m">113</span><span class="p">,</span><span class="m">5</span><span class="p">),</span> lim <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="m">8</span><span class="p">,</span><span class="m">113</span><span class="p">))</span> <span class="o">+</span>
   xlab<span class="p">(</span><span class="s">&#39;Age of Users in Years&#39;</span><span class="p">)</span> <span class="o">+</span>
@@ -241,9 +233,9 @@ qplot<span class="p">(</span>data <span class="o">=</span> pf<span class="p">,</
 </pre></div>
 
 
-<p><img alt="plot of chunk unnamed-chunk-8" src="http://sadanand-singh.github.io/images/R/pfacebook_unnamed-chunk-8-1.png" /></p>
+<p><img alt="plot of chunk pseudoFacebook-9" src="http://sadanand-singh.github.io/images/R/pfacebook_pseudoFacebook-9-1.png" /></p>
 <p>One general theme of observation here is that most of the data have a long tail. In these circumstances, it is better to look at such data after certain types of transformation. Let us do such an analysis of&nbsp;&#8220;friend_count&#8221;.</p>
-<div class="highlight"><pre><span class="kn">library</span><span class="p">(</span>gridExtra<span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="kn">library</span><span class="p">(</span>gridExtra<span class="p">)</span>
 plot1 <span class="o">&lt;-</span> ggplot<span class="p">(</span>data <span class="o">=</span> pf<span class="p">,</span> aes<span class="p">(</span>x <span class="o">=</span> friend_count<span class="p">))</span> <span class="o">+</span> geom_histogram<span class="p">()</span>
 plot2 <span class="o">&lt;-</span> plot1 <span class="o">+</span> scale_x_log10<span class="p">()</span>
 plot3 <span class="o">&lt;-</span> plot1 <span class="o">+</span> scale_x_sqrt<span class="p">()</span>
@@ -251,9 +243,9 @@ grid.arrange<span class="p">(</span>plot1<span class="p">,</span> plot2<span cla
 </pre></div>
 
 
-<p><img alt="plot of chunk unnamed-chunk-9" src="http://sadanand-singh.github.io/images/R/pfacebook_unnamed-chunk-9-1.png" /></p>
+<p><img alt="plot of chunk pseudoFacebook-10" src="http://sadanand-singh.github.io/images/R/pfacebook_pseudoFacebook-10-1.png" /></p>
 <p>Let us try to compare distribution of male vs female friend&nbsp;counts.</p>
-<div class="highlight"><pre>ggplot<span class="p">(</span>aes<span class="p">(</span>x <span class="o">=</span> friend_count<span class="p">,</span> y <span class="o">=</span> <span class="m">..</span>density..<span class="o">/</span><span class="kp">sum</span><span class="p">(</span><span class="m">..</span>density..<span class="p">)),</span> data <span class="o">=</span> <span class="kp">subset</span><span class="p">(</span>pf<span class="p">,</span> <span class="o">!</span><span class="kp">is.na</span><span class="p">(</span>gender<span class="p">)))</span> <span class="o">+</span>
+<div class="highlight"><pre><span></span>ggplot<span class="p">(</span>aes<span class="p">(</span>x <span class="o">=</span> friend_count<span class="p">,</span> y <span class="o">=</span> <span class="m">..</span>density..<span class="o">/</span><span class="kp">sum</span><span class="p">(</span><span class="m">..</span>density..<span class="p">)),</span> data <span class="o">=</span> <span class="kp">subset</span><span class="p">(</span>pf<span class="p">,</span> <span class="o">!</span><span class="kp">is.na</span><span class="p">(</span>gender<span class="p">)))</span> <span class="o">+</span>
   geom_freqpoly<span class="p">(</span>aes<span class="p">(</span>color <span class="o">=</span> gender<span class="p">),</span> binwidth<span class="o">=</span><span class="m">10</span><span class="p">)</span> <span class="o">+</span>
   scale_x_continuous<span class="p">(</span>limits <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">1000</span><span class="p">),</span> breaks <span class="o">=</span> <span class="kp">seq</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">1000</span><span class="p">,</span> <span class="m">100</span><span class="p">))</span> <span class="o">+</span>
   theme<span class="p">(</span>axis.text.x<span class="o">=</span>element_text<span class="p">(</span>color <span class="o">=</span> <span class="s">&quot;black&quot;</span><span class="p">,</span> size<span class="o">=</span><span class="m">11</span><span class="p">,</span> angle<span class="o">=</span><span class="m">30</span><span class="p">,</span> vjust<span class="o">=</span><span class="m">.8</span><span class="p">,</span> hjust<span class="o">=</span><span class="m">0.8</span><span class="p">))</span> <span class="o">+</span>
@@ -262,9 +254,9 @@ grid.arrange<span class="p">(</span>plot1<span class="p">,</span> plot2<span cla
 </pre></div>
 
 
-<p><img alt="plot of chunk unnamed-chunk-10" src="http://sadanand-singh.github.io/images/R/pfacebook_unnamed-chunk-10-1.png" /></p>
+<p><img alt="plot of chunk pseudoFacebook-11" src="http://sadanand-singh.github.io/images/R/pfacebook_pseudoFacebook-11-1.png" /></p>
 <p>Similarly, we can compare distributions of www&nbsp;likes.</p>
-<div class="highlight"><pre>ggplot<span class="p">(</span>aes<span class="p">(</span>x <span class="o">=</span> www_likes<span class="p">,</span> y <span class="o">=</span> <span class="m">..</span>count..<span class="o">/</span><span class="kp">sum</span><span class="p">(</span><span class="m">..</span>count..<span class="p">)),</span> data <span class="o">=</span> <span class="kp">subset</span><span class="p">(</span>pf<span class="p">,</span> <span class="o">!</span><span class="kp">is.na</span><span class="p">(</span>gender<span class="p">)))</span> <span class="o">+</span>
+<div class="highlight"><pre><span></span>ggplot<span class="p">(</span>aes<span class="p">(</span>x <span class="o">=</span> www_likes<span class="p">,</span> y <span class="o">=</span> <span class="m">..</span>count..<span class="o">/</span><span class="kp">sum</span><span class="p">(</span><span class="m">..</span>count..<span class="p">)),</span> data <span class="o">=</span> <span class="kp">subset</span><span class="p">(</span>pf<span class="p">,</span> <span class="o">!</span><span class="kp">is.na</span><span class="p">(</span>gender<span class="p">)))</span> <span class="o">+</span>
   geom_freqpoly<span class="p">(</span>aes<span class="p">(</span>color <span class="o">=</span> gender<span class="p">),</span> binwidth<span class="o">=</span><span class="m">1</span><span class="p">)</span> <span class="o">+</span>
   scale_x_log10<span class="p">()</span><span class="o">+</span>
   theme<span class="p">(</span>axis.text.x<span class="o">=</span>element_text<span class="p">(</span>color <span class="o">=</span> <span class="s">&quot;black&quot;</span><span class="p">,</span> size<span class="o">=</span><span class="m">11</span><span class="p">,</span> angle<span class="o">=</span><span class="m">30</span><span class="p">,</span> vjust<span class="o">=</span><span class="m">.8</span><span class="p">,</span> hjust<span class="o">=</span><span class="m">0.8</span><span class="p">))</span> <span class="o">+</span>
@@ -273,13 +265,13 @@ grid.arrange<span class="p">(</span>plot1<span class="p">,</span> plot2<span cla
 </pre></div>
 
 
-<p><img alt="plot of chunk unnamed-chunk-11" src="http://sadanand-singh.github.io/images/R/pfacebook_unnamed-chunk-11-1.png" /></p>
+<p><img alt="plot of chunk pseudoFacebook-12" src="http://sadanand-singh.github.io/images/R/pfacebook_pseudoFacebook-12-1.png" /></p>
 <p>Numerically, the two curves can quantified&nbsp;as:</p>
-<div class="highlight"><pre><span class="kp">by</span><span class="p">(</span>pf<span class="o">$</span>www_likes<span class="p">,</span> pf<span class="o">$</span>gender<span class="p">,</span> <span class="kp">sum</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="kp">by</span><span class="p">(</span>pf<span class="o">$</span>www_likes<span class="p">,</span> pf<span class="o">$</span>gender<span class="p">,</span> <span class="kp">sum</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span class="cp">##</span><span class="c"> pf$gender: female</span><span class="x"></span>
+<div class="highlight"><pre><span></span><span class="cp">##</span><span class="c"> pf$gender: female</span><span class="x"></span>
 <span class="cp">##</span><span class="c"> [1] 3507665</span><span class="x"></span>
 <span class="cp">##</span><span class="c"> -------------------------------------------------------- </span><span class="x"></span>
 <span class="cp">##</span><span class="c"> pf$gender: male</span><span class="x"></span>
@@ -288,17 +280,17 @@ grid.arrange<span class="p">(</span>plot1<span class="p">,</span> plot2<span cla
 
 
 <p>We can also compare two distributions graphically using &#8220;box plots&#8221;. We can also look at the actual value using the by command. Here, we are trying to understand which gender initiated more&nbsp;friendships.</p>
-<div class="highlight"><pre>qplot<span class="p">(</span>x <span class="o">=</span> gender<span class="p">,</span> y <span class="o">=</span> friendships_initiated<span class="p">,</span> data <span class="o">=</span> <span class="kp">subset</span><span class="p">(</span>pf<span class="p">,</span> <span class="o">!</span><span class="kp">is.na</span><span class="p">(</span>gender<span class="p">)),</span> geom <span class="o">=</span> <span class="s">&#39;boxplot&#39;</span><span class="p">)</span><span class="o">+</span>
+<div class="highlight"><pre><span></span>qplot<span class="p">(</span>x <span class="o">=</span> gender<span class="p">,</span> y <span class="o">=</span> friendships_initiated<span class="p">,</span> data <span class="o">=</span> <span class="kp">subset</span><span class="p">(</span>pf<span class="p">,</span> <span class="o">!</span><span class="kp">is.na</span><span class="p">(</span>gender<span class="p">)),</span> geom <span class="o">=</span> <span class="s">&#39;boxplot&#39;</span><span class="p">)</span><span class="o">+</span>
   coord_cartesian<span class="p">(</span>ylim <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">200</span><span class="p">))</span>
 </pre></div>
 
 
-<p><img alt="plot of chunk unnamed-chunk-13" src="http://sadanand-singh.github.io/images/R/pfacebook_unnamed-chunk-13-1.png" /></p>
-<div class="highlight"><pre><span class="kp">by</span><span class="p">(</span>pf<span class="o">$</span>friendships_initiated<span class="p">,</span> pf<span class="o">$</span>gender<span class="p">,</span> <span class="kp">summary</span><span class="p">)</span>
+<p><img alt="plot of chunk pseudoFacebook-14" src="http://sadanand-singh.github.io/images/R/pfacebook_pseudoFacebook-14-1.png" /></p>
+<div class="highlight"><pre><span></span><span class="kp">by</span><span class="p">(</span>pf<span class="o">$</span>friendships_initiated<span class="p">,</span> pf<span class="o">$</span>gender<span class="p">,</span> <span class="kp">summary</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span class="cp">##</span><span class="c"> pf$gender: female</span><span class="x"></span>
+<div class="highlight"><pre><span></span><span class="cp">##</span><span class="c"> pf$gender: female</span><span class="x"></span>
 <span class="cp">##</span><span class="c">    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. </span><span class="x"></span>
 <span class="cp">##</span><span class="c">     0.0    19.0    49.0   113.9   124.8  3654.0 </span><span class="x"></span>
 <span class="cp">##</span><span class="c"> -------------------------------------------------------- </span><span class="x"></span>
@@ -310,41 +302,41 @@ grid.arrange<span class="p">(</span>plot1<span class="p">,</span> plot2<span cla
 
 <p>Note the use of coord_cartesian in the above plot. Use of this method ensures that numerical vale of median and shown value in the plot match, as this does not modify the actual data for the plotting&nbsp;purpose.</p>
 <p>Next, we want to understand if users have used certain features of Facebook or not. If we look at the summary of mobile_likes variable, median is close to 0, indicating a lot many users with 0 values for this variable. We can look also look at the logical value if value of this quantity is non-zero. We can additionally create a new variable called mobile_check_in that takes a value 1 if mobile_likes os&nbsp;non-zero.</p>
-<div class="highlight"><pre><span class="kp">summary</span><span class="p">(</span>pf<span class="o">$</span>mobile_likes<span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="kp">summary</span><span class="p">(</span>pf<span class="o">$</span>mobile_likes<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+<div class="highlight"><pre><span></span>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##     0.0     0.0     4.0   106.1    46.0 25110.0
 </pre></div>
 
 
-<div class="highlight"><pre><span class="kp">summary</span><span class="p">(</span>pf<span class="o">$</span>mobile_likes <span class="o">&gt;</span> <span class="m">0</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="kp">summary</span><span class="p">(</span>pf<span class="o">$</span>mobile_likes <span class="o">&gt;</span> <span class="m">0</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre>##    Mode   FALSE    TRUE    NA&#39;s 
+<div class="highlight"><pre><span></span>##    Mode   FALSE    TRUE    NA&#39;s 
 ## logical   35056   63947       0
 </pre></div>
 
 
-<div class="highlight"><pre>mobile_check_in <span class="o">&lt;-</span> <span class="kc">NA</span>
+<div class="highlight"><pre><span></span>mobile_check_in <span class="o">&lt;-</span> <span class="kc">NA</span>
 pf<span class="o">$</span>mobile_check_in <span class="o">&lt;-</span> <span class="kp">factor</span><span class="p">(</span><span class="kp">ifelse</span><span class="p">(</span>pf<span class="o">$</span>mobile_likes <span class="o">&gt;</span><span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">0</span><span class="p">))</span>
 <span class="kp">summary</span><span class="p">(</span>pf<span class="o">$</span>mobile_check_in<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre>##     0     1 
+<div class="highlight"><pre><span></span>##     0     1 
 ## 35056 63947
 </pre></div>
 
 
 <p>We can find percentage of people who have done mobile check&nbsp;in.</p>
-<div class="highlight"><pre><span class="kp">sum</span><span class="p">(</span>pf<span class="o">$</span>mobile_check_in <span class="o">==</span> <span class="m">1</span><span class="p">)</span><span class="o">/</span><span class="kp">length</span><span class="p">(</span>pf<span class="o">$</span>mobile_check_in<span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="kp">sum</span><span class="p">(</span>pf<span class="o">$</span>mobile_check_in <span class="o">==</span> <span class="m">1</span><span class="p">)</span><span class="o">/</span><span class="kp">length</span><span class="p">(</span>pf<span class="o">$</span>mobile_check_in<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre>## [1] 0.6459097
+<div class="highlight"><pre><span></span>## [1] 0.6459097
 </pre></div>
 
 
