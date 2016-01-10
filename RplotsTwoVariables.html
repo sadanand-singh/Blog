@@ -171,7 +171,7 @@ str<span class="p">(</span>pf<span class="p">)</span>
 </pre></div>
 
 
-<p><img alt="plot of chunk unnamed-chunk-2" src="http://sadanand-singh.github.io/images/R/fbTwoVar_unnamed-chunk-2-1.png" /> </p>
+<p><img alt="plot of chunk unnamed-chunk-2" src="http://sadanand-singh.github.io/images/R/fbTwoVar_unnamed-chunk-2-1.png" /></p>
 <p>We can notice some really interesting behavior in the ugly scatter plot above:
 1. The age data is binned, as expected (only integers allowed)
 2. Young people around the age of 20 have maximum friend count.
@@ -186,7 +186,7 @@ str<span class="p">(</span>pf<span class="p">)</span>
 </pre></div>
 
 
-<p><img alt="plot of chunk unnamed-chunk-3" src="http://sadanand-singh.github.io/images/R/fbTwoVar_unnamed-chunk-3-1.png" /> </p>
+<p><img alt="plot of chunk unnamed-chunk-3" src="http://sadanand-singh.github.io/images/R/fbTwoVar_unnamed-chunk-3-1.png" /></p>
 <p>Based on these new plots, we can find bulk to higher friend count for younger people is still less than 600. We still find higher count for age group of&nbsp;70.</p>
 <p>We do a better representation of data using the coord_trans() method. We will be using a square root&nbsp;function.</p>
 <div class="highlight"><pre>ggplot<span class="p">(</span>data <span class="o">=</span> pf<span class="p">,</span> aes<span class="p">(</span>x <span class="o">=</span> age<span class="p">,</span> y <span class="o">=</span> friend_count<span class="p">))</span> <span class="o">+</span>
@@ -196,7 +196,7 @@ str<span class="p">(</span>pf<span class="p">)</span>
 </pre></div>
 
 
-<p><img alt="plot of chunk unnamed-chunk-4" src="http://sadanand-singh.github.io/images/R/fbTwoVar_unnamed-chunk-4-1.png" /> </p>
+<p><img alt="plot of chunk unnamed-chunk-4" src="http://sadanand-singh.github.io/images/R/fbTwoVar_unnamed-chunk-4-1.png" /></p>
 <p>On a similar way, we can look at relationship between friends initiated and&nbsp;age.</p>
 <div class="highlight"><pre>ggplot<span class="p">(</span>data <span class="o">=</span> pf<span class="p">,</span> aes<span class="p">(</span>x <span class="o">=</span> age<span class="p">,</span> y <span class="o">=</span> friendships_initiated<span class="p">))</span> <span class="o">+</span>
   geom_jitter<span class="p">(</span>alpha <span class="o">=</span> <span class="m">1</span><span class="o">/</span><span class="m">10</span><span class="p">,</span> colour <span class="o">=</span> <span class="s">&quot;#ff33cc&quot;</span><span class="p">,</span> position <span class="o">=</span> position_jitter<span class="p">(</span>h <span class="o">=</span> <span class="m">0</span><span class="p">))</span> <span class="o">+</span>
@@ -205,7 +205,7 @@ str<span class="p">(</span>pf<span class="p">)</span>
 </pre></div>
 
 
-<p><img alt="plot of chunk unnamed-chunk-5" src="http://sadanand-singh.github.io/images/R/fbTwoVar_unnamed-chunk-5-1.png" /> </p>
+<p><img alt="plot of chunk unnamed-chunk-5" src="http://sadanand-singh.github.io/images/R/fbTwoVar_unnamed-chunk-5-1.png" /></p>
 <p>Interestingly, we find this distribution to be very similar to the one for friend&nbsp;count.</p>
 <p>Scatter plots try to keep us very close to the data. It represents each and evry data point. However, in order to judge the quality of a data, it is important to know its important statisics like mean, median etc. How does average of a variable wrt to the other&nbsp;variable.</p>
 <p>We want to say, study how does average friend count vary with age. In order to study this we will use a package called&nbsp;&#8216;dplyr&#8217;.</p>
@@ -279,7 +279,7 @@ pf.fc_by_age <span class="o">&lt;-</span> arrange<span class="p">(</span>pf.fc_b
 </pre></div>
 
 
-<p><img alt="plot of chunk unnamed-chunk-8" src="http://sadanand-singh.github.io/images/R/fbTwoVar_unnamed-chunk-8-1.png" /> </p>
+<p><img alt="plot of chunk unnamed-chunk-8" src="http://sadanand-singh.github.io/images/R/fbTwoVar_unnamed-chunk-8-1.png" /></p>
 <p>We can use this plot as good summary of the original scatter plot and put the two on top of each other. We can also transform the y axis using the coors_cartesian()&nbsp;method.</p>
 <div class="highlight"><pre>ggplot<span class="p">(</span>data <span class="o">=</span> pf<span class="p">,</span> aes<span class="p">(</span>x <span class="o">=</span> age<span class="p">,</span> y <span class="o">=</span> friend_count<span class="p">))</span> <span class="o">+</span>
   geom_point<span class="p">(</span>alpha <span class="o">=</span> <span class="m">1</span><span class="o">/</span><span class="m">20</span><span class="p">,</span> colour <span class="o">=</span> <span class="s">&quot;#00bfff&quot;</span><span class="p">,</span>
@@ -333,7 +333,7 @@ You can look at the cor.test() method for details. This measures a linear correl
 </pre></div>
 
 
-<p><img alt="plot of chunk unnamed-chunk-11" src="http://sadanand-singh.github.io/images/R/fbTwoVar_unnamed-chunk-11-1.png" /> </p>
+<p><img alt="plot of chunk unnamed-chunk-11" src="http://sadanand-singh.github.io/images/R/fbTwoVar_unnamed-chunk-11-1.png" /></p>
 <p>We have used quantile() method to find upper limits of x and y data. Additionally, we added a correlation line using the geom_smooth()&nbsp;function.</p>
 <p>We can find the numerical value of the correlation between these two&nbsp;variables.</p>
 <div class="highlight"><pre><span class="kp">with</span><span class="p">(</span>pf<span class="p">,</span> cor.test<span class="p">(</span>www_likes_received<span class="p">,</span> likes_received<span class="p">))</span>
@@ -357,19 +357,14 @@ You can look at the cor.test() method for details. This measures a linear correl
 <p>Correlation between two variables might not be a good thing always. For example in the above case, it was simply due to the artifact of the two data sets were highly coupled, one was a super set of the&nbsp;other.</p>
 <p>We can look at the caution with which correlations should be used in more detail using the &#8220;Mitchell&#8221; data set from the alr3 package. We can look at more details of Mitchell data set using its help method. This data set lists Data collected by Kenneth G. Hubbard on soil temperature at 20 cm depth in Mitchell, Nebraska for 17 years (1976-1992)&nbsp;.</p>
 <div class="highlight"><pre><span class="kn">library</span><span class="p">(</span>alr3<span class="p">)</span>
-</pre></div>
-
-
-<div class="highlight"><pre>## Error in library(alr3): there is no package called &#39;alr3&#39;
-</pre></div>
-
-
-<div class="highlight"><pre>data<span class="p">(</span>Mitchell<span class="p">)</span>
+data<span class="p">(</span>Mitchell<span class="p">)</span>
 str<span class="p">(</span>Mitchell<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre>## Error in str(Mitchell): object &#39;Mitchell&#39; not found
+<div class="highlight"><pre>## &#39;data.frame&#39;:    204 obs. of  2 variables:
+##  $ Month: int  0 1 2 3 4 5 6 7 8 9 ...
+##  $ Temp : num  -5.18 -1.65 2.49 10.4 14.99 ...
 </pre></div>
 
 
@@ -380,10 +375,7 @@ str<span class="p">(</span>Mitchell<span class="p">)</span>
 </pre></div>
 
 
-<div class="highlight"><pre>## Error in ggplot(data = Mitchell, aes(x = Month, y = Temp)): object &#39;Mitchell&#39; not found
-</pre></div>
-
-
+<p><img alt="plot of chunk unnamed-chunk-14" src="http://sadanand-singh.github.io/images/R/fbTwoVar_unnamed-chunk-14-1.png" /></p>
 <p>One direct observation we can make is in terms of cyclic nature of the data, Temp. is fluctuating every 12 months. This tells us the importance scales when we are looking at Data set. Clearly, a direct use of cor.test() would give us a un-physical correlation&nbsp;coeffieicnt!</p>
 <p>Now, we will return back to out pseudo Facebook data. Let us take a look again at the modified data frame created using the dplyr methods. We want to remove any noise in the average&nbsp;values.</p>
 <p>Firse, we want to create a new data frame where age is measured in fractions of months. Then we can plot two means&nbsp;together.</p>
@@ -410,7 +402,7 @@ grid.arrange<span class="p">(</span>p2<span class="p">,</span> p1<span class="p"
 </pre></div>
 
 
-<p><img alt="plot of chunk unnamed-chunk-15" src="http://sadanand-singh.github.io/images/R/fbTwoVar_unnamed-chunk-15-1.png" /> </p>
+<p><img alt="plot of chunk unnamed-chunk-15" src="http://sadanand-singh.github.io/images/R/fbTwoVar_unnamed-chunk-15-1.png" /></p>
 <p>This is an example of bias variance tradeoff, and is similar to the tradeoff we make when choosing the bin width in histograms. One way, we can do this quite easily in ggplot is using the geom_smooth() function to fit a flexible statistical&nbsp;model.</p>
 <div class="highlight"><pre>p1<span class="o">&lt;-</span> ggplot<span class="p">(</span>data <span class="o">=</span> <span class="kp">subset</span><span class="p">(</span>pf.fc_by_age<span class="p">,</span> age <span class="o">&lt;</span> <span class="m">71</span><span class="p">),</span>
             aes<span class="p">(</span>x <span class="o">=</span> age<span class="p">,</span> y <span class="o">=</span> friend_count_mean<span class="p">))</span> <span class="o">+</span>
@@ -426,7 +418,7 @@ grid.arrange<span class="p">(</span>p2<span class="p">,</span> p1<span class="p"
 </pre></div>
 
 
-<p><img alt="plot of chunk unnamed-chunk-16" src="http://sadanand-singh.github.io/images/R/fbTwoVar_unnamed-chunk-16-1.png" /> </p>
+<p><img alt="plot of chunk unnamed-chunk-16" src="http://sadanand-singh.github.io/images/R/fbTwoVar_unnamed-chunk-16-1.png" /></p>
 <p>By default, geom_smooth() uses <a href="https://en.wikipedia.org/wiki/Local_regression">Loess and Lowess</a> method for smoothing. Here, the model is based on the idea that data is continuous and&nbsp;smooth.</p>
 <p>So, through this blog, we have noticed several ways to plot the same data. The obvious that arises is which plot to choose? In <span class="caps">EDA</span>, however, answer to this is, simply you should choose. The idea in <span class="caps">EDA</span> is that the same data when plotted differently, glean different&nbsp;incites.</p>
 
