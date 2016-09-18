@@ -175,12 +175,11 @@ THEME_COLOR = '#5670d4'
 POSTS = (
     ("posts/*.rst", "posts", "post.tmpl"),
     ("posts/*.txt", "posts", "post.tmpl"),
-    ("posts/*.html", "posts", "post.tmpl"),
+    ("posts/*.ipynb", "posts", "post.tmpl"),
 )
 PAGES = (
-    ("stories/*.rst", "stories", "story.tmpl"),
-    ("stories/*.txt", "stories", "story.tmpl"),
-    ("stories/*.html", "stories", "story.tmpl"),
+    ("stories/*.rst", "", "story.tmpl"),
+    ("stories/*.txt", "", "story.tmpl"),
 )
 
 
@@ -413,7 +412,7 @@ CATEGORY_OUTPUT_FLAT_HIERARCHY = False
 
 # If CATEGORY_PAGES_ARE_INDEXES is set to True, each category's page will contain
 # the posts themselves. If set to False, it will be just a list of links.
-# CATEGORY_PAGES_ARE_INDEXES = False
+CATEGORY_PAGES_ARE_INDEXES = True
 
 # Set descriptions for category pages to make them more interesting. The
 # default is no description. The value is used in the meta description
@@ -470,7 +469,7 @@ HIDDEN_AUTHORS = ['Guest']
 
 # Final location for the main blog page and sibling paginated pages is
 # output / TRANSLATION[lang] / INDEX_PATH / index-*.html
-# INDEX_PATH = ""
+INDEX_PATH = "posts"
 
 # Optional HTML that displayed on “main” blog index.html files.
 # May be used for a greeting. (translatable)
@@ -775,7 +774,7 @@ IMAGE_FOLDERS = {'images': 'images'}
 # vs
 # xcode
 # This list MAY be incomplete since pygments adds styles every now and then.
-# CODE_COLOR_SCHEME = 'default'
+CODE_COLOR_SCHEME = 'monokai'
 
 # If you use 'site-reveal' theme you can select several subthemes
 # THEME_REVEAL_CONFIG_SUBTHEME = 'sky'
@@ -1112,7 +1111,18 @@ MARKDOWN_EXTENSIONS = ['fenced_code', 'codehilite', 'extra']
 # Google Analytics or whatever else you use. Added to the bottom of <body>
 # in the default template (base.tmpl).
 # (translatable)
-# BODY_END = ""
+BODY_END = """
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-54080172-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+"""
 
 # The possibility to extract metadata from the filename by using a
 # regular expression.
@@ -1135,12 +1145,14 @@ MARKDOWN_EXTENSIONS = ['fenced_code', 'codehilite', 'extra']
 UNSLUGIFY_TITLES = True
 
 # Additional metadata that is added to a post when creating a new_post
-# ADDITIONAL_METADATA = {}
+ADDITIONAL_METADATA = {
+    'author': 'Sadanand Singh'
+}
 
 # Nikola supports Open Graph Protocol data for enhancing link sharing and
 # discoverability of your site on Facebook, Google+, and other services.
 # Open Graph is enabled by default.
-# USE_OPEN_GRAPH = True
+USE_OPEN_GRAPH = True
 
 # Nikola supports Twitter Card summaries, but they are disabled by default.
 # They make it possible for you to attach media to Tweets that link
@@ -1153,13 +1165,12 @@ UNSLUGIFY_TITLES = True
 # Uncomment and modify to following lines to match your accounts.
 # Images displayed come from the `previewimage` meta tag.
 # You can specify the card type by using the `card` parameter in TWITTER_CARD.
-# TWITTER_CARD = {
-#     # 'use_twitter_cards': True,  # enable Twitter Cards
-#     # 'card': 'summary',          # Card type, you can also use 'summary_large_image',
-#                                   # see https://dev.twitter.com/cards/types
-#     # 'site': '@website',         # twitter nick for the website
-#     # 'creator': '@username',     # Username for the content creator / author.
-# }
+TWITTER_CARD = {
+    'use_twitter_cards': True,  # enable Twitter Cards
+    'card': 'summary',          # Card type, you can also use
+    'site': '@sadanandsingh',         # twitter nick for the website
+    'creator': '@sadanandsingh',     # Username for the content creator / author.
+}
 
 # If webassets is installed, bundle JS and CSS into single files to make
 # site loading faster in a HTTP/1.1 environment but is not recommended for
