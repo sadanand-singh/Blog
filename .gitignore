@@ -15,3 +15,9 @@
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# Nikola related files and folders
+cache
+.doit.db
+__pycache__
+output
