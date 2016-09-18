@@ -132,14 +132,15 @@ TRANSLATIONS_PATTERN = "{path}.{lang}.{ext}"
 
 NAVIGATION_LINKS = {
     DEFAULT_LANG: (
-        ("/archive.html", "Archive"),
+        ("/posts/", "Blog"),
+        ("/projects/", "Projects"),
         ("/categories/", "Tags"),
-        ("/rss.xml", "RSS feed"),
+        ("/archive.html", "Archive"),
     ),
 }
 
 # Name of the theme to use.
-THEME = "bootstrap3"
+THEME = "flatly"
 
 # Primary color of your theme. This will be used to customize your theme and
 # auto-generate related colors in POSTS_SECTION_COLORS. Must be a HEX value.
@@ -214,7 +215,7 @@ TIMEZONE = "US/Pacific"
 # 2 = using a string like “2 days ago”
 #
 # Your theme must support it, bootstrap and bootstrap3 already do.
-# DATE_FANCINESS = 0
+DATE_FANCINESS = 2
 
 # While Nikola can select a sensible locale for each language,
 # sometimes explicit control can come handy.
@@ -439,13 +440,13 @@ HIDDEN_CATEGORIES = []
 
 # If ENABLE_AUTHOR_PAGES is set to True and there is more than one
 # author, author pages are generated.
-# ENABLE_AUTHOR_PAGES = True
+ENABLE_AUTHOR_PAGES = False
 
 # Final locations are:
 # output / TRANSLATION[lang] / AUTHOR_PATH / index.html (list of tags)
 # output / TRANSLATION[lang] / AUTHOR_PATH / author.html (list of posts for a tag)
 # output / TRANSLATION[lang] / AUTHOR_PATH / author.xml (RSS feed for a tag)
-# AUTHOR_PATH = "authors"
+AUTHOR_PATH = "authors"
 
 # If AUTHOR_PAGES_ARE_INDEXES is set to True, each author's page will contain
 # the posts themselves. If set to False, it will be just a list of links.
@@ -455,10 +456,10 @@ HIDDEN_CATEGORIES = []
 # default is no description. The value is used in the meta description
 # and displayed underneath the author list or index page’s title.
 # AUTHOR_PAGES_DESCRIPTIONS = {
-#    DEFAULT_LANG: {
-#        "Juanjo Conti": "Python coder and writer.",
-#        "Roberto Alsina": "Nikola father."
-#    },
+#     DEFAULT_LANG: {
+#         "Sadanand Singh": "Algorithms and Machine Learning",
+#         "Abha Mundepi": "Food and Lifestyle"
+#     },
 # }
 
 
@@ -788,13 +789,25 @@ CODE_COLOR_SCHEME = 'monokai'
 # FAVICONS contains (name, file, size) tuples.
 # Used to create favicon link like this:
 # <link rel="name" href="file" sizes="size"/>
-# FAVICONS = (
-#     ("icon", "/favicon.ico", "16x16"),
-#     ("icon", "/icon_128x128.png", "128x128"),
-# )
+FAVICONS = (
+    ("icon", "/favicon.ico", "16x16"),
+    ("icon", "/favicon-32x32.png", "32x32"),
+    ("icon", "/favicon-96x96.png", "96x96"),
+    ("icon", "/apple-icon.png", "192x192"),
+    ("icon", "/apple-icon-precomposed.png", "192x192"),
+    ("icon", "/apple-icon-57x57.png", "57x57"),
+    ("icon", "/apple-icon-60x60.png", "60x60"),
+    ("icon", "/apple-icon-72x72.png", "72x72"),
+    ("icon", "/apple-icon-76x76.png", "76x76"),
+    ("icon", "/apple-icon-114x114.png", "114x114"),
+    ("icon", "/apple-icon-120x120.png", "120x120"),
+    ("icon", "/apple-icon-144x144.png", "144x144"),
+    ("icon", "/apple-icon-152x152.png", "152x152"),
+    ("icon", "/apple-icon-180x180.png", "180x180"),
+)
 
 # Show teasers (instead of full posts) in indexes? Defaults to False.
-# INDEX_TEASERS = False
+INDEX_TEASERS = True
 
 # HTML fragments with the Read more... links.
 # The following tags exist and are replaced for you:
@@ -825,7 +838,7 @@ FEED_LINKS_APPEND_QUERY = False
 
 # A HTML fragment describing the license, for the sidebar.
 # (translatable)
-LICENSE = ""
+LICENSE = '''<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.'''
 # I recommend using the Creative Commons' wizard:
 # https://creativecommons.org/choose/
 # LICENSE = """
@@ -895,7 +908,7 @@ COMMENT_SYSTEM_ID = "sadanandsblog"
 # INDEX_FILE = "index.html"
 
 # If a link ends in /index.html,  drop the index.html part.
-# http://mysite/foo/bar/index.html => http://mysite/foo/bar/
+# http:///foo/bar/index.html => http://mysite/foo/bar/
 # (Uses the INDEX_FILE setting, so if that is, say, default.html,
 # it will instead /foo/default.html => /foo)
 # (Note: This was briefly STRIP_INDEX_HTML in v 5.4.3 and 5.4.4)
@@ -943,29 +956,32 @@ PRETTY_URLS = True
 # MATHJAX_CONFIG = ""
 
 # If you are using the compile-ipynb plugin, just add this one:
-# MATHJAX_CONFIG = """
-# <script type="text/x-mathjax-config">
-# MathJax.Hub.Config({
-#     tex2jax: {
-#         inlineMath: [ ['$','$'], ["\\\(","\\\)"] ],
-#         displayMath: [ ['$$','$$'], ["\\\[","\\\]"] ],
-#         processEscapes: true
-#     },
-#     displayAlign: 'left', // Change this to 'center' to center equations.
-#     "HTML-CSS": {
-#         styles: {'.MathJax_Display': {"margin": 0}}
-#     }
-# });
-# </script>
-# """
+MATHJAX_CONFIG = """
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\\(","\\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\\[","\\\]"] ],
+        processEscapes: true
+    },
+    displayAlign: 'left',
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}}
+    }
+});
+</script>
+"""
 
 # Want to use KaTeX instead of MathJax? While KaTeX is less featureful,
 # it's faster and the output looks better.
 # If you set USE_KATEX to True, you also need to add an extra CSS file
 # like this:
-# EXTRA_HEAD_DATA = """<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">"""
-# USE_KATEX = False
-
+EXTRA_HEAD_DATA = """
+    <link rel="stylesheet" type="text/css" href="/assets/css/tipuesearch.css">
+    <meta property="fb:app_id" content="993596464012237"/>
+    """
+USE_KATEX = False
+# <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
 # Do you want to customize the nbconversion of your IPython notebook?
 # IPYNB_CONFIG = {}
 # With the following example configuration you can use a custom jinja template
@@ -991,26 +1007,17 @@ MARKDOWN_EXTENSIONS = ['fenced_code', 'codehilite', 'extra']
 # long time). Insert anything you want here, or even make it empty (which is
 # the default right now)
 # (translatable)
-# SOCIAL_BUTTONS_CODE = """
-# <!-- Social buttons -->
-# <div id="addthisbox" class="addthis_toolbox addthis_peekaboo_style addthis_default_style addthis_label_style addthis_32x32_style">
-# <a class="addthis_button_more">Share</a>
-# <ul><li><a class="addthis_button_facebook"></a>
-# <li><a class="addthis_button_google_plusone_share"></a>
-# <li><a class="addthis_button_linkedin"></a>
-# <li><a class="addthis_button_twitter"></a>
-# </ul>
-# </div>
-# <script src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f7088a56bb93798"></script>
-# <!-- End of social buttons -->
-# """
+SOCIAL_BUTTONS_CODE = """
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53f6d74a591ace8f"></script>
+<!-- End of social buttons -->
+"""
 
 # Show link to source for the posts?
 # Formerly known as HIDE_SOURCELINK (inverse)
-# SHOW_SOURCELINK = True
+SHOW_SOURCELINK = False
 # Copy the source files for your pages?
 # Setting it to False implies SHOW_SOURCELINK = False
-# COPY_SOURCES = True
+COPY_SOURCES = False
 
 # Modify the number of Post per Index Page
 # Defaults to 10
@@ -1018,7 +1025,7 @@ MARKDOWN_EXTENSIONS = ['fenced_code', 'codehilite', 'extra']
 
 # By default, Nikola generates RSS files for the website and for tags, and
 # links to it.  Set this to False to disable everything RSS-related.
-# GENERATE_RSS = True
+GENERATE_RSS = False
 
 # By default, Nikola does not generates Atom files for indexes and links to
 # them. Generate Atom for tags by setting TAG_PAGES_ARE_INDEXES to True.
@@ -1076,7 +1083,10 @@ MARKDOWN_EXTENSIONS = ['fenced_code', 'codehilite', 'extra']
 # """ % SITE_URL
 #
 # If you prefer a Google search form, here's an example that should just work:
-# SEARCH_FORM = """
+SEARCH_FORM = """
+    <span class="navbar-form navbar-left">
+    <input type="text" id="tipue_search_input" class="form-control" placeholder="Search">
+    </span>"""
 # <!-- Google custom search -->
 # <form method="get" action="https://www.google.com/search" class="navbar-form navbar-right" role="search">
 # <div class="form-group">
@@ -1112,6 +1122,46 @@ MARKDOWN_EXTENSIONS = ['fenced_code', 'codehilite', 'extra']
 # in the default template (base.tmpl).
 # (translatable)
 BODY_END = """
+<!-- Modal -->
+    <div id="search-results" class="modal fade" role="dialog" style="height: 80%;">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Search Results:</h4>
+          </div>
+          <div class="modal-body" id="tipue_search_content" style="max-height: 600px; overflow-y: auto;">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <script>
+    $(document).ready(function() {
+        $.when(
+            $.getScript( "/assets/js/tipuesearch_set.js" ),
+            $.getScript( "/assets/js/tipuesearch.js" ),
+            $.Deferred(function( deferred ){
+                $( deferred.resolve );
+            })
+        ).done(function() {
+            $('#tipue_search_input').tipuesearch({
+                'mode': 'json',
+                'contentLocation': '/assets/js/tipuesearch_content.json'
+            });
+            $('#tipue_search_input').keyup(function (e) {
+                if (e.keyCode == 13) {
+                    $('#search-results').modal()
+                }
+            });
+        });
+    });
+    </script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
