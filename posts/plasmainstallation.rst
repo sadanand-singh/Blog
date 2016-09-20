@@ -36,61 +36,128 @@ whenever you see *ssingh* please replace it with your $USER.
 Plasma 5 Desktop
 ----------------
 
-To install anything new, we first need to enable wifi for this session.
-To do this I will use the wl\* file that we saved from the initial
-installation setup at /etc/netctl.
+Network should be setup at the start. Check the status of network using:
 
 .. code:: bash
 
-    $ netctl start /etc/netctl/wl*
+   $ ping google.com -c 2
+   $
+   $ PING google.com (10.38.24.84) 56(84) bytes of data.
+   $ 64 bytes from google.com (10.38.24.84): icmp_seq=1 ttl=64 time=0.022 ms
+   $ 64 bytes from google.com (10.38.24.84): icmp_seq=2 ttl=64 time=0.023 ms
+   $
+   $ --- google.com ping statistics ---
+   $ 2 packets transmitted, 2 received, 0% packet loss, time 999ms
+   $ rtt min/avg/max/mdev = 0.022/0.022/0.023/0.004 ms
+   $
+
+If you do not get this output, please follow the troubleshooting links
+at `arch wiki <https://wiki.archlinux.org/index.php/systemd-networkd>` _ on setting up network.
+
+I will be assuming you have an NVIDIA card for graphics installation.
 
 To setup a graphical desktop, first we need to install some basic X
 related packages, and some *essential* packages (including fonts):
 
 .. code:: bash
 
-    $ pacman -S intel-dri xf86-video-intel xorg-server xorg-server-utils
-    $ pacman -S intel xorg xorg-xinit xorg-twm xorg-xclock xterm mesa
-    $ pacman -S tlp tlp-rdw acpi_call bash-completion git meld
-    $ pacman -S firefox flashplugin
-    $ pacman -S ttf-dejavu ttf-freefont ttf-liberation ttf-anonymous-pro
-    $ pacman -S adobe-source-code-pro-fonts
+   $ pacman -S xorg-server xorg-server-utils nvidia nvidia-libgl
+
+To avoid the possibility of forgetting to update your initramfs after
+an nvidia upgrade, you have to use a pacman hook like this:
+
+.. code:: bash
+
+   $ vim /etc/pacman.d/hooks/nvidia.hook
+   $
+   ...
+   [Trigger]
+   Operation=Install
+   Operation=Upgrade
+   Operation=Remove
+   Type=Package
+   Target=nvidia
+
+   [Action]
+   Depends=mkinitcpio
+   When=PostTransaction
+   Exec=/usr/bin/mkinitcpio -p linux
+   ...
+   $
+
+Nvidia has a daemon that is to be run at boot. To start the persistence
+daemon at boot, enable the `nvidia-persistenced.service`.
+
+.. code:: bash
+
+   $ systemctl enable nvidia-persistenced.service
+   $ systemctl start nvidia-persistenced.service
+
+.. admonition:: Important
+   Kwin Flickering Issue
+
+   To avoid screen tearing in KDE (KWin), add following:
+
+   .. code:: bash
+
+      $ vim /etc/profile.d/kwin.sh
+      $
+      ...
+      export __GL_YIELD="USLEEP"
+      ...
+
+   If this does not help please try adding the following instead -
+
+   .. code:: bash
+
+      $ vim /etc/profile.d/kwin.sh
+      $
+      ...
+      export KWIN_TRIPLE_BUFFER=1
+      ...
+
+   .. warning:: Do not have both of the above enabled at the same time.
+
+Now continue installing remaining important packages for the GUI.
+
+.. code:: bash
+
+   $ pacman -S mesa ttf-hack ttf-anonymous-pro
+   $ pacman -S tlp tlp-rdw acpi_call bash-completion git meld
+   $ pacman -S ttf-dejavu ttf-freefont ttf-liberation
 
 Now, we will install the packages related to Plasma 5:
 
 .. code:: bash
 
-    $ pacman -S kf5 kf5-aids
-    $ pacman -S plasma kdebase kdeutils-kwalletmanager
-    $ pacman -S kdegraphics-ksnapshot gwenview
-    $ pacman -R plasma-mediacenter
-    $ pacman -S networkmanager plasma-nm
+   $ pacman -S plasma-meta kf5 kdebase kdeutils kde-applications
+   $ pacman -S kdegraphics gwenview
 
 Now we have to setup a display manager. I chose recommended SDDM for
 plasma 5.
 
 .. code:: bash
 
-    $ pacman -S sddm sddm-kcm
-    $ vim /etc/sddm.conf
+   $ pacman -S sddm sddm-kcm
+   $ vim /etc/sddm.conf
 
-    ...
-    [Theme]
-    # Current theme name
-    Current=breeze
+   ...
+   [Theme]
+   # Current theme name
+   Current=breeze
 
-    # Cursor theme
-    CursorTheme=breeze_cursors
-    ...
+   # Cursor theme
+   CursorTheme=breeze_cursors
+   ...
 
-    $ systemctl enable sddm
+   $ systemctl enable sddm
 
 Also make sure that networkmanager starts at boot:
 
 .. code:: bash
 
-    $ systemctl disable dhcpcd.service
-    $ systemctl enable NetworkManager
+   $ systemctl disable dhcpcd.service
+   $ systemctl enable NetworkManager
 
 Audio Setup
 -----------
@@ -100,64 +167,45 @@ done:
 
 .. code:: bash
 
-    $ pacman -S alsa-utils pulseaudio pulseaudio-alsa libcanberra-pulse
-    $ pacman -S libcanberra-gstreamer jack2-dbus kmix
-    $ pacman -S vlc mplayer
+   $ pacman -S alsa-utils pulseaudio pulseaudio-alsa libcanberra-pulse
+   $ pacman -S libcanberra-gstreamer jack2-dbus kmix
+   $ pacman -S mpv mplayer
 
 Useful Tips
 -----------
 
-This part is optional and you can choose as per your taste. Sync time:
+This part is optional and you can choose as per your taste. Sync time using the systemd service:
 
 .. code:: bash
-
-    $ pacman -S ntp
-    $ systemctl enable ntpd
+   $ vim /etc/systemd/timesyncd.conf
+   $
+   ...
+   [Time]
+   NTP=0.arch.pool.ntp.org 1.arch.pool.ntp.org 2.arch.pool.ntp.org 3.arch.pool.ntp.org
+   FallbackNTP=0.pool.ntp.org 1.pool.ntp.org 0.fr.pool.ntp.org
+   ...
+   $
+   $ timedatectl set-ntp true
+   $ timedatectl status
+   $
+   ...
+         Local time: Tue 2016-09-20 16:40:44 PDT
+     Universal time: Tue 2016-09-20 23:40:44 UTC
+           RTC time: Tue 2016-09-20 23:40:44
+          Time zone: US/Pacific (PDT, -0700)
+    Network time on: yes
+   NTP synchronized: yes
+    RTC in local TZ: no
+    ...
+   $
 
 On Plasma 5, It is recommended to enable no-bitmaps to improve the font
 rendering:
 
 .. code:: bash
 
-    $ sudo ln -s /etc/fonts/conf.avail/70-no-bitmaps.conf /etc/fonts/conf.d
-
-I prefer to use zsh over bash. I also use the awesome
-`prezto <https://github.com/sorin-ionescu/prezto>`__ for zsh
-configuration. However, I ran into an issue with sddm, where use of
-their configurations will lead sddm to freeze. To fix these you need to
-do the following before you reboot/logout your system.
-
-.. code:: bash
-
-    $ vim /usr/share/sddm/scripts/Xsession
-    ...
-    */zsh)
-        [ -z "$ZSH_NAME" ] && exec $SHELL $0 "$@"
-        emulate -R sh
-        [ -d /etc/zsh ] && zdir=/etc/zsh || zdir=/etc
-        zhome=${ZDOTDIR:-$HOME}
-        # zshenv is always sourced automatically.
-        [ -f $zdir/zprofile ] && . $zdir/zprofile
-        [ -f $zhome/.zprofile ] && . $zhome/.zprofile
-        [ -f $zdir/zlogin ] && . $zdir/zlogin
-        [ -f $zhome/.zlogin ] && . $zhome/.zlogin
-        ;;
-    ...
-
-    Should be changed to:
-    ...
-    */zsh)
-        [ -z "$ZSH_NAME" ] && exec $SHELL $0 "$@"
-        [ -d /etc/zsh ] && zdir=/etc/zsh || zdir=/etc
-        zhome=${ZDOTDIR:-$HOME}
-        # zshenv is always sourced automatically.
-        [ -f $zdir/zprofile ] && . $zdir/zprofile
-        [ -f $zhome/.zprofile ] && . $zhome/.zprofile
-        [ -f $zdir/zlogin ] && . $zdir/zlogin
-        [ -f $zhome/.zlogin ] && . $zhome/.zlogin
-        emulate -R sh
-        ;;
-    ...
+   $ sudo ln -s /etc/fonts/conf.avail/70-no-bitmaps.conf
+      /etc/fonts/conf.d
 
 If you use vim as your primary editor, you may find
 `this <https://github.com/amix/vimrc>`__ vimrc quite useful.
@@ -166,5 +214,5 @@ That's It. You are done. Start playing your new beautiful desktop.
 Please leave your comments with suggestions or any word of appreciation
 if this has been of any help to you.
 
-Follow my blog for any further suggestions or improvements in this
+Follow this blog for any further suggestions or improvements in this
 guide.
