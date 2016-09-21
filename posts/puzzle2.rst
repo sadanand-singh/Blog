@@ -4,6 +4,7 @@
 .. tags: mathjax, Puzzle, Math
 .. category: Puzzle
 .. link:
+.. disqus_identifier: http://sadanand-singh.github.io/posts/2014/08/ConsumeTransportProblem/
 .. description:
 .. type: text
 .. author: Sadanand Singh

@@ -4,9 +4,10 @@
 .. tags: Food
 .. category: Food
 .. link:
+.. disqus_identifier: CarrotHalwaRecipe.abha
 .. description:
 .. type: text
-.. author: Sadanand Singh
+.. author: Abha Mundepi
 
 Last month or so has been all silent here. No puzzles, no math, no
 computers and most important, no Food! And as usual blame is on my work
@@ -17,9 +18,8 @@ food!
 
 .. TEASER_END
 
-Here is one of Abha's finest creations from her Kitchen. Carrot halwa is
-a common north Indian dessert, healthy carrots cooked in milk and mango
-puree.
+Carrot halwa is a common north Indian dessert, healthy carrots
+cooked in milk and mango puree.
 
 .. figure:: http://www.radiantpeach.com/wp-content/uploads/2014/04/organic-carrot.jpg
    :alt: Fresh Organic Carrots

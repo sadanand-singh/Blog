@@ -4,6 +4,7 @@
 .. tags: Food
 .. category: Food
 .. link:
+.. disqus_identifier: PalakPaneerRecipe.sadanand
 .. description:
 .. type: text
 .. author: Abha Mundepi

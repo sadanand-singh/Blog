@@ -4,6 +4,7 @@
 .. tags: mathjax, Algorithms
 .. category: Algorithms
 .. link:
+.. disqus_identifier: FibonacciNumbers.sadanand
 .. description:
 .. type: text
 .. author: Sadanand Singh
@@ -71,6 +72,16 @@ numbers grow *almost* as fast as powers of 2: for example,
 :math:`F_{30}` is over a million, and :math:`F_{100}` is 21 digits long!
 In general, :math:`F_n \approx 2^{0.694n}` Clearly, we need a computing
 device to calculate say :math:`F_{200}`.
+
+Here is a simple plot of first few Fibonacci numbers:
+
+.. chart:: Line
+    :title: 'Fibonacci vs. Squared Numbers'
+    :x_labels: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20']
+
+    'Fibonacci', [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765]
+    'Squared', [0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144, 169, 196, 225, 256, 289, 324, 361, 400]
+
 
 The most basic algorithm, that comes to mind is a recursive scheme that
 taps directly into the above definition of Fibonacci series.

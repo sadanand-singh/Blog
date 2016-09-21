@@ -4,6 +4,7 @@
 .. tags: Linux
 .. category: Linux
 .. link:
+.. disqus_identifier: archInstall.sadanand
 .. description:
 .. type: text
 .. author: Sadanand Singh

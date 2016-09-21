@@ -4,6 +4,7 @@
 .. tags: Food
 .. category: Food
 .. link:
+.. disqus_identifier: AlooParatha.sadanand
 .. description:
 .. type: text
 .. author: Abha Mundepi

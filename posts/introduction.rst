@@ -3,6 +3,7 @@
 .. category: News
 .. tags: Introduction
 .. slug: FirstPost
+.. disqus_identifier: http://sadanand-singh.github.io/posts/2014/08/First%20Post/
 .. summary: My Intro Post
 .. author: Sadanand Singh
 .. type: text

@@ -4,12 +4,13 @@
 .. tags: mathjax, Math, Algorithms, Puzzle
 .. category: Puzzle
 .. link:
+.. disqus_identifier: PrimeNumberAndPath.sadanand
 .. description:
 .. type: text
 .. author: Sadanand Singh
 
 Puzzle 1: Prime Numbers
------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 Prove that :math:`p^2-1` is divisible by 24, where :math:`p` is a prime
 number with :math:`p>3`.
@@ -19,7 +20,7 @@ This is a simple one - do not go by the technicality of the problem statement.
 .. TEASER_END
 
 Solution
-^^^^^^^^
+~~~~~~~~~
 
 :math:`p^2-1 = (p-1)\times (p+1)` Given, :math:`p`
 is a prime number :math:`>3`, :math:`p-1` and :math:`p+1`
@@ -41,7 +42,7 @@ well.
 Hence, :math:`p^2-1` is divisible by :math:`8\times 3 = 24`.
 
 Puzzle 2: Hopping on a Chess Board
-----------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 On a chess board, basically a :math:`8\times 8` grid, how many ways one
 can go from the left most bottom corner to the right most upper corner?
@@ -60,7 +61,7 @@ In the original post this problem was ill defined.
 Can you find the generic answer for the case of :math:`N\times M` grid.
 
 Solution
-^^^^^^^^
+~~~~~~~~~~
 
 **Correction:**
 For an :math:`N\times M` grid, we need only :math:`N-1`

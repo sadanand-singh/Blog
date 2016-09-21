@@ -4,6 +4,7 @@
 .. tags: Food
 .. category: Food
 .. link:
+.. disqus_identifier: TilapiaFish.sadanand
 .. description:
 .. type: text
 .. author: Sadanand Singh

@@ -4,6 +4,7 @@
 .. tags: Computers, Linux
 .. category: Computers
 .. link:
+.. disqus_identifier: myNewCompSpecs.sadanand
 .. description:
 .. type: text
 .. author: Sadanand Singh

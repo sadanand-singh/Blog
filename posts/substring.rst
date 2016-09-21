@@ -4,6 +4,7 @@
 .. tags: Algorithms, Python
 .. category: Algorithms
 .. link:
+.. disqus_identifier: shortestSubstring.sadanand
 .. description:
 .. type: text
 .. author: Sadanand Singh
