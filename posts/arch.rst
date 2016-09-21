@@ -319,8 +319,8 @@ Assuming /boot is your boot drive, first run the following command to get starte
     $ bootctl --path=/boot install
 
 It will copy the systemd-boot binary to your EFI System Partition
-(`/boot/EFI/systemd/systemd-bootx64.efi` and `/boot/EFI/Boot/BOOTX64.EFI`
-- both of which are identical - on x64 systems) and add systemd-boot
+( `/boot/EFI/systemd/systemd-bootx64.efi` and `/boot/EFI/Boot/BOOTX64.EFI`
+- both of which are identical - on x64 systems ) and add systemd-boot
 itself as the default EFI application (default boot entry) loaded by
 the EFI Boot Manager.
 
@@ -410,10 +410,10 @@ Next, check that the driver was loaded via `dmesg | grep module_name`. For examp
 Proceed if the driver was loaded successfully. Otherwise,
 you will need to know which module is needed for your particular model.
 Please follow the
-`Arch Wiki Networking <https://wiki.archlinux.org/index.php/Network_configuration>` _ guide
+`Arch Wiki Networking <https://wiki.archlinux.org/index.php/Network_configuration>`_ guide
 for further assitance.
 
-Get current device names via `sysf`s or `ip link`. For example:
+Get current device names via `/sys/class/net` or `ip link`. For example:
 
 .. code:: bash
 
