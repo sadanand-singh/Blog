@@ -52,7 +52,7 @@ Network should be setup at the start. Check the status of network using:
    $
 
 If you do not get this output, please follow the troubleshooting links
-at `arch wiki <https://wiki.archlinux.org/index.php/systemd-networkd>` _ on setting up network.
+at `arch wiki <https://wiki.archlinux.org/index.php/systemd-networkd>`_ on setting up network.
 
 I will be assuming you have an NVIDIA card for graphics installation.
 
@@ -94,6 +94,7 @@ daemon at boot, enable the `nvidia-persistenced.service`.
    $ systemctl start nvidia-persistenced.service
 
 .. admonition:: Important
+
    Kwin Flickering Issue
 
    To avoid screen tearing in KDE (KWin), add following:
@@ -177,6 +178,7 @@ Useful Tips
 This part is optional and you can choose as per your taste. Sync time using the systemd service:
 
 .. code:: bash
+
    $ vim /etc/systemd/timesyncd.conf
    $
    ...

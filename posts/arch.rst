@@ -238,8 +238,8 @@ Edit the /mnt/ect/fstab file to add following /tmp mounts.
     tmpfs /tmp tmpfs rw,nodev,nosuid 0 0
     tmpfs /dev/shm tmpfs rw,nodev,nosuid,noexec 0 0
 
-.. note:: wifi at first boot
 
+.. note:: WIFI AT FIRST BOOT
     Copy our current wifi setup file into the new system. This will enable
     wifi at first boot. Next, chroot into our newly installed system:
 
@@ -247,7 +247,8 @@ Edit the /mnt/ect/fstab file to add following /tmp mounts.
 
         $cp /etc/netctl/wl* /mnt/etc/netctl/
 
- Finally  bind root for installation.
+
+Finally  bind root for installation.
 
 .. code:: bash
 
@@ -284,14 +285,13 @@ Here are some basic commands you need to run to get the installation started.
     $ mkinitcpio -p linux
     $ passwd
 
-.. note:: wifi Packages
-
-    We also need to install following packages for wifi to work at first
-    boot:
+.. note:: WIFI PACKAGES
+    We also need to install following packages for wifi to work at first boot:
 
     .. code:: bash
 
         $ pacman -S iw wpa_supplicant
+
 
 We will also add *hostname* to our /etc/hosts file:
 
@@ -351,12 +351,12 @@ where $UUID is the value obtained from above command:
 
 .. admonition:: Important
 
-    Please  note that you will need manually run bootctl command everytime
-    `systemd-boot` gets updated.
+    Please  note that you will need manually run bootctl command everytime *systemd-boot* gets updated.
 
     .. code:: bash
 
         $ bootctl update
+
 
 Network Setup
 -------------
@@ -431,7 +431,8 @@ Get current device names via `sysf`s or `ip link`. For example:
     $
 
 Using this name of the device, we need to configure, enable following
-two systemd services: `systemd-networkd.service` and `systemd-resolved.service`.
+two systemd services: *systemd-networkd.service*
+and *systemd-resolved.service*.
 
 For compatibility with resolv.conf, delete or rename the existing file and
 create the following symbolic link:
@@ -440,7 +441,7 @@ create the following symbolic link:
 
     $ ln -s /usr/lib/systemd/resolv.conf /etc/resolv.conf
 
-Network configurations are stored as *.network in /etc/systemd/network.
+Network configurations are stored as \*.network in */etc/systemd/network*.
 We need to create ours as follows.:
 
 .. code:: bash
