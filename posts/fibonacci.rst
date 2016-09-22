@@ -76,13 +76,15 @@ device to calculate say :math:`F_{200}`.
 Here is a simple plot of first few Fibonacci numbers:
 
 .. chart:: Line
-    :title: 'Fibonacci vs. Squared Numbers'
+    :title: 'Fibonacci Numbers'
     :legend_at_bottom: True
-    :legend_at_bottom_columns: 2
-    :x_labels: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20']
+    :logarithmic: True
+    :legend_at_bottom_columns: 3
+    :x_labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20']
 
-    'Fibonacci', [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765]
-    'Squared', [0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144, 169, 196, 225, 256, 289, 324, 361, 400]
+    'Fibonacci(n)', [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765]
+    u"2\u207F", [2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768, 65536, 131072, 262144, 524288, 1048576]
+    u"n\u00B2", [1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144, 169, 196, 225, 256, 289, 324, 361, 400]
 
 
 The most basic algorithm, that comes to mind is a recursive scheme that

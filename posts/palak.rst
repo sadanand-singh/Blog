@@ -81,7 +81,7 @@ Curry for *Paneer*
 2. Heat a deep pan on Medium for about 1 minute and then pour olive oil
    into it.
 3. After about 30 seconds, Add cumin seeds, bay leaf and minced garlic.
-4. Once cimun seeds start to pop, add finely cut onions.
+4. Once cumin seeds start to pop, add finely cut onions.
 5. Fry the onions until oil starts to separate (about 1-2 minutes).
 6. Add finely chopped tomatoes and all the spices except *Garam*
    *Masala*.

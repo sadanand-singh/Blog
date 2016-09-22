@@ -41,11 +41,11 @@ Here is my solution in *Python*.
 
 It is quite brute force. I am not sure about the order of *find()* and
 *rfind()* built-in methods in Python. Assuming these are *O(n)*, my
-algorithm is in *O(n3)*. Please put your answers in comments below, if
+algorithm is in *O(n `3`:sup: )*. Please put your answers in comments below, if
 your answer has a better scaling.
 
 The function definition that I use for finding non-empty non-repeating
-strings is recurcive.
+strings is recursive.
 
 .. code:: py
 
@@ -66,7 +66,7 @@ I call this method as follows to get the desired results:
 
     #! /usr/bin/python
     import argparse
-    # Parse Command Line Arguements
+    # Parse Command Line Arguments
     parser = argparse.ArgumentParser()
     parser.add_argument("-s", "--string", default = "asdfdfa", help="String Input")
     args = parser.parse_args()

@@ -28,7 +28,7 @@ share my thoughts on following topics from time to time.
 
 -  Technology
 -  Statistics
--  Machine Leanrning
+-  Machine Learning
 -  News
 -  Economics
 -  Education

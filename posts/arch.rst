@@ -202,7 +202,7 @@ installation and final setup.
     $ btrfs subvolume create /mnt/media
     $ umount /mnt
 
-Now, once the subvolumes have been created, we will mount them in
+Now, once the sub-volumes have been created, we will mount them in
 appropriate locations with optimal flags.
 
 .. code:: bash
@@ -413,7 +413,7 @@ Proceed if the driver was loaded successfully. Otherwise,
 you will need to know which module is needed for your particular model.
 Please follow the
 `Arch Wiki Networking <https://wiki.archlinux.org/index.php/Network_configuration>`_ guide
-for further assitance.
+for further assistance.
 
 Get current device names via `/sys/class/net` or `ip link`. For example:
 

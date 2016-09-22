@@ -36,7 +36,7 @@ Please give your solutions in the comments below.
 
 
 If the man decided to go back, he would have met the train at the
-entrance of tunnel (i.e The man would have travelled 0.25 of the
+entrance of tunnel (i.e The man would have traveled 0.25 of the
 tunnel). Instead, if man went forward- by the time train would have
 reached at the entrance of tunnel, the man would have been at the
 0.25+0.25 = 0.5 of tunnel. Hence, according to the second condition, the

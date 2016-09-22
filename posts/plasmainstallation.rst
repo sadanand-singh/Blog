@@ -118,7 +118,7 @@ daemon at boot, enable the `nvidia-persistenced.service`.
       export KWIN_TRIPLE_BUFFER=1
       ...
 
-   .. warning:: Do not have both of the above enabled at the same time.
+   .. warning:: Do not have both of the above enabled at the same time. Please look at `Arch Wiki <https://wiki.archlinux.org/index.php/NVIDIA/Troubleshooting>`_ for additional details.
 
 Now continue installing remaining important packages for the GUI.
 
@@ -154,7 +154,7 @@ plasma 5.
 
    $ systemctl enable sddm
 
-Also make sure that networkmanager starts at boot:
+Also make sure that network manager starts at boot:
 
 .. code:: bash
 
@@ -217,5 +217,4 @@ That's It. You are done. Start playing your new beautiful desktop.
 Please leave your comments with suggestions or any word of appreciation
 if this has been of any help to you.
 
-Follow this blog for any further suggestions or improvements in this
-guide.
+Follow this page for any additional suggestions or improvements in this guide.

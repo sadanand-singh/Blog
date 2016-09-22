@@ -10,7 +10,7 @@
 .. author: Sadanand Singh
 
 It has been long due. Just built a new desktop. Here are different parts
-I used to build this beuty. (Updated Cost)
+I used to build this beauty. (Updated Cost)
 
 .. TEASER_END
 
@@ -27,7 +27,7 @@ I used to build this beuty. (Updated Cost)
 
 Total Value - $580 (Excluding Keyboard/Mouse)
 
-It is up and running Arch Linux with BTFRS filesystem, Plasma 5 Desktop
+It is up and running Arch Linux with BTFRS file system, Plasma 5 Desktop
 and so on. Over the next few posts, I will be posting my installation
 ordeals.
 

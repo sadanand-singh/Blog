@@ -28,7 +28,7 @@
     A simple python script to maintain flac and mp3 files in sync, including
     tags, and album art. This script can be used as a cron job to keep files in sync.
     The code `repository <https://github.com/sadanand-singh/flac2mp3>`_ is
-    avaialable on Github.
+    available on Github.
 
 .. admonition:: **Kaggle Competitions**
 
@@ -44,9 +44,9 @@
             :width: 23pt
             :align: left
 
-    A un-defeatable game of TicTacToe using minimax algorithm and PyQt5.
+    A unbeatable game of TicTacToe using minimax algorithm and PyQt5.
     The `code <https://github.com/sadanand-singh/TicTacToe>`_ repository
-    is avaialable on Github. You need to have pyqt5 installed to run this.
+    is available on Github. You need to have PyQt5 installed to run this.
 
 .. admonition:: **RNA-binding Residues in Proteins**
 
@@ -70,4 +70,4 @@
 
     A simple game of `Ludo <https://en.wikipedia.org/wiki/Ludo_(board_game)>`_ using PyQt5.
     The `source <https://github.com/sadanand-singh/ludoGame>`_ for this project is
-    avaialable on Github . You need to have pyqt5 installed to run this.
+    available on github . You need to have PyQt5 installed to run this.

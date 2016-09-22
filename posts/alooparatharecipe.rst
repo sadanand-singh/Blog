@@ -62,11 +62,11 @@ Stuffing
 ^^^^^^^^
 
 1. Boil and peel Potatoes.
-2. Mash boiled Potatoes and mix salt and chilli flakes.
+2. Mash boiled Potatoes and mix salt and chili flakes.
 3. In a skillet heat oil and add *Garam Masala*.
 4. Once it start to sputter, add cut onions.
 5. Add rest of spices and fry until golden brown.
-6. Add mashed Potatoes mix and frey for another 2-3 minbutes.
+6. Add mashed Potatoes mix and fry for another 2-3 minutes.
 
 Bread (*Paratha*)
 ^^^^^^^^^^^^^^^^^
