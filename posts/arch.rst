@@ -241,6 +241,7 @@ Edit the /mnt/ect/fstab file to add following /tmp mounts.
 
 
 .. note:: WIFI AT FIRST BOOT
+
     Copy our current wifi setup file into the new system. This will enable
     wifi at first boot. Next, chroot into our newly installed system:
 
@@ -287,6 +288,7 @@ Here are some basic commands you need to run to get the installation started.
     $ passwd
 
 .. note:: WIFI PACKAGES
+
     We also need to install following packages for wifi to work at first boot:
 
     .. code:: bash
