@@ -33,7 +33,7 @@
 .. admonition:: **Kaggle Competitions**
 
     Python code and notebooks for different `Kaggle <https://www.kaggle.com/>`_ competitions that I have
-    partitioned in. The repositories (Names starting with *kaggle*) can be found on
+    participated. The repositories (names starting with *kaggle*) can be found on
     my `Github <https://github.com/sadanand-singh/>`_ account page.
 
 .. admonition:: **TicTacToe in Qt5**
@@ -44,7 +44,7 @@
             :width: 23pt
             :align: left
 
-    A unbeatable game of TicTacToe using minimax algorithm and PyQt5.
+    An unbeatable game of TicTacToe using minimax algorithm and PyQt5.
     The `code <https://github.com/sadanand-singh/TicTacToe>`_ repository
     is available on Github. You need to have PyQt5 installed to run this.
 
@@ -57,7 +57,7 @@
             :align: left
 
     Protein-RNA interface residue predictors trained using various machine learning
-    models using `scikit-learn <http://scikit-learn.org/stable/>`_ ,
+    models built with `scikit-learn <http://scikit-learn.org/stable/>`_ ,
     `keras <https://keras.io/>`_  and `tensorflow <https://www.tensorflow.org/>`_ .
 
 .. admonition:: **Ludo in Qt5**

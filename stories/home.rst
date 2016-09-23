@@ -1,4 +1,4 @@
-.. title: Foundations of Logical Ideas
+.. title: Curious and Always Looking for Questions
 .. slug: index
 .. date: 2016-09-18 12:08:13 UTC-07:00
 .. tags: mathjax
@@ -10,9 +10,9 @@
 
 .. class:: img-responsive
 
-  .. image:: ../images/sadanand_pic.jpg
-      :width: 112pt
-      :align: left
+    .. image:: ../images/sadanand_pic.jpg
+        :width: 112pt
+        :align: left
 
 .. class:: text-justify
 
@@ -26,7 +26,7 @@
 
 
 Recent Posts
-------------
+-------------
 
 .. post-list::
     :stop: 10
@@ -37,4 +37,4 @@ Machine Learning Posts
 
 .. post-list::
     :stop: 5
-    :tags: ML, DeepLearn, EDA
+    :tags: ML, DeepLearning, EDA

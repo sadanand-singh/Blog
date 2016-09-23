@@ -395,23 +395,25 @@ HIDDEN_TAGS = ['mathjax']
 
 # Final locations are:
 # output / TRANSLATION[lang] / CATEGORY_PATH / index.html (list of categories)
-# output / TRANSLATION[lang] / CATEGORY_PATH / CATEGORY_PREFIX category.html (list of posts for a category)
-# output / TRANSLATION[lang] / CATEGORY_PATH / CATEGORY_PREFIX category.xml (RSS feed for a category)
+# output / TRANSLATION[lang] / CATEGORY_PATH / CATEGORY_PREFIX category.html
+# (list of posts for a category)
+# output / TRANSLATION[lang] / CATEGORY_PATH / CATEGORY_PREFIX category.xml
+# (RSS feed for a category)
 # (translatable)
 # CATEGORY_PATH = "categories"
 # CATEGORY_PREFIX = "cat_"
 
 # If CATEGORY_ALLOW_HIERARCHIES is set to True, categories can be organized in
 # hierarchies. For a post, the whole path in the hierarchy must be specified,
-# using a forward slash ('/') to separate paths. Use a backslash ('\') to escape
+# using a forward slash ('/') to separate paths. Use backslash ('\') to escape
 # a forward slash or a backslash (i.e. '\//\\' is a path specifying the
 # subcategory called '\' of the top-level category called '/').
 CATEGORY_ALLOW_HIERARCHIES = False
-# If CATEGORY_OUTPUT_FLAT_HIERARCHY is set to True, the output written to output
+# If CATEGORY_OUTPUT_FLAT_HIERARCHY is set to True, output written to output
 # contains only the name of the leaf category and not the whole path.
 CATEGORY_OUTPUT_FLAT_HIERARCHY = False
 
-# If CATEGORY_PAGES_ARE_INDEXES is set to True, each category's page will contain
+# If CATEGORY_PAGES_ARE_INDEXES set to True, each category's page will contain
 # the posts themselves. If set to False, it will be just a list of links.
 CATEGORY_PAGES_ARE_INDEXES = True
 
@@ -421,7 +423,8 @@ CATEGORY_PAGES_ARE_INDEXES = True
 # CATEGORY_PAGES_DESCRIPTIONS = {
 #    DEFAULT_LANG: {
 #        "blogging": "Meta-blog posts about blogging about blogging.",
-#        "open source": "My contributions to my many, varied, ever-changing, and eternal libre software projects."
+#        "open source": "My contributions to my many, varied, ever-changing,
+#                           and eternal libre software projects."
 #    },
 # }
 
@@ -444,9 +447,9 @@ ENABLE_AUTHOR_PAGES = False
 
 # Final locations are:
 # output / TRANSLATION[lang] / AUTHOR_PATH / index.html (list of tags)
-# output / TRANSLATION[lang] / AUTHOR_PATH / author.html (list of posts for a tag)
+# output / TRANSLATION[lang] / AUTHOR_PATH / author.html (list of post for tag)
 # output / TRANSLATION[lang] / AUTHOR_PATH / author.xml (RSS feed for a tag)
-AUTHOR_PATH = "authors"
+# AUTHOR_PATH = "authors"
 
 # If AUTHOR_PAGES_ARE_INDEXES is set to True, each author's page will contain
 # the posts themselves. If set to False, it will be just a list of links.
@@ -485,7 +488,8 @@ FRONT_INDEX_HEADER = {
 # Create year, month, and day archives each with a (long) list of posts
 # (overrides both CREATE_MONTHLY_ARCHIVE and CREATE_SINGLE_ARCHIVE)
 # CREATE_FULL_ARCHIVES = False
-# If monthly archives or full archives are created, adds also one archive per day
+# If monthly archives or full archives are created, adds also
+# one archive per day
 # CREATE_DAILY_ARCHIVE = False
 # Final locations for the archives are:
 # output / TRANSLATION[lang] / ARCHIVE_PATH / ARCHIVE_FILENAME
@@ -495,8 +499,8 @@ FRONT_INDEX_HEADER = {
 # ARCHIVE_PATH = ""
 # ARCHIVE_FILENAME = "archive.html"
 
-# If ARCHIVES_ARE_INDEXES is set to True, each archive page which contains a list
-# of posts will contain the posts themselves. If set to False, it will be just a
+# If ARCHIVES_ARE_INDEXES is set to True, each archive page which contains list
+# of posts will contain the posts themselves. If set to False, it will be just
 # list of links.
 # ARCHIVES_ARE_INDEXES = False
 
@@ -610,7 +614,8 @@ GITHUB_COMMIT_SOURCE = True
 # side optimization for very high traffic sites or low memory servers.
 # GZIP_FILES = False
 # File extensions that will be compressed
-# GZIP_EXTENSIONS = ('.txt', '.htm', '.html', '.css', '.js', '.json', '.atom', '.xml')
+# GZIP_EXTENSIONS = ('.txt', '.htm', '.html', '.css', '.js',
+#                    '.json', '.atom', '.xml')
 # Use an external gzip command? None means no.
 # Example: GZIP_COMMAND = "pigz -k {filename}"
 # GZIP_COMMAND = None
@@ -708,7 +713,8 @@ IMAGE_FOLDERS = {'images': 'images'}
 # (translatable) If the following is empty, defaults to BLOG_TITLE:
 # INDEXES_TITLE = ""
 #
-# (translatable) If the following is empty, defaults to ' [old posts,] page %d' (see above):
+# (translatable) If the following is empty, defaults to ' [old posts,]
+# page %d' (see above):
 # INDEXES_PAGES = ""
 #
 # If the following is True, INDEXES_PAGES is also displayed on the main (the
@@ -719,29 +725,31 @@ IMAGE_FOLDERS = {'images': 'images'}
 # second-oldest posts, etc., and index.html has the newest posts. This ensures
 # that all posts on index-x.html will forever stay on that page, now matter how
 # many new posts are added.
-# If False, index-1.html has the second-newest posts, index-2.html the third-newest,
-# and index-n.html the oldest posts. When this is active, old posts can be moved
+# If False, index-1.html has the second-newest posts, index-2.html
+# the third-newest, and index-n.html the oldest
+# posts. When this is active, old posts can be moved
 # to other index pages when new posts are added.
 # INDEXES_STATIC = True
 #
-# (translatable) If PRETTY_URLS is set to True, this setting will be used to create
-# prettier URLs for index pages, such as page/2/index.html instead of index-2.html.
+# (translatable) If PRETTY_URLS is set to True, this setting
+# will be used to create prettier URLs for index pages,
+# such as page/2/index.html instead of index-2.html.
 # Valid values for this settings are:
 #   * False,
 #   * a list or tuple, specifying the path to be generated,
 #   * a dictionary mapping languages to lists or tuples.
-# Every list or tuple must consist of strings which are used to combine the path;
+# Every list or tuple must consist of strings which are used to combine path;
 # for example:
 #     ['page', '{number}', '{index_file}']
 # The replacements
 #     {number}     --> (logical) page number;
-#     {old_number} --> the page number inserted into index-n.html before (zero for
-#                      the main page);
+#     {old_number} --> the page number inserted into index-n.html
+#                      before (zero for the main page);
 #     {index_file} --> value of option INDEX_FILE
 # are made.
-# Note that in case INDEXES_PAGES_MAIN is set to True, a redirection will be created
-# for the full URL with the page number of the main page to the normal (shorter) main
-# page URL.
+# Note that in case INDEXES_PAGES_MAIN is set to True, a redirection will be
+# created for the full URL with the page number of the main page
+# to the normal (shorter) main page URL.
 # INDEXES_PRETTY_PAGE_URL = False
 
 # Color scheme to be used for code blocks. If your theme provides
@@ -813,18 +821,19 @@ INDEX_TEASERS = True
 # The following tags exist and are replaced for you:
 # {link}                        A link to the full post page.
 # {read_more}                   The string “Read more” in the current language.
-# {reading_time}                An estimate of how long it will take to read the post.
-# {remaining_reading_time}      An estimate of how long it will take to read the post, sans the teaser.
-# {min_remaining_read}          The string “{remaining_reading_time} min remaining to read” in the current language.
+# {reading_time}                An estimate of how long it will take to read
+# {remaining_reading_time}      above, sans the teaser.
+# {min_remaining_read}          min remaining to read” in the current language.
 # {paragraph_count}             The amount of paragraphs in the post.
-# {remaining_paragraph_count}   The amount of paragraphs in the post, sans the teaser.
+# {remaining_paragraph_count}   above sans the teaser.
 # {{                            A literal { (U+007B LEFT CURLY BRACKET)
 # }}                            A literal } (U+007D RIGHT CURLY BRACKET)
 
 # 'Read more...' for the index page, if INDEX_TEASERS is True (translatable)
 INDEX_READ_MORE_LINK = '<p class="more"><a href="{link}">{read_more}…</a></p>'
 # 'Read more...' for the feeds, if FEED_TEASERS is True (translatable)
-FEED_READ_MORE_LINK = '<p><a href="{link}">{read_more}…</a> ({min_remaining_read})</p>'
+FEED_READ_MORE_LINK = '<p><a href="{link}">{read_more}…'
+FEED_READ_MORE_LINK += '</a> ({min_remaining_read})</p>'
 
 # Append a URL query to the FEED_READ_MORE_LINK in Atom and RSS feeds. Advanced
 # option used for traffic source tracking.
@@ -922,10 +931,10 @@ STRIP_INDEXES = True
 # if /2012 includes any files (including index.html)... add it to the sitemap
 # SITEMAP_INCLUDE_FILELESS_DIRS = True
 
-# List of files relative to the server root (!) that will be asked to be excluded
-# from indexing and other robotic spidering. * is supported. Will only be effective
+# List of files relative to the server root that will be asked to be excluded
+# from indexing and robotic spidering. * is supported. Will only be effective
 # if SITE_URL points to server root. The list is used to exclude resources from
-# /robots.txt and /sitemap.xml, and to inform search engines about /sitemapindex.xml.
+# /robots.txt & /sitemap.xml, to inform search engines about /sitemapindex.xml.
 # ROBOTS_EXCLUSIONS = ["/archive.html", "/category/*.html"]
 
 # Instead of putting files in <slug>.html, put them in <slug>/index.html.
@@ -981,7 +990,6 @@ EXTRA_HEAD_DATA = """
     <meta property="fb:app_id" content="993596464012237"/>
     """
 USE_KATEX = False
-# <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
 # Do you want to customize the nbconversion of your IPython notebook?
 # IPYNB_CONFIG = {}
 # With the following example configuration you can use a custom jinja template
@@ -999,8 +1007,8 @@ MARKDOWN_EXTENSIONS = ['fenced_code', 'codehilite', 'extra']
 # Extra options to pass to the pandoc comand.
 # by default, it's empty, is a list of strings, for example
 # ['-F', 'pandoc-citeproc', '--bibliography=/Users/foo/references.bib']
-# Pandoc does not demote headers by default.  To enable this, you can use, for example
-# ['--base-header-level=2']
+# Pandoc does not demote headers by default.  To enable this, you can use,
+# for example ['--base-header-level=2']
 # PANDOC_OPTIONS = []
 
 # Social buttons. This is sample code for AddThis (which was the default for a
@@ -1049,7 +1057,7 @@ GENERATE_RSS = False
 # Include preview image as a <figure><img></figure> at the top of the entry.
 # Requires FEED_PLAIN = False. If the preview image is found in the content,
 # it will not be included again. Image will be included as-is, aim to optmize
-# the image source for Feedly, Apple News, Flipboard, and other popular clients.
+# the image source for Feedly, Flipboard, and other popular clients.
 # FEED_PREVIEWIMAGE = True
 
 # RSS_LINK is a HTML fragment to link the RSS or Atom feeds. If set to None,
@@ -1088,7 +1096,8 @@ SEARCH_FORM = """
     <input type="text" id="tipue_search_input" class="form-control" placeholder="Search">
     </span>"""
 # <!-- Google custom search -->
-# <form method="get" action="https://www.google.com/search" class="navbar-form navbar-right" role="search">
+# <form method="get" action="https://www.google.com/search"
+# class="navbar-form navbar-right" role="search">
 # <div class="form-group">
 # <input type="text" name="q" class="form-control" placeholder="Search">
 # </div>
@@ -1187,7 +1196,7 @@ BODY_END = """
 #
 # An example re is the following:
 # '.*\/(?P<date>\d{4}-\d{2}-\d{2})-(?P<slug>.*)-(?P<title>.*)\.rst'
-# (Note the '.*\/' in the beginning -- matches source paths relative to conf.py)
+# (Note the '.*\/' in the beginning, matches source paths relative to conf.py)
 # FILE_METADATA_REGEXP = None
 
 # If you hate "Filenames with Capital Letters and Spaces.md", you should
@@ -1219,7 +1228,7 @@ TWITTER_CARD = {
     'use_twitter_cards': True,  # enable Twitter Cards
     'card': 'summary',          # Card type, you can also use
     'site': '@sadanandsingh',         # twitter nick for the website
-    'creator': '@sadanandsingh',     # Username for the content creator / author.
+    'creator': '@sadanandsingh',     # Username for the content creator/author.
 }
 
 # If webassets is installed, bundle JS and CSS into single files to make
