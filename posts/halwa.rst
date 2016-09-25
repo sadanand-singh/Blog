@@ -13,7 +13,7 @@ Last month or so has been all silent here. No puzzles, no math, no
 computers and most important, no Food! And as usual blame is on my work
 schedule.
 
-But, never is too late. Especially, when you can start with some exotic
+But, its never too late. Especially, when you can start with some exotic
 food!
 
 .. TEASER_END
@@ -63,5 +63,4 @@ Interesting Facts
 
 -  `Nutritional Value <http://www.nutrition-and-you.com/carrots.html>`__
    of carrots.
--  More about `Gajar
-   Halwa <https://en.wikipedia.org/wiki/Gajar_Ka_Halwa>`__
+-  More about `Gajar Halwa <https://en.wikipedia.org/wiki/Gajar_Ka_Halwa>`__
