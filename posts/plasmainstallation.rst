@@ -96,7 +96,7 @@ daemon at boot, enable the `nvidia-persistenced.service`.
 
 .. admonition:: Important
 
-   Kwin Flickering Issue
+   KWIN FLICKERING ISSUE
 
    To avoid screen tearing in KDE (KWin), add following:
 
@@ -118,7 +118,7 @@ daemon at boot, enable the `nvidia-persistenced.service`.
       export KWIN_TRIPLE_BUFFER=1
       ...
 
-   .. warning:: Do not have both of the above enabled at the same time. Please look at `Arch Wiki <https://wiki.archlinux.org/index.php/NVIDIA/Troubleshooting>`_ for additional details.
+   .. warning:: Do not have both of the above enabled at the same time. Please look at `Arch Wiki <https://wiki.archlinux.org/index.php/NVIDIA/Troubleshooting>`__ for additional details.
 
 Now continue installing remaining important packages for the GUI.
 
