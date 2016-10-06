@@ -1,6 +1,6 @@
 .. title: Support Vector Machines
 .. slug: svmModels
-.. date: 2016-10-05 20:30:00 UTC-07:00
+.. date: 2016-10-15 20:30:00 UTC-07:00
 .. tags: ML, mathjax, Python
 .. category: ML
 .. link:
@@ -36,4 +36,18 @@ margin classifier; or equivalently, the perceptron of optimal stability.
 .. figure:: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Svm_separating_hyperplanes_(SVG).svg/2000px-Svm_separating_hyperplanes_(SVG).svg.png
    :alt: SVM
 
-In the figure above, H\ :sub:`1`  does not separate the classes, H\ :sub:`2` does but only with a small margin. H\ :sub:`3` separates with maximum margin.
+In the figure above, H\ :sub:`1`  does not separate the classes, H\ :sub:`2`
+does but only with a small margin. H\ :sub:`3` separates with maximum margin.
+
+The maximal margin classifier is a very natural way to perform classification,
+if a separating hyperplane exists. However, in most real-life cases no
+separating hyperplane exists, and so there is no maximal margin classifier.
+However, we can extend the concept of a separating hyperplane in order to
+develop a hyperplane that almost separates the classes, using a so-called
+*"soft margin"*. The generalization of the maximal margin classifier to the
+non-separable case is known as the *"support vector"* classifier.
+
+
+
+
+
