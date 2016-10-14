@@ -1,6 +1,6 @@
 .. title: Support Vector Machines
 .. slug: svmModels
-.. date: 2016-10-15 20:30:00 UTC-07:00
+.. date: 2016-10-25 20:30:00 UTC-07:00
 .. tags: ML, mathjax, Python
 .. category: ML
 .. link:
