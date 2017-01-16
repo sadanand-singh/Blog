@@ -140,7 +140,7 @@ NAVIGATION_LINKS = {
 }
 
 # Name of the theme to use.
-THEME = "flatly"
+THEME = "lumen"
 
 # Primary color of your theme. This will be used to customize your theme and
 # auto-generate related colors in POSTS_SECTION_COLORS. Must be a HEX value.
@@ -1092,8 +1092,8 @@ GENERATE_RSS = False
 #
 # If you prefer a Google search form, here's an example that should just work:
 SEARCH_FORM = """
-    <span class="navbar-form navbar-left">
-    <input type="text" id="tipue_search_input" class="form-control" placeholder="Search">
+    <span class="navbar-form navbar-right">
+    <input type="text" id="tipue_search_input" class="form-control mr-sm-2 input-sm" type="text" placeholder="Search">
     </span>"""
 # <!-- Google custom search -->
 # <form method="get" action="https://www.google.com/search"
