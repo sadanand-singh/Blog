@@ -1093,7 +1093,7 @@ GENERATE_RSS = False
 # If you prefer a Google search form, here's an example that should just work:
 SEARCH_FORM = """
     <span class="navbar-form navbar-right">
-    <input type="text" id="tipue_search_input" class="form-control mr-sm-2 input-sm" type="text" placeholder="Search">
+    <input type="text" id="tipue_search_input" class="form-control mr-sm-2" type="text" placeholder="Search">
     </span>"""
 # <!-- Google custom search -->
 # <form method="get" action="https://www.google.com/search"
