@@ -68,6 +68,6 @@
             :width: 23pt
             :align: left
 
-    A simple game of `Ludo <https://en.wikipedia.org/wiki/Ludo_(board_game)>`_ using PyQt5.
+    A working game of `Ludo <https://en.wikipedia.org/wiki/Ludo_(board_game)>`_ using Qt5.
     The `source <https://github.com/sadanand-singh/ludoGame>`_ for this project is
-    available on github . You need to have PyQt5 installed to run this.
+    available on github . You need to have Qt5 installed to run this.
