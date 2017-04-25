@@ -25,7 +25,7 @@ SITE_URL = "https://sadanand-singh.github.io/"
 # This is the URL where Nikola's output will be deployed.
 # If not set, defaults to SITE_URL
 # BASE_URL = "https://sadanand-singh.github.io/"
-BLOG_EMAIL = "sadanand.singh@outlook.com"
+BLOG_EMAIL = "sadanand.singh@aol.com"
 BLOG_DESCRIPTION = "Sadanand's Notes on Algorithms and Food"  # (translatable)
 
 # Nikola is multilingual!
@@ -783,7 +783,7 @@ IMAGE_FOLDERS = {'images': 'images'}
 # vs
 # xcode
 # This list MAY be incomplete since pygments adds styles every now and then.
-CODE_COLOR_SCHEME = 'monokai'
+CODE_COLOR_SCHEME = 'default'
 
 # If you use 'site-reveal' theme you can select several subthemes
 # THEME_REVEAL_CONFIG_SUBTHEME = 'sky'
