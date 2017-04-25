@@ -9,9 +9,6 @@
 .. disqus_identifier: sublimetext.sadanand
 .. author: Sadanand Singh
 
-My Sublime Text Setup
-~~~~~~~~~~~~~~~~~~~~~~~~
-
 I have been using `Sublime text <https://www.sublimetext.com/>`__ as my primary editor for some time now. Here I wanted to share my current setup for the editor including all settings, packages, shortcut keys and themes.
 
 .. TEASER_END
@@ -91,7 +88,7 @@ It will be used with files that have the “Python” syntax.
 Shortcut Keys
 ~~~~~~~~~~~~~~~
 
-Here is a summary of my user-defined key map:
+Here is a summary of my key map:
 
 .. code:: json
 
@@ -113,20 +110,20 @@ Theme and Color Scheme
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 I like using the material theme. In particular, I use the "Materialize" theme.
-You can use this by installing following packages:
+You can use this by installing the following packages:
 
 -  `Materialize <https://github.com/saadq/Materialize>`__
 -  `Materialize-Appbar <https://github.com/saadq/Materialize-Appbar>`__
 -  `Materialize-White-Panels <https://github.com/saadq/Materialize-White-Panels>`__
 
-With these installation, you will also a lot of color schemes to use with this
-theme. I prefer to use the *"Material Oceanic Next"* color scheme.
-All other settings for this theme can be seen in my settings summary below.
+With these installation, you will also get a lot of color schemes.
+I prefer to use the *"Material Oceanic Next"* color scheme.
+All other settings for this theme can be seen in my settings below.
 
 User Settings / Preferences
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Here is my complete user-defined settings for Sublime Text. Please feel free to
+Here is my complete set of settings for Sublime Text. Please feel free to
 leave comments below for any questions or suggestions.
 
 .. code:: json
@@ -141,7 +138,7 @@ leave comments below for any questions or suggestions.
         "drag_text": false,
         "draw_white_space": "all",
         "enable_tab_scrolling": false,
-        "font_face": "DejaVu Sans Mono",
+        "font_face": "Hack",
         "font_options":
         [
             "directwrite",
