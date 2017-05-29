@@ -984,7 +984,17 @@ EXTRA_HEAD_DATA = """
     .highlight-short-purple { background-color:#9370DB; }
     </style>
     """
-# USE_KATEX = False
+USE_KATEX = True
+
+KATEX_AUTO_RENDER = """
+delimiters: [
+    {left: "\\\\begin{equation*}", right: "\\\\end{equation*}", display: true},
+    {left: "$$", right: "$$", display: true},
+    {left: "\\\[", right: "\\\]", display: true},
+    {left: "$", right: "$", display: false},
+    {left: "\\\(", right: "\\\)", display: false}
+]
+"""
 # Do you want to customize the nbconversion of your IPython notebook?
 # IPYNB_CONFIG = {}
 # With the following example configuration you can use a custom jinja template
