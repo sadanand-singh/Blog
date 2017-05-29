@@ -9,9 +9,6 @@
 .. type: text
 .. author: Sadanand Singh
 
-Problem
-~~~~~~~
-
 Given an alphanumeric string, find the shortest substring that occurs
 exactly once as a (contiguous) substring in it. Overlapping occurrences
 are counted as distinct. If there are several candidates of the same

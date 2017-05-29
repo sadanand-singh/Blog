@@ -12,6 +12,8 @@
 
 As promised in the intro post, here is the first puzzle!
 
+.. TEASER_END
+
 **Problem Statement**
 
 A man needs to go through a train tunnel to reach the other side. He
@@ -20,8 +22,6 @@ as soon as possible. When he is 1/4th of the way through the tunnel, he
 hears the train whistle behind him. Assuming the tunnel is not big
 enough for him and the train, he has to get out of the tunnel in order
 to survive. We know that the following conditions are true.
-
-.. TEASER_END
 
 1. If he runs back, he will make it out of the tunnel by a whisker.
 2. If he continues running forward, he will still make it out through

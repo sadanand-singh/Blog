@@ -96,7 +96,7 @@ daemon at boot, enable the `nvidia-persistenced.service`.
    $ systemctl enable nvidia-persistenced.service
    $ systemctl start nvidia-persistenced.service
 
-.. admonition:: Important
+.. admonition:: {{% hl-text blue %}}<strong>Important</strong>{{% /hl-text %}}
 
    KWIN FLICKERING ISSUE
 
@@ -120,7 +120,7 @@ daemon at boot, enable the `nvidia-persistenced.service`.
       export KWIN_TRIPLE_BUFFER=1
       ...
 
-   .. warning:: Do not have both of the above enabled at the same time. Please look at `Arch Wiki <https://wiki.archlinux.org/index.php/NVIDIA/Troubleshooting>`__ for additional details.
+   .. warning:: {{% hl-text warning %}} Do not have both of the above enabled at the same time. Please look at `Arch Wiki <https://wiki.archlinux.org/index.php/NVIDIA/Troubleshooting>`__ for additional details.{{% /hl-text %}}
 
 Now continue installing remaining important packages for the GUI.
 

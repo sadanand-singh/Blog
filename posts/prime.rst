@@ -53,11 +53,13 @@ On a chess board, basically a :math:`8\times 8` grid, how many ways one
 can go from the left most bottom corner to the right most upper corner?
 In chess naming conventions, from "a1" to "h8".
 
-.. admonition:: **Clarification**
+{{% alert info %}}
 
-    In the original post this problem was ill defined.
+In the original post this problem was ill defined.
 
-    *Please solve this problem with the constraints that only up and right moves are allowed.*
+<i>Please solve this problem with the constraints that only up and right moves are allowed.</i>
+
+{{% /alert %}}
 
 
 .. figure:: https://upload.wikimedia.org/wikipedia/commons/4/4b/Ternblad_grid_chess_problem.png
@@ -67,10 +69,11 @@ In chess naming conventions, from "a1" to "h8".
 
 Can you find the generic answer for the case of :math:`N\times M` grid.
 
+
 Solution
 ~~~~~~~~~~
 
-{{% hl-text warning %}}Correction:{{% /hl-text %}}
+{{% hl-text warning %}}<strong>Correction:</strong>{{% /hl-text %}}
 
 For an :math:`N\times M` grid, we need only :math:`N-1`
 right and :math:`M-1` up moves. {{% hl-text warning %}} Thank you Devin for pointing this

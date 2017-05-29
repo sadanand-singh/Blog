@@ -358,9 +358,9 @@ where $UUID is the value obtained from above command:
     options root=UUID=$UUID rw rootfstype=btrfs rootflags=subvol=ROOT
     ...
 
-.. admonition:: Important
+.. admonition:: {{% hl-text blue %}}<strong>Important</strong>{{% /hl-text %}}
 
-    {{% hl-text blue %}}
+    {{% hl-text warning %}}
     Please  note that you will to need manually run bootctl command everytime systemd-boot gets updated.
     {{% /hl-text %}}
 

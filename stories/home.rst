@@ -22,7 +22,7 @@
 
     This space is for my personal views on different subjects. If you have interests in any of these topics, you are welcome to have a peek into my world. Please jot down your views through comments or any of the social media links.
 
-    *"We should take care not to make the intellect our God; it has, of course, powerful muscles, but no personality."  -- Albert Einstein*
+    {{% block-quotes quote="We should take care not to make the intellect our God; it has, of course, powerful muscles, but no personality." source="Albert Einstein" %}}
 
 
 Recent Posts
@@ -36,5 +36,5 @@ Machine Learning Posts
 -----------------------
 
 .. post-list::
-    :stop: 5
-    :tags: ML, DeepLearning, EDA
+    :stop: 10
+    :tags: Machine Learning, Deep Learning, EDA, Kaggle
