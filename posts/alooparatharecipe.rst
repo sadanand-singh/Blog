@@ -1,7 +1,7 @@
 .. title: Aloo Paratha Recipe
 .. slug: AlooParatha
 .. date: 2015-02-14 22:45:30 UTC-07:00
-.. tags: Food
+.. tags: Food, Recipe
 .. category: Food
 .. link:
 .. disqus_identifier: AlooParatha.sadanand
@@ -14,6 +14,8 @@ of mashed potato stuffed bread from the Northern India. It is my
 favorite breakfast dish when I am in India.
 
 .. TEASER_END
+
+.. contents:: Table of Contents
 
 Here is my try in making some edible *parathas*. It might take few
 trials in making a perfectly round-shaped *Paratha*. Please share your

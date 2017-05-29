@@ -1,8 +1,8 @@
 .. title: Puzzle 1
 .. slug: TrainSpeedProblem
 .. date: 2014-08-23 22:50:50 UTC-07:00
-.. tags: Puzzle, Math
-.. category: Puzzle
+.. tags: Puzzles, Algebra
+.. category: Puzzles
 .. link:
 .. disqus_identifier: http://sadanand-singh.github.io/posts/2014/08/TrainSpeedProblem/
 .. description:
@@ -10,10 +10,9 @@
 .. author: Sadanand Singh
 .. summary: Train and Man Speed Problem
 
-Here is the first puzzle.
+As promised in the intro post, here is the first puzzle!
 
 **Problem Statement**
-
 
 A man needs to go through a train tunnel to reach the other side. He
 starts running through the tunnel in an effort to reach his destination

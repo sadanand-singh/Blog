@@ -1,8 +1,8 @@
 .. title: Support Vector Machines
 .. slug: svmModels
 .. date: 2016-11-11 10:30:00 UTC-07:00
-.. tags: ML, mathjax, Python
-.. category: ML
+.. tags: mathjax, Algorithms, Machine Learning
+.. category: Algorithms, Machine Learning
 .. link:
 .. disqus_identifier: svmModels.sadanand
 .. description:
@@ -15,6 +15,8 @@ In this post we will explore a class of machine learning methods called
 as *SVM*.
 
 .. TEASER_END
+
+.. contents:: Table of Contents
 
 Introduction
 ------------

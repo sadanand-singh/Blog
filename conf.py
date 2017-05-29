@@ -603,12 +603,12 @@ GITHUB_COMMIT_SOURCE = True
 # Many filters are shipped with Nikola. A list is available in the manual:
 # <https://getnikola.com/handbook.html#post-processing-filters>
 #
-# from nikola import filters
-# FILTERS = {
-#    ".html": [filters.typogrify],
-#    ".js": [filters.closure_compiler],
-#    ".jpg": ["jpegoptim --strip-all -m75 -v %s"],
-# }
+from nikola import filters
+FILTERS = {
+   # ".html": [filters.typogrify],
+   ".js": [filters.yui_compressor],
+   ".jpg": ["jpegoptim --strip-all -m75 -v %s"],
+}
 
 # Expert setting! Create a gzipped copy of each generated file. Cheap server-
 # side optimization for very high traffic sites or low memory servers.
@@ -783,7 +783,7 @@ IMAGE_FOLDERS = {'images': 'images'}
 # vs
 # xcode
 # This list MAY be incomplete since pygments adds styles every now and then.
-CODE_COLOR_SCHEME = 'friendly'
+CODE_COLOR_SCHEME = 'xcode'
 
 # If you use 'site-reveal' theme you can select several subthemes
 # THEME_REVEAL_CONFIG_SUBTHEME = 'sky'
@@ -965,21 +965,6 @@ PRETTY_URLS = True
 # MATHJAX_CONFIG = ""
 
 # If you are using the compile-ipynb plugin, just add this one:
-MATHJAX_CONFIG = """
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\\(","\\\)"] ],
-        displayMath: [ ['$$','$$'], ["\\\[","\\\]"] ],
-        processEscapes: true
-    },
-    displayAlign: 'left',
-    "HTML-CSS": {
-        styles: {'.MathJax_Display': {"margin": 0}}
-    }
-});
-</script>
-"""
 
 # Want to use KaTeX instead of MathJax? While KaTeX is less featureful,
 # it's faster and the output looks better.
@@ -988,8 +973,18 @@ MathJax.Hub.Config({
 EXTRA_HEAD_DATA = """
     <link rel="stylesheet" type="text/css" href="/assets/css/tipuesearch.css">
     <meta property="fb:app_id" content="993596464012237"/>
+    <style>
+    .highlight-short-red { background-color:#FF0000; }
+    .highlight-short-yellow { background-color:#FFFF00; }
+    .highlight-short-error { background-color:#CD5C5C; }
+    .highlight-short-warning { background-color:#FFEBCD; }
+    .highlight-short-green { background-color:#90EE90; }
+    .highlight-short-cyan { background-color:#00FFFF; }
+    .highlight-short-blue { background-color:#00BFFF; }
+    .highlight-short-purple { background-color:#9370DB; }
+    </style>
     """
-USE_KATEX = False
+# USE_KATEX = False
 # Do you want to customize the nbconversion of your IPython notebook?
 # IPYNB_CONFIG = {}
 # With the following example configuration you can use a custom jinja template
@@ -1002,7 +997,7 @@ USE_KATEX = False
 # Note: most Nikola-specific extensions are done via the Nikola plugin system,
 #       with the MarkdownExtension class and should not be added here.
 # The default is ['fenced_code', 'codehilite']
-MARKDOWN_EXTENSIONS = ['fenced_code', 'codehilite', 'extra']
+MARKDOWN_EXTENSIONS = ['toc', 'fenced_code', 'codehilite', 'extra']
 
 # Extra options to pass to the pandoc comand.
 # by default, it's empty, is a list of strings, for example

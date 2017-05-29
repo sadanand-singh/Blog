@@ -1,8 +1,8 @@
 .. title: Sublime Text Setup
 .. slug: sublimetext
 .. date: 2017-04-23 16:57:07 UTC-07:00
-.. tags: Sublime Text, Editor
-.. category: Tools
+.. tags: Editor
+.. category: Computers
 .. link:
 .. description:
 .. type: text
@@ -12,6 +12,8 @@
 I have been using `Sublime text <https://www.sublimetext.com/>`__ as my primary editor for some time now. Here I wanted to share my current setup for the editor including all settings, packages, shortcut keys and themes.
 
 .. TEASER_END
+
+.. contents:: Table of Contents
 
 .. figure:: https://cloud.githubusercontent.com/assets/8487569/25318834/053f9e98-284b-11e7-83e7-c2f1ee945980.png
    :alt: Sublime Text
@@ -97,7 +99,6 @@ Here is a summary of my key map:
         { "keys": ["control+v"], "command": "paste_and_indent" },
         { "keys": ["control+shift+v"], "command": "paste" },
         { "keys": ["ctrl+alt+;"], "command": "alignment" },
-        // Column mode
         { "keys": ["ctrl+alt+up"], "command": "column_select", "args": {"by": "lines", "forward": false}},
         { "keys": ["ctrl+alt+down"], "command": "column_select", "args": {"by": "lines", "forward": true}},
         { "keys": ["ctrl+alt+pageup"], "command": "column_select", "args": {"by": "pages", "forward": false}},
@@ -133,7 +134,7 @@ leave comments below for any questions or suggestions.
         "auto_complete": true,
         "bold_folder_labels": true,
         "caret_extra_width": 1.5,
-        "color_scheme": "Packages/User/SublimeLinter/Material Oceanic Next (SL).tmTheme",
+        "color_scheme": "Material Oceanic Next (SL).tmTheme",
         "default_line_ending": "unix",
         "drag_text": false,
         "draw_white_space": "all",
@@ -185,6 +186,8 @@ leave comments below for any questions or suggestions.
         "theme": "Material Oceanic Next.sublime-theme",
         "translate_tabs_to_spaces": true,
         "trim_trailing_white_space_on_save": true,
-        "word_wrap": true
+        "word_wrap": true,
+        "hot_exit": false,
+        "remember_open_files": false
     }
 

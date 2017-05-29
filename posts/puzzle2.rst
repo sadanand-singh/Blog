@@ -1,13 +1,17 @@
 .. title: Puzzle 2
 .. slug: ConsumeTransportProblem
 .. date: 2014-09-05 18:51:03 UTC-07:00
-.. tags: mathjax, Puzzle, Math
-.. category: Puzzle
+.. tags: mathjax, Puzzles, Algebra
+.. category: Puzzles
 .. link:
 .. disqus_identifier: http://sadanand-singh.github.io/posts/2014/08/ConsumeTransportProblem/
 .. description:
 .. type: text
 .. author: Sadanand Singh
+
+Here is another puzzle starring a monkey, transportation and money! Short summary - avoid dealing with fools!
+
+.. TEASER_END
 
 **Problem Statement**
 
@@ -18,8 +22,6 @@ distance between his apple plantation and the market is about 1000
 kilometer. So he decided to take his monkey to carry the apples. The
 monkey can carry at the maximum of 2000 apples at a time, and it eats
 one apple and throws another one for every kilometer it travels.
-
-.. TEASER_END
 
 What is the largest number of apples that can be delivered to the
 market?

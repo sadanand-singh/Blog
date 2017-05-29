@@ -14,12 +14,12 @@ The world of computers is moving fast. While going through some
 materials on algorithms, I have come across an interesting discussion
 -enhancements in hardware (cpu) vis-a-vis algorithms.
 
+.. TEASER_END
+
 One side of the coin is the hardware - the speed of computers.The famous
 `Moore's
 law <http://www.techradar.com/news/computing/moore-s-law-how-long-will-it-last--1226772>`__
 states that:
-
-.. TEASER_END
 
 *The complexity for minimum component costs has increased at a rate of
 roughly a factor of two per year. Certainly over the short term this
@@ -62,9 +62,11 @@ biology to computer science to the game of poker! The simple definition
 of these numbers are:
 
 .. math::
+    F_{n} = \begin{cases} F_{n-2} + F_{n-1} & \text{if } n > 1 \\
+    1 & \text{if } n = 1 \\
+    0 & \text{if } n = 0
+    \end{cases}
 
-   F_{n} = \begin{cases} F_{n-2} + F_{n-1} & \text{if } n > 1 \\ 1 &
-   \text{if } n = 1 \\ 0 & \text{if } n = 0 \end{cases}
 
 So, first few Fibonacci numbers are:
 :math:`0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144 \ldots` These

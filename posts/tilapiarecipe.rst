@@ -1,7 +1,7 @@
 .. title: Tilapia Fish Recipe
 .. slug: TilapiaFish
 .. date: 2015-02-15 16:45:00 UTC-07:00
-.. tags: Food
+.. tags: Food, Recipe
 .. category: Food
 .. link:
 .. disqus_identifier: TilapiaFish.sadanand
@@ -16,6 +16,8 @@ Nevertheless, here is another recipe that solves all these at once. Its
 my *five minute* Tilapia Fish Recipe.
 
 .. TEASER_END
+
+.. contents:: Table of Contents
 
 Two major ingredients - fish and veggies, of this recipe can be grabbed
 from the frozen section of any supermarket.

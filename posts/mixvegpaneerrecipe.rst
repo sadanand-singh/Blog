@@ -1,7 +1,7 @@
 .. title: MixVegPaneerRecipe
 .. slug: MixedVegPaneer
 .. date: 2015-02-08 19:05:30 UTC-07:00
-.. tags: Food
+.. tags: Food, Recipe
 .. category: Food
 .. link:
 .. disqus_identifier: MixedVegPaneer.sadanand
@@ -16,6 +16,8 @@ enthusiasts, `Here <http://thewayofcheese.com/2013/02/18/paneer/>`__ is
 a recipe for making *Paneer* from milk.
 
 .. TEASER_END
+
+.. contents:: Table of Contents
 
 Here is a version of recipe that I use quite often. It involves two
 parts - Baking *Paneer* and Cooking the veggies.

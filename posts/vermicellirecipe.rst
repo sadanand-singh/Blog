@@ -1,7 +1,7 @@
 .. title: Indian Vermicelli Recipe
 .. slug: DesiNoodlesRecipe
 .. date: 2015-01-28 22:05:30 UTC-07:00
-.. tags: Food
+.. tags: Food, Recipe
 .. category: Food
 .. link:
 .. disqus_identifier: DesiNoodlesRecipe.sadanand
@@ -12,12 +12,14 @@
 This is for all the lazy souls like me - in a mood to eat something
 tasty, but in no mood to cook for long.
 
+.. TEASER_END
+
 Vermicelli, or also known as *seviyan* in Hindi, is commonly cooked as a
 sweet dish in Indian subcontinent. As I try to be away from all things
 sweet, I came across this recipe which uses this in a quite spicy
 flavor.
 
-.. TEASER_END
+.. contents:: Table of Contents
 
 So, here is my super quick and tasty recipe for these noodles. It takes
 less than 12 minutes ( 4 Minutes Preparation + 8 Minutes Cooking).

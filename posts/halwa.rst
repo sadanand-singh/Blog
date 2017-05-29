@@ -1,7 +1,7 @@
 .. title: Carrot Halwa Recipe
 .. slug: CarrotHalwaRecipe
 .. date: 2015-08-08 23:08:13 UTC-07:00
-.. tags: Food
+.. tags: Food, Recipe
 .. category: Food
 .. link:
 .. disqus_identifier: CarrotHalwaRecipe.abha
@@ -13,10 +13,12 @@ Last month or so has been all silent here. No puzzles, no math, no
 computers and most important, no Food! And as usual blame is on my work
 schedule.
 
+.. TEASER_END
+
+.. contents:: Table of Contents
+
 But, its never too late. Especially, when you can start with some exotic
 food!
-
-.. TEASER_END
 
 Carrot halwa is a common north Indian dessert, healthy carrots
 cooked in milk and mango puree.

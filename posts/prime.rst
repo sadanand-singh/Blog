@@ -1,13 +1,19 @@
 .. title: Two Simple Math Puzzles
 .. slug: PrimeNumberAndPath
 .. date: 2015-06-21 23:08:34 UTC-07:00
-.. tags: mathjax, Math, Algorithms, Puzzle
+.. tags: mathjax, Algorithms, Puzzles
 .. category: Puzzle
 .. link:
 .. disqus_identifier: PrimeNumberAndPath.sadanand
 .. description:
 .. type: text
 .. author: Sadanand Singh
+
+Here are two math puzzles, solve, comment and enjoy the discussion!
+
+.. TEASER_END
+
+.. contents:: Table of Contents
 
 Puzzle 1: Prime Numbers
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -17,7 +23,6 @@ number with :math:`p>3`.
 
 This is a simple one - do not go by the technicality of the problem statement.
 
-.. TEASER_END
 
 Solution
 ~~~~~~~~~
@@ -28,7 +33,7 @@ are even. We can also
 write,
 
 .. math::
-    p-1=2K, \mbox{ and   } p+1=2K+2=2(K+1)
+    p-1=2K, \text{and } p+1=2K+2=2(K+1)
 
 Given, :math:`K \in \mathbb{N}`, either :math:`K`
 or :math:`K+1` are also even.
@@ -48,10 +53,12 @@ On a chess board, basically a :math:`8\times 8` grid, how many ways one
 can go from the left most bottom corner to the right most upper corner?
 In chess naming conventions, from "a1" to "h8".
 
-**Clarification:**
-In the original post this problem was ill defined.
+.. admonition:: **Clarification**
 
-*Please solve this problem with the constraints that only up and right moves are allowed.*
+    In the original post this problem was ill defined.
+
+    *Please solve this problem with the constraints that only up and right moves are allowed.*
+
 
 .. figure:: https://upload.wikimedia.org/wikipedia/commons/4/4b/Ternblad_grid_chess_problem.png
    :alt: Chess Board
@@ -63,10 +70,12 @@ Can you find the generic answer for the case of :math:`N\times M` grid.
 Solution
 ~~~~~~~~~~
 
-**Correction:**
+{{% hl-text warning %}}Correction:{{% /hl-text %}}
+
 For an :math:`N\times M` grid, we need only :math:`N-1`
-right and :math:`M-1` up moves. Thank you Devin for pointing this
-out.
+right and :math:`M-1` up moves. {{% hl-text warning %}} Thank you Devin for pointing this
+out.{{% /hl-text %}}
+
 
 Given only forward moves are allowed, for any arbitrary grid of
 :math:`N\times M`, a total of :math:`(N-1) + (M-1)` moves are needed.
@@ -83,7 +92,7 @@ In the particular case of the chess board, :math:`N = M = 8`. Hence,
 total number of possible paths are:
 
 .. math::
-    \mbox{No. of Paths} = \frac{14!}{7! 7!} =3432
+    \text{No. of Paths} = \frac{14!}{7! 7!} =3432
 
 Thank you Rohit and Amber for posting quick solutions!
 

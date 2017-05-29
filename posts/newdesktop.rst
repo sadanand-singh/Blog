@@ -1,7 +1,7 @@
 .. title: My New Desktop
 .. slug: myNewCompSpecs
 .. date: 2015-02-01 21:30:48 UTC-07:00
-.. tags: Computers, Linux
+.. tags: Linux
 .. category: Computers
 .. link:
 .. disqus_identifier: myNewCompSpecs.sadanand

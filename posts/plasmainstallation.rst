@@ -2,7 +2,7 @@
 .. slug: plasmaInstall
 .. date: 2015-06-21 11:20:11 UTC-07:00
 .. tags: Linux
-.. category: Linux
+.. category: Computers
 .. link:
 .. disqus_identifier: plasmaInstall.sadanand
 .. description:
@@ -14,6 +14,8 @@ we can now login into our new system as root using the password that we
 set.
 
 .. TEASER_END
+
+.. contents:: Table of Contents
 
 .. figure:: http://imgur.com/IjJYMR0.jpg
    :alt: Plasma 5 Looks

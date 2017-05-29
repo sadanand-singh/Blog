@@ -1,7 +1,7 @@
 .. title: Lal Saag Recipe
 .. slug: LaalSaagRecipe
 .. date: 2015-01-26 21:20:39 UTC-07:00
-.. tags: Food
+.. tags: Food, Recipe
 .. category: Food
 .. link:
 .. disqus_identifier: LaalSaagRecipe.sadanand
@@ -15,6 +15,8 @@ loved a vegetable made by my mom, which was made of red leaves, called
 English/American name for those leaves.
 
 .. TEASER_END
+
+.. contents:: Table of Contents
 
 Recently, at one of the Korean grocery stores, I came across red
 Amaranth leaves. Those looked strikingly similar to the red leaves that

@@ -1,7 +1,7 @@
 .. title: Palak Paneer Recipe
 .. slug: PalakPaneerRecipe
 .. date: 2015-03-22 23:08:24 UTC-07:00
-.. tags: Food
+.. tags: Food, Recipe
 .. category: Food
 .. link:
 .. disqus_identifier: PalakPaneerRecipe.sadanand
@@ -13,12 +13,14 @@ Last month or so has been all silent here. No puzzles, no math, no
 computers and most important, no Food! And as usual blame is on my work
 schedule.
 
+.. TEASER_END
+
+.. contents:: Table of Contents
+
 Yes, the silence is finally over, and what's better than giving your
 taste buds some rejuvenation after some long busy weeks at work.
 Continuing with my healthy but tasty choices, today I tried to cook
 *Palak* (Spinach) with *Paneer*.
-
-.. TEASER_END
 
 *Palak* *Paneer* is a common north Indian cuisine, Indian cottage cheese
 cooked in spinach puree. Its a bit involved than my last few dishes.

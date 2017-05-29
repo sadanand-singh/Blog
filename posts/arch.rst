@@ -2,7 +2,7 @@
 .. slug: archInstall
 .. date: 2015-06-21 11:00:00 UTC-07:00
 .. tags: Linux
-.. category: Linux
+.. category: Computers
 .. link:
 .. disqus_identifier: archInstall.sadanand
 .. description:
@@ -12,6 +12,8 @@
 You must be thinking - yet another installation guide! There is no
 dearth of "*Installation*" guides of Arch on web. So why another one?
 
+.. TEASER_END
+
 With advancements like BTRFS file system, UEFI motherboards and modern
 *in-development* desktop environment like Plasma 5; traditional `Arch
 Wiki <https://wiki.archlinux.org/index.php/Installation_guide>`__ guide
@@ -20,9 +22,9 @@ Guide <https://wiki.archlinux.org/index.php/Beginners%27_guide>`__ can
 only be of a limited help. After I got my new :doc:`my new desktop <myNewCompSpecs>` , my goal
 was to setup it with a *modern* setup. I decided to go with Arch Linux
 with btrfs file system and Plasma 5 desktop. Coming from OSX, I just
-love how far linux has come in terms of looks - *far better than OSX!*
+love how far linux has come in terms of looks - *quite close to OSX!*
 
-.. TEASER_END
+.. contents:: Table of Contents
 
 For all of you who love installation videos-
 
@@ -240,10 +242,12 @@ Edit the /mnt/ect/fstab file to add following /tmp mounts.
     tmpfs /dev/shm tmpfs rw,nodev,nosuid,noexec 0 0
 
 
-.. note:: WIFI AT FIRST BOOT
+.. note:: **WIFI AT FIRST BOOT**
 
+    {{% hl-text warning %}}
     Copy our current wifi setup file into the new system. This will enable
     wifi at first boot. Next, chroot into our newly installed system:
+    {{% /hl-text %}}
 
     .. code:: bash
 
@@ -289,7 +293,9 @@ Here are some basic commands you need to run to get the installation started.
 
 .. note:: WIFI PACKAGES
 
+    {{% hl-text warning %}}
     We also need to install following packages for wifi to work at first boot:
+    {{% /hl-text %}}
 
     .. code:: bash
 
@@ -354,7 +360,9 @@ where $UUID is the value obtained from above command:
 
 .. admonition:: Important
 
-    Please  note that you will need manually run bootctl command everytime *systemd-boot* gets updated.
+    {{% hl-text blue %}}
+    Please  note that you will to need manually run bootctl command everytime systemd-boot gets updated.
+    {{% /hl-text %}}
 
     .. code:: bash
 
