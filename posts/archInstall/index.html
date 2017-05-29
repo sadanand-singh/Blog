@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arch Installation Guide | Sadanand's Notes</title>
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="canonical" href="https://sadanand-singh.github.io/posts/archInstall/">
+<link rel="icon" href="../../favicon.ico" sizes="16x16">
+<link rel="icon" href="../../favicon-32x32.png" sizes="32x32">
+<link rel="icon" href="../../favicon-96x96.png" sizes="96x96">
+<link rel="icon" href="../../apple-icon.png" sizes="192x192">
+<link rel="icon" href="../../apple-icon-precomposed.png" sizes="192x192">
+<link rel="icon" href="../../apple-icon-57x57.png" sizes="57x57">
+<link rel="icon" href="../../apple-icon-60x60.png" sizes="60x60">
+<link rel="icon" href="../../apple-icon-72x72.png" sizes="72x72">
+<link rel="icon" href="../../apple-icon-76x76.png" sizes="76x76">
+<link rel="icon" href="../../apple-icon-114x114.png" sizes="114x114">
+<link rel="icon" href="../../apple-icon-120x120.png" sizes="120x120">
+<link rel="icon" href="../../apple-icon-144x144.png" sizes="144x144">
+<link rel="icon" href="../../apple-icon-152x152.png" sizes="152x152">
+<link rel="icon" href="../../apple-icon-180x180.png" sizes="180x180">
+<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><link rel="stylesheet" type="text/css" href="../../assets/css/tipuesearch.css">
+<meta property="fb:app_id" content="993596464012237">
+<style>
+    .highlight-short-red { background-color:#FF0000; }
+    .highlight-short-yellow { background-color:#FFFF00; }
+    .highlight-short-error { background-color:#CD5C5C; }
+    .highlight-short-warning { background-color:#FFEBCD; }
+    .highlight-short-green { background-color:#90EE90; }
+    .highlight-short-cyan { background-color:#00FFFF; }
+    .highlight-short-blue { background-color:#00BFFF; }
+    .highlight-short-purple { background-color:#9370DB; }
+    </style>
+<meta name="author" content="Sadanand Singh">
+<link rel="prev" href="../PalakPaneerRecipe/" title="Palak Paneer Recipe" type="text/html">
+<link rel="next" href="../plasmaInstall/" title="Plasma 5 Installation on Arch Linux" type="text/html">
+<meta property="og:site_name" content="Sadanand's Notes">
+<meta property="og:title" content="Arch Installation Guide">
+<meta property="og:url" content="https://sadanand-singh.github.io/posts/archInstall/">
+<meta property="og:description" content='You must be thinking - yet another installation guide! There is no
+dearth of "Installation" guides of Arch on web. So why another one?
+
+With advancements like BTRFS file system, UEFI motherboards and '>
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2015-06-21T11:00:00-07:00">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@sadanandsingh">
+<meta name="twitter:creator" content="@sadanandsingh">
+</head>
+<body>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script><a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-default navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://sadanand-singh.github.io/">
+
+                <span id="blog-title">Sadanand's Notes</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li>
+<a href="../">Blog</a>
+                </li>
+<li>
+<a href="../../projects/">Projects</a>
+                </li>
+<li>
+<a href="../../categories/">Tags</a>
+                </li>
+<li>
+<a href="../../archive.html">Archive</a>
+
+                
+            </li>
+</ul>
+<span class="navbar-form navbar-right">
+    <input type="text" id="tipue_search_input" class="form-control mr-sm-2" placeholder="Search"></span>
+
+            <ul class="nav navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Arch Installation Guide</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">
+                    Sadanand Singh
+            </span></p>
+            <p class="dateline"><a href="." rel="bookmark"><time class="published dt-published" datetime="2015-06-21T11:00:00-07:00" itemprop="datePublished" title="2015-06-21 11:00">2015-06-21 11:00</time></a></p>
+                    <p class="commentline">
+        
+    <a href="#disqus_thread" data-disqus-identifier="archInstall.sadanand">Comments</a>
+
+
+             
+            </p>
+<div class="fb-like" data-send="true" data-layout="standard" data-action="like" data-size="small" data-show-faces="false" data-share="false"></div>
+            
+
+        </div>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p>You must be thinking - yet another installation guide! There is no
+dearth of "<em>Installation</em>" guides of Arch on web. So why another one?</p>
+<!-- TEASER_END -->
+<p>With advancements like BTRFS file system, UEFI motherboards and modern
+<em>in-development</em> desktop environment like Plasma 5; traditional <a class="reference external" href="https://wiki.archlinux.org/index.php/Installation_guide">Arch
+Wiki</a> guide
+and <a class="reference external" href="https://wiki.archlinux.org/index.php/Beginners%27_guide">Arch Beginners'
+Guide</a> can
+only be of a limited help. After I got my new <a class="reference external" href="../myNewCompSpecs/">my new desktop</a> , my goal
+was to setup it with a <em>modern</em> setup. I decided to go with Arch Linux
+with btrfs file system and Plasma 5 desktop. Coming from OSX, I just
+love how far linux has come in terms of looks - <em>quite close to OSX!</em></p>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title first">Table of Contents</p>
+<ul class="simple">
+<li>
+<a class="reference internal" href="#initial-setup" id="id1">Initial Setup</a><ul>
+<li><a class="reference internal" href="#ethernet-wifi" id="id2">Ethernet/Wifi</a></li>
+<li><a class="reference internal" href="#system-updates" id="id3">System Updates</a></li>
+<li><a class="reference internal" href="#hard-drives" id="id4">Hard Drives</a></li>
+</ul>
+</li>
+<li>
+<a class="reference internal" href="#base-installation" id="id5">Base Installation</a><ul>
+<li><a class="reference internal" href="#basic-setup" id="id6">Basic Setup</a></li>
+<li><a class="reference internal" href="#bootloader-setup" id="id7">Bootloader Setup</a></li>
+<li><a class="reference internal" href="#network-setup" id="id8">Network Setup</a></li>
+<li><a class="reference internal" href="#first-boot" id="id9">First Boot</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>For all of you who love installation videos-</p>
+<div class="youtube-video align-center">
+<iframe width="425" height="344" src="https://www.youtube.com/embed/MMkST5IjSjY?rel=0&amp;hd=1&amp;wmode=transparent"></iframe>
+</div>
+<p>I will cover this in two parts. First in this post, I will install the
+base system. Then, in a follow up post, I will discuss details of
+setting up final working Plasma 5 desktop.</p>
+<div class="figure">
+<img alt="Plasma 5 Looks" src="http://i.imgur.com/f10HO0r.jpg"><p class="caption">Plasma 5 Looks</p>
+</div>
+<div class="section" id="initial-setup">
+<h2><a class="toc-backref" href="#id1">Initial Setup</a></h2>
+<p>Download the latest iso from Arch website and create the uefi usb
+installation media. I used my mac to do this on terminal:</p>
+<pre class="code bash"><a name="rest_code_fddcabf98aff4cd3b45321f259b9af12-1"></a>$ diskutil list
+<a name="rest_code_fddcabf98aff4cd3b45321f259b9af12-2"></a>$ diskutil unmountDisk /dev/disk1
+<a name="rest_code_fddcabf98aff4cd3b45321f259b9af12-3"></a>$ dd <span class="k">if</span><span class="o">=</span>image.iso <span class="nv">of</span><span class="o">=</span>/dev/rdisk1 <span class="nv">bs</span><span class="o">=</span>1m
+<a name="rest_code_fddcabf98aff4cd3b45321f259b9af12-4"></a><span class="m">20480</span>+0 records in
+<a name="rest_code_fddcabf98aff4cd3b45321f259b9af12-5"></a><span class="m">20480</span>+0 records out
+<a name="rest_code_fddcabf98aff4cd3b45321f259b9af12-6"></a><span class="m">167772160</span> bytes transferred in <span class="m">220</span>.016918 secs <span class="o">(</span><span class="m">762542</span> bytes/sec<span class="o">)</span>
+<a name="rest_code_fddcabf98aff4cd3b45321f259b9af12-7"></a>
+<a name="rest_code_fddcabf98aff4cd3b45321f259b9af12-8"></a>$ diskutil eject /dev/disk1
+</pre>
+<p>Use this media to boot into your machine. You should boot into UEFI mode
+if you have a
+<a class="reference external" href="https://wiki.archlinux.org/index.php/Unified_Extensible_Firmware_Interface">UEFI</a>
+motherboard and UEFI mode enabled.</p>
+<p>To verify you have booted in UEFU mode, run:</p>
+<pre class="code bash"><a name="rest_code_ff4a1da9d8c441b18afa0dfc0eee485e-1"></a>$ efivar -l
+</pre>
+<p>This should give you a list of set UEFI variables. Please look at the
+<a class="reference external" href="https://wiki.archlinux.org/index.php/Beginners%27_guide">Begineers'
+Guide</a> in
+case you do not get any list of UEFI variables.</p>
+<div class="section" id="ethernet-wifi">
+<h3><a class="toc-backref" href="#id2">Ethernet/Wifi</a></h3>
+<p>Ethernet should have started by default on your machine.
+If you do not plan to use wifi during installation, you can skip
+to the next section. If desired later, wifi will still be configurable after you are done
+with all the installation.</p>
+<p>To setup wifi simply run:</p>
+<pre class="code bash"><a name="rest_code_46a99f3745434cf19849bf39484447f6-1"></a>$ wifi-menu
+</pre>
+<p>This is a pretty straight forward tool and will setup wifi for you for
+this installation session.</p>
+<p>This will also create a file at <em>/etc/netctl/</em>. We will use this file
+later to enable wifi at the first session after installation.</p>
+</div>
+<div class="section" id="system-updates">
+<h3><a class="toc-backref" href="#id3">System Updates</a></h3>
+<p>For editing different configurations, I tend to use <em>vim</em>. So we will
+update our package cache and install vim.</p>
+<pre class="code bash"><a name="rest_code_68ae4e4181174ab2bb8124ca0c12ebc7-1"></a>$ pacman -Syy
+<a name="rest_code_68ae4e4181174ab2bb8124ca0c12ebc7-2"></a>$ pacman -S vim
+</pre>
+</div>
+<div class="section" id="hard-drives">
+<h3><a class="toc-backref" href="#id4">Hard Drives</a></h3>
+<p>In my desktop, I have three hard drives, one 256 GB solid state drive
+(SDD), one 1 TB HDD and another 3TB HDD. I set up my drives as follows: -
+SDD for root(/), /boot, and /home partitions, 1st HDD for /data and
+the 2nd HDD for /media partitions.</p>
+<p>For UEFI machines, we need to use a GPT partition table and /boot
+partition has to be a fat32 partition with a minimum size of 512 MB. We
+will format rest other partitions with BTRFS. See this
+<a class="reference external" href="http://www.makeuseof.com/tag/ext4-btrfs-making-switch-linux/">link</a>
+for benefits of using btrfs partitions.</p>
+<p>First list your hard drives with the following:</p>
+<pre class="code bash"><a name="rest_code_e525cf5261c340a6bd4b8bd3802b4f64-1"></a>$ lsblk
+<a name="rest_code_e525cf5261c340a6bd4b8bd3802b4f64-2"></a>$ cat /proc/partitions
+</pre>
+<p>Assuming, my setup above, now create gpt partitions and format them.</p>
+<pre class="code bash"><a name="rest_code_f2e482ba3a72489cbcee4fc1937b499d-1"></a>$ dd <span class="k">if</span><span class="o">=</span>/dev/zero <span class="nv">of</span><span class="o">=</span>/dev/sda <span class="nv">bs</span><span class="o">=</span>1M <span class="nv">count</span><span class="o">=</span><span class="m">5000</span>
+<a name="rest_code_f2e482ba3a72489cbcee4fc1937b499d-2"></a>$ gdisk /dev/sda
+<a name="rest_code_f2e482ba3a72489cbcee4fc1937b499d-3"></a>Found invalid MBR and corrupt GPT. What <span class="k">do</span> you want to <span class="k">do</span>? <span class="o">(</span>Using the
+<a name="rest_code_f2e482ba3a72489cbcee4fc1937b499d-4"></a>GPT MAY permit recovery of GPT data.<span class="o">)</span>
+<a name="rest_code_f2e482ba3a72489cbcee4fc1937b499d-5"></a> <span class="m">1</span> - Use current GPT
+<a name="rest_code_f2e482ba3a72489cbcee4fc1937b499d-6"></a> <span class="m">2</span> - Create blank GPT
+</pre>
+<p>Then press 2 to create a blank GPT and start fresh</p>
+<pre class="code bash"><a name="rest_code_b6a3194364144025998a38a255b69dc4-1"></a>ZAP:
+<a name="rest_code_b6a3194364144025998a38a255b69dc4-2"></a>$ press x - to go to extended menu
+<a name="rest_code_b6a3194364144025998a38a255b69dc4-3"></a>$ press z - to zap
+<a name="rest_code_b6a3194364144025998a38a255b69dc4-4"></a>$ press Y - to confirm
+<a name="rest_code_b6a3194364144025998a38a255b69dc4-5"></a>$ press Y - to delete MBR
+</pre>
+<p>It might now kick us out of gdisk, so get back into it:</p>
+<pre class="code bash"><a name="rest_code_c4b8de28a7d549c1ad6547228d133a6b-1"></a>$ gdisk /dev/sda
+<a name="rest_code_c4b8de28a7d549c1ad6547228d133a6b-2"></a>
+<a name="rest_code_c4b8de28a7d549c1ad6547228d133a6b-3"></a>$ Command <span class="o">(</span>? <span class="k">for</span> <span class="nb">help</span><span class="o">)</span>: m
+<a name="rest_code_c4b8de28a7d549c1ad6547228d133a6b-4"></a>$ Command <span class="o">(</span>? <span class="k">for</span> <span class="nb">help</span><span class="o">)</span>: n
+<a name="rest_code_c4b8de28a7d549c1ad6547228d133a6b-5"></a>
+<a name="rest_code_c4b8de28a7d549c1ad6547228d133a6b-6"></a>$ Partition number <span class="o">(</span><span class="m">1</span>-128, default <span class="m">1</span><span class="o">)</span>:
+<a name="rest_code_c4b8de28a7d549c1ad6547228d133a6b-7"></a>$ First sector <span class="o">(</span><span class="m">34</span>-500118158, <span class="nv">default</span> <span class="o">=</span> <span class="m">2048</span><span class="o">)</span> or <span class="o">{</span>+-<span class="o">}</span>size<span class="o">{</span>KMGTP<span class="o">}</span>:
+<a name="rest_code_c4b8de28a7d549c1ad6547228d133a6b-8"></a>$ Last sector <span class="o">(</span><span class="m">2048</span>-500118, <span class="nv">default</span> <span class="o">=</span> <span class="m">500118</span><span class="o">)</span> or <span class="o">{</span>+-<span class="o">}</span>size<span class="o">{</span>KMGTP<span class="o">}</span>: 512M
+<a name="rest_code_c4b8de28a7d549c1ad6547228d133a6b-9"></a>$ Current <span class="nb">type</span> is <span class="s1">'Linux filesystem'</span>
+<a name="rest_code_c4b8de28a7d549c1ad6547228d133a6b-10"></a>$ Hex code or GUID <span class="o">(</span>L to show codes, <span class="nv">Enter</span> <span class="o">=</span> <span class="m">8300</span><span class="o">)</span>: ef00
+<a name="rest_code_c4b8de28a7d549c1ad6547228d133a6b-11"></a>$ Changed <span class="nb">type</span> of partition to <span class="s1">'EFI System'</span>
+<a name="rest_code_c4b8de28a7d549c1ad6547228d133a6b-12"></a>
+<a name="rest_code_c4b8de28a7d549c1ad6547228d133a6b-13"></a>$ Partition number <span class="o">(</span><span class="m">2</span>-128, default <span class="m">2</span><span class="o">)</span>:
+<a name="rest_code_c4b8de28a7d549c1ad6547228d133a6b-14"></a>$ First sector <span class="o">(</span><span class="m">34</span>-500118, <span class="nv">default</span> <span class="o">=</span> <span class="m">16779264</span><span class="o">)</span> or <span class="o">{</span>+-<span class="o">}</span>size<span class="o">{</span>KMGTP<span class="o">}</span>:
+<a name="rest_code_c4b8de28a7d549c1ad6547228d133a6b-15"></a>$ Last sector <span class="o">(</span><span class="m">16779264</span>-500118, <span class="nv">default</span> <span class="o">=</span> <span class="m">500118</span><span class="o">)</span> or <span class="o">{</span>+-<span class="o">}</span>size<span class="o">{</span>KMGTP<span class="o">}</span>:
+<a name="rest_code_c4b8de28a7d549c1ad6547228d133a6b-16"></a>$ Current <span class="nb">type</span> is <span class="s1">'Linux filesystem'</span>
+<a name="rest_code_c4b8de28a7d549c1ad6547228d133a6b-17"></a>$ Hex code or GUID <span class="o">(</span>L to show codes, <span class="nv">Enter</span> <span class="o">=</span> <span class="m">8300</span><span class="o">)</span>:
+<a name="rest_code_c4b8de28a7d549c1ad6547228d133a6b-18"></a>$ Changed <span class="nb">type</span> of partition to <span class="s1">'Linux filesystem'</span>
+<a name="rest_code_c4b8de28a7d549c1ad6547228d133a6b-19"></a>
+<a name="rest_code_c4b8de28a7d549c1ad6547228d133a6b-20"></a>$ Command <span class="o">(</span>? <span class="k">for</span> <span class="nb">help</span><span class="o">)</span>: p
+<a name="rest_code_c4b8de28a7d549c1ad6547228d133a6b-21"></a>$ Press w to write to disk
+<a name="rest_code_c4b8de28a7d549c1ad6547228d133a6b-22"></a>$ Press Y to confirm
+</pre>
+<p>Repeat the above procedure for <em>/dev/sdb</em> and <em>/dev/sdc</em>, but create just one partition
+with all values as default. At the end we will have three partitions:
+<em>/dev/sda1, /dev/sda2, /dev/sdb1</em> and <em>/dev/sdc1</em></p>
+<p>Now we will format these partitions.</p>
+<pre class="code bash"><a name="rest_code_e8a1338fc58c4c549cf357f38b428864-1"></a>$ mkfs.vfat -F32 /dev/sda1
+<a name="rest_code_e8a1338fc58c4c549cf357f38b428864-2"></a>$ mkfs.btrfs -L arch /dev/sda2
+<a name="rest_code_e8a1338fc58c4c549cf357f38b428864-3"></a>$ mkfs.btrfs -L data /dev/sdb1
+<a name="rest_code_e8a1338fc58c4c549cf357f38b428864-4"></a>$ mkfs.btrfs -L media /dev/sdc1
+</pre>
+<p>Now, we will create btrfs subvolumes and mount them properly for
+installation and final setup.</p>
+<pre class="code bash"><a name="rest_code_fa77668737d94f86b09f951562779f78-1"></a>$ mount /dev/sda2 /mnt
+<a name="rest_code_fa77668737d94f86b09f951562779f78-2"></a>$ btrfs subvolume create /mnt/ROOT
+<a name="rest_code_fa77668737d94f86b09f951562779f78-3"></a>$ btrfs subvolume create /mnt/home
+<a name="rest_code_fa77668737d94f86b09f951562779f78-4"></a>$ umount /mnt
+<a name="rest_code_fa77668737d94f86b09f951562779f78-5"></a>
+<a name="rest_code_fa77668737d94f86b09f951562779f78-6"></a>$ mount /dev/sdb1 /mnt
+<a name="rest_code_fa77668737d94f86b09f951562779f78-7"></a>$ btrfs subvolume create /mnt/data
+<a name="rest_code_fa77668737d94f86b09f951562779f78-8"></a>$ umount /mnt
+<a name="rest_code_fa77668737d94f86b09f951562779f78-9"></a>
+<a name="rest_code_fa77668737d94f86b09f951562779f78-10"></a>$ mount /dev/sdc1 /mnt
+<a name="rest_code_fa77668737d94f86b09f951562779f78-11"></a>$ btrfs subvolume create /mnt/media
+<a name="rest_code_fa77668737d94f86b09f951562779f78-12"></a>$ umount /mnt
+</pre>
+<p>Now, once the sub-volumes have been created, we will mount them in
+appropriate locations with optimal flags.</p>
+<pre class="code bash"><a name="rest_code_c39f3ba6acf348ae908068185184571a-1"></a><span class="nv">$SSD_MOUNTS</span><span class="o">=</span><span class="s2">"rw,noatime,nodev,compress=lzo,ssd,discard,</span>
+<a name="rest_code_c39f3ba6acf348ae908068185184571a-2"></a><span class="s2">    space_cache,autodefrag,inode_cache"</span>
+<a name="rest_code_c39f3ba6acf348ae908068185184571a-3"></a>$ <span class="nv">HDD_MOUNTS</span><span class="o">=</span><span class="s2">"rw,nosuid,nodev,relatime,space_cache"</span>
+<a name="rest_code_c39f3ba6acf348ae908068185184571a-4"></a>$ <span class="nv">EFI_MOUNTS</span><span class="o">=</span><span class="s2">"rw,noatime,discard,nodev,nosuid,noexec"</span>
+<a name="rest_code_c39f3ba6acf348ae908068185184571a-5"></a>$ mount -o <span class="nv">$SSD_MOUNTS</span>,subvol<span class="o">=</span>ROOT /dev/sda2 /mnt
+<a name="rest_code_c39f3ba6acf348ae908068185184571a-6"></a>$ mkdir -p /mnt/home
+<a name="rest_code_c39f3ba6acf348ae908068185184571a-7"></a>$ mkdir -p /mnt/data
+<a name="rest_code_c39f3ba6acf348ae908068185184571a-8"></a>$ mkdir -p /mnt/media
+<a name="rest_code_c39f3ba6acf348ae908068185184571a-9"></a>$ mount -o <span class="nv">$SSD_MOUNTS</span>,nosuid,subvol<span class="o">=</span>home /dev/sda2 /mnt/home
+<a name="rest_code_c39f3ba6acf348ae908068185184571a-10"></a>$ mount -o <span class="nv">$HDD_MOUNTS</span>,subvol<span class="o">=</span>data /dev/sdb1 /mnt/data
+<a name="rest_code_c39f3ba6acf348ae908068185184571a-11"></a>$ mount -o <span class="nv">$HDD_MOUNTS</span>,subvol<span class="o">=</span>media /dev/sdc1 /mnt/media
+<a name="rest_code_c39f3ba6acf348ae908068185184571a-12"></a>
+<a name="rest_code_c39f3ba6acf348ae908068185184571a-13"></a>$ mkdir -p /mnt/boot
+<a name="rest_code_c39f3ba6acf348ae908068185184571a-14"></a>$ mount -o <span class="nv">$EFI_MOUNTS</span> /dev/sda1 /mnt/boot
+</pre>
+</div>
+</div>
+<div class="section" id="base-installation">
+<h2><a class="toc-backref" href="#id5">Base Installation</a></h2>
+<p>Now, we will do the actually installation of base packages.</p>
+<pre class="code bash"><a name="rest_code_d271597564a54e76bebc38e3fffd63f4-1"></a>$ pacstrap /mnt base base-devel btrfs-progs
+<a name="rest_code_d271597564a54e76bebc38e3fffd63f4-2"></a>$ genfstab -U -p /mnt &gt;&gt; /mnt/etc/fstab
+</pre>
+<p>Edit the /mnt/ect/fstab file to add following /tmp mounts.</p>
+<pre class="code bash"><a name="rest_code_26ea1af11a7348edb6e5d056e4118c83-1"></a>tmpfs /tmp tmpfs rw,nodev,nosuid <span class="m">0</span> <span class="m">0</span>
+<a name="rest_code_26ea1af11a7348edb6e5d056e4118c83-2"></a>tmpfs /dev/shm tmpfs rw,nodev,nosuid,noexec <span class="m">0</span> <span class="m">0</span>
+</pre>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p><strong>WIFI AT FIRST BOOT</strong></p>
+<p><span class="highlight-short-warning">
+    Copy our current wifi setup file into the new system. This will enable
+    wifi at first boot. Next, chroot into our newly installed system:
+    </span></p>
+<div class="last"><pre class="code bash"><a name="rest_code_58d6ae030e6f461ca72cdd55e45f78d8-1"></a><span class="nv">$cp</span> /etc/netctl/wl* /mnt/etc/netctl/
+</pre></div>
+</div>
+<p>Finally  bind root for installation.</p>
+<pre class="code bash"><a name="rest_code_4b81d0b4483c4febb397c03d1677551b-1"></a>$ arch-chroot /mnt /bin/bash
+</pre>
+<div class="section" id="basic-setup">
+<h3><a class="toc-backref" href="#id6">Basic Setup</a></h3>
+<p>Here are some basic commands you need to run to get the installation started.</p>
+<pre class="code bash"><a name="rest_code_475b6575b6d7411bbce29b8598e1cb91-1"></a>$ pacman -Syy
+<a name="rest_code_475b6575b6d7411bbce29b8598e1cb91-2"></a>$ pacman -S sudo vim
+<a name="rest_code_475b6575b6d7411bbce29b8598e1cb91-3"></a>$ vim /etc/locale.gen
+<a name="rest_code_475b6575b6d7411bbce29b8598e1cb91-4"></a>
+<a name="rest_code_475b6575b6d7411bbce29b8598e1cb91-5"></a>...
+<a name="rest_code_475b6575b6d7411bbce29b8598e1cb91-6"></a><span class="c1"># en_SG ISO-8859-1</span>
+<a name="rest_code_475b6575b6d7411bbce29b8598e1cb91-7"></a>en_US.UTF-8 UTF-8
+<a name="rest_code_475b6575b6d7411bbce29b8598e1cb91-8"></a><span class="c1"># en_US ISO-8859-1</span>
+<a name="rest_code_475b6575b6d7411bbce29b8598e1cb91-9"></a>...
+<a name="rest_code_475b6575b6d7411bbce29b8598e1cb91-10"></a>
+<a name="rest_code_475b6575b6d7411bbce29b8598e1cb91-11"></a>$ locale-gen
+<a name="rest_code_475b6575b6d7411bbce29b8598e1cb91-12"></a>$ <span class="nb">echo</span> <span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8 &gt; /etc/locale.conf
+<a name="rest_code_475b6575b6d7411bbce29b8598e1cb91-13"></a>$ <span class="nb">export</span> <span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8
+<a name="rest_code_475b6575b6d7411bbce29b8598e1cb91-14"></a>$ ls -l /usr/share/zoneinfo
+<a name="rest_code_475b6575b6d7411bbce29b8598e1cb91-15"></a>$ ln -sf /usr/share/zoneinfo/Zone/SubZone /etc/localtime
+<a name="rest_code_475b6575b6d7411bbce29b8598e1cb91-16"></a>$ hwclock --systohc --utc
+<a name="rest_code_475b6575b6d7411bbce29b8598e1cb91-17"></a>$ sed -i <span class="s2">"s/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/"</span> /etc/sudoers
+<a name="rest_code_475b6575b6d7411bbce29b8598e1cb91-18"></a>$ <span class="nv">HOSTNAME</span><span class="o">=</span>euler
+<a name="rest_code_475b6575b6d7411bbce29b8598e1cb91-19"></a>$ <span class="nb">echo</span> <span class="nv">$HOSTNAME</span> &gt; /etc/hostname
+<a name="rest_code_475b6575b6d7411bbce29b8598e1cb91-20"></a>$ pacman -S dosfstools efibootmgr
+<a name="rest_code_475b6575b6d7411bbce29b8598e1cb91-21"></a>$ sed -i <span class="s1">'s/^\(HOOKS=.*fsck\)\(.*$\)/\1 btrfs\2/g'</span> /etc/mkinitcpio.conf
+<a name="rest_code_475b6575b6d7411bbce29b8598e1cb91-22"></a>$ mkinitcpio -p linux
+<a name="rest_code_475b6575b6d7411bbce29b8598e1cb91-23"></a>$ passwd
+</pre>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>WIFI PACKAGES</p>
+<p><span class="highlight-short-warning">
+    We also need to install following packages for wifi to work at first boot:
+    </span></p>
+<div class="last"><pre class="code bash"><a name="rest_code_0c5579b4a21a452d97136d55831f2956-1"></a>$ pacman -S iw wpa_supplicant
+</pre></div>
+</div>
+<p>We will also add <em>hostname</em> to our /etc/hosts file:</p>
+<pre class="code bash"><a name="rest_code_575e1f464c1942c4abcb9e059480ee8d-1"></a>$ vim /etc/hosts
+<a name="rest_code_575e1f464c1942c4abcb9e059480ee8d-2"></a>...
+<a name="rest_code_575e1f464c1942c4abcb9e059480ee8d-3"></a><span class="m">127</span>.0.0.1       localhost.localdomain   localhost <span class="nv">$HOSTNAME</span>
+<a name="rest_code_575e1f464c1942c4abcb9e059480ee8d-4"></a>::1             localhost.localdomain   localhost <span class="nv">$HOSTNAME</span>
+<a name="rest_code_575e1f464c1942c4abcb9e059480ee8d-5"></a>...
+</pre>
+</div>
+<div class="section" id="bootloader-setup">
+<h3><a class="toc-backref" href="#id7">Bootloader Setup</a></h3>
+<p>systemd-boot, previously called gummiboot, is a simple UEFI boot manager
+which executes configured EFI images. The default entry is selected by
+a configured pattern (glob) or an on-screen menu.
+It is included with the <em>systemd</em>, which is installed on an Arch systems by default.</p>
+<p>Assuming /boot is your boot drive, first run the following command to get started:</p>
+<pre class="code bash"><a name="rest_code_03b9676c2b0543ccb5c6a13ca2bcb90d-1"></a>$ bootctl --path<span class="o">=</span>/boot install
+</pre>
+<p>It will copy the systemd-boot binary to your EFI System Partition
+( <cite>/boot/EFI/systemd/systemd-bootx64.efi</cite> and <cite>/boot/EFI/Boot/BOOTX64.EFI</cite>
+- both of which are identical - on x64 systems ) and add systemd-boot
+itself as the default EFI application (default boot entry) loaded by
+the EFI Boot Manager.</p>
+<p>Finally to configure out boot loader, we will need the UUID of
+out root drive (/dev/sda2). You can find that by:</p>
+<pre class="code bash"><a name="rest_code_0d1a538cdb0147b9a29ba075d71b68e1-1"></a>$ lsblk -no NAME,UUID /dev/sda2
+</pre>
+<p>Now, make sure that the following two files look as follows,
+where $UUID is the value obtained from above command:</p>
+<pre class="code bash"><a name="rest_code_7ca9260fcf8c415592fdca822fb1f737-1"></a>$ vim /boot/loader/loader.conf
+<a name="rest_code_7ca9260fcf8c415592fdca822fb1f737-2"></a>...
+<a name="rest_code_7ca9260fcf8c415592fdca822fb1f737-3"></a>timeout <span class="m">3</span>
+<a name="rest_code_7ca9260fcf8c415592fdca822fb1f737-4"></a>default arch
+<a name="rest_code_7ca9260fcf8c415592fdca822fb1f737-5"></a>...
+<a name="rest_code_7ca9260fcf8c415592fdca822fb1f737-6"></a>$ vim /boot/loader/entries/arch.conf
+<a name="rest_code_7ca9260fcf8c415592fdca822fb1f737-7"></a>...
+<a name="rest_code_7ca9260fcf8c415592fdca822fb1f737-8"></a>
+<a name="rest_code_7ca9260fcf8c415592fdca822fb1f737-9"></a>title Arch Linux
+<a name="rest_code_7ca9260fcf8c415592fdca822fb1f737-10"></a>linux /vmlinuz-linux
+<a name="rest_code_7ca9260fcf8c415592fdca822fb1f737-11"></a>initrd /initramfs-linux.img
+<a name="rest_code_7ca9260fcf8c415592fdca822fb1f737-12"></a>options <span class="nv">root</span><span class="o">=</span><span class="nv">UUID</span><span class="o">=</span><span class="nv">$UUID</span> rw <span class="nv">rootfstype</span><span class="o">=</span>btrfs <span class="nv">rootflags</span><span class="o">=</span><span class="nv">subvol</span><span class="o">=</span>ROOT
+<a name="rest_code_7ca9260fcf8c415592fdca822fb1f737-13"></a>...
+</pre>
+<div class="admonition admonition-important">
+<p class="first admonition-title">Important</p>
+<p><span class="highlight-short-blue">
+    Please  note that you will to need manually run bootctl command everytime systemd-boot gets updated.
+    </span></p>
+<div class="last"><pre class="code bash"><a name="rest_code_9b8bb70635a34bd89c61319c4c11ac99-1"></a>$ bootctl update
+</pre></div>
+</div>
+</div>
+<div class="section" id="network-setup">
+<h3><a class="toc-backref" href="#id8">Network Setup</a></h3>
+<p>First setup hostname using systemd:</p>
+<pre class="code bash"><a name="rest_code_860c2e9d187b4a5192e8a968902224c2-1"></a>   $ hostnamectl set-hostname <span class="nv">$HOSTNAME</span>
+<a name="rest_code_860c2e9d187b4a5192e8a968902224c2-2"></a>
+<a name="rest_code_860c2e9d187b4a5192e8a968902224c2-3"></a>Check the <span class="s2">"Ethernet controller"</span> entry <span class="o">(</span>or similar<span class="o">)</span> from the
+<a name="rest_code_860c2e9d187b4a5192e8a968902224c2-4"></a><span class="sb">`</span>lspci -v<span class="sb">`</span> output. It should tell you which kernel module contains
+<a name="rest_code_860c2e9d187b4a5192e8a968902224c2-5"></a>the driver <span class="k">for</span> your network device. For example:
+<a name="rest_code_860c2e9d187b4a5192e8a968902224c2-6"></a>
+<a name="rest_code_860c2e9d187b4a5192e8a968902224c2-7"></a>.. code:: bash
+<a name="rest_code_860c2e9d187b4a5192e8a968902224c2-8"></a>
+<a name="rest_code_860c2e9d187b4a5192e8a968902224c2-9"></a>   $ lspci -v
+<a name="rest_code_860c2e9d187b4a5192e8a968902224c2-10"></a>   $
+<a name="rest_code_860c2e9d187b4a5192e8a968902224c2-11"></a>   ...
+<a name="rest_code_860c2e9d187b4a5192e8a968902224c2-12"></a>   <span class="m">04</span>:00.0 Ethernet controller: Realtek Semiconductor Co., Ltd. RTL8111/8168/8411 PCI Express Gigabit Ethernet Controller <span class="o">(</span>rev <span class="m">11</span><span class="o">)</span>
+<a name="rest_code_860c2e9d187b4a5192e8a968902224c2-13"></a>           Subsystem: ASUSTeK Computer Inc. Device 859e
+<a name="rest_code_860c2e9d187b4a5192e8a968902224c2-14"></a>           Flags: bus master, fast devsel, latency <span class="m">0</span>, IRQ <span class="m">29</span>
+<a name="rest_code_860c2e9d187b4a5192e8a968902224c2-15"></a>           I/O ports at d000 <span class="o">[</span><span class="nv">size</span><span class="o">=</span><span class="m">256</span><span class="o">]</span>
+<a name="rest_code_860c2e9d187b4a5192e8a968902224c2-16"></a>           Memory at f7100000 <span class="o">(</span><span class="m">64</span>-bit, non-prefetchable<span class="o">)</span> <span class="o">[</span><span class="nv">size</span><span class="o">=</span>4K<span class="o">]</span>
+<a name="rest_code_860c2e9d187b4a5192e8a968902224c2-17"></a>           Memory at f2100000 <span class="o">(</span><span class="m">64</span>-bit, prefetchable<span class="o">)</span> <span class="o">[</span><span class="nv">size</span><span class="o">=</span>16K<span class="o">]</span>
+<a name="rest_code_860c2e9d187b4a5192e8a968902224c2-18"></a>           Capabilities: &lt;access denied&gt;
+<a name="rest_code_860c2e9d187b4a5192e8a968902224c2-19"></a>           Kernel driver in use: r8169
+<a name="rest_code_860c2e9d187b4a5192e8a968902224c2-20"></a>           Kernel modules: r8169
+<a name="rest_code_860c2e9d187b4a5192e8a968902224c2-21"></a>   ...
+<a name="rest_code_860c2e9d187b4a5192e8a968902224c2-22"></a>   $
+</pre>
+<p>Next, check that the driver was loaded via <cite>dmesg | grep module_name</cite>. For example:</p>
+<pre class="code bash"><a name="rest_code_9a9d28887d514a3fa939361a6597c81f-1"></a>$ dmesg <span class="p">|</span> grep r8169
+<a name="rest_code_9a9d28887d514a3fa939361a6597c81f-2"></a>$
+<a name="rest_code_9a9d28887d514a3fa939361a6597c81f-3"></a>...
+<a name="rest_code_9a9d28887d514a3fa939361a6597c81f-4"></a><span class="o">[</span>    <span class="m">3</span>.215178<span class="o">]</span> r8169 Gigabit Ethernet driver <span class="m">2</span>.3LK-NAPI loaded
+<a name="rest_code_9a9d28887d514a3fa939361a6597c81f-5"></a><span class="o">[</span>    <span class="m">3</span>.215185<span class="o">]</span> r8169 <span class="m">0000</span>:04:00.0: can<span class="s1">'t disable ASPM; OS doesn'</span>t have ASPM control
+<a name="rest_code_9a9d28887d514a3fa939361a6597c81f-6"></a><span class="o">[</span>    <span class="m">3</span>.220477<span class="o">]</span> r8169 <span class="m">0000</span>:04:00.0 eth0: RTL8168g/8111g at 0xffffc90000c74000, <span class="m">78</span>:24:af:d7:1d:3d, XID 0c000800 IRQ <span class="m">29</span>
+<a name="rest_code_9a9d28887d514a3fa939361a6597c81f-7"></a><span class="o">[</span>    <span class="m">3</span>.220481<span class="o">]</span> r8169 <span class="m">0000</span>:04:00.0 eth0: jumbo features <span class="o">[</span>frames: <span class="m">9200</span> bytes, tx checksumming: ko<span class="o">]</span>
+<a name="rest_code_9a9d28887d514a3fa939361a6597c81f-8"></a><span class="o">[</span>    <span class="m">3</span>.226949<span class="o">]</span> r8169 <span class="m">0000</span>:04:00.0 enp4s0: renamed from eth0
+<a name="rest_code_9a9d28887d514a3fa939361a6597c81f-9"></a><span class="o">[</span>    <span class="m">5</span>.128713<span class="o">]</span> r8169 <span class="m">0000</span>:04:00.0 enp4s0: link down
+<a name="rest_code_9a9d28887d514a3fa939361a6597c81f-10"></a><span class="o">[</span>    <span class="m">5</span>.128713<span class="o">]</span> r8169 <span class="m">0000</span>:04:00.0 enp4s0: link down
+<a name="rest_code_9a9d28887d514a3fa939361a6597c81f-11"></a><span class="o">[</span>    <span class="m">8</span>.110869<span class="o">]</span> r8169 <span class="m">0000</span>:04:00.0 enp4s0: link up
+<a name="rest_code_9a9d28887d514a3fa939361a6597c81f-12"></a>...
+<a name="rest_code_9a9d28887d514a3fa939361a6597c81f-13"></a>$
+</pre>
+<p>Proceed if the driver was loaded successfully. Otherwise,
+you will need to know which module is needed for your particular model.
+Please follow the
+<a class="reference external" href="https://wiki.archlinux.org/index.php/Network_configuration">Arch Wiki Networking</a> guide
+for further assistance.</p>
+<p>Get current device names via <cite>/sys/class/net</cite> or <cite>ip link</cite>. For example:</p>
+<pre class="code bash"><a name="rest_code_53788b3395544af1a42e35afe0d204b3-1"></a>$ ls /sys/class/net
+<a name="rest_code_53788b3395544af1a42e35afe0d204b3-2"></a>$
+<a name="rest_code_53788b3395544af1a42e35afe0d204b3-3"></a>...
+<a name="rest_code_53788b3395544af1a42e35afe0d204b3-4"></a>enp4s0  lo  wlp3s0
+<a name="rest_code_53788b3395544af1a42e35afe0d204b3-5"></a>...
+<a name="rest_code_53788b3395544af1a42e35afe0d204b3-6"></a>$
+<a name="rest_code_53788b3395544af1a42e35afe0d204b3-7"></a>$ ip link
+<a name="rest_code_53788b3395544af1a42e35afe0d204b3-8"></a>$
+<a name="rest_code_53788b3395544af1a42e35afe0d204b3-9"></a>...
+<a name="rest_code_53788b3395544af1a42e35afe0d204b3-10"></a><span class="m">2</span>: enp4s0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu <span class="m">1500</span> qdisc fq_codel state UP mode DEFAULT group default qlen <span class="m">1000</span>
+<a name="rest_code_53788b3395544af1a42e35afe0d204b3-11"></a>    link/ether <span class="m">78</span>:24:af:d7:1d:3d brd ff:ff:ff:ff:ff:ff
+<a name="rest_code_53788b3395544af1a42e35afe0d204b3-12"></a>...
+<a name="rest_code_53788b3395544af1a42e35afe0d204b3-13"></a>$
+</pre>
+<p>Using this name of the device, we need to configure, enable following
+two systemd services: <em>systemd-networkd.service</em>
+and <em>systemd-resolved.service</em>.</p>
+<p>For compatibility with resolv.conf, delete or rename the existing file and
+create the following symbolic link:</p>
+<pre class="code bash"><a name="rest_code_dfb80ac86e9541d0895e68de10f49a89-1"></a>$ ln -s /usr/lib/systemd/resolv.conf /etc/resolv.conf
+</pre>
+<p>Network configurations are stored as *.network in <em>/etc/systemd/network</em>.
+We need to create ours as follows.:</p>
+<pre class="code bash"><a name="rest_code_d05e8c9047bd45f49eae182498c5a23e-1"></a>$ vim /etc/systemd/network/wired.network
+<a name="rest_code_d05e8c9047bd45f49eae182498c5a23e-2"></a>$
+<a name="rest_code_d05e8c9047bd45f49eae182498c5a23e-3"></a>...
+<a name="rest_code_d05e8c9047bd45f49eae182498c5a23e-4"></a><span class="o">[</span>Match<span class="o">]</span>
+<a name="rest_code_d05e8c9047bd45f49eae182498c5a23e-5"></a><span class="nv">Name</span><span class="o">=</span>enp4s0
+<a name="rest_code_d05e8c9047bd45f49eae182498c5a23e-6"></a>
+<a name="rest_code_d05e8c9047bd45f49eae182498c5a23e-7"></a><span class="o">[</span>Network<span class="o">]</span>
+<a name="rest_code_d05e8c9047bd45f49eae182498c5a23e-8"></a><span class="nv">DHCP</span><span class="o">=</span>ipv4
+<a name="rest_code_d05e8c9047bd45f49eae182498c5a23e-9"></a>
+<a name="rest_code_d05e8c9047bd45f49eae182498c5a23e-10"></a>...
+<a name="rest_code_d05e8c9047bd45f49eae182498c5a23e-11"></a>
+<a name="rest_code_d05e8c9047bd45f49eae182498c5a23e-12"></a>$
+</pre>
+<p>Now enable these services:</p>
+<pre class="code bash"><a name="rest_code_717c800479b1436e8408841dd343baa5-1"></a>$ systemctl <span class="nb">enable</span> systemd-resolved.service
+<a name="rest_code_717c800479b1436e8408841dd343baa5-2"></a>$ systemctl <span class="nb">enable</span> systemd-networkd.service
+</pre>
+<p>Your network should be ready for first use!</p>
+</div>
+<div class="section" id="first-boot">
+<h3><a class="toc-backref" href="#id9">First Boot</a></h3>
+<p>Now we are ready for the first boot!
+Run the following command:</p>
+<pre class="code bash"><a name="rest_code_4676006455af4bb8b918e7ceb955907a-1"></a>$ <span class="nb">exit</span>
+<a name="rest_code_4676006455af4bb8b918e7ceb955907a-2"></a>$ umount -R /mnt
+<a name="rest_code_4676006455af4bb8b918e7ceb955907a-3"></a>$ reboot
+</pre>
+<p>Awesome! We are ready to play with our new system. Alas!
+what you have is just a basic installation without any GUI.</p>
+<p>Please see my next post for where to go next!</p>
+</div>
+</div>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../../categories/linux/" rel="tag">Linux</a></li>
+        </ul>
+<ul class="pager hidden-print">
+<li class="previous">
+                <a href="../PalakPaneerRecipe/" rel="prev" title="Palak Paneer Recipe">Previous post</a>
+            </li>
+            <li class="next">
+                <a href="../plasmaInstall/" rel="next" title="Plasma 5 Installation on Arch Linux">Next post</a>
+            </li>
+        </ul></nav></aside><section class="comments hidden-print"><h2>Comments</h2>
+            
+        
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="sadanandsblog",
+            disqus_url="https://sadanand-singh.github.io/posts/archInstall/",
+        disqus_title="Arch Installation Guide",
+        disqus_identifier="archInstall.sadanand",
+        disqus_config = function () {
+            this.language = "en";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section></article><script>var disqus_shortname="sadanandsblog";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2017         <a href="mailto:sadanand.singh@aol.com">Sadanand Singh</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png"></a><br>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../../assets/js/all-nocdn.js"></script><script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53f6d74a591ace8f"></script><!-- End of social buttons --><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(2, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates --><!-- Modal --><div id="search-results" class="modal fade" role="dialog" style="height: 80%;">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">×</button>
+            <h4 class="modal-title">Search Results:</h4>
+          </div>
+          <div class="modal-body" id="tipue_search_content" style="max-height: 600px; overflow-y: auto;">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <script>
+    $(document).ready(function() {
+        $.when(
+            $.getScript( "/assets/js/tipuesearch_set.js" ),
+            $.getScript( "/assets/js/tipuesearch.js" ),
+            $.Deferred(function( deferred ){
+                $( deferred.resolve );
+            })
+        ).done(function() {
+            $('#tipue_search_input').tipuesearch({
+                'mode': 'json',
+                'contentLocation': '/assets/js/tipuesearch_content.json'
+            });
+            $('#tipue_search_input').keyup(function (e) {
+                if (e.keyCode == 13) {
+                    $('#search-results').modal()
+                }
+            });
+        });
+    });
+    </script><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-54080172-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>
