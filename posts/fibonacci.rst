@@ -28,8 +28,7 @@ term, the rate of increase is a bit more uncertain, although there is no
 reason to believe it will not remain nearly constant for at least 10
 years.* -- G. Moore, 1965
 
-In simple words, `*Moore's
-law* <https://en.wikipedia.org/wiki/Moore%27s_law>`__ is the observation
+In simple words, |moore|_  is the observation
 that, over the history of computing hardware, the number of transistors
 in a dense integrated circuit has doubled approximately every two years.
 More precisely, the number of transistors in a dense integrated circuit
@@ -37,6 +36,10 @@ has increased by a factor of 1.6 every two years. More recently, keeping
 up with this has been challenging. In the context of this discussion,
 the inherent assumption is that number of transistors is directly
 proportional to the speed of computers.
+
+.. _moore: https://en.wikipedia.org/wiki/Moore%27s_law
+
+.. |moore| replace:: *Moore's law*
 
 Now, looking at the other side of the coin - speed of algorithms.
 According to Excerpt from `Report to the President and Congress:
