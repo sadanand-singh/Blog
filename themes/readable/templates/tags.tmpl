@@ -1,0 +1,25 @@
+## -*- coding: utf-8 -*-
+<%inherit file="base.tmpl"/>
+
+<%block name="extra_head">
+    ${parent.extra_head()}
+    <link href="/assets/css/tx3-tag-cloud.css" rel="stylesheet" type="text/css">
+    <style>
+      li {
+	  line-height: 70px !important;
+      }
+    </style>
+</%block>
+
+<%block name="content">
+% if cat_items:
+    % if items:
+        <h2>${messages("Tags")}</h2>
+    % endif
+%endif
+</%block>
+
+<%block name="extra_js">
+  <script type="text/javascript" src="/assets/js/jquery.tx3-tag-cloud.js"></script>
+  <script type="text/javascript" src="/assets/js/tx3-tag-cloud.js"></script>
+</%block>
