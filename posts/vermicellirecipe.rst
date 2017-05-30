@@ -12,12 +12,12 @@
 This is for all the lazy souls like me - in a mood to eat something
 tasty, but in no mood to cook for long.
 
-.. TEASER_END
-
 Vermicelli, or also known as *seviyan* in Hindi, is commonly cooked as a
 sweet dish in Indian subcontinent. As I try to be away from all things
 sweet, I came across this recipe which uses this in a quite spicy
 flavor.
+
+.. TEASER_END
 
 .. contents:: Table of Contents
 

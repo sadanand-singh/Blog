@@ -15,12 +15,12 @@ make things worse, I have been trying to eat healthy.
 Nevertheless, here is another recipe that solves all these at once. Its
 my *five minute* Tilapia Fish Recipe.
 
+Two major ingredients - fish and veggies, of this recipe can be grabbed
+from the frozen section of any supermarket.
+
 .. TEASER_END
 
 .. contents:: Table of Contents
-
-Two major ingredients - fish and veggies, of this recipe can be grabbed
-from the frozen section of any supermarket.
 
 .. figure:: ../../images/CookingVeggies.jpg
    :alt: Fried Steamed Veggies

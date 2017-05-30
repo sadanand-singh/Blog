@@ -12,8 +12,6 @@
 You must be thinking - yet another installation guide! There is no
 dearth of "*Installation*" guides of Arch on web. So why another one?
 
-.. TEASER_END
-
 With advancements like BTRFS file system, UEFI motherboards and modern
 *in-development* desktop environment like Plasma 5; traditional `Arch
 Wiki <https://wiki.archlinux.org/index.php/Installation_guide>`__ guide
@@ -23,6 +21,8 @@ only be of a limited help. After I got my new :doc:`my new desktop <myNewCompSpe
 was to setup it with a *modern* setup. I decided to go with Arch Linux
 with btrfs file system and Plasma 5 desktop. Coming from OSX, I just
 love how far linux has come in terms of looks - *quite close to OSX!*
+
+.. TEASER_END
 
 .. contents:: Table of Contents
 

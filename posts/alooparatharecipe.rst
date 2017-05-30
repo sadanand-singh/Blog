@@ -13,13 +13,13 @@ Today, I share one of my favorite dishes - *Aloo Paratha*. It is a dish
 of mashed potato stuffed bread from the Northern India. It is my
 favorite breakfast dish when I am in India.
 
-.. TEASER_END
-
-.. contents:: Table of Contents
-
 Here is my try in making some edible *parathas*. It might take few
 trials in making a perfectly round-shaped *Paratha*. Please share your
 views and inputs in comments below.
+
+.. TEASER_END
+
+.. contents:: Table of Contents
 
 .. figure:: ../../images/AlooParathaStuffing.jpg
    :alt: Aloo Stuffing
