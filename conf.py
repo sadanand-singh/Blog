@@ -615,6 +615,7 @@ from nikola import filters
 FILTERS = {
    # ".html": [filters.typogrify],
    ".js": [filters.yui_compressor],
+   ".css": [filters.yui_compressor],
    ".jpg": ["jpegoptim --strip-all -m75 -v %s"],
 }
 
