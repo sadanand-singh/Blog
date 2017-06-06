@@ -1,25 +1,23 @@
-.. title: Arch Linux with Plasma 5 Installation (2017)
-.. slug: plasmainstallation2017
-.. date: 2017-06-04 17:42:46 UTC-07:00
+.. title: My Complete Arch Linux Setup with Plasma 5
+.. slug: CompleteSetupArchPlasma
+.. date: 2017-06-05 15:00:00 UTC-07:00
 .. tags: Linux
 .. category: Computers
 .. link:
 .. description:
-.. disqus_identifier: plasmainstallation2017.sadanand
+.. disqus_identifier: CompleteSetupArchPlasma.sadanand
 .. type: text
 .. author: Sadanand Singh
 
 |Arch|_ is a general purpose GNU/Linux distribution that provides most up-to-
-date softwares by following the rolling-release model. Unlike fixed-point
-release Linux distributions, Arch Linux allows you to use updated cutting-edge
+date softwares by following the rolling-release model. Arch Linux allows you to use updated cutting-edge
 softwares and packages as soon as the developers released them.
-
 `KDE Plasma 5`_ is the current generation of the desktop environment created by
 KDE primarily for Linux systems.
 
 In this post, we will do a complete installation of Arch Linux with Plasma 5
 as the desktop environment. Our setup will also involve encryption of the
-main (root) partition that will be formatted in btrfs_. This post is an updated
+root partition that will be formatted in btrfs_. This post is an updated
 and a more complete version of my previous posts on
 :doc:`Arch Linux <archInstall>` and
 :doc:`Plasma 5 Installation <plasmaInstall>`.
@@ -47,8 +45,9 @@ Base Installation
 
 NOTE: I do not wish to repeat <a href="https://wiki.archlinux.org/index.php/installation_guide">Arch Installation Guide</a> here.
 
-Do not forget about <a href="https://wiki.archlinux.org/">Arch Wiki</a>, the best documentation in the world! A lot of content in this post
-has been compiled from there.
+Do not forget about <a href="https://wiki.archlinux.org/">Arch Wiki</a>,
+the best documentation in the world! Most of the content in this
+post has been compiled from the Arch wiki.
 
 {{% /alert %}}
 
@@ -486,7 +485,7 @@ Now enable these services:
     systemctl enable systemd-networkd.service
 
 
-Your network should be ready for first use!
+Your network should be ready for the first use!
 
 Sync time automatically using the systemd service:
 
@@ -584,48 +583,353 @@ whenever you see *ssingh* please replace it with your $USERNAME.
     $ passwd $USERNAME
 
 
-GUI Installation with Nvidia
+GUI Installation with nvidia
 ------------------------------
 
+I will be assuming you have an NVIDIA card for graphics installation.
+
+To setup a graphical desktop, first we need to install some basic X
+related packages, and some *essential* packages (including fonts):
+
+.. code:: bash
+
+   $ pacman -S xorg-server nvidia nvidia-libgl nvidia-settings mesa
+
+To avoid the possibility of forgetting to update your initramfs after
+an nvidia upgrade, you have to use a pacman hook like this:
+
+.. code:: bash
+
+   $ vim /etc/pacman.d/hooks/nvidia.hook
+   $
+   ...
+   [Trigger]
+   Operation=Install
+   Operation=Upgrade
+   Operation=Remove
+   Type=Package
+   Target=nvidia
+
+   [Action]
+   Depends=mkinitcpio
+   When=PostTransaction
+   Exec=/usr/bin/mkinitcpio -p linux
+   ...
+   $
+
+Nvidia has a daemon that is to be run at boot. To start the persistence
+daemon at boot, enable the `nvidia-persistenced.service`.
+
+.. code:: bash
+
+   $ systemctl enable nvidia-persistenced.service
+   $ systemctl start nvidia-persistenced.service
 
 
+{{% alert info %}} How to Avoid Screen Tearing {{% /alert %}}
 
-Audio Setup
-------------
+Tearing can be avoided by forcing a full composition pipeline, regardless of the compositor you are using.
 
+In order to make this change permanent, We will need to edit nvidia
+configuration file. Since, by default there aren't any, we will first need to
+create one.
 
+.. code:: bash
+
+    nvidia-xconfig
+    mv /etc/X11/xorg.cong /etc/X11/xorg.conf.d/20-nvidia.conf
+    #
+    # Edit this file as follows:
+    vim /etc/X11/xorg.conf.d/20-nvidia.conf
+    # -------------------------------------------
+    # Section "Screen"
+    #     Identifier     "Screen0"
+    #     Option         "metamodes" "nvidia-auto-select +0+0 { ForceFullCompositionPipeline = On }"
+    #     Option         "AllowIndirectGLXProtocol" "off"
+    #     Option         "TripleBuffer" "on"
+    # EndSection
+    [...]
+    # Section "Device"
+    #     [...]
+    #     Option         "TripleBuffer" "True"
+    #     [...]
+    # EndSection
+    # [...]
+    # ------------------------------------------------
+
+Specific for Plasma 5, we will also create the following file to avoid any tearing in Plasma.
+
+.. code:: bash
+
+    $ vim /etc/profile.d/kwin.sh
+    $
+    ...
+    export KWIN_TRIPLE_BUFFER=1
+    ...
+
+{{% alert info %}} How to Enable Better Resolution During Boot {{% /alert %}}
+
+The kernel compiled in *efifb* module supports high-resolution nvidia
+console on EFI systems. This can enabled by enabling the DRM kernel
+mode setting. First, we will need to add *nvidia*, *nvidia_modeset*,
+*nvidia_uvm* and *nvidia_drm* to MODULES section of the
+*mkinitcpio.conf* file. We will also need to pass
+the *nvidia-drm.modeset=1* kernel parameter during the boot.
+
+.. code:: bash
+
+    $ vim /etc/mkinitcpio.conf
+    $
+    ...
+    MODULES="vfat aes_x86_64 crc32c-intel nvidia nvidia_modeset nvidia_uvm nvidia_drm"
+    ...
+    $
+    $ vim /boot/loader/entries/arch.conf
+    $
+    ...
+    options ro cryptdevice=UUID=:luks- root=UUID= rootfstype=btrfs rootflags=subvol=ROOT cryptkey=UUID=:vfat:deepmind20170602 nvidia-drm.modeset=1
+    ...
+    $
+    $ mkinitcpio -p linux
 
 
 Plasma 5 Installation and Setup
 ---------------------------------
 
+We can now proceed with the installation of Plasma 5. In the process,
+we will also install some useful fonts.
 
+.. code:: bash
 
+    pacman -S ttf-hack ttf-anonymous-pro
+    pacman -S ttf-dejavu ttf-freefont ttf-liberation
+    pacman -S plasma-meta dolphin kdialog kfind
+    pacman -S konsole gwenview okular spectacle kio-extras
+    pacman -S kompare dolphin-plugins kwallet kwalletmanager
+    pacman -S ark yakuake flite
 
-Setup AUR Installations
--------------------------
+We will also need to select proper themes for the Plasma 5 display manager sddm and then enable its systemd service.
 
+.. code:: bash
+
+    $ vim /etc/sddm.conf
+
+    ....
+    [Theme]
+    # Current theme name
+    Current=breeze
+
+    # Cursor theme used in the greeter
+    CursorTheme=breeze_cursors
+    ...
+
+    $ systemctl enable sddm
+    $ reboot
+
+Once, we boot into the new system, we should have a basic Plasma 5 desktop
+waiting for you. In the following section, we will be do installation
+and modifications to the system that I prefer.
 
 
 Post Installation Setup
 ==========================
-NetworkManager
+
+Plasma 5 provides a handy network manager applet. However, in order to
+use it properly we will need the NetworkManager service to be enabled.
+This applet allows user specific enabling of *wifi*, *ethernet* or
+even *VPN* connections.
+
+.. code:: bash
+
+    $ sudo pacman -S networkmanager
+    $ systemctl enable NetworkManager.service
+    $ systemctl start NetworkManager.service
 
 
+Selecting pacman Mirrors
+-------------------------
+
+The *pacman* package provides a Bash script, */usr/bin/rankmirrors*,
+which can be used to rank the mirrors according to their connection
+and opening speeds to take advantage of using the fastest local mirror.
+
+We will do this only on the US based mirrors. First make a copy of the
+mirrors list file and then delete all non-US mirrors. We will
+then *rankmirrors* script on the modified list to get the top 6
+mirrors for our regular use.
+
+.. code:: bash
+
+    $ cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
+    $ cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.us
+    $ vim /etc/pacman.d/mirrorlist.us
+    ....
+    # Delete all non-US servers
+    ....
+    $ rankmirrors -n 6 /etc/pacman.d/mirrorlist.us > /etc/pacman.d/mirrorlist
+
+
+Setup AUR
+----------
+
+
+AUR_ is a community-driven repository for Arch users. This allows you to
+install many popular packages that are otherwise not available through
+core repositories.
+
+.. |AUR| replace:: The Arch User Repository (AUR)
+.. _AUR: https://aur.archlinux.org/
+
+In order to make all types of installations uniform, I use pacaur_ as
+the preferred tool for installing all packages. One the biggest
+advantages of pacaur is that is uses exactly the same options that
+regular pacman uses.
+
+.. _pacaur: https://github.com/rmarquis/pacaur
+
+In order to install pacuar, first install dependencies.
+
+.. code:: bash
+
+    sudo pacman -S expac yajl curl gnupg --noconfirm
+
+Create a temp directory for building packages:
+
+.. code:: bash
+
+    mkdir ~/temp
+    cp ~ temp
+
+Install *cower* first and then *pacaur*:
+
+.. code:: bash
+
+    gpg --recv-keys --keyserver hkp://pgp.mit.edu 1EB2638FF56C0C53
+    curl -o PKGBUILD https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=cower
+    makepkg -i PKGBUILD --noconfirm
+
+    curl -o PKGBUILD https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=pacaur
+    makepkg -i PKGBUILD --noconfirm
+
+    # Finally cleanup and remove the temp directory
+    cd ~
+    rm -r ~/temp
+
+
+Audio Setup
+------------
+
+This is pretty simple. Install following packages and you should be done:
+
+.. code:: bash
+
+    sudo pacaur -S alsa-utils pulseaudio pulseaudio-alsa mpv
+    sudo pacaur -S libcanberra-pulse libcanberra-gstreamer
+    sudo pacaur -S vlc-qt5
+
+Now start the pulseaudio service.
+
+.. code:: bash
+
+    systemctl --user enable pulseaudio.socket
+
+
+Web Browsers
+-------------
+
+My preferred choice of browsers is *google chrome*. However, it is also good to have the KDE native *qupzilla*.
+
+.. code:: bash
+
+    sudo pacaur -S google-chrome qupzilla
+
+*Profile-sync-daemon* (psd) is a tiny pseudo-daemon designed to manage browser profile(s) in *tmpfs* and to periodically sync back to the physical disc (HDD/SSD). This is accomplished by an innovative use of *rsync* to maintain synchronization between a *tmpfs* copy and media-bound backup of the browser profile(s). These features of *psd* leads to following benefits:
+
+-   Transparent user experience
+-   Reduced wear to physical drives, and
+-   Speed
+
+To setup. first install the *profile-sync-daemon* package.
+
+.. code:: bash
+
+    sudo pacaur -S profile-sync-daemon
+
+Run *psd* the first time which will create a config file at
+`$XDG_CONFIG_HOME/psd/psd.conf` which contains all settings.
+
+.. code:: bash
+
+    psd
+    # First time running psd so please edit
+    # /home/$USERNAME/.config/psd/psd.conf to your liking and run again.
+
+
+In the config file chnage the BROWSERS variables to "google-chrome qupzilla". Also, enable the use of overlayfs to improve sync speed and to use a smaller memory footprint. Do this in the USE_OVERLAYFS="yes" variable.
+
+
+{{% hl-text purple %}}
+Note: USE_OVERLAYFS feature requires a Linux kernel version of 3.18.0 or greater to work.
+{{% /hl-text %}}
+
+In order to use the OVERLAYFS feature, you will also need to give sudo permissions to psd-helper as follows (replace $USERNAME accordingly):
+
+.. code:: bash
+
+    $ vim /etc/sudoers
+    ...
+    $USERNAME ALL=(ALL) NOPASSWD: /usr/bin/psd-overlay-helper
+    ...
+
+Verify the working of configuration using the preview mode of psd:
+
+.. code:: bash
+
+    psd p
 
 
 git Setup
 -----------
 
+Install git and setup some global options as below:
 
+.. code:: bash
 
+    $ sudo pacaur -S git
+    $
+    $ vim ~/.gitconfig
+    ...
+    [user]
+        name = Sadanand Singh
+        email = EMAIL_ADDRESS
+    [color]
+        ui = auto
+    [status]
+        showuntrackedfiles = no
+    [alias]
+        gist = log --graph --oneline --all --decorate --date-order
+        find = log --graph --oneline --all --decorate --date-order --regexp-ignore-case --extended-regexp --grep
+        rfind = log --graph --oneline --all --decorate --date-order --regexp-ignore-case --extended-regexp --invert-grep --grep
+        search = grep --line-number --ignore-case -E -I
+    [pager]
+        status = true
+    [push]
+        default = matching
+    [merge]
+        tool = meld
+    [diff]
+        tool = meld
 
-zsh Setup
+    [help]
+        autocorrect = 1
+    ...
+
+ssh Setup
 -----------
 
 
 
-ssh Setup
+zsh Setup
 ----------
 
 
@@ -634,9 +938,6 @@ gpg Setup
 -----------
 
 
-
-Web Browsers
--------------
 
 
 
