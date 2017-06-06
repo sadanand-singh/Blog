@@ -378,11 +378,11 @@ First setup hostname using systemd:
 
     $ hostnamectl set-hostname $HOSTNAME
 
- Check the "Ethernet controller" entry (or similar) from the
- `lspci -v` output. It should tell you which kernel module contains
- the driver for your network device. For example:
+Check the "Ethernet controller" entry (or similar) from the
+`lspci -v` output. It should tell you which kernel module contains
+the driver for your network device. For example:
 
- .. code:: bash
+.. code:: bash
 
     $ lspci -v
     $
