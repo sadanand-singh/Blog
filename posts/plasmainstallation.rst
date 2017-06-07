@@ -1,7 +1,7 @@
 .. title: Plasma 5 Installation on Arch Linux
 .. slug: plasmaInstall
 .. date: 2015-06-21 11:20:11 UTC-07:00
-.. tags: Linux
+.. tags: Linux, Arch Linux, Plasma 5, KDE
 .. category: Computers
 .. link:
 .. disqus_identifier: plasmaInstall.sadanand

@@ -1,7 +1,7 @@
 .. title: Arch Installation Guide
 .. slug: archInstall
 .. date: 2015-06-21 11:00:00 UTC-07:00
-.. tags: Linux
+.. tags: Linux, Arch Linux, Plasma 5, KDE
 .. category: Computers
 .. link:
 .. disqus_identifier: archInstall.sadanand
