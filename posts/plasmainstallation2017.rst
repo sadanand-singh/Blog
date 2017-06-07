@@ -70,7 +70,7 @@ To verify you have booted in UEFU mode, run:
 
 .. code:: bash
 
-    efivar -l
+    $ efivar -l
 
 
 This should give you a list of set UEFI variables. Please look at the
@@ -83,9 +83,9 @@ all the fonts are. We will fix that by running the following commands:
 
 .. code:: bash
 
-    pacman -Sy
-    pacman -S terminus-font
-    setfont ter-132n
+    $ pacman -Sy
+    $ pacman -S terminus-font
+    $ setfont ter-132n
 
 We are all set to get started with the actual installation process.
 
@@ -96,7 +96,7 @@ First find the hard drive that you will be using as the main/root disk.
 
 .. code:: bash
 
-    cat /proc/partitions
+    $ cat /proc/partitions
 
     # OUTPUT eg.
     # major minor  #blocks  name
@@ -119,7 +119,7 @@ best method, but is a lot slower. **The following step should take about 20 minu
 
 .. code:: bash
 
-    badblocks -c 10240 -s -w -t random -v /dev/sda
+    $ badblocks -c 10240 -s -w -t random -v /dev/sda
 
 Next, we will create GPT partitions on all disks.
 
@@ -171,7 +171,7 @@ It might now kick us out of gdisk, so get back into it:
 
 Repeat the above procedure for */dev/sdb* and */dev/sdc*, but create just one partition
 with all values as default. At the end we will have three partitions:
-*/dev/sda1, /dev/sda2, /dev/sdb1* and */dev/sdc1*
+*/dev/sda1*, */dev/sda2*, */dev/sdb1* and */dev/sdc1*.
 
 
 Setup Disk Encryption
@@ -186,7 +186,7 @@ In order to enable disk encryption, we will first create a root luks volume, ope
 .. code:: bash
 
     # first, we need to prepare the encrypted (outer) volume
-    cryptsetup --cipher aes-xts-plain64 --hash sha512 --use-random --verify-passphrase luksFormat /dev/sda2
+    $ cryptsetup --cipher aes-xts-plain64 --hash sha512 --use-random --verify-passphrase luksFormat /dev/sda2
 
     # I really hope I don't have to lecture you on NOT LOSING this
     # password, lest all of your data will be forever inaccessible,
@@ -194,7 +194,7 @@ In order to enable disk encryption, we will first create a root luks volume, ope
 
     # then, we actually open it as a block device, and format the
     # inner volume later
-    cryptsetup luksOpen /dev/sda2 root
+    $ cryptsetup luksOpen /dev/sda2 root
 
 
 {{% alert success %}} Automatic Key Login from an USB/SD Card {{% /alert %}}
@@ -203,13 +203,13 @@ If you want to automatically login the encrypted disk password from an externall
 
 .. code:: bash
 
-    dd bs=512 count=4 if=/dev/urandom of=KEYFILE
+    $ dd bs=512 count=4 if=/dev/urandom of=KEYFILE
 
 Then, add this key to the luks container, so that it can be later used to open the encrypted drive.
 
 .. code:: bash
 
-    cryptsetup luksAddKey /dev/sda2 KEYFILE
+    $ cryptsetup luksAddKey /dev/sda2 KEYFILE
 
 
 {{% hl-text warning %}} Note that the KEYFILE here should be kept on a separate USB drive or SD card. {{%  /hl-text %}}
@@ -220,20 +220,20 @@ The recommended way of using such a disk would be as follows:
     # assuming our USB of interest is /dev/sdd  and can be format
     #
     # Format the drive
-    dd if=/dev/zero of=/dev/sdd bs=1M
+    $ dd if=/dev/zero of=/dev/sdd bs=1M
     # Create partitions using gdisk
     #
-    gdisk /dev/sdd
+    $ gdisk /dev/sdd
     #
     # Follow along to create one partition (/dev/sdd1) of type 0700
     #
     # format /dev/sdd1
-    mkfs.fat /dev/sdd1
+    $ mkfs.fat /dev/sdd1
 
     # mount the newly format disk on /mnt and then copy the KEYFILE
-    mount /dev/sdd1 /mnt
-    mv KEYFILE /mnt/KEYFILE
-    umount /mnt
+    $ mount /dev/sdd1 /mnt
+    $ mv KEYFILE /mnt/KEYFILE
+    $ umount /mnt
 
 We will be later using this KEYFILE in boot loader setup.
 
@@ -277,7 +277,7 @@ appropriate locations with optimal flags.
 
 .. code:: bash
 
-    $SSD_MOUNTS="rw,noatime,nodev,compress=lzo,ssd,discard,
+    $ SSD_MOUNTS="rw,noatime,nodev,compress=lzo,ssd,discard,
         space_cache,autodefrag,inode_cache"
     $ HDD_MOUNTS="rw,nosuid,nodev,relatime,space_cache"
     $ EFI_MOUNTS="rw,noatime,discard,nodev,nosuid,noexec"
@@ -296,7 +296,7 @@ appropriate locations with optimal flags.
 
 .. code:: bash
 
-    cp /etc/resolv.conf /mnt/etc/resolv.conf
+    $ cp /etc/resolv.conf /mnt/etc/resolv.conf
 
 
 Base System Installation
@@ -363,7 +363,7 @@ We also need to fix the mkinitcpio.conf to contain what we actually need.
 
 .. code:: bash
 
-    vi /etc/mkinitcpio.conf
+    $ vi /etc/mkinitcpio.conf
     # on the MODULES section, add "vfat aes_x86_64 crc32c-intel"
     # (and whatever else you know your hardware needs. Mine needs i915 too)
     # on the BINARIES section, add "/usr/bin/btrfsck", since it's useful
@@ -402,10 +402,10 @@ some of our hard drives. These can ne easily done using the blkid command.
 
 .. code:: bash
 
-    blkid /dev/sda1 > /boot/loader/entries/arch.conf
-    blkid /dev/sda2 >> /boot/loader/entries/arch.conf
-    blkid /dev/mapper/root >> /boot/loader/entries/arch.conf
-    blkid /dev/sdd1 >> /boot/loader/entries/arch.conf
+    $ blkid /dev/sda1 > /boot/loader/entries/arch.conf
+    $ blkid /dev/sda2 >> /boot/loader/entries/arch.conf
+    $ blkid /dev/mapper/root >> /boot/loader/entries/arch.conf
+    $ blkid /dev/sdd1 >> /boot/loader/entries/arch.conf
 
     # for this example, I'm going to mark them like this:
     # /dev/sda1 LABEL="EFI"                 UUID=11111111-1111-1111-1111-111111111111
@@ -444,7 +444,7 @@ connected.
 
 .. code:: bash
 
-    networkctl
+    $ networkctl
     #
     # IDX LINK             TYPE               OPERATIONAL SETUP
     #   1 lo               loopback           carrier     unmanaged
@@ -524,14 +524,14 @@ We can easily set it up it as follows:
 
 .. code:: bash
 
-    pacman -S avahi nss-mdns
-    systemctl enable avahi-daemon.service
+    $ pacman -S avahi nss-mdns
+    $ systemctl enable avahi-daemon.service
 
 We will also install terminus-font on our system to work with proper fonts on first boot.
 
 .. code:: bash
 
-    pacman -S terminus-font
+    $ pacman -S terminus-font
 
 
 First Boot Installations
@@ -578,7 +578,8 @@ whenever you see *ssingh* please replace it with your $USERNAME.
 
 .. code:: bash
 
-    $ useradd -m -G wheel -s /bin/bash $USERNAME
+    $ pacman -S zsh
+    $ useradd -m -G wheel -s usr/bin/zsh $USERNAME
     $ chfn --full-name "$FULL_NAME" $USERNAME
     $ passwd $USERNAME
 
@@ -636,8 +637,8 @@ create one.
 
 .. code:: bash
 
-    nvidia-xconfig
-    mv /etc/X11/xorg.cong /etc/X11/xorg.conf.d/20-nvidia.conf
+    $ nvidia-xconfig
+    $ mv /etc/X11/xorg.cong /etc/X11/xorg.conf.d/20-nvidia.conf
     #
     # Edit this file as follows:
     vim /etc/X11/xorg.conf.d/20-nvidia.conf
@@ -701,12 +702,12 @@ we will also install some useful fonts.
 
 .. code:: bash
 
-    pacman -S ttf-hack ttf-anonymous-pro
-    pacman -S ttf-dejavu ttf-freefont ttf-liberation
-    pacman -S plasma-meta dolphin kdialog kfind
-    pacman -S konsole gwenview okular spectacle kio-extras
-    pacman -S kompare dolphin-plugins kwallet kwalletmanager
-    pacman -S ark yakuake flite
+    $ pacman -S ttf-hack ttf-anonymous-pro
+    $ pacman -S ttf-dejavu ttf-freefont ttf-liberation
+    $ pacman -S plasma-meta dolphin kdialog kfind
+    $ pacman -S konsole gwenview okular spectacle kio-extras
+    $ pacman -S kompare dolphin-plugins kwallet kwalletmanager
+    $ pacman -S ark yakuake flite
 
 We will also need to select proper themes for the Plasma 5 display manager sddm and then enable its systemd service.
 
@@ -745,6 +746,11 @@ even *VPN* connections.
     $ systemctl enable NetworkManager.service
     $ systemctl start NetworkManager.service
 
+We can also automate the *hostname* setup using the following *systemd* command:
+
+.. code:: bash
+
+    $ hostnamectl set-hostname $HOSTNAME
 
 Selecting pacman Mirrors
 -------------------------
@@ -791,29 +797,29 @@ In order to install pacuar, first install dependencies.
 
 .. code:: bash
 
-    sudo pacman -S expac yajl curl gnupg --noconfirm
+    $ sudo pacman -S expac yajl curl gnupg --noconfirm
 
 Create a temp directory for building packages:
 
 .. code:: bash
 
-    mkdir ~/temp
-    cp ~ temp
+    $ mkdir ~/temp
+    $ cp ~ temp
 
 Install *cower* first and then *pacaur*:
 
 .. code:: bash
 
-    gpg --recv-keys --keyserver hkp://pgp.mit.edu 1EB2638FF56C0C53
-    curl -o PKGBUILD https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=cower
-    makepkg -i PKGBUILD --noconfirm
+    $ gpg --recv-keys --keyserver hkp://pgp.mit.edu 1EB2638FF56C0C53
+    $ curl -o PKGBUILD https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=cower
+    $ makepkg -i PKGBUILD --noconfirm
 
-    curl -o PKGBUILD https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=pacaur
-    makepkg -i PKGBUILD --noconfirm
+    $ curl -o PKGBUILD https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=pacaur
+    $ makepkg -i PKGBUILD --noconfirm
 
     # Finally cleanup and remove the temp directory
-    cd ~
-    rm -r ~/temp
+    $ cd ~
+    $ rm -r ~/temp
 
 
 Audio Setup
@@ -823,15 +829,15 @@ This is pretty simple. Install following packages and you should be done:
 
 .. code:: bash
 
-    sudo pacaur -S alsa-utils pulseaudio pulseaudio-alsa mpv
-    sudo pacaur -S libcanberra-pulse libcanberra-gstreamer
-    sudo pacaur -S vlc-qt5
+    $ sudo pacaur -S alsa-utils pulseaudio pulseaudio-alsa mpv
+    $ sudo pacaur -S libcanberra-pulse libcanberra-gstreamer
+    $ sudo pacaur -S vlc-qt5
 
 Now start the pulseaudio service.
 
 .. code:: bash
 
-    systemctl --user enable pulseaudio.socket
+    $ systemctl --user enable pulseaudio.socket
 
 
 Web Browsers
@@ -841,9 +847,13 @@ My preferred choice of browsers is *google chrome*. However, it is also good to 
 
 .. code:: bash
 
-    sudo pacaur -S google-chrome qupzilla
+    $ sudo pacaur -S google-chrome qupzilla
 
-*Profile-sync-daemon* (psd) is a tiny pseudo-daemon designed to manage browser profile(s) in *tmpfs* and to periodically sync back to the physical disc (HDD/SSD). This is accomplished by an innovative use of *rsync* to maintain synchronization between a *tmpfs* copy and media-bound backup of the browser profile(s). These features of *psd* leads to following benefits:
+*Profile-sync-daemon (psd)* is a tiny pseudo-daemon designed to manage browser
+profile(s) in *tmpfs* and to periodically sync back to the physical disc
+(HDD/SSD). This is accomplished by an innovative use of *rsync* to maintain
+synchronization between a *tmpfs* copy and media-bound backup of the browser
+profile(s). These features of *psd* leads to following benefits:
 
 -   Transparent user experience
 -   Reduced wear to physical drives, and
@@ -860,15 +870,17 @@ Run *psd* the first time which will create a config file at
 
 .. code:: bash
 
-    psd
+    $ psd
     # First time running psd so please edit
     # /home/$USERNAME/.config/psd/psd.conf to your liking and run again.
 
 
-In the config file chnage the BROWSERS variables to "google-chrome qupzilla". Also, enable the use of overlayfs to improve sync speed and to use a smaller memory footprint. Do this in the USE_OVERLAYFS="yes" variable.
+In the config file change the BROWSERS variables to "*google-chrome qupzilla*".
+Also, enable the use of *overlayfs* to improve sync speed and to use a smaller
+memory footprint. Do this in the USE_OVERLAYFS="yes" variable.
 
 
-{{% hl-text purple %}}
+{{% hl-text warning %}}
 Note: USE_OVERLAYFS feature requires a Linux kernel version of 3.18.0 or greater to work.
 {{% /hl-text %}}
 
@@ -887,6 +899,7 @@ Verify the working of configuration using the preview mode of psd:
 
     psd p
 
+*Google Chrome* by default uses *kdewallet* to manage passwords, where as *Qupzilla* does not. You can change that in its settings.
 
 git Setup
 -----------
@@ -927,38 +940,306 @@ Install git and setup some global options as below:
 ssh Setup
 -----------
 
+To get started first install the *openssh* package.
+
+.. code:: bash
+
+    sudo pacaur -S openssh
+
+
+The ssh server can be started using the *systemd* service. Before starting the service, however, we want to generate ssh keys and setup the server for login based only on keys.
+
+.. code:: bash
+
+    $ ssh-keygen -t ed25519
+    $
+    # Create a .ssh/config file for rmate usage in sublime text
+    $ vim ~/.ssh/config
+    ...
+    RemoteForward 52698 localhost:52698
+    ...
+    $
+    # Create ~/.ssh/authorized_keys file with list of machines that
+    # are allowed to login to this machine.
+    $ touch ~/.ssh/authorized_keys
+    $
+    # Finally edit the /etc/ssh/sshd_config
+    # file to disable Password based logins
+    $ sudo vim /etc/ssh/sshd_config
+    ...
+    PasswordAuthentication no
+    ...
+
+Furthermore, before enabling the *sshd* service, please also ensure to copy your keys to all your relevant other servers and places like github.
+
+We can now use *systemd* to start the ssh service.
+
+.. code:: bash
+
+    $ systemctl enable sshd.socket
+    $ systemctl start sshd.socket
 
 
 zsh Setup
 ----------
 
+During the user creation, we already installed the *zsh* shell.  We have
+also activated a basic setup at first login by the user.
 
+In this section, we will be installing my variation of zprezto_ package
+to manage *zsh* configurations.
+
+.. _zprezto: https://github.com/sorin-ionescu/prezto
+
+First install the main zprezto package:
+
+.. code:: bash
+
+    $ git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+    $
+    $ setopt EXTENDED_GLOB
+    $ for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N);
+    do
+        ln -sf "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+    done
+    $
+
+Now, We will add my version of prezto to the same git repo.
+
+.. code:: bash
+
+    $ cd ~/.zprezto
+    $ git remote add personal git@github.com:sadanand-singh/My-Zprezto.git
+    $ git pull personal arch
+    $ git checkout arch
+    $ git merge master
+
+And we are all setup for using *zsh*!
 
 gpg Setup
 -----------
 
+We have already installed the *gnupg* package during the *pacaur* installation. We will first either import our already existing private keys(s) or create one.
 
+Once We have our keys setup, edit keys to change trust level.
 
+Once all keys are setup, we need to gpg-agent configuration file:
+
+.. code:: bash
+
+    $ vim ~/.gnupg/gpg-agent.conf
+    ..
+    enable-ssh-support
+    default-cache-ttl-ssh 10800
+    default-cache-ttl 10800
+    max-cache-ttl-ssh 10800
+    ...
+    $
+
+Also, add following to your *.zshrc* or *.bashrc* file. If you are using my zprezto setup, you already have this!
+
+.. code:: bash
+
+    $ vim ~/.zshrc
+    ...
+    # set GPG TTY
+    export GPG_TTY=$(tty)
+
+    # Refresh gpg-agent tty in case user switches into an X Session
+    gpg-connect-agent updatestartuptty /bye >/dev/null
+
+    # Set SSH to use gpg-agent
+    unset SSH_AGENT_PID
+    if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
+      export SSH_AUTH_SOCK="/run/user/$UID/gnupg/S.gpg-agent.ssh"
+    fi
+    ...
+    $
+
+Now, simply start the following systemd sockets as user:
+
+.. code:: bash
+
+    $ systemctl --user enable gpg-agent.socket
+    $ systemctl --user enable gpg-agent-ssh.socket
+    $ systemctl --user enable dirmngr.socket
+    $ systemctl --user enable gpg-agent-browser.socket
+    $
+    $ systemctl --user start gpg-agent.socket
+    $ systemctl --user start gpg-agent-ssh.socket
+    $ systemctl --user start dirmngr.socket
+    $ systemctl --user start gpg-agent-browser.socket
+
+Finally add your ssh key to ssh agent.
+
+.. code:: bash
+
+    $ ssh-add ~/.ssh/id_ed25519
 
 
 User Wallpapers
 ------------------
 
+You can store your own wallpapers at the following location. A good place to get some good wallpapers are `KaOS Wallpapers`_.
+
+.. _KaOS Wallpapers: https://github.com/KaOSx/kaos-wallpapers
+
+.. code:: bash
+
+    $ mkdir -p $ $HOME/.local/wallpapers
+    $ cp SOME_JPEG $HOME/.local/wallpapers/
 
 
 conky Setup
 ------------
 
+First installed the *conky* package with lua and nvidia support:
+
+.. code:: bash
+
+    $ paci conky-lua-nv
+
+Then, copy your conky configuration at `$HOME/.config/conky/conky.conf`.
+
+.. code:: bash
+
+    $ mkdir -p $HOME/.config/conky
+    # Generate sample conky config file
+    $ conky -C > $HOME/.config/conky/conky.conf
+    $
+    # start conky in background
+    $ conky &
+
+Here, I have also put my simple configuration file:
+
+.. code:: lua
+
+    conky.config = {
+            own_window = true,
+            background = true,
+            own_window_transparent = true,
+            own_window_type = 'normal',
+            own_window_class = 'Conky',
+            own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+            own_window_argb_visual = true,
+            own_window_argb_value = 0,
+            out_to_console = false,
+            use_xft = true,
+            font = 'hack:size=10',
+            update_interval = 8,
+            cpu_avg_samples = 2,
+            net_avg_samples = 2,
+            double_buffer = true,
+            maximum_width = 860,
+            draw_shades = false,
+            draw_outline = false,
+            draw_borders = false,
+            stippled_borders = 1,
+            border_width = 20,
+            default_color = 'white',
+            default_shade_color = 'black',
+            default_outline_color = 'black',
+            alignment = 'top_left',
+            gap_x = 5,
+            gap_y = 120,
+            use_spacer = 'left',
+            no_buffers = true,
+            uppercase = false,
+            double_buffer = true,
+
+    };
+
+    conky.text = [[
 
 
+    ${color}${alignc}${time %A %B %d %Y | %H:%M:%S}
 
-Python Setup
--------------
+    ${alignc}$color Linux $kernel on $machine
 
+    ${color}${alignc}${color yellow}Uptime: ${color}$uptime | ${color yellow}Load: $color$loadavg${color yellow}
+
+    ${color #656565}$stippled_hr$color
+    ${alignc}${color yellow}${execi 1000 cat /proc/cpuinfo | grep 'model name' | sed -e 's/model name.*: //'| uniq}
+
+    ${alignc}${color yellow}Total CPU Usage: ${color}${cpu cpu0}%
+    ${alignc}${color cyan}${cpubar cpu0 6,150}$color
+
+    ${color yellow}Core: ${color}1 ${color cyan}${cpubar cpu1 6,270}$color ${color white}${exec sensors | grep 'Core 0' | cut -c17-23}$color $alignc
+    ${color yellow}Core: ${color}2 ${color cyan}${cpubar cpu2 6,270}$color ${color white}${exec sensors | grep 'Core 1' | cut -c17-23}$color $alignc
+    ${color yellow}Core: ${color}3 ${color cyan}${cpubar cpu3 6,270}$color ${color white}${exec sensors | grep 'Core 2' | cut -c17-23}$color $alignc
+    ${color yellow}Core: ${color}4 ${color cyan}${cpubar cpu4 6,270}$color ${color white}${exec sensors | grep 'Core 3' | cut -c17-23}$color $alignc
+
+    ${color #656565}$stippled_hr$color
+    ${alignc}${color yellow}${execi 1000000 nvidia-smi --query-gpu="name,driver_version" --format="csv,noheader"}
+
+    ${color yellow}Total GPU Usage: $alignr ${color}${color white}${exec nvidia-smi --query-gpu="utilization.gpu" --format="csv,noheader"}$color
+    ${color yellow}Total GPU Memory Utilization: ${alignr} ${color}${color white}${exec nvidia-smi --query-gpu="utilization.memory" --format="csv,noheader"}$color
+    ${color yellow}Total GPU Memory: ${color}${alignr}Total: ${color white}${execi 1000000 nvidia-smi --query-gpu="memory.total" --format="csv,noheader"} ${color yellow}Free: ${color}${color white}${exec nvidia-smi --query-gpu="memory.free" --format="csv,noheader"}$color
+    ${color yellow}GPU Temperature: $alignr ${color}${color white}${nvidia temp}°C$color
+    ${color yellow}GPU Fan Speed: $alignr ${color}${color white}${exec nvidia-smi --query-gpu="fan.speed" --format="csv,noheader"}$color
+
+
+    ${color #656565}$stippled_hr$color
+    ${alignc}${color yellow}Disks
+
+    ${color yellow}Disk IO: $color ${diskio /dev/sda} ${alignr}${color yellow}Filesystem: ${color}${fs_type}
+
+    ${color yellow}RAM  ${alignc}                ${color}$mem / $memmax ${alignr}${memperc}% Used
+    ${color cyan}${membar 6,318}
+    ${color yellow}/ ${alignc}               ${color}${fs_used} / ${fs_size} ${alignr}${fs_used_perc /}% Used
+    ${color cyan}${fs_bar 6,318 /}
+    ${color yellow}/media ${alignc}               ${color}${fs_used /media} / ${fs_size /media} ${alignr}${fs_used_perc /media}% Used
+    ${color cyan}${fs_bar 6,318 /media}
+    ${color yellow}/data ${alignc}               ${color}${fs_used /data} / ${fs_size /data} ${alignr}${fs_used_perc /data}% Used
+    ${color cyan}${fs_bar 6,318 /data}
+
+    ${color #656565}$stippled_hr$color
+    ${alignc}${color yellow}Processes
+
+    ${color yellow}  PID            Process${alignr}Memory        CPU
+    ${color}${top_mem pid 1}      ${top_mem name 1}${alignr}${top_mem mem_res 1}     ${top_mem cpu 1}%
+    ${color}${top_mem pid 2}      ${top_mem name 2}${alignr}${top_mem mem_res 2}     ${top_mem cpu 2}%
+    ${color}${top_mem pid 3}      ${top_mem name 3}${alignr}${top_mem mem_res 3}     ${top_mem cpu 3}%
+    ${color}${top_mem pid 4}      ${top_mem name 4}${alignr}${top_mem mem_res 4}     ${top_mem cpu 4}%
+    ${color}${top_mem pid 5}      ${top_mem name 5}${alignr}${top_mem mem_res 5}     ${top_mem cpu 5}%
+    ${color}${top_mem pid 6}      ${top_mem name 6}${alignr}${top_mem mem_res 6}     ${top_mem cpu 6}%
+
+    ${color #656565}$stippled_hr$color
+    ]]
 
 
 Software Installations
 ------------------------
 
+Here is a running list of other common softwares that I install.
+
+.. code:: bash
+
+    $ paci spotify tmux tree dropbox thesilver_searcher
+    $ paci digikam imagemagick
+
+I also add the following repository to install the `Sublime Text`_
+editor. Refer to :doc:`my previous post <sublimetext>` for details on
+setting up Sublime Text.
+
+.. _Sublime Text: https://www.sublimetext.com/
+
+.. code:: bash
+
+    $ curl -O https://download.sublimetext.com/sublimehq-pub.gpg
+    $ sudo pacman-key --add sublimehq-pub.gpg
+    $ sudo pacman-key --lsign-key 8A8F901A
+    $ rm sublimehq-pub.gpg
+    $
+    $ echo -e "\n[sublime-text]\nServer = https://download.sublimetext.com/arch/dev/x86_64" | sudo tee -a /etc/pacman.conf
+
+Now we can install *sublime-text* as:
+
+.. code:: bash
+
+    $ paci sublime-text/sublime-text
 
 
+This brings us to the conclusion of this installation guide. Hope many
+of you find it useful. Please drop your comments below if you have any
+suggestions for improvements etc.
