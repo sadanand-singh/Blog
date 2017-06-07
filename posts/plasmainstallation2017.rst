@@ -1,4 +1,4 @@
-.. title: My Complete Arch Linux Setup with Plasma 5
+.. title: My Arch Linux Setup with Plasma 5
 .. slug: CompleteSetupArchPlasma
 .. date: 2017-06-05 15:00:00 UTC-07:00
 .. tags: Linux, Arch Linux, Plasma 5, KDE
