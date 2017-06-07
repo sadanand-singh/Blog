@@ -157,28 +157,28 @@ algorithm is in <em>O(n `3`:sup: )</em>. Please put your answers in comments bel
 your answer has a better scaling.</p>
 <p>The function definition that I use for finding non-empty non-repeating
 strings is recursive.</p>
-<pre class="code py"><a name="rest_code_919e27c402df4ac682a3b17f122ecde5-1"></a><span class="k">def</span> <span class="nf">findNsubString</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
-<a name="rest_code_919e27c402df4ac682a3b17f122ecde5-2"></a>    <span class="n">subS</span> <span class="o">=</span> <span class="p">[]</span>
-<a name="rest_code_919e27c402df4ac682a3b17f122ecde5-3"></a>    <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="p">:</span>
-<a name="rest_code_919e27c402df4ac682a3b17f122ecde5-4"></a>        <span class="n">x</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="n">index</span><span class="p">:</span><span class="n">index</span><span class="o">+</span><span class="n">n</span><span class="p">]</span>
-<a name="rest_code_919e27c402df4ac682a3b17f122ecde5-5"></a>        <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">==</span><span class="n">s</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">:</span>
-<a name="rest_code_919e27c402df4ac682a3b17f122ecde5-6"></a>            <span class="n">subS</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<a name="rest_code_919e27c402df4ac682a3b17f122ecde5-7"></a>    <span class="k">if</span> <span class="n">subS</span> <span class="p">:</span>
-<a name="rest_code_919e27c402df4ac682a3b17f122ecde5-8"></a>        <span class="k">return</span> <span class="n">subS</span>
-<a name="rest_code_919e27c402df4ac682a3b17f122ecde5-9"></a>    <span class="k">else</span> <span class="p">:</span>
-<a name="rest_code_919e27c402df4ac682a3b17f122ecde5-10"></a>        <span class="k">return</span> <span class="n">findNsubString</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<pre class="code py"><a name="rest_code_cd578f14785548a1a1653a2d9ad5e159-1"></a><span class="k">def</span> <span class="nf">findNsubString</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+<a name="rest_code_cd578f14785548a1a1653a2d9ad5e159-2"></a>    <span class="n">subS</span> <span class="o">=</span> <span class="p">[]</span>
+<a name="rest_code_cd578f14785548a1a1653a2d9ad5e159-3"></a>    <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="p">:</span>
+<a name="rest_code_cd578f14785548a1a1653a2d9ad5e159-4"></a>        <span class="n">x</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="n">index</span><span class="p">:</span><span class="n">index</span><span class="o">+</span><span class="n">n</span><span class="p">]</span>
+<a name="rest_code_cd578f14785548a1a1653a2d9ad5e159-5"></a>        <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">==</span><span class="n">s</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">:</span>
+<a name="rest_code_cd578f14785548a1a1653a2d9ad5e159-6"></a>            <span class="n">subS</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a name="rest_code_cd578f14785548a1a1653a2d9ad5e159-7"></a>    <span class="k">if</span> <span class="n">subS</span> <span class="p">:</span>
+<a name="rest_code_cd578f14785548a1a1653a2d9ad5e159-8"></a>        <span class="k">return</span> <span class="n">subS</span>
+<a name="rest_code_cd578f14785548a1a1653a2d9ad5e159-9"></a>    <span class="k">else</span> <span class="p">:</span>
+<a name="rest_code_cd578f14785548a1a1653a2d9ad5e159-10"></a>        <span class="k">return</span> <span class="n">findNsubString</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
 </pre>
 <p>I call this method as follows to get the desired results:</p>
-<pre class="code py"><a name="rest_code_9596bb4f28ac442ea0e0267af132f25e-1"></a><span class="ch">#! /usr/bin/python</span>
-<a name="rest_code_9596bb4f28ac442ea0e0267af132f25e-2"></a><span class="kn">import</span> <span class="nn">argparse</span>
-<a name="rest_code_9596bb4f28ac442ea0e0267af132f25e-3"></a><span class="c1"># Parse Command Line Arguments</span>
-<a name="rest_code_9596bb4f28ac442ea0e0267af132f25e-4"></a><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
-<a name="rest_code_9596bb4f28ac442ea0e0267af132f25e-5"></a><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"-s"</span><span class="p">,</span> <span class="s2">"--string"</span><span class="p">,</span> <span class="n">default</span> <span class="o">=</span> <span class="s2">"asdfdfa"</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">"String Input"</span><span class="p">)</span>
-<a name="rest_code_9596bb4f28ac442ea0e0267af132f25e-6"></a><span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
-<a name="rest_code_9596bb4f28ac442ea0e0267af132f25e-7"></a><span class="n">s</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">string</span>
-<a name="rest_code_9596bb4f28ac442ea0e0267af132f25e-8"></a><span class="c1"># Call Method to find smallest non-repeating sub-string</span>
-<a name="rest_code_9596bb4f28ac442ea0e0267af132f25e-9"></a><span class="n">ans</span> <span class="o">=</span> <span class="n">findNsubString</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<a name="rest_code_9596bb4f28ac442ea0e0267af132f25e-10"></a><span class="k">print</span> <span class="n">ans</span>
+<pre class="code py"><a name="rest_code_e791037cb0b949bfb275d888d9ee7ea1-1"></a><span class="ch">#! /usr/bin/python</span>
+<a name="rest_code_e791037cb0b949bfb275d888d9ee7ea1-2"></a><span class="kn">import</span> <span class="nn">argparse</span>
+<a name="rest_code_e791037cb0b949bfb275d888d9ee7ea1-3"></a><span class="c1"># Parse Command Line Arguments</span>
+<a name="rest_code_e791037cb0b949bfb275d888d9ee7ea1-4"></a><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<a name="rest_code_e791037cb0b949bfb275d888d9ee7ea1-5"></a><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"-s"</span><span class="p">,</span> <span class="s2">"--string"</span><span class="p">,</span> <span class="n">default</span> <span class="o">=</span> <span class="s2">"asdfdfa"</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">"String Input"</span><span class="p">)</span>
+<a name="rest_code_e791037cb0b949bfb275d888d9ee7ea1-6"></a><span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+<a name="rest_code_e791037cb0b949bfb275d888d9ee7ea1-7"></a><span class="n">s</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">string</span>
+<a name="rest_code_e791037cb0b949bfb275d888d9ee7ea1-8"></a><span class="c1"># Call Method to find smallest non-repeating sub-string</span>
+<a name="rest_code_e791037cb0b949bfb275d888d9ee7ea1-9"></a><span class="n">ans</span> <span class="o">=</span> <span class="n">findNsubString</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<a name="rest_code_e791037cb0b949bfb275d888d9ee7ea1-10"></a><span class="k">print</span> <span class="n">ans</span>
 </pre>
 <p>A similar solution can also be written in JAVA or C++. The corresponding
 <em>find()</em> and <em>rfind()</em> methods in JAVA are called <em>indexOf()</em> and

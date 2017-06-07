@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Arch Linux Setup with Plasma 5 | Sadanand's Notes</title>
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="canonical" href="https://sadanand-singh.github.io/posts/CompleteSetupArchPlasma/">
+<link rel="icon" href="../../favicon.ico" sizes="16x16">
+<link rel="icon" href="../../favicon-32x32.png" sizes="32x32">
+<link rel="icon" href="../../favicon-96x96.png" sizes="96x96">
+<link rel="icon" href="../../apple-icon.png" sizes="192x192">
+<link rel="icon" href="../../apple-icon-precomposed.png" sizes="192x192">
+<link rel="icon" href="../../apple-icon-57x57.png" sizes="57x57">
+<link rel="icon" href="../../apple-icon-60x60.png" sizes="60x60">
+<link rel="icon" href="../../apple-icon-72x72.png" sizes="72x72">
+<link rel="icon" href="../../apple-icon-76x76.png" sizes="76x76">
+<link rel="icon" href="../../apple-icon-114x114.png" sizes="114x114">
+<link rel="icon" href="../../apple-icon-120x120.png" sizes="120x120">
+<link rel="icon" href="../../apple-icon-144x144.png" sizes="144x144">
+<link rel="icon" href="../../apple-icon-152x152.png" sizes="152x152">
+<link rel="icon" href="../../apple-icon-180x180.png" sizes="180x180">
+<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><link rel="stylesheet" type="text/css" href="../../assets/css/tipuesearch.css">
+<meta property="fb:app_id" content="993596464012237">
+<style>
+    .highlight-short-red { background-color:#FF0000; }
+    .highlight-short-yellow { background-color:#FFFF00; }
+    .highlight-short-error { background-color:#CD5C5C; }
+    .highlight-short-warning { background-color:#FFEBCD; }
+    .highlight-short-green { background-color:#90EE90; }
+    .highlight-short-cyan { background-color:#00FFFF; }
+    .highlight-short-blue { background-color:#00BFFF; }
+    .highlight-short-purple { background-color:#9370DB; }
+    </style>
+<meta name="author" content="Sadanand Singh">
+<link rel="prev" href="../sublimetext/" title="Sublime Text Setup" type="text/html">
+<meta property="og:site_name" content="Sadanand's Notes">
+<meta property="og:title" content="My Arch Linux Setup with Plasma 5">
+<meta property="og:url" content="https://sadanand-singh.github.io/posts/CompleteSetupArchPlasma/">
+<meta property="og:description" content="Arch Linux is a general purpose GNU/Linux distribution that provides most up-to-
+date softwares by following the rolling-release model. Arch Linux allows you to use updated cutting-edge
+softwares and ">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2017-06-05T15:00:00-07:00">
+<meta property="article:tag" content="Arch Linux">
+<meta property="article:tag" content="KDE">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Plasma 5">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@sadanandsingh">
+<meta name="twitter:creator" content="@sadanandsingh">
+</head>
+<body>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script><a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-default navbar-static-top"><div class="container">
+<!-- This keeps the margins nice -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://sadanand-singh.github.io/">
+
+                <span id="blog-title">Sadanand's Notes</span>
+            </a>
+        </div>
+<!-- /.navbar-header -->
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+<li>
+<a href="../">Blog</a>
+                </li>
+<li>
+<a href="../../projects/">Projects</a>
+                </li>
+<li>
+<a href="../../categories/">Tags</a>
+                </li>
+<li>
+<a href="../../archive.html">Archive</a>
+
+                
+            </li>
+</ul>
+<span class="navbar-form navbar-right">
+    <input type="text" id="tipue_search_input" class="form-control mr-sm-2" placeholder="Search"></span>
+
+            <ul class="nav navbar-nav navbar-right"></ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        <div class="row">
+            
+            
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">My Arch Linux Setup with Plasma 5</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn">
+                    <a href="../../authors/sadanand-singh/">Sadanand Singh</a>
+            </span></p>
+            <p class="dateline"><a href="." rel="bookmark"><time class="published dt-published" datetime="2017-06-05T15:00:00-07:00" itemprop="datePublished" title="2017-06-05 15:00">2017-06-05 15:00</time></a></p>
+                    <p class="commentline">
+        
+    <a href="#disqus_thread" data-disqus-identifier="CompleteSetupArchPlasma.sadanand">Comments</a>
+
+
+             
+            </p>
+<div class="fb-like" data-send="true" data-layout="standard" data-action="like" data-size="small" data-show-faces="false" data-share="false"></div>
+            
+
+        </div>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p><a class="reference external" href="https://www.archlinux.org">Arch Linux</a> is a general purpose GNU/Linux distribution that provides most up-to-
+date softwares by following the rolling-release model. Arch Linux allows you to use updated cutting-edge
+softwares and packages as soon as the developers released them.
+<a class="reference external" href="https://en.wikipedia.org/wiki/KDE_Plasma_5">KDE Plasma 5</a> is the current generation of the desktop environment created by
+KDE primarily for Linux systems.</p>
+<p>In this post, we will do a complete installation of Arch Linux with Plasma 5
+as the desktop environment. Our setup will also involve encryption of the
+root partition that will be formatted in <a class="reference external" href="https://en.wikipedia.org/wiki/Btrfs">btrfs</a>. This post is an updated
+and a more complete version of my previous posts on
+<a class="reference external" href="../archInstall/">Arch Linux</a> and
+<a class="reference external" href="../plasmaInstall/">Plasma 5 Installation</a>.</p>
+<!-- more -->
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title first">Table of Contents</p>
+<ul class="simple">
+<li>
+<a class="reference internal" href="#base-installation" id="id1">Base Installation</a><ul>
+<li><a class="reference internal" href="#hdds-partitioning" id="id2">HDDs Partitioning</a></li>
+<li><a class="reference internal" href="#setup-disk-encryption" id="id3">Setup Disk Encryption</a></li>
+<li><a class="reference internal" href="#format-hdds" id="id4">Format HDDs</a></li>
+<li><a class="reference internal" href="#base-system-installation" id="id5">Base System Installation</a></li>
+<li><a class="reference internal" href="#initial-system-setup" id="id6">Initial System Setup</a></li>
+<li><a class="reference internal" href="#boot-manager-setup" id="id7">Boot Manager Setup</a></li>
+<li><a class="reference internal" href="#network-setup" id="id8">Network Setup</a></li>
+</ul>
+</li>
+<li>
+<a class="reference internal" href="#first-boot-installations" id="id9">First Boot Installations</a><ul>
+<li><a class="reference internal" href="#adding-new-user" id="id10">Adding New User</a></li>
+<li><a class="reference internal" href="#gui-installation-with-nvidia" id="id11">GUI Installation with nvidia</a></li>
+<li><a class="reference internal" href="#plasma-5-installation-and-setup" id="id12">Plasma 5 Installation and Setup</a></li>
+</ul>
+</li>
+<li>
+<a class="reference internal" href="#post-installation-setup" id="id13">Post Installation Setup</a><ul>
+<li><a class="reference internal" href="#selecting-pacman-mirrors" id="id14">Selecting pacman Mirrors</a></li>
+<li><a class="reference internal" href="#setup-aur" id="id15">Setup AUR</a></li>
+<li><a class="reference internal" href="#audio-setup" id="id16">Audio Setup</a></li>
+<li><a class="reference internal" href="#web-browsers" id="id17">Web Browsers</a></li>
+<li><a class="reference internal" href="#git-setup" id="id18">git Setup</a></li>
+<li><a class="reference internal" href="#ssh-setup" id="id19">ssh Setup</a></li>
+<li><a class="reference internal" href="#zsh-setup" id="id20">zsh Setup</a></li>
+<li><a class="reference internal" href="#gpg-setup" id="id21">gpg Setup</a></li>
+<li><a class="reference internal" href="#user-wallpapers" id="id22">User Wallpapers</a></li>
+<li><a class="reference internal" href="#conky-setup" id="id23">conky Setup</a></li>
+<li><a class="reference internal" href="#software-installations" id="id24">Software Installations</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<img alt="My Current Desktop" class="align-center" src="http://i.imgur.com/Jrt0ZyL.jpg?1" style="width: 680pt;"><div class="section" id="base-installation">
+<h2><a class="toc-backref" href="#id1">Base Installation</a></h2>
+<p></p>
+<div class="alert alert-dismissible alert-info">
+ <p><strong>
+
+NOTE: I do not wish to repeat <a href="https://wiki.archlinux.org/index.php/installation_guide">Arch Installation Guide</a> here.
+
+Do not forget about <a href="https://wiki.archlinux.org/">Arch Wiki</a>,
+the best documentation in the world! Most of the content in this
+post has been compiled from the Arch wiki.
+
+</strong></p>
+</div>
+<p>Before beginning this guide, I would assume that you have a
+bootable USB of the latest Arch Linux Installer. If not, please follow
+the <a class="reference external" href="https://wiki.archlinux.org/index.php/USB_flash_installation_media">Arch wiki guide</a> to create one for you.</p>
+<p>Once you login in the installer disk, You will be logged in on the first virtual console as the root user, and presented with a <em>zsh</em> shell prompt. I will assume you have an Ethernet connection and hence will be
+connected to Internet by default. If you have to rely on wifi, please
+refer to the <a class="reference external" href="https://wiki.archlinux.org/index.php/Wireless_network_configuration">Wireless Network Configuration</a> wiki page for the
+detailed setup. <strong>You must have Internet connection at this stage before proceeding any further.</strong></p>
+<p>You should boot into UEFI mode if you have a UEFI motherboard and UEFI mode enabled.</p>
+<p>To verify you have booted in UEFU mode, run:</p>
+<pre class="code bash"><a name="rest_code_28aa591875244467a2406eaffa34eb2b-1"></a>$ efivar -l
+</pre>
+<p>This should give you a list of set UEFI variables. Please look at the
+<a class="reference external" href="https://wiki.archlinux.org/index.php/installation_guide">Arch Installation Guide</a> in case you do not get any list of UEFI variables.</p>
+<p>The very first thing that annoys me in the virtual console is how tiny
+all the fonts are. We will fix that by running the following commands:</p>
+<pre class="code bash"><a name="rest_code_e3960ecd13374ded85ad0bde60a62ead-1"></a>$ pacman -Sy
+<a name="rest_code_e3960ecd13374ded85ad0bde60a62ead-2"></a>$ pacman -S terminus-font
+<a name="rest_code_e3960ecd13374ded85ad0bde60a62ead-3"></a>$ setfont ter-132n
+</pre>
+<p>We are all set to get started with the actual installation process.</p>
+<div class="section" id="hdds-partitioning">
+<h3><a class="toc-backref" href="#id2">HDDs Partitioning</a></h3>
+<p>First find the hard drive that you will be using as the main/root disk.</p>
+<pre class="code bash"><a name="rest_code_91222dd0e8224bd683e74429c9163509-1"></a>$ cat /proc/partitions
+<a name="rest_code_91222dd0e8224bd683e74429c9163509-2"></a>
+<a name="rest_code_91222dd0e8224bd683e74429c9163509-3"></a><span class="c1"># OUTPUT eg.</span>
+<a name="rest_code_91222dd0e8224bd683e74429c9163509-4"></a><span class="c1"># major minor  #blocks  name</span>
+<a name="rest_code_91222dd0e8224bd683e74429c9163509-5"></a>
+<a name="rest_code_91222dd0e8224bd683e74429c9163509-6"></a><span class="c1"># 8        0  268435456 sda</span>
+<a name="rest_code_91222dd0e8224bd683e74429c9163509-7"></a><span class="c1"># 9        0  268435456 sdb</span>
+<a name="rest_code_91222dd0e8224bd683e74429c9163509-8"></a><span class="c1"># 19       0  268435456 sdc</span>
+<a name="rest_code_91222dd0e8224bd683e74429c9163509-9"></a><span class="c1"># 11       0     759808 sr0</span>
+<a name="rest_code_91222dd0e8224bd683e74429c9163509-10"></a><span class="c1"># 7        0     328616 loop0</span>
+</pre>
+<p>Say, we will be using <em>/dev/sda</em> as the main disk and <em>/dev/sdb</em>
+as <em>/data</em> and <em>/dev/sdc</em> as <em>/media</em> .</p>
+<p>Because we are creating an encrypted file system it’s a good idea to overwrite it with random data.</p>
+<p>We’ll use <strong>badblocks</strong> for this. Another method is to use
+<em>dd if=/dev/random of=/dev/xxx</em>, the <em>dd</em> method is probably the
+best method, but is a lot slower. <strong>The following step should take about 20 minutes on a 240 GB SSD.</strong></p>
+<pre class="code bash"><a name="rest_code_5d32efad532e4b75b79fc8278ee725fa-1"></a>$ badblocks -c <span class="m">10240</span> -s -w -t random -v /dev/sda
+</pre>
+<p>Next, we will create GPT partitions on all disks.</p>
+<pre class="code bash"><a name="rest_code_b67b70d4787e4ad199d8693813a6a449-1"></a>$ dd <span class="k">if</span><span class="o">=</span>/dev/zero <span class="nv">of</span><span class="o">=</span>/dev/sda <span class="nv">bs</span><span class="o">=</span>1M <span class="nv">count</span><span class="o">=</span><span class="m">5000</span>
+<a name="rest_code_b67b70d4787e4ad199d8693813a6a449-2"></a>$ gdisk /dev/sda
+<a name="rest_code_b67b70d4787e4ad199d8693813a6a449-3"></a>Found invalid MBR and corrupt GPT. What <span class="k">do</span> you want to <span class="k">do</span>? <span class="o">(</span>Using the
+<a name="rest_code_b67b70d4787e4ad199d8693813a6a449-4"></a>GPT MAY permit recovery of GPT data.<span class="o">)</span>
+<a name="rest_code_b67b70d4787e4ad199d8693813a6a449-5"></a> <span class="m">1</span> - Use current GPT
+<a name="rest_code_b67b70d4787e4ad199d8693813a6a449-6"></a> <span class="m">2</span> - Create blank GPT
+</pre>
+<p>Then press 2 to create a blank GPT and start fresh</p>
+<pre class="code bash"><a name="rest_code_dcf4c5e366794af992f4b14b51ac11e2-1"></a>ZAP:
+<a name="rest_code_dcf4c5e366794af992f4b14b51ac11e2-2"></a>$ press x - to go to extended menu
+<a name="rest_code_dcf4c5e366794af992f4b14b51ac11e2-3"></a>$ press z - to zap
+<a name="rest_code_dcf4c5e366794af992f4b14b51ac11e2-4"></a>$ press Y - to confirm
+<a name="rest_code_dcf4c5e366794af992f4b14b51ac11e2-5"></a>$ press Y - to delete MBR
+</pre>
+<p>It might now kick us out of gdisk, so get back into it:</p>
+<pre class="code bash"><a name="rest_code_6c496b4f2ee948a5b55263e40a703fc3-1"></a>$ gdisk /dev/sda
+<a name="rest_code_6c496b4f2ee948a5b55263e40a703fc3-2"></a>
+<a name="rest_code_6c496b4f2ee948a5b55263e40a703fc3-3"></a>$ Command <span class="o">(</span>? <span class="k">for</span> <span class="nb">help</span><span class="o">)</span>: m
+<a name="rest_code_6c496b4f2ee948a5b55263e40a703fc3-4"></a>$ Command <span class="o">(</span>? <span class="k">for</span> <span class="nb">help</span><span class="o">)</span>: n
+<a name="rest_code_6c496b4f2ee948a5b55263e40a703fc3-5"></a>
+<a name="rest_code_6c496b4f2ee948a5b55263e40a703fc3-6"></a>$ Partition number <span class="o">(</span><span class="m">1</span>-128, default <span class="m">1</span><span class="o">)</span>:
+<a name="rest_code_6c496b4f2ee948a5b55263e40a703fc3-7"></a>$ First sector <span class="o">(</span><span class="m">34</span>-500118158, <span class="nv">default</span> <span class="o">=</span> <span class="m">2048</span><span class="o">)</span> or <span class="o">{</span>+-<span class="o">}</span>size<span class="o">{</span>KMGTP<span class="o">}</span>:
+<a name="rest_code_6c496b4f2ee948a5b55263e40a703fc3-8"></a>$ Last sector <span class="o">(</span><span class="m">2048</span>-500118, <span class="nv">default</span> <span class="o">=</span> <span class="m">500118</span><span class="o">)</span> or <span class="o">{</span>+-<span class="o">}</span>size<span class="o">{</span>KMGTP<span class="o">}</span>: 512M
+<a name="rest_code_6c496b4f2ee948a5b55263e40a703fc3-9"></a>$ Current <span class="nb">type</span> is <span class="s1">'Linux filesystem'</span>
+<a name="rest_code_6c496b4f2ee948a5b55263e40a703fc3-10"></a>$ Hex code or GUID <span class="o">(</span>L to show codes, <span class="nv">Enter</span> <span class="o">=</span> <span class="m">8300</span><span class="o">)</span>: ef00
+<a name="rest_code_6c496b4f2ee948a5b55263e40a703fc3-11"></a>$ Changed <span class="nb">type</span> of partition to <span class="s1">'EFI System'</span>
+<a name="rest_code_6c496b4f2ee948a5b55263e40a703fc3-12"></a>
+<a name="rest_code_6c496b4f2ee948a5b55263e40a703fc3-13"></a>$ Partition number <span class="o">(</span><span class="m">2</span>-128, default <span class="m">2</span><span class="o">)</span>:
+<a name="rest_code_6c496b4f2ee948a5b55263e40a703fc3-14"></a>$ First sector <span class="o">(</span><span class="m">34</span>-500118, <span class="nv">default</span> <span class="o">=</span> <span class="m">16779264</span><span class="o">)</span> or <span class="o">{</span>+-<span class="o">}</span>size<span class="o">{</span>KMGTP<span class="o">}</span>:
+<a name="rest_code_6c496b4f2ee948a5b55263e40a703fc3-15"></a>$ Last sector <span class="o">(</span><span class="m">16779264</span>-500118, <span class="nv">default</span> <span class="o">=</span> <span class="m">500118</span><span class="o">)</span> or <span class="o">{</span>+-<span class="o">}</span>size<span class="o">{</span>KMGTP<span class="o">}</span>:
+<a name="rest_code_6c496b4f2ee948a5b55263e40a703fc3-16"></a>$ Current <span class="nb">type</span> is <span class="s1">'Linux filesystem'</span>
+<a name="rest_code_6c496b4f2ee948a5b55263e40a703fc3-17"></a>$ Hex code or GUID <span class="o">(</span>L to show codes, <span class="nv">Enter</span> <span class="o">=</span> <span class="m">8300</span><span class="o">)</span>:
+<a name="rest_code_6c496b4f2ee948a5b55263e40a703fc3-18"></a>$ Changed <span class="nb">type</span> of partition to <span class="s1">'Linux filesystem'</span>
+<a name="rest_code_6c496b4f2ee948a5b55263e40a703fc3-19"></a>
+<a name="rest_code_6c496b4f2ee948a5b55263e40a703fc3-20"></a>$ Command <span class="o">(</span>? <span class="k">for</span> <span class="nb">help</span><span class="o">)</span>: p
+<a name="rest_code_6c496b4f2ee948a5b55263e40a703fc3-21"></a>$ Press w to write to disk
+<a name="rest_code_6c496b4f2ee948a5b55263e40a703fc3-22"></a>$ Press Y to confirm
+</pre>
+<p>Repeat the above procedure for <em>/dev/sdb</em> and <em>/dev/sdc</em>, but create just one partition
+with all values as default. At the end we will have three partitions:
+<em>/dev/sda1</em>, <em>/dev/sda2</em>, <em>/dev/sdb1</em> and <em>/dev/sdc1</em>.</p>
+</div>
+<div class="section" id="setup-disk-encryption">
+<h3><a class="toc-backref" href="#id3">Setup Disk Encryption</a></h3>
+<p>Our /boot partition will be on <em>/dev/sda1</em>, while the main
+installation will be on <em>/dev/sda2</em>. In this setup, we will be
+enabling full encryption on <em>/dev/sda2</em> only.</p>
+<p>In order to enable disk encryption, we will first create a root luks volume, open it and then format it.</p>
+<pre class="code bash"><a name="rest_code_e75ba7b418c54f3389c7719d5befe587-1"></a><span class="c1"># first, we need to prepare the encrypted (outer) volume</span>
+<a name="rest_code_e75ba7b418c54f3389c7719d5befe587-2"></a>$ cryptsetup --cipher aes-xts-plain64 --hash sha512 --use-random --verify-passphrase luksFormat /dev/sda2
+<a name="rest_code_e75ba7b418c54f3389c7719d5befe587-3"></a>
+<a name="rest_code_e75ba7b418c54f3389c7719d5befe587-4"></a><span class="c1"># I really hope I don't have to lecture you on NOT LOSING this</span>
+<a name="rest_code_e75ba7b418c54f3389c7719d5befe587-5"></a><span class="c1"># password, lest all of your data will be forever inaccessible,</span>
+<a name="rest_code_e75ba7b418c54f3389c7719d5befe587-6"></a><span class="c1"># right?</span>
+<a name="rest_code_e75ba7b418c54f3389c7719d5befe587-7"></a>
+<a name="rest_code_e75ba7b418c54f3389c7719d5befe587-8"></a><span class="c1"># then, we actually open it as a block device, and format the</span>
+<a name="rest_code_e75ba7b418c54f3389c7719d5befe587-9"></a><span class="c1"># inner volume later</span>
+<a name="rest_code_e75ba7b418c54f3389c7719d5befe587-10"></a>$ cryptsetup luksOpen /dev/sda2 root
+</pre>
+<p></p>
+<div class="alert alert-dismissible alert-success">
+ <p><strong> Automatic Key Login from an USB/SD Card </strong></p>
+</div>
+<p>If you want to automatically login the encrypted disk password from an externally attached USB or SD card, you will first need to create a key file.</p>
+<pre class="code bash"><a name="rest_code_92d019a21f4d4394a6f279301bc35255-1"></a>$ dd <span class="nv">bs</span><span class="o">=</span><span class="m">512</span> <span class="nv">count</span><span class="o">=</span><span class="m">4</span> <span class="k">if</span><span class="o">=</span>/dev/urandom <span class="nv">of</span><span class="o">=</span>KEYFILE
+</pre>
+<p>Then, add this key to the luks container, so that it can be later used to open the encrypted drive.</p>
+<pre class="code bash"><a name="rest_code_c9335033ffd343af8aeae1692e6fca5c-1"></a>$ cryptsetup luksAddKey /dev/sda2 KEYFILE
+</pre>
+<p><span class="highlight-short-warning"> Note that the KEYFILE here should be kept on a separate USB drive or SD card. </span>
+The recommended way of using such a disk would be as follows:</p>
+<pre class="code bash"><a name="rest_code_7c24dab4faa94f16b6bb116e9fee6639-1"></a><span class="c1"># assuming our USB of interest is /dev/sdd  and can be format</span>
+<a name="rest_code_7c24dab4faa94f16b6bb116e9fee6639-2"></a><span class="c1">#</span>
+<a name="rest_code_7c24dab4faa94f16b6bb116e9fee6639-3"></a><span class="c1"># Format the drive</span>
+<a name="rest_code_7c24dab4faa94f16b6bb116e9fee6639-4"></a>$ dd <span class="k">if</span><span class="o">=</span>/dev/zero <span class="nv">of</span><span class="o">=</span>/dev/sdd <span class="nv">bs</span><span class="o">=</span>1M
+<a name="rest_code_7c24dab4faa94f16b6bb116e9fee6639-5"></a><span class="c1"># Create partitions using gdisk</span>
+<a name="rest_code_7c24dab4faa94f16b6bb116e9fee6639-6"></a><span class="c1">#</span>
+<a name="rest_code_7c24dab4faa94f16b6bb116e9fee6639-7"></a>$ gdisk /dev/sdd
+<a name="rest_code_7c24dab4faa94f16b6bb116e9fee6639-8"></a><span class="c1">#</span>
+<a name="rest_code_7c24dab4faa94f16b6bb116e9fee6639-9"></a><span class="c1"># Follow along to create one partition (/dev/sdd1) of type 0700</span>
+<a name="rest_code_7c24dab4faa94f16b6bb116e9fee6639-10"></a><span class="c1">#</span>
+<a name="rest_code_7c24dab4faa94f16b6bb116e9fee6639-11"></a><span class="c1"># format /dev/sdd1</span>
+<a name="rest_code_7c24dab4faa94f16b6bb116e9fee6639-12"></a>$ mkfs.fat /dev/sdd1
+<a name="rest_code_7c24dab4faa94f16b6bb116e9fee6639-13"></a>
+<a name="rest_code_7c24dab4faa94f16b6bb116e9fee6639-14"></a><span class="c1"># mount the newly format disk on /mnt and then copy the KEYFILE</span>
+<a name="rest_code_7c24dab4faa94f16b6bb116e9fee6639-15"></a>$ mount /dev/sdd1 /mnt
+<a name="rest_code_7c24dab4faa94f16b6bb116e9fee6639-16"></a>$ mv KEYFILE /mnt/KEYFILE
+<a name="rest_code_7c24dab4faa94f16b6bb116e9fee6639-17"></a>$ umount /mnt
+</pre>
+<p>We will be later using this KEYFILE in boot loader setup.</p>
+</div>
+<div class="section" id="format-hdds">
+<h3><a class="toc-backref" href="#id4">Format HDDs</a></h3>
+<p>At this point, we have following drives ready for format:
+<em>/dev/sda1</em>, <em>/dev/mapper/root</em>, <em>/dev/sdb1</em> and <em>/dev/sdc1</em>.</p>
+<p>These can be format as follows:</p>
+<pre class="code bash"><a name="rest_code_43a39f02969742d784fed93fed435c23-1"></a>$ mkfs.vfat -F32 /dev/sda1
+<a name="rest_code_43a39f02969742d784fed93fed435c23-2"></a>$ mkfs.btrfs -L arch /dev/mapper/root
+<a name="rest_code_43a39f02969742d784fed93fed435c23-3"></a>$ mkfs.btrfs -L data /dev/sdb1
+<a name="rest_code_43a39f02969742d784fed93fed435c23-4"></a>$ mkfs.btrfs -L media /dev/sdc1
+</pre>
+<p>Now, we will create btrfs subvolumes and mount them properly for
+installation and final setup.</p>
+<pre class="code bash"><a name="rest_code_a89b59888fa8470598c8aa55e11bf9e6-1"></a>$ mount /dev/mapper/root /mnt
+<a name="rest_code_a89b59888fa8470598c8aa55e11bf9e6-2"></a>$ btrfs subvolume create /mnt/ROOT
+<a name="rest_code_a89b59888fa8470598c8aa55e11bf9e6-3"></a>$ btrfs subvolume create /mnt/home
+<a name="rest_code_a89b59888fa8470598c8aa55e11bf9e6-4"></a>$ umount /mnt
+<a name="rest_code_a89b59888fa8470598c8aa55e11bf9e6-5"></a>
+<a name="rest_code_a89b59888fa8470598c8aa55e11bf9e6-6"></a>$ mount /dev/sdb1 /mnt
+<a name="rest_code_a89b59888fa8470598c8aa55e11bf9e6-7"></a>$ btrfs subvolume create /mnt/data
+<a name="rest_code_a89b59888fa8470598c8aa55e11bf9e6-8"></a>$ umount /mnt
+<a name="rest_code_a89b59888fa8470598c8aa55e11bf9e6-9"></a>
+<a name="rest_code_a89b59888fa8470598c8aa55e11bf9e6-10"></a>$ mount /dev/sdc1 /mnt
+<a name="rest_code_a89b59888fa8470598c8aa55e11bf9e6-11"></a>$ btrfs subvolume create /mnt/media
+<a name="rest_code_a89b59888fa8470598c8aa55e11bf9e6-12"></a>$ umount /mnt
+</pre>
+<p>Now, once the sub-volumes have been created, we will mount them in
+appropriate locations with optimal flags.</p>
+<pre class="code bash"><a name="rest_code_f0d6c8b8a7384aadb130be065edb6f5a-1"></a>$ <span class="nv">SSD_MOUNTS</span><span class="o">=</span><span class="s2">"rw,noatime,nodev,compress=lzo,ssd,discard,</span>
+<a name="rest_code_f0d6c8b8a7384aadb130be065edb6f5a-2"></a><span class="s2">    space_cache,autodefrag,inode_cache"</span>
+<a name="rest_code_f0d6c8b8a7384aadb130be065edb6f5a-3"></a>$ <span class="nv">HDD_MOUNTS</span><span class="o">=</span><span class="s2">"rw,nosuid,nodev,relatime,space_cache"</span>
+<a name="rest_code_f0d6c8b8a7384aadb130be065edb6f5a-4"></a>$ <span class="nv">EFI_MOUNTS</span><span class="o">=</span><span class="s2">"rw,noatime,discard,nodev,nosuid,noexec"</span>
+<a name="rest_code_f0d6c8b8a7384aadb130be065edb6f5a-5"></a>$ mount -o <span class="nv">$SSD_MOUNTS</span>,subvol<span class="o">=</span>ROOT /dev/mapper/root /mnt
+<a name="rest_code_f0d6c8b8a7384aadb130be065edb6f5a-6"></a>$ mkdir -p /mnt/home
+<a name="rest_code_f0d6c8b8a7384aadb130be065edb6f5a-7"></a>$ mkdir -p /mnt/data
+<a name="rest_code_f0d6c8b8a7384aadb130be065edb6f5a-8"></a>$ mkdir -p /mnt/media
+<a name="rest_code_f0d6c8b8a7384aadb130be065edb6f5a-9"></a>$ mount -o <span class="nv">$SSD_MOUNTS</span>,nosuid,subvol<span class="o">=</span>home /dev/sda2 /mnt/home
+<a name="rest_code_f0d6c8b8a7384aadb130be065edb6f5a-10"></a>$ mount -o <span class="nv">$HDD_MOUNTS</span>,subvol<span class="o">=</span>data /dev/sdb1 /mnt/data
+<a name="rest_code_f0d6c8b8a7384aadb130be065edb6f5a-11"></a>$ mount -o <span class="nv">$HDD_MOUNTS</span>,subvol<span class="o">=</span>media /dev/sdc1 /mnt/media
+<a name="rest_code_f0d6c8b8a7384aadb130be065edb6f5a-12"></a>
+<a name="rest_code_f0d6c8b8a7384aadb130be065edb6f5a-13"></a>$ mkdir -p /mnt/boot
+<a name="rest_code_f0d6c8b8a7384aadb130be065edb6f5a-14"></a>$ mount -o <span class="nv">$EFI_MOUNTS</span> /dev/sda1 /mnt/boot
+</pre>
+<p><span class="highlight-short-cyan"> Save the current /etc/resolv.conf file for future use! </span></p>
+<pre class="code bash"><a name="rest_code_b5759b72b19e47cda2ab21b0581258d3-1"></a>$ cp /etc/resolv.conf /mnt/etc/resolv.conf
+</pre>
+</div>
+<div class="section" id="base-system-installation">
+<h3><a class="toc-backref" href="#id5">Base System Installation</a></h3>
+<p>Now, we will do the actually installation of base packages.</p>
+<pre class="code bash"><a name="rest_code_1f7df17abd9b44b3854c90ef7a31b045-1"></a>$ pacstrap /mnt base base-devel btrfs-progs
+<a name="rest_code_1f7df17abd9b44b3854c90ef7a31b045-2"></a>$ genfstab -U -p /mnt &gt;&gt; /mnt/etc/fstab
+</pre>
+</div>
+<div class="section" id="initial-system-setup">
+<h3><a class="toc-backref" href="#id6">Initial System Setup</a></h3>
+<p>Edit the /mnt/ect/fstab file to add following /tmp mounts.</p>
+<pre class="code bash"><a name="rest_code_07dd698cd6a14f9bbf60cce6098f23d8-1"></a>tmpfs /tmp tmpfs rw,nodev,nosuid <span class="m">0</span> <span class="m">0</span>
+<a name="rest_code_07dd698cd6a14f9bbf60cce6098f23d8-2"></a>tmpfs /dev/shm tmpfs rw,nodev,nosuid,noexec <span class="m">0</span> <span class="m">0</span>
+</pre>
+<p>Finally  bind root for installation.</p>
+<pre class="code bash"><a name="rest_code_95ff1cca2b1e40839de06ae060945f50-1"></a>$ arch-chroot /mnt bash
+<a name="rest_code_95ff1cca2b1e40839de06ae060945f50-2"></a>$ pacman -Syy
+<a name="rest_code_95ff1cca2b1e40839de06ae060945f50-3"></a>$ pacman -Syu
+<a name="rest_code_95ff1cca2b1e40839de06ae060945f50-4"></a>$ pacman -S sudo vim
+<a name="rest_code_95ff1cca2b1e40839de06ae060945f50-5"></a>$ vim /etc/locale.gen
+<a name="rest_code_95ff1cca2b1e40839de06ae060945f50-6"></a>
+<a name="rest_code_95ff1cca2b1e40839de06ae060945f50-7"></a>...
+<a name="rest_code_95ff1cca2b1e40839de06ae060945f50-8"></a><span class="c1"># en_SG ISO-8859-1</span>
+<a name="rest_code_95ff1cca2b1e40839de06ae060945f50-9"></a>en_US.UTF-8 UTF-8
+<a name="rest_code_95ff1cca2b1e40839de06ae060945f50-10"></a><span class="c1"># en_US ISO-8859-1</span>
+<a name="rest_code_95ff1cca2b1e40839de06ae060945f50-11"></a>...
+<a name="rest_code_95ff1cca2b1e40839de06ae060945f50-12"></a>
+<a name="rest_code_95ff1cca2b1e40839de06ae060945f50-13"></a>$ locale-gen
+<a name="rest_code_95ff1cca2b1e40839de06ae060945f50-14"></a>$ <span class="nb">echo</span> <span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8 &gt; /etc/locale.conf
+<a name="rest_code_95ff1cca2b1e40839de06ae060945f50-15"></a>$ <span class="nb">export</span> <span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8
+<a name="rest_code_95ff1cca2b1e40839de06ae060945f50-16"></a>$ ls -l /usr/share/zoneinfo
+<a name="rest_code_95ff1cca2b1e40839de06ae060945f50-17"></a>$ ln -sf /usr/share/zoneinfo/Zone/SubZone /etc/localtime
+<a name="rest_code_95ff1cca2b1e40839de06ae060945f50-18"></a>$ hwclock --systohc --utc
+<a name="rest_code_95ff1cca2b1e40839de06ae060945f50-19"></a>$ sed -i <span class="s2">"s/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/"</span> /etc/sudoers
+<a name="rest_code_95ff1cca2b1e40839de06ae060945f50-20"></a>$ <span class="nv">HOSTNAME</span><span class="o">=</span>euler
+<a name="rest_code_95ff1cca2b1e40839de06ae060945f50-21"></a>$ <span class="nb">echo</span> <span class="nv">$HOSTNAME</span> &gt; /etc/hostname
+<a name="rest_code_95ff1cca2b1e40839de06ae060945f50-22"></a>$ passwd
+</pre>
+<p>We will also add <em>hostname</em> to our /etc/hosts file:</p>
+<pre class="code bash"><a name="rest_code_09628837c2434b769754d3a630f22757-1"></a>$ vim /etc/hosts
+<a name="rest_code_09628837c2434b769754d3a630f22757-2"></a>...
+<a name="rest_code_09628837c2434b769754d3a630f22757-3"></a><span class="m">127</span>.0.0.1       localhost.localdomain   localhost
+<a name="rest_code_09628837c2434b769754d3a630f22757-4"></a>::1             localhost.localdomain   localhost
+<a name="rest_code_09628837c2434b769754d3a630f22757-5"></a><span class="m">127</span>.0.0.1       <span class="nv">$HOSTNAME</span>.localdomain   <span class="nv">$HOSTNAME</span>
+<a name="rest_code_09628837c2434b769754d3a630f22757-6"></a>...
+</pre>
+<p>We also need to fix the mkinitcpio.conf to contain what we actually need.</p>
+<pre class="code bash"><a name="rest_code_a9c5ebd7b3304a1ebc14de35454c1fce-1"></a>$ vi /etc/mkinitcpio.conf
+<a name="rest_code_a9c5ebd7b3304a1ebc14de35454c1fce-2"></a><span class="c1"># on the MODULES section, add "vfat aes_x86_64 crc32c-intel"</span>
+<a name="rest_code_a9c5ebd7b3304a1ebc14de35454c1fce-3"></a><span class="c1"># (and whatever else you know your hardware needs. Mine needs i915 too)</span>
+<a name="rest_code_a9c5ebd7b3304a1ebc14de35454c1fce-4"></a><span class="c1"># on the BINARIES section, add "/usr/bin/btrfsck", since it's useful</span>
+<a name="rest_code_a9c5ebd7b3304a1ebc14de35454c1fce-5"></a><span class="c1"># to have in case your filesystem has troubles</span>
+<a name="rest_code_a9c5ebd7b3304a1ebc14de35454c1fce-6"></a><span class="c1"># on the HOOKS section:</span>
+<a name="rest_code_a9c5ebd7b3304a1ebc14de35454c1fce-7"></a><span class="c1">#  - add "encrypt" before "filesystems"</span>
+<a name="rest_code_a9c5ebd7b3304a1ebc14de35454c1fce-8"></a><span class="c1">#  - remove "fsck" and</span>
+<a name="rest_code_a9c5ebd7b3304a1ebc14de35454c1fce-9"></a><span class="c1">#  - add "btrfs" at the end</span>
+<a name="rest_code_a9c5ebd7b3304a1ebc14de35454c1fce-10"></a><span class="c1">#</span>
+<a name="rest_code_a9c5ebd7b3304a1ebc14de35454c1fce-11"></a><span class="c1"># re-generate your initrd images</span>
+<a name="rest_code_a9c5ebd7b3304a1ebc14de35454c1fce-12"></a>mkinitcpio -p linux
+</pre>
+</div>
+<div class="section" id="boot-manager-setup">
+<h3><a class="toc-backref" href="#id7">Boot Manager Setup</a></h3>
+<p><em>systemd-boot</em>, previously called <em>gummiboot</em>, is a simple UEFI boot manager
+which executes configured EFI images. The default entry is selected by
+a configured pattern (glob) or an on-screen menu.
+It is included with the <em>systemd</em>, which is installed on an Arch systems by default.</p>
+<p>Assuming <em>/boot</em> is your boot drive, first run the following command to get started:</p>
+<pre class="code bash"><a name="rest_code_f222b036e9e54bc7b3466cf837667cbf-1"></a>$ bootctl --path<span class="o">=</span>/boot install
+</pre>
+<p>It will copy the systemd-boot binary to your EFI System Partition
+( <cite>/boot/EFI/systemd/systemd-bootx64.efi</cite> and <cite>/boot/EFI/Boot/BOOTX64.EFI</cite>
+- both of which are identical - on x64 systems ) and add <em>systemd-boot</em>
+itself as the default EFI application (default boot entry) loaded by
+the EFI Boot Manager.</p>
+<p>Finally to configure out boot loader, we will need the UUID of
+some of our hard drives. These can be easily done using the <em>blkid</em> command.</p>
+<pre class="code bash"><a name="rest_code_3f3dd5b70dc148b6a2339b70d41923bb-1"></a>$ blkid /dev/sda1 &gt; /boot/loader/entries/arch.conf
+<a name="rest_code_3f3dd5b70dc148b6a2339b70d41923bb-2"></a>$ blkid /dev/sda2 &gt;&gt; /boot/loader/entries/arch.conf
+<a name="rest_code_3f3dd5b70dc148b6a2339b70d41923bb-3"></a>$ blkid /dev/mapper/root &gt;&gt; /boot/loader/entries/arch.conf
+<a name="rest_code_3f3dd5b70dc148b6a2339b70d41923bb-4"></a>$ blkid /dev/sdd1 &gt;&gt; /boot/loader/entries/arch.conf
+<a name="rest_code_3f3dd5b70dc148b6a2339b70d41923bb-5"></a>
+<a name="rest_code_3f3dd5b70dc148b6a2339b70d41923bb-6"></a><span class="c1"># for this example, I'm going to mark them like this:</span>
+<a name="rest_code_3f3dd5b70dc148b6a2339b70d41923bb-7"></a><span class="c1"># /dev/sda1 LABEL="EFI"                 UUID=11111111-1111-1111-1111-111111111111</span>
+<a name="rest_code_3f3dd5b70dc148b6a2339b70d41923bb-8"></a><span class="c1"># /dev/sda2 LABEL="arch"      UUID=33333333-3333-3333-3333-333333333333</span>
+<a name="rest_code_3f3dd5b70dc148b6a2339b70d41923bb-9"></a><span class="c1"># /dev/mapper/root LABEL="Arch Linux"   UUID=44444444-4444-4444-4444-444444444444</span>
+<a name="rest_code_3f3dd5b70dc148b6a2339b70d41923bb-10"></a><span class="c1"># /dev/sdd1 LABEL="USB"     UUID=0000-0000  # this is the drive where KEYFILE exists</span>
+</pre>
+<p>Now, make sure that the following two files look as follows,
+where UUIDs is the value obtained from above commands.</p>
+<p><span class="highlight-short-warning"> Do not forget to modify UUIDs and KEYFIL entries! </span></p>
+<pre class="code bash"><a name="rest_code_49e357bc344b4c909c155b8aada8cd2a-1"></a>$ vim /boot/loader/loader.conf
+<a name="rest_code_49e357bc344b4c909c155b8aada8cd2a-2"></a>...
+<a name="rest_code_49e357bc344b4c909c155b8aada8cd2a-3"></a>timeout <span class="m">3</span>
+<a name="rest_code_49e357bc344b4c909c155b8aada8cd2a-4"></a>default arch
+<a name="rest_code_49e357bc344b4c909c155b8aada8cd2a-5"></a>...
+<a name="rest_code_49e357bc344b4c909c155b8aada8cd2a-6"></a>$ vim /boot/loader/entries/arch.conf
+<a name="rest_code_49e357bc344b4c909c155b8aada8cd2a-7"></a>...
+<a name="rest_code_49e357bc344b4c909c155b8aada8cd2a-8"></a>
+<a name="rest_code_49e357bc344b4c909c155b8aada8cd2a-9"></a>title Arch Linux
+<a name="rest_code_49e357bc344b4c909c155b8aada8cd2a-10"></a>linux /vmlinuz-linux
+<a name="rest_code_49e357bc344b4c909c155b8aada8cd2a-11"></a>initrd /initramfs-linux.img
+<a name="rest_code_49e357bc344b4c909c155b8aada8cd2a-12"></a>options ro <span class="nv">cryptdevice</span><span class="o">=</span><span class="nv">UUID</span><span class="o">=</span><span class="m">33333333</span>-3333-3333-3333-333333333333:luks-33333333-3333-3333-3333-333333333333 <span class="nv">root</span><span class="o">=</span><span class="nv">UUID</span><span class="o">=</span><span class="m">44444444</span>-4444-4444-4444-444444444444 <span class="nv">rootfstype</span><span class="o">=</span>btrfs <span class="nv">rootflags</span><span class="o">=</span><span class="nv">subvol</span><span class="o">=</span>ROOT <span class="nv">cryptkey</span><span class="o">=</span><span class="nv">UUID</span><span class="o">=</span><span class="m">0000</span>-0000:vfat:KEYFILE
+<a name="rest_code_49e357bc344b4c909c155b8aada8cd2a-13"></a>...
+</pre>
+</div>
+<div class="section" id="network-setup">
+<h3><a class="toc-backref" href="#id8">Network Setup</a></h3>
+<p>At first we will need to figure out the Ethernet controller on which cable is
+connected.</p>
+<pre class="code bash"><a name="rest_code_c9ff988e5fc8497089c5292369ffe88f-1"></a>$ networkctl
+<a name="rest_code_c9ff988e5fc8497089c5292369ffe88f-2"></a><span class="c1">#</span>
+<a name="rest_code_c9ff988e5fc8497089c5292369ffe88f-3"></a><span class="c1"># IDX LINK             TYPE               OPERATIONAL SETUP</span>
+<a name="rest_code_c9ff988e5fc8497089c5292369ffe88f-4"></a><span class="c1">#   1 lo               loopback           carrier     unmanaged</span>
+<a name="rest_code_c9ff988e5fc8497089c5292369ffe88f-5"></a><span class="c1">#   2 enp3s0           ether              no-carrier  unmanaged</span>
+<a name="rest_code_c9ff988e5fc8497089c5292369ffe88f-6"></a><span class="c1">#   3 wlp6s0           wlan               no-carrier  unmanaged</span>
+<a name="rest_code_c9ff988e5fc8497089c5292369ffe88f-7"></a><span class="c1">#   4 enp0s25          ether              routable    configured</span>
+<a name="rest_code_c9ff988e5fc8497089c5292369ffe88f-8"></a><span class="c1">#</span>
+</pre>
+<p>In our case, the name of the device is <em>enp0s25</em>.</p>
+<p>Using this name of the device, we need to configure, and enable the
+<em>systemd-networkd.service</em> service.</p>
+<p>Note that we will using the <em>resolv.conf</em> that we saved from this session.</p>
+<p>Network configurations are stored as *.network in <em>/etc/systemd/network</em>.
+We need to create ours as follows.:</p>
+<pre class="code bash"><a name="rest_code_f9c92d9ab2484145babe3b4f15ddf8f6-1"></a>$ vim /etc/systemd/network/50-wired.network
+<a name="rest_code_f9c92d9ab2484145babe3b4f15ddf8f6-2"></a>$
+<a name="rest_code_f9c92d9ab2484145babe3b4f15ddf8f6-3"></a>...
+<a name="rest_code_f9c92d9ab2484145babe3b4f15ddf8f6-4"></a><span class="o">[</span>Match<span class="o">]</span>
+<a name="rest_code_f9c92d9ab2484145babe3b4f15ddf8f6-5"></a><span class="nv">Name</span><span class="o">=</span>enp0s25
+<a name="rest_code_f9c92d9ab2484145babe3b4f15ddf8f6-6"></a>
+<a name="rest_code_f9c92d9ab2484145babe3b4f15ddf8f6-7"></a><span class="o">[</span>Network<span class="o">]</span>
+<a name="rest_code_f9c92d9ab2484145babe3b4f15ddf8f6-8"></a><span class="nv">DHCP</span><span class="o">=</span>ipv4
+<a name="rest_code_f9c92d9ab2484145babe3b4f15ddf8f6-9"></a>
+<a name="rest_code_f9c92d9ab2484145babe3b4f15ddf8f6-10"></a>...
+<a name="rest_code_f9c92d9ab2484145babe3b4f15ddf8f6-11"></a>
+<a name="rest_code_f9c92d9ab2484145babe3b4f15ddf8f6-12"></a>$
+</pre>
+<p>Now enable these services:</p>
+<pre class="code bash"><a name="rest_code_fb9d65f5ee5e4b63adc0002cd388eb90-1"></a>systemctl <span class="nb">enable</span> systemd-networkd.service
+</pre>
+<p>Your network should be ready for the first use!</p>
+<p>Sync time automatically using the <em>systemd</em> service:</p>
+<pre class="code bash"><a name="rest_code_a647fe2d9b214a568ec289f8630de028-1"></a>$ vim /etc/systemd/timesyncd.conf
+<a name="rest_code_a647fe2d9b214a568ec289f8630de028-2"></a>$
+<a name="rest_code_a647fe2d9b214a568ec289f8630de028-3"></a>...
+<a name="rest_code_a647fe2d9b214a568ec289f8630de028-4"></a><span class="o">[</span>Time<span class="o">]</span>
+<a name="rest_code_a647fe2d9b214a568ec289f8630de028-5"></a><span class="nv">NTP</span><span class="o">=</span><span class="m">0</span>.arch.pool.ntp.org <span class="m">1</span>.arch.pool.ntp.org <span class="m">2</span>.arch.pool.ntp.org <span class="m">3</span>.arch.pool.ntp.org
+<a name="rest_code_a647fe2d9b214a568ec289f8630de028-6"></a><span class="nv">FallbackNTP</span><span class="o">=</span><span class="m">0</span>.pool.ntp.org <span class="m">1</span>.pool.ntp.org <span class="m">0</span>.fr.pool.ntp.org
+<a name="rest_code_a647fe2d9b214a568ec289f8630de028-7"></a>...
+<a name="rest_code_a647fe2d9b214a568ec289f8630de028-8"></a>$
+<a name="rest_code_a647fe2d9b214a568ec289f8630de028-9"></a>$ timedatectl set-ntp <span class="nb">true</span>
+<a name="rest_code_a647fe2d9b214a568ec289f8630de028-10"></a>$ timedatectl status
+<a name="rest_code_a647fe2d9b214a568ec289f8630de028-11"></a>$
+<a name="rest_code_a647fe2d9b214a568ec289f8630de028-12"></a>...
+<a name="rest_code_a647fe2d9b214a568ec289f8630de028-13"></a>      Local time: Tue <span class="m">2016</span>-09-20 <span class="m">16</span>:40:44 PDT
+<a name="rest_code_a647fe2d9b214a568ec289f8630de028-14"></a>  Universal time: Tue <span class="m">2016</span>-09-20 <span class="m">23</span>:40:44 UTC
+<a name="rest_code_a647fe2d9b214a568ec289f8630de028-15"></a>        RTC time: Tue <span class="m">2016</span>-09-20 <span class="m">23</span>:40:44
+<a name="rest_code_a647fe2d9b214a568ec289f8630de028-16"></a>       Time zone: US/Pacific <span class="o">(</span>PDT, -0700<span class="o">)</span>
+<a name="rest_code_a647fe2d9b214a568ec289f8630de028-17"></a> Network <span class="nb">time</span> on: yes
+<a name="rest_code_a647fe2d9b214a568ec289f8630de028-18"></a>NTP synchronized: yes
+<a name="rest_code_a647fe2d9b214a568ec289f8630de028-19"></a> RTC in <span class="nb">local</span> TZ: no
+<a name="rest_code_a647fe2d9b214a568ec289f8630de028-20"></a> ...
+<a name="rest_code_a647fe2d9b214a568ec289f8630de028-21"></a>$
+</pre>
+<p><a class="reference external" href="https://wiki.archlinux.org/index.php/avahi">Avahi</a> is a tool that allows programs to publish and discover services and
+hosts running on a local network with no specific configuration. For
+example you can plug into a network and instantly find printers to print to,
+files to look at and people to talk to.</p>
+<p>We can easily set it up it as follows:</p>
+<pre class="code bash"><a name="rest_code_efe0448d16c94fa89b386d7f4f883dac-1"></a>$ pacman -S avahi nss-mdns
+<a name="rest_code_efe0448d16c94fa89b386d7f4f883dac-2"></a>$ systemctl <span class="nb">enable</span> avahi-daemon.service
+</pre>
+<p>We will also install terminus-font on our system to work with proper fonts on first boot.</p>
+<pre class="code bash"><a name="rest_code_b4e01c0767264d93b0a6cac9e77f5c73-1"></a>$ pacman -S terminus-font
+</pre>
+</div>
+</div>
+<div class="section" id="first-boot-installations">
+<h2><a class="toc-backref" href="#id9">First Boot Installations</a></h2>
+<p>Now we are ready for the first boot!
+Run the following command:</p>
+<pre class="code bash"><a name="rest_code_cb09aa9d7ef044d58e53dfd6ba8ffb06-1"></a>$ <span class="nb">exit</span>
+<a name="rest_code_cb09aa9d7ef044d58e53dfd6ba8ffb06-2"></a>$ umount -R /mnt
+<a name="rest_code_cb09aa9d7ef044d58e53dfd6ba8ffb06-3"></a>$ reboot
+</pre>
+<p>After your new system boots, Network should be setup at the start. Check the status of network using:</p>
+<pre class="code bash"><a name="rest_code_04da29ccbcbe43a5b115837a3e20de1a-1"></a><span class="c1"># Set readable font first!</span>
+<a name="rest_code_04da29ccbcbe43a5b115837a3e20de1a-2"></a>setfont ter-132n
+<a name="rest_code_04da29ccbcbe43a5b115837a3e20de1a-3"></a>ping google.com -c <span class="m">2</span>
+<a name="rest_code_04da29ccbcbe43a5b115837a3e20de1a-4"></a>
+<a name="rest_code_04da29ccbcbe43a5b115837a3e20de1a-5"></a><span class="c1">#</span>
+<a name="rest_code_04da29ccbcbe43a5b115837a3e20de1a-6"></a><span class="c1"># PING google.com (10.38.24.84) 56(84) bytes of data.</span>
+<a name="rest_code_04da29ccbcbe43a5b115837a3e20de1a-7"></a><span class="c1"># 64 bytes from google.com (10.38.24.84): icmp_seq=1 ttl=64 time=0.022 ms</span>
+<a name="rest_code_04da29ccbcbe43a5b115837a3e20de1a-8"></a><span class="c1"># 64 bytes from google.com (10.38.24.84): icmp_seq=2 ttl=64 time=0.023 ms</span>
+<a name="rest_code_04da29ccbcbe43a5b115837a3e20de1a-9"></a><span class="c1">#</span>
+<a name="rest_code_04da29ccbcbe43a5b115837a3e20de1a-10"></a><span class="c1"># --- google.com ping statistics ---</span>
+<a name="rest_code_04da29ccbcbe43a5b115837a3e20de1a-11"></a><span class="c1"># 2 packets transmitted, 2 received, 0% packet loss, time 999ms</span>
+<a name="rest_code_04da29ccbcbe43a5b115837a3e20de1a-12"></a><span class="c1"># rtt min/avg/max/mdev = 0.022/0.022/0.023/0.004 ms</span>
+<a name="rest_code_04da29ccbcbe43a5b115837a3e20de1a-13"></a><span class="c1">#</span>
+</pre>
+<p>If you do not get this output, please follow the troubleshooting links
+at Arch Wiki on <a class="reference external" href="https://wiki.archlinux.org/index.php/systemd-networkd">setting up network</a>.</p>
+<div class="section" id="adding-new-user">
+<h3><a class="toc-backref" href="#id10">Adding New User</a></h3>
+<p>Choose $USERNAME per your liking. I chose <em>ssingh</em>, so in future commands
+whenever you see <em>ssingh</em> please replace it with your $USERNAME.</p>
+<pre class="code bash"><a name="rest_code_39cf7497877042cab5b4fd6bccba9a8d-1"></a>$ pacman -S zsh
+<a name="rest_code_39cf7497877042cab5b4fd6bccba9a8d-2"></a>$ useradd -m -G wheel -s usr/bin/zsh <span class="nv">$USERNAME</span>
+<a name="rest_code_39cf7497877042cab5b4fd6bccba9a8d-3"></a>$ chfn --full-name <span class="s2">"</span><span class="nv">$FULL_NAME</span><span class="s2">"</span> <span class="nv">$USERNAME</span>
+<a name="rest_code_39cf7497877042cab5b4fd6bccba9a8d-4"></a>$ passwd <span class="nv">$USERNAME</span>
+</pre>
+</div>
+<div class="section" id="gui-installation-with-nvidia">
+<h3><a class="toc-backref" href="#id11">GUI Installation with nvidia</a></h3>
+<p>I will be assuming you have an NVIDIA card for graphics installation.</p>
+<p>To setup a graphical desktop, first we need to install some basic X
+related packages, and some <em>essential</em> packages (including fonts):</p>
+<pre class="code bash"><a name="rest_code_b1594dd3905d4371afaa3251ab08fd99-1"></a>$ pacman -S xorg-server nvidia nvidia-libgl nvidia-settings mesa
+</pre>
+<p>To avoid the possibility of forgetting to update your <em>initramfs</em> after
+an <em>nvidia</em> upgrade, you have to use a <em>pacman</em> hook like this:</p>
+<pre class="code bash"><a name="rest_code_b1fbcd3fcd864b5a82eeb309ed850c1a-1"></a>$ vim /etc/pacman.d/hooks/nvidia.hook
+<a name="rest_code_b1fbcd3fcd864b5a82eeb309ed850c1a-2"></a>$
+<a name="rest_code_b1fbcd3fcd864b5a82eeb309ed850c1a-3"></a>...
+<a name="rest_code_b1fbcd3fcd864b5a82eeb309ed850c1a-4"></a><span class="o">[</span>Trigger<span class="o">]</span>
+<a name="rest_code_b1fbcd3fcd864b5a82eeb309ed850c1a-5"></a><span class="nv">Operation</span><span class="o">=</span>Install
+<a name="rest_code_b1fbcd3fcd864b5a82eeb309ed850c1a-6"></a><span class="nv">Operation</span><span class="o">=</span>Upgrade
+<a name="rest_code_b1fbcd3fcd864b5a82eeb309ed850c1a-7"></a><span class="nv">Operation</span><span class="o">=</span>Remove
+<a name="rest_code_b1fbcd3fcd864b5a82eeb309ed850c1a-8"></a><span class="nv">Type</span><span class="o">=</span>Package
+<a name="rest_code_b1fbcd3fcd864b5a82eeb309ed850c1a-9"></a><span class="nv">Target</span><span class="o">=</span>nvidia
+<a name="rest_code_b1fbcd3fcd864b5a82eeb309ed850c1a-10"></a>
+<a name="rest_code_b1fbcd3fcd864b5a82eeb309ed850c1a-11"></a><span class="o">[</span>Action<span class="o">]</span>
+<a name="rest_code_b1fbcd3fcd864b5a82eeb309ed850c1a-12"></a><span class="nv">Depends</span><span class="o">=</span>mkinitcpio
+<a name="rest_code_b1fbcd3fcd864b5a82eeb309ed850c1a-13"></a><span class="nv">When</span><span class="o">=</span>PostTransaction
+<a name="rest_code_b1fbcd3fcd864b5a82eeb309ed850c1a-14"></a><span class="nv">Exec</span><span class="o">=</span>/usr/bin/mkinitcpio -p linux
+<a name="rest_code_b1fbcd3fcd864b5a82eeb309ed850c1a-15"></a>...
+<a name="rest_code_b1fbcd3fcd864b5a82eeb309ed850c1a-16"></a>$
+</pre>
+<p>Nvidia has a daemon that is to be run at boot. To start the persistence
+daemon at boot, enable the <cite>nvidia-persistenced.service</cite>.</p>
+<pre class="code bash"><a name="rest_code_ebe51565f647458993f40823a3602fc9-1"></a>$ systemctl <span class="nb">enable</span> nvidia-persistenced.service
+<a name="rest_code_ebe51565f647458993f40823a3602fc9-2"></a>$ systemctl start nvidia-persistenced.service
+</pre>
+<p></p>
+<div class="alert alert-dismissible alert-info">
+ <p><strong> How to Avoid Screen Tearing </strong></p>
+</div>
+<p>Tearing can be avoided by forcing a full composition pipeline, regardless of the compositor you are using.</p>
+<p>In order to make this change permanent, We will need to edit nvidia
+configuration file. Since, by default there aren't any, we will first need to
+create one.</p>
+<pre class="code bash"><a name="rest_code_b432d8cd76d547a981e6921c8e093e07-1"></a>$ nvidia-xconfig
+<a name="rest_code_b432d8cd76d547a981e6921c8e093e07-2"></a>$ mv /etc/X11/xorg.cong /etc/X11/xorg.conf.d/20-nvidia.conf
+<a name="rest_code_b432d8cd76d547a981e6921c8e093e07-3"></a><span class="c1">#</span>
+<a name="rest_code_b432d8cd76d547a981e6921c8e093e07-4"></a><span class="c1"># Edit this file as follows:</span>
+<a name="rest_code_b432d8cd76d547a981e6921c8e093e07-5"></a>vim /etc/X11/xorg.conf.d/20-nvidia.conf
+<a name="rest_code_b432d8cd76d547a981e6921c8e093e07-6"></a><span class="c1"># -------------------------------------------</span>
+<a name="rest_code_b432d8cd76d547a981e6921c8e093e07-7"></a><span class="c1"># Section "Screen"</span>
+<a name="rest_code_b432d8cd76d547a981e6921c8e093e07-8"></a><span class="c1">#     Identifier     "Screen0"</span>
+<a name="rest_code_b432d8cd76d547a981e6921c8e093e07-9"></a><span class="c1">#     Option         "metamodes" "nvidia-auto-select +0+0 { ForceFullCompositionPipeline = On }"</span>
+<a name="rest_code_b432d8cd76d547a981e6921c8e093e07-10"></a><span class="c1">#     Option         "AllowIndirectGLXProtocol" "off"</span>
+<a name="rest_code_b432d8cd76d547a981e6921c8e093e07-11"></a><span class="c1">#     Option         "TripleBuffer" "on"</span>
+<a name="rest_code_b432d8cd76d547a981e6921c8e093e07-12"></a><span class="c1"># EndSection</span>
+<a name="rest_code_b432d8cd76d547a981e6921c8e093e07-13"></a><span class="o">[</span>...<span class="o">]</span>
+<a name="rest_code_b432d8cd76d547a981e6921c8e093e07-14"></a><span class="c1"># Section "Device"</span>
+<a name="rest_code_b432d8cd76d547a981e6921c8e093e07-15"></a><span class="c1">#     [...]</span>
+<a name="rest_code_b432d8cd76d547a981e6921c8e093e07-16"></a><span class="c1">#     Option         "TripleBuffer" "True"</span>
+<a name="rest_code_b432d8cd76d547a981e6921c8e093e07-17"></a><span class="c1">#     [...]</span>
+<a name="rest_code_b432d8cd76d547a981e6921c8e093e07-18"></a><span class="c1"># EndSection</span>
+<a name="rest_code_b432d8cd76d547a981e6921c8e093e07-19"></a><span class="c1"># [...]</span>
+<a name="rest_code_b432d8cd76d547a981e6921c8e093e07-20"></a><span class="c1"># ------------------------------------------------</span>
+</pre>
+<p>Specific for Plasma 5, we will also create the following file to avoid any tearing in Plasma.</p>
+<pre class="code bash"><a name="rest_code_4b1660ef621f4a45aae92d04a7d51984-1"></a>$ vim /etc/profile.d/kwin.sh
+<a name="rest_code_4b1660ef621f4a45aae92d04a7d51984-2"></a>$
+<a name="rest_code_4b1660ef621f4a45aae92d04a7d51984-3"></a>...
+<a name="rest_code_4b1660ef621f4a45aae92d04a7d51984-4"></a><span class="nb">export</span> <span class="nv">KWIN_TRIPLE_BUFFER</span><span class="o">=</span><span class="m">1</span>
+<a name="rest_code_4b1660ef621f4a45aae92d04a7d51984-5"></a>...
+</pre>
+<p></p>
+<div class="alert alert-dismissible alert-info">
+ <p><strong> How to Enable Better Resolution During Boot </strong></p>
+</div>
+<p>The kernel compiled in <em>efifb</em> module supports high-resolution nvidia
+console on EFI systems. This can enabled by enabling the DRM kernel
+mode setting. First, we will need to add <em>nvidia</em>, <em>nvidia_modeset</em>,
+<em>nvidia_uvm</em> and <em>nvidia_drm</em> to MODULES section of the
+<em>mkinitcpio.conf</em> file. We will also need to pass
+the <em>nvidia-drm.modeset=1</em> kernel parameter during the boot.</p>
+<pre class="code bash"><a name="rest_code_bc04a6ddd91743eabc4b3e4199bc4d68-1"></a>$ vim /etc/mkinitcpio.conf
+<a name="rest_code_bc04a6ddd91743eabc4b3e4199bc4d68-2"></a>$
+<a name="rest_code_bc04a6ddd91743eabc4b3e4199bc4d68-3"></a>...
+<a name="rest_code_bc04a6ddd91743eabc4b3e4199bc4d68-4"></a><span class="nv">MODULES</span><span class="o">=</span><span class="s2">"vfat aes_x86_64 crc32c-intel nvidia nvidia_modeset nvidia_uvm nvidia_drm"</span>
+<a name="rest_code_bc04a6ddd91743eabc4b3e4199bc4d68-5"></a>...
+<a name="rest_code_bc04a6ddd91743eabc4b3e4199bc4d68-6"></a>$
+<a name="rest_code_bc04a6ddd91743eabc4b3e4199bc4d68-7"></a>$ vim /boot/loader/entries/arch.conf
+<a name="rest_code_bc04a6ddd91743eabc4b3e4199bc4d68-8"></a>$
+<a name="rest_code_bc04a6ddd91743eabc4b3e4199bc4d68-9"></a>...
+<a name="rest_code_bc04a6ddd91743eabc4b3e4199bc4d68-10"></a>options ro <span class="nv">cryptdevice</span><span class="o">=</span><span class="nv">UUID</span><span class="o">=</span>:luks- <span class="nv">root</span><span class="o">=</span><span class="nv">UUID</span><span class="o">=</span> <span class="nv">rootfstype</span><span class="o">=</span>btrfs <span class="nv">rootflags</span><span class="o">=</span><span class="nv">subvol</span><span class="o">=</span>ROOT <span class="nv">cryptkey</span><span class="o">=</span><span class="nv">UUID</span><span class="o">=</span>:vfat:deepmind20170602 nvidia-drm.modeset<span class="o">=</span><span class="m">1</span>
+<a name="rest_code_bc04a6ddd91743eabc4b3e4199bc4d68-11"></a>...
+<a name="rest_code_bc04a6ddd91743eabc4b3e4199bc4d68-12"></a>$
+<a name="rest_code_bc04a6ddd91743eabc4b3e4199bc4d68-13"></a>$ mkinitcpio -p linux
+</pre>
+</div>
+<div class="section" id="plasma-5-installation-and-setup">
+<h3><a class="toc-backref" href="#id12">Plasma 5 Installation and Setup</a></h3>
+<p>We can now proceed with the installation of Plasma 5. In the process,
+we will also install some useful fonts.</p>
+<pre class="code bash"><a name="rest_code_82b6f80bbb3b474cac986450e3a69df2-1"></a>$ pacman -S ttf-hack ttf-anonymous-pro
+<a name="rest_code_82b6f80bbb3b474cac986450e3a69df2-2"></a>$ pacman -S ttf-dejavu ttf-freefont ttf-liberation
+<a name="rest_code_82b6f80bbb3b474cac986450e3a69df2-3"></a>$ pacman -S plasma-meta dolphin kdialog kfind
+<a name="rest_code_82b6f80bbb3b474cac986450e3a69df2-4"></a>$ pacman -S konsole gwenview okular spectacle kio-extras
+<a name="rest_code_82b6f80bbb3b474cac986450e3a69df2-5"></a>$ pacman -S kompare dolphin-plugins kwallet kwalletmanager
+<a name="rest_code_82b6f80bbb3b474cac986450e3a69df2-6"></a>$ pacman -S ark yakuake flite
+</pre>
+<p>We will also need to select proper themes for the Plasma 5 display manager <em>sddm</em> and then enable its <em>systemd</em> service.</p>
+<pre class="code bash"><a name="rest_code_24e07a03242144368231b0da5a138a64-1"></a>$ vim /etc/sddm.conf
+<a name="rest_code_24e07a03242144368231b0da5a138a64-2"></a>
+<a name="rest_code_24e07a03242144368231b0da5a138a64-3"></a>....
+<a name="rest_code_24e07a03242144368231b0da5a138a64-4"></a><span class="o">[</span>Theme<span class="o">]</span>
+<a name="rest_code_24e07a03242144368231b0da5a138a64-5"></a><span class="c1"># Current theme name</span>
+<a name="rest_code_24e07a03242144368231b0da5a138a64-6"></a><span class="nv">Current</span><span class="o">=</span>breeze
+<a name="rest_code_24e07a03242144368231b0da5a138a64-7"></a>
+<a name="rest_code_24e07a03242144368231b0da5a138a64-8"></a><span class="c1"># Cursor theme used in the greeter</span>
+<a name="rest_code_24e07a03242144368231b0da5a138a64-9"></a><span class="nv">CursorTheme</span><span class="o">=</span>breeze_cursors
+<a name="rest_code_24e07a03242144368231b0da5a138a64-10"></a>...
+<a name="rest_code_24e07a03242144368231b0da5a138a64-11"></a>
+<a name="rest_code_24e07a03242144368231b0da5a138a64-12"></a>$ systemctl <span class="nb">enable</span> sddm
+<a name="rest_code_24e07a03242144368231b0da5a138a64-13"></a>$ reboot
+</pre>
+<p>Once, we boot into the new system, we should have a basic Plasma 5 desktop
+waiting for you. In the following section, we will be do installation
+and modifications to the system that I prefer.</p>
+</div>
+</div>
+<div class="section" id="post-installation-setup">
+<h2><a class="toc-backref" href="#id13">Post Installation Setup</a></h2>
+<p>Plasma 5 provides a handy network manager applet. However, in order to
+use it properly we will need the NetworkManager service to be enabled.
+This applet allows user specific enabling of <em>wifi</em>, <em>ethernet</em> or
+even <em>VPN</em> connections.</p>
+<pre class="code bash"><a name="rest_code_e028cf5dd446466cacfeeb4471f858ac-1"></a>$ sudo pacman -S networkmanager
+<a name="rest_code_e028cf5dd446466cacfeeb4471f858ac-2"></a>$ systemctl <span class="nb">enable</span> NetworkManager.service
+<a name="rest_code_e028cf5dd446466cacfeeb4471f858ac-3"></a>$ systemctl start NetworkManager.service
+</pre>
+<p>We can also automate the <em>hostname</em> setup using the following <em>systemd</em> command:</p>
+<pre class="code bash"><a name="rest_code_05ae9f09f04e4100aabb75f6625aade5-1"></a>$ hostnamectl set-hostname <span class="nv">$HOSTNAME</span>
+</pre>
+<div class="section" id="selecting-pacman-mirrors">
+<h3><a class="toc-backref" href="#id14">Selecting pacman Mirrors</a></h3>
+<p>The <em>pacman</em> package provides a Bash script, <em>/usr/bin/rankmirrors</em>,
+which can be used to rank the mirrors according to their connection
+and opening speeds to take advantage of using the fastest local mirror.</p>
+<p>We will do this only on the US based mirrors. First make a copy of the
+mirrors list file and then delete all non-US mirrors. We will
+then <em>rankmirrors</em> script on the modified list to get the top 6
+mirrors for our regular use.</p>
+<pre class="code bash"><a name="rest_code_096adc4492cf4d8e8ae87fa48968e5c7-1"></a>$ cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
+<a name="rest_code_096adc4492cf4d8e8ae87fa48968e5c7-2"></a>$ cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.us
+<a name="rest_code_096adc4492cf4d8e8ae87fa48968e5c7-3"></a>$ vim /etc/pacman.d/mirrorlist.us
+<a name="rest_code_096adc4492cf4d8e8ae87fa48968e5c7-4"></a>....
+<a name="rest_code_096adc4492cf4d8e8ae87fa48968e5c7-5"></a><span class="c1"># Delete all non-US servers</span>
+<a name="rest_code_096adc4492cf4d8e8ae87fa48968e5c7-6"></a>....
+<a name="rest_code_096adc4492cf4d8e8ae87fa48968e5c7-7"></a>$ rankmirrors -n <span class="m">6</span> /etc/pacman.d/mirrorlist.us &gt; /etc/pacman.d/mirrorlist
+</pre>
+</div>
+<div class="section" id="setup-aur">
+<h3><a class="toc-backref" href="#id15">Setup AUR</a></h3>
+<p><a class="reference external" href="https://aur.archlinux.org/">AUR</a> is a community-driven repository for Arch users. This allows you to
+install many popular packages that are otherwise not available through
+core repositories.</p>
+<p>In order to make all types of installations uniform, I use <a class="reference external" href="https://github.com/rmarquis/pacaur">pacaur</a> as
+the preferred tool for installing all packages. One the biggest
+advantages of <em>pacaur</em> is that is uses exactly the same options that
+regular <em>pacman</em> uses.</p>
+<p>In order to install <em>pacuar</em>, first install dependencies.</p>
+<pre class="code bash"><a name="rest_code_1126fa7cf0064751b3df0e3b0c4d4900-1"></a>$ sudo pacman -S expac yajl curl gnupg --noconfirm
+</pre>
+<p>Create a temp directory for building packages:</p>
+<pre class="code bash"><a name="rest_code_7b35c3a89b1f4f7ea84b5cdedd1ca6bd-1"></a>$ mkdir ~/temp
+<a name="rest_code_7b35c3a89b1f4f7ea84b5cdedd1ca6bd-2"></a>$ cp ~ temp
+</pre>
+<p>Install <em>cower</em> first and then <em>pacaur</em>:</p>
+<pre class="code bash"><a name="rest_code_f2eff94a5f424321a238bac97bc91e7f-1"></a>$ gpg --recv-keys --keyserver hkp://pgp.mit.edu 1EB2638FF56C0C53
+<a name="rest_code_f2eff94a5f424321a238bac97bc91e7f-2"></a>$ curl -o PKGBUILD https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h<span class="o">=</span>cower
+<a name="rest_code_f2eff94a5f424321a238bac97bc91e7f-3"></a>$ makepkg -i PKGBUILD --noconfirm
+<a name="rest_code_f2eff94a5f424321a238bac97bc91e7f-4"></a>
+<a name="rest_code_f2eff94a5f424321a238bac97bc91e7f-5"></a>$ curl -o PKGBUILD https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h<span class="o">=</span>pacaur
+<a name="rest_code_f2eff94a5f424321a238bac97bc91e7f-6"></a>$ makepkg -i PKGBUILD --noconfirm
+<a name="rest_code_f2eff94a5f424321a238bac97bc91e7f-7"></a>
+<a name="rest_code_f2eff94a5f424321a238bac97bc91e7f-8"></a><span class="c1"># Finally cleanup and remove the temp directory</span>
+<a name="rest_code_f2eff94a5f424321a238bac97bc91e7f-9"></a>$ <span class="nb">cd</span> ~
+<a name="rest_code_f2eff94a5f424321a238bac97bc91e7f-10"></a>$ rm -r ~/temp
+</pre>
+</div>
+<div class="section" id="audio-setup">
+<h3><a class="toc-backref" href="#id16">Audio Setup</a></h3>
+<p>This is pretty simple. Install following packages and you should be done:</p>
+<pre class="code bash"><a name="rest_code_36234695e67b478ca54c91b9a69a6c00-1"></a>$ sudo pacaur -S alsa-utils pulseaudio pulseaudio-alsa mpv
+<a name="rest_code_36234695e67b478ca54c91b9a69a6c00-2"></a>$ sudo pacaur -S libcanberra-pulse libcanberra-gstreamer
+<a name="rest_code_36234695e67b478ca54c91b9a69a6c00-3"></a>$ sudo pacaur -S vlc-qt5
+</pre>
+<p>Now start the <em>pulseaudio</em> service.</p>
+<pre class="code bash"><a name="rest_code_77df9a1cc459457e887669d6b8851f47-1"></a>$ systemctl --user <span class="nb">enable</span> pulseaudio.socket
+</pre>
+</div>
+<div class="section" id="web-browsers">
+<h3><a class="toc-backref" href="#id17">Web Browsers</a></h3>
+<p>My preferred choice of browsers is <em>google chrome</em>. However, it is also good to have the KDE native <em>qupzilla</em>.</p>
+<pre class="code bash"><a name="rest_code_6fdc8d83515545c1acdc92aee670389c-1"></a>$ sudo pacaur -S google-chrome qupzilla
+</pre>
+<p><em>Profile-sync-daemon (psd)</em> is a tiny pseudo-daemon designed to manage browser
+profile(s) in <em>tmpfs</em> and to periodically sync back to the physical disc
+(HDD/SSD). This is accomplished by an innovative use of <em>rsync</em> to maintain
+synchronization between a <em>tmpfs</em> copy and media-bound backup of the browser
+profile(s). These features of <em>psd</em> leads to following benefits:</p>
+<ul class="simple">
+<li>Transparent user experience</li>
+<li>Reduced wear to physical drives, and</li>
+<li>Speed</li>
+</ul>
+<p>To setup. first install the <em>profile-sync-daemon</em> package.</p>
+<pre class="code bash"><a name="rest_code_285676ccb1de4aa9bf14b4cd747c0cbe-1"></a>sudo pacaur -S profile-sync-daemon
+</pre>
+<p>Run <em>psd</em> the first time which will create a configuration file at
+<cite>$XDG_CONFIG_HOME/psd/psd.conf</cite> which contains all settings.</p>
+<pre class="code bash"><a name="rest_code_ad783d92b4a0406dbedb96f36e0b2713-1"></a>$ psd
+<a name="rest_code_ad783d92b4a0406dbedb96f36e0b2713-2"></a><span class="c1"># First time running psd so please edit</span>
+<a name="rest_code_ad783d92b4a0406dbedb96f36e0b2713-3"></a><span class="c1"># /home/$USERNAME/.config/psd/psd.conf to your liking and run again.</span>
+</pre>
+<p>In the config file change the BROWSERS variables to "<em>google-chrome qupzilla</em>".
+Also, enable the use of <em>overlayfs</em> to improve sync speed and to use a smaller
+memory footprint. Do this in the <em>USE_OVERLAYFS="yes"</em> variable.</p>
+<p><span class="highlight-short-warning">
+Note: USE_OVERLAYFS feature requires a Linux kernel version of 3.18.0 or greater to work.
+</span></p>
+<p>In order to use the OVERLAYFS feature, you will also need to give <em>sudo</em> permissions to psd-helper as follows (replace $USERNAME accordingly):</p>
+<pre class="code bash"><a name="rest_code_a4d3dea1418c4db8a9e679ca1eed7b4f-1"></a>$ vim /etc/sudoers
+<a name="rest_code_a4d3dea1418c4db8a9e679ca1eed7b4f-2"></a>...
+<a name="rest_code_a4d3dea1418c4db8a9e679ca1eed7b4f-3"></a><span class="nv">$USERNAME</span> <span class="nv">ALL</span><span class="o">=(</span>ALL<span class="o">)</span> NOPASSWD: /usr/bin/psd-overlay-helper
+<a name="rest_code_a4d3dea1418c4db8a9e679ca1eed7b4f-4"></a>...
+</pre>
+<p>Verify the working of configuration using the preview mode of psd:</p>
+<pre class="code bash"><a name="rest_code_1cc0ad7eefca464799f5c059f6dc2616-1"></a>psd p
+</pre>
+<p><em>Google Chrome</em> by default uses <em>kdewallet</em> to manage passwords, where as <em>Qupzilla</em> does not. You can change that in its settings.</p>
+</div>
+<div class="section" id="git-setup">
+<h3><a class="toc-backref" href="#id18">git Setup</a></h3>
+<p>Install git and setup some global options as below:</p>
+<pre class="code bash"><a name="rest_code_6bac67131e984bb980ff05db47017403-1"></a>$ sudo pacaur -S git
+<a name="rest_code_6bac67131e984bb980ff05db47017403-2"></a>$
+<a name="rest_code_6bac67131e984bb980ff05db47017403-3"></a>$ vim ~/.gitconfig
+<a name="rest_code_6bac67131e984bb980ff05db47017403-4"></a>...
+<a name="rest_code_6bac67131e984bb980ff05db47017403-5"></a><span class="o">[</span>user<span class="o">]</span>
+<a name="rest_code_6bac67131e984bb980ff05db47017403-6"></a>    <span class="nv">name</span> <span class="o">=</span> Sadanand Singh
+<a name="rest_code_6bac67131e984bb980ff05db47017403-7"></a>    <span class="nv">email</span> <span class="o">=</span> EMAIL_ADDRESS
+<a name="rest_code_6bac67131e984bb980ff05db47017403-8"></a><span class="o">[</span>color<span class="o">]</span>
+<a name="rest_code_6bac67131e984bb980ff05db47017403-9"></a>    <span class="nv">ui</span> <span class="o">=</span> auto
+<a name="rest_code_6bac67131e984bb980ff05db47017403-10"></a><span class="o">[</span>status<span class="o">]</span>
+<a name="rest_code_6bac67131e984bb980ff05db47017403-11"></a>    <span class="nv">showuntrackedfiles</span> <span class="o">=</span> no
+<a name="rest_code_6bac67131e984bb980ff05db47017403-12"></a><span class="o">[</span>alias<span class="o">]</span>
+<a name="rest_code_6bac67131e984bb980ff05db47017403-13"></a>    <span class="nv">gist</span> <span class="o">=</span> log --graph --oneline --all --decorate --date-order
+<a name="rest_code_6bac67131e984bb980ff05db47017403-14"></a>    <span class="nv">find</span> <span class="o">=</span> log --graph --oneline --all --decorate --date-order --regexp-ignore-case --extended-regexp --grep
+<a name="rest_code_6bac67131e984bb980ff05db47017403-15"></a>    <span class="nv">rfind</span> <span class="o">=</span> log --graph --oneline --all --decorate --date-order --regexp-ignore-case --extended-regexp --invert-grep --grep
+<a name="rest_code_6bac67131e984bb980ff05db47017403-16"></a>    <span class="nv">search</span> <span class="o">=</span> grep --line-number --ignore-case -E -I
+<a name="rest_code_6bac67131e984bb980ff05db47017403-17"></a><span class="o">[</span>pager<span class="o">]</span>
+<a name="rest_code_6bac67131e984bb980ff05db47017403-18"></a>    <span class="nv">status</span> <span class="o">=</span> <span class="nb">true</span>
+<a name="rest_code_6bac67131e984bb980ff05db47017403-19"></a><span class="o">[</span>push<span class="o">]</span>
+<a name="rest_code_6bac67131e984bb980ff05db47017403-20"></a>    <span class="nv">default</span> <span class="o">=</span> matching
+<a name="rest_code_6bac67131e984bb980ff05db47017403-21"></a><span class="o">[</span>merge<span class="o">]</span>
+<a name="rest_code_6bac67131e984bb980ff05db47017403-22"></a>    <span class="nv">tool</span> <span class="o">=</span> meld
+<a name="rest_code_6bac67131e984bb980ff05db47017403-23"></a><span class="o">[</span>diff<span class="o">]</span>
+<a name="rest_code_6bac67131e984bb980ff05db47017403-24"></a>    <span class="nv">tool</span> <span class="o">=</span> meld
+<a name="rest_code_6bac67131e984bb980ff05db47017403-25"></a>
+<a name="rest_code_6bac67131e984bb980ff05db47017403-26"></a><span class="o">[</span>help<span class="o">]</span>
+<a name="rest_code_6bac67131e984bb980ff05db47017403-27"></a>    <span class="nv">autocorrect</span> <span class="o">=</span> <span class="m">1</span>
+<a name="rest_code_6bac67131e984bb980ff05db47017403-28"></a>...
+</pre>
+</div>
+<div class="section" id="ssh-setup">
+<h3><a class="toc-backref" href="#id19">ssh Setup</a></h3>
+<p>To get started first install the <em>openssh</em> package.</p>
+<pre class="code bash"><a name="rest_code_2dc04f5a93c044fea14a62c60797eefe-1"></a>sudo pacaur -S openssh
+</pre>
+<p>The ssh server can be started using the <em>systemd</em> service. Before starting the service, however, we want to generate ssh keys and setup the server for login based only on keys.</p>
+<pre class="code bash"><a name="rest_code_92287b46c1cc45809ac72e22251a7572-1"></a>$ ssh-keygen -t ed25519
+<a name="rest_code_92287b46c1cc45809ac72e22251a7572-2"></a>$
+<a name="rest_code_92287b46c1cc45809ac72e22251a7572-3"></a><span class="c1"># Create a .ssh/config file for rmate usage in sublime text</span>
+<a name="rest_code_92287b46c1cc45809ac72e22251a7572-4"></a>$ vim ~/.ssh/config
+<a name="rest_code_92287b46c1cc45809ac72e22251a7572-5"></a>...
+<a name="rest_code_92287b46c1cc45809ac72e22251a7572-6"></a>RemoteForward <span class="m">52698</span> localhost:52698
+<a name="rest_code_92287b46c1cc45809ac72e22251a7572-7"></a>...
+<a name="rest_code_92287b46c1cc45809ac72e22251a7572-8"></a>$
+<a name="rest_code_92287b46c1cc45809ac72e22251a7572-9"></a><span class="c1"># Create ~/.ssh/authorized_keys file with list of machines that</span>
+<a name="rest_code_92287b46c1cc45809ac72e22251a7572-10"></a><span class="c1"># are allowed to login to this machine.</span>
+<a name="rest_code_92287b46c1cc45809ac72e22251a7572-11"></a>$ touch ~/.ssh/authorized_keys
+<a name="rest_code_92287b46c1cc45809ac72e22251a7572-12"></a>$
+<a name="rest_code_92287b46c1cc45809ac72e22251a7572-13"></a><span class="c1"># Finally edit the /etc/ssh/sshd_config</span>
+<a name="rest_code_92287b46c1cc45809ac72e22251a7572-14"></a><span class="c1"># file to disable Password based logins</span>
+<a name="rest_code_92287b46c1cc45809ac72e22251a7572-15"></a>$ sudo vim /etc/ssh/sshd_config
+<a name="rest_code_92287b46c1cc45809ac72e22251a7572-16"></a>...
+<a name="rest_code_92287b46c1cc45809ac72e22251a7572-17"></a>PasswordAuthentication no
+<a name="rest_code_92287b46c1cc45809ac72e22251a7572-18"></a>...
+</pre>
+<p>Furthermore, before enabling the <em>sshd</em> service, please also ensure to copy your keys to all your relevant other servers and places like github.</p>
+<p>We can now use <em>systemd</em> to start the ssh service.</p>
+<pre class="code bash"><a name="rest_code_6555897c1a7a4ff6bac5a0038a3e86b7-1"></a>$ systemctl <span class="nb">enable</span> sshd.socket
+<a name="rest_code_6555897c1a7a4ff6bac5a0038a3e86b7-2"></a>$ systemctl start sshd.socket
+</pre>
+</div>
+<div class="section" id="zsh-setup">
+<h3><a class="toc-backref" href="#id20">zsh Setup</a></h3>
+<p>During the user creation, we already installed the <em>zsh</em> shell.  We have
+also activated a basic setup at first login by the user.</p>
+<p>In this section, we will be installing my variation of <a class="reference external" href="https://github.com/sorin-ionescu/prezto">zprezto</a> package
+to manage <em>zsh</em> configurations.</p>
+<p>First install the main zprezto package:</p>
+<pre class="code bash"><a name="rest_code_fac9461d5aef4984b8623ec41aac0302-1"></a>$ git clone --recursive https://github.com/sorin-ionescu/prezto.git <span class="s2">"</span><span class="si">${</span><span class="nv">ZDOTDIR</span><span class="k">:-</span><span class="nv">$HOME</span><span class="si">}</span><span class="s2">/.zprezto"</span>
+<a name="rest_code_fac9461d5aef4984b8623ec41aac0302-2"></a>$
+<a name="rest_code_fac9461d5aef4984b8623ec41aac0302-3"></a>$ setopt EXTENDED_GLOB
+<a name="rest_code_fac9461d5aef4984b8623ec41aac0302-4"></a>$ <span class="k">for</span> rcfile in <span class="s2">"</span><span class="si">${</span><span class="nv">ZDOTDIR</span><span class="k">:-</span><span class="nv">$HOME</span><span class="si">}</span><span class="s2">"</span>/.zprezto/runcoms/^README.md<span class="o">(</span>.N<span class="o">)</span><span class="p">;</span>
+<a name="rest_code_fac9461d5aef4984b8623ec41aac0302-5"></a><span class="k">do</span>
+<a name="rest_code_fac9461d5aef4984b8623ec41aac0302-6"></a>    ln -sf <span class="s2">"</span><span class="nv">$rcfile</span><span class="s2">"</span> <span class="s2">"</span><span class="si">${</span><span class="nv">ZDOTDIR</span><span class="k">:-</span><span class="nv">$HOME</span><span class="si">}</span><span class="s2">/.</span><span class="si">${</span><span class="nv">rcfile</span><span class="p">:</span><span class="nv">t</span><span class="si">}</span><span class="s2">"</span>
+<a name="rest_code_fac9461d5aef4984b8623ec41aac0302-7"></a><span class="k">done</span>
+<a name="rest_code_fac9461d5aef4984b8623ec41aac0302-8"></a>$
+</pre>
+<p>Now, We will add my version of prezto to the same git repo.</p>
+<pre class="code bash"><a name="rest_code_5dd85922916940079159d19c082197ba-1"></a>$ <span class="nb">cd</span> ~/.zprezto
+<a name="rest_code_5dd85922916940079159d19c082197ba-2"></a>$ git remote add personal git@github.com:sadanand-singh/My-Zprezto.git
+<a name="rest_code_5dd85922916940079159d19c082197ba-3"></a>$ git pull personal arch
+<a name="rest_code_5dd85922916940079159d19c082197ba-4"></a>$ git checkout arch
+<a name="rest_code_5dd85922916940079159d19c082197ba-5"></a>$ git merge master
+</pre>
+<p>And we are all setup for using <em>zsh</em>!</p>
+</div>
+<div class="section" id="gpg-setup">
+<h3><a class="toc-backref" href="#id21">gpg Setup</a></h3>
+<p>We have already installed the <em>gnupg</em> package during the <em>pacaur</em> installation. We will first either import our already existing private keys(s) or create one.</p>
+<p>Once We have our keys setup, edit keys to change trust level.</p>
+<p>Once all keys are setup, we need to gpg-agent configuration file:</p>
+<pre class="code bash"><a name="rest_code_0690fb0019e3469c8fd788036012db47-1"></a>$ vim ~/.gnupg/gpg-agent.conf
+<a name="rest_code_0690fb0019e3469c8fd788036012db47-2"></a>..
+<a name="rest_code_0690fb0019e3469c8fd788036012db47-3"></a>enable-ssh-support
+<a name="rest_code_0690fb0019e3469c8fd788036012db47-4"></a>default-cache-ttl-ssh <span class="m">10800</span>
+<a name="rest_code_0690fb0019e3469c8fd788036012db47-5"></a>default-cache-ttl <span class="m">10800</span>
+<a name="rest_code_0690fb0019e3469c8fd788036012db47-6"></a>max-cache-ttl-ssh <span class="m">10800</span>
+<a name="rest_code_0690fb0019e3469c8fd788036012db47-7"></a>...
+<a name="rest_code_0690fb0019e3469c8fd788036012db47-8"></a>$
+</pre>
+<p>Also, add following to your <em>.zshrc</em> or <em>.bashrc</em> file. If you are using my zprezto setup, you already have this!</p>
+<pre class="code bash"><a name="rest_code_98684cd4d14947938fe53ce7839e486f-1"></a>$ vim ~/.zshrc
+<a name="rest_code_98684cd4d14947938fe53ce7839e486f-2"></a>...
+<a name="rest_code_98684cd4d14947938fe53ce7839e486f-3"></a><span class="c1"># set GPG TTY</span>
+<a name="rest_code_98684cd4d14947938fe53ce7839e486f-4"></a><span class="nb">export</span> <span class="nv">GPG_TTY</span><span class="o">=</span><span class="k">$(</span>tty<span class="k">)</span>
+<a name="rest_code_98684cd4d14947938fe53ce7839e486f-5"></a>
+<a name="rest_code_98684cd4d14947938fe53ce7839e486f-6"></a><span class="c1"># Refresh gpg-agent tty in case user switches into an X Session</span>
+<a name="rest_code_98684cd4d14947938fe53ce7839e486f-7"></a>gpg-connect-agent updatestartuptty /bye &gt;/dev/null
+<a name="rest_code_98684cd4d14947938fe53ce7839e486f-8"></a>
+<a name="rest_code_98684cd4d14947938fe53ce7839e486f-9"></a><span class="c1"># Set SSH to use gpg-agent</span>
+<a name="rest_code_98684cd4d14947938fe53ce7839e486f-10"></a><span class="nb">unset</span> SSH_AGENT_PID
+<a name="rest_code_98684cd4d14947938fe53ce7839e486f-11"></a><span class="k">if</span> <span class="o">[</span> <span class="s2">"</span><span class="si">${</span><span class="nv">gnupg_SSH_AUTH_SOCK_by</span><span class="k">:-</span><span class="nv">0</span><span class="si">}</span><span class="s2">"</span> -ne <span class="nv">$$</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+<a name="rest_code_98684cd4d14947938fe53ce7839e486f-12"></a>  <span class="nb">export</span> <span class="nv">SSH_AUTH_SOCK</span><span class="o">=</span><span class="s2">"/run/user/</span><span class="nv">$UID</span><span class="s2">/gnupg/S.gpg-agent.ssh"</span>
+<a name="rest_code_98684cd4d14947938fe53ce7839e486f-13"></a><span class="k">fi</span>
+<a name="rest_code_98684cd4d14947938fe53ce7839e486f-14"></a>...
+<a name="rest_code_98684cd4d14947938fe53ce7839e486f-15"></a>$
+</pre>
+<p>Now, simply start the following systemd sockets as user:</p>
+<pre class="code bash"><a name="rest_code_8c4b01cd33b24e019c5d6f98c2f40bbb-1"></a>$ systemctl --user <span class="nb">enable</span> gpg-agent.socket
+<a name="rest_code_8c4b01cd33b24e019c5d6f98c2f40bbb-2"></a>$ systemctl --user <span class="nb">enable</span> gpg-agent-ssh.socket
+<a name="rest_code_8c4b01cd33b24e019c5d6f98c2f40bbb-3"></a>$ systemctl --user <span class="nb">enable</span> dirmngr.socket
+<a name="rest_code_8c4b01cd33b24e019c5d6f98c2f40bbb-4"></a>$ systemctl --user <span class="nb">enable</span> gpg-agent-browser.socket
+<a name="rest_code_8c4b01cd33b24e019c5d6f98c2f40bbb-5"></a>$
+<a name="rest_code_8c4b01cd33b24e019c5d6f98c2f40bbb-6"></a>$ systemctl --user start gpg-agent.socket
+<a name="rest_code_8c4b01cd33b24e019c5d6f98c2f40bbb-7"></a>$ systemctl --user start gpg-agent-ssh.socket
+<a name="rest_code_8c4b01cd33b24e019c5d6f98c2f40bbb-8"></a>$ systemctl --user start dirmngr.socket
+<a name="rest_code_8c4b01cd33b24e019c5d6f98c2f40bbb-9"></a>$ systemctl --user start gpg-agent-browser.socket
+</pre>
+<p>Finally add your ssh key to ssh agent.</p>
+<pre class="code bash"><a name="rest_code_30c1ea78883c464695f37768550b24ef-1"></a>$ ssh-add ~/.ssh/id_ed25519
+</pre>
+</div>
+<div class="section" id="user-wallpapers">
+<h3><a class="toc-backref" href="#id22">User Wallpapers</a></h3>
+<p>You can store your own wallpapers at the following location. A good place to get some good wallpapers are <a class="reference external" href="https://github.com/KaOSx/kaos-wallpapers">KaOS Wallpapers</a>.</p>
+<pre class="code bash"><a name="rest_code_eda86620dd1d4fa4800cb1d7226d7582-1"></a>$ mkdir -p $ <span class="nv">$HOME</span>/.local/wallpapers
+<a name="rest_code_eda86620dd1d4fa4800cb1d7226d7582-2"></a>$ cp SOME_JPEG <span class="nv">$HOME</span>/.local/wallpapers/
+</pre>
+</div>
+<div class="section" id="conky-setup">
+<h3><a class="toc-backref" href="#id23">conky Setup</a></h3>
+<p>First installed the <em>conky</em> package with lua and nvidia support:</p>
+<pre class="code bash"><a name="rest_code_71d486a8e826430e8e45889712d2f45b-1"></a>$ paci conky-lua-nv
+</pre>
+<p>Then, copy your conky configuration at <cite>$HOME/.config/conky/conky.conf</cite>.</p>
+<pre class="code bash"><a name="rest_code_d491aec0f4644d5d9e0c0b61b288e24c-1"></a>$ mkdir -p <span class="nv">$HOME</span>/.config/conky
+<a name="rest_code_d491aec0f4644d5d9e0c0b61b288e24c-2"></a><span class="c1"># Generate sample conky config file</span>
+<a name="rest_code_d491aec0f4644d5d9e0c0b61b288e24c-3"></a>$ conky -C &gt; <span class="nv">$HOME</span>/.config/conky/conky.conf
+<a name="rest_code_d491aec0f4644d5d9e0c0b61b288e24c-4"></a>$
+<a name="rest_code_d491aec0f4644d5d9e0c0b61b288e24c-5"></a><span class="c1"># start conky in background</span>
+<a name="rest_code_d491aec0f4644d5d9e0c0b61b288e24c-6"></a>$ conky <span class="p">&amp;</span>
+</pre>
+<p>Here, I have also put my simple configuration file:</p>
+<pre class="code lua"><a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-1"></a><span class="n">conky</span><span class="p">.</span><span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-2"></a>        <span class="n">own_window</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-3"></a>        <span class="n">background</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-4"></a>        <span class="n">own_window_transparent</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-5"></a>        <span class="n">own_window_type</span> <span class="o">=</span> <span class="s1">'normal'</span><span class="p">,</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-6"></a>        <span class="n">own_window_class</span> <span class="o">=</span> <span class="s1">'Conky'</span><span class="p">,</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-7"></a>        <span class="n">own_window_hints</span> <span class="o">=</span> <span class="s1">'undecorated,below,sticky,skip_taskbar,skip_pager'</span><span class="p">,</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-8"></a>        <span class="n">own_window_argb_visual</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-9"></a>        <span class="n">own_window_argb_value</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-10"></a>        <span class="n">out_to_console</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-11"></a>        <span class="n">use_xft</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-12"></a>        <span class="n">font</span> <span class="o">=</span> <span class="s1">'hack:size=10'</span><span class="p">,</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-13"></a>        <span class="n">update_interval</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-14"></a>        <span class="n">cpu_avg_samples</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-15"></a>        <span class="n">net_avg_samples</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-16"></a>        <span class="n">double_buffer</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-17"></a>        <span class="n">maximum_width</span> <span class="o">=</span> <span class="mi">860</span><span class="p">,</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-18"></a>        <span class="n">draw_shades</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-19"></a>        <span class="n">draw_outline</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-20"></a>        <span class="n">draw_borders</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-21"></a>        <span class="n">stippled_borders</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-22"></a>        <span class="n">border_width</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-23"></a>        <span class="n">default_color</span> <span class="o">=</span> <span class="s1">'white'</span><span class="p">,</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-24"></a>        <span class="n">default_shade_color</span> <span class="o">=</span> <span class="s1">'black'</span><span class="p">,</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-25"></a>        <span class="n">default_outline_color</span> <span class="o">=</span> <span class="s1">'black'</span><span class="p">,</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-26"></a>        <span class="n">alignment</span> <span class="o">=</span> <span class="s1">'top_left'</span><span class="p">,</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-27"></a>        <span class="n">gap_x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-28"></a>        <span class="n">gap_y</span> <span class="o">=</span> <span class="mi">120</span><span class="p">,</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-29"></a>        <span class="n">use_spacer</span> <span class="o">=</span> <span class="s1">'left'</span><span class="p">,</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-30"></a>        <span class="n">no_buffers</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-31"></a>        <span class="n">uppercase</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-32"></a>        <span class="n">double_buffer</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-33"></a>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-34"></a><span class="p">};</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-35"></a>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-36"></a><span class="n">conky</span><span class="p">.</span><span class="n">text</span> <span class="o">=</span> <span class="s">[[</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-37"></a>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-38"></a>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-39"></a><span class="s">${color}${alignc}${time %A %B %d %Y | %H:%M:%S}</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-40"></a>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-41"></a><span class="s">${alignc}$color Linux $kernel on $machine</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-42"></a>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-43"></a><span class="s">${color}${alignc}${color yellow}Uptime: ${color}$uptime | ${color yellow}Load: $color$loadavg${color yellow}</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-44"></a>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-45"></a><span class="s">${color #656565}$stippled_hr$color</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-46"></a><span class="s">${alignc}${color yellow}${execi 1000 cat /proc/cpuinfo | grep 'model name' | sed -e 's/model name.*: //'| uniq}</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-47"></a>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-48"></a><span class="s">${alignc}${color yellow}Total CPU Usage: ${color}${cpu cpu0}%</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-49"></a><span class="s">${alignc}${color cyan}${cpubar cpu0 6,150}$color</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-50"></a>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-51"></a><span class="s">${color yellow}Core: ${color}1 ${color cyan}${cpubar cpu1 6,270}$color ${color white}${exec sensors | grep 'Core 0' | cut -c17-23}$color $alignc</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-52"></a><span class="s">${color yellow}Core: ${color}2 ${color cyan}${cpubar cpu2 6,270}$color ${color white}${exec sensors | grep 'Core 1' | cut -c17-23}$color $alignc</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-53"></a><span class="s">${color yellow}Core: ${color}3 ${color cyan}${cpubar cpu3 6,270}$color ${color white}${exec sensors | grep 'Core 2' | cut -c17-23}$color $alignc</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-54"></a><span class="s">${color yellow}Core: ${color}4 ${color cyan}${cpubar cpu4 6,270}$color ${color white}${exec sensors | grep 'Core 3' | cut -c17-23}$color $alignc</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-55"></a>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-56"></a><span class="s">${color #656565}$stippled_hr$color</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-57"></a><span class="s">${alignc}${color yellow}${execi 1000000 nvidia-smi --query-gpu="name,driver_version" --format="csv,noheader"}</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-58"></a>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-59"></a><span class="s">${color yellow}Total GPU Usage: $alignr ${color}${color white}${exec nvidia-smi --query-gpu="utilization.gpu" --format="csv,noheader"}$color</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-60"></a><span class="s">${color yellow}Total GPU Memory Utilization: ${alignr} ${color}${color white}${exec nvidia-smi --query-gpu="utilization.memory" --format="csv,noheader"}$color</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-61"></a><span class="s">${color yellow}Total GPU Memory: ${color}${alignr}Total: ${color white}${execi 1000000 nvidia-smi --query-gpu="memory.total" --format="csv,noheader"} ${color yellow}Free: ${color}${color white}${exec nvidia-smi --query-gpu="memory.free" --format="csv,noheader"}$color</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-62"></a><span class="s">${color yellow}GPU Temperature: $alignr ${color}${color white}${nvidia temp}°C$color</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-63"></a><span class="s">${color yellow}GPU Fan Speed: $alignr ${color}${color white}${exec nvidia-smi --query-gpu="fan.speed" --format="csv,noheader"}$color</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-64"></a>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-65"></a>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-66"></a><span class="s">${color #656565}$stippled_hr$color</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-67"></a><span class="s">${alignc}${color yellow}Disks</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-68"></a>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-69"></a><span class="s">${color yellow}Disk IO: $color ${diskio /dev/sda} ${alignr}${color yellow}Filesystem: ${color}${fs_type}</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-70"></a>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-71"></a><span class="s">${color yellow}RAM  ${alignc}                ${color}$mem / $memmax ${alignr}${memperc}% Used</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-72"></a><span class="s">${color cyan}${membar 6,318}</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-73"></a><span class="s">${color yellow}/ ${alignc}               ${color}${fs_used} / ${fs_size} ${alignr}${fs_used_perc /}% Used</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-74"></a><span class="s">${color cyan}${fs_bar 6,318 /}</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-75"></a><span class="s">${color yellow}/media ${alignc}               ${color}${fs_used /media} / ${fs_size /media} ${alignr}${fs_used_perc /media}% Used</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-76"></a><span class="s">${color cyan}${fs_bar 6,318 /media}</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-77"></a><span class="s">${color yellow}/data ${alignc}               ${color}${fs_used /data} / ${fs_size /data} ${alignr}${fs_used_perc /data}% Used</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-78"></a><span class="s">${color cyan}${fs_bar 6,318 /data}</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-79"></a>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-80"></a><span class="s">${color #656565}$stippled_hr$color</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-81"></a><span class="s">${alignc}${color yellow}Processes</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-82"></a>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-83"></a><span class="s">${color yellow}  PID            Process${alignr}Memory        CPU</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-84"></a><span class="s">${color}${top_mem pid 1}      ${top_mem name 1}${alignr}${top_mem mem_res 1}     ${top_mem cpu 1}%</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-85"></a><span class="s">${color}${top_mem pid 2}      ${top_mem name 2}${alignr}${top_mem mem_res 2}     ${top_mem cpu 2}%</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-86"></a><span class="s">${color}${top_mem pid 3}      ${top_mem name 3}${alignr}${top_mem mem_res 3}     ${top_mem cpu 3}%</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-87"></a><span class="s">${color}${top_mem pid 4}      ${top_mem name 4}${alignr}${top_mem mem_res 4}     ${top_mem cpu 4}%</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-88"></a><span class="s">${color}${top_mem pid 5}      ${top_mem name 5}${alignr}${top_mem mem_res 5}     ${top_mem cpu 5}%</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-89"></a><span class="s">${color}${top_mem pid 6}      ${top_mem name 6}${alignr}${top_mem mem_res 6}     ${top_mem cpu 6}%</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-90"></a>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-91"></a><span class="s">${color #656565}$stippled_hr$color</span>
+<a name="rest_code_6b78da72ee2548979e13dc4f59f9df45-92"></a><span class="s">]]</span>
+</pre>
+</div>
+<div class="section" id="software-installations">
+<h3><a class="toc-backref" href="#id24">Software Installations</a></h3>
+<p>Here is a running list of other common softwares that I install.</p>
+<pre class="code bash"><a name="rest_code_2f9a71d88ee24f2994bcd02d7b0a912e-1"></a>$ paci spotify tmux tree dropbox thesilver_searcher
+<a name="rest_code_2f9a71d88ee24f2994bcd02d7b0a912e-2"></a>$ paci digikam imagemagick
+</pre>
+<p>I also add the following repository to install the <a class="reference external" href="https://www.sublimetext.com/">Sublime Text</a>
+editor. Refer to <a class="reference external" href="../sublimetext/">my previous post</a> for details on
+setting up Sublime Text.</p>
+<pre class="code bash"><a name="rest_code_5d769b5b9108476aa1a006c0239e3795-1"></a>$ curl -O https://download.sublimetext.com/sublimehq-pub.gpg
+<a name="rest_code_5d769b5b9108476aa1a006c0239e3795-2"></a>$ sudo pacman-key --add sublimehq-pub.gpg
+<a name="rest_code_5d769b5b9108476aa1a006c0239e3795-3"></a>$ sudo pacman-key --lsign-key 8A8F901A
+<a name="rest_code_5d769b5b9108476aa1a006c0239e3795-4"></a>$ rm sublimehq-pub.gpg
+<a name="rest_code_5d769b5b9108476aa1a006c0239e3795-5"></a>$
+<a name="rest_code_5d769b5b9108476aa1a006c0239e3795-6"></a>$ <span class="nb">echo</span> -e <span class="s2">"\n[sublime-text]\nServer = https://download.sublimetext.com/arch/dev/x86_64"</span> <span class="p">|</span> sudo tee -a /etc/pacman.conf
+</pre>
+<p>Now we can install <em>sublime-text</em> as:</p>
+<pre class="code bash"><a name="rest_code_d0c488c19c9545609cee50335c4dafbe-1"></a>$ paci sublime-text/sublime-text
+</pre>
+<p>This brings us to the conclusion of this installation guide. Hope many
+of you find it useful. Please drop your comments below if you have any
+suggestions for improvements etc.</p>
+</div>
+</div>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../../categories/arch-linux/" rel="tag">Arch Linux</a></li>
+            <li><a class="tag p-category" href="../../categories/kde/" rel="tag">KDE</a></li>
+            <li><a class="tag p-category" href="../../categories/linux/" rel="tag">Linux</a></li>
+            <li><a class="tag p-category" href="../../categories/plasma-5/" rel="tag">Plasma 5</a></li>
+        </ul>
+<ul class="pager hidden-print">
+<li class="previous">
+                <a href="../sublimetext/" rel="prev" title="Sublime Text Setup">Previous post</a>
+            </li>
+        </ul></nav></aside><section class="comments hidden-print"><h2>Comments</h2>
+            
+        
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="sadanandsblog",
+            disqus_url="https://sadanand-singh.github.io/posts/CompleteSetupArchPlasma/",
+        disqus_title="My Arch Linux Setup with Plasma 5",
+        disqus_identifier="CompleteSetupArchPlasma.sadanand",
+        disqus_config = function () {
+            this.language = "en";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section></article><script>var disqus_shortname="sadanandsblog";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+</div>
+        <!--End of body content-->
+
+        <footer id="footer">
+            Contents © 2017         <a href="mailto:sadanand.singh@aol.com">Sadanand Singh</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png"></a><br>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+            
+        </footer>
+</div>
+</div>
+
+
+            <script src="../../assets/js/all-nocdn.js"></script><script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53f6d74a591ace8f"></script><!-- End of social buttons --><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(2, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates --><!-- Modal --><div id="search-results" class="modal fade" role="dialog" style="height: 80%;">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">×</button>
+            <h4 class="modal-title">Search Results:</h4>
+          </div>
+          <div class="modal-body" id="tipue_search_content" style="max-height: 600px; overflow-y: auto;">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <script>
+    $(document).ready(function() {
+        $.when(
+            $.getScript( "/assets/js/tipuesearch_set.js" ),
+            $.getScript( "/assets/js/tipuesearch.js" ),
+            $.Deferred(function( deferred ){
+                $( deferred.resolve );
+            })
+        ).done(function() {
+            $('#tipue_search_input').tipuesearch({
+                'mode': 'json',
+                'contentLocation': '/assets/js/tipuesearch_content.json'
+            });
+            $('#tipue_search_input').keyup(function (e) {
+                if (e.keyCode == 13) {
+                    $('#search-results').modal()
+                }
+            });
+        });
+    });
+    </script><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-54080172-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

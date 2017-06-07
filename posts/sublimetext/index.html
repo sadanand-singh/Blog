@@ -38,6 +38,7 @@
     </style>
 <meta name="author" content="Sadanand Singh">
 <link rel="prev" href="../svmModels/" title="Support Vector Machines" type="text/html">
+<link rel="next" href="../CompleteSetupArchPlasma/" title="My Arch Linux Setup with Plasma 5" type="text/html">
 <meta property="og:site_name" content="Sadanand's Notes">
 <meta property="og:title" content="Sublime Text Setup">
 <meta property="og:url" content="https://sadanand-singh.github.io/posts/sublimetext/">
@@ -212,18 +213,18 @@ It will be used with files that have the “Python” syntax.</p>
 <div class="section" id="shortcut-keys">
 <h2><a class="toc-backref" href="#id2">Shortcut Keys</a></h2>
 <p>Here is a summary of my key map:</p>
-<pre class="code json"><a name="rest_code_bedfc422fe644e51802b99fed04dc078-1"></a><span class="p">[</span>
-<a name="rest_code_bedfc422fe644e51802b99fed04dc078-2"></a>    <span class="p">{</span> <span class="nt">"keys"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"shift+alt+a"</span><span class="p">],</span> <span class="nt">"command"</span><span class="p">:</span> <span class="s2">"find_all_under"</span> <span class="p">},</span>
-<a name="rest_code_bedfc422fe644e51802b99fed04dc078-3"></a>    <span class="p">{</span> <span class="nt">"keys"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"control+v"</span><span class="p">],</span> <span class="nt">"command"</span><span class="p">:</span> <span class="s2">"paste_and_indent"</span> <span class="p">},</span>
-<a name="rest_code_bedfc422fe644e51802b99fed04dc078-4"></a>    <span class="p">{</span> <span class="nt">"keys"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"control+shift+v"</span><span class="p">],</span> <span class="nt">"command"</span><span class="p">:</span> <span class="s2">"paste"</span> <span class="p">},</span>
-<a name="rest_code_bedfc422fe644e51802b99fed04dc078-5"></a>    <span class="p">{</span> <span class="nt">"keys"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ctrl+alt+;"</span><span class="p">],</span> <span class="nt">"command"</span><span class="p">:</span> <span class="s2">"alignment"</span> <span class="p">},</span>
-<a name="rest_code_bedfc422fe644e51802b99fed04dc078-6"></a>    <span class="p">{</span> <span class="nt">"keys"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ctrl+alt+up"</span><span class="p">],</span> <span class="nt">"command"</span><span class="p">:</span> <span class="s2">"column_select"</span><span class="p">,</span> <span class="nt">"args"</span><span class="p">:</span> <span class="p">{</span><span class="nt">"by"</span><span class="p">:</span> <span class="s2">"lines"</span><span class="p">,</span> <span class="nt">"forward"</span><span class="p">:</span> <span class="kc">false</span><span class="p">}},</span>
-<a name="rest_code_bedfc422fe644e51802b99fed04dc078-7"></a>    <span class="p">{</span> <span class="nt">"keys"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ctrl+alt+down"</span><span class="p">],</span> <span class="nt">"command"</span><span class="p">:</span> <span class="s2">"column_select"</span><span class="p">,</span> <span class="nt">"args"</span><span class="p">:</span> <span class="p">{</span><span class="nt">"by"</span><span class="p">:</span> <span class="s2">"lines"</span><span class="p">,</span> <span class="nt">"forward"</span><span class="p">:</span> <span class="kc">true</span><span class="p">}},</span>
-<a name="rest_code_bedfc422fe644e51802b99fed04dc078-8"></a>    <span class="p">{</span> <span class="nt">"keys"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ctrl+alt+pageup"</span><span class="p">],</span> <span class="nt">"command"</span><span class="p">:</span> <span class="s2">"column_select"</span><span class="p">,</span> <span class="nt">"args"</span><span class="p">:</span> <span class="p">{</span><span class="nt">"by"</span><span class="p">:</span> <span class="s2">"pages"</span><span class="p">,</span> <span class="nt">"forward"</span><span class="p">:</span> <span class="kc">false</span><span class="p">}},</span>
-<a name="rest_code_bedfc422fe644e51802b99fed04dc078-9"></a>    <span class="p">{</span> <span class="nt">"keys"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ctrl+alt+pagedown"</span><span class="p">],</span> <span class="nt">"command"</span><span class="p">:</span> <span class="s2">"column_select"</span><span class="p">,</span> <span class="nt">"args"</span><span class="p">:</span> <span class="p">{</span><span class="nt">"by"</span><span class="p">:</span> <span class="s2">"pages"</span><span class="p">,</span> <span class="nt">"forward"</span><span class="p">:</span> <span class="kc">true</span><span class="p">}},</span>
-<a name="rest_code_bedfc422fe644e51802b99fed04dc078-10"></a>    <span class="p">{</span> <span class="nt">"keys"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ctrl+alt+home"</span><span class="p">],</span> <span class="nt">"command"</span><span class="p">:</span> <span class="s2">"column_select"</span><span class="p">,</span> <span class="nt">"args"</span><span class="p">:</span> <span class="p">{</span><span class="nt">"by"</span><span class="p">:</span> <span class="s2">"all"</span><span class="p">,</span> <span class="nt">"forward"</span><span class="p">:</span> <span class="kc">false</span><span class="p">}},</span>
-<a name="rest_code_bedfc422fe644e51802b99fed04dc078-11"></a>    <span class="p">{</span> <span class="nt">"keys"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ctrl+alt+end"</span><span class="p">],</span> <span class="nt">"command"</span><span class="p">:</span> <span class="s2">"column_select"</span><span class="p">,</span> <span class="nt">"args"</span><span class="p">:</span> <span class="p">{</span><span class="nt">"by"</span><span class="p">:</span> <span class="s2">"all"</span><span class="p">,</span> <span class="nt">"forward"</span><span class="p">:</span> <span class="kc">true</span><span class="p">}}</span>
-<a name="rest_code_bedfc422fe644e51802b99fed04dc078-12"></a><span class="p">]</span>
+<pre class="code json"><a name="rest_code_77700ae0eea34dd19e9330825f6d8f04-1"></a><span class="p">[</span>
+<a name="rest_code_77700ae0eea34dd19e9330825f6d8f04-2"></a>    <span class="p">{</span> <span class="nt">"keys"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"shift+alt+a"</span><span class="p">],</span> <span class="nt">"command"</span><span class="p">:</span> <span class="s2">"find_all_under"</span> <span class="p">},</span>
+<a name="rest_code_77700ae0eea34dd19e9330825f6d8f04-3"></a>    <span class="p">{</span> <span class="nt">"keys"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"control+v"</span><span class="p">],</span> <span class="nt">"command"</span><span class="p">:</span> <span class="s2">"paste_and_indent"</span> <span class="p">},</span>
+<a name="rest_code_77700ae0eea34dd19e9330825f6d8f04-4"></a>    <span class="p">{</span> <span class="nt">"keys"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"control+shift+v"</span><span class="p">],</span> <span class="nt">"command"</span><span class="p">:</span> <span class="s2">"paste"</span> <span class="p">},</span>
+<a name="rest_code_77700ae0eea34dd19e9330825f6d8f04-5"></a>    <span class="p">{</span> <span class="nt">"keys"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ctrl+alt+;"</span><span class="p">],</span> <span class="nt">"command"</span><span class="p">:</span> <span class="s2">"alignment"</span> <span class="p">},</span>
+<a name="rest_code_77700ae0eea34dd19e9330825f6d8f04-6"></a>    <span class="p">{</span> <span class="nt">"keys"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ctrl+alt+up"</span><span class="p">],</span> <span class="nt">"command"</span><span class="p">:</span> <span class="s2">"column_select"</span><span class="p">,</span> <span class="nt">"args"</span><span class="p">:</span> <span class="p">{</span><span class="nt">"by"</span><span class="p">:</span> <span class="s2">"lines"</span><span class="p">,</span> <span class="nt">"forward"</span><span class="p">:</span> <span class="kc">false</span><span class="p">}},</span>
+<a name="rest_code_77700ae0eea34dd19e9330825f6d8f04-7"></a>    <span class="p">{</span> <span class="nt">"keys"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ctrl+alt+down"</span><span class="p">],</span> <span class="nt">"command"</span><span class="p">:</span> <span class="s2">"column_select"</span><span class="p">,</span> <span class="nt">"args"</span><span class="p">:</span> <span class="p">{</span><span class="nt">"by"</span><span class="p">:</span> <span class="s2">"lines"</span><span class="p">,</span> <span class="nt">"forward"</span><span class="p">:</span> <span class="kc">true</span><span class="p">}},</span>
+<a name="rest_code_77700ae0eea34dd19e9330825f6d8f04-8"></a>    <span class="p">{</span> <span class="nt">"keys"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ctrl+alt+pageup"</span><span class="p">],</span> <span class="nt">"command"</span><span class="p">:</span> <span class="s2">"column_select"</span><span class="p">,</span> <span class="nt">"args"</span><span class="p">:</span> <span class="p">{</span><span class="nt">"by"</span><span class="p">:</span> <span class="s2">"pages"</span><span class="p">,</span> <span class="nt">"forward"</span><span class="p">:</span> <span class="kc">false</span><span class="p">}},</span>
+<a name="rest_code_77700ae0eea34dd19e9330825f6d8f04-9"></a>    <span class="p">{</span> <span class="nt">"keys"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ctrl+alt+pagedown"</span><span class="p">],</span> <span class="nt">"command"</span><span class="p">:</span> <span class="s2">"column_select"</span><span class="p">,</span> <span class="nt">"args"</span><span class="p">:</span> <span class="p">{</span><span class="nt">"by"</span><span class="p">:</span> <span class="s2">"pages"</span><span class="p">,</span> <span class="nt">"forward"</span><span class="p">:</span> <span class="kc">true</span><span class="p">}},</span>
+<a name="rest_code_77700ae0eea34dd19e9330825f6d8f04-10"></a>    <span class="p">{</span> <span class="nt">"keys"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ctrl+alt+home"</span><span class="p">],</span> <span class="nt">"command"</span><span class="p">:</span> <span class="s2">"column_select"</span><span class="p">,</span> <span class="nt">"args"</span><span class="p">:</span> <span class="p">{</span><span class="nt">"by"</span><span class="p">:</span> <span class="s2">"all"</span><span class="p">,</span> <span class="nt">"forward"</span><span class="p">:</span> <span class="kc">false</span><span class="p">}},</span>
+<a name="rest_code_77700ae0eea34dd19e9330825f6d8f04-11"></a>    <span class="p">{</span> <span class="nt">"keys"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ctrl+alt+end"</span><span class="p">],</span> <span class="nt">"command"</span><span class="p">:</span> <span class="s2">"column_select"</span><span class="p">,</span> <span class="nt">"args"</span><span class="p">:</span> <span class="p">{</span><span class="nt">"by"</span><span class="p">:</span> <span class="s2">"all"</span><span class="p">,</span> <span class="nt">"forward"</span><span class="p">:</span> <span class="kc">true</span><span class="p">}}</span>
+<a name="rest_code_77700ae0eea34dd19e9330825f6d8f04-12"></a><span class="p">]</span>
 </pre>
 </div>
 <div class="section" id="theme-and-color-scheme">
@@ -243,67 +244,67 @@ All other settings for this theme can be seen in my settings below.</p>
 <h2><a class="toc-backref" href="#id4">User Settings / Preferences</a></h2>
 <p>Here is my complete set of settings for Sublime Text. Please feel free to
 leave comments below for any questions or suggestions.</p>
-<pre class="code json"><a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-1"></a><span class="p">{</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-2"></a>    <span class="nt">"always_show_minimap_viewport"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-3"></a>    <span class="nt">"auto_complete"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-4"></a>    <span class="nt">"bold_folder_labels"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-5"></a>    <span class="nt">"caret_extra_width"</span><span class="p">:</span> <span class="mf">1.5</span><span class="p">,</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-6"></a>    <span class="nt">"color_scheme"</span><span class="p">:</span> <span class="s2">"Material Oceanic Next (SL).tmTheme"</span><span class="p">,</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-7"></a>    <span class="nt">"default_line_ending"</span><span class="p">:</span> <span class="s2">"unix"</span><span class="p">,</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-8"></a>    <span class="nt">"drag_text"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-9"></a>    <span class="nt">"draw_white_space"</span><span class="p">:</span> <span class="s2">"all"</span><span class="p">,</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-10"></a>    <span class="nt">"enable_tab_scrolling"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-11"></a>    <span class="nt">"font_face"</span><span class="p">:</span> <span class="s2">"Hack"</span><span class="p">,</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-12"></a>    <span class="nt">"font_options"</span><span class="p">:</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-13"></a>    <span class="p">[</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-14"></a>        <span class="s2">"directwrite"</span><span class="p">,</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-15"></a>        <span class="s2">"gray_antialias"</span><span class="p">,</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-16"></a>        <span class="s2">"subpixel_antialias"</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-17"></a>    <span class="p">],</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-18"></a>    <span class="nt">"font_size"</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-19"></a>    <span class="nt">"ignored_packages"</span><span class="p">:</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-20"></a>    <span class="p">[</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-21"></a>        <span class="s2">"C++"</span><span class="p">,</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-22"></a>        <span class="s2">"Python"</span><span class="p">,</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-23"></a>        <span class="s2">"Vintage"</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-24"></a>    <span class="p">],</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-25"></a>    <span class="nt">"indent_guide_options"</span><span class="p">:</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-26"></a>    <span class="p">[</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-27"></a>        <span class="s2">"draw_normal"</span><span class="p">,</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-28"></a>        <span class="s2">"draw_active"</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-29"></a>    <span class="p">],</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-30"></a>    <span class="nt">"line_padding_bottom"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-31"></a>    <span class="nt">"line_padding_top"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-32"></a>    <span class="nt">"material_theme_bold_tab"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-33"></a>    <span class="nt">"material_theme_compact_panel"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-34"></a>    <span class="nt">"material_theme_compact_sidebar"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-35"></a>    <span class="nt">"material_theme_contrast_mode"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-36"></a>    <span class="nt">"material_theme_disable_fileicons"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-37"></a>    <span class="nt">"material_theme_disable_folder_animation"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-38"></a>    <span class="nt">"material_theme_disable_tree_indicator"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-39"></a>    <span class="nt">"material_theme_panel_separator"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-40"></a>    <span class="nt">"material_theme_small_statusbar"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-41"></a>    <span class="nt">"material_theme_small_tab"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-42"></a>    <span class="nt">"material_theme_tabs_autowidth"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-43"></a>    <span class="nt">"material_theme_tabs_separator"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-44"></a>    <span class="nt">"material_theme_tree_headings"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-45"></a>    <span class="nt">"overlay_scroll_bars"</span><span class="p">:</span> <span class="s2">"enabled"</span><span class="p">,</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-46"></a>    <span class="nt">"rulers"</span><span class="p">:</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-47"></a>    <span class="p">[</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-48"></a>        <span class="mi">80</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-49"></a>    <span class="p">],</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-50"></a>    <span class="nt">"scroll_past_end"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-51"></a>    <span class="nt">"soda_classic_tabs"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-52"></a>    <span class="nt">"soda_folder_icons"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-53"></a>    <span class="nt">"tab_completion"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-54"></a>    <span class="nt">"tab_size"</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-55"></a>    <span class="nt">"theme"</span><span class="p">:</span> <span class="s2">"Material Oceanic Next.sublime-theme"</span><span class="p">,</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-56"></a>    <span class="nt">"translate_tabs_to_spaces"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-57"></a>    <span class="nt">"trim_trailing_white_space_on_save"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-58"></a>    <span class="nt">"word_wrap"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-59"></a>    <span class="nt">"hot_exit"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-60"></a>    <span class="nt">"remember_open_files"</span><span class="p">:</span> <span class="kc">false</span>
-<a name="rest_code_d46b34ad096c4ae89961f3ffad40be51-61"></a><span class="p">}</span>
+<pre class="code json"><a name="rest_code_14032e296c47445494762f4323afee89-1"></a><span class="p">{</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-2"></a>    <span class="nt">"always_show_minimap_viewport"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-3"></a>    <span class="nt">"auto_complete"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-4"></a>    <span class="nt">"bold_folder_labels"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-5"></a>    <span class="nt">"caret_extra_width"</span><span class="p">:</span> <span class="mf">1.5</span><span class="p">,</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-6"></a>    <span class="nt">"color_scheme"</span><span class="p">:</span> <span class="s2">"Material Oceanic Next (SL).tmTheme"</span><span class="p">,</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-7"></a>    <span class="nt">"default_line_ending"</span><span class="p">:</span> <span class="s2">"unix"</span><span class="p">,</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-8"></a>    <span class="nt">"drag_text"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-9"></a>    <span class="nt">"draw_white_space"</span><span class="p">:</span> <span class="s2">"all"</span><span class="p">,</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-10"></a>    <span class="nt">"enable_tab_scrolling"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-11"></a>    <span class="nt">"font_face"</span><span class="p">:</span> <span class="s2">"Hack"</span><span class="p">,</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-12"></a>    <span class="nt">"font_options"</span><span class="p">:</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-13"></a>    <span class="p">[</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-14"></a>        <span class="s2">"directwrite"</span><span class="p">,</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-15"></a>        <span class="s2">"gray_antialias"</span><span class="p">,</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-16"></a>        <span class="s2">"subpixel_antialias"</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-17"></a>    <span class="p">],</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-18"></a>    <span class="nt">"font_size"</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-19"></a>    <span class="nt">"ignored_packages"</span><span class="p">:</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-20"></a>    <span class="p">[</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-21"></a>        <span class="s2">"C++"</span><span class="p">,</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-22"></a>        <span class="s2">"Python"</span><span class="p">,</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-23"></a>        <span class="s2">"Vintage"</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-24"></a>    <span class="p">],</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-25"></a>    <span class="nt">"indent_guide_options"</span><span class="p">:</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-26"></a>    <span class="p">[</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-27"></a>        <span class="s2">"draw_normal"</span><span class="p">,</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-28"></a>        <span class="s2">"draw_active"</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-29"></a>    <span class="p">],</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-30"></a>    <span class="nt">"line_padding_bottom"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-31"></a>    <span class="nt">"line_padding_top"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-32"></a>    <span class="nt">"material_theme_bold_tab"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-33"></a>    <span class="nt">"material_theme_compact_panel"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-34"></a>    <span class="nt">"material_theme_compact_sidebar"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-35"></a>    <span class="nt">"material_theme_contrast_mode"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-36"></a>    <span class="nt">"material_theme_disable_fileicons"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-37"></a>    <span class="nt">"material_theme_disable_folder_animation"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-38"></a>    <span class="nt">"material_theme_disable_tree_indicator"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-39"></a>    <span class="nt">"material_theme_panel_separator"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-40"></a>    <span class="nt">"material_theme_small_statusbar"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-41"></a>    <span class="nt">"material_theme_small_tab"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-42"></a>    <span class="nt">"material_theme_tabs_autowidth"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-43"></a>    <span class="nt">"material_theme_tabs_separator"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-44"></a>    <span class="nt">"material_theme_tree_headings"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-45"></a>    <span class="nt">"overlay_scroll_bars"</span><span class="p">:</span> <span class="s2">"enabled"</span><span class="p">,</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-46"></a>    <span class="nt">"rulers"</span><span class="p">:</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-47"></a>    <span class="p">[</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-48"></a>        <span class="mi">80</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-49"></a>    <span class="p">],</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-50"></a>    <span class="nt">"scroll_past_end"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-51"></a>    <span class="nt">"soda_classic_tabs"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-52"></a>    <span class="nt">"soda_folder_icons"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-53"></a>    <span class="nt">"tab_completion"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-54"></a>    <span class="nt">"tab_size"</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-55"></a>    <span class="nt">"theme"</span><span class="p">:</span> <span class="s2">"Material Oceanic Next.sublime-theme"</span><span class="p">,</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-56"></a>    <span class="nt">"translate_tabs_to_spaces"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-57"></a>    <span class="nt">"trim_trailing_white_space_on_save"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-58"></a>    <span class="nt">"word_wrap"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-59"></a>    <span class="nt">"hot_exit"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-60"></a>    <span class="nt">"remember_open_files"</span><span class="p">:</span> <span class="kc">false</span>
+<a name="rest_code_14032e296c47445494762f4323afee89-61"></a><span class="p">}</span>
 </pre>
 </div>
 </div>
@@ -314,6 +315,9 @@ leave comments below for any questions or suggestions.</p>
 <ul class="pager hidden-print">
 <li class="previous">
                 <a href="../svmModels/" rel="prev" title="Support Vector Machines">Previous post</a>
+            </li>
+            <li class="next">
+                <a href="../CompleteSetupArchPlasma/" rel="next" title="My Arch Linux Setup with Plasma 5">Next post</a>
             </li>
         </ul></nav></aside><section class="comments hidden-print"><h2>Comments</h2>
             
