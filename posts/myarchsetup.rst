@@ -57,10 +57,10 @@ the `Arch wiki guide`_ to create one for you.
 
 .. _Arch wiki guide: https://wiki.archlinux.org/index.php/USB_flash_installation_media
 
-Once you login in the installer disk, You will be logged in on the first virtual console as the root user, and presented with a zsh shell prompt. I will assume you have an Ethernet connection and hence will be
+Once you login in the installer disk, You will be logged in on the first virtual console as the root user, and presented with a *zsh* shell prompt. I will assume you have an Ethernet connection and hence will be
 connected to Internet by default. If you have to rely on wifi, please
 refer to the `Wireless Network Configuration`_ wiki page for the
-detailed setup. **You must have internet connection at this stage before proceeding any further.**
+detailed setup. **You must have Internet connection at this stage before proceeding any further.**
 
 .. _Wireless Network Configuration: https://wiki.archlinux.org/index.php/Wireless_network_configuration
 
@@ -393,12 +393,12 @@ Assuming */boot* is your boot drive, first run the following command to get star
 
 It will copy the systemd-boot binary to your EFI System Partition
 ( `/boot/EFI/systemd/systemd-bootx64.efi` and `/boot/EFI/Boot/BOOTX64.EFI`
-- both of which are identical - on x64 systems ) and add systemd-boot
+- both of which are identical - on x64 systems ) and add *systemd-boot*
 itself as the default EFI application (default boot entry) loaded by
 the EFI Boot Manager.
 
 Finally to configure out boot loader, we will need the UUID of
-some of our hard drives. These can ne easily done using the blkid command.
+some of our hard drives. These can be easily done using the *blkid* command.
 
 .. code:: bash
 
@@ -439,7 +439,7 @@ where UUIDs is the value obtained from above commands.
 Network Setup
 ----------------
 
-At first we will need to figure out the ethernet controller on which cable is
+At first we will need to figure out the Ethernet controller on which cable is
 connected.
 
 .. code:: bash
@@ -458,7 +458,7 @@ In our case, the name of the device is *enp0s25*.
 Using this name of the device, we need to configure, and enable the
 *systemd-networkd.service* service.
 
-Note that we will using the resolv.conf that we saved from this session.
+Note that we will using the *resolv.conf* that we saved from this session.
 
 Network configurations are stored as \*.network in */etc/systemd/network*.
 We need to create ours as follows.:
@@ -487,7 +487,7 @@ Now enable these services:
 
 Your network should be ready for the first use!
 
-Sync time automatically using the systemd service:
+Sync time automatically using the *systemd* service:
 
 .. code:: bash
 
@@ -565,7 +565,7 @@ After your new system boots, Network should be setup at the start. Check the sta
    #
 
 If you do not get this output, please follow the troubleshooting links
-at arch wiki on `setting up network`_.
+at Arch Wiki on `setting up network`_.
 
 .. _setting up network: https://wiki.archlinux.org/index.php/systemd-networkd
 
@@ -573,7 +573,7 @@ at arch wiki on `setting up network`_.
 Adding New User
 -----------------
 
-Choose $USERNAME per your liking. I chose ssingh, so in future commands
+Choose $USERNAME per your liking. I chose *ssingh*, so in future commands
 whenever you see *ssingh* please replace it with your $USERNAME.
 
 .. code:: bash
@@ -596,8 +596,8 @@ related packages, and some *essential* packages (including fonts):
 
    $ pacman -S xorg-server nvidia nvidia-libgl nvidia-settings mesa
 
-To avoid the possibility of forgetting to update your initramfs after
-an nvidia upgrade, you have to use a pacman hook like this:
+To avoid the possibility of forgetting to update your *initramfs* after
+an *nvidia* upgrade, you have to use a *pacman* hook like this:
 
 .. code:: bash
 
@@ -709,7 +709,7 @@ we will also install some useful fonts.
     $ pacman -S kompare dolphin-plugins kwallet kwalletmanager
     $ pacman -S ark yakuake flite
 
-We will also need to select proper themes for the Plasma 5 display manager sddm and then enable its systemd service.
+We will also need to select proper themes for the Plasma 5 display manager *sddm* and then enable its *systemd* service.
 
 .. code:: bash
 
@@ -788,12 +788,12 @@ core repositories.
 
 In order to make all types of installations uniform, I use pacaur_ as
 the preferred tool for installing all packages. One the biggest
-advantages of pacaur is that is uses exactly the same options that
-regular pacman uses.
+advantages of *pacaur* is that is uses exactly the same options that
+regular *pacman* uses.
 
 .. _pacaur: https://github.com/rmarquis/pacaur
 
-In order to install pacuar, first install dependencies.
+In order to install *pacuar*, first install dependencies.
 
 .. code:: bash
 
@@ -833,7 +833,7 @@ This is pretty simple. Install following packages and you should be done:
     $ sudo pacaur -S libcanberra-pulse libcanberra-gstreamer
     $ sudo pacaur -S vlc-qt5
 
-Now start the pulseaudio service.
+Now start the *pulseaudio* service.
 
 .. code:: bash
 
@@ -865,7 +865,7 @@ To setup. first install the *profile-sync-daemon* package.
 
     sudo pacaur -S profile-sync-daemon
 
-Run *psd* the first time which will create a config file at
+Run *psd* the first time which will create a configuration file at
 `$XDG_CONFIG_HOME/psd/psd.conf` which contains all settings.
 
 .. code:: bash
@@ -877,14 +877,14 @@ Run *psd* the first time which will create a config file at
 
 In the config file change the BROWSERS variables to "*google-chrome qupzilla*".
 Also, enable the use of *overlayfs* to improve sync speed and to use a smaller
-memory footprint. Do this in the USE_OVERLAYFS="yes" variable.
+memory footprint. Do this in the *USE_OVERLAYFS="yes"* variable.
 
 
 {{% hl-text warning %}}
 Note: USE_OVERLAYFS feature requires a Linux kernel version of 3.18.0 or greater to work.
 {{% /hl-text %}}
 
-In order to use the OVERLAYFS feature, you will also need to give sudo permissions to psd-helper as follows (replace $USERNAME accordingly):
+In order to use the OVERLAYFS feature, you will also need to give *sudo* permissions to psd-helper as follows (replace $USERNAME accordingly):
 
 .. code:: bash
 
