@@ -1,7 +1,7 @@
 .. title: Descriptive Statistics and Exploratory Data Analysis
 .. slug: descriptivestatseda
-.. date: 2017-05-30 15:03:17 UTC-07:00
-.. tags: mathjax, Data Science, EDA
+.. date: 2017-06-10 15:03:17 UTC-07:00
+.. tags: mathjax, Data Science, EDA, draft
 .. disqus_identifier: descriptivestatseda.sadanand
 .. category: Data Science
 .. link:
