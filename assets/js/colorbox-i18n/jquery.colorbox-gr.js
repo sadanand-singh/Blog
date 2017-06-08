@@ -1,1 +1,0 @@
-jQuery.extend(jQuery.colorbox.settings,{current:"Εικόνα {current} από {total}",previous:"Προηγούμενη",next:"Επόμενη",close:"Απόκρυψη",xhrError:"Το περιεχόμενο δεν μπόρεσε να φορτωθεί.",imgError:"Απέτυχε η φόρτωση της εικόνας.",slideshowStart:"Έναρξη παρουσίασης",slideshowStop:"Παύση παρουσίασης"});
