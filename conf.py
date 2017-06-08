@@ -181,16 +181,12 @@ POSTS = (
     ("posts/*.rst", "posts", "post.tmpl"),
     ("posts/*.txt", "posts", "post.tmpl"),
     ("posts/*.md", "posts", "post.tmpl"),
-    ("posts/*.mdown", "posts", "post.tmpl"),
-    ("posts/*.markdown", "posts", "post.tmpl"),
     ("posts/*.ipynb", "posts", "post.tmpl"),
 )
 PAGES = (
     ("pages/*.rst", "", "story.tmpl"),
     ("pages/*.txt", "", "story.tmpl"),
     ("pages/*.md", "", "story.tmpl"),
-    ("pages/*.mdown", "", "story.tmpl"),
-    ("pages/*.markdown", "", "story.tmpl"),
 )
 
 
@@ -1074,7 +1070,7 @@ delimiters: [
 # Note: most Nikola-specific extensions are done via the Nikola plugin system,
 #       with the MarkdownExtension class and should not be added here.
 # The default is ['fenced_code', 'codehilite']
-MARKDOWN_EXTENSIONS = ['markdown.extensions.fenced_code', 'markdown.extensions.codehilite', 'markdown.extensions.extra']
+MARKDOWN_EXTENSIONS = ['markdown.extensions.fenced_code', 'markdown.extensions.codehilite', 'markdown.extensions.extra', 'markdown.extensions.toc', 'markdown.extensions.admonition', 'markdown.extensions.sane_lists']
 
 # Extra options to pass to the pandoc command.
 # by default, it's empty, is a list of strings, for example
