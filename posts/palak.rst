@@ -27,7 +27,7 @@ cooked in spinach puree. Its a bit involved than my last few dishes.
 Nevertheless, I promise you - the "yummy-ness" of this one is worth all
 the trouble!
 
-.. figure:: ../../images/PalakPaneer1.jpg
+.. figure:: https://res.cloudinary.com/sadanandsingh/image/upload/v1496959805/PalakPaneer1_ff0iwo.jpg
    :alt: Spinach Boiling
 
    Boiling Spinach
@@ -51,7 +51,7 @@ Ingredients
 -  Salt to taste
 -  1 cup Milk or Cream
 
-.. figure:: ../../images/PalakPaneer2.jpg
+.. figure:: https://res.cloudinary.com/sadanandsingh/image/upload/v1496959805/PalakPaneer2_v7bioa.jpg
    :alt: Paneer Cubes
 
    Paneer
@@ -71,7 +71,7 @@ Spinach Puree
 5. In a blender, make a puree of leaves along with ginger, garlic and
    milk or cream.
 
-.. figure:: ../../images/PalakPaneer3.jpg
+.. figure:: https://res.cloudinary.com/sadanandsingh/image/upload/v1496959805/PalakPaneer3_t71fqs.jpg
    :alt: Spinach Puree
 
    Spinach Puree
@@ -95,7 +95,7 @@ Curry for *Paneer*
 
 Let it cool before serving. It can be served with Indian Breads or rice.
 
-.. figure:: ../../images/PalakPaneer.jpg
+.. figure:: https://res.cloudinary.com/sadanandsingh/image/upload/v1496959804/PalakPaneer_g48mz0.jpg
    :alt: Palak Paneer
 
    My Creation Before Entering My Tummy
@@ -106,7 +106,7 @@ Interesting Facts
 -  `Nutritional
    Value <http://nutritiondata.self.com/facts/recipe/1770692/2>`__ of
    *Paneer*.
--  More about `Paneer <http://en.wikipedia.org/wiki/Paneer>`__
+-  More about `Paneer <https://en.wikipedia.org/wiki/Paneer>`__
 -  `Nutritional
    Value <http://www.whfoods.com/genpage.php?tname=foodspice&dbid=43>`__
    of Spinach.

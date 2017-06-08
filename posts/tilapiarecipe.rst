@@ -22,7 +22,7 @@ from the frozen section of any supermarket.
 
 .. contents:: Table of Contents
 
-.. figure:: ../../images/CookingVeggies.jpg
+.. figure:: https://res.cloudinary.com/sadanandsingh/image/upload/v1496959803/CookingVeggies_dlrsrl.jpg
    :alt: Fried Steamed Veggies
 
    Fried Streamed Veggies
@@ -61,7 +61,7 @@ Preparation
 Serve and garnish it with lime juice and some cilantro for an exotic
 lunch/dinner.
 
-.. figure:: ../../images/Tilapia.jpg
+.. figure:: https://res.cloudinary.com/sadanandsingh/image/upload/v1496959808/Tilapia_dotlgh.jpg
    :alt: Tilapia With Veggies
 
    Tilapia with Veggies

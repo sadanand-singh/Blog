@@ -24,7 +24,7 @@ flavor.
 So, here is my super quick and tasty recipe for these noodles. It takes
 less than 12 minutes ( 4 Minutes Preparation + 8 Minutes Cooking).
 
-.. figure:: ../../images/desiNoodles.jpg
+.. figure:: https://res.cloudinary.com/sadanandsingh/image/upload/v1496959806/desiNoodles_qtdaji.jpg
    :alt: Raw Materials for Desi Vermicelli
 
    Raw Materials
@@ -69,7 +69,7 @@ Preparation
 Let it cool before serving. You can use some ketchup or sauce with it. I
 like adding peanuts to it while frying onions.
 
-.. figure:: ../../images/desiNoodles_final.jpg
+.. figure:: https://res.cloudinary.com/sadanandsingh/image/upload/v1496959805/desiNoodles_final_ovws8m.jpg
    :alt: Indian Vermicelli
 
    My Creation Before Entering My Tummy

@@ -18,7 +18,7 @@ politics, economics, and society.
 
    <div class="col-md-6" style="min-height: 450px;"> <a class="twitter-timeline" data-lang="en" data-height="400" href="https://twitter.com/sadanandsingh">Tweets by sadanandsingh</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script> </div>
 
-.. image:: ../../images/sadanand.jpg
+.. image:: https://res.cloudinary.com/sadanandsingh/image/upload/v1496959807/sadanand_ahvvgt.jpg
       :width: 280pt
 
 |

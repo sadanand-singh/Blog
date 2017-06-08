@@ -25,7 +25,7 @@ I used to have back home in India.
 So, here is my super fast and healthy recipe for these red leaves. It
 took me just 10 minutes ( 5 Minutes Preparation + 5 Minutes Cooking).
 
-.. figure:: ../../images/redSaag.jpg
+.. figure:: https://res.cloudinary.com/sadanandsingh/image/upload/v1496959807/redSaag_ttt1hg.jpg
    :alt: Red Saag Leaves
 
    Red Amaranth
@@ -59,7 +59,7 @@ Preparation
 You can serve this with any Indian bread, or with rice and lentils
 (*Daal*).
 
-.. figure:: ../../images/redSaag_final.jpg
+.. figure:: https://res.cloudinary.com/sadanandsingh/image/upload/v1496959806/redSaag_final_ag4btm.jpg
    :alt: Red Saag
 
    My Creation Before Entering My Tummy
@@ -74,4 +74,4 @@ Interesting Facts
    of Amaranth
 
 -  History of
-   `Amaranth <http://en.wikipedia.org/wiki/Amaranth#History>`__
+   `Amaranth <https://en.wikipedia.org/wiki/Amaranth#History>`__

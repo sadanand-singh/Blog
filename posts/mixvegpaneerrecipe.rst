@@ -22,7 +22,7 @@ a recipe for making *Paneer* from milk.
 Here is a version of recipe that I use quite often. It involves two
 parts - Baking *Paneer* and Cooking the veggies.
 
-.. figure:: ../../images/bakedPaneer.jpg
+.. figure:: https://res.cloudinary.com/sadanandsingh/image/upload/v1496959802/bakedPaneer_b5qa89.jpg
    :alt: Baked Paneer
 
    Baked Paneer
@@ -87,7 +87,7 @@ Prepare Veggies
 Let it cool before serving. It can be served either Indian breads or
 rice.
 
-.. figure:: ../../images/bakedPaneer_final.jpg
+.. figure:: https://res.cloudinary.com/sadanandsingh/image/upload/v1496959802/bakedPaneer_final_rpgtsh.jpg
    :alt: Baked Paneer with Mix Veggies
 
    My Creation Before Entering My Tummy
@@ -99,4 +99,4 @@ Interesting Facts
    Value <http://nutritiondata.self.com/facts/recipe/1770692/2>`__ of
    *Paneer*.
 -  Baked *Paneer* in this recipe is also referred as *Paneer Tikka*
--  More about `Paneer <http://en.wikipedia.org/wiki/Paneer>`__
+-  More about `Paneer <https://en.wikipedia.org/wiki/Paneer>`__

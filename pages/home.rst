@@ -10,7 +10,7 @@
 
 .. class:: img-responsive
 
-    .. image:: ../images/sadanand_pic.jpg
+    .. image:: https://res.cloudinary.com/sadanandsingh/image/upload/v1496959806/sadanand_pic_d30po4.jpg
         :width: 112pt
         :align: left
 
