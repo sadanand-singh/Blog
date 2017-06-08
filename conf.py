@@ -644,16 +644,16 @@ GITHUB_COMMIT_SOURCE = True
 from nikola import filters
 FILTERS = {
    #".html": [filters.typogrify],
-   ".css": [filters.yui-compressor],
-   ".js": [filters.yui-compressor, filters.closure_compiler],
+   ".css": [filters.yui_compressor],
+   ".js": [filters.closure_compiler, filters.yui_compressor],
    ".jpg": ["jpegoptim --strip-all -m75 -v %s"],
 }
 
-# Executable for the "yui_compressor" filter (defaults to 'yui-compressor').
-# YUI_COMPRESSOR_EXECUTABLE = 'yui-compressor'
+# Executable for the "yui_compressor" filter (defaults to 'yui_compressor').
+# YUI_COMPRESSOR_EXECUTABLE = 'yui_compressor'
 
 # Executable for the "closure_compiler" filter (defaults to 'closure-compiler').
-# CLOSURE_COMPILER_EXECUTABLE = 'closure-compiler'
+# CLOSURE_COMPILER_EXECUTABLE = 'closure_compiler'
 
 # Executable for the "optipng" filter (defaults to 'optipng').
 # OPTIPNG_EXECUTABLE = 'optipng'
@@ -1323,7 +1323,7 @@ TWITTER_CARD = {
 # If webassets is installed, bundle JS and CSS into single files to make
 # site loading faster in a HTTP/1.1 environment but is not recommended for
 # HTTP/2.0 when caching is used. Defaults to True.
-# USE_BUNDLES = True
+USE_BUNDLES = False
 
 # Plugins you don't want to use. Be careful :-)
 # DISABLED_PLUGINS = ["render_galleries"]
