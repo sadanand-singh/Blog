@@ -37,6 +37,9 @@ and a more complete version of my previous posts on
 .. _KDE Plasma 5: https://en.wikipedia.org/wiki/KDE_Plasma_5
 .. _btrfs: https://en.wikipedia.org/wiki/Btrfs
 
+System Details
+=====================
+
 For reference, my installation system is a slightly upgraded form of :doc:`my original desktop <myNewCompSpecs>`:
 
 -  i7 4790 3.6 GHz (Haswell)
