@@ -37,6 +37,19 @@ and a more complete version of my previous posts on
 .. _KDE Plasma 5: https://en.wikipedia.org/wiki/KDE_Plasma_5
 .. _btrfs: https://en.wikipedia.org/wiki/Btrfs
 
+For reference, my installation system is a slightly upgraded form of :doc:`my original desktop <myNewCompSpecs>`:
+
+-  i7 4790 3.6 GHz (Haswell)
+-  ASRock Z97 Extreme6 LGA 1150 Intel Z97 HDMI SATA USB 3.0
+-  ADATA XPG V1.0 DDR3 1866 4x4 GB RAM
+-  OCZ Vertex 460A Series 2.5" 240 GB
+-  WD Blue 1TB 3.5" 7200 RPM, 64MB Cache
+-  WD Blue 3TB 3.5" 7200 RPM, 64MB Cache
+-  Ultra LSP V2 650 Watt PSU
+-  Cooler Master - MasterCase Pro 5
+-  Asus BW-12B1ST/BLK/G/AS Blue Ray Burner
+-  Samsung U28E590D 28-Inch UHD LED-Lit 4K Monitor
+-  Nvidia GeForce GTX 750 Ti GPU
 
 Base Installation
 =====================
@@ -114,7 +127,7 @@ as */data* and */dev/sdc* as */media* .
 Because we are creating an encrypted file system it’s a good idea to overwrite it with random data.
 
 We’ll use **badblocks** for this. Another method is to use
-*dd if=/dev/random of=/dev/xxx*, the *dd* method is probably the
+*dd if=/dev/urandom of=/dev/xxx*, the *dd* method is probably the
 best method, but is a lot slower. **The following step should take about 20 minutes on a 240 GB SSD.**
 
 .. code:: bash
