@@ -301,7 +301,7 @@ appropriate locations with optimal flags.
     $ mkdir -p /mnt/home
     $ mkdir -p /mnt/data
     $ mkdir -p /mnt/media
-    $ mount -o $SSD_MOUNTS,nosuid,subvol=home /dev/sda2 /mnt/home
+    $ mount -o $SSD_MOUNTS,nosuid,subvol=home /dev/mapper/root /mnt/home
     $ mount -o $HDD_MOUNTS,subvol=data /dev/sdb1 /mnt/data
     $ mount -o $HDD_MOUNTS,subvol=media /dev/sdc1 /mnt/media
 
