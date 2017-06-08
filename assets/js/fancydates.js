@@ -1,1 +1,1 @@
-function fancydates(fanciness,date_format){if(fanciness==0){return}dates=$("time.published.dt-published");i=0;l=dates.length;for(i=0;i<l;i++){d=moment(dates[i].attributes.datetime.value);if(fanciness==1){o=d.local().format(date_format)}else{o=d.fromNow()}dates[i].innerHTML=o}};
+function fancydates(a,b){if(0!=a){for(dates=$("time.published.dt-published"),i=0,l=dates.length,i=0;i<l;i++){d=moment(dates[i].attributes.datetime.value),o=1==a?d.local().format(b):d.fromNow(),dates[i].innerHTML=o}}};

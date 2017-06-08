@@ -4,7 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Plasma 5 Installation on Arch Linux | Sadanand's Notes</title>
-<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/rst.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/code.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/colorbox.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/theme.css" rel="stylesheet" type="text/css">
 <link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
 <meta name="theme-color" content="#5670d4">
@@ -163,72 +167,72 @@ set.</p>
 <h2><a class="toc-backref" href="#id1">Add New User</a></h2>
 <p>Choose $USER per your liking. I chose ssingh, so in future commands
 whenever you see <em>ssingh</em> please replace it with your $USER.</p>
-<pre class="code bash"><a name="rest_code_fc07a0f22e8d4bb682694ecc09c02528-1"></a>$ useradd -m -G wheel -s /bin/bash <span class="nv">$USERNAME</span>
-<a name="rest_code_fc07a0f22e8d4bb682694ecc09c02528-2"></a>$ chfn --full-name <span class="s2">"</span><span class="nv">$FULL_NAME</span><span class="s2">"</span> <span class="nv">$USERNAME</span>
-<a name="rest_code_fc07a0f22e8d4bb682694ecc09c02528-3"></a>$ passwd <span class="nv">$USERNAME</span>
+<pre class="code bash"><a name="rest_code_92ecc74199654c66aef5bdcd08d7c194-1"></a>$ useradd -m -G wheel -s /bin/bash <span class="nv">$USERNAME</span>
+<a name="rest_code_92ecc74199654c66aef5bdcd08d7c194-2"></a>$ chfn --full-name <span class="s2">"</span><span class="nv">$FULL_NAME</span><span class="s2">"</span> <span class="nv">$USERNAME</span>
+<a name="rest_code_92ecc74199654c66aef5bdcd08d7c194-3"></a>$ passwd <span class="nv">$USERNAME</span>
 </pre>
 </div>
 <div class="section" id="plasma-5-desktop">
 <h2><a class="toc-backref" href="#id2">Plasma 5 Desktop</a></h2>
 <p>Network should be setup at the start. Check the status of network using:</p>
-<pre class="code bash"><a name="rest_code_0b13e101eb114ccc95695adabb5874ee-1"></a>$ ping google.com -c <span class="m">2</span>
-<a name="rest_code_0b13e101eb114ccc95695adabb5874ee-2"></a>$
-<a name="rest_code_0b13e101eb114ccc95695adabb5874ee-3"></a>$ PING google.com <span class="o">(</span><span class="m">10</span>.38.24.84<span class="o">)</span> <span class="m">56</span><span class="o">(</span><span class="m">84</span><span class="o">)</span> bytes of data.
-<a name="rest_code_0b13e101eb114ccc95695adabb5874ee-4"></a>$ <span class="m">64</span> bytes from google.com <span class="o">(</span><span class="m">10</span>.38.24.84<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">1</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">64</span> <span class="nv">time</span><span class="o">=</span><span class="m">0</span>.022 ms
-<a name="rest_code_0b13e101eb114ccc95695adabb5874ee-5"></a>$ <span class="m">64</span> bytes from google.com <span class="o">(</span><span class="m">10</span>.38.24.84<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">2</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">64</span> <span class="nv">time</span><span class="o">=</span><span class="m">0</span>.023 ms
-<a name="rest_code_0b13e101eb114ccc95695adabb5874ee-6"></a>$
-<a name="rest_code_0b13e101eb114ccc95695adabb5874ee-7"></a>$ --- google.com ping statistics ---
-<a name="rest_code_0b13e101eb114ccc95695adabb5874ee-8"></a>$ <span class="m">2</span> packets transmitted, <span class="m">2</span> received, <span class="m">0</span>% packet loss, <span class="nb">time</span> 999ms
-<a name="rest_code_0b13e101eb114ccc95695adabb5874ee-9"></a>$ rtt min/avg/max/mdev <span class="o">=</span> <span class="m">0</span>.022/0.022/0.023/0.004 ms
-<a name="rest_code_0b13e101eb114ccc95695adabb5874ee-10"></a>$
+<pre class="code bash"><a name="rest_code_cc7dd59d1b6f4e00bb17ce832301f9b0-1"></a>$ ping google.com -c <span class="m">2</span>
+<a name="rest_code_cc7dd59d1b6f4e00bb17ce832301f9b0-2"></a>$
+<a name="rest_code_cc7dd59d1b6f4e00bb17ce832301f9b0-3"></a>$ PING google.com <span class="o">(</span><span class="m">10</span>.38.24.84<span class="o">)</span> <span class="m">56</span><span class="o">(</span><span class="m">84</span><span class="o">)</span> bytes of data.
+<a name="rest_code_cc7dd59d1b6f4e00bb17ce832301f9b0-4"></a>$ <span class="m">64</span> bytes from google.com <span class="o">(</span><span class="m">10</span>.38.24.84<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">1</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">64</span> <span class="nv">time</span><span class="o">=</span><span class="m">0</span>.022 ms
+<a name="rest_code_cc7dd59d1b6f4e00bb17ce832301f9b0-5"></a>$ <span class="m">64</span> bytes from google.com <span class="o">(</span><span class="m">10</span>.38.24.84<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">2</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">64</span> <span class="nv">time</span><span class="o">=</span><span class="m">0</span>.023 ms
+<a name="rest_code_cc7dd59d1b6f4e00bb17ce832301f9b0-6"></a>$
+<a name="rest_code_cc7dd59d1b6f4e00bb17ce832301f9b0-7"></a>$ --- google.com ping statistics ---
+<a name="rest_code_cc7dd59d1b6f4e00bb17ce832301f9b0-8"></a>$ <span class="m">2</span> packets transmitted, <span class="m">2</span> received, <span class="m">0</span>% packet loss, <span class="nb">time</span> 999ms
+<a name="rest_code_cc7dd59d1b6f4e00bb17ce832301f9b0-9"></a>$ rtt min/avg/max/mdev <span class="o">=</span> <span class="m">0</span>.022/0.022/0.023/0.004 ms
+<a name="rest_code_cc7dd59d1b6f4e00bb17ce832301f9b0-10"></a>$
 </pre>
 <p>If you do not get this output, please follow the troubleshooting links
 at <a class="reference external" href="https://wiki.archlinux.org/index.php/systemd-networkd">arch wiki</a> on setting up network.</p>
 <p>I will be assuming you have an NVIDIA card for graphics installation.</p>
 <p>To setup a graphical desktop, first we need to install some basic X
 related packages, and some <em>essential</em> packages (including fonts):</p>
-<pre class="code bash"><a name="rest_code_34fbc5847e7641efbb51c74de289b9a6-1"></a>$ pacman -S xorg-server xorg-server-utils nvidia nvidia-libgl
+<pre class="code bash"><a name="rest_code_106b6c7cbfde4d5191fd6149ff2e5a47-1"></a>$ pacman -S xorg-server xorg-server-utils nvidia nvidia-libgl
 </pre>
 <p>To avoid the possibility of forgetting to update your initramfs after
 an nvidia upgrade, you have to use a pacman hook like this:</p>
-<pre class="code bash"><a name="rest_code_02e8117157544f96be9dbef4784098d9-1"></a>$ vim /etc/pacman.d/hooks/nvidia.hook
-<a name="rest_code_02e8117157544f96be9dbef4784098d9-2"></a>$
-<a name="rest_code_02e8117157544f96be9dbef4784098d9-3"></a>...
-<a name="rest_code_02e8117157544f96be9dbef4784098d9-4"></a><span class="o">[</span>Trigger<span class="o">]</span>
-<a name="rest_code_02e8117157544f96be9dbef4784098d9-5"></a><span class="nv">Operation</span><span class="o">=</span>Install
-<a name="rest_code_02e8117157544f96be9dbef4784098d9-6"></a><span class="nv">Operation</span><span class="o">=</span>Upgrade
-<a name="rest_code_02e8117157544f96be9dbef4784098d9-7"></a><span class="nv">Operation</span><span class="o">=</span>Remove
-<a name="rest_code_02e8117157544f96be9dbef4784098d9-8"></a><span class="nv">Type</span><span class="o">=</span>Package
-<a name="rest_code_02e8117157544f96be9dbef4784098d9-9"></a><span class="nv">Target</span><span class="o">=</span>nvidia
-<a name="rest_code_02e8117157544f96be9dbef4784098d9-10"></a>
-<a name="rest_code_02e8117157544f96be9dbef4784098d9-11"></a><span class="o">[</span>Action<span class="o">]</span>
-<a name="rest_code_02e8117157544f96be9dbef4784098d9-12"></a><span class="nv">Depends</span><span class="o">=</span>mkinitcpio
-<a name="rest_code_02e8117157544f96be9dbef4784098d9-13"></a><span class="nv">When</span><span class="o">=</span>PostTransaction
-<a name="rest_code_02e8117157544f96be9dbef4784098d9-14"></a><span class="nv">Exec</span><span class="o">=</span>/usr/bin/mkinitcpio -p linux
-<a name="rest_code_02e8117157544f96be9dbef4784098d9-15"></a>...
-<a name="rest_code_02e8117157544f96be9dbef4784098d9-16"></a>$
+<pre class="code bash"><a name="rest_code_a8df127492544bf98d52ff1b77c58715-1"></a>$ vim /etc/pacman.d/hooks/nvidia.hook
+<a name="rest_code_a8df127492544bf98d52ff1b77c58715-2"></a>$
+<a name="rest_code_a8df127492544bf98d52ff1b77c58715-3"></a>...
+<a name="rest_code_a8df127492544bf98d52ff1b77c58715-4"></a><span class="o">[</span>Trigger<span class="o">]</span>
+<a name="rest_code_a8df127492544bf98d52ff1b77c58715-5"></a><span class="nv">Operation</span><span class="o">=</span>Install
+<a name="rest_code_a8df127492544bf98d52ff1b77c58715-6"></a><span class="nv">Operation</span><span class="o">=</span>Upgrade
+<a name="rest_code_a8df127492544bf98d52ff1b77c58715-7"></a><span class="nv">Operation</span><span class="o">=</span>Remove
+<a name="rest_code_a8df127492544bf98d52ff1b77c58715-8"></a><span class="nv">Type</span><span class="o">=</span>Package
+<a name="rest_code_a8df127492544bf98d52ff1b77c58715-9"></a><span class="nv">Target</span><span class="o">=</span>nvidia
+<a name="rest_code_a8df127492544bf98d52ff1b77c58715-10"></a>
+<a name="rest_code_a8df127492544bf98d52ff1b77c58715-11"></a><span class="o">[</span>Action<span class="o">]</span>
+<a name="rest_code_a8df127492544bf98d52ff1b77c58715-12"></a><span class="nv">Depends</span><span class="o">=</span>mkinitcpio
+<a name="rest_code_a8df127492544bf98d52ff1b77c58715-13"></a><span class="nv">When</span><span class="o">=</span>PostTransaction
+<a name="rest_code_a8df127492544bf98d52ff1b77c58715-14"></a><span class="nv">Exec</span><span class="o">=</span>/usr/bin/mkinitcpio -p linux
+<a name="rest_code_a8df127492544bf98d52ff1b77c58715-15"></a>...
+<a name="rest_code_a8df127492544bf98d52ff1b77c58715-16"></a>$
 </pre>
 <p>Nvidia has a daemon that is to be run at boot. To start the persistence
 daemon at boot, enable the <cite>nvidia-persistenced.service</cite>.</p>
-<pre class="code bash"><a name="rest_code_f0bdab13776949f6b448e51c2621d6e9-1"></a>$ systemctl <span class="nb">enable</span> nvidia-persistenced.service
-<a name="rest_code_f0bdab13776949f6b448e51c2621d6e9-2"></a>$ systemctl start nvidia-persistenced.service
+<pre class="code bash"><a name="rest_code_5f6c6d22512c4e49bef7c7e63cfad108-1"></a>$ systemctl <span class="nb">enable</span> nvidia-persistenced.service
+<a name="rest_code_5f6c6d22512c4e49bef7c7e63cfad108-2"></a>$ systemctl start nvidia-persistenced.service
 </pre>
-<div class="admonition admonition-shortcode54252dfc4b9b4a019432d236b95acbadreplacement">
+<div class="admonition admonition-shortcode8597beea333f4e5b9baf192acb521230replacement">
 <p class="first admonition-title"><span class="highlight-short-blue"><strong>Important</strong></span></p>
 <p>KWIN FLICKERING ISSUE</p>
 <p>To avoid screen tearing in KDE (KWin), add following:</p>
-<pre class="code bash"><a name="rest_code_726d07db74024241a7c50f50cbd293c3-1"></a>$ vim /etc/profile.d/kwin.sh
-<a name="rest_code_726d07db74024241a7c50f50cbd293c3-2"></a>$
-<a name="rest_code_726d07db74024241a7c50f50cbd293c3-3"></a>...
-<a name="rest_code_726d07db74024241a7c50f50cbd293c3-4"></a><span class="nb">export</span> <span class="nv">__GL_YIELD</span><span class="o">=</span><span class="s2">"USLEEP"</span>
-<a name="rest_code_726d07db74024241a7c50f50cbd293c3-5"></a>...
+<pre class="code bash"><a name="rest_code_2f7b807bf21d4b6da67b42e382fa20ca-1"></a>$ vim /etc/profile.d/kwin.sh
+<a name="rest_code_2f7b807bf21d4b6da67b42e382fa20ca-2"></a>$
+<a name="rest_code_2f7b807bf21d4b6da67b42e382fa20ca-3"></a>...
+<a name="rest_code_2f7b807bf21d4b6da67b42e382fa20ca-4"></a><span class="nb">export</span> <span class="nv">__GL_YIELD</span><span class="o">=</span><span class="s2">"USLEEP"</span>
+<a name="rest_code_2f7b807bf21d4b6da67b42e382fa20ca-5"></a>...
 </pre>
 <p>If this does not help please try adding the following instead -</p>
-<pre class="code bash"><a name="rest_code_0cdeb57f54d24d9993968003375b81a7-1"></a>$ vim /etc/profile.d/kwin.sh
-<a name="rest_code_0cdeb57f54d24d9993968003375b81a7-2"></a>$
-<a name="rest_code_0cdeb57f54d24d9993968003375b81a7-3"></a>...
-<a name="rest_code_0cdeb57f54d24d9993968003375b81a7-4"></a><span class="nb">export</span> <span class="nv">KWIN_TRIPLE_BUFFER</span><span class="o">=</span><span class="m">1</span>
-<a name="rest_code_0cdeb57f54d24d9993968003375b81a7-5"></a>...
+<pre class="code bash"><a name="rest_code_54311acd46e94f6ca159f1e53e14edda-1"></a>$ vim /etc/profile.d/kwin.sh
+<a name="rest_code_54311acd46e94f6ca159f1e53e14edda-2"></a>$
+<a name="rest_code_54311acd46e94f6ca159f1e53e14edda-3"></a>...
+<a name="rest_code_54311acd46e94f6ca159f1e53e14edda-4"></a><span class="nb">export</span> <span class="nv">KWIN_TRIPLE_BUFFER</span><span class="o">=</span><span class="m">1</span>
+<a name="rest_code_54311acd46e94f6ca159f1e53e14edda-5"></a>...
 </pre>
 <div class="admonition warning last">
 <p class="first admonition-title">Warning</p>
@@ -236,73 +240,73 @@ daemon at boot, enable the <cite>nvidia-persistenced.service</cite>.</p>
 </div>
 </div>
 <p>Now continue installing remaining important packages for the GUI.</p>
-<pre class="code bash"><a name="rest_code_8397a9006c2b49a8b475ea410601f809-1"></a>$ pacman -S mesa ttf-hack ttf-anonymous-pro
-<a name="rest_code_8397a9006c2b49a8b475ea410601f809-2"></a>$ pacman -S tlp tlp-rdw acpi_call bash-completion git meld
-<a name="rest_code_8397a9006c2b49a8b475ea410601f809-3"></a>$ pacman -S ttf-dejavu ttf-freefont ttf-liberation
+<pre class="code bash"><a name="rest_code_d3e69a62f1b242d4ba27a2952386533b-1"></a>$ pacman -S mesa ttf-hack ttf-anonymous-pro
+<a name="rest_code_d3e69a62f1b242d4ba27a2952386533b-2"></a>$ pacman -S tlp tlp-rdw acpi_call bash-completion git meld
+<a name="rest_code_d3e69a62f1b242d4ba27a2952386533b-3"></a>$ pacman -S ttf-dejavu ttf-freefont ttf-liberation
 </pre>
 <p>Now, we will install the packages related to Plasma 5:</p>
-<pre class="code bash"><a name="rest_code_f535cb22ee4040ad8ee160ee58556338-1"></a>$ pacman -S plasma-meta kf5 kdebase kdeutils kde-applications
-<a name="rest_code_f535cb22ee4040ad8ee160ee58556338-2"></a>$ pacman -S kdegraphics gwenview
+<pre class="code bash"><a name="rest_code_382d4c874eda449094c296a0d53bab86-1"></a>$ pacman -S plasma-meta kf5 kdebase kdeutils kde-applications
+<a name="rest_code_382d4c874eda449094c296a0d53bab86-2"></a>$ pacman -S kdegraphics gwenview
 </pre>
 <p>Now we have to setup a display manager. I chose recommended SDDM for
 plasma 5.</p>
-<pre class="code bash"><a name="rest_code_1a5972c6de6a4c3198635bb37993c4c0-1"></a>$ pacman -S sddm sddm-kcm
-<a name="rest_code_1a5972c6de6a4c3198635bb37993c4c0-2"></a>$ vim /etc/sddm.conf
-<a name="rest_code_1a5972c6de6a4c3198635bb37993c4c0-3"></a>
-<a name="rest_code_1a5972c6de6a4c3198635bb37993c4c0-4"></a>...
-<a name="rest_code_1a5972c6de6a4c3198635bb37993c4c0-5"></a><span class="o">[</span>Theme<span class="o">]</span>
-<a name="rest_code_1a5972c6de6a4c3198635bb37993c4c0-6"></a><span class="c1"># Current theme name</span>
-<a name="rest_code_1a5972c6de6a4c3198635bb37993c4c0-7"></a><span class="nv">Current</span><span class="o">=</span>breeze
-<a name="rest_code_1a5972c6de6a4c3198635bb37993c4c0-8"></a>
-<a name="rest_code_1a5972c6de6a4c3198635bb37993c4c0-9"></a><span class="c1"># Cursor theme</span>
-<a name="rest_code_1a5972c6de6a4c3198635bb37993c4c0-10"></a><span class="nv">CursorTheme</span><span class="o">=</span>breeze_cursors
-<a name="rest_code_1a5972c6de6a4c3198635bb37993c4c0-11"></a>...
-<a name="rest_code_1a5972c6de6a4c3198635bb37993c4c0-12"></a>
-<a name="rest_code_1a5972c6de6a4c3198635bb37993c4c0-13"></a>$ systemctl <span class="nb">enable</span> sddm
+<pre class="code bash"><a name="rest_code_5a0f13b5441943e687705e53c05a9a99-1"></a>$ pacman -S sddm sddm-kcm
+<a name="rest_code_5a0f13b5441943e687705e53c05a9a99-2"></a>$ vim /etc/sddm.conf
+<a name="rest_code_5a0f13b5441943e687705e53c05a9a99-3"></a>
+<a name="rest_code_5a0f13b5441943e687705e53c05a9a99-4"></a>...
+<a name="rest_code_5a0f13b5441943e687705e53c05a9a99-5"></a><span class="o">[</span>Theme<span class="o">]</span>
+<a name="rest_code_5a0f13b5441943e687705e53c05a9a99-6"></a><span class="c1"># Current theme name</span>
+<a name="rest_code_5a0f13b5441943e687705e53c05a9a99-7"></a><span class="nv">Current</span><span class="o">=</span>breeze
+<a name="rest_code_5a0f13b5441943e687705e53c05a9a99-8"></a>
+<a name="rest_code_5a0f13b5441943e687705e53c05a9a99-9"></a><span class="c1"># Cursor theme</span>
+<a name="rest_code_5a0f13b5441943e687705e53c05a9a99-10"></a><span class="nv">CursorTheme</span><span class="o">=</span>breeze_cursors
+<a name="rest_code_5a0f13b5441943e687705e53c05a9a99-11"></a>...
+<a name="rest_code_5a0f13b5441943e687705e53c05a9a99-12"></a>
+<a name="rest_code_5a0f13b5441943e687705e53c05a9a99-13"></a>$ systemctl <span class="nb">enable</span> sddm
 </pre>
 <p>Also make sure that network manager starts at boot:</p>
-<pre class="code bash"><a name="rest_code_a5d5517f697f422d85068d0e1a4edb38-1"></a>$ systemctl disable dhcpcd.service
-<a name="rest_code_a5d5517f697f422d85068d0e1a4edb38-2"></a>$ systemctl <span class="nb">enable</span> NetworkManager
+<pre class="code bash"><a name="rest_code_44870d1851e8411683358a9b56ab93e2-1"></a>$ systemctl disable dhcpcd.service
+<a name="rest_code_44870d1851e8411683358a9b56ab93e2-2"></a>$ systemctl <span class="nb">enable</span> NetworkManager
 </pre>
 </div>
 <div class="section" id="audio-setup">
 <h2><a class="toc-backref" href="#id3">Audio Setup</a></h2>
 <p>This is pretty simple. Install following packages and you should be
 done:</p>
-<pre class="code bash"><a name="rest_code_862019912c6a493382fb8140cfb07cb9-1"></a>$ pacman -S alsa-utils pulseaudio pulseaudio-alsa libcanberra-pulse
-<a name="rest_code_862019912c6a493382fb8140cfb07cb9-2"></a>$ pacman -S libcanberra-gstreamer jack2-dbus kmix
-<a name="rest_code_862019912c6a493382fb8140cfb07cb9-3"></a>$ pacman -S mpv mplayer
+<pre class="code bash"><a name="rest_code_fcfdf7da5b664490a9ec5d233c911660-1"></a>$ pacman -S alsa-utils pulseaudio pulseaudio-alsa libcanberra-pulse
+<a name="rest_code_fcfdf7da5b664490a9ec5d233c911660-2"></a>$ pacman -S libcanberra-gstreamer jack2-dbus kmix
+<a name="rest_code_fcfdf7da5b664490a9ec5d233c911660-3"></a>$ pacman -S mpv mplayer
 </pre>
 </div>
 <div class="section" id="useful-tips">
 <h2><a class="toc-backref" href="#id4">Useful Tips</a></h2>
 <p>This part is optional and you can choose as per your taste. Sync time using the systemd service:</p>
-<pre class="code bash"><a name="rest_code_d491fa11507f4436b805f730b12983b5-1"></a>$ vim /etc/systemd/timesyncd.conf
-<a name="rest_code_d491fa11507f4436b805f730b12983b5-2"></a>$
-<a name="rest_code_d491fa11507f4436b805f730b12983b5-3"></a>...
-<a name="rest_code_d491fa11507f4436b805f730b12983b5-4"></a><span class="o">[</span>Time<span class="o">]</span>
-<a name="rest_code_d491fa11507f4436b805f730b12983b5-5"></a><span class="nv">NTP</span><span class="o">=</span><span class="m">0</span>.arch.pool.ntp.org <span class="m">1</span>.arch.pool.ntp.org <span class="m">2</span>.arch.pool.ntp.org <span class="m">3</span>.arch.pool.ntp.org
-<a name="rest_code_d491fa11507f4436b805f730b12983b5-6"></a><span class="nv">FallbackNTP</span><span class="o">=</span><span class="m">0</span>.pool.ntp.org <span class="m">1</span>.pool.ntp.org <span class="m">0</span>.fr.pool.ntp.org
-<a name="rest_code_d491fa11507f4436b805f730b12983b5-7"></a>...
-<a name="rest_code_d491fa11507f4436b805f730b12983b5-8"></a>$
-<a name="rest_code_d491fa11507f4436b805f730b12983b5-9"></a>$ timedatectl set-ntp <span class="nb">true</span>
-<a name="rest_code_d491fa11507f4436b805f730b12983b5-10"></a>$ timedatectl status
-<a name="rest_code_d491fa11507f4436b805f730b12983b5-11"></a>$
-<a name="rest_code_d491fa11507f4436b805f730b12983b5-12"></a>...
-<a name="rest_code_d491fa11507f4436b805f730b12983b5-13"></a>      Local time: Tue <span class="m">2016</span>-09-20 <span class="m">16</span>:40:44 PDT
-<a name="rest_code_d491fa11507f4436b805f730b12983b5-14"></a>  Universal time: Tue <span class="m">2016</span>-09-20 <span class="m">23</span>:40:44 UTC
-<a name="rest_code_d491fa11507f4436b805f730b12983b5-15"></a>        RTC time: Tue <span class="m">2016</span>-09-20 <span class="m">23</span>:40:44
-<a name="rest_code_d491fa11507f4436b805f730b12983b5-16"></a>       Time zone: US/Pacific <span class="o">(</span>PDT, -0700<span class="o">)</span>
-<a name="rest_code_d491fa11507f4436b805f730b12983b5-17"></a> Network <span class="nb">time</span> on: yes
-<a name="rest_code_d491fa11507f4436b805f730b12983b5-18"></a>NTP synchronized: yes
-<a name="rest_code_d491fa11507f4436b805f730b12983b5-19"></a> RTC in <span class="nb">local</span> TZ: no
-<a name="rest_code_d491fa11507f4436b805f730b12983b5-20"></a> ...
-<a name="rest_code_d491fa11507f4436b805f730b12983b5-21"></a>$
+<pre class="code bash"><a name="rest_code_8e5924cb79a34eb5a61f333a2a9671c6-1"></a>$ vim /etc/systemd/timesyncd.conf
+<a name="rest_code_8e5924cb79a34eb5a61f333a2a9671c6-2"></a>$
+<a name="rest_code_8e5924cb79a34eb5a61f333a2a9671c6-3"></a>...
+<a name="rest_code_8e5924cb79a34eb5a61f333a2a9671c6-4"></a><span class="o">[</span>Time<span class="o">]</span>
+<a name="rest_code_8e5924cb79a34eb5a61f333a2a9671c6-5"></a><span class="nv">NTP</span><span class="o">=</span><span class="m">0</span>.arch.pool.ntp.org <span class="m">1</span>.arch.pool.ntp.org <span class="m">2</span>.arch.pool.ntp.org <span class="m">3</span>.arch.pool.ntp.org
+<a name="rest_code_8e5924cb79a34eb5a61f333a2a9671c6-6"></a><span class="nv">FallbackNTP</span><span class="o">=</span><span class="m">0</span>.pool.ntp.org <span class="m">1</span>.pool.ntp.org <span class="m">0</span>.fr.pool.ntp.org
+<a name="rest_code_8e5924cb79a34eb5a61f333a2a9671c6-7"></a>...
+<a name="rest_code_8e5924cb79a34eb5a61f333a2a9671c6-8"></a>$
+<a name="rest_code_8e5924cb79a34eb5a61f333a2a9671c6-9"></a>$ timedatectl set-ntp <span class="nb">true</span>
+<a name="rest_code_8e5924cb79a34eb5a61f333a2a9671c6-10"></a>$ timedatectl status
+<a name="rest_code_8e5924cb79a34eb5a61f333a2a9671c6-11"></a>$
+<a name="rest_code_8e5924cb79a34eb5a61f333a2a9671c6-12"></a>...
+<a name="rest_code_8e5924cb79a34eb5a61f333a2a9671c6-13"></a>      Local time: Tue <span class="m">2016</span>-09-20 <span class="m">16</span>:40:44 PDT
+<a name="rest_code_8e5924cb79a34eb5a61f333a2a9671c6-14"></a>  Universal time: Tue <span class="m">2016</span>-09-20 <span class="m">23</span>:40:44 UTC
+<a name="rest_code_8e5924cb79a34eb5a61f333a2a9671c6-15"></a>        RTC time: Tue <span class="m">2016</span>-09-20 <span class="m">23</span>:40:44
+<a name="rest_code_8e5924cb79a34eb5a61f333a2a9671c6-16"></a>       Time zone: US/Pacific <span class="o">(</span>PDT, -0700<span class="o">)</span>
+<a name="rest_code_8e5924cb79a34eb5a61f333a2a9671c6-17"></a> Network <span class="nb">time</span> on: yes
+<a name="rest_code_8e5924cb79a34eb5a61f333a2a9671c6-18"></a>NTP synchronized: yes
+<a name="rest_code_8e5924cb79a34eb5a61f333a2a9671c6-19"></a> RTC in <span class="nb">local</span> TZ: no
+<a name="rest_code_8e5924cb79a34eb5a61f333a2a9671c6-20"></a> ...
+<a name="rest_code_8e5924cb79a34eb5a61f333a2a9671c6-21"></a>$
 </pre>
 <p>On Plasma 5, It is recommended to enable no-bitmaps to improve the font
 rendering:</p>
-<pre class="code bash"><a name="rest_code_59769ab663f14d16b71f05e603262b10-1"></a>$ sudo ln -s /etc/fonts/conf.avail/70-no-bitmaps.conf
-<a name="rest_code_59769ab663f14d16b71f05e603262b10-2"></a>   /etc/fonts/conf.d
+<pre class="code bash"><a name="rest_code_7838dcd592a942b98e9be88bb92d7bab-1"></a>$ sudo ln -s /etc/fonts/conf.avail/70-no-bitmaps.conf
+<a name="rest_code_7838dcd592a942b98e9be88bb92d7bab-2"></a>   /etc/fonts/conf.d
 </pre>
 <p>If you use vim as your primary editor, you may find
 <a class="reference external" href="https://github.com/amix/vimrc">this</a> vimrc quite useful.</p>
@@ -360,7 +364,7 @@ if this has been of any help to you.</p>
 </div>
 
 
-            <script src="../../assets/js/all-nocdn.js"></script><script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53f6d74a591ace8f"></script><!-- End of social buttons --><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+            <script src="../../assets/js/jquery.min.js"></script><script src="../../assets/js/bootstrap.min.js"></script><script src="../../assets/js/moment-with-locales.min.js"></script><script src="../../assets/js/fancydates.js"></script><script src="../../assets/js/jquery.colorbox-min.js"></script><script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53f6d74a591ace8f"></script><!-- End of social buttons --><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
     moment.locale("en");
     fancydates(2, "YYYY-MM-DD HH:mm");
     </script><!-- end fancy dates --><!-- Modal --><div id="search-results" class="modal fade" role="dialog" style="height: 80%;">

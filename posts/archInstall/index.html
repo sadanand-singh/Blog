@@ -4,7 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Arch Installation Guide | Sadanand's Notes</title>
-<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/rst.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/code.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/colorbox.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/theme.css" rel="stylesheet" type="text/css">
 <link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
 <meta name="theme-color" content="#5670d4">
@@ -182,21 +186,21 @@ setting up final working Plasma 5 desktop.</p>
 <h2><a class="toc-backref" href="#id1">Initial Setup</a></h2>
 <p>Download the latest iso from Arch website and create the uefi usb
 installation media. I used my mac to do this on terminal:</p>
-<pre class="code bash"><a name="rest_code_cadf81710a514d5b9e3d4a1bb4bb2f6c-1"></a>$ diskutil list
-<a name="rest_code_cadf81710a514d5b9e3d4a1bb4bb2f6c-2"></a>$ diskutil unmountDisk /dev/disk1
-<a name="rest_code_cadf81710a514d5b9e3d4a1bb4bb2f6c-3"></a>$ dd <span class="k">if</span><span class="o">=</span>image.iso <span class="nv">of</span><span class="o">=</span>/dev/rdisk1 <span class="nv">bs</span><span class="o">=</span>1m
-<a name="rest_code_cadf81710a514d5b9e3d4a1bb4bb2f6c-4"></a><span class="m">20480</span>+0 records in
-<a name="rest_code_cadf81710a514d5b9e3d4a1bb4bb2f6c-5"></a><span class="m">20480</span>+0 records out
-<a name="rest_code_cadf81710a514d5b9e3d4a1bb4bb2f6c-6"></a><span class="m">167772160</span> bytes transferred in <span class="m">220</span>.016918 secs <span class="o">(</span><span class="m">762542</span> bytes/sec<span class="o">)</span>
-<a name="rest_code_cadf81710a514d5b9e3d4a1bb4bb2f6c-7"></a>
-<a name="rest_code_cadf81710a514d5b9e3d4a1bb4bb2f6c-8"></a>$ diskutil eject /dev/disk1
+<pre class="code bash"><a name="rest_code_8234bcf4e9994ecf8607d697661c7a16-1"></a>$ diskutil list
+<a name="rest_code_8234bcf4e9994ecf8607d697661c7a16-2"></a>$ diskutil unmountDisk /dev/disk1
+<a name="rest_code_8234bcf4e9994ecf8607d697661c7a16-3"></a>$ dd <span class="k">if</span><span class="o">=</span>image.iso <span class="nv">of</span><span class="o">=</span>/dev/rdisk1 <span class="nv">bs</span><span class="o">=</span>1m
+<a name="rest_code_8234bcf4e9994ecf8607d697661c7a16-4"></a><span class="m">20480</span>+0 records in
+<a name="rest_code_8234bcf4e9994ecf8607d697661c7a16-5"></a><span class="m">20480</span>+0 records out
+<a name="rest_code_8234bcf4e9994ecf8607d697661c7a16-6"></a><span class="m">167772160</span> bytes transferred in <span class="m">220</span>.016918 secs <span class="o">(</span><span class="m">762542</span> bytes/sec<span class="o">)</span>
+<a name="rest_code_8234bcf4e9994ecf8607d697661c7a16-7"></a>
+<a name="rest_code_8234bcf4e9994ecf8607d697661c7a16-8"></a>$ diskutil eject /dev/disk1
 </pre>
 <p>Use this media to boot into your machine. You should boot into UEFI mode
 if you have a
 <a class="reference external" href="https://wiki.archlinux.org/index.php/Unified_Extensible_Firmware_Interface">UEFI</a>
 motherboard and UEFI mode enabled.</p>
 <p>To verify you have booted in UEFU mode, run:</p>
-<pre class="code bash"><a name="rest_code_e4796789dddb44bd9a8b7feca1439bf1-1"></a>$ efivar -l
+<pre class="code bash"><a name="rest_code_a6548ec9b2f441bc80354a136ea512f9-1"></a>$ efivar -l
 </pre>
 <p>This should give you a list of set UEFI variables. Please look at the
 <a class="reference external" href="https://wiki.archlinux.org/index.php/Beginners%27_guide">Begineers'
@@ -209,7 +213,7 @@ If you do not plan to use wifi during installation, you can skip
 to the next section. If desired later, wifi will still be configurable after you are done
 with all the installation.</p>
 <p>To setup wifi simply run:</p>
-<pre class="code bash"><a name="rest_code_e950428577a3465dac4c6263490e6300-1"></a>$ wifi-menu
+<pre class="code bash"><a name="rest_code_ce3dda084c0a4090887d1ce9a9fd7637-1"></a>$ wifi-menu
 </pre>
 <p>This is a pretty straight forward tool and will setup wifi for you for
 this installation session.</p>
@@ -220,8 +224,8 @@ later to enable wifi at the first session after installation.</p>
 <h3><a class="toc-backref" href="#id3">System Updates</a></h3>
 <p>For editing different configurations, I tend to use <em>vim</em>. So we will
 update our package cache and install vim.</p>
-<pre class="code bash"><a name="rest_code_eee09834856443c5baedb8f6c58e70bb-1"></a>$ pacman -Syy
-<a name="rest_code_eee09834856443c5baedb8f6c58e70bb-2"></a>$ pacman -S vim
+<pre class="code bash"><a name="rest_code_28115f879dfb4bd691f95db8888865d9-1"></a>$ pacman -Syy
+<a name="rest_code_28115f879dfb4bd691f95db8888865d9-2"></a>$ pacman -S vim
 </pre>
 </div>
 <div class="section" id="hard-drives">
@@ -236,100 +240,100 @@ will format rest other partitions with BTRFS. See this
 <a class="reference external" href="http://www.makeuseof.com/tag/ext4-btrfs-making-switch-linux/">link</a>
 for benefits of using btrfs partitions.</p>
 <p>First list your hard drives with the following:</p>
-<pre class="code bash"><a name="rest_code_f0c21096086d4f54b00a5adf059ea05c-1"></a>$ lsblk
-<a name="rest_code_f0c21096086d4f54b00a5adf059ea05c-2"></a>$ cat /proc/partitions
+<pre class="code bash"><a name="rest_code_82dcb5fbc8d646ed85d176f4f9f933fe-1"></a>$ lsblk
+<a name="rest_code_82dcb5fbc8d646ed85d176f4f9f933fe-2"></a>$ cat /proc/partitions
 </pre>
 <p>Assuming, my setup above, now create gpt partitions and format them.</p>
-<pre class="code bash"><a name="rest_code_52de7fa2e3d5497b837225ff35ccdca2-1"></a>$ dd <span class="k">if</span><span class="o">=</span>/dev/zero <span class="nv">of</span><span class="o">=</span>/dev/sda <span class="nv">bs</span><span class="o">=</span>1M <span class="nv">count</span><span class="o">=</span><span class="m">5000</span>
-<a name="rest_code_52de7fa2e3d5497b837225ff35ccdca2-2"></a>$ gdisk /dev/sda
-<a name="rest_code_52de7fa2e3d5497b837225ff35ccdca2-3"></a>Found invalid MBR and corrupt GPT. What <span class="k">do</span> you want to <span class="k">do</span>? <span class="o">(</span>Using the
-<a name="rest_code_52de7fa2e3d5497b837225ff35ccdca2-4"></a>GPT MAY permit recovery of GPT data.<span class="o">)</span>
-<a name="rest_code_52de7fa2e3d5497b837225ff35ccdca2-5"></a> <span class="m">1</span> - Use current GPT
-<a name="rest_code_52de7fa2e3d5497b837225ff35ccdca2-6"></a> <span class="m">2</span> - Create blank GPT
+<pre class="code bash"><a name="rest_code_a7dc506d0b304228b6e74dffff9446a9-1"></a>$ dd <span class="k">if</span><span class="o">=</span>/dev/zero <span class="nv">of</span><span class="o">=</span>/dev/sda <span class="nv">bs</span><span class="o">=</span>1M <span class="nv">count</span><span class="o">=</span><span class="m">5000</span>
+<a name="rest_code_a7dc506d0b304228b6e74dffff9446a9-2"></a>$ gdisk /dev/sda
+<a name="rest_code_a7dc506d0b304228b6e74dffff9446a9-3"></a>Found invalid MBR and corrupt GPT. What <span class="k">do</span> you want to <span class="k">do</span>? <span class="o">(</span>Using the
+<a name="rest_code_a7dc506d0b304228b6e74dffff9446a9-4"></a>GPT MAY permit recovery of GPT data.<span class="o">)</span>
+<a name="rest_code_a7dc506d0b304228b6e74dffff9446a9-5"></a> <span class="m">1</span> - Use current GPT
+<a name="rest_code_a7dc506d0b304228b6e74dffff9446a9-6"></a> <span class="m">2</span> - Create blank GPT
 </pre>
 <p>Then press 2 to create a blank GPT and start fresh</p>
-<pre class="code bash"><a name="rest_code_7d96badb3cb24772928eba280d2a5541-1"></a>ZAP:
-<a name="rest_code_7d96badb3cb24772928eba280d2a5541-2"></a>$ press x - to go to extended menu
-<a name="rest_code_7d96badb3cb24772928eba280d2a5541-3"></a>$ press z - to zap
-<a name="rest_code_7d96badb3cb24772928eba280d2a5541-4"></a>$ press Y - to confirm
-<a name="rest_code_7d96badb3cb24772928eba280d2a5541-5"></a>$ press Y - to delete MBR
+<pre class="code bash"><a name="rest_code_9d42e4e905864da8aa1d8fc814349fdd-1"></a>ZAP:
+<a name="rest_code_9d42e4e905864da8aa1d8fc814349fdd-2"></a>$ press x - to go to extended menu
+<a name="rest_code_9d42e4e905864da8aa1d8fc814349fdd-3"></a>$ press z - to zap
+<a name="rest_code_9d42e4e905864da8aa1d8fc814349fdd-4"></a>$ press Y - to confirm
+<a name="rest_code_9d42e4e905864da8aa1d8fc814349fdd-5"></a>$ press Y - to delete MBR
 </pre>
 <p>It might now kick us out of gdisk, so get back into it:</p>
-<pre class="code bash"><a name="rest_code_5d24b578dde94123ba0d4edc80a4e5be-1"></a>$ gdisk /dev/sda
-<a name="rest_code_5d24b578dde94123ba0d4edc80a4e5be-2"></a>
-<a name="rest_code_5d24b578dde94123ba0d4edc80a4e5be-3"></a>$ Command <span class="o">(</span>? <span class="k">for</span> <span class="nb">help</span><span class="o">)</span>: m
-<a name="rest_code_5d24b578dde94123ba0d4edc80a4e5be-4"></a>$ Command <span class="o">(</span>? <span class="k">for</span> <span class="nb">help</span><span class="o">)</span>: n
-<a name="rest_code_5d24b578dde94123ba0d4edc80a4e5be-5"></a>
-<a name="rest_code_5d24b578dde94123ba0d4edc80a4e5be-6"></a>$ Partition number <span class="o">(</span><span class="m">1</span>-128, default <span class="m">1</span><span class="o">)</span>:
-<a name="rest_code_5d24b578dde94123ba0d4edc80a4e5be-7"></a>$ First sector <span class="o">(</span><span class="m">34</span>-500118158, <span class="nv">default</span> <span class="o">=</span> <span class="m">2048</span><span class="o">)</span> or <span class="o">{</span>+-<span class="o">}</span>size<span class="o">{</span>KMGTP<span class="o">}</span>:
-<a name="rest_code_5d24b578dde94123ba0d4edc80a4e5be-8"></a>$ Last sector <span class="o">(</span><span class="m">2048</span>-500118, <span class="nv">default</span> <span class="o">=</span> <span class="m">500118</span><span class="o">)</span> or <span class="o">{</span>+-<span class="o">}</span>size<span class="o">{</span>KMGTP<span class="o">}</span>: 512M
-<a name="rest_code_5d24b578dde94123ba0d4edc80a4e5be-9"></a>$ Current <span class="nb">type</span> is <span class="s1">'Linux filesystem'</span>
-<a name="rest_code_5d24b578dde94123ba0d4edc80a4e5be-10"></a>$ Hex code or GUID <span class="o">(</span>L to show codes, <span class="nv">Enter</span> <span class="o">=</span> <span class="m">8300</span><span class="o">)</span>: ef00
-<a name="rest_code_5d24b578dde94123ba0d4edc80a4e5be-11"></a>$ Changed <span class="nb">type</span> of partition to <span class="s1">'EFI System'</span>
-<a name="rest_code_5d24b578dde94123ba0d4edc80a4e5be-12"></a>
-<a name="rest_code_5d24b578dde94123ba0d4edc80a4e5be-13"></a>$ Partition number <span class="o">(</span><span class="m">2</span>-128, default <span class="m">2</span><span class="o">)</span>:
-<a name="rest_code_5d24b578dde94123ba0d4edc80a4e5be-14"></a>$ First sector <span class="o">(</span><span class="m">34</span>-500118, <span class="nv">default</span> <span class="o">=</span> <span class="m">16779264</span><span class="o">)</span> or <span class="o">{</span>+-<span class="o">}</span>size<span class="o">{</span>KMGTP<span class="o">}</span>:
-<a name="rest_code_5d24b578dde94123ba0d4edc80a4e5be-15"></a>$ Last sector <span class="o">(</span><span class="m">16779264</span>-500118, <span class="nv">default</span> <span class="o">=</span> <span class="m">500118</span><span class="o">)</span> or <span class="o">{</span>+-<span class="o">}</span>size<span class="o">{</span>KMGTP<span class="o">}</span>:
-<a name="rest_code_5d24b578dde94123ba0d4edc80a4e5be-16"></a>$ Current <span class="nb">type</span> is <span class="s1">'Linux filesystem'</span>
-<a name="rest_code_5d24b578dde94123ba0d4edc80a4e5be-17"></a>$ Hex code or GUID <span class="o">(</span>L to show codes, <span class="nv">Enter</span> <span class="o">=</span> <span class="m">8300</span><span class="o">)</span>:
-<a name="rest_code_5d24b578dde94123ba0d4edc80a4e5be-18"></a>$ Changed <span class="nb">type</span> of partition to <span class="s1">'Linux filesystem'</span>
-<a name="rest_code_5d24b578dde94123ba0d4edc80a4e5be-19"></a>
-<a name="rest_code_5d24b578dde94123ba0d4edc80a4e5be-20"></a>$ Command <span class="o">(</span>? <span class="k">for</span> <span class="nb">help</span><span class="o">)</span>: p
-<a name="rest_code_5d24b578dde94123ba0d4edc80a4e5be-21"></a>$ Press w to write to disk
-<a name="rest_code_5d24b578dde94123ba0d4edc80a4e5be-22"></a>$ Press Y to confirm
+<pre class="code bash"><a name="rest_code_c0e9ce591fb74a79aef803fae79e6af3-1"></a>$ gdisk /dev/sda
+<a name="rest_code_c0e9ce591fb74a79aef803fae79e6af3-2"></a>
+<a name="rest_code_c0e9ce591fb74a79aef803fae79e6af3-3"></a>$ Command <span class="o">(</span>? <span class="k">for</span> <span class="nb">help</span><span class="o">)</span>: m
+<a name="rest_code_c0e9ce591fb74a79aef803fae79e6af3-4"></a>$ Command <span class="o">(</span>? <span class="k">for</span> <span class="nb">help</span><span class="o">)</span>: n
+<a name="rest_code_c0e9ce591fb74a79aef803fae79e6af3-5"></a>
+<a name="rest_code_c0e9ce591fb74a79aef803fae79e6af3-6"></a>$ Partition number <span class="o">(</span><span class="m">1</span>-128, default <span class="m">1</span><span class="o">)</span>:
+<a name="rest_code_c0e9ce591fb74a79aef803fae79e6af3-7"></a>$ First sector <span class="o">(</span><span class="m">34</span>-500118158, <span class="nv">default</span> <span class="o">=</span> <span class="m">2048</span><span class="o">)</span> or <span class="o">{</span>+-<span class="o">}</span>size<span class="o">{</span>KMGTP<span class="o">}</span>:
+<a name="rest_code_c0e9ce591fb74a79aef803fae79e6af3-8"></a>$ Last sector <span class="o">(</span><span class="m">2048</span>-500118, <span class="nv">default</span> <span class="o">=</span> <span class="m">500118</span><span class="o">)</span> or <span class="o">{</span>+-<span class="o">}</span>size<span class="o">{</span>KMGTP<span class="o">}</span>: 512M
+<a name="rest_code_c0e9ce591fb74a79aef803fae79e6af3-9"></a>$ Current <span class="nb">type</span> is <span class="s1">'Linux filesystem'</span>
+<a name="rest_code_c0e9ce591fb74a79aef803fae79e6af3-10"></a>$ Hex code or GUID <span class="o">(</span>L to show codes, <span class="nv">Enter</span> <span class="o">=</span> <span class="m">8300</span><span class="o">)</span>: ef00
+<a name="rest_code_c0e9ce591fb74a79aef803fae79e6af3-11"></a>$ Changed <span class="nb">type</span> of partition to <span class="s1">'EFI System'</span>
+<a name="rest_code_c0e9ce591fb74a79aef803fae79e6af3-12"></a>
+<a name="rest_code_c0e9ce591fb74a79aef803fae79e6af3-13"></a>$ Partition number <span class="o">(</span><span class="m">2</span>-128, default <span class="m">2</span><span class="o">)</span>:
+<a name="rest_code_c0e9ce591fb74a79aef803fae79e6af3-14"></a>$ First sector <span class="o">(</span><span class="m">34</span>-500118, <span class="nv">default</span> <span class="o">=</span> <span class="m">16779264</span><span class="o">)</span> or <span class="o">{</span>+-<span class="o">}</span>size<span class="o">{</span>KMGTP<span class="o">}</span>:
+<a name="rest_code_c0e9ce591fb74a79aef803fae79e6af3-15"></a>$ Last sector <span class="o">(</span><span class="m">16779264</span>-500118, <span class="nv">default</span> <span class="o">=</span> <span class="m">500118</span><span class="o">)</span> or <span class="o">{</span>+-<span class="o">}</span>size<span class="o">{</span>KMGTP<span class="o">}</span>:
+<a name="rest_code_c0e9ce591fb74a79aef803fae79e6af3-16"></a>$ Current <span class="nb">type</span> is <span class="s1">'Linux filesystem'</span>
+<a name="rest_code_c0e9ce591fb74a79aef803fae79e6af3-17"></a>$ Hex code or GUID <span class="o">(</span>L to show codes, <span class="nv">Enter</span> <span class="o">=</span> <span class="m">8300</span><span class="o">)</span>:
+<a name="rest_code_c0e9ce591fb74a79aef803fae79e6af3-18"></a>$ Changed <span class="nb">type</span> of partition to <span class="s1">'Linux filesystem'</span>
+<a name="rest_code_c0e9ce591fb74a79aef803fae79e6af3-19"></a>
+<a name="rest_code_c0e9ce591fb74a79aef803fae79e6af3-20"></a>$ Command <span class="o">(</span>? <span class="k">for</span> <span class="nb">help</span><span class="o">)</span>: p
+<a name="rest_code_c0e9ce591fb74a79aef803fae79e6af3-21"></a>$ Press w to write to disk
+<a name="rest_code_c0e9ce591fb74a79aef803fae79e6af3-22"></a>$ Press Y to confirm
 </pre>
 <p>Repeat the above procedure for <em>/dev/sdb</em> and <em>/dev/sdc</em>, but create just one partition
 with all values as default. At the end we will have three partitions:
 <em>/dev/sda1, /dev/sda2, /dev/sdb1</em> and <em>/dev/sdc1</em></p>
 <p>Now we will format these partitions.</p>
-<pre class="code bash"><a name="rest_code_1f0b5f378c614103bc05357492e73230-1"></a>$ mkfs.vfat -F32 /dev/sda1
-<a name="rest_code_1f0b5f378c614103bc05357492e73230-2"></a>$ mkfs.btrfs -L arch /dev/sda2
-<a name="rest_code_1f0b5f378c614103bc05357492e73230-3"></a>$ mkfs.btrfs -L data /dev/sdb1
-<a name="rest_code_1f0b5f378c614103bc05357492e73230-4"></a>$ mkfs.btrfs -L media /dev/sdc1
+<pre class="code bash"><a name="rest_code_e49cf7b3f79346c9957ca0ce185da69a-1"></a>$ mkfs.vfat -F32 /dev/sda1
+<a name="rest_code_e49cf7b3f79346c9957ca0ce185da69a-2"></a>$ mkfs.btrfs -L arch /dev/sda2
+<a name="rest_code_e49cf7b3f79346c9957ca0ce185da69a-3"></a>$ mkfs.btrfs -L data /dev/sdb1
+<a name="rest_code_e49cf7b3f79346c9957ca0ce185da69a-4"></a>$ mkfs.btrfs -L media /dev/sdc1
 </pre>
 <p>Now, we will create btrfs subvolumes and mount them properly for
 installation and final setup.</p>
-<pre class="code bash"><a name="rest_code_1f4bfd4364c94c2aab43f0f6da4cec19-1"></a>$ mount /dev/sda2 /mnt
-<a name="rest_code_1f4bfd4364c94c2aab43f0f6da4cec19-2"></a>$ btrfs subvolume create /mnt/ROOT
-<a name="rest_code_1f4bfd4364c94c2aab43f0f6da4cec19-3"></a>$ btrfs subvolume create /mnt/home
-<a name="rest_code_1f4bfd4364c94c2aab43f0f6da4cec19-4"></a>$ umount /mnt
-<a name="rest_code_1f4bfd4364c94c2aab43f0f6da4cec19-5"></a>
-<a name="rest_code_1f4bfd4364c94c2aab43f0f6da4cec19-6"></a>$ mount /dev/sdb1 /mnt
-<a name="rest_code_1f4bfd4364c94c2aab43f0f6da4cec19-7"></a>$ btrfs subvolume create /mnt/data
-<a name="rest_code_1f4bfd4364c94c2aab43f0f6da4cec19-8"></a>$ umount /mnt
-<a name="rest_code_1f4bfd4364c94c2aab43f0f6da4cec19-9"></a>
-<a name="rest_code_1f4bfd4364c94c2aab43f0f6da4cec19-10"></a>$ mount /dev/sdc1 /mnt
-<a name="rest_code_1f4bfd4364c94c2aab43f0f6da4cec19-11"></a>$ btrfs subvolume create /mnt/media
-<a name="rest_code_1f4bfd4364c94c2aab43f0f6da4cec19-12"></a>$ umount /mnt
+<pre class="code bash"><a name="rest_code_636bb7de5f914a458ca0673f093e19bc-1"></a>$ mount /dev/sda2 /mnt
+<a name="rest_code_636bb7de5f914a458ca0673f093e19bc-2"></a>$ btrfs subvolume create /mnt/ROOT
+<a name="rest_code_636bb7de5f914a458ca0673f093e19bc-3"></a>$ btrfs subvolume create /mnt/home
+<a name="rest_code_636bb7de5f914a458ca0673f093e19bc-4"></a>$ umount /mnt
+<a name="rest_code_636bb7de5f914a458ca0673f093e19bc-5"></a>
+<a name="rest_code_636bb7de5f914a458ca0673f093e19bc-6"></a>$ mount /dev/sdb1 /mnt
+<a name="rest_code_636bb7de5f914a458ca0673f093e19bc-7"></a>$ btrfs subvolume create /mnt/data
+<a name="rest_code_636bb7de5f914a458ca0673f093e19bc-8"></a>$ umount /mnt
+<a name="rest_code_636bb7de5f914a458ca0673f093e19bc-9"></a>
+<a name="rest_code_636bb7de5f914a458ca0673f093e19bc-10"></a>$ mount /dev/sdc1 /mnt
+<a name="rest_code_636bb7de5f914a458ca0673f093e19bc-11"></a>$ btrfs subvolume create /mnt/media
+<a name="rest_code_636bb7de5f914a458ca0673f093e19bc-12"></a>$ umount /mnt
 </pre>
 <p>Now, once the sub-volumes have been created, we will mount them in
 appropriate locations with optimal flags.</p>
-<pre class="code bash"><a name="rest_code_22c61c6b763d48cf8c14a7f2538ab4be-1"></a><span class="nv">$SSD_MOUNTS</span><span class="o">=</span><span class="s2">"rw,noatime,nodev,compress=lzo,ssd,discard,</span>
-<a name="rest_code_22c61c6b763d48cf8c14a7f2538ab4be-2"></a><span class="s2">    space_cache,autodefrag,inode_cache"</span>
-<a name="rest_code_22c61c6b763d48cf8c14a7f2538ab4be-3"></a>$ <span class="nv">HDD_MOUNTS</span><span class="o">=</span><span class="s2">"rw,nosuid,nodev,relatime,space_cache"</span>
-<a name="rest_code_22c61c6b763d48cf8c14a7f2538ab4be-4"></a>$ <span class="nv">EFI_MOUNTS</span><span class="o">=</span><span class="s2">"rw,noatime,discard,nodev,nosuid,noexec"</span>
-<a name="rest_code_22c61c6b763d48cf8c14a7f2538ab4be-5"></a>$ mount -o <span class="nv">$SSD_MOUNTS</span>,subvol<span class="o">=</span>ROOT /dev/sda2 /mnt
-<a name="rest_code_22c61c6b763d48cf8c14a7f2538ab4be-6"></a>$ mkdir -p /mnt/home
-<a name="rest_code_22c61c6b763d48cf8c14a7f2538ab4be-7"></a>$ mkdir -p /mnt/data
-<a name="rest_code_22c61c6b763d48cf8c14a7f2538ab4be-8"></a>$ mkdir -p /mnt/media
-<a name="rest_code_22c61c6b763d48cf8c14a7f2538ab4be-9"></a>$ mount -o <span class="nv">$SSD_MOUNTS</span>,nosuid,subvol<span class="o">=</span>home /dev/sda2 /mnt/home
-<a name="rest_code_22c61c6b763d48cf8c14a7f2538ab4be-10"></a>$ mount -o <span class="nv">$HDD_MOUNTS</span>,subvol<span class="o">=</span>data /dev/sdb1 /mnt/data
-<a name="rest_code_22c61c6b763d48cf8c14a7f2538ab4be-11"></a>$ mount -o <span class="nv">$HDD_MOUNTS</span>,subvol<span class="o">=</span>media /dev/sdc1 /mnt/media
-<a name="rest_code_22c61c6b763d48cf8c14a7f2538ab4be-12"></a>
-<a name="rest_code_22c61c6b763d48cf8c14a7f2538ab4be-13"></a>$ mkdir -p /mnt/boot
-<a name="rest_code_22c61c6b763d48cf8c14a7f2538ab4be-14"></a>$ mount -o <span class="nv">$EFI_MOUNTS</span> /dev/sda1 /mnt/boot
+<pre class="code bash"><a name="rest_code_3eae8a15a6c4429e9fc102f99dbe2cb5-1"></a><span class="nv">$SSD_MOUNTS</span><span class="o">=</span><span class="s2">"rw,noatime,nodev,compress=lzo,ssd,discard,</span>
+<a name="rest_code_3eae8a15a6c4429e9fc102f99dbe2cb5-2"></a><span class="s2">    space_cache,autodefrag,inode_cache"</span>
+<a name="rest_code_3eae8a15a6c4429e9fc102f99dbe2cb5-3"></a>$ <span class="nv">HDD_MOUNTS</span><span class="o">=</span><span class="s2">"rw,nosuid,nodev,relatime,space_cache"</span>
+<a name="rest_code_3eae8a15a6c4429e9fc102f99dbe2cb5-4"></a>$ <span class="nv">EFI_MOUNTS</span><span class="o">=</span><span class="s2">"rw,noatime,discard,nodev,nosuid,noexec"</span>
+<a name="rest_code_3eae8a15a6c4429e9fc102f99dbe2cb5-5"></a>$ mount -o <span class="nv">$SSD_MOUNTS</span>,subvol<span class="o">=</span>ROOT /dev/sda2 /mnt
+<a name="rest_code_3eae8a15a6c4429e9fc102f99dbe2cb5-6"></a>$ mkdir -p /mnt/home
+<a name="rest_code_3eae8a15a6c4429e9fc102f99dbe2cb5-7"></a>$ mkdir -p /mnt/data
+<a name="rest_code_3eae8a15a6c4429e9fc102f99dbe2cb5-8"></a>$ mkdir -p /mnt/media
+<a name="rest_code_3eae8a15a6c4429e9fc102f99dbe2cb5-9"></a>$ mount -o <span class="nv">$SSD_MOUNTS</span>,nosuid,subvol<span class="o">=</span>home /dev/sda2 /mnt/home
+<a name="rest_code_3eae8a15a6c4429e9fc102f99dbe2cb5-10"></a>$ mount -o <span class="nv">$HDD_MOUNTS</span>,subvol<span class="o">=</span>data /dev/sdb1 /mnt/data
+<a name="rest_code_3eae8a15a6c4429e9fc102f99dbe2cb5-11"></a>$ mount -o <span class="nv">$HDD_MOUNTS</span>,subvol<span class="o">=</span>media /dev/sdc1 /mnt/media
+<a name="rest_code_3eae8a15a6c4429e9fc102f99dbe2cb5-12"></a>
+<a name="rest_code_3eae8a15a6c4429e9fc102f99dbe2cb5-13"></a>$ mkdir -p /mnt/boot
+<a name="rest_code_3eae8a15a6c4429e9fc102f99dbe2cb5-14"></a>$ mount -o <span class="nv">$EFI_MOUNTS</span> /dev/sda1 /mnt/boot
 </pre>
 </div>
 </div>
 <div class="section" id="base-installation">
 <h2><a class="toc-backref" href="#id5">Base Installation</a></h2>
 <p>Now, we will do the actually installation of base packages.</p>
-<pre class="code bash"><a name="rest_code_7075771736214949b4ee0392d725126e-1"></a>$ pacstrap /mnt base base-devel btrfs-progs
-<a name="rest_code_7075771736214949b4ee0392d725126e-2"></a>$ genfstab -U -p /mnt &gt;&gt; /mnt/etc/fstab
+<pre class="code bash"><a name="rest_code_d0d03e7b1aa94c32a951f1c5be5e92f3-1"></a>$ pacstrap /mnt base base-devel btrfs-progs
+<a name="rest_code_d0d03e7b1aa94c32a951f1c5be5e92f3-2"></a>$ genfstab -U -p /mnt &gt;&gt; /mnt/etc/fstab
 </pre>
 <p>Edit the /mnt/ect/fstab file to add following /tmp mounts.</p>
-<pre class="code bash"><a name="rest_code_6cedae07bca5461a9ed48026f0362106-1"></a>tmpfs /tmp tmpfs rw,nodev,nosuid <span class="m">0</span> <span class="m">0</span>
-<a name="rest_code_6cedae07bca5461a9ed48026f0362106-2"></a>tmpfs /dev/shm tmpfs rw,nodev,nosuid,noexec <span class="m">0</span> <span class="m">0</span>
+<pre class="code bash"><a name="rest_code_2127ab5674e74131b951e9f2c3598e22-1"></a>tmpfs /tmp tmpfs rw,nodev,nosuid <span class="m">0</span> <span class="m">0</span>
+<a name="rest_code_2127ab5674e74131b951e9f2c3598e22-2"></a>tmpfs /dev/shm tmpfs rw,nodev,nosuid,noexec <span class="m">0</span> <span class="m">0</span>
 </pre>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -338,38 +342,38 @@ appropriate locations with optimal flags.</p>
     Copy our current wifi setup file into the new system. This will enable
     wifi at first boot. Next, chroot into our newly installed system:
     </span></p>
-<div class="last"><pre class="code bash"><a name="rest_code_573e642dfd544bfb9020e5eee8e17ea0-1"></a><span class="nv">$cp</span> /etc/netctl/wl* /mnt/etc/netctl/
+<div class="last"><pre class="code bash"><a name="rest_code_21b22a8bf8a145438f266524d60f7b5d-1"></a><span class="nv">$cp</span> /etc/netctl/wl* /mnt/etc/netctl/
 </pre></div>
 </div>
 <p>Finally  bind root for installation.</p>
-<pre class="code bash"><a name="rest_code_1ac9e1a616044faa89a11c1bb352e838-1"></a>$ arch-chroot /mnt /bin/bash
+<pre class="code bash"><a name="rest_code_ef9df12785354aebbf6fd45bbf39d7f8-1"></a>$ arch-chroot /mnt /bin/bash
 </pre>
 <div class="section" id="basic-setup">
 <h3><a class="toc-backref" href="#id6">Basic Setup</a></h3>
 <p>Here are some basic commands you need to run to get the installation started.</p>
-<pre class="code bash"><a name="rest_code_9f709e9c7e0e42b9ad7339ff1dae0d49-1"></a>$ pacman -Syy
-<a name="rest_code_9f709e9c7e0e42b9ad7339ff1dae0d49-2"></a>$ pacman -S sudo vim
-<a name="rest_code_9f709e9c7e0e42b9ad7339ff1dae0d49-3"></a>$ vim /etc/locale.gen
-<a name="rest_code_9f709e9c7e0e42b9ad7339ff1dae0d49-4"></a>
-<a name="rest_code_9f709e9c7e0e42b9ad7339ff1dae0d49-5"></a>...
-<a name="rest_code_9f709e9c7e0e42b9ad7339ff1dae0d49-6"></a><span class="c1"># en_SG ISO-8859-1</span>
-<a name="rest_code_9f709e9c7e0e42b9ad7339ff1dae0d49-7"></a>en_US.UTF-8 UTF-8
-<a name="rest_code_9f709e9c7e0e42b9ad7339ff1dae0d49-8"></a><span class="c1"># en_US ISO-8859-1</span>
-<a name="rest_code_9f709e9c7e0e42b9ad7339ff1dae0d49-9"></a>...
-<a name="rest_code_9f709e9c7e0e42b9ad7339ff1dae0d49-10"></a>
-<a name="rest_code_9f709e9c7e0e42b9ad7339ff1dae0d49-11"></a>$ locale-gen
-<a name="rest_code_9f709e9c7e0e42b9ad7339ff1dae0d49-12"></a>$ <span class="nb">echo</span> <span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8 &gt; /etc/locale.conf
-<a name="rest_code_9f709e9c7e0e42b9ad7339ff1dae0d49-13"></a>$ <span class="nb">export</span> <span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8
-<a name="rest_code_9f709e9c7e0e42b9ad7339ff1dae0d49-14"></a>$ ls -l /usr/share/zoneinfo
-<a name="rest_code_9f709e9c7e0e42b9ad7339ff1dae0d49-15"></a>$ ln -sf /usr/share/zoneinfo/Zone/SubZone /etc/localtime
-<a name="rest_code_9f709e9c7e0e42b9ad7339ff1dae0d49-16"></a>$ hwclock --systohc --utc
-<a name="rest_code_9f709e9c7e0e42b9ad7339ff1dae0d49-17"></a>$ sed -i <span class="s2">"s/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/"</span> /etc/sudoers
-<a name="rest_code_9f709e9c7e0e42b9ad7339ff1dae0d49-18"></a>$ <span class="nv">HOSTNAME</span><span class="o">=</span>euler
-<a name="rest_code_9f709e9c7e0e42b9ad7339ff1dae0d49-19"></a>$ <span class="nb">echo</span> <span class="nv">$HOSTNAME</span> &gt; /etc/hostname
-<a name="rest_code_9f709e9c7e0e42b9ad7339ff1dae0d49-20"></a>$ pacman -S dosfstools efibootmgr
-<a name="rest_code_9f709e9c7e0e42b9ad7339ff1dae0d49-21"></a>$ sed -i <span class="s1">'s/^\(HOOKS=.*fsck\)\(.*$\)/\1 btrfs\2/g'</span> /etc/mkinitcpio.conf
-<a name="rest_code_9f709e9c7e0e42b9ad7339ff1dae0d49-22"></a>$ mkinitcpio -p linux
-<a name="rest_code_9f709e9c7e0e42b9ad7339ff1dae0d49-23"></a>$ passwd
+<pre class="code bash"><a name="rest_code_742b7658d4524dd1bf7c3dece074f625-1"></a>$ pacman -Syy
+<a name="rest_code_742b7658d4524dd1bf7c3dece074f625-2"></a>$ pacman -S sudo vim
+<a name="rest_code_742b7658d4524dd1bf7c3dece074f625-3"></a>$ vim /etc/locale.gen
+<a name="rest_code_742b7658d4524dd1bf7c3dece074f625-4"></a>
+<a name="rest_code_742b7658d4524dd1bf7c3dece074f625-5"></a>...
+<a name="rest_code_742b7658d4524dd1bf7c3dece074f625-6"></a><span class="c1"># en_SG ISO-8859-1</span>
+<a name="rest_code_742b7658d4524dd1bf7c3dece074f625-7"></a>en_US.UTF-8 UTF-8
+<a name="rest_code_742b7658d4524dd1bf7c3dece074f625-8"></a><span class="c1"># en_US ISO-8859-1</span>
+<a name="rest_code_742b7658d4524dd1bf7c3dece074f625-9"></a>...
+<a name="rest_code_742b7658d4524dd1bf7c3dece074f625-10"></a>
+<a name="rest_code_742b7658d4524dd1bf7c3dece074f625-11"></a>$ locale-gen
+<a name="rest_code_742b7658d4524dd1bf7c3dece074f625-12"></a>$ <span class="nb">echo</span> <span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8 &gt; /etc/locale.conf
+<a name="rest_code_742b7658d4524dd1bf7c3dece074f625-13"></a>$ <span class="nb">export</span> <span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8
+<a name="rest_code_742b7658d4524dd1bf7c3dece074f625-14"></a>$ ls -l /usr/share/zoneinfo
+<a name="rest_code_742b7658d4524dd1bf7c3dece074f625-15"></a>$ ln -sf /usr/share/zoneinfo/Zone/SubZone /etc/localtime
+<a name="rest_code_742b7658d4524dd1bf7c3dece074f625-16"></a>$ hwclock --systohc --utc
+<a name="rest_code_742b7658d4524dd1bf7c3dece074f625-17"></a>$ sed -i <span class="s2">"s/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/"</span> /etc/sudoers
+<a name="rest_code_742b7658d4524dd1bf7c3dece074f625-18"></a>$ <span class="nv">HOSTNAME</span><span class="o">=</span>euler
+<a name="rest_code_742b7658d4524dd1bf7c3dece074f625-19"></a>$ <span class="nb">echo</span> <span class="nv">$HOSTNAME</span> &gt; /etc/hostname
+<a name="rest_code_742b7658d4524dd1bf7c3dece074f625-20"></a>$ pacman -S dosfstools efibootmgr
+<a name="rest_code_742b7658d4524dd1bf7c3dece074f625-21"></a>$ sed -i <span class="s1">'s/^\(HOOKS=.*fsck\)\(.*$\)/\1 btrfs\2/g'</span> /etc/mkinitcpio.conf
+<a name="rest_code_742b7658d4524dd1bf7c3dece074f625-22"></a>$ mkinitcpio -p linux
+<a name="rest_code_742b7658d4524dd1bf7c3dece074f625-23"></a>$ passwd
 </pre>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -377,15 +381,15 @@ appropriate locations with optimal flags.</p>
 <p><span class="highlight-short-warning">
     We also need to install following packages for wifi to work at first boot:
     </span></p>
-<div class="last"><pre class="code bash"><a name="rest_code_91185aa792004be29b7674e4fbb5fd67-1"></a>$ pacman -S iw wpa_supplicant
+<div class="last"><pre class="code bash"><a name="rest_code_8d9acf33157c4fa8bb56ff06543f1bf5-1"></a>$ pacman -S iw wpa_supplicant
 </pre></div>
 </div>
 <p>We will also add <em>hostname</em> to our /etc/hosts file:</p>
-<pre class="code bash"><a name="rest_code_3591225fe9f84ae99454cb90fe63fcc6-1"></a>$ vim /etc/hosts
-<a name="rest_code_3591225fe9f84ae99454cb90fe63fcc6-2"></a>...
-<a name="rest_code_3591225fe9f84ae99454cb90fe63fcc6-3"></a><span class="m">127</span>.0.0.1       localhost.localdomain   localhost <span class="nv">$HOSTNAME</span>
-<a name="rest_code_3591225fe9f84ae99454cb90fe63fcc6-4"></a>::1             localhost.localdomain   localhost <span class="nv">$HOSTNAME</span>
-<a name="rest_code_3591225fe9f84ae99454cb90fe63fcc6-5"></a>...
+<pre class="code bash"><a name="rest_code_87b2fc323b3b4bada0ee17250b573538-1"></a>$ vim /etc/hosts
+<a name="rest_code_87b2fc323b3b4bada0ee17250b573538-2"></a>...
+<a name="rest_code_87b2fc323b3b4bada0ee17250b573538-3"></a><span class="m">127</span>.0.0.1       localhost.localdomain   localhost <span class="nv">$HOSTNAME</span>
+<a name="rest_code_87b2fc323b3b4bada0ee17250b573538-4"></a>::1             localhost.localdomain   localhost <span class="nv">$HOSTNAME</span>
+<a name="rest_code_87b2fc323b3b4bada0ee17250b573538-5"></a>...
 </pre>
 </div>
 <div class="section" id="bootloader-setup">
@@ -395,7 +399,7 @@ which executes configured EFI images. The default entry is selected by
 a configured pattern (glob) or an on-screen menu.
 It is included with the <em>systemd</em>, which is installed on an Arch systems by default.</p>
 <p>Assuming /boot is your boot drive, first run the following command to get started:</p>
-<pre class="code bash"><a name="rest_code_353185a7f433459bb490debdfd5e966f-1"></a>$ bootctl --path<span class="o">=</span>/boot install
+<pre class="code bash"><a name="rest_code_a6c0c56b7ec644ddbe9fd68063caf9ce-1"></a>$ bootctl --path<span class="o">=</span>/boot install
 </pre>
 <p>It will copy the systemd-boot binary to your EFI System Partition
 ( <cite>/boot/EFI/systemd/systemd-bootx64.efi</cite> and <cite>/boot/EFI/Boot/BOOTX64.EFI</cite>
@@ -404,70 +408,70 @@ itself as the default EFI application (default boot entry) loaded by
 the EFI Boot Manager.</p>
 <p>Finally to configure out boot loader, we will need the UUID of
 out root drive (/dev/sda2). You can find that by:</p>
-<pre class="code bash"><a name="rest_code_fc4b90b2f6ea41da980430b85869224e-1"></a>$ lsblk -no NAME,UUID /dev/sda2
+<pre class="code bash"><a name="rest_code_441943a0cd3f479e8e9baf7c0f915aaf-1"></a>$ lsblk -no NAME,UUID /dev/sda2
 </pre>
 <p>Now, make sure that the following two files look as follows,
 where $UUID is the value obtained from above command:</p>
-<pre class="code bash"><a name="rest_code_215571e820c74e95b83e483063ddd9a1-1"></a>$ vim /boot/loader/loader.conf
-<a name="rest_code_215571e820c74e95b83e483063ddd9a1-2"></a>...
-<a name="rest_code_215571e820c74e95b83e483063ddd9a1-3"></a>timeout <span class="m">3</span>
-<a name="rest_code_215571e820c74e95b83e483063ddd9a1-4"></a>default arch
-<a name="rest_code_215571e820c74e95b83e483063ddd9a1-5"></a>...
-<a name="rest_code_215571e820c74e95b83e483063ddd9a1-6"></a>$ vim /boot/loader/entries/arch.conf
-<a name="rest_code_215571e820c74e95b83e483063ddd9a1-7"></a>...
-<a name="rest_code_215571e820c74e95b83e483063ddd9a1-8"></a>
-<a name="rest_code_215571e820c74e95b83e483063ddd9a1-9"></a>title Arch Linux
-<a name="rest_code_215571e820c74e95b83e483063ddd9a1-10"></a>linux /vmlinuz-linux
-<a name="rest_code_215571e820c74e95b83e483063ddd9a1-11"></a>initrd /initramfs-linux.img
-<a name="rest_code_215571e820c74e95b83e483063ddd9a1-12"></a>options <span class="nv">root</span><span class="o">=</span><span class="nv">UUID</span><span class="o">=</span><span class="nv">$UUID</span> rw <span class="nv">rootfstype</span><span class="o">=</span>btrfs <span class="nv">rootflags</span><span class="o">=</span><span class="nv">subvol</span><span class="o">=</span>ROOT
-<a name="rest_code_215571e820c74e95b83e483063ddd9a1-13"></a>...
+<pre class="code bash"><a name="rest_code_8bae3cd8f5de46f69fa3409f41fbb4dd-1"></a>$ vim /boot/loader/loader.conf
+<a name="rest_code_8bae3cd8f5de46f69fa3409f41fbb4dd-2"></a>...
+<a name="rest_code_8bae3cd8f5de46f69fa3409f41fbb4dd-3"></a>timeout <span class="m">3</span>
+<a name="rest_code_8bae3cd8f5de46f69fa3409f41fbb4dd-4"></a>default arch
+<a name="rest_code_8bae3cd8f5de46f69fa3409f41fbb4dd-5"></a>...
+<a name="rest_code_8bae3cd8f5de46f69fa3409f41fbb4dd-6"></a>$ vim /boot/loader/entries/arch.conf
+<a name="rest_code_8bae3cd8f5de46f69fa3409f41fbb4dd-7"></a>...
+<a name="rest_code_8bae3cd8f5de46f69fa3409f41fbb4dd-8"></a>
+<a name="rest_code_8bae3cd8f5de46f69fa3409f41fbb4dd-9"></a>title Arch Linux
+<a name="rest_code_8bae3cd8f5de46f69fa3409f41fbb4dd-10"></a>linux /vmlinuz-linux
+<a name="rest_code_8bae3cd8f5de46f69fa3409f41fbb4dd-11"></a>initrd /initramfs-linux.img
+<a name="rest_code_8bae3cd8f5de46f69fa3409f41fbb4dd-12"></a>options <span class="nv">root</span><span class="o">=</span><span class="nv">UUID</span><span class="o">=</span><span class="nv">$UUID</span> rw <span class="nv">rootfstype</span><span class="o">=</span>btrfs <span class="nv">rootflags</span><span class="o">=</span><span class="nv">subvol</span><span class="o">=</span>ROOT
+<a name="rest_code_8bae3cd8f5de46f69fa3409f41fbb4dd-13"></a>...
 </pre>
-<div class="admonition admonition-shortcode9f26601de87f40a88a7e410263c9eb98replacement">
+<div class="admonition admonition-shortcode01cc7041af7c47df987f1695302b79b0replacement">
 <p class="first admonition-title"><span class="highlight-short-blue"><strong>Important</strong></span></p>
 <p><span class="highlight-short-warning">
     Please  note that you will to need manually run bootctl command everytime systemd-boot gets updated.
     </span></p>
-<div class="last"><pre class="code bash"><a name="rest_code_2a7fd50dadda48648ba3d8b4d8ce52ce-1"></a>$ bootctl update
+<div class="last"><pre class="code bash"><a name="rest_code_ae1ea7c89c4d4917b22cc83ff1802fe2-1"></a>$ bootctl update
 </pre></div>
 </div>
 </div>
 <div class="section" id="network-setup">
 <h3><a class="toc-backref" href="#id8">Network Setup</a></h3>
 <p>First setup hostname using systemd:</p>
-<pre class="code bash"><a name="rest_code_6b87f2b063f04108ac875ec93a8e7273-1"></a>$ hostnamectl set-hostname <span class="nv">$HOSTNAME</span>
+<pre class="code bash"><a name="rest_code_2ffb6788dcfd4832bba757024cc59fa8-1"></a>$ hostnamectl set-hostname <span class="nv">$HOSTNAME</span>
 </pre>
 <p>Check the "Ethernet controller" entry (or similar) from the
 <cite>lspci -v</cite> output. It should tell you which kernel module contains
 the driver for your network device. For example:</p>
-<pre class="code bash"><a name="rest_code_1446dc75f7134d36800fc17df8ff5912-1"></a>$ lspci -v
-<a name="rest_code_1446dc75f7134d36800fc17df8ff5912-2"></a>$
-<a name="rest_code_1446dc75f7134d36800fc17df8ff5912-3"></a>...
-<a name="rest_code_1446dc75f7134d36800fc17df8ff5912-4"></a><span class="m">04</span>:00.0 Ethernet controller: Realtek Semiconductor Co., Ltd. RTL8111/8168/8411 PCI Express Gigabit Ethernet Controller <span class="o">(</span>rev <span class="m">11</span><span class="o">)</span>
-<a name="rest_code_1446dc75f7134d36800fc17df8ff5912-5"></a>        Subsystem: ASUSTeK Computer Inc. Device 859e
-<a name="rest_code_1446dc75f7134d36800fc17df8ff5912-6"></a>        Flags: bus master, fast devsel, latency <span class="m">0</span>, IRQ <span class="m">29</span>
-<a name="rest_code_1446dc75f7134d36800fc17df8ff5912-7"></a>        I/O ports at d000 <span class="o">[</span><span class="nv">size</span><span class="o">=</span><span class="m">256</span><span class="o">]</span>
-<a name="rest_code_1446dc75f7134d36800fc17df8ff5912-8"></a>        Memory at f7100000 <span class="o">(</span><span class="m">64</span>-bit, non-prefetchable<span class="o">)</span> <span class="o">[</span><span class="nv">size</span><span class="o">=</span>4K<span class="o">]</span>
-<a name="rest_code_1446dc75f7134d36800fc17df8ff5912-9"></a>        Memory at f2100000 <span class="o">(</span><span class="m">64</span>-bit, prefetchable<span class="o">)</span> <span class="o">[</span><span class="nv">size</span><span class="o">=</span>16K<span class="o">]</span>
-<a name="rest_code_1446dc75f7134d36800fc17df8ff5912-10"></a>        Capabilities: &lt;access denied&gt;
-<a name="rest_code_1446dc75f7134d36800fc17df8ff5912-11"></a>        Kernel driver in use: r8169
-<a name="rest_code_1446dc75f7134d36800fc17df8ff5912-12"></a>        Kernel modules: r8169
-<a name="rest_code_1446dc75f7134d36800fc17df8ff5912-13"></a>...
-<a name="rest_code_1446dc75f7134d36800fc17df8ff5912-14"></a>$
+<pre class="code bash"><a name="rest_code_623a9370a6ca4d9aa1eb4458828fa34d-1"></a>$ lspci -v
+<a name="rest_code_623a9370a6ca4d9aa1eb4458828fa34d-2"></a>$
+<a name="rest_code_623a9370a6ca4d9aa1eb4458828fa34d-3"></a>...
+<a name="rest_code_623a9370a6ca4d9aa1eb4458828fa34d-4"></a><span class="m">04</span>:00.0 Ethernet controller: Realtek Semiconductor Co., Ltd. RTL8111/8168/8411 PCI Express Gigabit Ethernet Controller <span class="o">(</span>rev <span class="m">11</span><span class="o">)</span>
+<a name="rest_code_623a9370a6ca4d9aa1eb4458828fa34d-5"></a>        Subsystem: ASUSTeK Computer Inc. Device 859e
+<a name="rest_code_623a9370a6ca4d9aa1eb4458828fa34d-6"></a>        Flags: bus master, fast devsel, latency <span class="m">0</span>, IRQ <span class="m">29</span>
+<a name="rest_code_623a9370a6ca4d9aa1eb4458828fa34d-7"></a>        I/O ports at d000 <span class="o">[</span><span class="nv">size</span><span class="o">=</span><span class="m">256</span><span class="o">]</span>
+<a name="rest_code_623a9370a6ca4d9aa1eb4458828fa34d-8"></a>        Memory at f7100000 <span class="o">(</span><span class="m">64</span>-bit, non-prefetchable<span class="o">)</span> <span class="o">[</span><span class="nv">size</span><span class="o">=</span>4K<span class="o">]</span>
+<a name="rest_code_623a9370a6ca4d9aa1eb4458828fa34d-9"></a>        Memory at f2100000 <span class="o">(</span><span class="m">64</span>-bit, prefetchable<span class="o">)</span> <span class="o">[</span><span class="nv">size</span><span class="o">=</span>16K<span class="o">]</span>
+<a name="rest_code_623a9370a6ca4d9aa1eb4458828fa34d-10"></a>        Capabilities: &lt;access denied&gt;
+<a name="rest_code_623a9370a6ca4d9aa1eb4458828fa34d-11"></a>        Kernel driver in use: r8169
+<a name="rest_code_623a9370a6ca4d9aa1eb4458828fa34d-12"></a>        Kernel modules: r8169
+<a name="rest_code_623a9370a6ca4d9aa1eb4458828fa34d-13"></a>...
+<a name="rest_code_623a9370a6ca4d9aa1eb4458828fa34d-14"></a>$
 </pre>
 <p>Next, check that the driver was loaded via <cite>dmesg | grep module_name</cite>. For example:</p>
-<pre class="code bash"><a name="rest_code_9883c75eb1234243866f98c0f634d485-1"></a>$ dmesg <span class="p">|</span> grep r8169
-<a name="rest_code_9883c75eb1234243866f98c0f634d485-2"></a>$
-<a name="rest_code_9883c75eb1234243866f98c0f634d485-3"></a>...
-<a name="rest_code_9883c75eb1234243866f98c0f634d485-4"></a><span class="o">[</span>    <span class="m">3</span>.215178<span class="o">]</span> r8169 Gigabit Ethernet driver <span class="m">2</span>.3LK-NAPI loaded
-<a name="rest_code_9883c75eb1234243866f98c0f634d485-5"></a><span class="o">[</span>    <span class="m">3</span>.215185<span class="o">]</span> r8169 <span class="m">0000</span>:04:00.0: can<span class="s1">'t disable ASPM; OS doesn'</span>t have ASPM control
-<a name="rest_code_9883c75eb1234243866f98c0f634d485-6"></a><span class="o">[</span>    <span class="m">3</span>.220477<span class="o">]</span> r8169 <span class="m">0000</span>:04:00.0 eth0: RTL8168g/8111g at 0xffffc90000c74000, <span class="m">78</span>:24:af:d7:1d:3d, XID 0c000800 IRQ <span class="m">29</span>
-<a name="rest_code_9883c75eb1234243866f98c0f634d485-7"></a><span class="o">[</span>    <span class="m">3</span>.220481<span class="o">]</span> r8169 <span class="m">0000</span>:04:00.0 eth0: jumbo features <span class="o">[</span>frames: <span class="m">9200</span> bytes, tx checksumming: ko<span class="o">]</span>
-<a name="rest_code_9883c75eb1234243866f98c0f634d485-8"></a><span class="o">[</span>    <span class="m">3</span>.226949<span class="o">]</span> r8169 <span class="m">0000</span>:04:00.0 enp4s0: renamed from eth0
-<a name="rest_code_9883c75eb1234243866f98c0f634d485-9"></a><span class="o">[</span>    <span class="m">5</span>.128713<span class="o">]</span> r8169 <span class="m">0000</span>:04:00.0 enp4s0: link down
-<a name="rest_code_9883c75eb1234243866f98c0f634d485-10"></a><span class="o">[</span>    <span class="m">5</span>.128713<span class="o">]</span> r8169 <span class="m">0000</span>:04:00.0 enp4s0: link down
-<a name="rest_code_9883c75eb1234243866f98c0f634d485-11"></a><span class="o">[</span>    <span class="m">8</span>.110869<span class="o">]</span> r8169 <span class="m">0000</span>:04:00.0 enp4s0: link up
-<a name="rest_code_9883c75eb1234243866f98c0f634d485-12"></a>...
-<a name="rest_code_9883c75eb1234243866f98c0f634d485-13"></a>$
+<pre class="code bash"><a name="rest_code_f9a42d8c91db4f1699ca0fc1c85e1e8b-1"></a>$ dmesg <span class="p">|</span> grep r8169
+<a name="rest_code_f9a42d8c91db4f1699ca0fc1c85e1e8b-2"></a>$
+<a name="rest_code_f9a42d8c91db4f1699ca0fc1c85e1e8b-3"></a>...
+<a name="rest_code_f9a42d8c91db4f1699ca0fc1c85e1e8b-4"></a><span class="o">[</span>    <span class="m">3</span>.215178<span class="o">]</span> r8169 Gigabit Ethernet driver <span class="m">2</span>.3LK-NAPI loaded
+<a name="rest_code_f9a42d8c91db4f1699ca0fc1c85e1e8b-5"></a><span class="o">[</span>    <span class="m">3</span>.215185<span class="o">]</span> r8169 <span class="m">0000</span>:04:00.0: can<span class="s1">'t disable ASPM; OS doesn'</span>t have ASPM control
+<a name="rest_code_f9a42d8c91db4f1699ca0fc1c85e1e8b-6"></a><span class="o">[</span>    <span class="m">3</span>.220477<span class="o">]</span> r8169 <span class="m">0000</span>:04:00.0 eth0: RTL8168g/8111g at 0xffffc90000c74000, <span class="m">78</span>:24:af:d7:1d:3d, XID 0c000800 IRQ <span class="m">29</span>
+<a name="rest_code_f9a42d8c91db4f1699ca0fc1c85e1e8b-7"></a><span class="o">[</span>    <span class="m">3</span>.220481<span class="o">]</span> r8169 <span class="m">0000</span>:04:00.0 eth0: jumbo features <span class="o">[</span>frames: <span class="m">9200</span> bytes, tx checksumming: ko<span class="o">]</span>
+<a name="rest_code_f9a42d8c91db4f1699ca0fc1c85e1e8b-8"></a><span class="o">[</span>    <span class="m">3</span>.226949<span class="o">]</span> r8169 <span class="m">0000</span>:04:00.0 enp4s0: renamed from eth0
+<a name="rest_code_f9a42d8c91db4f1699ca0fc1c85e1e8b-9"></a><span class="o">[</span>    <span class="m">5</span>.128713<span class="o">]</span> r8169 <span class="m">0000</span>:04:00.0 enp4s0: link down
+<a name="rest_code_f9a42d8c91db4f1699ca0fc1c85e1e8b-10"></a><span class="o">[</span>    <span class="m">5</span>.128713<span class="o">]</span> r8169 <span class="m">0000</span>:04:00.0 enp4s0: link down
+<a name="rest_code_f9a42d8c91db4f1699ca0fc1c85e1e8b-11"></a><span class="o">[</span>    <span class="m">8</span>.110869<span class="o">]</span> r8169 <span class="m">0000</span>:04:00.0 enp4s0: link up
+<a name="rest_code_f9a42d8c91db4f1699ca0fc1c85e1e8b-12"></a>...
+<a name="rest_code_f9a42d8c91db4f1699ca0fc1c85e1e8b-13"></a>$
 </pre>
 <p>Proceed if the driver was loaded successfully. Otherwise,
 you will need to know which module is needed for your particular model.
@@ -475,45 +479,45 @@ Please follow the
 <a class="reference external" href="https://wiki.archlinux.org/index.php/Network_configuration">Arch Wiki Networking</a> guide
 for further assistance.</p>
 <p>Get current device names via <cite>/sys/class/net</cite> or <cite>ip link</cite>. For example:</p>
-<pre class="code bash"><a name="rest_code_e777ac56d7b44b4795dc6bc8ed48303e-1"></a>$ ls /sys/class/net
-<a name="rest_code_e777ac56d7b44b4795dc6bc8ed48303e-2"></a>$
-<a name="rest_code_e777ac56d7b44b4795dc6bc8ed48303e-3"></a>...
-<a name="rest_code_e777ac56d7b44b4795dc6bc8ed48303e-4"></a>enp4s0  lo  wlp3s0
-<a name="rest_code_e777ac56d7b44b4795dc6bc8ed48303e-5"></a>...
-<a name="rest_code_e777ac56d7b44b4795dc6bc8ed48303e-6"></a>$
-<a name="rest_code_e777ac56d7b44b4795dc6bc8ed48303e-7"></a>$ ip link
-<a name="rest_code_e777ac56d7b44b4795dc6bc8ed48303e-8"></a>$
-<a name="rest_code_e777ac56d7b44b4795dc6bc8ed48303e-9"></a>...
-<a name="rest_code_e777ac56d7b44b4795dc6bc8ed48303e-10"></a><span class="m">2</span>: enp4s0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu <span class="m">1500</span> qdisc fq_codel state UP mode DEFAULT group default qlen <span class="m">1000</span>
-<a name="rest_code_e777ac56d7b44b4795dc6bc8ed48303e-11"></a>    link/ether <span class="m">78</span>:24:af:d7:1d:3d brd ff:ff:ff:ff:ff:ff
-<a name="rest_code_e777ac56d7b44b4795dc6bc8ed48303e-12"></a>...
-<a name="rest_code_e777ac56d7b44b4795dc6bc8ed48303e-13"></a>$
+<pre class="code bash"><a name="rest_code_d396d0a51463448e87b076cc3a8ae7a6-1"></a>$ ls /sys/class/net
+<a name="rest_code_d396d0a51463448e87b076cc3a8ae7a6-2"></a>$
+<a name="rest_code_d396d0a51463448e87b076cc3a8ae7a6-3"></a>...
+<a name="rest_code_d396d0a51463448e87b076cc3a8ae7a6-4"></a>enp4s0  lo  wlp3s0
+<a name="rest_code_d396d0a51463448e87b076cc3a8ae7a6-5"></a>...
+<a name="rest_code_d396d0a51463448e87b076cc3a8ae7a6-6"></a>$
+<a name="rest_code_d396d0a51463448e87b076cc3a8ae7a6-7"></a>$ ip link
+<a name="rest_code_d396d0a51463448e87b076cc3a8ae7a6-8"></a>$
+<a name="rest_code_d396d0a51463448e87b076cc3a8ae7a6-9"></a>...
+<a name="rest_code_d396d0a51463448e87b076cc3a8ae7a6-10"></a><span class="m">2</span>: enp4s0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu <span class="m">1500</span> qdisc fq_codel state UP mode DEFAULT group default qlen <span class="m">1000</span>
+<a name="rest_code_d396d0a51463448e87b076cc3a8ae7a6-11"></a>    link/ether <span class="m">78</span>:24:af:d7:1d:3d brd ff:ff:ff:ff:ff:ff
+<a name="rest_code_d396d0a51463448e87b076cc3a8ae7a6-12"></a>...
+<a name="rest_code_d396d0a51463448e87b076cc3a8ae7a6-13"></a>$
 </pre>
 <p>Using this name of the device, we need to configure, enable following
 two systemd services: <em>systemd-networkd.service</em>
 and <em>systemd-resolved.service</em>.</p>
 <p>For compatibility with resolv.conf, delete or rename the existing file and
 create the following symbolic link:</p>
-<pre class="code bash"><a name="rest_code_8e7f52236539424791796020d02eea7b-1"></a>$ ln -s /usr/lib/systemd/resolv.conf /etc/resolv.conf
+<pre class="code bash"><a name="rest_code_3a3c7a49c6674f59bd18dabd0db0bb44-1"></a>$ ln -s /usr/lib/systemd/resolv.conf /etc/resolv.conf
 </pre>
 <p>Network configurations are stored as *.network in <em>/etc/systemd/network</em>.
 We need to create ours as follows.:</p>
-<pre class="code bash"><a name="rest_code_8b4edca951d0446a87ac6684200c1f2a-1"></a>$ vim /etc/systemd/network/wired.network
-<a name="rest_code_8b4edca951d0446a87ac6684200c1f2a-2"></a>$
-<a name="rest_code_8b4edca951d0446a87ac6684200c1f2a-3"></a>...
-<a name="rest_code_8b4edca951d0446a87ac6684200c1f2a-4"></a><span class="o">[</span>Match<span class="o">]</span>
-<a name="rest_code_8b4edca951d0446a87ac6684200c1f2a-5"></a><span class="nv">Name</span><span class="o">=</span>enp4s0
-<a name="rest_code_8b4edca951d0446a87ac6684200c1f2a-6"></a>
-<a name="rest_code_8b4edca951d0446a87ac6684200c1f2a-7"></a><span class="o">[</span>Network<span class="o">]</span>
-<a name="rest_code_8b4edca951d0446a87ac6684200c1f2a-8"></a><span class="nv">DHCP</span><span class="o">=</span>ipv4
-<a name="rest_code_8b4edca951d0446a87ac6684200c1f2a-9"></a>
-<a name="rest_code_8b4edca951d0446a87ac6684200c1f2a-10"></a>...
-<a name="rest_code_8b4edca951d0446a87ac6684200c1f2a-11"></a>
-<a name="rest_code_8b4edca951d0446a87ac6684200c1f2a-12"></a>$
+<pre class="code bash"><a name="rest_code_cce8f55f9e7a42cf98785f78650db4bb-1"></a>$ vim /etc/systemd/network/wired.network
+<a name="rest_code_cce8f55f9e7a42cf98785f78650db4bb-2"></a>$
+<a name="rest_code_cce8f55f9e7a42cf98785f78650db4bb-3"></a>...
+<a name="rest_code_cce8f55f9e7a42cf98785f78650db4bb-4"></a><span class="o">[</span>Match<span class="o">]</span>
+<a name="rest_code_cce8f55f9e7a42cf98785f78650db4bb-5"></a><span class="nv">Name</span><span class="o">=</span>enp4s0
+<a name="rest_code_cce8f55f9e7a42cf98785f78650db4bb-6"></a>
+<a name="rest_code_cce8f55f9e7a42cf98785f78650db4bb-7"></a><span class="o">[</span>Network<span class="o">]</span>
+<a name="rest_code_cce8f55f9e7a42cf98785f78650db4bb-8"></a><span class="nv">DHCP</span><span class="o">=</span>ipv4
+<a name="rest_code_cce8f55f9e7a42cf98785f78650db4bb-9"></a>
+<a name="rest_code_cce8f55f9e7a42cf98785f78650db4bb-10"></a>...
+<a name="rest_code_cce8f55f9e7a42cf98785f78650db4bb-11"></a>
+<a name="rest_code_cce8f55f9e7a42cf98785f78650db4bb-12"></a>$
 </pre>
 <p>Now enable these services:</p>
-<pre class="code bash"><a name="rest_code_42e82da4393444978ef2d62eecfd4dad-1"></a>$ systemctl <span class="nb">enable</span> systemd-resolved.service
-<a name="rest_code_42e82da4393444978ef2d62eecfd4dad-2"></a>$ systemctl <span class="nb">enable</span> systemd-networkd.service
+<pre class="code bash"><a name="rest_code_47016158c0a149d1ac0c248c70c6e071-1"></a>$ systemctl <span class="nb">enable</span> systemd-resolved.service
+<a name="rest_code_47016158c0a149d1ac0c248c70c6e071-2"></a>$ systemctl <span class="nb">enable</span> systemd-networkd.service
 </pre>
 <p>Your network should be ready for first use!</p>
 </div>
@@ -521,9 +525,9 @@ We need to create ours as follows.:</p>
 <h3><a class="toc-backref" href="#id9">First Boot</a></h3>
 <p>Now we are ready for the first boot!
 Run the following command:</p>
-<pre class="code bash"><a name="rest_code_aa14eca2f18f4daf8d9792e053d2618a-1"></a>$ <span class="nb">exit</span>
-<a name="rest_code_aa14eca2f18f4daf8d9792e053d2618a-2"></a>$ umount -R /mnt
-<a name="rest_code_aa14eca2f18f4daf8d9792e053d2618a-3"></a>$ reboot
+<pre class="code bash"><a name="rest_code_d33e5a3701ce4b879aae13916ecbc774-1"></a>$ <span class="nb">exit</span>
+<a name="rest_code_d33e5a3701ce4b879aae13916ecbc774-2"></a>$ umount -R /mnt
+<a name="rest_code_d33e5a3701ce4b879aae13916ecbc774-3"></a>$ reboot
 </pre>
 <p>Awesome! We are ready to play with our new system. Alas!
 what you have is just a basic installation without any GUI.</p>
@@ -579,7 +583,7 @@ what you have is just a basic installation without any GUI.</p>
 </div>
 
 
-            <script src="../../assets/js/all-nocdn.js"></script><script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53f6d74a591ace8f"></script><!-- End of social buttons --><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+            <script src="../../assets/js/jquery.min.js"></script><script src="../../assets/js/bootstrap.min.js"></script><script src="../../assets/js/moment-with-locales.min.js"></script><script src="../../assets/js/fancydates.js"></script><script src="../../assets/js/jquery.colorbox-min.js"></script><script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53f6d74a591ace8f"></script><!-- End of social buttons --><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
     moment.locale("en");
     fancydates(2, "YYYY-MM-DD HH:mm");
     </script><!-- end fancy dates --><!-- Modal --><div id="search-results" class="modal fade" role="dialog" style="height: 80%;">
