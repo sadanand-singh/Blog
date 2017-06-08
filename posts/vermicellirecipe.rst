@@ -24,7 +24,7 @@ flavor.
 So, here is my super quick and tasty recipe for these noodles. It takes
 less than 12 minutes ( 4 Minutes Preparation + 8 Minutes Cooking).
 
-.. figure:: https://res.cloudinary.com/sadanandsingh/image/upload/v1496959806/desiNoodles_qtdaji.jpg
+.. figure:: https://res.cloudinary.com/sadanandsingh/image/upload/v1496963332/desiNoodles_s0ez5g.jpg
    :alt: Raw Materials for Desi Vermicelli
 
    Raw Materials
@@ -69,7 +69,7 @@ Preparation
 Let it cool before serving. You can use some ketchup or sauce with it. I
 like adding peanuts to it while frying onions.
 
-.. figure:: https://res.cloudinary.com/sadanandsingh/image/upload/v1496959805/desiNoodles_final_ovws8m.jpg
+.. figure:: https://res.cloudinary.com/sadanandsingh/image/upload/v1496963332/desiNoodles_final_tqeyey.jpg
    :alt: Indian Vermicelli
 
    My Creation Before Entering My Tummy
@@ -84,4 +84,4 @@ Interesting Facts
 -  The recipe above is also commonly known as *upma* in various parts of
    India.
 
--  More about `Vermicelli <http://en.wikipedia.org/wiki/Vermicelli>`__
+-  More about `Vermicelli <https://en.wikipedia.org/wiki/Vermicelli>`__

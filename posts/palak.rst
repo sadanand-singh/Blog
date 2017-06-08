@@ -27,7 +27,7 @@ cooked in spinach puree. Its a bit involved than my last few dishes.
 Nevertheless, I promise you - the "yummy-ness" of this one is worth all
 the trouble!
 
-.. figure:: https://res.cloudinary.com/sadanandsingh/image/upload/v1496959805/PalakPaneer1_ff0iwo.jpg
+.. figure:: https://res.cloudinary.com/sadanandsingh/image/upload/v1496963332/PalakPaneer1_ugytqp.jpg
    :alt: Spinach Boiling
 
    Boiling Spinach
@@ -51,7 +51,7 @@ Ingredients
 -  Salt to taste
 -  1 cup Milk or Cream
 
-.. figure:: https://res.cloudinary.com/sadanandsingh/image/upload/v1496959805/PalakPaneer2_v7bioa.jpg
+.. figure:: https://res.cloudinary.com/sadanandsingh/image/upload/v1496963332/PalakPaneer2_fdmyku.jpg
    :alt: Paneer Cubes
 
    Paneer
@@ -71,7 +71,7 @@ Spinach Puree
 5. In a blender, make a puree of leaves along with ginger, garlic and
    milk or cream.
 
-.. figure:: https://res.cloudinary.com/sadanandsingh/image/upload/v1496959805/PalakPaneer3_t71fqs.jpg
+.. figure:: https://res.cloudinary.com/sadanandsingh/image/upload/v1496963333/PalakPaneer3_ckjnjp.jpg
    :alt: Spinach Puree
 
    Spinach Puree
@@ -95,7 +95,7 @@ Curry for *Paneer*
 
 Let it cool before serving. It can be served with Indian Breads or rice.
 
-.. figure:: https://res.cloudinary.com/sadanandsingh/image/upload/v1496959804/PalakPaneer_g48mz0.jpg
+.. figure:: https://res.cloudinary.com/sadanandsingh/image/upload/v1496963332/PalakPaneer_me9asd.jpg
    :alt: Palak Paneer
 
    My Creation Before Entering My Tummy

@@ -21,7 +21,7 @@ views and inputs in comments below.
 
 .. contents:: Table of Contents
 
-.. figure:: https://res.cloudinary.com/sadanandsingh/image/upload/v1496959802/AlooParathaStuffing_ptdhgj.jpg
+.. figure:: https://res.cloudinary.com/sadanandsingh/image/upload/v1496963330/AlooParathaStuffing_dclifs.jpg
    :alt: Aloo Stuffing
 
    Aloo Paratha Stuffing
@@ -43,7 +43,7 @@ For Stuffing
 -  1/2 Medium Onion
 -  Salt to Taste
 
-.. figure:: https://res.cloudinary.com/sadanandsingh/image/upload/v1496959802/AlooParathaRaw_u026be.jpg
+.. figure:: https://res.cloudinary.com/sadanandsingh/image/upload/v1496963330/AlooParathaRaw_rmp8kg.jpg
 
    Aloo Paratha Raw
 
@@ -82,7 +82,7 @@ Bread (*Paratha*)
 Let it cool before serving. It can be served with Indian spicy pickle
 and yogurt (*Dahi*).
 
-.. figure:: https://res.cloudinary.com/sadanandsingh/image/upload/v1496959802/AlooParatha_vc1ek5.jpg
+.. figure:: https://res.cloudinary.com/sadanandsingh/image/upload/v1496963330/AlooParatha_rdn84h.jpg
    :alt: Aloo Paratha
 
    Aloo Paratha Yummy

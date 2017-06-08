@@ -25,7 +25,7 @@ SVM is a `supervised machine learning
 <https://en.wikipedia.org/wiki/Supervised_learning>`__ algorithm which can be
 used for both classification and regression.
 
-.. figure:: https://res.cloudinary.com/sadanandsingh/image/upload/v1496959802/binaryclass_2d-300x284_u4bkzu.png
+.. figure:: https://res.cloudinary.com/sadanandsingh/image/upload/v1496963330/binaryclass_2d-300x284_kmozm1.png
     :alt: SVC
     :align: right
 
@@ -49,7 +49,7 @@ The figure on the right is a binary classification problem (points labeled
 **x**. Green and purple line separate two classes with a small margin, whereas
 yellow line separates them with the maximum margin.
 
-.. figure:: https://res.cloudinary.com/sadanandsingh/image/upload/v1496959803/binaryclass_margin-300x266_lq3h3q.png
+.. figure:: https://res.cloudinary.com/sadanandsingh/image/upload/v1496963331/binaryclass_margin-300x266_wammb3.png
     :alt: MaxMarginClassification
     :align: left
 
@@ -118,7 +118,7 @@ separating hyperplane exists, and so there is no maximal margin classifier.
 Support Vector Classifier
 -------------------------
 
-.. figure:: https://res.cloudinary.com/sadanandsingh/image/upload/v1496959808/softmargin-300x266_qunbnb.png
+.. figure:: https://res.cloudinary.com/sadanandsingh/image/upload/v1496963334/softmargin-300x266_lqp75o.png
     :alt: MaxMarginClassification
     :align: right
 

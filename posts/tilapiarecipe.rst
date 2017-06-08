@@ -22,7 +22,7 @@ from the frozen section of any supermarket.
 
 .. contents:: Table of Contents
 
-.. figure:: https://res.cloudinary.com/sadanandsingh/image/upload/v1496959803/CookingVeggies_dlrsrl.jpg
+.. figure:: https://res.cloudinary.com/sadanandsingh/image/upload/v1496963331/CookingVeggies_ti4q5u.jpg
    :alt: Fried Steamed Veggies
 
    Fried Streamed Veggies
@@ -61,7 +61,7 @@ Preparation
 Serve and garnish it with lime juice and some cilantro for an exotic
 lunch/dinner.
 
-.. figure:: https://res.cloudinary.com/sadanandsingh/image/upload/v1496959808/Tilapia_dotlgh.jpg
+.. figure:: https://res.cloudinary.com/sadanandsingh/image/upload/v1496963334/Tilapia_v0cehs.jpg
    :alt: Tilapia With Veggies
 
    Tilapia with Veggies
@@ -69,6 +69,6 @@ lunch/dinner.
 Interesting Facts
 ~~~~~~~~~~~~~~~~~
 
--  More about `Tilapia Fish <http://en.wikipedia.org/wiki/Tilapia>`__
+-  More about `Tilapia Fish <https://en.wikipedia.org/wiki/Tilapia>`__
 -  Nutritional Value of `Tilapia
    Fish <http://nutritiondata.self.com/facts/finfish-and-shellfish-products/9244/2>`__

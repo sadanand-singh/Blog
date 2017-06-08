@@ -15,7 +15,7 @@ I have been using `Sublime text <https://www.sublimetext.com/>`__ as my primary 
 
 .. contents:: Table of Contents
 
-.. figure:: https://res.cloudinary.com/sadanandsingh/image/upload/v1496959954/st3_ijipcj.png
+.. figure:: https://res.cloudinary.com/sadanandsingh/image/upload/v1496963550/st3_wdpsqu.png
    :alt: Sublime Text
 
 Packages
