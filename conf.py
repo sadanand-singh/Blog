@@ -186,11 +186,11 @@ POSTS = (
     ("posts/*.ipynb", "posts", "post.tmpl"),
 )
 PAGES = (
-    ("stories/*.rst", "", "story.tmpl"),
-    ("stories/*.txt", "", "story.tmpl"),
-    ("stories/*.md", "", "story.tmpl"),
-    ("stories/*.mdown", "", "story.tmpl"),
-    ("stories/*.markdown", "", "story.tmpl"),
+    ("pages/*.rst", "", "story.tmpl"),
+    ("pages/*.txt", "", "story.tmpl"),
+    ("pages/*.md", "", "story.tmpl"),
+    ("pages/*.mdown", "", "story.tmpl"),
+    ("pages/*.markdown", "", "story.tmpl"),
 )
 
 
