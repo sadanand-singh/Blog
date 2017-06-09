@@ -259,7 +259,7 @@ DATE_FANCINESS = 2
 # 'html' assumes the file is HTML and just copies it
 COMPILERS = {
     "rest": ('.rst', '.txt'),
-    "markdown": ('.md'),
+    "markdown": ('.md', '.mdown'),
     "textile": ('.textile',),
     "txt2tags": ('.t2t',),
     "bbcode": ('.bb',),
