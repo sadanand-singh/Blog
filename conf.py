@@ -259,7 +259,7 @@ DATE_FANCINESS = 2
 # 'html' assumes the file is HTML and just copies it
 COMPILERS = {
     "rest": ('.rst', '.txt'),
-    "markdown": ('.md', '.mdown', '.markdown'),
+    "markdown": ('.md'),
     "textile": ('.textile',),
     "txt2tags": ('.t2t',),
     "bbcode": ('.bb',),
@@ -883,10 +883,9 @@ INDEX_TEASERS = True
 # }}                            A literal } (U+007D RIGHT CURLY BRACKET)
 
 # 'Read more...' for the index page, if INDEX_TEASERS is True (translatable)
-INDEX_READ_MORE_LINK = '<p class="more"><a href="{link}">{read_more}…</a></p>'
+INDEX_READ_MORE_LINK = '<p class="more"><div class="text-success"> Reading Time: {reading_time} minutes </div> <a href="{link}">{read_more}…</a></p>'
 # 'Read more...' for the feeds, if FEED_TEASERS is True (translatable)
-FEED_READ_MORE_LINK = '<p><a href="{link}">{read_more}…'
-FEED_READ_MORE_LINK += '</a> ({min_remaining_read})</p>'
+FEED_READ_MORE_LINK = '<p><a href="{link}">{read_more}…</a></p>'
 
 TEASER_REGEXP = re.compile('<!--\s*(more|TEASER_END)(:(.+))?\s*-->', re.IGNORECASE)
 
