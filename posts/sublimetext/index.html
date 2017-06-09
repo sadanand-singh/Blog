@@ -217,18 +217,18 @@ It will be used with files that have the “Python” syntax.</p>
 <div class="section" id="shortcut-keys">
 <h2><a class="toc-backref" href="#id2">Shortcut Keys</a></h2>
 <p>Here is a summary of my key map:</p>
-<pre class="code json"><a name="rest_code_0a47ac706f3b4f9bbcdba8da32cccd0b-1"></a><span class="p">[</span>
-<a name="rest_code_0a47ac706f3b4f9bbcdba8da32cccd0b-2"></a>    <span class="p">{</span> <span class="nt">"keys"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"shift+alt+a"</span><span class="p">],</span> <span class="nt">"command"</span><span class="p">:</span> <span class="s2">"find_all_under"</span> <span class="p">},</span>
-<a name="rest_code_0a47ac706f3b4f9bbcdba8da32cccd0b-3"></a>    <span class="p">{</span> <span class="nt">"keys"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"control+v"</span><span class="p">],</span> <span class="nt">"command"</span><span class="p">:</span> <span class="s2">"paste_and_indent"</span> <span class="p">},</span>
-<a name="rest_code_0a47ac706f3b4f9bbcdba8da32cccd0b-4"></a>    <span class="p">{</span> <span class="nt">"keys"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"control+shift+v"</span><span class="p">],</span> <span class="nt">"command"</span><span class="p">:</span> <span class="s2">"paste"</span> <span class="p">},</span>
-<a name="rest_code_0a47ac706f3b4f9bbcdba8da32cccd0b-5"></a>    <span class="p">{</span> <span class="nt">"keys"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ctrl+alt+;"</span><span class="p">],</span> <span class="nt">"command"</span><span class="p">:</span> <span class="s2">"alignment"</span> <span class="p">},</span>
-<a name="rest_code_0a47ac706f3b4f9bbcdba8da32cccd0b-6"></a>    <span class="p">{</span> <span class="nt">"keys"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ctrl+alt+up"</span><span class="p">],</span> <span class="nt">"command"</span><span class="p">:</span> <span class="s2">"column_select"</span><span class="p">,</span> <span class="nt">"args"</span><span class="p">:</span> <span class="p">{</span><span class="nt">"by"</span><span class="p">:</span> <span class="s2">"lines"</span><span class="p">,</span> <span class="nt">"forward"</span><span class="p">:</span> <span class="kc">false</span><span class="p">}},</span>
-<a name="rest_code_0a47ac706f3b4f9bbcdba8da32cccd0b-7"></a>    <span class="p">{</span> <span class="nt">"keys"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ctrl+alt+down"</span><span class="p">],</span> <span class="nt">"command"</span><span class="p">:</span> <span class="s2">"column_select"</span><span class="p">,</span> <span class="nt">"args"</span><span class="p">:</span> <span class="p">{</span><span class="nt">"by"</span><span class="p">:</span> <span class="s2">"lines"</span><span class="p">,</span> <span class="nt">"forward"</span><span class="p">:</span> <span class="kc">true</span><span class="p">}},</span>
-<a name="rest_code_0a47ac706f3b4f9bbcdba8da32cccd0b-8"></a>    <span class="p">{</span> <span class="nt">"keys"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ctrl+alt+pageup"</span><span class="p">],</span> <span class="nt">"command"</span><span class="p">:</span> <span class="s2">"column_select"</span><span class="p">,</span> <span class="nt">"args"</span><span class="p">:</span> <span class="p">{</span><span class="nt">"by"</span><span class="p">:</span> <span class="s2">"pages"</span><span class="p">,</span> <span class="nt">"forward"</span><span class="p">:</span> <span class="kc">false</span><span class="p">}},</span>
-<a name="rest_code_0a47ac706f3b4f9bbcdba8da32cccd0b-9"></a>    <span class="p">{</span> <span class="nt">"keys"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ctrl+alt+pagedown"</span><span class="p">],</span> <span class="nt">"command"</span><span class="p">:</span> <span class="s2">"column_select"</span><span class="p">,</span> <span class="nt">"args"</span><span class="p">:</span> <span class="p">{</span><span class="nt">"by"</span><span class="p">:</span> <span class="s2">"pages"</span><span class="p">,</span> <span class="nt">"forward"</span><span class="p">:</span> <span class="kc">true</span><span class="p">}},</span>
-<a name="rest_code_0a47ac706f3b4f9bbcdba8da32cccd0b-10"></a>    <span class="p">{</span> <span class="nt">"keys"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ctrl+alt+home"</span><span class="p">],</span> <span class="nt">"command"</span><span class="p">:</span> <span class="s2">"column_select"</span><span class="p">,</span> <span class="nt">"args"</span><span class="p">:</span> <span class="p">{</span><span class="nt">"by"</span><span class="p">:</span> <span class="s2">"all"</span><span class="p">,</span> <span class="nt">"forward"</span><span class="p">:</span> <span class="kc">false</span><span class="p">}},</span>
-<a name="rest_code_0a47ac706f3b4f9bbcdba8da32cccd0b-11"></a>    <span class="p">{</span> <span class="nt">"keys"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ctrl+alt+end"</span><span class="p">],</span> <span class="nt">"command"</span><span class="p">:</span> <span class="s2">"column_select"</span><span class="p">,</span> <span class="nt">"args"</span><span class="p">:</span> <span class="p">{</span><span class="nt">"by"</span><span class="p">:</span> <span class="s2">"all"</span><span class="p">,</span> <span class="nt">"forward"</span><span class="p">:</span> <span class="kc">true</span><span class="p">}}</span>
-<a name="rest_code_0a47ac706f3b4f9bbcdba8da32cccd0b-12"></a><span class="p">]</span>
+<pre class="code json"><a name="rest_code_df511c74f2094d71bf8f6dbfebf415d4-1"></a><span class="p">[</span>
+<a name="rest_code_df511c74f2094d71bf8f6dbfebf415d4-2"></a>    <span class="p">{</span> <span class="nt">"keys"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"shift+alt+a"</span><span class="p">],</span> <span class="nt">"command"</span><span class="p">:</span> <span class="s2">"find_all_under"</span> <span class="p">},</span>
+<a name="rest_code_df511c74f2094d71bf8f6dbfebf415d4-3"></a>    <span class="p">{</span> <span class="nt">"keys"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"control+v"</span><span class="p">],</span> <span class="nt">"command"</span><span class="p">:</span> <span class="s2">"paste_and_indent"</span> <span class="p">},</span>
+<a name="rest_code_df511c74f2094d71bf8f6dbfebf415d4-4"></a>    <span class="p">{</span> <span class="nt">"keys"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"control+shift+v"</span><span class="p">],</span> <span class="nt">"command"</span><span class="p">:</span> <span class="s2">"paste"</span> <span class="p">},</span>
+<a name="rest_code_df511c74f2094d71bf8f6dbfebf415d4-5"></a>    <span class="p">{</span> <span class="nt">"keys"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ctrl+alt+;"</span><span class="p">],</span> <span class="nt">"command"</span><span class="p">:</span> <span class="s2">"alignment"</span> <span class="p">},</span>
+<a name="rest_code_df511c74f2094d71bf8f6dbfebf415d4-6"></a>    <span class="p">{</span> <span class="nt">"keys"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ctrl+alt+up"</span><span class="p">],</span> <span class="nt">"command"</span><span class="p">:</span> <span class="s2">"column_select"</span><span class="p">,</span> <span class="nt">"args"</span><span class="p">:</span> <span class="p">{</span><span class="nt">"by"</span><span class="p">:</span> <span class="s2">"lines"</span><span class="p">,</span> <span class="nt">"forward"</span><span class="p">:</span> <span class="kc">false</span><span class="p">}},</span>
+<a name="rest_code_df511c74f2094d71bf8f6dbfebf415d4-7"></a>    <span class="p">{</span> <span class="nt">"keys"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ctrl+alt+down"</span><span class="p">],</span> <span class="nt">"command"</span><span class="p">:</span> <span class="s2">"column_select"</span><span class="p">,</span> <span class="nt">"args"</span><span class="p">:</span> <span class="p">{</span><span class="nt">"by"</span><span class="p">:</span> <span class="s2">"lines"</span><span class="p">,</span> <span class="nt">"forward"</span><span class="p">:</span> <span class="kc">true</span><span class="p">}},</span>
+<a name="rest_code_df511c74f2094d71bf8f6dbfebf415d4-8"></a>    <span class="p">{</span> <span class="nt">"keys"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ctrl+alt+pageup"</span><span class="p">],</span> <span class="nt">"command"</span><span class="p">:</span> <span class="s2">"column_select"</span><span class="p">,</span> <span class="nt">"args"</span><span class="p">:</span> <span class="p">{</span><span class="nt">"by"</span><span class="p">:</span> <span class="s2">"pages"</span><span class="p">,</span> <span class="nt">"forward"</span><span class="p">:</span> <span class="kc">false</span><span class="p">}},</span>
+<a name="rest_code_df511c74f2094d71bf8f6dbfebf415d4-9"></a>    <span class="p">{</span> <span class="nt">"keys"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ctrl+alt+pagedown"</span><span class="p">],</span> <span class="nt">"command"</span><span class="p">:</span> <span class="s2">"column_select"</span><span class="p">,</span> <span class="nt">"args"</span><span class="p">:</span> <span class="p">{</span><span class="nt">"by"</span><span class="p">:</span> <span class="s2">"pages"</span><span class="p">,</span> <span class="nt">"forward"</span><span class="p">:</span> <span class="kc">true</span><span class="p">}},</span>
+<a name="rest_code_df511c74f2094d71bf8f6dbfebf415d4-10"></a>    <span class="p">{</span> <span class="nt">"keys"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ctrl+alt+home"</span><span class="p">],</span> <span class="nt">"command"</span><span class="p">:</span> <span class="s2">"column_select"</span><span class="p">,</span> <span class="nt">"args"</span><span class="p">:</span> <span class="p">{</span><span class="nt">"by"</span><span class="p">:</span> <span class="s2">"all"</span><span class="p">,</span> <span class="nt">"forward"</span><span class="p">:</span> <span class="kc">false</span><span class="p">}},</span>
+<a name="rest_code_df511c74f2094d71bf8f6dbfebf415d4-11"></a>    <span class="p">{</span> <span class="nt">"keys"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"ctrl+alt+end"</span><span class="p">],</span> <span class="nt">"command"</span><span class="p">:</span> <span class="s2">"column_select"</span><span class="p">,</span> <span class="nt">"args"</span><span class="p">:</span> <span class="p">{</span><span class="nt">"by"</span><span class="p">:</span> <span class="s2">"all"</span><span class="p">,</span> <span class="nt">"forward"</span><span class="p">:</span> <span class="kc">true</span><span class="p">}}</span>
+<a name="rest_code_df511c74f2094d71bf8f6dbfebf415d4-12"></a><span class="p">]</span>
 </pre>
 </div>
 <div class="section" id="theme-and-color-scheme">
@@ -248,67 +248,67 @@ All other settings for this theme can be seen in my settings below.</p>
 <h2><a class="toc-backref" href="#id4">User Settings / Preferences</a></h2>
 <p>Here is my complete set of settings for Sublime Text. Please feel free to
 leave comments below for any questions or suggestions.</p>
-<pre class="code json"><a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-1"></a><span class="p">{</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-2"></a>    <span class="nt">"always_show_minimap_viewport"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-3"></a>    <span class="nt">"auto_complete"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-4"></a>    <span class="nt">"bold_folder_labels"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-5"></a>    <span class="nt">"caret_extra_width"</span><span class="p">:</span> <span class="mf">1.5</span><span class="p">,</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-6"></a>    <span class="nt">"color_scheme"</span><span class="p">:</span> <span class="s2">"Material Oceanic Next (SL).tmTheme"</span><span class="p">,</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-7"></a>    <span class="nt">"default_line_ending"</span><span class="p">:</span> <span class="s2">"unix"</span><span class="p">,</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-8"></a>    <span class="nt">"drag_text"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-9"></a>    <span class="nt">"draw_white_space"</span><span class="p">:</span> <span class="s2">"all"</span><span class="p">,</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-10"></a>    <span class="nt">"enable_tab_scrolling"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-11"></a>    <span class="nt">"font_face"</span><span class="p">:</span> <span class="s2">"Hack"</span><span class="p">,</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-12"></a>    <span class="nt">"font_options"</span><span class="p">:</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-13"></a>    <span class="p">[</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-14"></a>        <span class="s2">"directwrite"</span><span class="p">,</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-15"></a>        <span class="s2">"gray_antialias"</span><span class="p">,</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-16"></a>        <span class="s2">"subpixel_antialias"</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-17"></a>    <span class="p">],</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-18"></a>    <span class="nt">"font_size"</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-19"></a>    <span class="nt">"ignored_packages"</span><span class="p">:</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-20"></a>    <span class="p">[</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-21"></a>        <span class="s2">"C++"</span><span class="p">,</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-22"></a>        <span class="s2">"Python"</span><span class="p">,</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-23"></a>        <span class="s2">"Vintage"</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-24"></a>    <span class="p">],</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-25"></a>    <span class="nt">"indent_guide_options"</span><span class="p">:</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-26"></a>    <span class="p">[</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-27"></a>        <span class="s2">"draw_normal"</span><span class="p">,</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-28"></a>        <span class="s2">"draw_active"</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-29"></a>    <span class="p">],</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-30"></a>    <span class="nt">"line_padding_bottom"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-31"></a>    <span class="nt">"line_padding_top"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-32"></a>    <span class="nt">"material_theme_bold_tab"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-33"></a>    <span class="nt">"material_theme_compact_panel"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-34"></a>    <span class="nt">"material_theme_compact_sidebar"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-35"></a>    <span class="nt">"material_theme_contrast_mode"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-36"></a>    <span class="nt">"material_theme_disable_fileicons"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-37"></a>    <span class="nt">"material_theme_disable_folder_animation"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-38"></a>    <span class="nt">"material_theme_disable_tree_indicator"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-39"></a>    <span class="nt">"material_theme_panel_separator"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-40"></a>    <span class="nt">"material_theme_small_statusbar"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-41"></a>    <span class="nt">"material_theme_small_tab"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-42"></a>    <span class="nt">"material_theme_tabs_autowidth"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-43"></a>    <span class="nt">"material_theme_tabs_separator"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-44"></a>    <span class="nt">"material_theme_tree_headings"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-45"></a>    <span class="nt">"overlay_scroll_bars"</span><span class="p">:</span> <span class="s2">"enabled"</span><span class="p">,</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-46"></a>    <span class="nt">"rulers"</span><span class="p">:</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-47"></a>    <span class="p">[</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-48"></a>        <span class="mi">80</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-49"></a>    <span class="p">],</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-50"></a>    <span class="nt">"scroll_past_end"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-51"></a>    <span class="nt">"soda_classic_tabs"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-52"></a>    <span class="nt">"soda_folder_icons"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-53"></a>    <span class="nt">"tab_completion"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-54"></a>    <span class="nt">"tab_size"</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-55"></a>    <span class="nt">"theme"</span><span class="p">:</span> <span class="s2">"Material Oceanic Next.sublime-theme"</span><span class="p">,</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-56"></a>    <span class="nt">"translate_tabs_to_spaces"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-57"></a>    <span class="nt">"trim_trailing_white_space_on_save"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-58"></a>    <span class="nt">"word_wrap"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-59"></a>    <span class="nt">"hot_exit"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-60"></a>    <span class="nt">"remember_open_files"</span><span class="p">:</span> <span class="kc">false</span>
-<a name="rest_code_c2b73e51dfcb4dc9a53058f0a6010df7-61"></a><span class="p">}</span>
+<pre class="code json"><a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-1"></a><span class="p">{</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-2"></a>    <span class="nt">"always_show_minimap_viewport"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-3"></a>    <span class="nt">"auto_complete"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-4"></a>    <span class="nt">"bold_folder_labels"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-5"></a>    <span class="nt">"caret_extra_width"</span><span class="p">:</span> <span class="mf">1.5</span><span class="p">,</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-6"></a>    <span class="nt">"color_scheme"</span><span class="p">:</span> <span class="s2">"Material Oceanic Next (SL).tmTheme"</span><span class="p">,</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-7"></a>    <span class="nt">"default_line_ending"</span><span class="p">:</span> <span class="s2">"unix"</span><span class="p">,</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-8"></a>    <span class="nt">"drag_text"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-9"></a>    <span class="nt">"draw_white_space"</span><span class="p">:</span> <span class="s2">"all"</span><span class="p">,</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-10"></a>    <span class="nt">"enable_tab_scrolling"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-11"></a>    <span class="nt">"font_face"</span><span class="p">:</span> <span class="s2">"Hack"</span><span class="p">,</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-12"></a>    <span class="nt">"font_options"</span><span class="p">:</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-13"></a>    <span class="p">[</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-14"></a>        <span class="s2">"directwrite"</span><span class="p">,</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-15"></a>        <span class="s2">"gray_antialias"</span><span class="p">,</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-16"></a>        <span class="s2">"subpixel_antialias"</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-17"></a>    <span class="p">],</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-18"></a>    <span class="nt">"font_size"</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-19"></a>    <span class="nt">"ignored_packages"</span><span class="p">:</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-20"></a>    <span class="p">[</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-21"></a>        <span class="s2">"C++"</span><span class="p">,</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-22"></a>        <span class="s2">"Python"</span><span class="p">,</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-23"></a>        <span class="s2">"Vintage"</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-24"></a>    <span class="p">],</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-25"></a>    <span class="nt">"indent_guide_options"</span><span class="p">:</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-26"></a>    <span class="p">[</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-27"></a>        <span class="s2">"draw_normal"</span><span class="p">,</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-28"></a>        <span class="s2">"draw_active"</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-29"></a>    <span class="p">],</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-30"></a>    <span class="nt">"line_padding_bottom"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-31"></a>    <span class="nt">"line_padding_top"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-32"></a>    <span class="nt">"material_theme_bold_tab"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-33"></a>    <span class="nt">"material_theme_compact_panel"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-34"></a>    <span class="nt">"material_theme_compact_sidebar"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-35"></a>    <span class="nt">"material_theme_contrast_mode"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-36"></a>    <span class="nt">"material_theme_disable_fileicons"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-37"></a>    <span class="nt">"material_theme_disable_folder_animation"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-38"></a>    <span class="nt">"material_theme_disable_tree_indicator"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-39"></a>    <span class="nt">"material_theme_panel_separator"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-40"></a>    <span class="nt">"material_theme_small_statusbar"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-41"></a>    <span class="nt">"material_theme_small_tab"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-42"></a>    <span class="nt">"material_theme_tabs_autowidth"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-43"></a>    <span class="nt">"material_theme_tabs_separator"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-44"></a>    <span class="nt">"material_theme_tree_headings"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-45"></a>    <span class="nt">"overlay_scroll_bars"</span><span class="p">:</span> <span class="s2">"enabled"</span><span class="p">,</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-46"></a>    <span class="nt">"rulers"</span><span class="p">:</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-47"></a>    <span class="p">[</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-48"></a>        <span class="mi">80</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-49"></a>    <span class="p">],</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-50"></a>    <span class="nt">"scroll_past_end"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-51"></a>    <span class="nt">"soda_classic_tabs"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-52"></a>    <span class="nt">"soda_folder_icons"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-53"></a>    <span class="nt">"tab_completion"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-54"></a>    <span class="nt">"tab_size"</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-55"></a>    <span class="nt">"theme"</span><span class="p">:</span> <span class="s2">"Material Oceanic Next.sublime-theme"</span><span class="p">,</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-56"></a>    <span class="nt">"translate_tabs_to_spaces"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-57"></a>    <span class="nt">"trim_trailing_white_space_on_save"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-58"></a>    <span class="nt">"word_wrap"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-59"></a>    <span class="nt">"hot_exit"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-60"></a>    <span class="nt">"remember_open_files"</span><span class="p">:</span> <span class="kc">false</span>
+<a name="rest_code_a0c2517eda6a4abb93dd1c1fdcc473e5-61"></a><span class="p">}</span>
 </pre>
 </div>
 </div>
@@ -357,7 +357,7 @@ leave comments below for any questions or suggestions.</p>
 </div>
 
 
-            <script async src="../../assets/js/jquery.min.js"></script><script async src="../../assets/js/bootstrap.min.js"></script><script async src="../../assets/js/moment-with-locales.min.js"></script><script async src="../../assets/js/fancydates.js"></script><script async src="../../assets/js/jquery.colorbox-min.js"></script><script async type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53f6d74a591ace8f"></script><!-- End of social buttons --><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+            <script src="../../assets/js/jquery.min.js"></script><script src="../../assets/js/bootstrap.min.js"></script><script src="../../assets/js/moment-with-locales.min.js"></script><script src="../../assets/js/fancydates.js"></script><script src="../../assets/js/jquery.colorbox-min.js"></script><script async type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53f6d74a591ace8f"></script><!-- End of social buttons --><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
     moment.locale("en");
     fancydates(2, "YYYY-MM-DD HH:mm");
     </script><!-- end fancy dates --><!-- Modal --><div id="search-results" class="modal fade" role="dialog" style="height: 80%;">

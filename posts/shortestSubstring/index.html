@@ -161,28 +161,28 @@ algorithm is in <em>O(n `3`:sup: )</em>. Please put your answers in comments bel
 your answer has a better scaling.</p>
 <p>The function definition that I use for finding non-empty non-repeating
 strings is recursive.</p>
-<pre class="code py"><a name="rest_code_91872daa4f1a40c0a678d45423d36f82-1"></a><span class="k">def</span> <span class="nf">findNsubString</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
-<a name="rest_code_91872daa4f1a40c0a678d45423d36f82-2"></a>    <span class="n">subS</span> <span class="o">=</span> <span class="p">[]</span>
-<a name="rest_code_91872daa4f1a40c0a678d45423d36f82-3"></a>    <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="p">:</span>
-<a name="rest_code_91872daa4f1a40c0a678d45423d36f82-4"></a>        <span class="n">x</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="n">index</span><span class="p">:</span><span class="n">index</span><span class="o">+</span><span class="n">n</span><span class="p">]</span>
-<a name="rest_code_91872daa4f1a40c0a678d45423d36f82-5"></a>        <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">==</span><span class="n">s</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">:</span>
-<a name="rest_code_91872daa4f1a40c0a678d45423d36f82-6"></a>            <span class="n">subS</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<a name="rest_code_91872daa4f1a40c0a678d45423d36f82-7"></a>    <span class="k">if</span> <span class="n">subS</span> <span class="p">:</span>
-<a name="rest_code_91872daa4f1a40c0a678d45423d36f82-8"></a>        <span class="k">return</span> <span class="n">subS</span>
-<a name="rest_code_91872daa4f1a40c0a678d45423d36f82-9"></a>    <span class="k">else</span> <span class="p">:</span>
-<a name="rest_code_91872daa4f1a40c0a678d45423d36f82-10"></a>        <span class="k">return</span> <span class="n">findNsubString</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<pre class="code py"><a name="rest_code_66b7c06667e14bfdb2719b7b47f01ba6-1"></a><span class="k">def</span> <span class="nf">findNsubString</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+<a name="rest_code_66b7c06667e14bfdb2719b7b47f01ba6-2"></a>    <span class="n">subS</span> <span class="o">=</span> <span class="p">[]</span>
+<a name="rest_code_66b7c06667e14bfdb2719b7b47f01ba6-3"></a>    <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="p">:</span>
+<a name="rest_code_66b7c06667e14bfdb2719b7b47f01ba6-4"></a>        <span class="n">x</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="n">index</span><span class="p">:</span><span class="n">index</span><span class="o">+</span><span class="n">n</span><span class="p">]</span>
+<a name="rest_code_66b7c06667e14bfdb2719b7b47f01ba6-5"></a>        <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">==</span><span class="n">s</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">:</span>
+<a name="rest_code_66b7c06667e14bfdb2719b7b47f01ba6-6"></a>            <span class="n">subS</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a name="rest_code_66b7c06667e14bfdb2719b7b47f01ba6-7"></a>    <span class="k">if</span> <span class="n">subS</span> <span class="p">:</span>
+<a name="rest_code_66b7c06667e14bfdb2719b7b47f01ba6-8"></a>        <span class="k">return</span> <span class="n">subS</span>
+<a name="rest_code_66b7c06667e14bfdb2719b7b47f01ba6-9"></a>    <span class="k">else</span> <span class="p">:</span>
+<a name="rest_code_66b7c06667e14bfdb2719b7b47f01ba6-10"></a>        <span class="k">return</span> <span class="n">findNsubString</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
 </pre>
 <p>I call this method as follows to get the desired results:</p>
-<pre class="code py"><a name="rest_code_6d9fe0cfd3194f6fb084f6e9ea6a9b35-1"></a><span class="ch">#! /usr/bin/python</span>
-<a name="rest_code_6d9fe0cfd3194f6fb084f6e9ea6a9b35-2"></a><span class="kn">import</span> <span class="nn">argparse</span>
-<a name="rest_code_6d9fe0cfd3194f6fb084f6e9ea6a9b35-3"></a><span class="c1"># Parse Command Line Arguments</span>
-<a name="rest_code_6d9fe0cfd3194f6fb084f6e9ea6a9b35-4"></a><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
-<a name="rest_code_6d9fe0cfd3194f6fb084f6e9ea6a9b35-5"></a><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"-s"</span><span class="p">,</span> <span class="s2">"--string"</span><span class="p">,</span> <span class="n">default</span> <span class="o">=</span> <span class="s2">"asdfdfa"</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">"String Input"</span><span class="p">)</span>
-<a name="rest_code_6d9fe0cfd3194f6fb084f6e9ea6a9b35-6"></a><span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
-<a name="rest_code_6d9fe0cfd3194f6fb084f6e9ea6a9b35-7"></a><span class="n">s</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">string</span>
-<a name="rest_code_6d9fe0cfd3194f6fb084f6e9ea6a9b35-8"></a><span class="c1"># Call Method to find smallest non-repeating sub-string</span>
-<a name="rest_code_6d9fe0cfd3194f6fb084f6e9ea6a9b35-9"></a><span class="n">ans</span> <span class="o">=</span> <span class="n">findNsubString</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<a name="rest_code_6d9fe0cfd3194f6fb084f6e9ea6a9b35-10"></a><span class="k">print</span> <span class="n">ans</span>
+<pre class="code py"><a name="rest_code_f1db0f9bfdce45fda59de23ab7594e8d-1"></a><span class="ch">#! /usr/bin/python</span>
+<a name="rest_code_f1db0f9bfdce45fda59de23ab7594e8d-2"></a><span class="kn">import</span> <span class="nn">argparse</span>
+<a name="rest_code_f1db0f9bfdce45fda59de23ab7594e8d-3"></a><span class="c1"># Parse Command Line Arguments</span>
+<a name="rest_code_f1db0f9bfdce45fda59de23ab7594e8d-4"></a><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<a name="rest_code_f1db0f9bfdce45fda59de23ab7594e8d-5"></a><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"-s"</span><span class="p">,</span> <span class="s2">"--string"</span><span class="p">,</span> <span class="n">default</span> <span class="o">=</span> <span class="s2">"asdfdfa"</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">"String Input"</span><span class="p">)</span>
+<a name="rest_code_f1db0f9bfdce45fda59de23ab7594e8d-6"></a><span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+<a name="rest_code_f1db0f9bfdce45fda59de23ab7594e8d-7"></a><span class="n">s</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">string</span>
+<a name="rest_code_f1db0f9bfdce45fda59de23ab7594e8d-8"></a><span class="c1"># Call Method to find smallest non-repeating sub-string</span>
+<a name="rest_code_f1db0f9bfdce45fda59de23ab7594e8d-9"></a><span class="n">ans</span> <span class="o">=</span> <span class="n">findNsubString</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<a name="rest_code_f1db0f9bfdce45fda59de23ab7594e8d-10"></a><span class="k">print</span> <span class="n">ans</span>
 </pre>
 <p>A similar solution can also be written in JAVA or C++. The corresponding
 <em>find()</em> and <em>rfind()</em> methods in JAVA are called <em>indexOf()</em> and
@@ -238,7 +238,7 @@ language.</p>
 </div>
 
 
-            <script async src="../../assets/js/jquery.min.js"></script><script async src="../../assets/js/bootstrap.min.js"></script><script async src="../../assets/js/moment-with-locales.min.js"></script><script async src="../../assets/js/fancydates.js"></script><script async src="../../assets/js/jquery.colorbox-min.js"></script><script async type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53f6d74a591ace8f"></script><!-- End of social buttons --><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
+            <script src="../../assets/js/jquery.min.js"></script><script src="../../assets/js/bootstrap.min.js"></script><script src="../../assets/js/moment-with-locales.min.js"></script><script src="../../assets/js/fancydates.js"></script><script src="../../assets/js/jquery.colorbox-min.js"></script><script async type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53f6d74a591ace8f"></script><!-- End of social buttons --><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><!-- fancy dates --><script>
     moment.locale("en");
     fancydates(2, "YYYY-MM-DD HH:mm");
     </script><!-- end fancy dates --><!-- Modal --><div id="search-results" class="modal fade" role="dialog" style="height: 80%;">
