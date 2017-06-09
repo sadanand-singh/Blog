@@ -1,17 +1,92 @@
+# Headers
+
+# H1
+## H2
+### H3
+#### H4
+##### H5
+###### H6
+
+Alternatively, for H1 and H2, an underline-ish style:
+
+Alt-H1
+======
+
+Alt-H2
+------
+
+
+# Different Emphasis
+
+Emphasis, aka italics, with *asterisks* or _underscores_.
+
+Strong emphasis, aka bold, with **asterisks** or __underscores__.
+
+Combined emphasis with **asterisks and _underscores_**.
+
+Strike through uses two tildes. ~~Scratch this.~~
+
+
+# Links
+
+[I'm an inline-style link](https://www.google.com)
+
+[I'm an inline-style link with title](https://www.google.com "Google's Homepage")
+
+[I'm a reference-style link][Arbitrary case-insensitive reference text]
+
+[I'm a relative reference to a repository file](../blob/master/LICENSE)
+
+[You can use numbers for reference-style link definitions][1]
+
+Or leave it empty and use the [link text itself].
+
+URLs and URLs in angle brackets will automatically get turned into links.
+http://www.example.com or <http://www.example.com> and sometimes
+example.com (but not on Github, for example).
+
+Some text to show that the reference links can follow later.
+
+[arbitrary case-insensitive reference text]: https://www.mozilla.org
+[1]: http://slashdot.org
+[link text itself]: http://www.reddit.com
+
 # Images
 
-![Image](https://res.cloudinary.com/sadanandsingh/image/upload/v1496963333/sadanand_navmqu.jpg){: style="width: 280pt;" .img-responsive .align-center}
+Here's our logo (hover to see the title text):
+
+Inline-style:
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+
+Reference-style:
+![alt text][logo]
+
+[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
+
+![Image](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png){: style="width: 80pt;" .img-responsive .align-center}
+
+# Horizontal Rule
+
+There or more...
+
+---
+
+Hyphens
+
+***
+
+Asterisks, or
+
+___
+
+Underscores
 
 # Alerts (warning, danger, info or success )
 
-{{% alert info %}}
-
-In the original post this problem was ill defined.
-
+**In the original post this problem was ill defined.
 Please solve this problem with the constraints that only up and right
-moves are allowed.
-
-{{% /alert %}}
+moves are allowed.**
+{: class="alert alert-dismissible" .alert-danger}
 
 # Admonitions (attention, caution, danger, error, hint, important, note, tip, warning)
 
@@ -23,12 +98,16 @@ moves are allowed.
 
 # Highligh Text (error, warning, red, yellow, green, cyan, blue, purple)
 
-{{% hl-text warning %}}
-Copy our current wifi setup file into the new system. This will enable
-wifi at first boot. Next, chroot into our newly installed system:
-{{% /hl-text %}}
+Copy our current _wifi_ setup file into the new system. This will enable
+wifi at first boot. Next, _chroot_ into our newly installed system:
+{: .highlight-short-warning}
 
-# Code With highligh text
+# Emphasis text (muted, primary, warning, danger, success or info)
+
+Please see this text is colored correctly or not.
+{: .text-success}
+
+# Code With highlighted text
 
 ```python hl_lines="4 5"
 # This line is emphasized
@@ -77,21 +156,22 @@ Footnotes[^1] have a label[^@#$%] and the footnote's content.
 
 # Tables
 
+Colons can be used to align columns.
 
-|First Header  | Second Header|
-|------------- | -------------|
-|Content Cell  | Content Cell |
-|Content Cell  | Content Cell |
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
 
-Add this class
+There must be at least 3 dashes separating each header cell.
+The outer pipes (|) are optional, and you don't need to make the
+raw Markdown line up prettily. You can also use inline Markdown.
 
-.mbtablestyle {
-        border-collapse: collapse;
-
-   > table, td, th {
-        border: 1px solid black;
-        }
-}
+Markdown | Less | Pretty
+--- | --- | ---
+*Still* | `renders` | **nicely**
+1 | 2 | 3
 
 # Sane Lists
 
@@ -110,4 +190,3 @@ A Paragraph.
 
 1. Ordered list item.
 * Not a separate list item.
-
