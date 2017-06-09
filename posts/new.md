@@ -22,9 +22,9 @@ We can think of this task as an exercise in **summarization** of the
 data. To summarize the main characteristics of the data, often two
 methods are used: numerical and graphical.
 
-The numerical summary of data is done through *descriptive
-statistics*. While the graphical summary of the data is done through
-*exploratory data analysis (EDA)*. In this post, we will look at both
+The numerical summary of data is done through [*descriptive
+statistics*](https://en.wikipedia.org/wiki/Descriptive_statistics). While the graphical summary of the data is done through
+[*exploratory data analysis (EDA)*](https://en.wikipedia.org/wiki/Exploratory_data_analysis). In this post, we will look at both
 of these fundamental data science techniques in more detail using some
 examples.
 
@@ -39,46 +39,14 @@ Descriptive statistics are statistics that quantitatively describe or
 summarize features of a collection of information. Some measures that
 are commonly used to describe a data set are:
 
--   Central Tendency Measures or Measure of Location, such as *mean*
--   Measures of Variability or Dispersion, such as *standard deviation*
--   Measure of the shape of the distribution, such as *skewness* or
-    *kurtosis*
--   Relative Standing Measures, such as *correlation coefficient*
+-  Central Tendency Measures or Measure of Location, such as *mean*
+-  Measures of Variability or Dispersion, such as *standard deviation*
+-  Measure of the shape of the distribution, such as *skewness* or
+   *kurtosis*
+-  Relative Standing Measures, such as *correlation coefficient*
 
 Central Tendency Measures
 -------------------------
 
-Write your $p^2-1 = (p-1)\times (p+1)$ post here.
 
-{{% alert info %}}
-
-In the original post this problem was ill defined.
-
-Please solve this problem with the constraints that only up and right
-moves are allowed.
-
-{{% /alert %}}
-
-!!! note
-    You should note that the title will be automatically capitalized.
-
-
-!!! attention
-    "Don't try this at home" Stop There.
-
-Summary
-=======
-
-```python hl_lines="4 5"
-# This line is emphasized
-# This line is emphasized
-
-def new_func():
-   return None
-```
-
-
-$$p-1=2K, \text{and } p+1=2K+2=2(K+1)$$
-
-Just this. Ends Here!
 
