@@ -844,7 +844,7 @@ IMAGE_FOLDERS = {'images': 'images'}
 # paraiso-light, pastie, perldoc, rrt, tango, trac, vim, vs, xcode
 # This list MAY be incomplete since pygments adds styles every now and then.
 # Check with list(pygments.styles.get_all_styles()) in an interpreter.
-CODE_COLOR_SCHEME = 'default'
+CODE_COLOR_SCHEME = 'monokai'
 
 # FAVICONS contains (name, file, size) tuples.
 # Used to create favicon link like this:
@@ -1070,7 +1070,7 @@ delimiters: [
 # Note: most Nikola-specific extensions are done via the Nikola plugin system,
 #       with the MarkdownExtension class and should not be added here.
 # The default is ['fenced_code', 'codehilite']
-MARKDOWN_EXTENSIONS = ['markdown.extensions.fenced_code', 'markdown.extensions.codehilite', 'markdown.extensions.extra', 'markdown.extensions.toc', 'markdown.extensions.admonition', 'markdown.extensions.sane_lists']
+MARKDOWN_EXTENSIONS = ['markdown.extensions.fenced_code', 'markdown.extensions.codehilite', 'markdown.extensions.extra', 'markdown.extensions.toc', 'markdown.extensions.admonition', 'markdown.extensions.sane_lists', 'markdown.extensions.meta']
 
 # Extra options to pass to the pandoc command.
 # by default, it's empty, is a list of strings, for example
