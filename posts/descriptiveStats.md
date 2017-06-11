@@ -22,6 +22,8 @@ We can think of this task as an exercise in **summarization** of the
 data. To summarize the main characteristics of the data, often two
 methods are used: numerical and graphical.
 
+<!-- more -->
+
 The numerical summary of data is done through [*descriptive
 statistics*](https://en.wikipedia.org/wiki/Descriptive_statistics).
 While the graphical summary of the data is done through
