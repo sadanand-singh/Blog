@@ -117,9 +117,9 @@ def new_func():
    return None
 ```
 
-# Table of contents
+# Table of content
 
-**Table of Contents**
+**Table of Content**
 
 [TOC]
 
