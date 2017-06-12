@@ -1,6 +1,6 @@
 title: Descriptive Statistics
 slug: descriptivestats
-date: 2017-06-10 14:00:00 UTC-07:00
+date: 2017-06-11 14:00:00 UTC-07:00
 tags: mathjax, Data Science, EDA
 disqus_identifier: descriptivestats.sadanand
 category: Data Science
