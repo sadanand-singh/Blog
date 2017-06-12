@@ -82,8 +82,8 @@ calculation a **sample mean**.
 [ssample]: https://en.wikipedia.org/wiki/Sampling_(statistics)
 
 Although, arithmetic mean is the most common definition of mean,
-several other types are means also common. Some examples are: [
-Weighted mean][wmean], [Geometric mean][gmean],
+several other types are means also common. Some examples are:
+[Weighted mean][wmean], [Geometric mean][gmean],
 [Harmonic mean][hmean] and [Trimmed mean][tmean] etc.
 
 [wmean]: https://en.wikipedia.org/wiki/Weighted_arithmetic_mean
@@ -158,9 +158,9 @@ Dispersion (also called **variability**, **scatter**, or **spread**)
 is the extent to which a distribution is stretched. A measure of
 statistical dispersion is a nonnegative real number that is zero if
 all the data are the same and increases as the data become more
-diverse. Some common examples of dispersion measures are: [Standard
-Deviation][sd], [Interquartile Range (IQR)][iqr], [Mean Absolute
-Difference][gini] and [Median Absolute Difference][mad] etc.
+diverse. Some common examples of dispersion measures are:
+[Standard Deviation][sd], [Interquartile Range (IQR)][iqr],
+[Mean Absolute Difference][gini] and [Median Absolute Difference][mad] etc.
 
 [sd]: https://en.wikipedia.org/wiki/Standard_deviation
 [iqr]: https://en.wikipedia.org/wiki/Interquartile_range
