@@ -1,7 +1,7 @@
 .. title: Curious and Always Looking for Questions
 .. slug: index
 .. date: 2016-09-18 12:08:13 UTC-07:00
-.. tags: mathjax
+.. tags:
 .. category:
 .. link:
 .. description:

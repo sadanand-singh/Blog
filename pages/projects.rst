@@ -1,7 +1,7 @@
 .. title: Projects
 .. slug: projects
 .. date: 2016-09-19 19:46:22 UTC-07:00
-.. tags: mathjax
+.. tags:
 .. category:
 .. link:
 .. description:
