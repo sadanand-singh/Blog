@@ -573,7 +573,7 @@ USE_BASE_TAG = False
 # relative URL.
 #
 # If you don't need any of these, just set to []
-REDIRECTIONS = []
+REDIRECTIONS = [("404.html", "404/index.html")]
 
 # Presets of commands to execute to deploy. Can be anything, for
 # example, you may use rsync:
