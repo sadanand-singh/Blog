@@ -147,6 +147,16 @@ Write your $p^2-1 = (p-1)\times (p+1)$ post here.
 
 $$p-1=2K, \text{and } p+1=2K+2=2(K+1)$$
 
+## multi-line math
+
+{{% math %}}
+F_{n} = \begin{cases} F_{n-2} + F_{n-1} & \text{if } n > 1 \\
+ 1 & \text{if } n = 1 \\
+ 0 & \text{if } n = 0
+\end{cases}
+{{% /math %}}
+
+
 # Abbreviations
 
 The HTML specification
