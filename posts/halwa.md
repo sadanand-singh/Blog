@@ -54,7 +54,7 @@ Preparation
 8.  Let the halwa cool down.
 9.  Garnish it with nuts and dried milk.
 
-{{% figure https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI7N8inA-3SKNF_MjmZ_C8WOGYMhxzy4SRSF3yhRUfX58tpDdiNw alt="My Creation Before Entering My Tummy" %}}
+{{% figure "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI7N8inA-3SKNF_MjmZ_C8WOGYMhxzy4SRSF3yhRUfX58tpDdiNw" alt="My Creation Before Entering My Tummy" %}}
 
 Interesting Facts
 =================
