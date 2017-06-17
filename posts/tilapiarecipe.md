@@ -20,9 +20,10 @@ from the frozen section of any supermarket.
 
 <!--more-->
 
-# Table of content
-
 **Table of Content**
+
+[TOC]
+
 
 {{% figure https://res.cloudinary.com/sadanandsingh/image/upload/v1496963331/CookingVeggies_ti4q5u.jpg alt="Fried Streamed Veggies" %}}
 

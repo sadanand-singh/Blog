@@ -20,12 +20,12 @@ I used to have back home in India.
 
 <!--more-->
 
+So, here is my super fast and healthy recipe for these red leaves. It
+took me just 10 minutes ( 5 Minutes Preparation + 5 Minutes Cooking).
+
 **Table of Content**
 
 [TOC]
-
-So, here is my super fast and healthy recipe for these red leaves. It
-took me just 10 minutes ( 5 Minutes Preparation + 5 Minutes Cooking).
 
 {{% figure https://res.cloudinary.com/sadanandsingh/image/upload/v1496963333/redSaag_vyrm11.jpg alt="Red Amaranth" %}}
 

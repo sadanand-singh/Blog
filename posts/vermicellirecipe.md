@@ -19,12 +19,12 @@ flavor.
 
 <!--more-->
 
-# Table of content
+So, here is my super quick and tasty recipe for these noodles. It takes
+less than 12 minutes ( 4 Minutes Preparation + 8 Minutes Cooking).
 
 **Table of Content**
 
-So, here is my super quick and tasty recipe for these noodles. It takes
-less than 12 minutes ( 4 Minutes Preparation + 8 Minutes Cooking).
+[TOC]
 
 {{% figure https://res.cloudinary.com/sadanandsingh/image/upload/v1496963332/desiNoodles_s0ez5g.jpg alt="Raw Materials" %}}
 
