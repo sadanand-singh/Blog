@@ -16,8 +16,7 @@ politics, economics, and society.
 
 <div class="col-md-6" style="min-height: 450px;"> <a class="twitter-timeline" data-lang="en" data-height="400" href="https://twitter.com/sadanandsingh">Tweets by sadanandsingh</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script> </div>
 
-![Me at Oregon Seaside](https://res.cloudinary.com/sadanandsingh/image/upload/v1496963333/sadanand_navmqu.jpg){: style="width: 280pt;" }
-
+{{% figure https://res.cloudinary.com/sadanandsingh/image/upload/v1496963333/sadanand_navmqu.jpg alt="Me at Oregon Seaside" width=280pt responsive=False %}}
 
 <div class="line-block">
 <div class="line"><br></div>
