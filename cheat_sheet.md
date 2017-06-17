@@ -63,7 +63,7 @@ Reference-style:
 
 [logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
 
-![Image](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png){: style="width: 80pt;" .img-responsive .align-center}
+{{% figure https://res.cloudinary.com/sadanandsingh/image/upload/v1496963550/st3_wdpsqu.png alt="Sublime Text" width=300 height=300 align=center scale=50% css=img-circle %}}
 
 # Horizontal Rule
 
@@ -96,11 +96,16 @@ moves are allowed.**
 !!! danger "Don't try this at home"
     ...
 
-# Highligh Text (error, warning, red, yellow, green, cyan, blue, purple)
+# Highligh Text / Marker  (error, warning, red, yellow, green, cyan, blue, purple)
 
 Copy our current _wifi_ setup file into the new system. This will enable
 wifi at first boot. Next, _chroot_ into our newly installed system:
 {: .highlight-short-warning}
+
+{{% marker cyan %}}
+Copy our current _wifi_ setup file into the new system. This will enable
+wifi at first boot. Next, _chroot_ into our `newly` installed system:
+{{% /marker %}}
 
 # Emphasis text (muted, primary, warning, danger, success or info)
 
@@ -109,13 +114,26 @@ Please see this text is colored correctly or not.
 
 # Code With highlighted text
 
-```python hl_lines="4 5"
-# This line is emphasized
-# This line is emphasized
+## Code blocks
 
-def new_func():
-   return None
-```
+{{% code-block code=json lines=1 start=5 hl=10-15 %}}
+[
+    { "keys": ["shift+alt+a"], "command": "find_all_under" },
+    { "keys": ["control+v"], "command": "paste_and_indent" },
+    { "keys": ["control+shift+v"], "command": "paste" },
+    { "keys": ["ctrl+alt+;"], "command": "alignment" },
+    { "keys": ["ctrl+alt+up"], "command": "column_select", "args": {"by": "lines", "forward": false}},
+    { "keys": ["ctrl+alt+down"], "command": "column_select", "args": {"by": "lines", "forward": true}},
+    { "keys": ["ctrl+alt+pageup"], "command": "column_select", "args": {"by": "pages", "forward": false}},
+    { "keys": ["ctrl+alt+pagedown"], "command": "column_select", "args": {"by": "pages", "forward": true}},
+    { "keys": ["ctrl+alt+home"], "command": "column_select", "args": {"by": "all", "forward": false}},
+    { "keys": ["ctrl+alt+end"], "command": "column_select", "args": {"by": "all", "forward": true}}
+]
+{{% /code-block %}}
+
+## In-line Code
+
+{{% code Python %}}
 
 # Table of content
 
@@ -123,7 +141,7 @@ def new_func():
 
 [TOC]
 
-# Maths
+# Math
 
 Write your $p^2-1 = (p-1)\times (p+1)$ post here.
 
