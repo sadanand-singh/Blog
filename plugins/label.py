@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # This file is public domain according to its author, Sadanand Singh
 
-"""Marker shortcode."""
+"""label shortcode."""
 
 import requests
 
@@ -16,15 +16,15 @@ def removePtags(data):
     return data
 
 class Plugin(ShortcodePlugin):
-    """Plugin for marker directive."""
+    """Plugin for label directive."""
 
-    name = "marker"
+    name = "label"
 
-    def handler(self, signal="warning", site=None, data=None, lang=None, post=None):
-        """Create HTML for marker."""
+    def handler(self, signal="default", site=None, data=None, lang=None, post=None):
+        """Create HTML for label."""
 
-        if signal.lower() not in ["error", "warning", "red", "yellow", "green", "cyan", "blue", "purple"]:
-            signal = "warning"
+        if signal.lower() not in ["default", "primary", "warning", "danger", "success", "info"]:
+            signal = "default"
 
         signal = signal.lower()
 
@@ -34,6 +34,6 @@ class Plugin(ShortcodePlugin):
         data, _ = compiler.compile_string(data)
         data = removePtags(data.strip())
 
-        output = '<span class="highlight-short-{0}"> {1} </span>'.format(signal, data)
+        output = '<span class="label label-{0}">{1}</span>'.format(signal, data)
 
         return output, []

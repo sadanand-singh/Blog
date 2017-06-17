@@ -1,0 +1,12 @@
+[Core]
+name = panel
+module = panel
+
+[Nikola]
+PluginCategory = Shortcode
+
+[Documentation]
+author = Sadanand
+version = 0.1
+website = https://getnikola.com/
+description = panel shortcode
