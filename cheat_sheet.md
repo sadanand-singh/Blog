@@ -63,6 +63,10 @@ Reference-style:
 
 [logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
 
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+{: .align-right style="width: 280pt;" }
+
+
 {{% figure https://res.cloudinary.com/sadanandsingh/image/upload/v1496963550/st3_wdpsqu.png alt="Sublime Text" width=300 height=300 align=center scale=50% css=img-circle %}}
 
 # Horizontal Rule
