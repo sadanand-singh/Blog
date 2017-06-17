@@ -4,17 +4,20 @@
 <%block name="content">
 <div class="row-fluid">
     <header class="page_header span10 offset2">
-    <h1>That page doesn't exist!</h1>
+    <h1 class="text-danger">That page doesn't exist!</h1>
     </header>
 </div>
 
 <div class="row-fluid">
     <div class="span8 offset2">
-        <p>Sorry!!, but the page you are looking for cannot be found. It seems that the page you were trying to reach doesn't exist, or may be it has just moved, or it no longer exists.</p>
+        <p>Sorry!, but the page you are looking for cannot be found. It seems that the page you were trying to reach doesn't exist, or may be it has just moved, or it no longer exists.</p>
         <p>The best thing to do is to use the search form or start again from the <a href="${blog_url}">home page</a>.</p>
-        <span class="navbar-form navbar-right">
-    <input type="text" id="tipue_search_input" class="form-control mr-sm-2" placeholder="Search"></span>
-        </div>
+
+        <p>
+            <a href="${blog_url}">
+                <img src="https://cdn.dribbble.com/users/732492/screenshots/1971698/error404.gif" alt="Error404" />>
+            </a>
+        </p>
     </div>
 </div>
 </%block>
