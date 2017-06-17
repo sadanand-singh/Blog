@@ -242,8 +242,8 @@ tmpfs /dev/shm tmpfs rw,nodev,nosuid,noexec 0 0
 {{% /code-block %}}
 
 !!! note "Wifi at First Boot"
-    {{% marker warning %}} Copy our current wifi setup file into the
-    new system. This will enable wifi at first boot. Next, chroot into
+    {{% marker warning %}} Copy our current _wifi_ setup file into the
+    new system. This will enable _wifi_ at first boot. Next, _chroot_ into
     our newly installed system: {{% /marker %}}
     {{% code-block code=bash %}}
     $cp /etc/netctl/wl* /mnt/etc/netctl/
