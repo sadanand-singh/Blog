@@ -93,6 +93,14 @@ Please solve this problem with the constraints that only up and right
 moves are allowed.**
 {: class="alert alert-dismissible" .alert-danger}
 
+{{% alert warning "**NOTE**" %}}
+I do not wish to repeat [Arch Installation Guide](https://wiki.archlinux.org/index.php/installation_guide) here.
+
+Do not forget about [Arch Wiki], the best documentation in the world! Most of the content
+in this post has been compiled from the [Arch wiki].
+[Arch wiki]: https://wiki.archlinux.org/
+{{% /alert %}}
+
 # Admonitions (attention, caution, danger, error, hint, important, note, tip, warning)
 
 !!! important ""
@@ -116,6 +124,23 @@ wifi at first boot. Next, _chroot_ into our `newly` installed system:
 
 Please see this text is colored correctly or not.
 {: .text-success}
+
+{{% emph warning %}} Note that the KEYFILE here should be kept on a
+separate USB drive or SD card. {{% /emph %}}
+
+# Panel (primary, warning, danger, success or info)
+
+{{% panel info "**Wifi Packages**" footer="{{% code-block code=bash %}} $ pacman -S iw wpa_supplicant {{% /code-block %}}" %}}
+{{% marker warning %}} We also need to install following packages for
+    wifi to work at first boot: {{% /marker %}}
+{{% /panel %}}
+
+# Labels (default, primary, warning, danger, success or info)
+
+{{% label default %}}
+Copy our current _wifi_ setup file into the new system. This will enable
+wifi at first boot. Next, _chroot_ into our `newly` installed system:
+{{% /label %}}
 
 # Code With highlighted text
 
