@@ -13,14 +13,13 @@ You must be thinking - yet another installation guide! There is no
 dearth of "*Installation*" guides of Arch on web. So why another one?
 
 With advancements like BTRFS file system, UEFI motherboards and modern
-*in-development* desktop environment like Plasma 5; traditional [Arch
-Wiki](https://wiki.archlinux.org/index.php/Installation_guide) guide and
-[Arch Beginners'
-Guide](https://wiki.archlinux.org/index.php/Beginners%27_guide) can only
-be of a limited help. After I got my new
-my new desktop &lt;myNewCompSpecs&gt; , my goal was to setup it with a
-*modern* setup. I decided to go with Arch Linux with btrfs file system
-and Plasma 5 desktop. Coming from OSX, I just love how far linux has
+*in-development* desktop environment like Plasma 5; traditional
+[Arch Wiki](https://wiki.archlinux.org/index.php/Installation_guide)
+guide and 
+[Arch Beginners' Guide](https://wiki.archlinux.org/index.php/Beginners%27_guide)
+can only be of a limited help. After I got {{% doc %}}my new desktop<myNewCompSpecs>{{% /doc %}}, my goal was to setup it with a
+*modern* setup. I decided to go with Arch Linux with _btrfs_ file system
+and Plasma 5 desktop. Coming from OSX, I just love how far _linux_ has
 come in terms of looks - *quite close to OSX!*
 
 <!--more-->
@@ -32,6 +31,7 @@ come in terms of looks - *quite close to OSX!*
 For all of you who love installation videos-
 
 {{% media url="https://www.youtube.com/watch?v=MMkST5IjSjY" %}}
+{: .align-center .youtube-video}
 
 I will cover this in two parts. First in this post, I will install the
 base system. Then, in a follow up post, I will discuss details of
@@ -241,9 +241,9 @@ tmpfs /tmp tmpfs rw,nodev,nosuid 0 0
 tmpfs /dev/shm tmpfs rw,nodev,nosuid,noexec 0 0
 {{% /code-block %}}
 
-!!! note **WIFI AT FIRST BOOT**
-    {{% marker warning %}} Copy our current \_[wifi]() setup file into the
-    new system. This will enable wifi at first boot. Next, \_[chroot]() into
+!!! note "Wifi at First Boot"
+    {{% marker warning %}} Copy our current wifi setup file into the
+    new system. This will enable wifi at first boot. Next, chroot into
     our newly installed system: {{% /marker %}}
     {{% code-block code=bash %}}
     $cp /etc/netctl/wl* /mnt/etc/netctl/
@@ -288,7 +288,7 @@ $ mkinitcpio -p linux
 $ passwd
 {{% /code-block %}}
 
-!!! note WIFI PACKAGES
+!!! note "Wifi Packages"
     {{% marker warning %}} We also need to install following packages for
     wifi to work at first boot: {{% /marker %}}
     {{% code-block code=bash %}}
@@ -353,7 +353,7 @@ options root=UUID=$UUID rw rootfstype=btrfs rootflags=subvol=ROOT
 ...
 {{% /code-block %}}
 
-!!! important {{% marker blue %}}<strong>Important</strong>{{% /marker %}}
+!!! danger "Important"
     {{% marker warning %}} Please note that you will to need manually run
     bootctl command everytime systemd-boot gets updated. {{% /marker %}}
     {{% code-block code=bash %}}
