@@ -6,6 +6,7 @@
 import requests
 
 from nikola.plugin_categories import ShortcodePlugin
+from nikola.plugins.compile import markdown
 
 
 class Plugin(ShortcodePlugin):
@@ -21,6 +22,11 @@ class Plugin(ShortcodePlugin):
 
         signal = signal.lower()
 
-        output = '<span class="highlight-short-{0}"> {1} </span>'.format(signal, data.strip())
+        compiler = markdown.CompileMarkdown()
+        compiler.set_site(site)
+
+        data, _ = compiler.compile_string(data)
+
+        output = '<span class="highlight-short-{0}"> {1} </span>'.format(signal, data.strip().lstrip('<p>').rstrip('</p>'))
 
         return output, []
