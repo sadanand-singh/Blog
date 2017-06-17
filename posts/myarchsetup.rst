@@ -228,7 +228,7 @@ Then, add this key to the luks container, so that it can be later used to open t
     $ cryptsetup luksAddKey /dev/sda2 KEYFILE
 
 
-{{% hl-text warning %}} Note that the KEYFILE here should be kept on a separate USB drive or SD card. {{%  /hl-text %}}
+{{% marker warning %}} Note that the KEYFILE here should be kept on a separate USB drive or SD card. {{%  /marker %}}
 The recommended way of using such a disk would be as follows:
 
 .. code:: bash
@@ -308,7 +308,7 @@ appropriate locations with optimal flags.
     $ mkdir -p /mnt/boot
     $ mount -o $EFI_MOUNTS /dev/sda1 /mnt/boot
 
-{{% hl-text cyan %}} Save the current /etc/resolv.conf file for future use! {{%  /hl-text %}}
+{{% marker cyan %}} Save the current /etc/resolv.conf file for future use! {{%  /marker %}}
 
 .. code:: bash
 
@@ -433,7 +433,7 @@ some of our hard drives. These can be easily done using the *blkid* command.
 Now, make sure that the following two files look as follows,
 where UUIDs is the value obtained from above commands.
 
-{{% hl-text warning %}} Do not forget to modify UUIDs and KEYFIL entries! {{%  /hl-text %}}
+{{% marker warning %}} Do not forget to modify UUIDs and KEYFIL entries! {{%  /marker %}}
 
 .. code:: bash
 
@@ -896,9 +896,9 @@ Also, enable the use of *overlayfs* to improve sync speed and to use a smaller
 memory footprint. Do this in the *USE_OVERLAYFS="yes"* variable.
 
 
-{{% hl-text warning %}}
+{{% marker warning %}}
 Note: USE_OVERLAYFS feature requires a Linux kernel version of 3.18.0 or greater to work.
-{{% /hl-text %}}
+{{% /marker %}}
 
 In order to use the OVERLAYFS feature, you will also need to give *sudo* permissions to psd-helper as follows (replace $USERNAME accordingly):
 

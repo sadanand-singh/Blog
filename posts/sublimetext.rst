@@ -15,8 +15,7 @@ I have been using `Sublime text <https://www.sublimetext.com/>`__ as my primary 
 
 .. contents:: Table of Contents
 
-.. figure:: https://res.cloudinary.com/sadanandsingh/image/upload/v1496963550/st3_wdpsqu.png
-   :alt: Sublime Text
+{{% figure https://res.cloudinary.com/sadanandsingh/image/upload/v1496963550/st3_wdpsqu.png alt="Sublime Text" width=1600 height=1600 align=center scale=50% css=ext %}}
 
 Packages
 ~~~~~~~~~
@@ -85,27 +84,30 @@ Text project. I personally use
 
 **SublimeLinter** and **SublimeLinter-flake8** is plug-in that provides an
 interface to `flake8 <http://flake8.pycqa.org/en/latest/>`__.
-It will be used with files that have the “Python” syntax.
+It will be used with files that have the {{% code Python %}} syntax.
 
 Shortcut Keys
 ~~~~~~~~~~~~~~~
 
 Here is a summary of my key map:
 
-.. code:: json
 
-    [
-        { "keys": ["shift+alt+a"], "command": "find_all_under" },
-        { "keys": ["control+v"], "command": "paste_and_indent" },
-        { "keys": ["control+shift+v"], "command": "paste" },
-        { "keys": ["ctrl+alt+;"], "command": "alignment" },
-        { "keys": ["ctrl+alt+up"], "command": "column_select", "args": {"by": "lines", "forward": false}},
-        { "keys": ["ctrl+alt+down"], "command": "column_select", "args": {"by": "lines", "forward": true}},
-        { "keys": ["ctrl+alt+pageup"], "command": "column_select", "args": {"by": "pages", "forward": false}},
-        { "keys": ["ctrl+alt+pagedown"], "command": "column_select", "args": {"by": "pages", "forward": true}},
-        { "keys": ["ctrl+alt+home"], "command": "column_select", "args": {"by": "all", "forward": false}},
-        { "keys": ["ctrl+alt+end"], "command": "column_select", "args": {"by": "all", "forward": true}}
-    ]
+{{% code-block code=json lines=1 %}}
+[
+    { "keys": ["shift+alt+a"], "command": "find_all_under" },
+    { "keys": ["control+v"], "command": "paste_and_indent" },
+    { "keys": ["control+shift+v"], "command": "paste" },
+    { "keys": ["ctrl+alt+;"], "command": "alignment" },
+    { "keys": ["ctrl+alt+up"], "command": "column_select", "args": {"by": "lines", "forward": false}},
+    { "keys": ["ctrl+alt+down"], "command": "column_select", "args": {"by": "lines", "forward": true}},
+    { "keys": ["ctrl+alt+pageup"], "command": "column_select", "args": {"by": "pages", "forward": false}},
+    { "keys": ["ctrl+alt+pagedown"], "command": "column_select", "args": {"by": "pages", "forward": true}},
+    { "keys": ["ctrl+alt+home"], "command": "column_select", "args": {"by": "all", "forward": false}},
+    { "keys": ["ctrl+alt+end"], "command": "column_select", "args": {"by": "all", "forward": true}}
+]
+{{% /code-block %}}
+
+
 
 Theme and Color Scheme
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -127,8 +129,7 @@ User Settings / Preferences
 Here is my complete set of settings for Sublime Text. Please feel free to
 leave comments below for any questions or suggestions.
 
-.. code:: json
-
+{{% code-block code=json %}}
     {
         "always_show_minimap_viewport": true,
         "auto_complete": true,
@@ -190,4 +191,4 @@ leave comments below for any questions or suggestions.
         "hot_exit": false,
         "remember_open_files": false
     }
-
+{{% /code-block %}}

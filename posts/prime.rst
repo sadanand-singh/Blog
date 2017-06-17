@@ -73,11 +73,11 @@ Can you find the generic answer for the case of :math:`N\times M` grid.
 Solution
 ~~~~~~~~~~
 
-{{% hl-text warning %}}<strong>Correction:</strong>{{% /hl-text %}}
+{{% marker warning %}}<strong>Correction:</strong>{{% /marker %}}
 
 For an :math:`N\times M` grid, we need only :math:`N-1`
-right and :math:`M-1` up moves. {{% hl-text warning %}} Thank you Devin for pointing this
-out.{{% /hl-text %}}
+right and :math:`M-1` up moves. {{% marker warning %}} Thank you Devin for pointing this
+out.{{% /marker %}}
 
 
 Given only forward moves are allowed, for any arbitrary grid of

@@ -244,10 +244,10 @@ Edit the /mnt/ect/fstab file to add following /tmp mounts.
 
 .. note:: **WIFI AT FIRST BOOT**
 
-    {{% hl-text warning %}}
-    Copy our current wifi setup file into the new system. This will enable
-    wifi at first boot. Next, chroot into our newly installed system:
-    {{% /hl-text %}}
+    {{% marker warning %}}
+    Copy our current _wifi_ setup file into the new system. This will enable
+    wifi at first boot. Next, _chroot_ into our newly installed system:
+    {{% /marker %}}
 
     .. code:: bash
 
@@ -293,9 +293,9 @@ Here are some basic commands you need to run to get the installation started.
 
 .. note:: WIFI PACKAGES
 
-    {{% hl-text warning %}}
+    {{% marker warning %}}
     We also need to install following packages for wifi to work at first boot:
-    {{% /hl-text %}}
+    {{% /marker %}}
 
     .. code:: bash
 
@@ -358,11 +358,11 @@ where $UUID is the value obtained from above command:
     options root=UUID=$UUID rw rootfstype=btrfs rootflags=subvol=ROOT
     ...
 
-.. admonition:: {{% hl-text blue %}}<strong>Important</strong>{{% /hl-text %}}
+.. admonition:: {{% marker blue %}}<strong>Important</strong>{{% /marker %}}
 
-    {{% hl-text warning %}}
+    {{% marker warning %}}
     Please  note that you will to need manually run bootctl command everytime systemd-boot gets updated.
-    {{% /hl-text %}}
+    {{% /marker %}}
 
     .. code:: bash
 
