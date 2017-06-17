@@ -66,6 +66,7 @@ Reference-style:
 ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
 {: .align-right style="width: 280pt;" }
 
+{{% figure https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png alt="alt text" width=280pt responsive=0 %}}
 
 {{% figure https://res.cloudinary.com/sadanandsingh/image/upload/v1496963550/st3_wdpsqu.png alt="Sublime Text" width=300 height=300 align=center scale=50% css=img-circle %}}
 
