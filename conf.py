@@ -641,7 +641,7 @@ from nikola import filters
 FILTERS = {
    #".html": [filters.typogrify],
    ".css": [filters.yui_compressor],
-   ".js": [filters.closure_compiler, filters.yui_compressor],
+   ".js": [filters.closure_compiler],
    ".jpg": ["jpegoptim --strip-all -m75 -v %s"],
 }
 
@@ -844,7 +844,7 @@ IMAGE_FOLDERS = {'images': 'images'}
 # paraiso-light, pastie, perldoc, rrt, tango, trac, vim, vs, xcode
 # This list MAY be incomplete since pygments adds styles every now and then.
 # Check with list(pygments.styles.get_all_styles()) in an interpreter.
-CODE_COLOR_SCHEME = 'monokai'
+# CODE_COLOR_SCHEME = ''
 
 # FAVICONS contains (name, file, size) tuples.
 # Used to create favicon link like this:
@@ -1381,3 +1381,4 @@ GLOBAL_CONTEXT = {}
 # GLOBAL_CONTEXT as parameter when the template is about to be
 # rendered
 GLOBAL_CONTEXT_FILLER = []
+CREATE_HTTP_ERROR_PAGES = [404]
