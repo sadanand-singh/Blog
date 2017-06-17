@@ -57,17 +57,15 @@ For reference, my installation system is a slightly upgraded form of
 Base Installation
 =================
 
-{{% alert info %}}
+{{% panel warning "**NOTE**" %}}
 
-NOTE: I do not wish to repeat <a
-href="https://wiki.archlinux.org/index.php/installation_guide"> Arch
-Installation Guide</a> here.
+I do not wish to repeat [Arch Installation Guide](https://wiki.archlinux.org/index.php/installation_guide) here.
 
-Do not forget about <a href="https://wiki.archlinux.org/">Arch
-Wiki</a>, the best documentation in the world! Most of the content
-in this post has been compiled from the Arch wiki.
+Do not forget about [Arch Wiki], the best documentation in the world! Most of the content
+in this post has been compiled from the [Arch wiki].
+[Arch wiki]: https://wiki.archlinux.org/
 
-{{% /alert %}}
+{{% /panel %}}
 
 Before beginning this guide, I would assume that you have a bootable USB
 of the latest Arch Linux Installer. If not, please follow the [Arch wiki
@@ -215,8 +213,7 @@ $ cryptsetup --cipher aes-xts-plain64 --hash sha512 --use-random --verify-passph
 $ cryptsetup luksOpen /dev/sda2 root
 {{% /code-block %}}
 
-{{% alert success %}} Automatic Key Login from an USB/SD Card {{% /alert
-%}}
+{{% panel success "**Automatic Key Login from an USB/SD Card**" %}}
 
 If you want to automatically login the encrypted disk password from an
 externally attached USB or SD card, you will first need to create a key
@@ -233,8 +230,8 @@ to open the encrypted drive.
 $ cryptsetup luksAddKey /dev/sda2 KEYFILE
 {{% /code-block %}}
 
-{{% marker warning %}} Note that the KEYFILE here should be kept on a
-separate USB drive or SD card. {{% /marker %}} The recommended way of
+{{% emph warning %}} Note that the KEYFILE here should be kept on a
+separate USB drive or SD card. {{% /emph %}} The recommended way of
 using such a disk would be as follows:
 
 {{% code-block code=bash %}}
@@ -258,6 +255,8 @@ $ umount /mnt
 {{% /code-block %}}
 
 We will be later using this KEYFILE in boot loader setup.
+
+{{% /panel %}}
 
 Format HDDs
 -----------
@@ -642,7 +641,7 @@ $ systemctl enable nvidia-persistenced.service
 $ systemctl start nvidia-persistenced.service
 {{% /code-block %}}
 
-{{% alert warning %}} How to Avoid Screen Tearing {{% /alert %}}
+{{% panel warning "**How to Avoid Screen Tearing**" %}}
 
 Tearing can be avoided by forcing a full composition pipeline,
 regardless of the compositor you are using.
@@ -674,6 +673,8 @@ vim /etc/X11/xorg.conf.d/20-nvidia.conf
 # ------------------------------------------------
 {{% /code-block %}}
 
+{{% /panel %}}
+
 Specific for Plasma 5, we will also create the following file to avoid
 any tearing in Plasma.
 
@@ -685,15 +686,21 @@ export KWIN_TRIPLE_BUFFER=1
 ...
 {{% /code-block %}}
 
-{{% alert warning %}} How to Enable Better Resolution During Boot {{%
-/alert %}}
+{{% panel warning "**How to Enable Better Resolution During Boot**" %}}
 
 The kernel compiled in *efifb* module supports high-resolution nvidia
 console on EFI systems. This can enabled by enabling the DRM kernel mode
-setting. First, we will need to add *nvidia*, *nvidia\_modeset*,
-*nvidia\_uvm* and *nvidia\_drm* to MODULES section of the
-*mkinitcpio.conf* file. We will also need to pass the
-*nvidia-drm.modeset=1* kernel parameter during the boot.
+setting.
+
+First, we will need to add following to MODULES section of the
+*mkinitcpio.conf* file:
+
+-  *nvidia*
+-  *nvidia_modeset*
+-  *nvidia_uvm*
+-  *nvidia_drm* 
+
+We will also need to pass the *nvidia-drm.modeset=1* kernel parameter during the boot.
 
 {{% code-block code=bash %}}
 $ vim /etc/mkinitcpio.conf
@@ -710,6 +717,8 @@ options ro cryptdevice=UUID=:luks- root=UUID= rootfstype=btrfs rootflags=subvol=
 $
 $ mkinitcpio -p linux
 {{% /code-block %}}
+
+{{% /panel %}}
 
 Plasma 5 Installation and Setup
 -------------------------------
@@ -1126,7 +1135,7 @@ $ conky &
 
 Here, I have also put my simple configuration file:
 
-{{% code-block code=lua lines=1 %}}
+{{% code-block code=lua %}}
 conky.config = {
         background = true,
         use_xft = true,

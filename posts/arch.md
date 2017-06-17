@@ -241,13 +241,12 @@ tmpfs /tmp tmpfs rw,nodev,nosuid 0 0
 tmpfs /dev/shm tmpfs rw,nodev,nosuid,noexec 0 0
 {{% /code-block %}}
 
-!!! note "Wifi at First Boot"
-    {{% marker warning %}} Copy our current _wifi_ setup file into the
-    new system. This will enable _wifi_ at first boot. Next, _chroot_ into
-    our newly installed system: {{% /marker %}}
-    {{% code-block code=bash %}}
-    $cp /etc/netctl/wl* /mnt/etc/netctl/
-    {{% /code-block %}}
+
+{{% panel primary "**Wifi at First Boot**" footer="{{% code-block code=bash %}} $cp /etc/netctl/wl* /mnt/etc/netctl/ {{% /code-block %}}" %}}
+Copy our current _wifi_ setup file into the
+new system. This will enable _wifi_ at first boot. Next, _chroot_ into
+our newly installed system:
+{{% /panel %}}
 
 
 Finally bind root for installation.
@@ -288,12 +287,10 @@ $ mkinitcpio -p linux
 $ passwd
 {{% /code-block %}}
 
-!!! note "Wifi Packages"
-    {{% marker warning %}} We also need to install following packages for
-    wifi to work at first boot: {{% /marker %}}
-    {{% code-block code=bash %}}
-    $ pacman -S iw wpa_supplicant
-    {{% /code-block %}}
+{{% panel warning "**Wifi Packages**" footer="{{% code-block code=bash %}} $ pacman -S iw wpa_supplicant {{% /code-block %}}" %}}
+We also need to install following packages for
+wifi to work at first boot:
+{{% /panel %}}
 
 
 We will also add *hostname* to our /etc/hosts file:
@@ -353,12 +350,11 @@ options root=UUID=$UUID rw rootfstype=btrfs rootflags=subvol=ROOT
 ...
 {{% /code-block %}}
 
-!!! danger "Important"
-    {{% marker warning %}} Please note that you will to need manually run
-    bootctl command everytime systemd-boot gets updated. {{% /marker %}}
-    {{% code-block code=bash %}}
-    $ bootctl update
-    {{% /code-block %}}
+
+{{% panel danger "**IMPORTANT**" footer="{{% code-block code=bash %}} $ bootctl update {{% /code-block %}}" %}}
+Please note that you will to need manually run
+`bootctl` command every time `systemd-boot` gets updated.
+{{% /panel %}}
 
 
 Network Setup
