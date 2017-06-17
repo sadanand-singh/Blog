@@ -15,7 +15,7 @@ I have been using `Sublime text <https://www.sublimetext.com/>`__ as my primary 
 
 .. contents:: Table of Contents
 
-{{% figure https://res.cloudinary.com/sadanandsingh/image/upload/v1496963550/st3_wdpsqu.png alt="Sublime Text" width=1600 height=1600 align=center scale=50% css=ext %}}
+{{% figure https://res.cloudinary.com/sadanandsingh/image/upload/v1496963550/st3_wdpsqu.png alt="Sublime Text" align=center %}}
 
 Packages
 ~~~~~~~~~
@@ -129,7 +129,7 @@ User Settings / Preferences
 Here is my complete set of settings for Sublime Text. Please feel free to
 leave comments below for any questions or suggestions.
 
-{{% code-block code=json %}}
+{{% code-block code=json lines=1 %}}
     {
         "always_show_minimap_viewport": true,
         "auto_complete": true,
