@@ -4,6 +4,7 @@
 """Code-Prism shortcode."""
 
 import requests
+import re
 
 from nikola.plugin_categories import ShortcodePlugin
 
@@ -15,29 +16,58 @@ def convert2Num(string):
 
     return num
 
+def extractScale(quantity):
+    newNum = convert2Num(quantity)
+    unit = "px"
+    if newNum:
+        unit = "px"
+        quantity = newNum
+    else:
+        matchObj = re.match( r'(\s*\d+)\s*(.+)', quantity, re.M|re.I)
+        if matchObj:
+            quantity = matchObj.group(1)
+            unit = matchObj.group(2)
+            unit = unit.lower()
+            if unit not in ["pt", "px"]:
+                unit = "px"
+
+    return quantity, unit
+
 class Plugin(ShortcodePlugin):
     """Plugin for code directive."""
 
     name = "figure"
 
-    def handler(self, src, width=None, height=None, align=None, alt=None, scale=None, css=None, site=None, data=None, lang=None, post=None):
+    def handler(self, src, width=None, height=None, align=None, alt=None, scale=None, css=None, responsive=None, site=None, data=None, lang=None, post=None):
         """Create HTML for figure."""
 
         output = '<div class="figure img-responsive '
 
+        if responsive:
+            output = '<div class="figure '
+
         if css:
             output += '{} '.format(css)
 
-        if not align:
-            align = "left"
-        output += 'align-{}"> '.format(align)
+        if align:
+            output += 'align-{}'.format(align)
+
+        output = output.strip() + '"> '
 
         if not alt:
             alt = src
 
         output += '<img alt="{0}" src="{1}" '.format(alt, src)
 
+        wunit = None
+        hunit = None
+
         if width or height:
+            # first check if it just number of has units
+            if width:
+                width, wunit = extractScale(width)
+            if height:
+                height, hunit = extractScale(height)
             if scale:
                 if "%" in scale:
                     scale = convert2Num(scale.split("%")[0])
@@ -52,10 +82,11 @@ class Plugin(ShortcodePlugin):
         if width or height:
             output += 'style="'
             if width:
-                output += 'width: {}px; '.format(width)
+                output += 'width: {0}{1}; '.format(width, wunit.strip())
             if height:
-                output += 'height: {}px; '.format(height)
+                output += 'height: {0}{1}; '.format(height, hunit.strip())
+            output += '"'
 
-        output += '"> </div>'
+        output = output.strip() + '> </div>'
 
         return output, []
