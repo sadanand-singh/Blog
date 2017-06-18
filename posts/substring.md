@@ -21,14 +21,14 @@ length, you must output all of them in the order of occurrence. The
 
 Consider the following cases:
 
-Case 1: If the given string is `asdfsasa`, the answer should be
+__Case 1:__ If the given string is `asdfsasa`, the answer should be
 `['d', 'f']`
 
-Case 2: If the given string is `sadanands`,
+__Case 2:__ If the given string is `sadanands`,
 
 the answer should be `['sa', 'ad', 'da', 'na', 'nd', 'ds']`
 
-Case 3: If the given string is `wwwwwwww`, the answer should be
+__Case 3:__ If the given string is `wwwwwwww`, the answer should be
 `['wwwwwwww']`
 
 {{% /panel %}}
@@ -40,7 +40,7 @@ Here is my solution in *Python*.
 
 It is quite brute force. I am not sure about the order of `find()` and
 `rfind()` built-in methods in _Python_. Assuming these are $O(n)$, my
-algorithm is in $O(n ^3^ )$. Please put your answers in comments below,
+algorithm is in $O(n^3)$. Please put your answers in comments below,
 if your answer has a better scaling.
 
 The function definition that I use for finding non-empty non-repeating
@@ -66,12 +66,12 @@ I call this method as follows to get the desired results:
 import argparse
 # Parse Command Line Arguments
 parser = argparse.ArgumentParser()
-parser.add_argument("-s", "--string", default = "asdfdfa", help="String Input")
+parser.add_argument("-s", "--string", default = "asda", help="Input")
 args = parser.parse_args()
 s = args.string
 # Call Method to find smallest non-repeating sub-string
 ans = findNsubString(s,1)
-print ans
+print(ans)
 {{% /code-block %}}
 
 A similar solution can also be written in JAVA or C++. The corresponding
