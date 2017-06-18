@@ -14,6 +14,12 @@ In my last post on
 installed the base system and we can now login into our new system as
 root using the password that we set.
 
+<!--more-->
+
+**Table of Content**
+
+[TOC]
+
 {{% figure http://imgur.com/IjJYMR0.jpg alt="Plasma 5 Looks" align=center %}}
 
 Now, we will proceed further to install the Plasma 5 desktop.
