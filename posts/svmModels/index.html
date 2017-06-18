@@ -48,11 +48,13 @@
 <meta property="og:title" content="Support Vector Machines">
 <meta property="og:url" content="https://sadanand-singh.github.io/posts/svmModels/">
 <meta property="og:description" content="In this post we will explore a class of machine learning methods called
-Support Vector Machines also known commonly
-as SVM.
+Support Vector
+Machines also
+known commonly as SVM.
 
 
-Table of Contents
+Table of Content
+
 
 Introduction
 Support Vector Classifier
@@ -149,296 +151,338 @@ The Kernel Trick">
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
 <p>In this post we will explore a class of machine learning methods called
-<a class="reference external" href="https://en.wikipedia.org/wiki/Support_vector_machine">Support Vector Machines</a> also known commonly
-as <em>SVM</em>.</p>
-<!-- TEASER_END -->
-<div class="contents topic" id="table-of-contents">
-<p class="topic-title first">Table of Contents</p>
-<ul class="simple">
-<li><a class="reference internal" href="#introduction" id="id1">Introduction</a></li>
-<li><a class="reference internal" href="#support-vector-classifier" id="id2">Support Vector Classifier</a></li>
-<li><a class="reference internal" href="#the-kernel-trick" id="id3">The Kernel Trick</a></li>
-<li><a class="reference internal" href="#curse-of-dimensionality-huh" id="id4">Curse of Dimensionality.... huh!!!</a></li>
+<a href="https://en.wikipedia.org/wiki/Support_vector_machine">Support Vector
+Machines</a> also
+known commonly as <em>SVM</em>.</p>
+<!--more-->
+
+<p><strong>Table of Content</strong></p>
+<div class="toc">
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#support-vector-classifier">Support Vector Classifier</a></li>
+<li><a href="#the-kernel-trick">The Kernel Trick</a></li>
+<li><a href="#curse-of-dimensionality-huh">Curse of Dimensionality.... huh!!!</a></li>
 </ul>
 </div>
-<div class="section" id="introduction">
-<h2><a class="toc-backref" href="#id1">Introduction</a></h2>
-<p>SVM is a <a class="reference external" href="https://en.wikipedia.org/wiki/Supervised_learning">supervised machine learning</a> algorithm which can be
-used for both classification and regression.</p>
-<div class="figure align-right">
-<img alt="SVC" src="https://res.cloudinary.com/sadanandsingh/image/upload/v1496963330/binaryclass_2d-300x284_kmozm1.png">
+<h2 id="introduction">Introduction</h2>
+<p>SVM is a <a href="https://en.wikipedia.org/wiki/Supervised_learning">supervised machine learning</a> algorithm
+which can be used for both classification and regression.</p>
+<p></p>
+<div class="figure img-responsive align-right"> <img alt="SVC" src="https://res.cloudinary.com/sadanandsingh/image/upload/v1496963330/binaryclass_2d-300x284_kmozm1.png">
 </div>
-<p>In the simplest classification problem, given some data points each belonging
-to one of the two classes, the goal is to decide which class a new data point
-will be in. A simple linear solution to this problem can be viewed in a
-framework where a data point is viewed as a <em>p</em>-dimensional vector, and we want
-to know whether we can separate such points with a (<em>p-1</em>)-dimensional
-hyperplane.</p>
-<p>There are many hyperplanes that might classify the data. One reasonable choice
-as the best hyperplane is the one that represents the largest separation, or
-margin, between the two classes. So we choose the hyperplane so that the
-distance from it to the nearest data point on each side is maximized. If such a
-hyperplane exists, it is known as the maximum-margin hyperplane and the linear
-classifier it defines is known as a <strong>maximum margin classifier</strong>; or
-equivalently, the perceptron of optimal stability.</p>
-<p>The figure on the right is a binary classification problem (points labeled
-<span class="math">\(y_i = \pm 1\)</span>) that is linearly separable in space defined by the vector
-<strong>x</strong>. Green and purple line separate two classes with a small margin, whereas
-yellow line separates them with the maximum margin.</p>
-<div class="figure align-left">
-<img alt="MaxMarginClassification" src="https://res.cloudinary.com/sadanandsingh/image/upload/v1496963331/binaryclass_margin-300x266_wammb3.png">
+<p>In the simplest classification problem, given some data points each
+belonging to one of the two classes, the goal is to decide which class a
+new data point will be in. A simple linear solution to this problem can
+be viewed in a framework where a data point is viewed as a
+$p$-dimensional vector, and we want to know whether we can separate such
+points with a ($p-1$)-dimensional hyperplane.</p>
+<p>There are many hyperplanes that might classify the data. One reasonable
+choice as the best hyperplane is the one that represents the largest
+separation, or margin, between the two classes. So we choose the
+hyperplane so that the distance from it to the nearest data point on
+each side is maximized. If such a hyperplane exists, it is known as the
+maximum-margin hyperplane and the linear classifier it defines is known
+as a <strong>maximum margin classifier</strong>; or equivalently, the perceptron of
+optimal stability.</p>
+<p>The figure on the right is a binary classification problem (points
+labeled $y_i = \pm 1$) that is linearly separable in space defined by
+the vector <strong>x</strong>. Green and purple line separate two classes with a
+small margin, whereas yellow line separates them with the maximum
+margin.</p>
+<p></p>
+<div class="figure img-responsive align-left"> <img alt="MaxMarginClassification" src="https://res.cloudinary.com/sadanandsingh/image/upload/v1496963331/binaryclass_margin-300x266_wammb3.png">
 </div>
-<p>Mathematically, for the linearly separable case, any point <strong>x</strong> lying on the
-separating hyperplane satisfies: <span class="math">\(\mathbf{x}^T\mathbf{w} = 0\)</span>, where
-<strong>w</strong> is the vector normal to the hyperplane, and <em>b</em> is a constant that
-describes how much plane is shifted relative to the origin. The distance of the
-hyperplane from the origin is <span class="math">\(\frac{b}{\lVert \mathbf{w} \rVert}\)</span>.</p>
-<p>Now draw parallel planes on either side of the decision boundary, so we have
-what looks like a channel, with the decision boundary as the central line, and
-the additional planes as gutters. The margin, i.e. the width of the channel, is
-<span class="math">\((d_+ + d_-)\)</span> and is restricted by the data points closest to the
-boundary, which lie on the gutters. The two bounding hyperplanes of the channel
-can be represented by a constant shift in the decision boundary. In other
-words, these planes ensure that all the points are at least a signed distance
-<cite>d</cite> away from the decision boundary. The channel region can be also
-represented by the following equations:</p>
+<p>Mathematically, for the linearly separable case, any point <strong>x</strong> lying
+on the separating hyperplane satisfies: $\mathbf{x}^T\mathbf{w} = 0$,
+where <strong>w</strong> is the vector normal to the hyperplane, and <em>b</em> is a
+constant that describes how much plane is shifted relative to the
+origin. The distance of the hyperplane from the origin is
+$\frac{b}{\lVert \mathbf{w} \rVert}$.</p>
+<p>Now draw parallel planes on either side of the decision boundary, so we
+have what looks like a channel, with the decision boundary as the
+central line, and the additional planes as gutters. The margin, i.e. the
+width of the channel, is $(d_+ + d_-)$ and is restricted by the data
+points closest to the boundary, which lie on the gutters. The two
+bounding hyperplanes of the channel can be represented by a constant
+shift in the decision boundary. In other words, these planes ensure that
+all the points are at least a signed distance d away from the decision
+boundary. The channel region can be also represented by the following
+equations:</p>
+<p></p>
 <div class="math">
 \begin{equation*}
+
 \begin{aligned}
-&amp; \mathbf{x}_i^T\mathbf{w} + b \ge +a, \text{for  } y_i = +1 \\
-&amp; \mathbf{x}_i^T\mathbf{w} + b \le -a, \text{for  } y_i = -1
-\end{aligned}
+ &amp; \mathbf{x}_i^T\mathbf{w} + b \ge +a, \text{for  } y_i = +1 \\
+ &amp; \mathbf{x}_i^T\mathbf{w} + b \le -a, \text{for  } y_i = -1
+ \end{aligned}
+
 \end{equation*}
 </div>
 <p>These conditions can be put more succinctly as:</p>
+<p></p>
 <div class="math">
 \begin{equation*}
+
 y_i (\mathbf{x}_i^T\mathbf{w} + b) \ge a, \forall i
+
 \end{equation*}
 </div>
-<p>Using the formulation of distance from origin of three hyper planes, we can
-show that, the margin, <cite>M</cite> is equivalent to
-<span class="math">\(d_+ + d_- = 2a / \lVert \mathbf{w} \rVert\)</span>.
-Without any loss of generality, we can set <span class="math">\(a = 1\)</span>, since it only
-sets  the scale (units) of <span class="math">\(b\)</span> and <span class="math">\(\mathbf{w}\)</span>.
-So to maximize the margin, we have to maximize
-<span class="math">\(1 / \lVert \mathbf{w} \rVert\)</span>. Such a non-convex
-objective function can be avoided if we choose in stead to minimize
-<span class="math">\({\lVert \mathbf{w} \rVert}^2\)</span>.</p>
-<p>In summary, for a problem with <cite>m</cite> numbers of training data points, we need to
-solve the following quadratic programming problem:</p>
+<p>Using the formulation of distance from origin of three hyper planes, we
+can show that, the margin, M is equivalent to
+$d_+ + d_- = 2a / \lVert \mathbf{w} \rVert$. Without any loss of
+generality, we can set $a = 1$, since it only sets the scale (units) of
+$b$ and $\mathbf{w}$. So to maximize the margin, we have to maximize
+$1 / \lVert \mathbf{w} \rVert$. Such a non-convex objective function can
+be avoided if we choose in stead to minimize
+${\lVert \mathbf{w} \rVert}^2$.</p>
+<p>In summary, for a problem with m numbers of training data points, we
+need to solve the following quadratic programming problem:</p>
+<p></p>
 <div class="math">
 \begin{equation*}
+
 \begin{aligned}
-&amp; {\text{maximize  }}
-M \\
-&amp; \text{subject to  }
-y_i (\mathbf{x}_i^T\mathbf{w} + b) \ge M, \forall \text{ } i = 1 \ldots m
-\end{aligned}
+ &amp; {\text{maximize  }}
+ M \\
+ &amp; \text{subject to  }
+ y_i (\mathbf{x}_i^T\mathbf{w} + b) \ge M, \forall \text{ } i = 1 \ldots m
+ \end{aligned}
+ 
 \end{equation*}
 </div>
 <p>This can be more conveniently put as:</p>
+<p></p>
 <div class="math">
 \begin{equation*}
+
 \begin{aligned}
-&amp; {\text{minimize  }}
-f(w)  \equiv \frac{1}{2} {\lVert \mathbf{w} \rVert}^2 \\
-&amp; \text{subject to  }
-g(\mathbf{w}, b) \equiv -y_i (\mathbf{x}_i^T\mathbf{w} + b) + 1 \le 0, i = 1 \ldots m
-\end{aligned}
+ &amp; {\text{minimize  }}
+ f(w)  \equiv \frac{1}{2} {\lVert \mathbf{w} \rVert}^2 \\
+ &amp; \text{subject to  }
+ g(\mathbf{w}, b) \equiv -y_i (\mathbf{x}_i^T\mathbf{w} + b) + 1 \le 0, i = 1 \ldots m
+ \end{aligned}
+ 
 \end{equation*}
 </div>
-<p>The maximal margin classifier is a very natural way to perform classification,
-if a separating hyperplane exists. However, in most real-life cases no
-separating hyperplane exists, and so there is no maximal margin classifier.</p>
+<p>The maximal margin classifier is a very natural way to perform
+classification, if a separating hyperplane exists. However, in most
+real-life cases no separating hyperplane exists, and so there is no
+maximal margin classifier.</p>
+<h2 id="support-vector-classifier">Support Vector Classifier</h2>
+<p></p>
+<div class="figure img-responsive align-right"> <img alt="MaxMarginClassification" src="https://res.cloudinary.com/sadanandsingh/image/upload/v1496963334/softmargin-300x266_lqp75o.png">
 </div>
-<div class="section" id="support-vector-classifier">
-<h2><a class="toc-backref" href="#id2">Support Vector Classifier</a></h2>
-<div class="figure align-right">
-<img alt="MaxMarginClassification" src="https://res.cloudinary.com/sadanandsingh/image/upload/v1496963334/softmargin-300x266_lqp75o.png">
-</div>
-<p>We can extend the concept of a separating hyperplane in order to develop a
-hyperplane that <em>almost</em> separates the classes, using a so-called <em>"soft
-margin"</em>. The generalization of the maximal margin classifier to the non-
-separable case is known as the <em>"support vector"</em> classifier.</p>
-<p>Assuming the classes overlap in the given feature space. One way to deal with
-the overlap is to still maximize <cite>M</cite>, but allow for some points to be on the
-wrong side of the margin. In order to allow these, we can define the slack variables as,
-<span class="math">\(\xi = ( \xi_1, \xi_2 \ldots \xi_m)\)</span>.
-Now, keeping the above optimization problem as a convex problem,
-we can modify the constraints as:</p>
+<p>We can extend the concept of a separating hyperplane in order to develop
+a hyperplane that <em>almost</em> separates the classes, using a so-called
+<em>soft margin</em>. The generalization of the maximal margin classifier to
+the non-separable case is known as the <strong>support vector</strong> classifier.</p>
+<p>Assuming the classes overlap in the given feature space. One way to deal
+with the overlap is to still maximize M, but allow for some points to be
+on the wrong side of the margin. In order to allow these, we can define
+the slack variables as, $\xi = ( \xi_1, \xi_2 \ldots \xi_m)$. Now,
+keeping the above optimization problem as a convex problem, we can
+modify the constraints as:</p>
+<p></p>
 <div class="math">
 \begin{equation*}
+
 \begin{aligned}
-&amp; y_i (\mathbf{x}_i^T\mathbf{w} + b) \ge M(1-\xi_i), \forall \text{  } i = 1 \ldots m, \\
-&amp; \xi_i \ge 0 \text{   and   } \sum_{i=1}^{m}\xi_i \le C \text{  }\forall \text{   } i = 1 \ldots m,
-\end{aligned}
+ &amp; y_i (\mathbf{x}_i^T\mathbf{w} + b) \ge M(1-\xi_i), \forall \text{  } i = 1 \ldots m, \\
+ &amp; \xi_i \ge 0 \text{   and   } \sum_{i=1}^{m}\xi_i \le C \text{  }\forall \text{   } i = 1 \ldots m,
+ \end{aligned}
+ 
 \end{equation*}
 </div>
 <p>We can think of this formulation in the following context. The value
-<span class="math">\(\xi_i\)</span> in the constraint
-<span class="math">\(y_i (\mathbf{x}_i^T\mathbf{w} + b) \ge M(1-\xi_i)\)</span>
-is the proportional amount by which the prediction
-<span class="math">\(f(x_i)=x_i^T\mathbf{w} + b\)</span> is on the wrong side of its margin. Hence by
-bounding the sum <span class="math">\(\sum \xi_i\)</span>, we can bound the total proportional amount by
-which predictions fall on the wrong side of their margin. Mis-classifications
-occur when <span class="math">\(\xi_i &gt; 1\)</span>, so bounding <span class="math">\(\sum \xi_i\)</span> at a value <cite>K</cite>
-say, bounds the total number of training mis-classifications at <cite>K</cite>.</p>
+$\xi_i$ in the constraint
+$y_i (\mathbf{x}_i^T\mathbf{w} + b) \ge M(1-\xi_i)$ is the proportional
+amount by which the prediction $f(x_i)=x_i^T\mathbf{w} + b$ is on the
+wrong side of its margin. Hence by bounding the sum $\sum \xi_i$, we can
+bound the total proportional amount by which predictions fall on the
+wrong side of their margin. Mis-classifications occur when $\xi_i &gt; 1$,
+so bounding $\sum \xi_i$ at a value K say, bounds the total number of
+training mis-classifications at K.</p>
 <p>Similar to the case of maximum margin classifier, we can rewrite the
 optimization problem more conveniently as,</p>
+<p></p>
 <div class="math">
 \begin{equation*}
+
 \begin{aligned}
-&amp; {\text{minimize  }}
-\frac{1}{2} {\lVert \mathbf{w} \rVert}^2 + C \sum_{i}^{m} \xi_i\\
-&amp; \text{subject to  }
-y_i (\mathbf{x}_i^T\mathbf{w} + b) \ge 1 - \xi_i, \text{  }
-\text{   and   } \xi_i \ge 0, \text{   } i = 1 \ldots m
-\end{aligned}
+ &amp; {\text{minimize  }}
+ \frac{1}{2} {\lVert \mathbf{w} \rVert}^2 + C \sum_{i}^{m} \xi_i\\
+ &amp; \text{subject to  }
+ y_i (\mathbf{x}_i^T\mathbf{w} + b) \ge 1 - \xi_i, \text{  }
+ \text{   and   } \xi_i \ge 0, \text{   } i = 1 \ldots m
+ \end{aligned}
+
 \end{equation*}
 </div>
 <p>Now, the question before us is to find a way to solve this optimization
 problem efficiently.</p>
-<p>The problem above is quadratic with linear constraints, hence is a convex
-optimization problem. We can describe a quadratic programming solution using
-Lagrange multipliers and then solving using the Wolfe dual problem.</p>
+<p>The problem above is quadratic with linear constraints, hence is a
+convex optimization problem. We can describe a quadratic programming
+solution using Lagrange multipliers and then solving using the Wolfe
+dual problem.</p>
 <p>The Lagrange (primal) function for this problem is:</p>
+<p></p>
 <div class="math">
 \begin{equation*}
+
 L_P = \frac{1}{2} {\lVert \mathbf{w} \rVert}^2 + C \sum_{i}^{m} \xi_i - \sum_{i=1}^{m} \alpha_i[y_i (\mathbf{x}_i^T\mathbf{w} + b) - (1 - \xi_i)] - \sum_{i=1}^{m} \mu_i \xi_i,
+
 \end{equation*}
 </div>
-<p>which we can minimize w.r.t. <span class="math">\(\mathbf{w}\)</span>, <cite>b</cite>, and <span class="math">\(\xi_i\)</span>.
-Setting the respective derivatives to zero, we get,</p>
+<p>which we can minimize w.r.t. $\mathbf{w}$, b, and $\xi_i$. Setting the
+respective derivatives to zero, we get,</p>
+<p></p>
 <div class="math">
 \begin{equation*}
+
 \begin{aligned}
-&amp; \mathbf{w} = \sum_{i=1}^{m} \alpha_i y_i \mathbf{x_i} \\
-&amp; 0 = \sum_{i=1}^{m} \alpha_i y_i \\
-&amp; \alpha_i = C - \mu_i, \forall i,
-\end{aligned}
+ &amp; \mathbf{w} = \sum_{i=1}^{m} \alpha_i y_i \mathbf{x_i} \\
+ &amp; 0 = \sum_{i=1}^{m} \alpha_i y_i \\
+ &amp; \alpha_i = C - \mu_i, \forall i,
+ \end{aligned}
+
 \end{equation*}
 </div>
-<p>as well as the positivity constraints, <span class="math">\(\alpha_i\)</span>, <span class="math">\(\mu_i\)</span>,
-<span class="math">\(\xi_i \ge 0, \text{  } \forall i\)</span>. By substituting these conditions back
-into the Lagrange primal function, we get the Wolfe dual of the problem as,</p>
+<p>as well as the positivity constraints, $\alpha_i$, $\mu_i$,
+$\xi_i \ge 0, \text{  } \forall i$. By substituting these conditions
+back into the Lagrange primal function, we get the Wolfe dual of the
+problem as,</p>
+<p></p>
 <div class="math">
 \begin{equation*}
+
 L_D = \sum_{i=1}^{m} \alpha_i - \frac{1}{2} \sum_{i=1}^{m} \sum_{j=1}^{m} \alpha_i \alpha_j y_i y_j x_i^T x_j
+
 \end{equation*}
 </div>
-<p>which gives a lower bound on the original objective function of the quadratic
-programming problem for any feasible point. We maximize <span class="math">\(L_D\)</span> subject to
-<span class="math">\(0 \le \alpha_i \le C\)</span> and <span class="math">\(\sum_{i=1}^{m} \alpha_i y_i = 0\)</span>. In
-addition to above constraints, the Karush-Kuhn-Tucker (KKT) conditions include
-the following constraints,</p>
+<p>which gives a lower bound on the original objective function of the
+quadratic programming problem for any feasible point. We maximize $L_D$
+subject to $0 \le \alpha_i \le C$ and $\sum_{i=1}^{m} \alpha_i y_i = 0$.
+In addition to above constraints, the Karush-Kuhn-Tucker (KKT)
+conditions include the following constraints,</p>
+<p></p>
 <div class="math">
 \begin{equation*}
+
 \begin{aligned}
-&amp; \alpha_i[y_i (\mathbf{x}_i^T\mathbf{w} + b) - (1 - \xi_i)] = 0, \\
-&amp; \mu_i \xi_i = 0, \\
-&amp; y_i (\mathbf{x}_i^T\mathbf{w} + b) - (1 - \xi_i) \ge 0,
-\end{aligned}
+ &amp; \alpha_i[y_i (\mathbf{x}_i^T\mathbf{w} + b) - (1 - \xi_i)] = 0, \\
+ &amp; \mu_i \xi_i = 0, \\
+ &amp; y_i (\mathbf{x}_i^T\mathbf{w} + b) - (1 - \xi_i) \ge 0,
+ \end{aligned}
+
 \end{equation*}
 </div>
-<p>for <span class="math">\(i = 1 \ldots m\)</span>. Together these equations uniquely characterize the
+<p>for $i = 1 \ldots m$. Together these equations uniquely characterize the
 solution to the primal and the dual problem.</p>
-<p>Let us look at some special properties of the solution. We can see that the
-solution for <span class="math">\(\mathbf{w}\)</span> has the for</p>
+<p>Let us look at some special properties of the solution. We can see that
+the solution for $\mathbf{w}$ has the for</p>
+<p></p>
 <div class="math">
 \begin{equation*}
+
 \mathbf{\hat{w}} = \sum_{i=1}^{m} \hat{\alpha_i} y_i \mathbf{x_i}
+
 \end{equation*}
 </div>
-<p>with nonzero coefficients <span class="math">\(\hat{\alpha}_i\)</span> only for those <cite>i</cite> for which
-<span class="math">\(y_i (\mathbf{x}_i^T\mathbf{w} + b) - (1 - \xi_i) = 0\)</span>. These <cite>i</cite>
-observations are called <em>"support vectors"</em>  since <span class="math">\(\mathbf{w}\)</span> is
-represented in terms of them alone. Among these support points, some will lie
-on the edge of the margin <span class="math">\((\hat{\xi}_i = 0)\)</span>, and hence characterized by
-<span class="math">\(0 &lt; \hat{\alpha}_i &lt; C\)</span>; the remainder <span class="math">\((\hat{\xi}_i &gt; 0)\)</span> have
-<span class="math">\(\hat{\alpha}_i = C\)</span>. Any of these margin points can be used to solve for
-<cite>b</cite>. Typically, once can use an average value from all of the solutions from
-the support points.</p>
-<p>In this formulation, <cite>C</cite> is model hyper parameter and can be used as a
-regularizer to control the capacity and generalization error of the model.</p>
-</div>
-<div class="section" id="the-kernel-trick">
-<h2><a class="toc-backref" href="#id3">The Kernel Trick</a></h2>
-<p>The support vector classifier described so far finds linear boundaries in the
-input feature space. As with other linear methods, we can make the procedure
-more flexible by enlarging the feature space using basis expansions such as
-polynomials or splines. Generally linear boundaries in the enlarged space
-achieve better training-class separation, and translate to nonlinear boundaries
-in the original space. Once the basis functions <span class="math">\(h_i(x), i=1 \ldots m\)</span>
-are selected, the procedure remains same as before.</p>
-<p>Now recall that in calculating the actual classifier, we needed only support
-vector points, i.e. we need smaller amount of computation if data has better
-training-class separation. Furthermore, if one looks closely, we can find an
-additional trick. The separating plane can be given by the function:</p>
+<p>with nonzero coefficients $\hat{\alpha}_i$ only for those i for which
+$y_i (\mathbf{x}_i^T\mathbf{w} + b) - (1 - \xi_i) = 0$. These i
+observations are called <em>"support vectors"</em> since $\mathbf{w}$ is
+represented in terms of them alone. Among these support points, some
+will lie on the edge of the margin $(\hat{\xi}_i = 0)$, and hence
+characterized by $0 &lt; \hat{\alpha}_i &lt; C$; the remainder
+$(\hat{\xi}_i &gt; 0)$ have $\hat{\alpha}_i = C$. Any of these margin
+points can be used to solve for b. Typically, once can use an average
+value from all of the solutions from the support points.</p>
+<p>In this formulation, C is model hyper parameter and can be used as a
+regularizer to control the capacity and generalization error of the
+model.</p>
+<h2 id="the-kernel-trick">The Kernel Trick</h2>
+<p>The support vector classifier described so far finds linear boundaries
+in the input feature space. As with other linear methods, we can make
+the procedure more flexible by enlarging the feature space using basis
+expansions such as polynomials or splines. Generally linear boundaries
+in the enlarged space achieve better training-class separation, and
+translate to nonlinear boundaries in the original space. Once the basis
+functions $h_i(x), i=1 \ldots m$ are selected, the procedure remains
+same as before.</p>
+<p>Now recall that in calculating the actual classifier, we needed only
+support vector points, i.e. we need smaller amount of computation if
+data has better training-class separation. Furthermore, if one looks
+closely, we can find an additional trick. The separating plane can be
+given by the function:</p>
+<p></p>
 <div class="math">
 \begin{equation*}
+
 \begin{aligned}
-f(x) &amp; = \mathbf{x}^T \mathbf{w} + b \\
-     &amp; = \mathbf{x}^T \sum_{i=1}^{m} \hat{\alpha_i} y_i \mathbf{x_i} + b\\
-     &amp; = \sum_{i=1}^{m} \hat{\alpha_i} y_i \mathbf{x}^T \mathbf{x}_i + b\\
-     &amp; = \sum_{i=1}^{m} \hat{\alpha_i} y_i \langle\mathbf{x} \mathbf{x}_i\rangle + b
-\end{aligned}
+ f(x) &amp; = \mathbf{x}^T \mathbf{w} + b \\
+      &amp; = \mathbf{x}^T \sum_{i=1}^{m} \hat{\alpha_i} y_i \mathbf{x_i} + b\\
+      &amp; = \sum_{i=1}^{m} \hat{\alpha_i} y_i \mathbf{x}^T \mathbf{x}_i + b\\
+      &amp; = \sum_{i=1}^{m} \hat{\alpha_i} y_i \langle\mathbf{x} \mathbf{x}_i\rangle + b
+ \end{aligned}
+
 \end{equation*}
 </div>
-<p>where, <span class="math">\(\langle \mathbf{x} \mathbf{y} \rangle\)</span> denotes inner product of
-vectors <span class="math">\(\mathbf{x}\)</span> and <span class="math">\(\mathbf{y}\)</span>. This shows us that we can
-rewrite training phase operations completely in terms of inner products!</p>
-<p>If we were to replace linear terms with a predefined non-linear operation
-<span class="math">\(h(x)\)</span>, the above formulation of the separating plane will simply modify
-into:</p>
+<p>where, $\langle \mathbf{x} \mathbf{y} \rangle$ denotes inner product of
+vectors $\mathbf{x}$ and $\mathbf{y}$. This shows us that we can rewrite
+training phase operations completely in terms of inner products!</p>
+<p>If we were to replace linear terms with a predefined non-linear
+operation $h(x)$, the above formulation of the separating plane will
+simply modify into:</p>
+<p></p>
 <div class="math">
 \begin{equation*}
+
 \begin{aligned}
-f(x) &amp; = h(\mathbf{x})^T \mathbf{w} + b \\
-     &amp; = h(\mathbf{x})^T \sum_{i=1}^{m} \hat{\alpha_i} y_i h(\mathbf{x}_i) + b\\
-     &amp; = \sum_{i=1}^{m} \hat{\alpha_i} y_i h(\mathbf{x})^T h(\mathbf{x}_i) + b\\
-     &amp; = \sum_{i=1}^{m} \hat{\alpha_i} y_i \langle h(\mathbf{x}) h(\mathbf{x}_i) \rangle + b
-\end{aligned}
+ f(x) &amp; = h(\mathbf{x})^T \mathbf{w} + b \\
+      &amp; = h(\mathbf{x})^T \sum_{i=1}^{m} \hat{\alpha_i} y_i h(\mathbf{x}_i) + b\\
+      &amp; = \sum_{i=1}^{m} \hat{\alpha_i} y_i h(\mathbf{x})^T h(\mathbf{x}_i) + b\\
+      &amp; = \sum_{i=1}^{m} \hat{\alpha_i} y_i \langle h(\mathbf{x}) h(\mathbf{x}_i) \rangle + b
+ \end{aligned}
+
 \end{equation*}
 </div>
-<p>As before, given <span class="math">\(\hat{\alpha_i}\)</span>, <cite>b</cite> can be determined by solving
-<span class="math">\(y_i f(\mathbf{x}_i) = 1\)</span> for any (or all) <span class="math">\(x_i\)</span> for which
-<span class="math">\(0 &lt; \hat{\alpha}_i &lt; C\)</span>.
-More importantly, this tells us that we do not need to
-specify the exact nonlinear transformation <span class="math">\(h(x)\)</span> at all, rather only the
-knowledge of the Kernel function <span class="math">\(K(x, x') = \langle h(x)h(x') \rangle\)</span>
-that computes inner products in the transformed space is enough.
-<strong>Note that for the dual problem to be convex quadratic programming problem,
-`K` would need to be symmetric positive semi-definite.</strong></p>
+<p>As before, given $\hat{\alpha_i}$, b can be determined by solving
+$y_i f(\mathbf{x}_i) = 1$ for any (or all) $x_i$ for which
+$0 &lt; \hat{\alpha}_i &lt; C$. More importantly, this tells us that we do not
+need to specify the exact nonlinear transformation $h(x)$ at all, rather
+only the knowledge of the Kernel function
+$K(x, x') = \langle h(x)h(x') \rangle$ that computes inner products in
+the transformed space is enough. <strong>Note that for the dual problem to be
+convex quadratic programming problem, K would need to be symmetric
+positive semi-definite.</strong></p>
 <p>Some common choices of kernels are:</p>
-<p><span class="math">\(d^{th}\)</span> degree polynomial:
-<span class="math">\(K(x, x') = (1+\langle x x' \rangle )^d\)</span></p>
-<p>Radial basis:
-<span class="math">\(K(x, x') = \exp (-\gamma  \lVert \mathbf{x - x'} \rVert^2 )\)</span></p>
-<p>Neural network:
-<span class="math">\(K(x, x') = \tanh (\kappa_1 \langle x x' \rangle + \kappa_2)\)</span></p>
-<p>The role of the hyper-parameter <cite>C</cite> is clearer in an enlarged feature
-space, since perfect separation is often achievable there. A large value of C
-will discourage any positive <span class="math">\(\xi_i\)</span>, and lead to an over-fit wiggly
-boundary in the original feature space; a small value of <cite>C</cite> will encourage a
-small value of <span class="math">\(\lVert w \rVert\)</span>, which in turn causes <span class="math">\(f(x)\)</span> and
-hence the boundary to be smoother, potentially at the cost of more points as
-support vectors.</p>
-</div>
-<div class="section" id="curse-of-dimensionality-huh">
-<h2><a class="toc-backref" href="#id4">Curse of Dimensionality.... huh!!!</a></h2>
-<p>With <cite>m</cite> training examples, <cite>p</cite> predictors and <cite>M</cite> support vectors, the SVM
-requires <span class="math">\(M^3 + Mm + mpM\)</span> operations. This suggests the choice of the
-kernel and hence number of support vectors <cite>M</cite> will play a big role in
-feasibility of this method. For a really good choice of kernel that leads to
-very high training-class separation, i.e. <span class="math">\(M &lt;&lt;&lt; m\)</span>, the method can be
-viewed as linear in <cite>m</cite>. However, for a bad choice case, <span class="math">\(M \approx m\)</span>
-we will be looking at an <span class="math">\(O (m^3)\)</span> algorithm.</p>
+<p><span class="highlight-short-cyan"> $d^{th}$ degree polynomial: </span>
+$K(x, x') = (1+\langle x x' \rangle )^d$</p>
+<p><span class="highlight-short-cyan"> Radial basis: </span>
+$K(x, x') = \exp (-\gamma  \lVert \mathbf{x - x'} \rVert^2 )$</p>
+<p><span class="highlight-short-cyan"> Neural network: </span>
+$K(x, x') = \tanh (\kappa_1 \langle x x' \rangle + \kappa_2)$</p>
+<p>The role of the hyper-parameter $C$ is clearer in an enlarged feature
+space, since perfect separation is often achievable there. A large value
+of $C$ will discourage any positive $\xi_i$, and lead to an over-fit
+wiggly boundary in the original feature space; a small value of $C$ will
+encourage a small value of $\lVert w \rVert$, which in turn causes
+$f(x)$ and hence the boundary to be smoother, potentially at the cost of
+more points as support vectors.</p>
+<h2 id="curse-of-dimensionality-huh">Curse of Dimensionality.... huh!!!</h2>
+<p>With m training examples, $p$ predictors and M support vectors, the SVM
+requires $M^3 + Mm + mpM$ operations. This suggests the choice of the
+kernel and hence number of support vectors M will play a big role in
+feasibility of this method. For a really good choice of kernel that
+leads to very high training-class separation, i.e. $M &lt;&lt;&lt; m$, the method
+can be viewed as linear in m. However, for a bad choice case,
+$M \approx m$ we will be looking at an $O (m^3)$ algorithm.</p>
 <p>The modern incarnation of deep learning was designed to overcome these
-limitations (large order of computations and clever problem-specific choice of
-kernels) of kernel machines. We will look at the details of a generic deep
-learning algorithm in a future post.</p>
-</div>
+limitations (large order of computations and clever problem-specific
+choice of kernels) of kernel machines. We will look at the details of a
+generic deep learning algorithm in a future post.</p>
 </div>
     </div>
     <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">

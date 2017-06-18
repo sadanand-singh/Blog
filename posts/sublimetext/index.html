@@ -47,7 +47,10 @@
 <meta property="og:site_name" content="Sadanand's Notes">
 <meta property="og:title" content="Sublime Text Setup">
 <meta property="og:url" content="https://sadanand-singh.github.io/posts/sublimetext/">
-<meta property="og:description" content="I have been using Sublime text as my primary editor for some time now. Here I wanted to share my current setup for the editor including all settings, packages, shortcut keys and themes.
+<meta property="og:description" content="I have been using Sublime text as my
+primary editor for some time now. Here I wanted to share my current
+setup for the editor including all settings, packages, shortcut keys and
+themes.
 
 
 Table of Con">
@@ -139,87 +142,94 @@ Table of Con">
 
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
-<p>I have been using <a class="reference external" href="https://www.sublimetext.com/">Sublime text</a> as my primary editor for some time now. Here I wanted to share my current setup for the editor including all settings, packages, shortcut keys and themes.</p>
-<!-- TEASER_END -->
-<div class="contents topic" id="table-of-contents">
-<p class="topic-title first">Table of Contents</p>
-<ul class="simple">
-<li><a class="reference internal" href="#packages" id="id1">Packages</a></li>
-<li><a class="reference internal" href="#shortcut-keys" id="id2">Shortcut Keys</a></li>
-<li><a class="reference internal" href="#theme-and-color-scheme" id="id3">Theme and Color Scheme</a></li>
-<li><a class="reference internal" href="#user-settings-preferences" id="id4">User Settings / Preferences</a></li>
+<p>I have been using <a href="https://www.sublimetext.com/">Sublime text</a> as my
+primary editor for some time now. Here I wanted to share my current
+setup for the editor including all settings, packages, shortcut keys and
+themes.</p>
+<!--more-->
+
+<p><strong>Table of Content</strong></p>
+<div class="toc">
+<ul>
+<li><a href="#packages">Packages</a></li>
+<li><a href="#shortcut-keys">Shortcut Keys</a></li>
+<li><a href="#theme-and-color-scheme">Theme and Color Scheme</a></li>
+<li><a href="#user-settings-preferences">User Settings / Preferences</a></li>
 </ul>
 </div>
 <p></p>
 <div class="figure img-responsive align-center"> <img alt="Sublime Text" src="https://res.cloudinary.com/sadanandsingh/image/upload/v1496963550/st3_wdpsqu.png">
 </div>
-<div class="section" id="packages">
-<h2><a class="toc-backref" href="#id1">Packages</a></h2>
-<p>First thing you will need to install is the <a class="reference external" href="https://packagecontrol.io">Package Control</a>. This can be easily done by following the
-directions at their installation <a class="reference external" href="https://packagecontrol.io/installation">instructions</a>.</p>
-<p>Once you have installed the package manager and restarted sublime text, now you
-can install all other packages using the powerful command pallet. Hit <em>ctrl +
-shift + P</em> and type <em>"Install"</em>, choose <em>"Package Control : Install Package"</em>.
-Now you can search for any package that you wish to install, and then press
-<em>Enter</em> to install it.</p>
+<h2 id="packages">Packages</h2>
+<p>First thing you will need to install is the <a href="https://packagecontrol.io">Package
+Control</a>. This can be easily done by
+following the directions at their <a href="https://packagecontrol.io/installation">installation instructions</a>.</p>
+<p>Once you have installed the package manager and restarted sublime text,
+now you can install all other packages using the powerful command
+pallet. Hit <code>ctrl + shift + P</code> and type <em>Install</em>, choose <em>Package
+Control : Install Package</em>. Now you can search for any package that you
+wish to install, and then press <em>Enter</em> to install it.</p>
 <p>Here is a list of packages that I currently use:</p>
-<ul class="simple">
-<li><a class="reference external" href="https://github.com/wbond/sublime_alignment">Alignment</a></li>
-<li><a class="reference external" href="https://github.com/facelessuser/BracketHighlighter">Bracket Highlighter</a></li>
-<li><a class="reference external" href="https://github.com/noct/sublime-cpp11">C++11</a></li>
-<li><a class="reference external" href="https://github.com/ehuss/Sublime-Column-Select">Column Select</a></li>
-<li><a class="reference external" href="https://github.com/adambullmer/sublime_docblockr_python">DocBlockr_Python</a></li>
-<li><a class="reference external" href="https://github.com/jisaacks/GitGutter">GitGutter</a></li>
-<li><a class="reference external" href="https://github.com/MagicStack/MagicPython">MagicPython</a></li>
-<li><a class="reference external" href="https://github.com/henrikpersson/rsub">rsub</a></li>
-<li><a class="reference external" href="https://github.com/leonid-shevtsov/SearchInProject_SublimeText">Search In Project</a></li>
-<li><a class="reference external" href="https://github.com/SublimeLinter/SublimeLinter3">SublimeLinter</a></li>
-<li><a class="reference external" href="https://github.com/SublimeLinter/SublimeLinter-flake8">SublimeLinter-flake8</a></li>
+<ul>
+<li><a href="https://github.com/wbond/sublime_alignment">Alignment</a></li>
+<li><a href="https://github.com/facelessuser/BracketHighlighter">Bracket
+    Highlighter</a></li>
+<li><a href="https://github.com/noct/sublime-cpp11">C++11</a></li>
+<li><a href="https://github.com/ehuss/Sublime-Column-Select">Column Select</a></li>
+<li><a href="https://github.com/adambullmer/sublime_docblockr_python">DocBlockr_Python</a></li>
+<li><a href="https://github.com/jisaacks/GitGutter">GitGutter</a></li>
+<li><a href="https://github.com/MagicStack/MagicPython">MagicPython</a></li>
+<li><a href="https://github.com/henrikpersson/rsub">rsub</a></li>
+<li><a href="https://github.com/leonid-shevtsov/SearchInProject_SublimeText">Search In
+    Project</a></li>
+<li><a href="https://github.com/SublimeLinter/SublimeLinter3">SublimeLinter</a></li>
+<li><a href="https://github.com/SublimeLinter/SublimeLinter-flake8">SublimeLinter-flake8</a></li>
 </ul>
-<p><strong>Alignment</strong> provides a simple key-binding for aligning multi-line and multiple
-selections. <strong>Bracket Highlighter</strong>, as the name suggests, matches a variety of
-brackets such as: [], (), {}, "", '', #!xml &lt;tag&gt;&lt;/tag&gt;, and even custom
-brackets. <strong>C++11</strong> provides better coloring scheme for c++11 syntax.</p>
-<p><strong>Column Select</strong> plug-in provides an alternate behavior for Sublime keyboard
-column selection. The differences are:</p>
-<ul class="simple">
+<p><strong>Alignment</strong> provides a simple key-binding for aligning multi-line and
+multiple selections. <strong>Bracket Highlighter</strong>, as the name suggests,
+matches a variety of brackets such as: <code>[], (), {}, "", '', &lt;tag&gt;&lt;/tag&gt;</code>,
+and even custom brackets. <strong>C++11</strong> provides
+better coloring scheme and syntax highlighting for C++11 syntax.</p>
+<p><strong>Column Select</strong> plug-in provides an alternate behavior for Sublime
+keyboard column selection. The differences are:</p>
+<ul>
 <li>Allows reversing direction (go down too far, just go back up).</li>
 <li>Added PageUp/PageDown, Home/End, and mouse selection.</li>
 <li>Skip rows that are too short.</li>
-<li>If you start at the end of a line, then it will stay at the end of each line.</li>
+<li>If you start at the end of a line, then it will stay at the end of
+    each line.</li>
 </ul>
-<p><strong>DocBlockr_Python</strong> makes writing documentation a breeze for python code.
-<strong>GitGutter</strong> is a handy plug-in to show information about files in a git
-repository. Main Features are:</p>
-<ul class="simple">
+<p><strong>DocBlockr_Python</strong> makes writing documentation a breeze for python
+code. <strong>GitGutter</strong> is a handy plug-in to show information about files
+in a git repository. Main Features are:</p>
+<ul>
 <li>Gutter Icons indicating inserted, modified or deleted lines</li>
 <li>Diff Popup with details about modified lines</li>
 <li>Status Bar Text with information about file and repository</li>
 <li>Jumping Between Changes to easily navigate between modified lines</li>
 </ul>
-<p><strong>MagicPython</strong> is a package with preferences and syntax highlighter for cutting
-edge Python 3. It is meant to be a drop-in replacement for the default Python
-package. MagicPython correctly highlights all Python 3.5 and 3.6 syntax
-features, including type annotations, f-strings and regular expressions. It is
-built from scratch for robustness with an extensive test suite.</p>
-<p><strong>rsub</strong> is an implementation of TextMate 2's 'rmate' feature for Sublime Text,
-allowing files to be edited on a remote server using SSH port forwarding /
-tunneling. Please make sure you have installed a version of
-<a class="reference external" href="https://github.com/aurora/rmate">rmate</a> and are using correct
-<a class="reference external" href="https://atom.io/packages/remote-atom">port forwarding</a>.</p>
-<p><strong>Search in Project</strong> lets you use your favorite search tool (grep, ack, ag,
-pt, rg, git grep, or findstr) to find strings across your entire current Sublime
-Text project. I personally use
-<a class="reference external" href="https://geoff.greer.fm/ag/">the silver_seracher</a> (ag) for this purpose.</p>
-<p><strong>SublimeLinter</strong> and <strong>SublimeLinter-flake8</strong> is plug-in that provides an
-interface to <a class="reference external" href="http://flake8.pycqa.org/en/latest/">flake8</a>.
-It will be used with files that have the <code>Python</code> syntax.</p>
-</div>
-<div class="section" id="shortcut-keys">
-<h2><a class="toc-backref" href="#id2">Shortcut Keys</a></h2>
+<p><strong>MagicPython</strong> is a package with preferences and syntax highlighter for
+cutting edge Python 3. It is meant to be a drop-in replacement for the
+default Python package. MagicPython correctly highlights all Python 3.5
+and 3.6 syntax features, including type annotations, f-strings and
+regular expressions. It is built from scratch for robustness with an
+extensive test suite.</p>
+<p><strong>rsub</strong> is an implementation of TextMate 2's <a href="https://github.com/aurora/rmate">rmate</a> feature for
+Sublime Text, allowing files to be edited on a remote server using ssh
+port forwarding / tunneling. Please make sure you have installed a
+version of <a href="https://github.com/aurora/rmate">rmate</a> and are using
+correct <a href="https://atom.io/packages/remote-atom">port forwarding</a>.</p>
+<p><strong>Search in Project</strong> lets you use your favorite search tool (<code>grep</code>, <code>ack</code>,
+<code>ag</code>, <code>pt</code>, <code>rg</code>, <code>git grep</code>, or <code>findstr</code>) to find strings across your entire
+current Sublime Text project. I personally use <a href="https://geoff.greer.fm/ag/">the
+silver_seracher</a> (<code>ag</code>) for this purpose.</p>
+<p><strong>SublimeLinter</strong> and <strong>SublimeLinter-flake8</strong> is plug-in that provides
+an interface to <a href="http://flake8.pycqa.org/en/latest/">flake8</a>. It will be
+used with files that have the <code>Python</code> syntax.</p>
+<h2 id="shortcut-keys">Shortcut Keys</h2>
 <p>Here is a summary of my key map:</p>
 <p></p>
-<pre class="line-numbers True"> <code class="language-json">[
+<pre> <code class="language-json">[
     { "keys": ["shift+alt+a"], "command": "find_all_under" },
     { "keys": ["control+v"], "command": "paste_and_indent" },
     { "keys": ["control+shift+v"], "command": "paste" },
@@ -231,87 +241,82 @@ It will be used with files that have the <code>Python</code> syntax.</p>
     { "keys": ["ctrl+alt+home"], "command": "column_select", "args": {"by": "all", "forward": false}},
     { "keys": ["ctrl+alt+end"], "command": "column_select", "args": {"by": "all", "forward": true}}
 ]</code></pre>
-</div>
-<div class="section" id="theme-and-color-scheme">
-<h2><a class="toc-backref" href="#id3">Theme and Color Scheme</a></h2>
-<p>I like using the material theme. In particular, I use the "Materialize" theme.
-You can use this by installing the following packages:</p>
-<ul class="simple">
-<li><a class="reference external" href="https://github.com/saadq/Materialize">Materialize</a></li>
-<li><a class="reference external" href="https://github.com/saadq/Materialize-Appbar">Materialize-Appbar</a></li>
-<li><a class="reference external" href="https://github.com/saadq/Materialize-White-Panels">Materialize-White-Panels</a></li>
+<h2 id="theme-and-color-scheme">Theme and Color Scheme</h2>
+<p>I like using the material theme. In particular, I use the "Materialize"
+theme. You can use this by installing the following packages:</p>
+<ul>
+<li><a href="https://github.com/saadq/Materialize">Materialize</a></li>
+<li><a href="https://github.com/saadq/Materialize-Appbar">Materialize-Appbar</a></li>
+<li><a href="https://github.com/saadq/Materialize-White-Panels">Materialize-White-Panels</a></li>
 </ul>
-<p>With these installation, you will also get a lot of color schemes.
-I prefer to use the <em>"Material Oceanic Next"</em> color scheme.
-All other settings for this theme can be seen in my settings below.</p>
-</div>
-<div class="section" id="user-settings-preferences">
-<h2><a class="toc-backref" href="#id4">User Settings / Preferences</a></h2>
-<p>Here is my complete set of settings for Sublime Text. Please feel free to
-leave comments below for any questions or suggestions.</p>
+<p>With these installation, you will also get a lot of color schemes. I
+prefer to use the <em>Material Oceanic Next</em> color scheme. All other
+settings for this theme can be seen in my settings below.</p>
+<h2 id="user-settings-preferences">User Settings / Preferences</h2>
+<p>Here is my complete set of settings for Sublime Text. Please feel free
+to leave comments below for any questions or suggestions.</p>
 <p></p>
-<pre class="line-numbers True"> <code class="language-json">{
-        "always_show_minimap_viewport": true,
-        "auto_complete": true,
-        "bold_folder_labels": true,
-        "caret_extra_width": 1.5,
-        "color_scheme": "Material Oceanic Next (SL).tmTheme",
-        "default_line_ending": "unix",
-        "drag_text": false,
-        "draw_white_space": "all",
-        "enable_tab_scrolling": false,
-        "font_face": "Hack",
-        "font_options":
-        [
-            "directwrite",
-            "gray_antialias",
-            "subpixel_antialias"
-        ],
-        "font_size": 13,
-        "ignored_packages":
-        [
-            "C++",
-            "Python",
-            "Vintage"
-        ],
-        "indent_guide_options":
-        [
-            "draw_normal",
-            "draw_active"
-        ],
-        "line_padding_bottom": 1,
-        "line_padding_top": 1,
-        "material_theme_bold_tab": true,
-        "material_theme_compact_panel": true,
-        "material_theme_compact_sidebar": false,
-        "material_theme_contrast_mode": true,
-        "material_theme_disable_fileicons": false,
-        "material_theme_disable_folder_animation": true,
-        "material_theme_disable_tree_indicator": true,
-        "material_theme_panel_separator": true,
-        "material_theme_small_statusbar": true,
-        "material_theme_small_tab": true,
-        "material_theme_tabs_autowidth": true,
-        "material_theme_tabs_separator": true,
-        "material_theme_tree_headings": true,
-        "overlay_scroll_bars": "enabled",
-        "rulers":
-        [
-            80
-        ],
-        "scroll_past_end": true,
-        "soda_classic_tabs": true,
-        "soda_folder_icons": true,
-        "tab_completion": false,
-        "tab_size": 4,
-        "theme": "Material Oceanic Next.sublime-theme",
-        "translate_tabs_to_spaces": true,
-        "trim_trailing_white_space_on_save": true,
-        "word_wrap": true,
-        "hot_exit": false,
-        "remember_open_files": false
-    }</code></pre>
-</div>
+<pre> <code class="language-json">{
+    "always_show_minimap_viewport": true,
+    "auto_complete": true,
+    "bold_folder_labels": true,
+    "caret_extra_width": 1.5,
+    "color_scheme": "Material Oceanic Next (SL).tmTheme",
+    "default_line_ending": "unix",
+    "drag_text": false,
+    "draw_white_space": "all",
+    "enable_tab_scrolling": false,
+    "font_face": "Hack",
+    "font_options":
+    [
+        "directwrite",
+        "gray_antialias",
+        "subpixel_antialias"
+    ],
+    "font_size": 13,
+    "ignored_packages":
+    [
+        "C++",
+        "Python",
+        "Vintage"
+    ],
+    "indent_guide_options":
+    [
+        "draw_normal",
+        "draw_active"
+    ],
+    "line_padding_bottom": 1,
+    "line_padding_top": 1,
+    "material_theme_bold_tab": true,
+    "material_theme_compact_panel": true,
+    "material_theme_compact_sidebar": false,
+    "material_theme_contrast_mode": true,
+    "material_theme_disable_fileicons": false,
+    "material_theme_disable_folder_animation": true,
+    "material_theme_disable_tree_indicator": true,
+    "material_theme_panel_separator": true,
+    "material_theme_small_statusbar": true,
+    "material_theme_small_tab": true,
+    "material_theme_tabs_autowidth": true,
+    "material_theme_tabs_separator": true,
+    "material_theme_tree_headings": true,
+    "overlay_scroll_bars": "enabled",
+    "rulers":
+    [
+        80
+    ],
+    "scroll_past_end": true,
+    "soda_classic_tabs": true,
+    "soda_folder_icons": true,
+    "tab_completion": false,
+    "tab_size": 4,
+    "theme": "Material Oceanic Next.sublime-theme",
+    "translate_tabs_to_spaces": true,
+    "trim_trailing_white_space_on_save": true,
+    "word_wrap": true,
+    "hot_exit": false,
+    "remember_open_files": false
+}</code></pre>
 </div>
     </div>
     <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">

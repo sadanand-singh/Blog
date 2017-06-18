@@ -50,7 +50,8 @@
 <meta property="og:description" content="Here are two math puzzles, solve, comment and enjoy the discussion!
 
 
-Table of Contents
+Table of Content
+
 
 Puzzle 1: Prime Numbers
 Solution
@@ -58,9 +59,8 @@ Puzzle 2: Hopping on a Chess Board
 Solution
 
 
-
 Puzzle 1: Prime Numbers
-Prove t">
+Prove th">
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2015-06-21T23:08:34-07:00">
 <meta property="article:tag" content="Algorithms">
@@ -153,81 +153,83 @@ Prove t">
     </header><div class="e-content entry-content" itemprop="articleBody text">
     <div>
 <p>Here are two math puzzles, solve, comment and enjoy the discussion!</p>
-<!-- TEASER_END -->
-<div class="contents topic" id="table-of-contents">
-<p class="topic-title first">Table of Contents</p>
-<ul class="simple">
-<li><a class="reference internal" href="#puzzle-1-prime-numbers" id="id2">Puzzle 1: Prime Numbers</a></li>
-<li><a class="reference internal" href="#solution" id="id3">Solution</a></li>
-<li><a class="reference internal" href="#puzzle-2-hopping-on-a-chess-board" id="id4">Puzzle 2: Hopping on a Chess Board</a></li>
-<li><a class="reference internal" href="#id1" id="id5">Solution</a></li>
+<!--more-->
+
+<p><strong>Table of Content</strong></p>
+<div class="toc">
+<ul>
+<li><a href="#puzzle-1-prime-numbers">Puzzle 1: Prime Numbers</a></li>
+<li><a href="#solution">Solution</a></li>
+<li><a href="#puzzle-2-hopping-on-a-chess-board">Puzzle 2: Hopping on a Chess Board</a></li>
+<li><a href="#solution_1">Solution</a></li>
 </ul>
 </div>
-<div class="section" id="puzzle-1-prime-numbers">
-<h2><a class="toc-backref" href="#id2">Puzzle 1: Prime Numbers</a></h2>
-<p>Prove that <span class="math">\(p^2-1\)</span> is divisible by 24, where <span class="math">\(p\)</span> is a prime
-number with <span class="math">\(p&gt;3\)</span>.</p>
-<p>This is a simple one - do not go by the technicality of the problem statement.</p>
-</div>
-<div class="section" id="solution">
-<h2><a class="toc-backref" href="#id3">Solution</a></h2>
-<p><span class="math">\(p^2-1 = (p-1)\times (p+1)\)</span> Given, <span class="math">\(p\)</span>
-is a prime number <span class="math">\(&gt;3\)</span>, <span class="math">\(p-1\)</span> and <span class="math">\(p+1\)</span>
-are even. We can also
-write,</p>
+<h2 id="puzzle-1-prime-numbers">Puzzle 1: Prime Numbers</h2>
+<p>Prove that $p^2-1$ is divisible by 24, where $p$ is a prime number with
+$p&gt;3$.</p>
+<p>This is a simple one - do not go by the technicality of the problem
+statement.</p>
+<h2 id="solution">Solution</h2>
+<p>$p^2-1 = (p-1)\times (p+1)$ Given, $p$ is a prime number $&gt;3$, $p-1$ and
+$p+1$ are even. We can also write,</p>
+<p></p>
 <div class="math">
 \begin{equation*}
 p-1=2K, \text{and } p+1=2K+2=2(K+1)
 \end{equation*}
 </div>
-<p>Given, <span class="math">\(K \in \mathbb{N}\)</span>, either <span class="math">\(K\)</span>
-or <span class="math">\(K+1\)</span> are also even.
-Hence, <span class="math">\((p-1)\times (p+1)\)</span> is divisible by <span class="math">\(2\times 4 = 8\)</span>.</p>
-<p>Furthermore, as <span class="math">\(p\)</span> is prime, we can write it as either
-<span class="math">\(p = 3s+1\)</span> or <span class="math">\(p = 3s-1\)</span>, where <span class="math">\(s \in \mathbb{N}\)</span>. In
-either case, one of <span class="math">\(p-1\)</span> or <span class="math">\(p+1\)</span> are divisible by 3 as
-well.</p>
-<p>Hence, <span class="math">\(p^2-1\)</span> is divisible by <span class="math">\(8\times 3 = 24\)</span>.</p>
-</div>
-<div class="section" id="puzzle-2-hopping-on-a-chess-board">
-<h2><a class="toc-backref" href="#id4">Puzzle 2: Hopping on a Chess Board</a></h2>
-<p>On a chess board, basically a <span class="math">\(8\times 8\)</span> grid, how many ways one
-can go from the left most bottom corner to the right most upper corner?
-In chess naming conventions, from "a1" to "h8".</p>
+<p>Given, $K \in \mathbb{N}$, either $K$ or $K+1$ are also even. Hence,
+$(p-1)\times (p+1)$ is divisible by $2\times 4 = 8$.</p>
+<p>Furthermore, as $p$ is prime, we can write it as either $p = 3s+1$ or
+$p = 3s-1$, where $s \in \mathbb{N}$. In either case, one of $p-1$ or
+$p+1$ are divisible by 3 as well.</p>
+<p>Hence, $p^2-1$ is divisible by $8\times 3 = 24$.</p>
+<h2 id="puzzle-2-hopping-on-a-chess-board">Puzzle 2: Hopping on a Chess Board</h2>
+<p>On a chess board, basically a $8\times 8$ grid, how many ways one can go
+from the left most bottom corner to the right most upper corner? In
+chess naming conventions, from $a1$ to $h8$.</p>
+<p>
+</p>
+<div class="panel panel-warning">
+  <div class="panel-heading"><strong>NOTE</strong></div>
+  <div class="panel-body">
+    In the original post this problem was ill defined.
 <p></p>
-<div class="alert alert-dismissible alert-info">
- <p><strong>
-
-In the original post this problem was ill defined.
-
-<i>Please solve this problem with the constraints that only up and right moves are allowed.</i>
-
-</strong></p>
+<p class="text-success"><strong><em>Please solve this problem with the constraints that only up and right moves are allowed.</em></strong></p>
+  </div>
+  
 </div>
-<div class="figure">
-<img alt="Chess Board" src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Ternblad_grid_chess_problem.png"><p class="caption">Chess Board</p>
+
+<p></p>
+<div class="figure img-responsive align-center"> <img alt="Chess Board" src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Ternblad_grid_chess_problem.png">
 </div>
-<p>Can you find the generic answer for the case of <span class="math">\(N\times M\)</span> grid.</p>
+<p>Can you find the generic answer for the case of $N\times M$ grid.</p>
+<h2 id="solution_1">Solution</h2>
+<p>
+</p>
+<div class="panel panel-danger">
+  <div class="panel-heading"><strong>Correction</strong></div>
+  <div class="panel-body">
+    For an $N\times M$ grid, we need only $N-1$ right and $M-1$ up moves.
+<p class="text-primary"><strong>Thank you Devin for pointing this out.</strong></p>
+  </div>
+  
 </div>
-<div class="section" id="id1">
-<h2><a class="toc-backref" href="#id5">Solution</a></h2>
-<p><span class="highlight-short-warning"> <strong>Correction:</strong> </span></p>
-<p>For an <span class="math">\(N\times M\)</span> grid, we need only <span class="math">\(N-1\)</span>
-right and <span class="math">\(M-1\)</span> up moves. <span class="highlight-short-warning"> Thank you Devin for pointing this
-out. </span></p>
+
 <p>Given only forward moves are allowed, for any arbitrary grid of
-<span class="math">\(N\times M\)</span>, a total of <span class="math">\((N-1) + (M-1)\)</span> moves are needed.</p>
-<p>Any <span class="math">\(N-1\)</span> of these moves can be of type <em>right</em> and <span class="math">\(M-1\)</span> of
-type <em>up</em>. In short, this is a combinatorial problem of distributing
-<span class="math">\(N+M-2\)</span> objects into groups of <span class="math">\(N-1\)</span> and <span class="math">\(M-1\)</span>. This
-is simply,</p>
+$N\times M$, a total of $(N-1) + (M-1)$ moves are needed.</p>
+<p>Any $N-1$ of these moves can be of type <em>right</em> and $M-1$ of type <em>up</em>.
+In short, this is a combinatorial problem of distributing $N+M-2$
+objects into groups of $N-1$ and $M-1$. This is simply,</p>
+<p></p>
 <div class="math">
 \begin{equation*}
 \dbinom{N+M-2}{N-1} = \frac{(N+M-2)!}{(N-1)! (M-1)!}
 \end{equation*}
 </div>
-<p>In the particular case of the chess board, <span class="math">\(N = M = 8\)</span>. Hence,
-total number of possible paths are:</p>
+<p>In the particular case of the chess board, $N = M = 8$. Hence, total
+number of possible paths are:</p>
+<p></p>
 <div class="math">
 \begin{equation*}
 \text{No. of Paths} = \frac{14!}{7! 7!} =3432
@@ -236,7 +238,6 @@ total number of possible paths are:</p>
 <p>Thank you Rohit and Amber for posting quick solutions!</p>
 <p>Let me know if you have any other interesting alternative solutions to
 these problems.</p>
-</div>
 </div>
     </div>
     <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">

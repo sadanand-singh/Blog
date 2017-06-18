@@ -189,6 +189,8 @@
 <p>Last month or so has been all silent here. No puzzles, no math, no
 computers and most important, no Food! And as usual blame is on my work
 schedule.</p>
+<p>But, its never too late. Especially, when you can start with some 
+exotic food!</p>
 <p class="more"></p>
 <div class="text-success"> Reading Time: 2 minutes </div> <a href="CarrotHalwaRecipe/">Read more…</a>
 </div>
@@ -211,9 +213,8 @@ schedule.</p>
 <p>The world of computers is moving fast. While going through some
 materials on algorithms, I have come across an interesting discussion
 -enhancements in hardware (cpu) vis-a-vis algorithms.</p>
-<p>One side of the coin is the hardware - the speed of computers.The famous
-<a class="reference external" href="http://www.techradar.com/news/computing/moore-s-law-how-long-will-it-last--1226772">Moore's
-law</a>
+<p>One side of the coin is the hardware - the speed of computers. The famous
+<a href="http://www.techradar.com/news/computing/moore-s-law-how-long-will-it-last--1226772">Moore's law</a>
 states that:</p>
 <p class="more"></p>
 <div class="text-success"> Reading Time: 8 minutes </div> <a href="FibonacciNumbers/">Read more…</a>
@@ -254,11 +255,167 @@ states that:</p>
 </div>
     </header><div class="p-summary entry-summary">
     <div>
-<p>In my last post on <a class="reference external" href="archInstall/">Arch Installation Guide</a> , We installed the base system and
-we can now login into our new system as root using the password that we
-set.</p>
-<p class="more"></p>
-<div class="text-success"> Reading Time: 4 minutes </div> <a href="plasmaInstall/">Read more…</a>
+<p>In my last post on
+<a href="archInstall/">Arch Installation Guide</a>, We
+installed the base system and we can now login into our new system as
+root using the password that we set.</p>
+<p></p>
+<div class="figure img-responsive align-center"> <img alt="Plasma 5 Looks" src="http://imgur.com/IjJYMR0.jpg">
+</div>
+<p>Now, we will proceed further to install the Plasma 5 desktop.</p>
+<h2 id="add-new-user">Add New User</h2>
+<p>Choose <code>$USERNAME</code> per your liking. I chose <code>ssingh</code>, so in future commands
+whenever you see <code>ssingh</code> please replace it with your <code>$USERNAME</code>.</p>
+<p></p>
+<pre> <code class="language-bash">$ useradd -m -G wheel -s /bin/bash $USERNAME
+$ chfn --full-name "$FULL_NAME" $USERNAME
+$ passwd $USERNAME</code></pre>
+<h2 id="plasma-5-desktop">Plasma 5 Desktop</h2>
+<p>Network should be setup at the start. Check the status of network using:</p>
+<p></p>
+<pre> <code class="language-bash">$ ping google.com -c 2
+$
+$ PING google.com (10.38.24.84) 56(84) bytes of data.
+$ 64 bytes from google.com (10.38.24.84): icmp_seq=1 ttl=64 time=0.022 ms
+$ 64 bytes from google.com (10.38.24.84): icmp_seq=2 ttl=64 time=0.023 ms
+$
+$ --- google.com ping statistics ---
+$ 2 packets transmitted, 2 received, 0% packet loss, time 999ms
+$ rtt min/avg/max/mdev = 0.022/0.022/0.023/0.004 ms
+$</code></pre>
+<p>If you do not get this output, please follow the troubleshooting links
+at <a href="https://wiki.archlinux.org/index.php/systemd-networkd">arch wiki</a> on
+setting up network.</p>
+<p>I will be assuming you have an NVIDIA card for graphics installation.</p>
+<p>To setup a graphical desktop, first we need to install some basic X
+related packages, and some <em>essential</em> packages (including fonts):</p>
+<p></p>
+<pre> <code class="language-bash">$ pacman -S xorg-server xorg-server-utils nvidia nvidia-libgl</code></pre>
+<p>To avoid the possibility of forgetting to update your <em>initramfs</em> after an
+<em>nvidia</em> upgrade, you have to use a <em>pacman</em> hook like this:</p>
+<p></p>
+<pre> <code class="language-bash">$ vim /etc/pacman.d/hooks/nvidia.hook
+$
+...
+[Trigger]
+Operation=Install
+Operation=Upgrade
+Operation=Remove
+Type=Package
+Target=nvidia
+
+[Action]
+Depends=mkinitcpio
+When=PostTransaction
+Exec=/usr/bin/mkinitcpio -p linux
+...
+$</code></pre>
+<p>Nvidia has a daemon that is to be run at boot. To start the persistence
+daemon at boot, enable the <code>nvidia-persistenced.service</code>.</p>
+<p></p>
+<pre> <code class="language-bash">$ systemctl enable nvidia-persistenced.service
+$ systemctl start nvidia-persistenced.service</code></pre>
+<p>
+</p>
+<div class="panel panel-info">
+  <div class="panel-heading"><strong>KWIN FLICKERING ISSUE</strong></div>
+  <div class="panel-body">
+    To avoid screen tearing in KDE (KWin), add following:
+<p></p>
+<pre> <code class="language-bash">$ vim /etc/profile.d/kwin.sh
+$
+...
+export __GL_YIELD="USLEEP"
+...</code></pre>
+<p>If this does not help please try adding the following instead -</p>
+<p></p>
+<pre> <code class="language-bash">$ vim /etc/profile.d/kwin.sh
+$
+...
+export KWIN_TRIPLE_BUFFER=1
+...</code></pre>
+<p></p>
+<p class="text-danger"><strong>Do not have both of the above enabled at the same
+time. Please look at <a href="https://wiki.archlinux.org/index.php/NVIDIA/Troubleshooting">Arch
+Wiki</a> for
+additional details.</strong></p>
+  </div>
+  
+</div>
+
+<p>Now continue installing remaining important packages for the GUI.</p>
+<p></p>
+<pre> <code class="language-bash">$ pacman -S mesa ttf-hack ttf-anonymous-pro
+$ pacman -S tlp tlp-rdw acpi_call bash-completion git meld
+$ pacman -S ttf-dejavu ttf-freefont ttf-liberation</code></pre>
+<p>Now, we will install the packages related to Plasma 5:</p>
+<p></p>
+<pre> <code class="language-bash">$ pacman -S plasma-meta kf5 kdebase kdeutils kde-applications
+$ pacman -S kdegraphics gwenview</code></pre>
+<p>Now we have to setup a display manager. I chose recommended SDDM for
+plasma 5.</p>
+<p></p>
+<pre> <code class="language-bash">$ pacman -S sddm sddm-kcm
+$ vim /etc/sddm.conf
+
+...
+[Theme]
+# Current theme name
+Current=breeze
+
+# Cursor theme
+CursorTheme=breeze_cursors
+...
+
+$ systemctl enable sddm</code></pre>
+<p>Also make sure that network manager starts at boot:</p>
+<p></p>
+<pre> <code class="language-bash">$ systemctl disable dhcpcd.service
+$ systemctl enable NetworkManager</code></pre>
+<h2 id="audio-setup">Audio Setup</h2>
+<p>This is pretty simple. Install following packages and you should be
+done:</p>
+<p></p>
+<pre> <code class="language-bash">$ pacman -S alsa-utils pulseaudio pulseaudio-alsa libcanberra-pulse
+$ pacman -S libcanberra-gstreamer jack2-dbus kmix
+$ pacman -S mpv mplayer</code></pre>
+<h2 id="useful-tips">Useful Tips</h2>
+<p>This part is optional and you can choose as per your taste. Sync time
+using the <code>systemd</code> service:</p>
+<p></p>
+<pre> <code class="language-bash">$ vim /etc/systemd/timesyncd.conf
+$
+...
+[Time]
+NTP=0.arch.pool.ntp.org 1.arch.pool.ntp.org 2.arch.pool.ntp.org 3.arch.pool.ntp.org
+FallbackNTP=0.pool.ntp.org 1.pool.ntp.org 0.fr.pool.ntp.org
+...
+$
+$ timedatectl set-ntp true
+$ timedatectl status
+$
+...
+      Local time: Tue 2016-09-20 16:40:44 PDT
+  Universal time: Tue 2016-09-20 23:40:44 UTC
+        RTC time: Tue 2016-09-20 23:40:44
+       Time zone: US/Pacific (PDT, -0700)
+ Network time on: yes
+NTP synchronized: yes
+ RTC in local TZ: no
+ ...
+$</code></pre>
+<p>On Plasma 5, It is recommended to enable no-bitmaps to improve the font
+rendering:</p>
+<p></p>
+<pre> <code class="language-bash">$ sudo ln -s /etc/fonts/conf.avail/70-no-bitmaps.conf
+   /etc/fonts/conf.d</code></pre>
+<p>If you use vim as your primary editor, you may find
+this <a href="https://github.com/amix/vimrc">vimrc</a> quite useful.</p>
+<p>That's It. You are done. Start playing your new beautiful desktop.
+Please leave your comments with suggestions or any word of appreciation
+if this has been of any help to you.</p>
+<p>Follow this page for any additional suggestions or improvements in this
+guide.</p>
 </div>
     </div>
     </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="archInstall/" class="u-url">Arch Installation Guide</a></h1>
@@ -279,14 +436,14 @@ set.</p>
 <p>You must be thinking - yet another installation guide! There is no
 dearth of "<em>Installation</em>" guides of Arch on web. So why another one?</p>
 <p>With advancements like BTRFS file system, UEFI motherboards and modern
-<em>in-development</em> desktop environment like Plasma 5; traditional <a class="reference external" href="https://wiki.archlinux.org/index.php/Installation_guide">Arch
-Wiki</a> guide
-and <a class="reference external" href="https://wiki.archlinux.org/index.php/Beginners%27_guide">Arch Beginners'
-Guide</a> can
-only be of a limited help. After I got my new <a class="reference external" href="myNewCompSpecs/">my new desktop</a> , my goal
-was to setup it with a <em>modern</em> setup. I decided to go with Arch Linux
-with btrfs file system and Plasma 5 desktop. Coming from OSX, I just
-love how far linux has come in terms of looks - <em>quite close to OSX!</em></p>
+<em>in-development</em> desktop environment like Plasma 5; traditional
+<a href="https://wiki.archlinux.org/index.php/Installation_guide">Arch Wiki</a>
+guide and 
+<a href="https://wiki.archlinux.org/index.php/Beginners%27_guide">Arch Beginners' Guide</a>
+can only be of a limited help. After I got <a href="myNewCompSpecs/">my new desktop</a>, my goal was to setup it with a
+<em>modern</em> setup. I decided to go with Arch Linux with <em>btrfs</em> file system
+and Plasma 5 desktop. Coming from OSX, I just love how far <em>linux</em> has
+come in terms of looks - <em>quite close to OSX!</em></p>
 <p class="more"></p>
 <div class="text-success"> Reading Time: 9 minutes </div> <a href="archInstall/">Read more…</a>
 </div>
