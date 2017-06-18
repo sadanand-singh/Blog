@@ -1076,16 +1076,6 @@ DEPLOY_DRAFTS = False
 EXTRA_HEAD_DATA = """
     <link rel="stylesheet" type="text/css" href="/assets/css/tipuesearch.css">
     <meta property="fb:app_id" content="993596464012237"/>
-    <style>
-    .highlight-short-red { background-color:#FF0000; }
-    .highlight-short-yellow { background-color:#FFFF00; }
-    .highlight-short-error { background-color:#CD5C5C; }
-    .highlight-short-warning { background-color:#FFEBCD; }
-    .highlight-short-green { background-color:#90EE90; }
-    .highlight-short-cyan { background-color:#00FFFF; }
-    .highlight-short-blue { background-color:#00BFFF; }
-    .highlight-short-purple { background-color:#9370DB; }
-    </style>
     """
 USE_KATEX = True
 

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # This file is public domain according to its author, Sadanand Singh
 
-"""Code-Prism shortcode."""
+"""figure shortcode."""
 
 import requests
 import re
@@ -34,7 +34,7 @@ def extractScale(quantity):
     return quantity, unit
 
 class Plugin(ShortcodePlugin):
-    """Plugin for code directive."""
+    """Plugin for figure directive."""
 
     name = "figure"
 

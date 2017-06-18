@@ -14,7 +14,7 @@ class Plugin(ShortcodePlugin):
     name = "code-block"
 
     def handler(self, code, lines=None, hl=None, offset=None, start=None, site=None, data=None, lang=None, post=None):
-        """Create HTML for gist."""
+        """Create HTML for code-blocks."""
 
         output = '<pre'
 
