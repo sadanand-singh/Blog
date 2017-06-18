@@ -50,7 +50,7 @@ On a chess board, basically a $8\times 8$ grid, how many ways one can go
 from the left most bottom corner to the right most upper corner? In
 chess naming conventions, from $a1$ to $h8$.
 
-{{% label warning %}}
+{{% panel warning **NOTE** %}}
 
 In the original post this problem was ill defined.
 
@@ -58,23 +58,23 @@ In the original post this problem was ill defined.
 **_Please solve this problem with the constraints that only up and right moves are allowed._**
 {{% /emph %}}
 
-{{% /label %}}
+{{% /panel %}}
 
-![Chess Board](https://upload.wikimedia.org/wikipedia/commons/4/4b/Ternblad_grid_chess_problem.png)
+{{% figure https://upload.wikimedia.org/wikipedia/commons/4/4b/Ternblad_grid_chess_problem.png alt="Chess Board" align=center %}}
 
 Can you find the generic answer for the case of $N\times M$ grid.
 
 Solution
 ========
 
-{{% label danger **Correction:** %}}
+{{% panel danger "**Correction**" %}}
 
 For an $N\times M$ grid, we need only $N-1$ right and $M-1$ up moves.
-{{% marker purple %}}
+{{% emph %}}
 __Thank you Devin for pointing this out.__
-{{% /marker %}}
+{{% /emph %}}
 
-{{% /label %}}
+{{% /panel %}}
 
 Given only forward moves are allowed, for any arbitrary grid of
 $N\times M$, a total of $(N-1) + (M-1)$ moves are needed.
