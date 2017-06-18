@@ -63,8 +63,7 @@ Reference-style:
 
 [logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
 
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
-{: .align-right style="width: 280pt;" }
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1"){: .align-right style="width: 280pt;" }
 
 {{% figure https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png alt="alt text" width=280pt responsive=0 %}}
 
