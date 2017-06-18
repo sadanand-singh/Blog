@@ -12,6 +12,8 @@ author: Sadanand Singh
 It has been long due. Just built a new desktop. Here are different parts
 I used to build this beauty. (Updated Cost)
 
+<!--more-->
+
 -   i7 4790 3.6 GHz (Haswell) - Can't Reveal - (Market Price $300)
 -   Asus Micro MATX B85-G R2.0 Intel LGA1150 - $50
 -   ADATA XPG V1.0 DDR3 1866 2x4 GB RAM - $50
