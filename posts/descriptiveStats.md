@@ -101,15 +101,16 @@ the number $[N + 1] / 2$ in the ranked order. If the number of
 observations are even, then the median is the average value of the
 observations that are ranked at numbers $N / 2$ and $[N / 2] + 1$.
 
-!!! danger "**Mean vs Median**"
-    The median and the mean both measure central tendency. But
-    unusual values, called [**outliers**][outliers], affect the
-    median less than they affect the *mean*. When you have unusual
-    values, you can compare the *mean* and the *median* to decide
-    which is the better measure to use. If your data are symmetric,
-    the *mean* and *median* are similar.
 
+{{% panel success "**Mean vs Median**" %}}
+The median and the mean both measure central tendency. But
+unusual values, called [**outliers**][outliers], affect the
+median less than they affect the *mean*. When you have unusual
+values, you can compare the *mean* and the *median* to decide
+which is the better measure to use. If your data are symmetric,
+the *mean* and *median* are similar.
 [outliers]: https://en.wikipedia.org/wiki/Outlier
+{{% /panel %}}
 
 The concept of median can be generalized as [quartiles]. Quartiles
 are the three values – the first quartile at 25% ($Q_1$), the second
@@ -130,10 +131,11 @@ to be sampled.
 [d_prob_dist]: https://en.wikipedia.org/wiki/Probability_distribution
 [pmf]: https://en.wikipedia.org/wiki/Probability_mass_function
 
+{{% emph warning %}}
 The mode can be used with mean and median to provide an overall
 characterization of your data distribution. The mode can also be
 used to identify problems in your data.
-{: .text-success}
+{{% /emph %}}
 
 For example, a distribution that has more than one mode may identify
 that your sample includes data from two populations. If the data
@@ -397,7 +399,9 @@ The population correlation coefficient $\rho_{X, Y}$ between two variates
 $X$ and $Y$ with means $\mu_X$ and $\mu_Y$ and standard deviations
 $\sigma_X$ and $\sigma_Y$ is defined as:
 
-$$\rho_{X, Y} = \frac{cov(X, Y)}{\sigma_X \sigma_Y} = \frac{E\Big[\big(X-\mu_X\big)\big(Y-\mu_Y\big)\Big]}{\sigma_X \sigma_Y}$$
+{{% math %}}
+\rho_{X, Y} = \frac{cov(X, Y)}{\sigma_X \sigma_Y} = \frac{E\Big[\big(X-\mu_X\big)\big(Y-\mu_Y\big)\Big]}{\sigma_X \sigma_Y}
+{{% /math %}}
 
 where $E$ is the [expectation operator][eop], and $cov$
 means [covariance].
