@@ -2,7 +2,7 @@ title: Support Vector Machines
 slug: svmModels
 date: 2016-11-11 10:30:00 UTC-07:00
 tags: mathjax, Algorithms, Machine Learning
-category: Algorithms, Machine Learning
+category: Algorithms
 link:
 disqus_identifier: svmModels.sadanand
 description:
