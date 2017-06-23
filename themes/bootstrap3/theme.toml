@@ -1,0 +1,12 @@
+name = "bootstrap3"
+license = "GNU General Public License v3.0"
+licenselink = "https://github.com/sadanand-singh/hugo-blog/blob/master/LICENSE"
+description = "A gorgeous bootswatch theme for Hugo blog framework"
+homepage = "https://github.com/sadanand-singh/hugo-blog/"
+tags = ["blog", "minimal", "responsive", "personal", "customizable", "creative", "fontawesome"]
+features = ["blog", "themes", "disqus", "minimal", "responsive", "fontawesome"]
+min_version = 0.0
+
+[author]
+  name = "Sadanand Singh"
+  homepage = "https://github.com/sadanand-singh"

@@ -1,0 +1,15 @@
+<nav class="postindexpager">
+<ul class="pager">
+  {{ if .Paginator.HasPrev }}
+      <li class="previous">
+          <a href="{{ .Paginator.Prev.URL }}" rel="prev">Newer Posts</a>
+      </li>
+  {{ end }}
+  {{ if .Paginator.HasNext }}
+      <li class="next">
+          <a href="{{ .Paginator.Next.URL }}" rel="next">Older Posts</a>
+      </li>
+  {{ end }}
+  <li class="pagination-number">{{ i18n "pagination.page" . }} {{ i18n "pagination.of" . }}</li>
+</ul>
+</nav>

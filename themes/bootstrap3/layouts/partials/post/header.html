@@ -1,0 +1,13 @@
+<header>
+    {{ with $.Params.link }}
+      <h1 class="p-name entry-title" itemprop="headline name"><a href="{{ . | absURL }}" class="u-url">{{ $.Title }}</a>
+      </h1>
+    {{ else }}
+      <h1 class="p-name entry-title" itemprop="headline name">
+        {{ $.Title }}
+      </h1>
+    {{ end }}
+    {{ partial "post/meta.html" . }}
+    {{ partial "post/fb.html" . }}
+    </div>
+</header>

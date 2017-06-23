@@ -1,0 +1,23 @@
+<div class="metadata">
+    {{ $link := absURL .Permalink}}
+    {{ if not (eq .Params.showDate false)  }}
+        <p class="dateline">
+            Published <a href="{{ $link }}" rel="bookmark">
+              <time itemprop="datePublished" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+                {{ partial "internal/date.html" . }}
+              </time>
+            </a>
+        </p>
+    {{ end }}
+    {{ partial "post/category.html" . }}
+    {{ if not (eq .Params.comments false) }}
+        {{ if .Site.DisqusShortname }}
+            {{ with .Params.disqus_identifier }}
+            <p class="commentline">
+                <a href="{{ $link }}#disqus_thread" data-disqus-identifier="{{ . }}">
+                Comments
+                </a>
+            </p>
+            {{ end }}
+        {{ end }}
+    {{ end }}

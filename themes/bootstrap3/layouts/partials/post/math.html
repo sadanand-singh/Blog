@@ -1,0 +1,15 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha256-ExtbCSBuYA7kq1Pz362ibde9nnsHYPt6JxuxYeZbU+c=" crossorigin="anonymous"></script>
+<script>
+    renderMathInElement(document.body,
+        {
+            delimiters: [
+                {left: "\\\\begin{equation*}", right: "\\\\end{equation*}", display: true},
+                {left: "$$", right: "$$", display: true},
+                {left: "\\\[", right: "\\\]", display: true},
+                {left: "$", right: "$", display: false},
+                {left: "\\\(", right: "\\\)", display: false}
+            ]
+        }
+    );
+</script>

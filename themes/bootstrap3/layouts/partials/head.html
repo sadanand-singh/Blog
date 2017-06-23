@@ -1,0 +1,91 @@
+{{ $.Scratch.Set "isPost" false }}
+{{ if .IsPage }}
+  {{ if eq .Type "post" }}
+    {{ $.Scratch.Set "isPost" true }}
+  {{ end }}
+{{ end }}
+<!-- Fix hugo 0.17 expects ".Site.Author.gravatarEmail" whereas hugo 0.18 expects ".Site.Author.gravataremail" -->
+{{ if .Site.Author.gravatarEmail }}
+  {{ .Scratch.Set "gravatarEmail" .Site.Author.gravatarEmail }}
+{{ end }}
+{{ if .Site.Author.gravataremail }}
+  {{ .Scratch.Set "gravatarEmail" .Site.Author.gravataremail }}
+{{ end }}
+{{ if .Scratch.Get "gravatarEmail" }}
+  {{ .Scratch.Set "authorPicture" (printf "//www.gravatar.com/avatar/%s" (urlize (md5 (.Scratch.Get "gravatarEmail")))) }}
+{{ else if .Site.Author.picture }}
+  {{ .Scratch.Set "authorPicture" (absURL .Site.Author.picture) }}
+{{ end }}
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+  <head>
+    {{ partial "head_start.html" . }}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo {{ .Hugo.Version }}">
+    <meta name="theme" content="Bootstrap3-Lumen">
+    {{ if eq .Title .Site.Title }}
+      <title>{{ .Title }}</title>
+    {{ else }}
+      <title>{{ .Title }} | {{ .Site.Title }}</title>
+    {{ end }}
+    <meta name="author" content="{{ .Site.Author.name }}">
+    <meta name="keywords" content="{{ with .Keywords }}{{ delimit . ", " }}{{ end }}{{ if .Site.Params.keywords }}, {{ delimit .Site.Params.keywords ", " }}{{ end }}">
+
+    {{ range .Site.Params.favicons }}
+        <link rel="icon" href="{{ $.Site.BaseURL }}{{ .Icon }}" sizes="{{ .Size }}">
+    {{ end }}
+
+    <!-- open graph data -->
+    <meta name="description" content="{{ if .Description }}{{ .Description }}{{ else if .IsPage }}{{ .Summary }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+    <meta property="og:description" content="{{ if .Description }}{{ .Description }}{{ else if .IsPage }}{{ .Summary }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="{{ with .Title }}{{ . }}{{ else }}{{ .Site.Title }}{{ end }}">
+    <meta property="og:url" content="{{ .URL }}">
+    <meta property="og:site_name" content="{{ .Site.Title }}">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{{ .Site.Title }}">
+    <meta name="twitter:description" content="{{ if .Description }}{{ .Description }}{{ else if .IsPage }}{{ .Summary }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+    {{ with .Site.Author.twitter }}
+      <meta name="twitter:creator" content="@{{ . }}">
+    {{ end }}
+    {{ with .Site.Params.fbAppId }}
+      <meta property="fb:app_id" content="{{ . }}">
+    {{ end }}
+
+    {{ if .Scratch.Get "gravatarEmail" }}
+      <meta property="og:image" content="//www.gravatar.com/avatar/{{ (md5 (.Scratch.Get "gravatarEmail")) | urlize }}?s=640">
+    {{ else if .Site.Author.picture }}
+      <meta property="og:image" content="{{ .Site.Author.picture | absURL }}">
+    {{ end }}
+
+    {{ with .Site.Author.googlePlus }}
+      <link rel="publisher" href="https://plus.google.com/{{ . | urlize }}">
+    {{ end }}
+
+    <!--STYLES-->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/{{ .Site.Params.bootswatch }}/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.css" />
+    <link href="{{ $.Site.BaseURL }}css/rst.css" rel="stylesheet" type="text/css">
+    <link href="{{ $.Site.BaseURL }}css/theme.css" rel="stylesheet" type="text/css">
+    <link href="{{ $.Site.BaseURL }}css/peak.min.css" rel="stylesheet" type="text/css">
+    <link href="{{ $.Site.BaseURL }}css/colorbox.css" rel="stylesheet" type="text/css">
+    <link href="{{ $.Site.BaseURL }}css/prism.min.css" rel="stylesheet" type="text/css">
+    <link href="{{ $.Site.BaseURL }}css/custom.min.css" rel="stylesheet" type="text/css">
+    <link href="{{ $.Site.BaseURL }}css/tags.min.css" rel="stylesheet" type="text/css">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/Tipue-Search/5.0.0/tipuesearch.css" rel="stylesheet" type="text/css">
+    <!--STYLES END-->
+
+    {{ range .Site.Params.CustomCSS }}
+      <link rel="stylesheet" href="{{ $.Site.BaseURL }}{{ . }}">
+    {{ end }}
+
+    {{ if .Params.hasMath }}
+      <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+    {{ end }}
+    {{ if .Params.notebook }}
+    <link href="{{ $.Site.BaseURL }}css/jupyter.css" rel="stylesheet" type="text/css">
+    {{ end }}
+    {{ partial "head_end.html" . }}
+  </head>

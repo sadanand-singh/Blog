@@ -1,0 +1,195 @@
+---
+# hostname (and path) to the root, e.g. http://spf13.com/
+baseURL:                    "https://sadanand-singh.github.io/"
+# include content marked as draft
+buildDrafts:                false
+# include content with publishdate in the future
+buildFuture:                false
+# include content already expired
+buildExpired:               false
+# enable this to make all relative URLs relative to content root. Note that this does not affect absolute URLs.
+relativeURLs:               false
+canonifyURLs:               false
+# config file (default is path/config.yaml|json|toml)
+config:                     "config.yaml"
+contentDir:                 "content"
+dataDir:                    "data"
+defaultExtension:           "html"
+defaultLayout:              "post"
+# Missing translations will default to this content language
+defaultContentLanguage:     "en-us"
+# Renders the default content language in subdir, e.g. /en/. The root directory / will redirect to /en/
+defaultContentLanguageInSubdir: false
+# Enable live reload
+disableLiveReload:          false
+# disable selectinve rendering
+disableKinds:               ["RSS"]
+# Enable GitInfo feature
+enableGitInfo:              false
+# Build robots.txt file
+enableRobotsTXT:            false
+# Do not inject generator meta tag on homepage
+disableHugoGeneratorInject: false
+# Enable Emoji emoticons support for page content.
+# See www.emoji-cheat-sheet.com
+enableEmoji:                true
+# disqus
+disqusShortname:            "sadanandsblog"
+# Show a placeholder instead of the default value or an empty string if a translation is missing
+enableMissingTranslationPlaceholders: false
+footnoteAnchorPrefix:       ""
+footnoteReturnLinkContents: "↩"
+# google analytics tracking id
+googleAnalytics:            "UA-54080172-1"
+languageCode:               "en-us"
+layoutDir:                  "layouts"
+# Enable Logging
+log:                        false
+# Log File path (if set, logging enabled automatically)
+logFile:                    ""
+# "yaml", "toml", "json"
+metaDataFormat:             "yaml"
+# Edit new content with this editor, if provided
+newContentEditor:           ""
+# Don't sync permission mode of files
+noChmod:                    false
+# Don't sync modification time of files
+noTimes:                    false
+paginate:                   8
+paginatePath:               "page"
+permalinks:
+    post: "/posts/:slug/"
+# Pluralize titles in lists using inflect
+pluralizeListTitles:        true
+# Preserve special characters in taxonomy names ("Gérard Depardieu" vs "Gerard Depardieu")
+preserveTaxonomyNames:      false
+# filesystem path to write files to
+publishDir:                 "public"
+# enables syntax guessing for code fences without specified language
+pygmentsCodeFencesGuessSyntax: false
+PygmentsCodeFences:            false
+# color-codes for highlighting derived from this style
+pygmentsStyle:              ""
+# true: use pygments-css or false: color-codes directly
+pygmentsUseClasses:         false
+# maximum number of items in the RSS feed
+rssLimit:                   15
+# default sitemap configuration map
+sitemap:
+# filesystem path to read files relative from
+source:                     ""
+staticDir:                  "static"
+# display memory and timing of different steps of the program
+stepAnalysis:               false
+# taxanomies
+taxonomies:
+    tag:                    "tags"
+    category:               "categories"
+    archive:                "archives"
+# theme to use (located by default in /themes/THEMENAME/)
+themesDir:                  "themes"
+theme:                      "bootstrap3"
+title:                      "Sadanand's Notes"
+# if true, use /filename.html instead of /filename/
+uglyURLs:                   false
+# Do not make the url/path to lowercase
+disablePathToLower:         false
+# if true, auto-detect Chinese/Japanese/Korean Languages in the content. (.Summary and .WordCount can work properly in CJKLanguage)
+hasCJKLanguage:             false
+# verbose output
+verbose:                    false
+# verbose logging
+verboseLog:                 false
+# watch filesystem for changes and recreate as needed
+watch:                      true
+
+# Custom CSS. Put here your custom CSS files. They are loaded after the theme CSS;
+# they have to be referred from static root. Example
+# customCSS = ["css/foo.css"]
+
+# Custom JS. Put here your custom JS files. They are loaded after the theme JS;
+# they have to be referred from static root. Example
+# customJS = ["js/foo.js"]
+
+# Output formats
+outputs:
+  home: [ "HTML", "JSON"]
+  page: [ "HTML"]
+
+# Menus in the top nav bar
+menu:
+  main:
+      - Name: "Blog"
+        Weight: 1
+        Identifier: "blog"
+        URL: "/post/"
+      - Name: "Tags"
+        Weight: 2
+        Identifier: "tags"
+        URL: "/tags/"
+      - Name: "Categories"
+        Weight: 3
+        Identifier: "categories"
+        URL: "/categories/"
+      - Name: "Archive"
+        Weight: 4
+        Identifier: "archives"
+        URL: "/archives/"
+
+#Params
+params:
+    dateFormat:              "2006-01-02"
+    hierarchicalcategories:  false
+    fbAppId:                 "993596464012237"
+    showTitle:               true
+    bootswatch:              "lumen"
+    socialButtonsCode:       "ra-53f6d74a591ace8f"
+    license:              '<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.'
+
+# Things that will be passed to CONTENT_FOOTER.format().  This is done
+
+    favicons:
+        - Icon: "favicon.ico"
+          Size: "16x16"
+        - Icon: "favicon-32x32.png"
+          Size: "32x32"
+        - Icon: "favicon-96x96.png"
+          Size: "96x96"
+        - Icon: "apple-icon.png"
+          Size: "192x192"
+        - Icon: "apple-icon-precomposed.png"
+          Size: "192x192"
+        - Icon: "apple-icon-57x57.png"
+          Size: "57x57"
+        - Icon: "apple-icon-60x60.png"
+          Size: "60x60"
+        - Icon: "apple-icon-72x72.png"
+          Size: "72x72"
+        - Icon: "apple-icon-76x76.png"
+          Size: "76x76"
+        - Icon: "apple-icon-114x114.png"
+          Size: "114x114"
+        - Icon: "apple-icon-120x120.png"
+          Size: "120x120"
+        - Icon: "apple-icon-144x144.png"
+          Size: "144x144"
+        - Icon: "apple-icon-152x152.png"
+          Size: "152x152"
+        - Icon: "apple-icon-180x180.png"
+          Size: "180x180"
+
+
+# Author details
+author:
+    name:                   "Sadanand Singh"
+    # Your Gravatar email. Overwrite `author.picture` everywhere in the blog
+    gravatarEmail:           "sadanand.singh@outlook.com"
+    # Your profile picture
+    # Overwritten by your gravatar image if `author.gravatarEmail` is filled
+    picture:                "https://res.cloudinary.com/sadanandsingh/image/upload/v1496963333/sadanand_navmqu.jpg"
+    # Your Twitter username without the @. E.g : thibaudlepretre
+    twitter:                "sadanandsingh"
+    # Your google plus profile id. E.g : +ThibaudLepretre or 114625208755123718311
+    googlePlus:             "107573452639034499888"
+
+---

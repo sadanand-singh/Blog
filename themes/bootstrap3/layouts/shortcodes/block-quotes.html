@@ -1,0 +1,4 @@
+<blockquote class="blockquote-reverse">
+  <p>{{ .Inner | markdownify }}</p>
+  {{ if .Get 0 }} <small>{{ .Get 0 }}</small> {{ end }}
+</blockquote>
