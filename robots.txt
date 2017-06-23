@@ -1,4 +1,0 @@
-Sitemap: https://sadanand-singh.github.io/sitemapindex.xml
-
-User-Agent: *
-Host: sadanand-singh.github.io
