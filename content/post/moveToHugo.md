@@ -11,7 +11,7 @@ slug: "nikola2hugo"
 link:
 hasMath: false
 notebook: false
-draft: false
+draft: true
 disqus_identifier: "nikola2hugo.sadanand"
 readingTime: 10
 description:
