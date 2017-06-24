@@ -1,4 +1,4 @@
 <pre {{ if .Get "lines" }}{{ $line := .Get "lines" }}{{ if in (slice "1" "true" "y" "yes" "True" "Y" "Yes" "YES" "TRUE") $line }}class="line-numbers" {{ if .Get "start" }}data-start="{{ .Get "start" }}"{{ end }}{{ end }}{{ end }} {{ if .Get "hl" }}data-line="{{ .Get "hl" }}"{{ if .Get "offset" }} data-line-offset="{{ .Get "offset" }}"{{ end }}{{ end }}>
-<code class="language-{{ .Get "code" }}"> {{ .Inner | chomp }}
+<code class="language-{{ .Get "code" }}"> {{ .Inner }}
 </code>
 </pre>
