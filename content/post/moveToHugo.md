@@ -17,7 +17,7 @@ readingTime: 10
 description:
 ---
 
-I have been using [Nikola] to build this blog. Its a great static site 
+I have been using [Nikola] to build this Blog. Its a great static site 
 build system that is based on Python. However, It has some crazy 
 amount of dependencies (to have reasonable looking site). It
 uses [restructured text (rst)][rst] as the primary language for 
@@ -128,62 +128,68 @@ and, using the following `index.json` template:
 
 Now, include the following `css` in the `<head>` of your pages:
 
-    <link href="//cdnjs.cloudflare.com/ajax/libs/Tipue-Search/5.0.0/tipuesearch.css" rel="stylesheet" type="text/css">
+{{< code-block code="markup" >}}
+<link href="//cdnjs.cloudflare.com/ajax/libs/Tipue-Search/5.0.0/tipuesearch.css" rel="stylesheet" type="text/css">
+{{< /code-block >}}
 
 
 The following `modal` code is needed to display the search results,
 preferably at the end of the __body__ of the HTMLpage:
 
 {{< code-block code="markup" >}}
-&lt;div id="search-resuts" class="modal fade" role="dialog" style="height: 80%;">
-&lt;div class="modal-dialog">
-    &lt;div class="modal-content">
-      &lt;div class="modal-header">
-        &lt;button type="button" class="close" data-dismiss="modal">×&lt;/button>
-        &lt;h4 class="modal-title">Search Results:&lt;/h4>
-      &lt;/div>
-      &lt;div class="modal-body" id="tipue_search_content" style="max-height: 600px; overflow-y: auto;">
-      &lt;/div>
-      &lt;div class="modal-footer">
-        &lt;button type="button" class="btn btn-default" data-dismiss="modal">Close&lt;/button>
-      &lt;/div>
-    &lt;/div>
-&lt;/div>
-&lt;/div>
+<div id="search-resuts" class="modal fade" role="dialog" style="height: 80%;">
+<div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">×</button>
+        <h4 class="modal-title">Search Results:</h4>
+      </div>
+      <div class="modal-body" id="tipue_search_content" style="max-height: 600px; overflow-y: auto;">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+</div>
+</div>
+{{\< panel warning >}} Hi there {{\< /panel >}}
 {{< /code-block >}}
 
 Finally, the following `javascript` in the lower end of the **body** of HTML pages:
 
-    <script>
-    $(document).ready(function() {
-        var url1 = "https://cdnjs.cloudflare.com/ajax/libs/Tipue-Search/5.0.0/tipuesearch_set.js";
-        var url2 = "https://cdnjs.cloudflare.com/ajax/libs/Tipue-Search/5.0.0/tipuesearch.min.js";
-        $.when(
-            $.getScript( url1 ),
-            $.getScript( url2 ),
-            $.Deferred(function( deferred ){
-                $( deferred.resolve );
-            })
-        ).done(function() {
-            $('#tipue_search_input').tipuesearch({
-                'mode': 'json',
-                'contentLocation': '/index.json'
-            });
-            $('#tipue_search_input').keyup(function (e) {
-                if (e.keyCode == 13) {
-                    $('#search-results').modal()
-                }
-            });
+{{< code-block code="markup" >}}
+<script>
+$(document).ready(function() {
+    var url1 = "https://cdnjs.cloudflare.com/ajax/libs/Tipue-Search/5.0.0/tipuesearch_set.js";
+    var url2 = "https://cdnjs.cloudflare.com/ajax/libs/Tipue-Search/5.0.0/tipuesearch.min.js";
+    $.when(
+        $.getScript( url1 ),
+        $.getScript( url2 ),
+        $.Deferred(function( deferred ){
+            $( deferred.resolve );
+        })
+    ).done(function() {
+        $('#tipue_search_input').tipuesearch({
+            'mode': 'json',
+            'contentLocation': '/index.json'
+        });
+        $('#tipue_search_input').keyup(function (e) {
+            if (e.keyCode == 13) {
+                $('#search-results').modal()
+            }
         });
     });
-    </script>
-    <!--SCRIPTS END-->
+});
+</script>
+{{< /code-block >}}
 
 And, of course you will need a form/input for performing the search:
 
-    <span class="navbar-form navbar-right">
-        <input type="text" id="tipue_search_input" class="form-control" placeholder="Search">
-    </span>
+{{< code-block code="markup" >}}
+<span class="navbar-form navbar-right">
+    <input type="text" id="tipue_search_input" class="form-control" placeholder="Search">
+</span>
+{{< /code-block >}}
 
 ## Code Highlighting
 
@@ -212,6 +218,5 @@ Then, finally, create a markdown file for your post, where simply put the conten
 ## Latex Math Equations
 
 I used [katex](https://github.com/Khan/KaTeX) for using math in markdown. I was having some issue with the multi-line display math equations, so I created shortcode called _tex_ to write HTML code explicitly so that `katex` could handle that easily.
-
 
 So there you have it. I have my Blog now up and running with Hugo. Hope I will be more active here, since it now takes only seconds to deploy once I have a post written. No excuses now! :stuck_out_tongue_winking_eye:
