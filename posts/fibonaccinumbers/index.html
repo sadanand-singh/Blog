@@ -366,6 +366,7 @@ def fibRecursive(n):
     if n == 1:
         return 1
     return fibRecursive(n-2)+fibRecursive(n-1)
+
 </code>
 </pre>
 
@@ -445,6 +446,7 @@ def fibN2(n):
         b = c
 
     return b
+
 </code>
 </pre>
 
@@ -489,6 +491,7 @@ def pow(A, n):
 def fibLogN(n):
     if n < 2: return n
     return pow((1,1,0), n-1)[0]
+
 </code>
 </pre>
 
@@ -535,6 +538,8 @@ def multiply(x, y):
         c = multiply(xlow, ylow)
         d = b - a - c
         return (((a << half) + d) << half) + c
+
+
 </code>
 </pre>
 
@@ -605,6 +610,7 @@ def fibFast(n):
         return multiply(a,a) + multiply(b,b)
     else:
         return multiply(b,(2*a - b))
+
 </code>
 </pre>
 

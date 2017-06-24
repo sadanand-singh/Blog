@@ -1,0 +1,630 @@
+
+
+  
+    
+  
+
+
+
+
+  
+
+
+  
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.24">
+    <meta name="theme" content="Bootstrap3-Lumen">
+    
+      <title>Switching to Hugo from Nikola | Sadanand&#39;s Notes</title>
+    
+    <meta name="author" content="Sadanand Singh">
+    <meta name="keywords" content="">
+
+    
+        <link rel="icon" href="https://sadanand-singh.github.io/favicon.ico" sizes="16x16">
+    
+        <link rel="icon" href="https://sadanand-singh.github.io/favicon-32x32.png" sizes="32x32">
+    
+        <link rel="icon" href="https://sadanand-singh.github.io/favicon-96x96.png" sizes="96x96">
+    
+        <link rel="icon" href="https://sadanand-singh.github.io/apple-icon.png" sizes="192x192">
+    
+        <link rel="icon" href="https://sadanand-singh.github.io/apple-icon-precomposed.png" sizes="192x192">
+    
+        <link rel="icon" href="https://sadanand-singh.github.io/apple-icon-57x57.png" sizes="57x57">
+    
+        <link rel="icon" href="https://sadanand-singh.github.io/apple-icon-60x60.png" sizes="60x60">
+    
+        <link rel="icon" href="https://sadanand-singh.github.io/apple-icon-72x72.png" sizes="72x72">
+    
+        <link rel="icon" href="https://sadanand-singh.github.io/apple-icon-76x76.png" sizes="76x76">
+    
+        <link rel="icon" href="https://sadanand-singh.github.io/apple-icon-114x114.png" sizes="114x114">
+    
+        <link rel="icon" href="https://sadanand-singh.github.io/apple-icon-120x120.png" sizes="120x120">
+    
+        <link rel="icon" href="https://sadanand-singh.github.io/apple-icon-144x144.png" sizes="144x144">
+    
+        <link rel="icon" href="https://sadanand-singh.github.io/apple-icon-152x152.png" sizes="152x152">
+    
+        <link rel="icon" href="https://sadanand-singh.github.io/apple-icon-180x180.png" sizes="180x180">
+    
+
+    
+    <meta name="description" content="I have been using Nikola to build this blog. Its a great static site
+build system that is based on Python. However, It has some crazy
+amount of dependencies (to have reasonable looking site). It
+uses restructured text (rst) as the primary language for
+content creation. Personally, I use markdown for almost every thing
+else - taking notes, making diary, code documentation etc.
+Furthermore, given Nikola tries to support almost everything in a
+static site builder, lately its is becoming more and more bloated.
+Case in  point, recently it got support for shortcodes and although that did
+enable me to write posts in Markdown, but it is so difficult to
+develop them (It does not help to have almost no documentation/guide
+for their development). They are heavily tied to the plugin system
+with light support for template based shortcodes.
+
+">
+    <meta property="og:description" content="I have been using Nikola to build this blog. Its a great static site
+build system that is based on Python. However, It has some crazy
+amount of dependencies (to have reasonable looking site). It
+uses restructured text (rst) as the primary language for
+content creation. Personally, I use markdown for almost every thing
+else - taking notes, making diary, code documentation etc.
+Furthermore, given Nikola tries to support almost everything in a
+static site builder, lately its is becoming more and more bloated.
+Case in  point, recently it got support for shortcodes and although that did
+enable me to write posts in Markdown, but it is so difficult to
+develop them (It does not help to have almost no documentation/guide
+for their development). They are heavily tied to the plugin system
+with light support for template based shortcodes.
+
+">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Switching to Hugo from Nikola">
+    <meta property="og:url" content="/posts/nikola2hugo/">
+    <meta property="og:site_name" content="Sadanand&#39;s Notes">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Sadanand&#39;s Notes">
+    <meta name="twitter:description" content="I have been using Nikola to build this blog. Its a great static site
+build system that is based on Python. However, It has some crazy
+amount of dependencies (to have reasonable looking site). It
+uses restructured text (rst) as the primary language for
+content creation. Personally, I use markdown for almost every thing
+else - taking notes, making diary, code documentation etc.
+Furthermore, given Nikola tries to support almost everything in a
+static site builder, lately its is becoming more and more bloated.
+Case in  point, recently it got support for shortcodes and although that did
+enable me to write posts in Markdown, but it is so difficult to
+develop them (It does not help to have almost no documentation/guide
+for their development). They are heavily tied to the plugin system
+with light support for template based shortcodes.
+
+">
+    
+      <meta name="twitter:creator" content="@sadanandsingh">
+    
+    
+      <meta property="fb:app_id" content="993596464012237">
+    
+
+    
+      <meta property="og:image" content="//www.gravatar.com/avatar/51a5988a00fca17b4481f1ae238c2885?s=640">
+    
+
+    
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/lumen/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.css" />
+    <link href="https://sadanand-singh.github.io/css/rst.css" rel="stylesheet" type="text/css">
+    <link href="https://sadanand-singh.github.io/css/theme.css" rel="stylesheet" type="text/css">
+    <link href="https://sadanand-singh.github.io/css/peak.min.css" rel="stylesheet" type="text/css">
+    <link href="https://sadanand-singh.github.io/css/colorbox.css" rel="stylesheet" type="text/css">
+    <link href="https://sadanand-singh.github.io/css/prism.min.css" rel="stylesheet" type="text/css">
+    <link href="https://sadanand-singh.github.io/css/custom.min.css" rel="stylesheet" type="text/css">
+    <link href="https://sadanand-singh.github.io/css/tags.min.css" rel="stylesheet" type="text/css">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/Tipue-Search/5.0.0/tipuesearch.css" rel="stylesheet" type="text/css">
+    
+
+    
+
+    
+    
+    
+  </head>
+
+<body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+<nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://sadanand-singh.github.io/">
+            
+
+            
+                <span id="blog-title">Sadanand&#39;s Notes</span>
+            
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="nav navbar-nav">
+              
+              
+              
+                
+                
+                  <li><a href="/post/">Blog</a>
+                
+              
+                
+                
+                  <li><a href="/tags/">Tags</a>
+                
+              
+                
+                
+                  <li><a href="/categories/">Categories</a>
+                
+              
+                
+                
+                  <li><a href="/archives/">Archive</a>
+                
+              
+            </ul>
+            <span class="navbar-form navbar-right">
+                <input type="text" id="tipue_search_input" class="form-control" placeholder="Search">
+            </span>
+        </div>
+    </div>
+</nav>
+
+<div class="container" id="content" role="main">
+    <div class="body-content">
+        
+        <div class="row">
+            <article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article">
+    <header>
+    
+      <h1 class="p-name entry-title" itemprop="headline name">
+        Switching to Hugo from Nikola
+      </h1>
+    
+    <div class="metadata">
+    
+    
+        <p class="dateline">
+            Published <a href="https://sadanand-singh.github.io/posts/nikola2hugo/" rel="bookmark">
+              <time itemprop="datePublished" datetime="2017-06-23T17:53:58-07:00">
+                
+  
+  
+  
+  
+    2017-06-23
+  
+
+              </time>
+            </a>
+        </p>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="/categories/blog">Blog</a>
+    
+  
+
+
+    
+        
+            
+            <p class="commentline">
+                <a href="https://sadanand-singh.github.io/posts/nikola2hugo/#disqus_thread" data-disqus-identifier="nikola2hugo.sadanand">
+                Comments
+                </a>
+            </p>
+            
+        
+    
+
+    &nbsp;
+<div class="fb-like" data-send="true" data-layout="standard" data-action="like" data-size="small" data-show-faces="false" data-share="false"></div>
+    </div>
+</header>
+    <div class="e-content entry-content" itemprop="articleBody text">
+        <p>I have been using <a href="https://getnikola.com">Nikola</a> to build this blog. Its a great static site
+build system that is based on Python. However, It has some crazy
+amount of dependencies (to have reasonable looking site). It
+uses <a href="http://docutils.sourceforge.net/rst.html">restructured text (rst)</a> as the primary language for
+content creation. Personally, I use markdown for almost every thing
+else - taking notes, making diary, code documentation etc.
+Furthermore, given Nikola tries to support almost everything in a
+static site builder, lately its is becoming more and more bloated.
+Case in  point, recently it got support for <a href="https://getnikola.com/handbook.html#shortcodes">shortcodes</a> and although that did
+enable me to write posts in Markdown, but it is so difficult to
+develop them (It does not help to have almost no documentation/guide
+for their development). They are heavily tied to the <a href="https://plugins.getnikola.com">plugin</a> system
+with light support for template based shortcodes.</p>
+
+<p></p>
+
+<p>I really have nothing against <a href="https://getnikola.com">Nikola</a>. However, I did not feel at home - I wanted a light system that focused on markdown and had all the flexibilities that I wanted. My research soon brought me to <a href="https://gohugo.io">Hugo</a>.</p>
+
+<strong id="table-of-contents">Table of Contents</strong><nav id="TableOfContents">
+<ul>
+<li><a href="#hugo-the-blazing-fast-site-generator">Hugo - the blazing fast site generator</a></li>
+<li><a href="#bootswatch-theme">Bootswatch Theme</a></li>
+<li><a href="#shortcodes">Shortcodes</a></li>
+<li><a href="#other-caveats-and-fixes">Other Caveats and Fixes</a>
+<ul>
+<li><a href="#home-page-with-content-and-post-lists">Home Page with Content and Post Lists</a></li>
+<li><a href="#tipue-search">tipue Search</a></li>
+<li><a href="#code-highlighting">Code Highlighting</a></li>
+<li><a href="#jupyter-notebooks-as-posts">jupyter Notebooks as Posts</a></li>
+<li><a href="#latex-math-equations">Latex Math Equations</a></li>
+</ul></li>
+</ul>
+</nav>
+
+<h1 id="hugo-the-blazing-fast-site-generator">Hugo - the blazing fast site generator</h1>
+
+<p><a href="https://gohugo.io">Hugo</a> is a light weight, fast and modern static website engine written in <a href="https://golang.org">go</a>. It literally takes just milliseconds to build your entire site. For the given lightness, it is highly flexible as well. You can organize your content however you want with any URL structure, group your content using your own indexes and categories and define your own <em>metadata</em> in any format: <code>YAML</code>, <code>TOML</code> or <code>JSON</code>. I was impressed! Keep in my mind, <code>python</code> is still my primary language of programming for scripting and machine learning. And, I have almost no  programming experience with <code>go</code>.</p>
+
+<p>I chose <code>YAML</code> for all the configuration as well as <em>metadata</em>. In my next step to make this move, I had to choose the theme for my blog. If you have been following me, I have been using several flavors
+of <a href="https://bootswatch.com">Bootswatch</a> themes. So my first goal was implement my heavily modified version of <a href="https://bootswatch.com">bootswatch</a> theme in Hugo.</p>
+
+<h1 id="bootswatch-theme">Bootswatch Theme</h1>
+
+<p>Developing a theme from scratch (<em>Well, the implementation from scratch, as I all I am trying to do is mimic/improvise my current theme from Nikola</em>) turned out to be a great adventure and learning exercise. It helped me understand the Hugo architecture in great detail. It did help to have some good <a href="https://gohugo.io/overview/introduction/">documentation</a> written for developers, not users! Although, Hugo&rsquo;s documentation can surely help itself with some cleaning and some fresher looks!</p>
+
+<p>Hugo uses <a href="https://golang.org/pkg/text/template/">go templates</a> with many extra functions and set of variables provided by Hugo. I personally feel Hugo&rsquo;s template-ing system to be more flexible and easier than <a href="http://www.makotemplates.org">Mako</a> - the one used by default by Nikola.</p>
+
+<p>I converted almost all of Mako theme from Nikola website to Hugo&rsquo;s format and architecture with additions (copied features and code) from a nice theme called <a href="https://themes.gohugo.io/hugo-tranquilpeak-theme/">TranqilPeak</a>. In particular, I liked their fonts, search feature for taxonomies pages. Copying these features also meant I had to learn a bit of <code>javascript</code> and <code>css</code>. You can find a working copy of my theme in the <code>src</code> branch of <a href="https://github.com/sadanand-singh/sadanand-singh.github.io">gihub repository</a> of my blog. I plan to release this theme as a standalone theme in near future though.</p>
+
+<h1 id="shortcodes">Shortcodes</h1>
+
+<p>Given I am using a <a href="http://getbootstrap.com">bootstrap</a> based theme, I like having a lot of its features available to me when I am writing in Markdown. The powerful template based <a href="https://gohugo.io/extras/shortcodes/">shortcodes in Hugo</a> provide a great way to write custom html code inside markdown. I feel Hugo shortcodes are so powerful, you could develop your own grammar of markup language in it! 😋</p>
+
+<p>Some of my shortcodes are basically based on <a href="http://getbootstrap.com">bootstrap</a> classes like
+panel, label, emphasis, highlighted text, and block quotes. I also liked the figure command provided by restructured text in Nikola. Luckily, same features are available in Hugo using a default shortcode called <code>figure</code>. Hugo also provides several other useful default shortcodes like <code>youtube</code>, <code>ref/relref</code> for referencing other posts etc.</p>
+
+<p>I have also some additional shortcodes for codeblocks and math. I will be detailing about them in a bit more detail in the next section. All of my shortcodes are available with the theme in the same <a href="https://github.com/sadanand-singh/sadanand-singh.github.io">github repo</a>.</p>
+
+<h1 id="other-caveats-and-fixes">Other Caveats and Fixes</h1>
+
+<p>While converting to Hugo was almost fun, there were some caveats. The issues I faced were mainly with home page, site search, and ipython notebook posts.</p>
+
+<h2 id="home-page-with-content-and-post-lists">Home Page with Content and Post Lists</h2>
+
+<p>Getting home page to work was very simple. Hugo documents page provides a very clear details about order in which various templates are looked. For home page, you will need to provide a template for <code>index.html</code>. Then Inside the <code>content</code> folder, you can put metadata and content for the home page in a file named <code>_index.md</code>.</p>
+
+<p>I also added following template code in the index.html file to get list of posts with certain tags:</p>
+
+<pre  >
+<code class="language-html"> 
+{{ $.Scratch.Add "mlposts" slice }}
+{{ $tags := (slice "Machine Learning" "EDA" "Kaggle" "ML" "Deep Learning" "DL" "Data Science") }}
+{{ range .Site.RegularPages }}
+    {{ $page := . }}
+    {{ $has_common_tags := intersect $tags .Params.tags | len | lt 0 }}
+    {{ if $has_common_tags }}
+        {{ $.Scratch.Add "mlposts" $page }}
+    {{ end }}
+{{ end }}
+{{ $cand := .Scratch.Get "mlposts" }}
+{{ range first 10 $cand }}
+    {{ .Render "li"}}
+{{ end }}
+
+</code>
+</pre>
+
+
+<h2 id="tipue-search">tipue Search</h2>
+
+<p>Hugo has support for several output formats, including HTML and JSON. For implementing <a href="http://www.tipue.com/search/">tipue search</a>, we need to generate a JSON file with site content. This can be done by adding following to the configuration file:</p>
+
+<pre  >
+<code class="language-yaml"> 
+# Output formats
+outputs:
+  home: [ "HTML", "JSON"]
+  page: [ "HTML"]
+
+</code>
+</pre>
+
+
+<p>and, using the following <code>index.json</code> template:</p>
+
+<pre  >
+<code class="language-html"> 
+{{- $.Scratch.Add "index" slice -}}
+{{- range where .Site.RegularPages "Type" "not in"  (slice "page" "json" "nosearch") -}}
+{{- $.Scratch.Add "index" (dict "url" .Permalink "title" .Title "text" .Plain "tags" (delimit .Params.tags ", ")) -}}
+{{- end -}}
+{"pages": {{- $.Scratch.Get "index" | jsonify -}}}
+
+</code>
+</pre>
+
+
+<p>Now, include the following <code>css</code> in the <code>&lt;head&gt;</code> of your pages:</p>
+
+<pre><code>&lt;link href=&quot;//cdnjs.cloudflare.com/ajax/libs/Tipue-Search/5.0.0/tipuesearch.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;
+</code></pre>
+
+<p>And, the following content in the <code>foot</code> of pages:</p>
+
+<pre><code>&lt;!-- Modal --&gt;
+&lt;div id=&quot;search-results&quot; class=&quot;modal fade&quot; role=&quot;dialog&quot; style=&quot;height: 80%;&quot;&gt;
+    &lt;div class=&quot;modal-dialog&quot;&gt;
+        &lt;!-- Modal content--&gt;
+        &lt;div class=&quot;modal-content&quot;&gt;
+          &lt;div class=&quot;modal-header&quot;&gt;
+            &lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;modal&quot;&gt;×&lt;/button&gt;
+            &lt;h4 class=&quot;modal-title&quot;&gt;Search Results:&lt;/h4&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;modal-body&quot; id=&quot;tipue_search_content&quot; style=&quot;max-height: 600px; overflow-y: auto;&quot;&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;modal-footer&quot;&gt;
+            &lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot; data-dismiss=&quot;modal&quot;&gt;Close&lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+$(document).ready(function() {
+    var url1 = &quot;https://cdnjs.cloudflare.com/ajax/libs/Tipue-Search/5.0.0/tipuesearch_set.js&quot;;
+    var url2 = &quot;https://cdnjs.cloudflare.com/ajax/libs/Tipue-Search/5.0.0/tipuesearch.min.js&quot;;
+    $.when(
+        $.getScript( url1 ),
+        $.getScript( url2 ),
+        $.Deferred(function( deferred ){
+            $( deferred.resolve );
+        })
+    ).done(function() {
+        $('#tipue_search_input').tipuesearch({
+            'mode': 'json',
+            'contentLocation': '/index.json'
+        });
+        $('#tipue_search_input').keyup(function (e) {
+            if (e.keyCode == 13) {
+                $('#search-results').modal()
+            }
+        });
+    });
+});
+&lt;/script&gt;
+&lt;!--SCRIPTS END--&gt;
+</code></pre>
+
+<p>And, of course you will need a form/input for performing the search:</p>
+
+<pre><code>&lt;span class=&quot;navbar-form navbar-right&quot;&gt;
+    &lt;input type=&quot;text&quot; id=&quot;tipue_search_input&quot; class=&quot;form-control&quot; placeholder=&quot;Search&quot;&gt;
+&lt;/span&gt;
+</code></pre>
+
+<h2 id="code-highlighting">Code Highlighting</h2>
+
+<p>Although, by default Hugo provides code highlighting using the <a href="http://pygments.org">pygments</a>, I prefer to use client-side highlighting using <a href="http://prismjs.com">prism.js</a>. I also use the following <a href="http://prismjs.com/#plugins">plugins</a> of <code>prism.js</code> for line numbers, highlighting and cleanup of white space:</p>
+
+<ul>
+<li><a href="http://prismjs.com/plugins/line-highlight/">Line Highligh</a></li>
+<li><a href="http://prismjs.com/plugins/line-numbers/">Line Numbers</a></li>
+<li><a href="http://prismjs.com/plugins/normalize-whitespace/">Normalize Whitespace</a></li>
+</ul>
+
+<p>Finally, I create a shortcode called <em>code-block</em> to add relevant classes and variables around <code>&lt;code</code> and <code>&lt;pre</code> tags so that prism could highlight code correctly.</p>
+
+<h2 id="jupyter-notebooks-as-posts">jupyter Notebooks as Posts</h2>
+
+<p>One of the advantages of  using Nikola is that, it provides native support for writing blog posts in jupyter notebooks.</p>
+
+<p>But, on some google search, I found this neat solution at the following <a href="https://sharmamohit.com/post/jupyter-notebooks-in-blog/">Blog</a>.</p>
+
+<p>In summary, the solution is very simple - Use the linked <a href="http://sharmamohit.com/css/jupyter.css">jupyter.css</a> file in your template. Then for any jupyter notebook, convert it to basic html using the following command:</p>
+
+<pre  >
+<code class="language-bash"> 
+jupyter nbconvert --to html --template basic *source_file.ipynb*
+
+</code>
+</pre>
+
+
+<p>Then, finally, create a markdown file for your post, where simply put the contents of this html file as markdown supports including raw HTML code!</p>
+
+<h2 id="latex-math-equations">Latex Math Equations</h2>
+
+<p>I used <a href="https://github.com/Khan/KaTeX">katex</a> for using math in markdown. I was having some issue with the multi-line display math equations, so I created shortcode called <em>tex</em> to write html code explicitly so that katex could handle that easily.</p>
+
+<p>So there you have it. I have my blog now up and running with Hugo. Hope I will be more active here, since it now takes only seconds to deploy once I have a post written. No excuses now! 😜</p>
+    </div>
+    <div id="post-footer" class="post-footer">
+        
+            
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://sadanand-singh.github.io//tags/blog/">Blog</a>
+
+  <a class="tag tag--primary tag--small" href="https://sadanand-singh.github.io//tags/hugo/">Hugo</a>
+
+  <a class="tag tag--primary tag--small" href="https://sadanand-singh.github.io//tags/golang/">golang</a>
+
+
+                  </div>
+                
+            
+        
+    </div>
+    <aside class="postpromonav">
+    <nav>
+    <ul class="pager hidden-print">
+  
+    
+        <li class="previous">
+            <a href="/posts/descriptivestats/" rel="prev" title="Descriptive Statistics">Previous post</a>
+        </li>
+    
+    
+  
+</ul>
+    </nav>
+    </aside>
+
+    
+    
+    
+    
+        
+            <div id="disqus_thread"></div>
+                <script>
+                var disqus_shortname ="sadanandsblog",
+                    disqus_url="https://sadanand-singh.github.io/posts/nikola2hugo/",
+                disqus_title="Switching to Hugo from Nikola",
+                disqus_identifier="nikola2hugo.sadanand",
+                disqus_config = function () {
+                    this.language = "en";
+                };
+                (function() {
+                    var dsq = document.createElement('script'); dsq.async = true;
+                    dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+            </noscript>
+            <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+    
+
+    
+</article>
+
+        </div>
+        
+        <footer id="footer">
+  <span class="copyrights">
+    
+    Contents &copy; 2017         <a href="mailto:sadanand.singh@outlook.com">Sadanand Singh</a> - Powered by         <a href="https://gohugo.io/" rel="nofollow">Hugo</a>         <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+    
+  </span>
+</footer>
+
+    </div>
+</div>
+    
+    
+<script
+  src="//code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.colorbox/1.6.4/jquery.colorbox-min.js"></script>
+<script src="https://sadanand-singh.github.io/js/prism.js"></script>
+<script src="https://sadanand-singh.github.io/js/peak.min.js"></script>
+
+    <script async type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53f6d74a591ace8f"></script>
+
+
+<script>var disqus_shortname="sadanandsblog";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
+
+<script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
+
+
+<div id="search-results" class="modal fade" role="dialog" style="height: 80%;">
+    <div class="modal-dialog">
+        
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">×</button>
+            <h4 class="modal-title">Search Results:</h4>
+          </div>
+          <div class="modal-body" id="tipue_search_content" style="max-height: 600px; overflow-y: auto;">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+    </div>
+</div>
+
+<script>
+$(document).ready(function() {
+    var url1 = "https://cdnjs.cloudflare.com/ajax/libs/Tipue-Search/5.0.0/tipuesearch_set.js";
+    var url2 = "https://cdnjs.cloudflare.com/ajax/libs/Tipue-Search/5.0.0/tipuesearch.min.js";
+    $.when(
+        $.getScript( url1 ),
+        $.getScript( url2 ),
+        $.Deferred(function( deferred ){
+            $( deferred.resolve );
+        })
+    ).done(function() {
+        $('#tipue_search_input').tipuesearch({
+            'mode': 'json',
+            'contentLocation': '/index.json'
+        });
+        $('#tipue_search_input').keyup(function (e) {
+            if (e.keyCode == 13) {
+                $('#search-results').modal()
+            }
+        });
+    });
+});
+</script>
+
+
+
+
+
+  
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-54080172-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+
+    
+  </body>
+</html>
+

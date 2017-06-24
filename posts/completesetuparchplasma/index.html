@@ -337,6 +337,7 @@ mode enabled.</p>
 <pre  >
 <code class="language-bash"> 
 $ efivar -l
+
 </code>
 </pre>
 
@@ -354,6 +355,7 @@ all the fonts are. We will fix that by running the following commands:</p>
 $ pacman -Sy
 $ pacman -S terminus-font
 $ setfont ter-132n
+
 </code>
 </pre>
 
@@ -376,6 +378,7 @@ $ cat /proc/partitions
 # 19       0  268435456 sdc
 # 11       0     759808 sr0
 # 7        0     328616 loop0
+
 </code>
 </pre>
 
@@ -394,6 +397,7 @@ minutes on a 240 GB SSD.</strong></p>
 <pre  >
 <code class="language-bash"> 
 $ badblocks -c 10240 -s -w -t random -v /dev/sda
+
 </code>
 </pre>
 
@@ -422,6 +426,7 @@ $ press x - to go to extended menu
 $ press z - to zap
 $ press Y - to confirm
 $ press Y - to delete MBR
+
 </code>
 </pre>
 
@@ -452,6 +457,7 @@ $ Changed type of partition to 'Linux filesystem'
 $ Command (? for help): p
 $ Press w to write to disk
 $ Press Y to confirm
+
 </code>
 </pre>
 
@@ -481,6 +487,7 @@ $ cryptsetup --cipher aes-xts-plain64 --hash sha512 --use-random --verify-passph
 # then, we actually open it as a block device, and format the
 # inner volume later
 $ cryptsetup luksOpen /dev/sda2 root
+
 </code>
 </pre>
 
@@ -496,6 +503,7 @@ file.</p>
 <pre  >
 <code class="language-bash"> 
 $ dd bs=512 count=4 if=/dev/urandom of=KEYFILE
+
 </code>
 </pre>
 
@@ -505,6 +513,7 @@ to open the encrypted drive.</p>
 <pre  >
 <code class="language-bash"> 
 $ cryptsetup luksAddKey /dev/sda2 KEYFILE
+
 </code>
 </pre>
 
@@ -533,6 +542,7 @@ $ mkfs.fat /dev/sdd1
 $ mount /dev/sdd1 /mnt
 $ mv KEYFILE /mnt/KEYFILE
 $ umount /mnt
+
 </code>
 </pre>
 
@@ -554,6 +564,7 @@ $ mkfs.vfat -F32 /dev/sda1
 $ mkfs.btrfs -L arch /dev/mapper/root
 $ mkfs.btrfs -L data /dev/sdb1
 $ mkfs.btrfs -L media /dev/sdc1
+
 </code>
 </pre>
 
@@ -575,6 +586,7 @@ $ umount /mnt
 $ mount /dev/sdc1 /mnt
 $ btrfs subvolume create /mnt/media
 $ umount /mnt
+
 </code>
 </pre>
 
@@ -598,6 +610,7 @@ $ mount -o $HDD_MOUNTS,subvol=media /dev/sdc1 /mnt/media
 
 $ mkdir -p /mnt/boot
 $ mount -o $EFI_MOUNTS /dev/sda1 /mnt/boot
+
 </code>
 </pre>
 
@@ -612,6 +625,7 @@ use!</span>
 <pre  >
 <code class="language-bash"> 
 $ cp /etc/resolv.conf /mnt/etc/resolv.conf
+
 </code>
 </pre>
 
@@ -624,6 +638,7 @@ $ cp /etc/resolv.conf /mnt/etc/resolv.conf
 <code class="language-bash"> 
 $ pacstrap /mnt base base-devel btrfs-progs
 $ genfstab -U -p /mnt >> /mnt/etc/fstab
+
 </code>
 </pre>
 
@@ -636,6 +651,7 @@ $ genfstab -U -p /mnt >> /mnt/etc/fstab
 <code class="language-bash"> 
 tmpfs /tmp tmpfs rw,nodev,nosuid 0 0
 tmpfs /dev/shm tmpfs rw,nodev,nosuid,noexec 0 0
+
 </code>
 </pre>
 
@@ -666,6 +682,7 @@ $ sed -i "s/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/" /etc/sudoers
 $ HOSTNAME=euler
 $ echo $HOSTNAME > /etc/hostname
 $ passwd
+
 </code>
 </pre>
 
@@ -680,6 +697,7 @@ $ vim /etc/hosts
 ::1             localhost.localdomain   localhost
 127.0.0.1       $HOSTNAME.localdomain   $HOSTNAME
 ...
+
 </code>
 </pre>
 
@@ -701,6 +719,7 @@ $ vi /etc/mkinitcpio.conf
 #
 # re-generate your initrd images
 mkinitcpio -p linux
+
 </code>
 </pre>
 
@@ -719,6 +738,7 @@ get started:</p>
 <pre  >
 <code class="language-bash"> 
 $ bootctl --path=/boot install
+
 </code>
 </pre>
 
@@ -744,6 +764,7 @@ $ blkid /dev/sdd1 >> /boot/loader/entries/arch.conf
 # /dev/sda2 LABEL="arch"      UUID=33333333-3333-3333-3333-333333333333
 # /dev/mapper/root LABEL="Arch Linux"   UUID=44444444-4444-4444-4444-444444444444
 # /dev/sdd1 LABEL="USB"     UUID=0000-0000  # this is the drive where KEYFILE exists
+
 </code>
 </pre>
 
@@ -772,6 +793,7 @@ linux /vmlinuz-linux
 initrd /initramfs-linux.img
 options ro cryptdevice=UUID=33333333-3333-3333-3333-333333333333:luks-33333333-3333-3333-3333-333333333333 root=UUID=44444444-4444-4444-4444-444444444444 rootfstype=btrfs rootflags=subvol=ROOT cryptkey=UUID=0000-0000:vfat:KEYFILE
 ...
+
 </code>
 </pre>
 
@@ -791,6 +813,7 @@ $ networkctl
 #   3 wlp6s0           wlan               no-carrier  unmanaged
 #   4 enp0s25          ether              routable    configured
 #
+
 </code>
 </pre>
 
@@ -820,6 +843,7 @@ DHCP=ipv4
 ...
 
 $
+
 </code>
 </pre>
 
@@ -829,6 +853,7 @@ $
 <pre  >
 <code class="language-bash"> 
 systemctl enable systemd-networkd.service
+
 </code>
 </pre>
 
@@ -860,6 +885,7 @@ NTP synchronized: yes
  RTC in local TZ: no
  ...
 $
+
 </code>
 </pre>
 
@@ -876,6 +902,7 @@ and people to talk to.</p>
 <code class="language-bash"> 
 $ pacman -S avahi nss-mdns
 $ systemctl enable avahi-daemon.service
+
 </code>
 </pre>
 
@@ -886,6 +913,7 @@ fonts on first boot.</p>
 <pre  >
 <code class="language-bash"> 
 $ pacman -S terminus-font
+
 </code>
 </pre>
 
@@ -899,6 +927,7 @@ $ pacman -S terminus-font
 $ exit
 $ umount -R /mnt
 $ reboot
+
 </code>
 </pre>
 
@@ -921,6 +950,7 @@ ping google.com -c 2
 # 2 packets transmitted, 2 received, 0% packet loss, time 999ms
 # rtt min/avg/max/mdev = 0.022/0.022/0.023/0.004 ms
 #
+
 </code>
 </pre>
 
@@ -941,6 +971,7 @@ $ pacman -S zsh
 $ useradd -m -G wheel -s usr/bin/zsh $USERNAME
 $ chfn --full-name "$FULL_NAME" $USERNAME
 $ passwd $USERNAME
+
 </code>
 </pre>
 
@@ -955,6 +986,7 @@ related packages, and some <em>essential</em> packages (including fonts):</p>
 <pre  >
 <code class="language-bash"> 
 $ pacman -S xorg-server nvidia nvidia-libgl nvidia-settings mesa
+
 </code>
 </pre>
 
@@ -980,6 +1012,7 @@ When=PostTransaction
 Exec=/usr/bin/mkinitcpio -p linux
 ...
 $
+
 </code>
 </pre>
 
@@ -991,6 +1024,7 @@ daemon at boot, enable the <code>nvidia-persistenced.service</code>.</p>
 <code class="language-bash"> 
 $ systemctl enable nvidia-persistenced.service
 $ systemctl start nvidia-persistenced.service
+
 </code>
 </pre>
 
@@ -1028,6 +1062,7 @@ vim /etc/X11/xorg.conf.d/20-nvidia.conf
 # EndSection
 # [...]
 # ------------------------------------------------
+
 </code>
 </pre>
 </div>
@@ -1045,6 +1080,7 @@ $
 ...
 export KWIN_TRIPLE_BUFFER=1
 ...
+
 </code>
 </pre>
 
@@ -1084,6 +1120,7 @@ options ro cryptdevice=UUID=:luks- root=UUID= rootfstype=btrfs rootflags=subvol=
 ...
 $
 $ mkinitcpio -p linux
+
 </code>
 </pre>
 </div>
@@ -1104,6 +1141,7 @@ $ pacman -S plasma-meta dolphin kdialog kfind
 $ pacman -S konsole gwenview okular spectacle kio-extras
 $ pacman -S kompare dolphin-plugins kwallet kwalletmanager
 $ pacman -S ark yakuake flite
+
 </code>
 </pre>
 
@@ -1126,6 +1164,7 @@ CursorTheme=breeze_cursors
 
 $ systemctl enable sddm
 $ reboot
+
 </code>
 </pre>
 
@@ -1146,6 +1185,7 @@ This applet allows user specific enabling of <em>wifi</em>, <em>ethernet</em> or
 $ sudo pacman -S networkmanager
 $ systemctl enable NetworkManager.service
 $ systemctl start NetworkManager.service
+
 </code>
 </pre>
 
@@ -1156,6 +1196,7 @@ command:</p>
 <pre  >
 <code class="language-bash"> 
 $ hostnamectl set-hostname $HOSTNAME
+
 </code>
 </pre>
 
@@ -1180,6 +1221,7 @@ $ vim /etc/pacman.d/mirrorlist.us
 # Delete all non-US servers
 ....
 $ rankmirrors -n 6 /etc/pacman.d/mirrorlist.us > /etc/pacman.d/mirrorlist
+
 </code>
 </pre>
 
@@ -1200,6 +1242,7 @@ is uses exactly the same options that regular <em>pacman</em> uses.</p>
 <pre  >
 <code class="language-bash"> 
 $ sudo pacman -S expac yajl curl gnupg --noconfirm
+
 </code>
 </pre>
 
@@ -1210,6 +1253,7 @@ $ sudo pacman -S expac yajl curl gnupg --noconfirm
 <code class="language-bash"> 
 $ mkdir ~/temp
 $ cp ~ temp
+
 </code>
 </pre>
 
@@ -1228,6 +1272,7 @@ $ makepkg -i PKGBUILD --noconfirm
 # Finally cleanup and remove the temp directory
 $ cd ~
 $ rm -r ~/temp
+
 </code>
 </pre>
 
@@ -1242,6 +1287,7 @@ done:</p>
 $ sudo pacaur -S alsa-utils pulseaudio pulseaudio-alsa mpv
 $ sudo pacaur -S libcanberra-pulse libcanberra-gstreamer
 $ sudo pacaur -S vlc-qt5
+
 </code>
 </pre>
 
@@ -1251,6 +1297,7 @@ $ sudo pacaur -S vlc-qt5
 <pre  >
 <code class="language-bash"> 
 $ systemctl --user enable pulseaudio.socket
+
 </code>
 </pre>
 
@@ -1263,6 +1310,7 @@ good to have the KDE native <em>qupzilla</em>.</p>
 <pre  >
 <code class="language-bash"> 
 $ sudo pacaur -S google-chrome qupzilla
+
 </code>
 </pre>
 
@@ -1285,6 +1333,7 @@ leads to following benefits:</p>
 <pre  >
 <code class="language-bash"> 
 sudo pacaur -S profile-sync-daemon
+
 </code>
 </pre>
 
@@ -1297,6 +1346,7 @@ sudo pacaur -S profile-sync-daemon
 $ psd
 # First time running psd so please edit
 # /home/$USERNAME/.config/psd/psd.conf to your liking and run again.
+
 </code>
 </pre>
 
@@ -1322,6 +1372,7 @@ $ vim /etc/sudoers
 ...
 $USERNAME ALL=(ALL) NOPASSWD: /usr/bin/psd-overlay-helper
 ...
+
 </code>
 </pre>
 
@@ -1331,6 +1382,7 @@ $USERNAME ALL=(ALL) NOPASSWD: /usr/bin/psd-overlay-helper
 <pre  >
 <code class="language-bash"> 
 psd p
+
 </code>
 </pre>
 
@@ -1372,6 +1424,7 @@ $ vim ~/.gitconfig
 [help]
     autocorrect = 1
 ...
+
 </code>
 </pre>
 
@@ -1383,6 +1436,7 @@ $ vim ~/.gitconfig
 <pre  >
 <code class="language-bash"> 
 sudo pacaur -S openssh
+
 </code>
 </pre>
 
@@ -1411,6 +1465,7 @@ $ sudo vim /etc/ssh/sshd_config
 ...
 PasswordAuthentication no
 ...
+
 </code>
 </pre>
 
@@ -1425,6 +1480,7 @@ github.</p>
 <code class="language-bash"> 
 $ systemctl enable sshd.socket
 $ systemctl start sshd.socket
+
 </code>
 </pre>
 
@@ -1450,6 +1506,7 @@ do
     ln -sf "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
 done
 $
+
 </code>
 </pre>
 
@@ -1463,6 +1520,7 @@ $ git remote add personal git@github.com:sadanand-singh/My-Zprezto.git
 $ git pull personal arch
 $ git checkout arch
 $ git merge master
+
 </code>
 </pre>
 
@@ -1489,6 +1547,7 @@ default-cache-ttl 10800
 max-cache-ttl-ssh 10800
 ...
 $
+
 </code>
 </pre>
 
@@ -1513,6 +1572,7 @@ if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
 fi
 ...
 $
+
 </code>
 </pre>
 
@@ -1530,6 +1590,7 @@ $ systemctl --user start gpg-agent.socket
 $ systemctl --user start gpg-agent-ssh.socket
 $ systemctl --user start dirmngr.socket
 $ systemctl --user start gpg-agent-browser.socket
+
 </code>
 </pre>
 
@@ -1539,6 +1600,7 @@ $ systemctl --user start gpg-agent-browser.socket
 <pre  >
 <code class="language-bash"> 
 $ ssh-add ~/.ssh/id_ed25519
+
 </code>
 </pre>
 
@@ -1553,6 +1615,7 @@ Wallpapers</a>.</p>
 <code class="language-bash"> 
 $ mkdir -p $ $HOME/.local/wallpapers
 $ cp SOME_JPEG $HOME/.local/wallpapers/
+
 </code>
 </pre>
 
@@ -1564,6 +1627,7 @@ $ cp SOME_JPEG $HOME/.local/wallpapers/
 <pre  >
 <code class="language-bash"> 
 $ paci conky-lua-nv
+
 </code>
 </pre>
 
@@ -1578,6 +1642,7 @@ $ conky -C > $HOME/.config/conky/conky.conf
 $
 # start conky in background
 $ conky &
+
 </code>
 </pre>
 
@@ -1643,6 +1708,7 @@ ${goto -80}${voffset -35}${font Pompiere:size=11}${color 3eafe8}//${color4} CPU:
 ${goto -80}${voffset -35}${font Pompiere:size=11}${color 3eafe8}//${color4} GPU: ${execi 1000000 nvidia-smi --query-gpu="name,driver_version" --format="csv,noheader" | cut -c 9-18} ${color ff3d3d} ${nvidia temp}°C ${color 3eafe8}//${color4} Load: ${color ff3d3d}${exec nvidia-smi --query-gpu="utilization.gpu" --format="csv,noheader"} ${color 3eafe8}// Free: ${color ff3d3d} ${exec nvidia-smi --query-gpu="memory.free" --format="csv,noheader"} ${color 3eafe8}//
 
 ]];
+
 </code>
 </pre>
 
@@ -1655,6 +1721,7 @@ ${goto -80}${voffset -35}${font Pompiere:size=11}${color 3eafe8}//${color4} GPU:
 <code class="language-bash"> 
 $ paci spotify tmux tree dropbox thesilver_searcher
 $ paci digikam imagemagick
+
 </code>
 </pre>
 
@@ -1672,6 +1739,7 @@ $ sudo pacman-key --lsign-key 8A8F901A
 $ rm sublimehq-pub.gpg
 $
 $ echo -e "\n[sublime-text]\nServer = https://download.sublimetext.com/arch/dev/x86_64" | sudo tee -a /etc/pacman.conf
+
 </code>
 </pre>
 
@@ -1681,6 +1749,7 @@ $ echo -e "\n[sublime-text]\nServer = https://download.sublimetext.com/arch/dev/
 <pre  >
 <code class="language-bash"> 
 $ paci sublime-text/sublime-text
+
 </code>
 </pre>
 

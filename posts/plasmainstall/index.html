@@ -271,6 +271,7 @@ whenever you see <code>ssingh</code> please replace it with your <code>$USERNAME
 $ useradd -m -G wheel -s /bin/bash $USERNAME
 $ chfn --full-name "$FULL_NAME" $USERNAME
 $ passwd $USERNAME
+
 </code>
 </pre>
 
@@ -291,6 +292,7 @@ $ --- google.com ping statistics ---
 $ 2 packets transmitted, 2 received, 0% packet loss, time 999ms
 $ rtt min/avg/max/mdev = 0.022/0.022/0.023/0.004 ms
 $
+
 </code>
 </pre>
 
@@ -307,6 +309,7 @@ related packages, and some <em>essential</em> packages (including fonts):</p>
 <pre  >
 <code class="language-bash"> 
 $ pacman -S xorg-server xorg-server-utils nvidia nvidia-libgl
+
 </code>
 </pre>
 
@@ -332,6 +335,7 @@ When=PostTransaction
 Exec=/usr/bin/mkinitcpio -p linux
 ...
 $
+
 </code>
 </pre>
 
@@ -343,6 +347,7 @@ daemon at boot, enable the <code>nvidia-persistenced.service</code>.</p>
 <code class="language-bash"> 
 $ systemctl enable nvidia-persistenced.service
 $ systemctl start nvidia-persistenced.service
+
 </code>
 </pre>
 
@@ -362,6 +367,7 @@ $
 ...
 export __GL_YIELD="USLEEP"
 ...
+
 </code>
 </pre>
 
@@ -374,6 +380,7 @@ $
 ...
 export KWIN_TRIPLE_BUFFER=1
 ...
+
 </code>
 </pre>
 
@@ -392,6 +399,7 @@ additional details.</strong> </div>
 $ pacman -S mesa ttf-hack ttf-anonymous-pro
 $ pacman -S tlp tlp-rdw acpi_call bash-completion git meld
 $ pacman -S ttf-dejavu ttf-freefont ttf-liberation
+
 </code>
 </pre>
 
@@ -402,6 +410,7 @@ $ pacman -S ttf-dejavu ttf-freefont ttf-liberation
 <code class="language-bash"> 
 $ pacman -S plasma-meta kf5 kdebase kdeutils kde-applications
 $ pacman -S kdegraphics gwenview
+
 </code>
 </pre>
 
@@ -424,6 +433,7 @@ CursorTheme=breeze_cursors
 ...
 
 $ systemctl enable sddm
+
 </code>
 </pre>
 
@@ -434,6 +444,7 @@ $ systemctl enable sddm
 <code class="language-bash"> 
 $ systemctl disable dhcpcd.service
 $ systemctl enable NetworkManager
+
 </code>
 </pre>
 
@@ -448,6 +459,7 @@ done:</p>
 $ pacman -S alsa-utils pulseaudio pulseaudio-alsa libcanberra-pulse
 $ pacman -S libcanberra-gstreamer jack2-dbus kmix
 $ pacman -S mpv mplayer
+
 </code>
 </pre>
 
@@ -480,6 +492,7 @@ NTP synchronized: yes
  RTC in local TZ: no
  ...
 $
+
 </code>
 </pre>
 
