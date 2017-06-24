@@ -28,7 +28,7 @@ In this series of python tutorials, I will provide a set of lectures on various 
 
 Here is a brief list of topics I will cover per week. I will also post exercises at the end of each session, along with the expected outputs. You should plan to complete these exercises within 5-6 days, before the new tutorial is posted. You will be judging your exercises on your own. The goal should be to match your program's output to the expected output.
 
--  **Week 1 :** Working with Python on Windows, Concept of Variables &amp; Math Operations, Displaying Outputs 
+-  **Week 1 :** Working with Python on Windows, Concept of Variables &amp; Math Operations, Displaying Outputs
 -  **Week 2 :** User Inputs, Modules, Comments and Basics of Strings
 -  **Week 3 :** More on Strings, Lists and Other Containers
 -  **Week 4 :** Looping/iterating, if/else Conditions
@@ -785,22 +785,24 @@ b =  6
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="print()-Function-in-Python">print() Function in Python<a class="anchor-link" href="#print()-Function-in-Python">&#182;</a></h3><p>Primary way to see and print information on your screen in python is using a method/function called "print()". We will learn more about functions in python later. For today, you can think of functions as a program that "does something". For example, the function print(), does the job of printing things on screen.</p>
-<p>Notice the use of () in functions. () separates a function from a variable. For example, "foo" is a variable, whereas "foo()" is a function, called sometimes called as method.</p>
-<p>Functions also have a concept of arguments. Arguments can be thought as inputs to functions. For example, we have function that adds 2 numbers, then this function will need 2 arguments, the two numbers that we want to add. We can denote this function as, addition(a,b).</p>
-<p>Similarly, functions also have a concept of return values. Return value can be thought as the output of that function. For example, in the above example of addition(a,b) function, sum of two numbers will be the "return value" of the function. We can write this as, c = addition(a,b). Here, a and b are arguments to function addition() and c is the return value of this function.</p>
-<p>A function can have any number of arguments, zero to any number; where it can have either zero or 1 return values.</p>
-<p>Now, coming back to the print() method, that we have been using throughout this tutorial.</p>
-<p>print() method can take any number of arguments separated by commas. All it does is to "print" those on your screen. Lets look at some examples:</p>
 
-</div>
-</div>
-</div>
+
+### print() Function in Python
+
+Primary way to see and print information on your screen in python is using a method/function called `print()`. We will learn more about functions in python later. For today, you can think of functions as a program that "does something". For example, the function `print()`, does the job of printing things on screen.
+
+Notice the use of `()` in functions. `()` separates a function from a variable. For example, "foo" is a variable, whereas `foo()` is a function, sometimes also called as _method_.
+
+Functions also have a concept of arguments. Arguments can be thought as inputs to functions. For example, we have function that adds 2 numbers, then this function will need 2 arguments, the two numbers that we want to add. We can denote this function as, `addition(a,b)`.
+
+Similarly, functions also have a concept of return values. Return value can be thought as the output of that function. For example, in the above example of `addition(a,b)` function, sum of two numbers will be the "return value" of the function. We can write this as, `c = addition(a,b)`. Here, a and b are arguments to function addition() and c is the return value of this function.
+
+A function can have any number of arguments, zero to any number; where it can have either zero or 1 return values.
+
+Now, coming back to the `print()` method, that we have been using throughout this tutorial.
+
+`print()` method can take any number of arguments separated by commas. All it does is to "print" those on your screen. Lets look at some examples:
+
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[22]:</div>
@@ -908,51 +910,45 @@ My Name is  Sadanand Singh and My age is:  29
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Can you explain what is happening here!</p>
+</div>
+</div>
+</div>
 
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Excercise">Excercise<a class="anchor-link" href="#Excercise">&#182;</a></h2><p>We will all things we have learned today using the exercise below.</p>
-<p>We will follow the tax preparation example:</p>
-<ol>
-<li>Create a variable to store "income"</li>
-<li>Create another variable called "taxRate" which is equal to 1/100000th of "income".</li>
-<li>Net federal tax will be equal to 1.5 times income times taxRate</li>
-<li>Net state tax will be equal to square root on federal tax</li>
-<li>Net tax will be federal tax + state tax</li>
-<li>Total final tax will be Net tax + log to the base of 2 of Net Tax</li>
-<li>Print following values clearly using print(): income, taxRate, Federal Tax, State Tax, Net Tax and Final Tax.</li>
-<li>First run with an income of 60000</li>
-<li>Repeat with an income of 134675</li>
-</ol>
-<p>Your output should look like the following in two cases.</p>
-<p>Case 1: income = 60000</p>
-<ol>
-<li>Total Income is: 60000</li>
-<li>Tax Rate is: 0.059999999999999998</li>
-<li>Total Federal Tax is: 1800.0</li>
-<li>Total State Tax is: 42.426406871192853</li>
-<li>Net Tax is: 1842.4264068711927</li>
-<li>Total Tax is: 1853.2737981499038</li>
-</ol>
-<p>Case 2: income = 134675</p>
-<ol>
-<li>Total Income is: 134675</li>
-<li>Tax Rate is: 0.13467499999999999</li>
-<li>Total Federal Tax is: 9068.6778125000001</li>
-<li>Total State Tax is: 95.229605756298284</li>
-<li>Net Tax is: 9163.9074182562981</li>
-<li>Total Tax is: 9177.0691654243201</li>
-</ol>
+## Excercise
 
-</div>
-</div>
-</div>
+We will all things we have learned today using the exercise below.</p>
+<p>We will follow the tax preparation example:
+
+1. Create a variable to store "income"
+2. Create another variable called "taxRate" which is equal to 1/100000th of "income".
+3. Net federal tax will be equal to 1.5 times income times taxRate
+4. Net state tax will be equal to square root on federal tax
+5. Net tax will be federal tax + state tax
+6. Total final tax will be Net tax + log to the base of 2 of Net Tax
+7. Print following values clearly using print(): income, taxRate, Federal Tax, State Tax, Net Tax and Final Tax.
+8. First run with an income of 60000
+9. Repeat with an income of 134675
+
+
+Your output should look like the following in two cases.
+
+__Case 1: income = 60000__
+
+1. Total Income is: 60000
+2. Tax Rate is: 0.059999999999999998
+3. Total Federal Tax is: 1800.0
+4. Total State Tax is: 42.426406871192853
+5. Net Tax is: 1842.4264068711927
+6. Total Tax is: 1853.2737981499038
+
+__Case 2: income = 134675__
+
+1. Total Income is: 134675
+2. Tax Rate is: 0.13467499999999999
+3. Total Federal Tax is: 9068.6778125000001
+4. Total State Tax is: 95.229605756298284
+5. Net Tax is: 9163.9074182562981
+6. Total Tax is: 9177.0691654243201
 
 Great! [Next week]({{< relref "pythonTutorialWeek2.md" >}}) we dive into Python further.
 

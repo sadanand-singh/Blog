@@ -25,13 +25,12 @@ content creation. Personally, I use markdown for almost every thing
 else - taking notes, making diary, code documentation etc. 
 Furthermore, given Nikola tries to support almost everything in a 
 static site builder, lately its is becoming more and more bloated.
+<!--more-->
 Case in  point, recently it got support for [shortcodes] and although that did 
 enable me to write posts in Markdown, but it is so difficult to 
 develop them (It does not help to have almost no documentation/guide 
 for their development). They are heavily tied to the [plugin] system 
 with light support for template based shortcodes.
-
-<!--more-->
 
 [nikola]: https://getnikola.com
 [rst]: http://docutils.sourceforge.net/rst.html

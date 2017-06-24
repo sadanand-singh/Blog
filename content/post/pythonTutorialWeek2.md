@@ -466,20 +466,20 @@ So, you are already 30 years old, Sadanand!
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Notice the use of various methods like eval(), int() and float() to get user input in correct formats. In summary, eval() is used to get data into various native python formats, e.g. lists, dictionaries etc. <em>We will look at these in more detail in next few tutorials</em>. int() is used to convert input to integer numbers (numbers without decimals), while float() is used to get floating point numbers.</p>
-<p>Also, of interest above is the type() method used in print statements. You can get the type of any variable in python using this method. In the output of this we see something like: &lt; class 'float'&gt; - if variable is of float type. For the time being we will ignore the "class" in this.</p>
-<h4 id="Indentation-Blocks">Indentation Blocks<a class="anchor-link" href="#Indentation-Blocks">&#182;</a></h4><p>Python programs get structured through indentation, i.e. code blocks are defined by their indentation (The amount of blank space before any line). This principle makes it easier to read and understand other people's Python code.</p>
-<p>All statements with the same distance to the right belong to the same block of code, i.e. the statements within a block line up vertically. The block ends at a line less indented or the end of the file. If a block has to be more deeply nested, it is simply indented further to the right.</p>
-<p>In the following sections below we will see extensive use of such indentation blocks. Consider the following example to calculate Pythagorean triples. You do not need to understand the full code right here. We will revisit this code at the end of this tutorial.</p>
 
-</div>
-</div>
-</div>
+
+Notice the use of various methods like `eval()`, `int()` and `float()` to get user input in correct formats. In summary, `eval()` is used to get data into various native python formats, e.g. lists, dictionaries etc. _We will look at these in more detail in next few tutorials_. `int()` is used to convert input to integer numbers (numbers without decimals), while `float()` is used to get floating point numbers.
+
+Also, of interest above is the `type()` method used in print statements. You can get the type of any variable in python using this method. In the output of this we see something like: &lt; class 'float'&gt; - if variable is of float type. For the time being we will ignore the "class" in this.
+
+#### Indentation Blocks
+
+Python programs get structured through indentation, i.e. code blocks are defined by their indentation (The amount of blank space before any line). This principle makes it easier to read and understand other people's Python code.
+
+All statements with the same distance to the right belong to the same block of code, i.e. the statements within a block line up vertically. The block ends at a line less indented or the end of the file. If a block has to be more deeply nested, it is simply indented further to the right.
+
+In the following sections below we will see extensive use of such indentation blocks. Consider the following example to calculate Pythagorean triples. You do not need to understand the full code right here. We will revisit this code at the end of this tutorial.
+
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[18]:</div>
@@ -519,17 +519,15 @@ So, you are already 30 years old, Sadanand!
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>In the above code, we see three indentation blocks, first and second "for" loops and the third "if" condition. There is another aspect of structuring in Python, which we haven't mentioned so far, which you can see in the example. Loops and Conditional statements end with a colon ":" - the same is true for functions and other structures introducing blocks. So, we should have said Python structures by colons and indentation.</p>
-<h4 id="Comments-in-Python">Comments in Python<a class="anchor-link" href="#Comments-in-Python">&#182;</a></h4><p>Python has two ways to annotate/comment Python code. One is by using comments to indicate what some part of the code does. Single-line comments begin with the hash character ("#") and are terminated by the end of line. Here is an example:</p>
 
-</div>
-</div>
-</div>
+
+In the above code, we see three indentation blocks, first and second "for" loops and the third "if" condition. There is another aspect of structuring in Python, which we haven't mentioned so far, which you can see in the example. Loops and Conditional statements end with a colon ":" - the same is true for functions and other structures introducing blocks. So, we should have said Python structures by colons and indentation.
+
+#### Comments in Python
+
+Python has two ways to annotate/comment Python code. One is by using comments to indicate what some part of the code does. Single-line comments begin with the hash character ("#") and are terminated by the end of line. Here is an example:
+
+
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[19]:</div>
@@ -560,18 +558,16 @@ So, you are already 30 years old, Sadanand!
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Conditionals">Conditionals<a class="anchor-link" href="#Conditionals">&#182;</a></h4><p>Conditionals, - mostly in the form of if statements - are one of the essential features of a programming language. A decision has to be taken when the script or program comes to a point where it has a choice of actions, i.e. different computations, to choose from.</p>
-<p>The decision depends in most cases on the value of variables or arithmetic expressions. These expressions are evaluated to the Boolean values <em>True</em> or <em>False</em>. The statements for the decision taking are called <em>conditional statements</em>. Alternatively they are also known as <em>conditional expressions</em> or <em>conditional constructs</em>.</p>
-<p>Conditional statements in Python use indentation blocks to <em>conditionally</em> execute certain code. The general form of the if statement in Python looks like this:</p>
 
-</div>
-</div>
-</div>
+#### Conditionals
+
+Conditionals, - mostly in the form of if statements - are one of the essential features of a programming language. A decision has to be taken when the script or program comes to a point where it has a choice of actions, i.e. different computations, to choose from.
+
+The decision depends in most cases on the value of variables or arithmetic expressions. These expressions are evaluated to the Boolean values _True_ or _False_. The statements for the decision taking are called _conditional statements_. Alternatively they are also known as _conditional expressions_ or _conditional constructs_.
+
+Conditional statements in Python use indentation blocks to _conditionally_ execute certain code. The general form of the if statement in Python looks like this:
+
+
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[12]:</div>
@@ -610,32 +606,29 @@ So, you are already 30 years old, Sadanand!
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>If the condition "condition_1" is True, the statements of the block statement_block_1 will be executed. If not, condition_2 will be evaluated. If condition_2 evaluates to True, statement_block_2 will be executed, if condition_2 is False, the other conditions of the following elif conditions will be checked, and finally if none of them has been evaluated to True, the indented block below the else keyword will be executed.</p>
-<p>Typical examples of "condition" statements follow some of following operations:
+
+If the condition "condition_1" is True, the statements of the block statement_block_1 will be executed. If not, condition_2 will be evaluated. If condition_2 evaluates to True, statement_block_2 will be executed, if condition_2 is False, the other conditions of the following `elif` conditions will be checked, and finally if none of them has been evaluated to True, the indented block below the else keyword will be executed.
+
+Typical examples of "condition" statements follow some of following operations:
 mathematical comparisons like, "&lt;", "&gt;", "&lt;=", "&gt;=", "=="
 object comparisons like "is" i.e. this is exactly something or not.
-boolean logic operators like "not", "or", "and", "xor" etc.</p>
-<p>The following objects are evaluated by Python as <em><strong>False</strong></em>:</p>
-<ul>
-<li>numerical zero values (0, 0L, 0.0, 0.0+0.0j),</li>
-<li>the Boolean value False,</li>
-<li>empty strings,</li>
-<li>empty lists and empty tuples,</li>
-<li>empty dictionaries.</li>
-<li>the special value None.</li>
-</ul>
-<p>All other values are considered to be <em><strong>True</strong></em>.</p>
-<p>Let us try to solve this simple DNA sequence problem:
-<strong>Given the an input DNA sequence, print the sequence if its length is less than equal to 20. Print "Error" if the sequence is empty or its length is larger than 25. If length is between 21 and 25, print the last 5 bases only.</strong></p>
+boolean logic operators like "not", "or", "and", "xor" etc.
 
-</div>
-</div>
-</div>
+The following objects are evaluated by Python as __False__:
+
+-  numerical zero values (0, 0L, 0.0, 0.0+0.0j),
+-  the Boolean value False,
+-  empty strings,
+-  empty lists and empty tuples,
+-  empty dictionaries.
+-  the special value None.
+
+All other values are considered to be __True__.
+<p>Let us try to solve this simple DNA sequence problem:
+**Given the an input DNA sequence, print the sequence if its length is less than equal to 20. Print "Error" if the sequence is empty or its length is larger than 25. If length is between 21 and 25, print the last 5 bases only.**
+
+<br>
+
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[20]:</div>
@@ -792,17 +785,10 @@ boolean logic operators like "not", "or", "and", "xor" etc.</p>
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><em>if else</em> conditions can also be combined in a regular assignment expression to assign values. For example,
-In the DNA case, we want to store length of DNA. However, we want length to number only if length of sequence is between 1 and 25. In all other cases, we want to store the length of sequence as -1. A typical way to do this would be:</p>
 
-</div>
-</div>
-</div>
+_if else_ conditions can also be combined in a regular assignment expression to assign values. For example,
+In the DNA case, we want to store length of DNA. However, we want length to number only if length of sequence is between 1 and 25. In all other cases, we want to store the length of sequence as -1. A typical way to do this would be:
+
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[24]:</div>
@@ -812,7 +798,7 @@ In the DNA case, we want to store length of DNA. However, we want length to numb
 <span class="n">length</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
 <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">dna</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">20</span><span class="p">:</span>
     <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">dna</span><span class="p">)</span>
-    
+
 <span class="nb">print</span><span class="p">(</span><span class="n">length</span><span class="p">)</span>
 </pre></div>
 
@@ -846,7 +832,7 @@ In the DNA case, we want to store length of DNA. However, we want length to numb
 <span class="n">length</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
 <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">dna</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">20</span><span class="p">:</span>
     <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">dna</span><span class="p">)</span>
-    
+
 <span class="nb">print</span><span class="p">(</span><span class="n">length</span><span class="p">)</span>
 </pre></div>
 
@@ -943,25 +929,24 @@ In the DNA case, we want to store length of DNA. However, we want length to numb
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Loops">Loops<a class="anchor-link" href="#Loops">&#182;</a></h4><p>Many algorithms make it necessary for a programming language to have a construct which makes it possible to carry out a sequence of statements repeatedly. The code within the loop, i.e. the code carried out repeatedly, is called the body of the loop.</p>
-<p>There are two types of loops in Python -</p>
-<ol>
-<li><em>while</em> Loop</li>
-<li><em>for</em> Loop</li>
-</ol>
-<p><strong>The <em>while</em> Loop</strong></p>
-<p>These are a type of loop called "Condition-controlled loop". As suggested by the name, the loop will be repeated until a given condition changes, i.e. changes from True to False or from False to True, depending on the kind of loop.</p>
-<p>Let us consider the following example of DNA sequence:
-<strong>We want to print every base of a given sequence, until we have found 2 <code>A</code>s.</strong></p>
 
-</div>
-</div>
-</div>
+#### Loops
+
+Many algorithms make it necessary for a programming language to have a construct which makes it possible to carry out a sequence of statements repeatedly. The code within the loop, i.e. the code carried out repeatedly, is called the body of the loop.
+
+There are two types of loops in Python -
+
+1. `while` Loop
+2. `for` Loop
+
+**The `while` Loop**
+
+These are a type of loop called "Condition-controlled loop". As suggested by the name, the loop will be repeated until a given condition changes, i.e. changes from True to False or from False to True, depending on the kind of loop.
+
+Let us consider the following example of DNA sequence:
+**We want to print every base of a given sequence, until we have found 2 `A`'s.**
+
+
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[28]:</div>
@@ -1004,19 +989,14 @@ A
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>In the above example, the loop (code under the <em>while</em> block) was executed until <em>countA &lt; 2</em> statement remained true.</p>
-<p>The loops can be made to exit before its actual completion using the <strong><em>break</em></strong> statements.
-Consider the following example of DNA sequence.
-<strong>We want to print every base of a given sequence, until we have found 2 As. However, we want to stop printing as soon as we have found an 'N' base.</strong></p>
 
-</div>
-</div>
-</div>
+In the above example, the loop (code under the `while` block) was executed until _countA &lt; 2_ statement remained true.
+
+The loops can be made to exit before its actual completion using the `break` statements.
+Consider the following example of DNA sequence.
+**We want to print every base of a given sequence, until we have found 2 `A`'s. However, we want to stop printing as soon as we have found an `N` base.**
+
+
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[29]:</div>
@@ -1058,18 +1038,13 @@ C
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Now, let us consider another case while looping over something. We want to skip over a part of code at certain condition. In such cases, <em>continue</em> statement comes handy.</p>
-<p>Consider the following example wrt to DNA sequencing.
-<strong>Given a sequence of dna, we do NOT want to print the base name if it is 'N'</strong></p>
 
-</div>
-</div>
-</div>
+Now, let us consider another case while looping over something. We want to skip over a part of code at certain condition. In such cases, `continue` statement comes handy.
+
+Consider the following example wrt to DNA sequencing.
+**Given a sequence of dna, we do NOT want to print the base name if it is 'N'**
+
+
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[30]:</div>
@@ -1109,19 +1084,15 @@ C
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>The <em>for</em> Loop</strong></p>
-<p>A <em>for</em> loop is similar to while loop, except it is used to loop over certain elements, unlike while loop that continues until certain condition is satisfied. In the case DNA sequences, say, one case of <em>for</em> loop would be to loop over all bases in a sequence.</p>
-<p>Consider the following example:
-<strong>Given a DNA sequence, we want to count the number of all 'A', and 'T bases.</strong></p>
 
-</div>
-</div>
-</div>
+**The `for` Loop**
+
+A `for` loop is similar to while loop, except it is used to loop over certain elements, unlike while loop that continues until certain condition is satisfied. In the case DNA sequences, say, one case of `for` loop would be to loop over all bases in a sequence.
+
+Consider the following example:
+**Given a DNA sequence, we want to count the number of all 'A', and 'T bases.**
+
+
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[31]:</div>
@@ -1157,18 +1128,14 @@ C
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Similar to <em>while</em> loops, we can use <em>break</em> and <em>continue</em> statements with <em>for</em> loops as well.</p>
-<p>Let us look at somewhat complicated use of <em>for</em> loop:</p>
-<p><strong>Given a DNA sequence, we want to count the number of doublets of bases, i.e. no. of times certain bases come twice exactly. If some base occur more than twice, we do not want to count that.</strong></p>
 
-</div>
-</div>
-</div>
+Similar to `while` loops, we can use `break` and `continue` statements with `for` loops as well.
+
+Let us look at somewhat complicated use of `for` loop:
+
+**Given a DNA sequence, we want to count the number of doublets of bases, i.e. no. of times certain bases come twice exactly. If some base occur more than twice, we do not want to count that.**
+
+
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[32]:</div>
@@ -1211,19 +1178,16 @@ C
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Formatting-of-Output">Formatting of Output<a class="anchor-link" href="#Formatting-of-Output">&#182;</a></h4><p>Final topic for this week is the formatting of text in the print statements. Consider the following case:</p>
-<p>We have following variables:
-<em>name = "Sadanand"</em>, <em>age = 30</em>, and <em>gender = "male"</em>.</p>
-<p>We would like to print a quite cumbersome statement like as follows. This can be quite easily done using the <em>format</em> method.</p>
 
-</div>
-</div>
-</div>
+#### Formatting of Output
+
+Final topic for this week is the formatting of text in the print statements. Consider the following case:
+
+We have following variables:
+`name = "Sadanand", age = 30, and gender = "male"`
+
+We would like to print a quite cumbersome statement like as follows. This can be quite easily done using the `format` method.
+
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[33]:</div>
@@ -1257,26 +1221,17 @@ C
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Thus <em>format</em> method provides us with easy way to mix different types of variables in the strings.</p>
-<p>Thats it for this week. Next we will look at strings and lists in Python in more detail.</p>
-<p><strong>Exercise</strong></p>
-<p>Given the following sequence of dna - "ATGGCNCGAATTTAAATCGGGAACCNNN",</p>
-<ol>
-<li><p>Write a program to count number of all triplets in it.</p>
-</li>
-<li><p>Write a program that prints all non 'T' bases that come after 'T', but stops when two or more continuous 'T' has been found.</p>
-</li>
-<li><p>Write a program to generate new sequence with every 3rd base from the above sequence.</p>
-</li>
-<li><p>Write a program to calculate sum of all numbers from 1 to 10. HINT: Please take a look at the <a href="https://docs.python.org/3/library/stdtypes.html#range">range</a> method.</p>
-</li>
-</ol>
 
-</div>
-</div>
-</div>
+Thus `format` method provides us with easy way to mix different types of variables in the strings.
+
+Thats it for this week. Next we will look at strings and lists in Python in more detail.
+
+**Exercise**
+
+Given the following sequence of dna - "ATGGCNCGAATTTAAATCGGGAACCNNN",
+
+
+1. Write a program to count number of all triplets in it.
+2. Write a program that prints all non 'T' bases that come after 'T', but stops when two or more continuous 'T' has been found.
+3. Write a program to generate new sequence with every 3rd base from the above sequence.
+4. Write a program to calculate sum of all numbers from 1 to 10. **HINT:** Please take a look at the [range method](https://docs.python.org/3/library/stdtypes.html#range).
