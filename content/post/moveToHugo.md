@@ -70,26 +70,26 @@ I converted almost all of Mako theme from Nikola website to Hugo's format and ar
 
 # Shortcodes
 
-Given I am using a [bootstrap] based theme, I like having a lot of its features available to me when I am writing in Markdown. The powerful template based [shortcodes in Hugo](https://gohugo.io/extras/shortcodes/) provide a great way to write custom html code inside markdown. I feel Hugo shortcodes are so powerful, you could develop your own grammar of markup language in it! :yum:
+Given I am using a [bootstrap] based theme, I like having a lot of its features available to me when I am writing in Markdown. The powerful template based [shortcodes in Hugo](https://gohugo.io/extras/shortcodes/) provide a great way to write custom HTML code inside markdown. I feel Hugo shortcodes are so powerful, you could develop your own grammar of markup language in it! :yum:
 
 Some of my shortcodes are basically based on [bootstrap] classes like
 panel, label, emphasis, highlighted text, and block quotes. I also liked the figure command provided by restructured text in Nikola. Luckily, same features are available in Hugo using a default shortcode called `figure`. Hugo also provides several other useful default shortcodes like `youtube`, `ref/relref` for referencing other posts etc.
 
 [bootstrap]: http://getbootstrap.com
 
-I have also some additional shortcodes for codeblocks and math. I will be detailing about them in a bit more detail in the next section. All of my shortcodes are available with the theme in the same [github repo](https://github.com/sadanand-singh/sadanand-singh.github.io).
+I have also some additional shortcodes for code-blocks and math. I will be detailing about them in a bit more detail in the next section. All of my shortcodes are available with the theme in the same [github repo](https://github.com/sadanand-singh/sadanand-singh.github.io).
 
 # Other Caveats and Fixes
 
-While converting to Hugo was almost fun, there were some caveats. The issues I faced were mainly with home page, site search, and ipython notebook posts.
+While converting to Hugo was almost fun, there were some caveats. The issues I faced were mainly with home page, site search, and `ipython` notebook posts.
 
 ## Home Page with Content and Post Lists
 
-Getting home page to work was very simple. Hugo documents page provides a very clear details about order in which various templates are looked. For home page, you will need to provide a template for `index.html`. Then Inside the `content` folder, you can put metadata and content for the home page in a file named `_index.md`. 
+Getting home page to work was very simple. Hugo documents page provides a very clear details about order in which various templates are looked. For home page, you will need to provide a template for `index.html`. Then Inside the `content` folder, you can put the _metadata_ and the _content_ for the home page in a file named `_index.md`. 
 
 I also added following template code in the index.html file to get list of posts with certain tags:
 
-{{< code-block code="html" >}}
+{{< code-block code="markup" >}}
 {{ $.Scratch.Add "mlposts" slice }}
 {{ $tags := (slice "Machine Learning" "EDA" "Kaggle" "ML" "Deep Learning" "DL" "Data Science") }}
 {{ range .Site.RegularPages }}
@@ -118,7 +118,7 @@ outputs:
 
 and, using the following `index.json` template:
 
-{{< code-block code="html" >}}
+{{< code-block code="markup" >}}
 {{- $.Scratch.Add "index" slice -}}
 {{- range where .Site.RegularPages "Type" "not in"  (slice "page" "json" "nosearch") -}}
 {{- $.Scratch.Add "index" (dict "url" .Permalink "title" .Title "text" .Plain "tags" (delimit .Params.tags ", ")) -}}
@@ -130,25 +130,29 @@ Now, include the following `css` in the `<head>` of your pages:
 
     <link href="//cdnjs.cloudflare.com/ajax/libs/Tipue-Search/5.0.0/tipuesearch.css" rel="stylesheet" type="text/css">
 
-And, the following content in the `foot` of pages:
 
-    <!-- Modal -->
-    <div id="search-results" class="modal fade" role="dialog" style="height: 80%;">
-        <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">×</button>
-                <h4 class="modal-title">Search Results:</h4>
-              </div>
-              <div class="modal-body" id="tipue_search_content" style="max-height: 600px; overflow-y: auto;">
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              </div>
-            </div>
-        </div>
-    </div>
+The following `modal` code is needed to display the search results,
+preferably at the end of the __body__ of the HTMLpage:
+
+{{< code-block code="markup" >}}
+&lt;div id="search-resuts" class="modal fade" role="dialog" style="height: 80%;">
+&lt;div class="modal-dialog">
+    &lt;div class="modal-content">
+      &lt;div class="modal-header">
+        &lt;button type="button" class="close" data-dismiss="modal">×&lt;/button>
+        &lt;h4 class="modal-title">Search Results:&lt;/h4>
+      &lt;/div>
+      &lt;div class="modal-body" id="tipue_search_content" style="max-height: 600px; overflow-y: auto;">
+      &lt;/div>
+      &lt;div class="modal-footer">
+        &lt;button type="button" class="btn btn-default" data-dismiss="modal">Close&lt;/button>
+      &lt;/div>
+    &lt;/div>
+&lt;/div>
+&lt;/div>
+{{< /code-block >}}
+
+Finally, the following `javascript` in the lower end of the **body** of HTML pages:
 
     <script>
     $(document).ready(function() {
@@ -185,29 +189,29 @@ And, of course you will need a form/input for performing the search:
 
 Although, by default Hugo provides code highlighting using the [pygments](http://pygments.org), I prefer to use client-side highlighting using [prism.js](http://prismjs.com). I also use the following [plugins](http://prismjs.com/#plugins) of `prism.js` for line numbers, highlighting and cleanup of white space:
 
-- [Line Highligh](http://prismjs.com/plugins/line-highlight/)
+- [Line Highlight](http://prismjs.com/plugins/line-highlight/)
 - [Line Numbers](http://prismjs.com/plugins/line-numbers/)
 - [Normalize Whitespace](http://prismjs.com/plugins/normalize-whitespace/)
 
-Finally, I create a shortcode called _code-block_ to add relevant classes and variables around `<code` and `<pre` tags so that prism could highlight code correctly.
+Finally, I create a shortcode called _code-block_ to add relevant classes and variables around `<code>` and `<pre>` tags so that prism could highlight code correctly.
 
 ## jupyter Notebooks as Posts
 
-One of the advantages of  using Nikola is that, it provides native support for writing blog posts in jupyter notebooks.
+One of the advantages of  using Nikola is that, it provides native support for writing Blog posts in `jupyter` notebooks.
 
 But, on some google search, I found this neat solution at the following [Blog](https://sharmamohit.com/post/jupyter-notebooks-in-blog/).
 
-In summary, the solution is very simple - Use the linked [jupyter.css](http://sharmamohit.com/css/jupyter.css) file in your template. Then for any jupyter notebook, convert it to basic html using the following command:
+In summary, the solution is very simple - Use the linked [jupyter.css](http://sharmamohit.com/css/jupyter.css) file in your template. Then for any jupyter notebook, convert it to basic HTML using the following command:
 
 {{< code-block code="bash" >}}
 jupyter nbconvert --to html --template basic *source_file.ipynb*
 {{< /code-block >}}
 
-Then, finally, create a markdown file for your post, where simply put the contents of this html file as markdown supports including raw HTML code!
+Then, finally, create a markdown file for your post, where simply put the contents of this HTML file as markdown supports including raw HTML code!
 
 ## Latex Math Equations
 
-I used [katex](https://github.com/Khan/KaTeX) for using math in markdown. I was having some issue with the multi-line display math equations, so I created shortcode called _tex_ to write html code explicitly so that katex could handle that easily.
+I used [katex](https://github.com/Khan/KaTeX) for using math in markdown. I was having some issue with the multi-line display math equations, so I created shortcode called _tex_ to write HTML code explicitly so that `katex` could handle that easily.
 
 
-So there you have it. I have my blog now up and running with Hugo. Hope I will be more active here, since it now takes only seconds to deploy once I have a post written. No excuses now! :stuck_out_tongue_winking_eye:
+So there you have it. I have my Blog now up and running with Hugo. Hope I will be more active here, since it now takes only seconds to deploy once I have a post written. No excuses now! :stuck_out_tongue_winking_eye:

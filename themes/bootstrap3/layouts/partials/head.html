@@ -63,7 +63,6 @@
       <link rel="publisher" href="https://plus.google.com/{{ . | urlize }}">
     {{ end }}
 
-    <!--STYLES-->
     <link href="//cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/{{ .Site.Params.bootswatch }}/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.css" />
@@ -75,7 +74,6 @@
     <link href="{{ $.Site.BaseURL }}css/custom.min.css" rel="stylesheet" type="text/css">
     <link href="{{ $.Site.BaseURL }}css/tags.min.css" rel="stylesheet" type="text/css">
     <link href="//cdnjs.cloudflare.com/ajax/libs/Tipue-Search/5.0.0/tipuesearch.css" rel="stylesheet" type="text/css">
-    <!--STYLES END-->
 
     {{ range .Site.Params.CustomCSS }}
       <link rel="stylesheet" href="{{ $.Site.BaseURL }}{{ . }}">
