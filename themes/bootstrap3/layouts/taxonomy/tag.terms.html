@@ -14,7 +14,7 @@
               <br>
             <section>
               {{ range .Data.Terms.ByCount }}
-                <a class="tag tag--primary tag--small" href="#{{ .Name | urlize }}-list" data-tag="{{ .Name | lower }}">
+                <a class="atag tag--primary tag--small" href="#{{ .Name | urlize }}-list" data-tag="{{ .Name | lower }}">
                   {{ .Name }}
                 </a>
               {{ end }}
