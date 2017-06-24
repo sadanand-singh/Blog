@@ -1,5 +1,4 @@
-.tag, a.tag {
-    display: inline-block;
+.atag, .a.tag {
     background: #fff;
     width: auto;
     height: auto;

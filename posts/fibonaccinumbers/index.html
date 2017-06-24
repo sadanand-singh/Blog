@@ -18,7 +18,7 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.24">
+    <meta name="generator" content="Hugo 0.24.1">
     <meta name="theme" content="Bootstrap3-Lumen">
     
       <title>Moore&#39;s Law and Algorithms - Case of Fibonacci Numbers | Sadanand&#39;s Notes</title>
@@ -103,7 +103,6 @@ states that:
 
     
 
-    
     <link href="//cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/lumen/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.css" />
@@ -115,7 +114,6 @@ states that:
     <link href="https://sadanand-singh.github.io/css/custom.min.css" rel="stylesheet" type="text/css">
     <link href="https://sadanand-singh.github.io/css/tags.min.css" rel="stylesheet" type="text/css">
     <link href="//cdnjs.cloudflare.com/ajax/libs/Tipue-Search/5.0.0/tipuesearch.css" rel="stylesheet" type="text/css">
-    
 
     
 
@@ -365,7 +363,7 @@ def fibRecursive(n):
         return 0
     if n == 1:
         return 1
-    return fibRecursive(n-2)+fibRecursive(n-1)
+    return fibRecursive(n-2)&#43;fibRecursive(n-1)
 
 </code>
 </pre>
@@ -440,8 +438,8 @@ def fibN2(n):
     if n == 0:
         return 0
 
-    for i in range(1,n+1):
-        c = a + b
+    for i in range(1,n&#43;1):
+        c = a &#43; b
         a = b
         b = c
 
@@ -481,15 +479,15 @@ divide and conquer scheme in $\mathcal{O}(\log{}n)$ time.</p>
 def mul(A, B):
     a, b, c = A
     d, e, f = B
-    return a*d + b*e, a*e + b*f, b*e + c*f
+    return a*d &#43; b*e, a*e &#43; b*f, b*e &#43; c*f
 
 def pow(A, n):
     if n == 1:     return A
-    if n & 1 == 0: return pow(mul(A, A), n//2)
+    if n &amp; 1 == 0: return pow(mul(A, A), n//2)
     else:          return mul(A, pow(mul(A, A), (n-1)//2))
 
 def fibLogN(n):
-    if n < 2: return n
+    if n &lt; 2: return n
     return pow((1,1,0), n-1)[0]
 
 </code>
@@ -518,26 +516,26 @@ _CUTOFF = 1536
 def mul(A, B):
     a, b, c = A
     d, e, f = B
-    return multiply(a,d) + multiply(b,e), multiply(a,e) + multiply(b,f), multiply(b,e) + multiply(c,f)
+    return multiply(a,d) &#43; multiply(b,e), multiply(a,e) &#43; multiply(b,f), multiply(b,e) &#43; multiply(c,f)
 
 def multiply(x, y):
-    if x.bit_length() <= _CUTOFF or y.bit_length() <= _CUTOFF:
+    if x.bit_length() &lt;= _CUTOFF or y.bit_length() &lt;= _CUTOFF:
         return x * y
 
     else:
         n = max(x.bit_length(), y.bit_length())
-        half = (n + 32) // 64 * 32
-        mask = (1 << half) - 1
-        xlow = x & mask
-        ylow = y & mask
-        xhigh = x >> half
-        yhigh = y >> half
+        half = (n &#43; 32) // 64 * 32
+        mask = (1 &lt;&lt; half) - 1
+        xlow = x &amp; mask
+        ylow = y &amp; mask
+        xhigh = x &gt;&gt; half
+        yhigh = y &gt;&gt; half
 
         a = multiply(xhigh, yhigh)
-        b = multiply(xlow + xhigh, ylow + yhigh)
+        b = multiply(xlow &#43; xhigh, ylow &#43; yhigh)
         c = multiply(xlow, ylow)
         d = b - a - c
-        return (((a << half) + d) << half) + c
+        return (((a &lt;&lt; half) &#43; d) &lt;&lt; half) &#43; c
 
 
 </code>
@@ -601,13 +599,13 @@ $$F_{2K&#43;1} = {F_{K&#43;1}}^2&#43;{F_K}^2$$
 <pre class="line-numbers"  data-line="3-5">
 <code class="language-python"> 
 def fibFast(n):
-    if n <= 2:
+    if n &lt;= 2:
         return 1
     k = n // 2
-    a = fibFast(k + 1)
+    a = fibFast(k &#43; 1)
     b = fibFast(k)
     if n % 2 == 1:
-        return multiply(a,a) + multiply(b,b)
+        return multiply(a,a) &#43; multiply(b,b)
     else:
         return multiply(b,(2*a - b))
 

@@ -18,7 +18,7 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.24">
+    <meta name="generator" content="Hugo 0.24.1">
     <meta name="theme" content="Bootstrap3-Lumen">
     
       <title>My Arch Linux Setup with Plasma 5 | Sadanand&#39;s Notes</title>
@@ -82,7 +82,6 @@ In this post, we will do a complete installation of Arch Linux with Plasma 5 as 
 
     
 
-    
     <link href="//cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/lumen/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.css" />
@@ -94,7 +93,6 @@ In this post, we will do a complete installation of Arch Linux with Plasma 5 as 
     <link href="https://sadanand-singh.github.io/css/custom.min.css" rel="stylesheet" type="text/css">
     <link href="https://sadanand-singh.github.io/css/tags.min.css" rel="stylesheet" type="text/css">
     <link href="//cdnjs.cloudflare.com/ajax/libs/Tipue-Search/5.0.0/tipuesearch.css" rel="stylesheet" type="text/css">
-    
 
     
 
@@ -441,18 +439,18 @@ $ Command (? for help): m
 $ Command (? for help): n
 
 $ Partition number (1-128, default 1):
-$ First sector (34-500118158, default = 2048) or {+-}size{KMGTP}:
-$ Last sector (2048-500118, default = 500118) or {+-}size{KMGTP}: 512M
-$ Current type is 'Linux filesystem'
+$ First sector (34-500118158, default = 2048) or {&#43;-}size{KMGTP}:
+$ Last sector (2048-500118, default = 500118) or {&#43;-}size{KMGTP}: 512M
+$ Current type is &#39;Linux filesystem&#39;
 $ Hex code or GUID (L to show codes, Enter = 8300): ef00
-$ Changed type of partition to 'EFI System'
+$ Changed type of partition to &#39;EFI System&#39;
 
 $ Partition number (2-128, default 2):
-$ First sector (34-500118, default = 16779264) or {+-}size{KMGTP}:
-$ Last sector (16779264-500118, default = 500118) or {+-}size{KMGTP}:
-$ Current type is 'Linux filesystem'
+$ First sector (34-500118, default = 16779264) or {&#43;-}size{KMGTP}:
+$ Last sector (16779264-500118, default = 500118) or {&#43;-}size{KMGTP}:
+$ Current type is &#39;Linux filesystem&#39;
 $ Hex code or GUID (L to show codes, Enter = 8300):
-$ Changed type of partition to 'Linux filesystem'
+$ Changed type of partition to &#39;Linux filesystem&#39;
 
 $ Command (? for help): p
 $ Press w to write to disk
@@ -480,7 +478,7 @@ volume, open it and then format it.</p>
 # first, we need to prepare the encrypted (outer) volume
 $ cryptsetup --cipher aes-xts-plain64 --hash sha512 --use-random --verify-passphrase luksFormat /dev/sda2
 
-# I really hope I don't have to lecture you on NOT LOSING this
+# I really hope I don&#39;t have to lecture you on NOT LOSING this
 # password, lest all of your data will be forever inaccessible,
 # right?
 
@@ -596,10 +594,10 @@ appropriate locations with optimal flags.</p>
 
 <pre  >
 <code class="language-bash"> 
-$ SSD_MOUNTS="rw,noatime,nodev,compress=lzo,ssd,discard,
-    space_cache,autodefrag,inode_cache"
-$ HDD_MOUNTS="rw,nosuid,nodev,relatime,space_cache"
-$ EFI_MOUNTS="rw,noatime,discard,nodev,nosuid,noexec"
+$ SSD_MOUNTS=&#34;rw,noatime,nodev,compress=lzo,ssd,discard,
+    space_cache,autodefrag,inode_cache&#34;
+$ HDD_MOUNTS=&#34;rw,nosuid,nodev,relatime,space_cache&#34;
+$ EFI_MOUNTS=&#34;rw,noatime,discard,nodev,nosuid,noexec&#34;
 $ mount -o $SSD_MOUNTS,subvol=ROOT /dev/mapper/root /mnt
 $ mkdir -p /mnt/home
 $ mkdir -p /mnt/data
@@ -637,7 +635,7 @@ $ cp /etc/resolv.conf /mnt/etc/resolv.conf
 <pre  >
 <code class="language-bash"> 
 $ pacstrap /mnt base base-devel btrfs-progs
-$ genfstab -U -p /mnt >> /mnt/etc/fstab
+$ genfstab -U -p /mnt &gt;&gt; /mnt/etc/fstab
 
 </code>
 </pre>
@@ -660,7 +658,7 @@ tmpfs /dev/shm tmpfs rw,nodev,nosuid,noexec 0 0
 
 <pre  >
 <code class="language-bash"> 
-$ arch-chroot /mnt "bash"
+$ arch-chroot /mnt &#34;bash&#34;
 $ pacman -Syy
 $ pacman -Syu
 $ pacman -S sudo vim
@@ -673,14 +671,14 @@ en_US.UTF-8 UTF-8
 ...
 
 $ locale-gen
-$ echo LANG=en_US.UTF-8 > /etc/locale.conf
+$ echo LANG=en_US.UTF-8 &gt; /etc/locale.conf
 $ export LANG=en_US.UTF-8
 $ ls -l /usr/share/zoneinfo
 $ ln -sf /usr/share/zoneinfo/Zone/SubZone /etc/localtime
 $ hwclock --systohc --utc
-$ sed -i "s/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/" /etc/sudoers
+$ sed -i &#34;s/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/&#34; /etc/sudoers
 $ HOSTNAME=euler
-$ echo $HOSTNAME > /etc/hostname
+$ echo $HOSTNAME &gt; /etc/hostname
 $ passwd
 
 </code>
@@ -708,14 +706,14 @@ need.</p>
 <pre  >
 <code class="language-bash"> 
 $ vi /etc/mkinitcpio.conf
-# on the MODULES section, add "vfat aes_x86_64 crc32c-intel"
+# on the MODULES section, add &#34;vfat aes_x86_64 crc32c-intel&#34;
 # (and whatever else you know your hardware needs. Mine needs i915 too)
-# on the BINARIES section, add "/usr/bin/btrfsck", since it's useful
+# on the BINARIES section, add &#34;/usr/bin/btrfsck&#34;, since it&#39;s useful
 # to have in case your filesystem has troubles
 # on the HOOKS section:
-#  - add "encrypt" before "filesystems"
-#  - remove "fsck" and
-#  - add "btrfs" at the end
+#  - add &#34;encrypt&#34; before &#34;filesystems&#34;
+#  - remove &#34;fsck&#34; and
+#  - add &#34;btrfs&#34; at the end
 #
 # re-generate your initrd images
 mkinitcpio -p linux
@@ -754,16 +752,16 @@ our hard drives. These can be easily done using the <em>blkid</em> command.</p>
 
 <pre  >
 <code class="language-bash"> 
-$ blkid /dev/sda1 > /boot/loader/entries/arch.conf
-$ blkid /dev/sda2 >> /boot/loader/entries/arch.conf
-$ blkid /dev/mapper/root >> /boot/loader/entries/arch.conf
-$ blkid /dev/sdd1 >> /boot/loader/entries/arch.conf
+$ blkid /dev/sda1 &gt; /boot/loader/entries/arch.conf
+$ blkid /dev/sda2 &gt;&gt; /boot/loader/entries/arch.conf
+$ blkid /dev/mapper/root &gt;&gt; /boot/loader/entries/arch.conf
+$ blkid /dev/sdd1 &gt;&gt; /boot/loader/entries/arch.conf
 
-# for this example, I'm going to mark them like this:
-# /dev/sda1 LABEL="EFI"                 UUID=11111111-1111-1111-1111-111111111111
-# /dev/sda2 LABEL="arch"      UUID=33333333-3333-3333-3333-333333333333
-# /dev/mapper/root LABEL="Arch Linux"   UUID=44444444-4444-4444-4444-444444444444
-# /dev/sdd1 LABEL="USB"     UUID=0000-0000  # this is the drive where KEYFILE exists
+# for this example, I&#39;m going to mark them like this:
+# /dev/sda1 LABEL=&#34;EFI&#34;                 UUID=11111111-1111-1111-1111-111111111111
+# /dev/sda2 LABEL=&#34;arch&#34;      UUID=33333333-3333-3333-3333-333333333333
+# /dev/mapper/root LABEL=&#34;Arch Linux&#34;   UUID=44444444-4444-4444-4444-444444444444
+# /dev/sdd1 LABEL=&#34;USB&#34;     UUID=0000-0000  # this is the drive where KEYFILE exists
 
 </code>
 </pre>
@@ -969,7 +967,7 @@ commands whenever you see <em>ssingh</em> please replace it with your
 <code class="language-bash"> 
 $ pacman -S zsh
 $ useradd -m -G wheel -s usr/bin/zsh $USERNAME
-$ chfn --full-name "$FULL_NAME" $USERNAME
+$ chfn --full-name &#34;$FULL_NAME&#34; $USERNAME
 $ passwd $USERNAME
 
 </code>
@@ -1048,16 +1046,16 @@ $ mv /etc/X11/xorg.cong /etc/X11/xorg.conf.d/20-nvidia.conf
 # Edit this file as follows:
 vim /etc/X11/xorg.conf.d/20-nvidia.conf
 # -------------------------------------------
-# Section "Screen"
-#     Identifier     "Screen0"
-#     Option         "metamodes" "nvidia-auto-select +0+0 { ForceFullCompositionPipeline = On }"
-#     Option         "AllowIndirectGLXProtocol" "off"
-#     Option         "TripleBuffer" "on"
+# Section &#34;Screen&#34;
+#     Identifier     &#34;Screen0&#34;
+#     Option         &#34;metamodes&#34; &#34;nvidia-auto-select &#43;0&#43;0 { ForceFullCompositionPipeline = On }&#34;
+#     Option         &#34;AllowIndirectGLXProtocol&#34; &#34;off&#34;
+#     Option         &#34;TripleBuffer&#34; &#34;on&#34;
 # EndSection
 [...]
-# Section "Device"
+# Section &#34;Device&#34;
 #     [...]
-#     Option         "TripleBuffer" "True"
+#     Option         &#34;TripleBuffer&#34; &#34;True&#34;
 #     [...]
 # EndSection
 # [...]
@@ -1110,7 +1108,7 @@ setting.</p>
 $ vim /etc/mkinitcpio.conf
 $
 ...
-MODULES="vfat aes_x86_64 crc32c-intel nvidia nvidia_modeset nvidia_uvm nvidia_drm"
+MODULES=&#34;vfat aes_x86_64 crc32c-intel nvidia nvidia_modeset nvidia_uvm nvidia_drm&#34;
 ...
 $
 $ vim /boot/loader/entries/arch.conf
@@ -1220,7 +1218,7 @@ $ vim /etc/pacman.d/mirrorlist.us
 ....
 # Delete all non-US servers
 ....
-$ rankmirrors -n 6 /etc/pacman.d/mirrorlist.us > /etc/pacman.d/mirrorlist
+$ rankmirrors -n 6 /etc/pacman.d/mirrorlist.us &gt; /etc/pacman.d/mirrorlist
 
 </code>
 </pre>
@@ -1498,12 +1496,12 @@ also activated a basic setup at first login by the user.</p>
 
 <pre  >
 <code class="language-bash"> 
-$ git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+$ git clone --recursive https://github.com/sorin-ionescu/prezto.git &#34;${ZDOTDIR:-$HOME}/.zprezto&#34;
 $
 $ setopt EXTENDED_GLOB
-$ for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N);
+$ for rcfile in &#34;${ZDOTDIR:-$HOME}&#34;/.zprezto/runcoms/^README.md(.N);
 do
-    ln -sf "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+    ln -sf &#34;$rcfile&#34; &#34;${ZDOTDIR:-$HOME}/.${rcfile:t}&#34;
 done
 $
 
@@ -1563,12 +1561,12 @@ $ vim ~/.zshrc
 export GPG_TTY=$(tty)
 
 # Refresh gpg-agent tty in case user switches into an X Session
-gpg-connect-agent updatestartuptty /bye >/dev/null
+gpg-connect-agent updatestartuptty /bye &gt;/dev/null
 
 # Set SSH to use gpg-agent
 unset SSH_AGENT_PID
-if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
-  export SSH_AUTH_SOCK="/run/user/$UID/gnupg/S.gpg-agent.ssh"
+if [ &#34;${gnupg_SSH_AUTH_SOCK_by:-0}&#34; -ne $$ ]; then
+  export SSH_AUTH_SOCK=&#34;/run/user/$UID/gnupg/S.gpg-agent.ssh&#34;
 fi
 ...
 $
@@ -1638,10 +1636,10 @@ $ paci conky-lua-nv
 <code class="language-bash"> 
 $ mkdir -p $HOME/.config/conky
 # Generate sample conky config file
-$ conky -C > $HOME/.config/conky/conky.conf
+$ conky -C &gt; $HOME/.config/conky/conky.conf
 $
 # start conky in background
-$ conky &
+$ conky &amp;
 
 </code>
 </pre>
@@ -1659,9 +1657,9 @@ conky.config = {
         total_run_times = 0,
         own_window_argb_visual = true,
         own_window = true,
-        own_window_type = 'dock',
+        own_window_type = &#39;dock&#39;,
         own_window_transparent = true,
-        own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+        own_window_hints = &#39;undecorated,below,sticky,skip_taskbar,skip_pager&#39;,
         double_buffer = true,
         draw_shades = false,
         draw_outline = false,
@@ -1669,33 +1667,33 @@ conky.config = {
         draw_graph_borders = false,
         stippled_borders = 0,
         border_width = 0,
-        default_color = 'white',
-        default_shade_color = '#000000',
-        default_outline_color = '#000000',
+        default_color = &#39;white&#39;,
+        default_shade_color = &#39;#000000&#39;,
+        default_outline_color = &#39;#000000&#39;,
         minimum_width = 2500, minimum_height = 3500,
         maximum_width = 2500,
         gap_x = 2980,
         gap_y = 0,
-        alignment = 'top_left',
+        alignment = &#39;top_left&#39;,
         no_buffers = true,
         uppercase = false,
         cpu_avg_samples = 2,
         net_avg_samples = 2,
         --short_units = true,
         text_buffer_size = 2048,
-        use_spacer = 'none',
+        use_spacer = &#39;none&#39;,
         override_utf8_locale = true,
-        color1 = '#424240',
-        color2 = '2a2b2f',
-        color3 = '#FF4B4C',--0E87E4
-        color4 = '#73bcca',
+        color1 = &#39;#424240&#39;,
+        color2 = &#39;2a2b2f&#39;,
+        color3 = &#39;#FF4B4C&#39;,--0E87E4
+        color4 = &#39;#73bcca&#39;,
         own_window_argb_value = 0,
-        --own_window_colour = '#000000',
+        --own_window_colour = &#39;#000000&#39;,
 --lua_load rings-v1.2.1.lua
-        lua_draw_hook_pre = 'ring_stats',
+        lua_draw_hook_pre = &#39;ring_stats&#39;,
 
 --lua_load lilas_rings.lua
-        lua_draw_hook_post = 'main',
+        lua_draw_hook_post = &#39;main&#39;,
 };
 
 conky.text = [[
@@ -1703,9 +1701,9 @@ ${goto 200}${voffset 100}${color2}${font Nothing You Could Do:size=50}${time %I:
 ${goto 185}${voffset 10}${color4}${font Bad Script:size=30}${time %A}
 ${goto 185}${voffset -35}${font Bad Script:size=18}${time  %d %B, %Y}
 
-${goto -80}${voffset -35}${font Pompiere:size=11}${color 3eafe8}//${color4} CPU: ${execi 1000 cat /proc/cpuinfo | grep 'model name' | sed -e 's/model name.*: //'| uniq | cut -c 19-25} ${color ff3d3d}${hwmon 0 temp 1}°C ${color 3eafe8}//${color4} Load: ${color ff3d3d} ${cpu cpu0}% ${color 3eafe8}// RAM:${color ff3d3d} ${memperc}% / $memmax ${color 3eafe8}//
+${goto -80}${voffset -35}${font Pompiere:size=11}${color 3eafe8}//${color4} CPU: ${execi 1000 cat /proc/cpuinfo | grep &#39;model name&#39; | sed -e &#39;s/model name.*: //&#39;| uniq | cut -c 19-25} ${color ff3d3d}${hwmon 0 temp 1}°C ${color 3eafe8}//${color4} Load: ${color ff3d3d} ${cpu cpu0}% ${color 3eafe8}// RAM:${color ff3d3d} ${memperc}% / $memmax ${color 3eafe8}//
 
-${goto -80}${voffset -35}${font Pompiere:size=11}${color 3eafe8}//${color4} GPU: ${execi 1000000 nvidia-smi --query-gpu="name,driver_version" --format="csv,noheader" | cut -c 9-18} ${color ff3d3d} ${nvidia temp}°C ${color 3eafe8}//${color4} Load: ${color ff3d3d}${exec nvidia-smi --query-gpu="utilization.gpu" --format="csv,noheader"} ${color 3eafe8}// Free: ${color ff3d3d} ${exec nvidia-smi --query-gpu="memory.free" --format="csv,noheader"} ${color 3eafe8}//
+${goto -80}${voffset -35}${font Pompiere:size=11}${color 3eafe8}//${color4} GPU: ${execi 1000000 nvidia-smi --query-gpu=&#34;name,driver_version&#34; --format=&#34;csv,noheader&#34; | cut -c 9-18} ${color ff3d3d} ${nvidia temp}°C ${color 3eafe8}//${color4} Load: ${color ff3d3d}${exec nvidia-smi --query-gpu=&#34;utilization.gpu&#34; --format=&#34;csv,noheader&#34;} ${color 3eafe8}// Free: ${color ff3d3d} ${exec nvidia-smi --query-gpu=&#34;memory.free&#34; --format=&#34;csv,noheader&#34;} ${color 3eafe8}//
 
 ]];
 
@@ -1738,7 +1736,7 @@ $ sudo pacman-key --add sublimehq-pub.gpg
 $ sudo pacman-key --lsign-key 8A8F901A
 $ rm sublimehq-pub.gpg
 $
-$ echo -e "\n[sublime-text]\nServer = https://download.sublimetext.com/arch/dev/x86_64" | sudo tee -a /etc/pacman.conf
+$ echo -e &#34;\n[sublime-text]\nServer = https://download.sublimetext.com/arch/dev/x86_64&#34; | sudo tee -a /etc/pacman.conf
 
 </code>
 </pre>

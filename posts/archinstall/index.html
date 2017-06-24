@@ -18,7 +18,7 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.24">
+    <meta name="generator" content="Hugo 0.24.1">
     <meta name="theme" content="Bootstrap3-Lumen">
     
       <title>Arch Installation Guide | Sadanand&#39;s Notes</title>
@@ -118,7 +118,6 @@ come in terms of looks - quite close to OSX!
 
     
 
-    
     <link href="//cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/lumen/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.css" />
@@ -130,7 +129,6 @@ come in terms of looks - quite close to OSX!
     <link href="https://sadanand-singh.github.io/css/custom.min.css" rel="stylesheet" type="text/css">
     <link href="https://sadanand-singh.github.io/css/tags.min.css" rel="stylesheet" type="text/css">
     <link href="//cdnjs.cloudflare.com/ajax/libs/Tipue-Search/5.0.0/tipuesearch.css" rel="stylesheet" type="text/css">
-    
 
     
 
@@ -314,8 +312,8 @@ installation media. I used my mac to do this on terminal:</p>
 $ diskutil list
 $ diskutil unmountDisk /dev/disk1
 $ dd if=image.iso of=/dev/rdisk1 bs=1m
-20480+0 records in
-20480+0 records out
+20480&#43;0 records in
+20480&#43;0 records out
 167772160 bytes transferred in 220.016918 secs (762542 bytes/sec)
 
 $ diskutil eject /dev/disk1
@@ -444,18 +442,18 @@ $ Command (? for help): m
 $ Command (? for help): n
 
 $ Partition number (1-128, default 1):
-$ First sector (34-500118158, default = 2048) or {+-}size{KMGTP}:
-$ Last sector (2048-500118, default = 500118) or {+-}size{KMGTP}: 512M
-$ Current type is 'Linux filesystem'
+$ First sector (34-500118158, default = 2048) or {&#43;-}size{KMGTP}:
+$ Last sector (2048-500118, default = 500118) or {&#43;-}size{KMGTP}: 512M
+$ Current type is &#39;Linux filesystem&#39;
 $ Hex code or GUID (L to show codes, Enter = 8300): ef00
-$ Changed type of partition to 'EFI System'
+$ Changed type of partition to &#39;EFI System&#39;
 
 $ Partition number (2-128, default 2):
-$ First sector (34-500118, default = 16779264) or {+-}size{KMGTP}:
-$ Last sector (16779264-500118, default = 500118) or {+-}size{KMGTP}:
-$ Current type is 'Linux filesystem'
+$ First sector (34-500118, default = 16779264) or {&#43;-}size{KMGTP}:
+$ Last sector (16779264-500118, default = 500118) or {&#43;-}size{KMGTP}:
+$ Current type is &#39;Linux filesystem&#39;
 $ Hex code or GUID (L to show codes, Enter = 8300):
-$ Changed type of partition to 'Linux filesystem'
+$ Changed type of partition to &#39;Linux filesystem&#39;
 
 $ Command (? for help): p
 $ Press w to write to disk
@@ -509,10 +507,10 @@ appropriate locations with optimal flags.</p>
 
 <pre  >
 <code class="language-bash"> 
-$SSD_MOUNTS="rw,noatime,nodev,compress=lzo,ssd,discard,
-    space_cache,autodefrag,inode_cache"
-$ HDD_MOUNTS="rw,nosuid,nodev,relatime,space_cache"
-$ EFI_MOUNTS="rw,noatime,discard,nodev,nosuid,noexec"
+$SSD_MOUNTS=&#34;rw,noatime,nodev,compress=lzo,ssd,discard,
+    space_cache,autodefrag,inode_cache&#34;
+$ HDD_MOUNTS=&#34;rw,nosuid,nodev,relatime,space_cache&#34;
+$ EFI_MOUNTS=&#34;rw,noatime,discard,nodev,nosuid,noexec&#34;
 $ mount -o $SSD_MOUNTS,subvol=ROOT /dev/sda2 /mnt
 $ mkdir -p /mnt/home
 $ mkdir -p /mnt/data
@@ -535,7 +533,7 @@ $ mount -o $EFI_MOUNTS /dev/sda1 /mnt/boot
 <pre  >
 <code class="language-bash"> 
 $ pacstrap /mnt base base-devel btrfs-progs
-$ genfstab -U -p /mnt >> /mnt/etc/fstab
+$ genfstab -U -p /mnt &gt;&gt; /mnt/etc/fstab
 
 </code>
 </pre>
@@ -595,16 +593,16 @@ en_US.UTF-8 UTF-8
 ...
 
 $ locale-gen
-$ echo LANG=en_US.UTF-8 > /etc/locale.conf
+$ echo LANG=en_US.UTF-8 &gt; /etc/locale.conf
 $ export LANG=en_US.UTF-8
 $ ls -l /usr/share/zoneinfo
 $ ln -sf /usr/share/zoneinfo/Zone/SubZone /etc/localtime
 $ hwclock --systohc --utc
-$ sed -i "s/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/" /etc/sudoers
+$ sed -i &#34;s/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/&#34; /etc/sudoers
 $ HOSTNAME=euler
-$ echo $HOSTNAME > /etc/hostname
+$ echo $HOSTNAME &gt; /etc/hostname
 $ pacman -S dosfstools efibootmgr
-$ sed -i 's/^\(HOOKS=.*fsck\)\(.*$\)/\1 btrfs\2/g' /etc/mkinitcpio.conf
+$ sed -i &#39;s/^\(HOOKS=.*fsck\)\(.*$\)/\1 btrfs\2/g&#39; /etc/mkinitcpio.conf
 $ mkinitcpio -p linux
 $ passwd
 
@@ -743,7 +741,7 @@ $
         I/O ports at d000 [size=256]
         Memory at f7100000 (64-bit, non-prefetchable) [size=4K]
         Memory at f2100000 (64-bit, prefetchable) [size=16K]
-        Capabilities: <access denied>
+        Capabilities: &lt;access denied&gt;
         Kernel driver in use: r8169
         Kernel modules: r8169
 ...
@@ -762,7 +760,7 @@ $ dmesg | grep r8169
 $
 ...
 [    3.215178] r8169 Gigabit Ethernet driver 2.3LK-NAPI loaded
-[    3.215185] r8169 0000:04:00.0: can't disable ASPM; OS doesn't have ASPM control
+[    3.215185] r8169 0000:04:00.0: can&#39;t disable ASPM; OS doesn&#39;t have ASPM control
 [    3.220477] r8169 0000:04:00.0 eth0: RTL8168g/8111g at 0xffffc90000c74000, 78:24:af:d7:1d:3d, XID 0c000800 IRQ 29
 [    3.220481] r8169 0000:04:00.0 eth0: jumbo features [frames: 9200 bytes, tx checksumming: ko]
 [    3.226949] r8169 0000:04:00.0 enp4s0: renamed from eth0
@@ -794,7 +792,7 @@ $
 $ ip link
 $
 ...
-2: enp4s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP mode DEFAULT group default qlen 1000
+2: enp4s0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel state UP mode DEFAULT group default qlen 1000
     link/ether 78:24:af:d7:1d:3d brd ff:ff:ff:ff:ff:ff
 ...
 $
