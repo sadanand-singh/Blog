@@ -25,7 +25,9 @@ content creation. Personally, I use markdown for almost every thing
 else - taking notes, making diary, code documentation etc. 
 Furthermore, given Nikola tries to support almost everything in a 
 static site builder, lately its is becoming more and more bloated.
+
 <!--more-->
+
 Case in  point, recently it got support for [shortcodes] and although that did 
 enable me to write posts in Markdown, but it is so difficult to 
 develop them (It does not help to have almost no documentation/guide 
@@ -38,7 +40,6 @@ with light support for template based shortcodes.
 [plugin]: https://plugins.getnikola.com
 
 I really have nothing against [Nikola]. However, I did not feel at home - I wanted a light system that focused on markdown and had all the flexibilities that I wanted. My research soon brought me to [Hugo].
-
 
 [Hugo]: https://gohugo.io
 
