@@ -152,7 +152,6 @@ preferably at the end of the __body__ of the HTMLpage:
     </div>
 </div>
 </div>
-{{\< panel warning >}} Hi there {{\< /panel >}}
 {{< /code-block >}}
 
 Finally, the following `javascript` in the lower end of the **body** of HTML pages:
@@ -207,7 +206,15 @@ One of the advantages of  using Nikola is that, it provides native support for w
 
 But, on some google search, I found this neat solution at the following [Blog](https://sharmamohit.com/post/jupyter-notebooks-in-blog/).
 
-In summary, the solution is very simple - Use the linked [jupyter.css](http://sharmamohit.com/css/jupyter.css) file in your template. Then for any jupyter notebook, convert it to basic HTML using the following command:
+In summary, the solution is very simple - Use the linked [jupyter.css](http://sharmamohit.com/css/jupyter.css) file in your template. I add this `css` file based on a _metadata_ named `notebook: true` in a given post:
+
+{{< code-block code="markup" >}}
+{{ if .Params.notebook }}
+    <link href="{{ $.Site.BaseURL }}css/jupyter.css" rel="stylesheet" type="text/css">
+{{ end }}
+{{< /code-block >}}
+
+Then for any jupyter notebook, convert it to basic HTML using the following command:
 
 {{< code-block code="bash" >}}
 jupyter nbconvert --to html --template basic *source_file.ipynb*
@@ -218,5 +225,43 @@ Then, finally, create a markdown file for your post, where simply put the conten
 ## Latex Math Equations
 
 I used [katex](https://github.com/Khan/KaTeX) for using math in markdown. I was having some issue with the multi-line display math equations, so I created shortcode called _tex_ to write HTML code explicitly so that `katex` could handle that easily.
+
+I added following code in the `<head>` of all of posts:
+
+{{< code-block code="bash" >}}
+{{ if .Params.hasMath }}
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css"
+    integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0"
+    crossorigin="anonymous">
+{{ end }}
+{{< /code-block >}}
+
+And the following script at the end of the `<body>` section:
+
+{{< code-block code="bash" >}}
+{{ if .Params.hasMath }}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js"
+    integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" 
+    crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js"
+    integrity="sha256-ExtbCSBuYA7kq1Pz362ibde9nnsHYPt6JxuxYeZbU+c=" 
+    crossorigin="anonymous"></script>
+    <script>
+        renderMathInElement(document.body,
+            {
+                delimiters: [
+                    {left: "\\\\begin{equation*}", right: "\\\\end{equation*}", display: true},
+                    {left: "$$", right: "$$", display: true},
+                    {left: "\\\[", right: "\\\]", display: true},
+                    {left: "$", right: "$", display: false},
+                    {left: "\\\(", right: "\\\)", display: false}
+                ]
+            }
+        );
+    </script>
+{{ end }}
+{{< /code-block >}}
+
+Now, whenever, I need to add math equations in a post, enable the `hasMath: true` parameter in its _metadata_.
 
 So there you have it. I have my Blog now up and running with Hugo. Hope I will be more active here, since it now takes only seconds to deploy once I have a post written. No excuses now! :stuck_out_tongue_winking_eye:
