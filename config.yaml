@@ -58,7 +58,7 @@ noTimes:                    false
 paginate:                   8
 paginatePath:               "page"
 permalinks:
-    post: "/posts/:slug/"
+  post:  "/posts/:slug/"
 # Pluralize titles in lists using inflect
 pluralizeListTitles:        true
 # Preserve special characters in taxonomy names ("Gérard Depardieu" vs "Gerard Depardieu")
@@ -83,9 +83,9 @@ staticDir:                  "static"
 stepAnalysis:               false
 # taxanomies
 taxonomies:
-    tag:                    "tags"
-    category:               "categories"
-    archive:                "archives"
+  tag:                      "tags"
+  category:                 "categories"
+  archive:                  "archives"
 # theme to use (located by default in /themes/THEMENAME/)
 themesDir:                  "themes"
 theme:                      "bootstrap3"
@@ -119,77 +119,74 @@ outputs:
 # Menus in the top nav bar
 menu:
   main:
-      - Name: "Blog"
-        Weight: 1
-        Identifier: "blog"
-        URL: "/post/"
-      - Name: "Tags"
-        Weight: 2
-        Identifier: "tags"
-        URL: "/tags/"
-      - Name: "Categories"
-        Weight: 3
-        Identifier: "categories"
-        URL: "/categories/"
-      - Name: "Archive"
-        Weight: 4
-        Identifier: "archives"
-        URL: "/archives/"
+    - Name: "Blog"
+      Weight: 1
+      Identifier: "blog"
+      URL: "/post/"
+    - Name: "Tags"
+      Weight: 2
+      Identifier: "tags"
+      URL: "/tags/"
+    - Name: "Categories"
+      Weight: 3
+      Identifier: "categories"
+      URL: "/categories/"
+    - Name: "Archive"
+      Weight: 4
+      Identifier: "archives"
+      URL: "/archives/"
 
 #Params
 params:
-    dateFormat:              "2006-01-02"
-    hierarchicalcategories:  false
-    fbAppId:                 "993596464012237"
-    showTitle:               true
-    bootswatch:              "lumen"
-    socialButtonsCode:       "ra-53f6d74a591ace8f"
-    license:              '<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.'
+  dateFormat:              "2006-01-02"
+  hierarchicalcategories:  false
+  fbAppId:                 "993596464012237"
+  showTitle:               true
+  bootswatch:              "lumen"
+  socialButtonsCode:       "ra-53f6d74a591ace8f"
+  license:                 '<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.'
 
 # Things that will be passed to CONTENT_FOOTER.format().  This is done
-
-    favicons:
-        - Icon: "favicon.ico"
-          Size: "16x16"
-        - Icon: "favicon-32x32.png"
-          Size: "32x32"
-        - Icon: "favicon-96x96.png"
-          Size: "96x96"
-        - Icon: "apple-icon.png"
-          Size: "192x192"
-        - Icon: "apple-icon-precomposed.png"
-          Size: "192x192"
-        - Icon: "apple-icon-57x57.png"
-          Size: "57x57"
-        - Icon: "apple-icon-60x60.png"
-          Size: "60x60"
-        - Icon: "apple-icon-72x72.png"
-          Size: "72x72"
-        - Icon: "apple-icon-76x76.png"
-          Size: "76x76"
-        - Icon: "apple-icon-114x114.png"
-          Size: "114x114"
-        - Icon: "apple-icon-120x120.png"
-          Size: "120x120"
-        - Icon: "apple-icon-144x144.png"
-          Size: "144x144"
-        - Icon: "apple-icon-152x152.png"
-          Size: "152x152"
-        - Icon: "apple-icon-180x180.png"
-          Size: "180x180"
-
+  favicons:
+    - Icon: "favicon.ico"
+      Size: "16x16"
+    - Icon: "favicon-32x32.png"
+      Size: "32x32"
+    - Icon: "favicon-96x96.png"
+      Size: "96x96"
+    - Icon: "apple-icon.png"
+      Size: "192x192"
+    - Icon: "apple-icon-precomposed.png"
+      Size: "192x192"
+    - Icon: "apple-icon-57x57.png"
+      Size: "57x57"
+    - Icon: "apple-icon-60x60.png"
+      Size: "60x60"
+    - Icon: "apple-icon-72x72.png"
+      Size: "72x72"
+    - Icon: "apple-icon-76x76.png"
+      Size: "76x76"
+    - Icon: "apple-icon-114x114.png"
+      Size: "114x114"
+    - Icon: "apple-icon-120x120.png"
+      Size: "120x120"
+    - Icon: "apple-icon-144x144.png"
+      Size: "144x144"
+    - Icon: "apple-icon-152x152.png"
+      Size: "152x152"
+    - Icon: "apple-icon-180x180.png"
+      Size: "180x180"
 
 # Author details
 author:
-    name:                   "Sadanand Singh"
-    # Your Gravatar email. Overwrite `author.picture` everywhere in the blog
-    gravatarEmail:           "sadanand.singh@outlook.com"
+    name:        "Sadanand Singh"
+    # Your email used here only for copyright
+    email:       "sadanand.singh@aol.com"
     # Your profile picture
-    # Overwritten by your gravatar image if `author.gravatarEmail` is filled
-    picture:                "https://res.cloudinary.com/sadanandsingh/image/upload/v1496963333/sadanand_navmqu.jpg"
+    picture:     "apple-icon-76x76.png"
     # Your Twitter username without the @. E.g : thibaudlepretre
-    twitter:                "sadanandsingh"
+    twitter:     "sadanandsingh"
     # Your google plus profile id. E.g : +ThibaudLepretre or 114625208755123718311
-    googlePlus:             "107573452639034499888"
+    googlePlus:  "107573452639034499888"
 
 ---
