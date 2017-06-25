@@ -390,7 +390,6 @@ preferably at the end of the <strong>body</strong> of the HTMLpage:</p>
     &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-{{\&lt; panel warning &gt;}} Hi there {{\&lt; /panel &gt;}}
 
 </code>
 </pre>
@@ -458,7 +457,19 @@ $(document).ready(function() {
 
 <p>But, on some google search, I found this neat solution at the following <a href="https://sharmamohit.com/post/jupyter-notebooks-in-blog/">Blog</a>.</p>
 
-<p>In summary, the solution is very simple - Use the linked <a href="http://sharmamohit.com/css/jupyter.css">jupyter.css</a> file in your template. Then for any jupyter notebook, convert it to basic HTML using the following command:</p>
+<p>In summary, the solution is very simple - Use the linked <a href="http://sharmamohit.com/css/jupyter.css">jupyter.css</a> file in your template. I add this <code>css</code> file based on a <em>metadata</em> named <code>notebook: true</code> in a given post:</p>
+
+<pre  >
+<code class="language-markup"> 
+{{ if .Params.notebook }}
+    &lt;link href=&#34;{{ $.Site.BaseURL }}css/jupyter.css&#34; rel=&#34;stylesheet&#34; type=&#34;text/css&#34;&gt;
+{{ end }}
+
+</code>
+</pre>
+
+
+<p>Then for any jupyter notebook, convert it to basic HTML using the following command:</p>
 
 <pre  >
 <code class="language-bash"> 
@@ -473,6 +484,52 @@ jupyter nbconvert --to html --template basic *source_file.ipynb*
 <h2 id="latex-math-equations">Latex Math Equations</h2>
 
 <p>I used <a href="https://github.com/Khan/KaTeX">katex</a> for using math in markdown. I was having some issue with the multi-line display math equations, so I created shortcode called <em>tex</em> to write HTML code explicitly so that <code>katex</code> could handle that easily.</p>
+
+<p>I added following code in the <code>&lt;head&gt;</code> of all of posts:</p>
+
+<pre  >
+<code class="language-bash"> 
+{{ if .Params.hasMath }}
+    &lt;link rel=&#34;stylesheet&#34; href=&#34;//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css&#34;
+    integrity=&#34;sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv&#43;uR2SE/mbQcG7ATL28aI9H0&#34;
+    crossorigin=&#34;anonymous&#34;&gt;
+{{ end }}
+
+</code>
+</pre>
+
+
+<p>And the following script at the end of the <code>&lt;body&gt;</code> section:</p>
+
+<pre  >
+<code class="language-bash"> 
+{{ if .Params.hasMath }}
+    &lt;script src=&#34;https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js&#34;
+    integrity=&#34;sha384-/y1Nn9&#43;QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1&#34; 
+    crossorigin=&#34;anonymous&#34;&gt;&lt;/script&gt;
+    &lt;script src=&#34;https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js&#34;
+    integrity=&#34;sha256-ExtbCSBuYA7kq1Pz362ibde9nnsHYPt6JxuxYeZbU&#43;c=&#34; 
+    crossorigin=&#34;anonymous&#34;&gt;&lt;/script&gt;
+    &lt;script&gt;
+        renderMathInElement(document.body,
+            {
+                delimiters: [
+                    {left: &#34;\\\\begin{equation*}&#34;, right: &#34;\\\\end{equation*}&#34;, display: true},
+                    {left: &#34;$$&#34;, right: &#34;$$&#34;, display: true},
+                    {left: &#34;\\\[&#34;, right: &#34;\\\]&#34;, display: true},
+                    {left: &#34;$&#34;, right: &#34;$&#34;, display: false},
+                    {left: &#34;\\\(&#34;, right: &#34;\\\)&#34;, display: false}
+                ]
+            }
+        );
+    &lt;/script&gt;
+{{ end }}
+
+</code>
+</pre>
+
+
+<p>Now, whenever, I need to add math equations in a post, enable the <code>hasMath: true</code> parameter in its <em>metadata</em>.</p>
 
 <p>So there you have it. I have my Blog now up and running with Hugo. Hope I will be more active here, since it now takes only seconds to deploy once I have a post written. No excuses now! 😜</p>
     </div>
