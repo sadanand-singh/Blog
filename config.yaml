@@ -86,6 +86,7 @@ taxonomies:
   tag:                      "tags"
   category:                 "categories"
   archive:                  "archives"
+  author:                   "authors"
 # theme to use (located by default in /themes/THEMENAME/)
 themesDir:                  "themes"
 theme:                      "bootstrap3"
@@ -179,14 +180,14 @@ params:
 
 # Author details
 author:
-    name:        "Sadanand Singh"
-    # Your email used here only for copyright
-    email:       "sadanand.singh@aol.com"
-    # Your profile picture
-    picture:     "apple-icon-76x76.png"
-    # Your Twitter username without the @. E.g : thibaudlepretre
-    twitter:     "sadanandsingh"
-    # Your google plus profile id. E.g : +ThibaudLepretre or 114625208755123718311
-    googlePlus:  "107573452639034499888"
+  name:        "Sadanand Singh"
+  # Your email used here only for copyright
+  email:       "sadanand.singh@aol.com"
+  # Your profile picture
+  picture:     "apple-icon-76x76.png"
+  # Your Twitter username without the @. E.g : thibaudlepretre
+  twitter:     "sadanandsingh"
+  # Your google plus profile id. E.g : +ThibaudLepretre or 114625208755123718311
+  googlePlus:  "107573452639034499888"
 
 ---

@@ -1,8 +1,10 @@
 <div class="metadata">
+    {{ partial "post/author.html" . }}
     {{ $link := absURL .Permalink}}
     {{ if not (eq .Params.showDate false)  }}
+    on
         <p class="dateline">
-            Published <a href="{{ $link }}" rel="bookmark">
+            <a href="{{ $link }}" rel="bookmark">
               <time itemprop="datePublished" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
                 {{ partial "internal/date.html" . }}
               </time>
