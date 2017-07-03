@@ -2,8 +2,7 @@
     {{ partial "post/author.html" . }}
     {{ $link := absURL .Permalink}}
     {{ if not (eq .Params.showDate false)  }}
-    on
-        <p class="dateline">
+        <p class="dateline">on
             <a href="{{ $link }}" rel="bookmark">
               <time itemprop="datePublished" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
                 {{ partial "internal/date.html" . }}

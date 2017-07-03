@@ -1,0 +1,10 @@
+{{ with .Params.authors }}
+  {{ $authorLen := len . }}
+  {{ if gt $authorLen 0 }}
+    {{ range $k, $v := . }}
+    <p class="byline author vcard"><span class="byline-name fn"> By
+    <a href="/authors/{{ . | urlize | lower }}">{{ . }}</a>
+    </span></p>
+    {{ end }}
+  {{ end }}
+{{ end }}
