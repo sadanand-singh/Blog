@@ -8,13 +8,14 @@ tags:
 categories:
     - "Tutorials"
 link:
+authors:
+    - "Sadanand Singh"
 readingTime: 16
 hasMath: true
 notebook: true
 disqus_identifier: "pythontutorialweek2.sadanand"
 description:
 ---
-
 
 In the [Week 1]({{< relref "pythonTutorialWeek1.md" >}}) we got started with Python. Now that we can interact with python, lets dig deeper into it.
 

@@ -6,8 +6,10 @@ tags:
     - "Algorithms"
     - "Machine Learning"
 categories:
-    - "Algorithms"
+    - "Machine Learning"
 link:
+authors:
+    - "Sadanand Singh"
 hasMath: true
 readingTime: 16
 disqus_identifier: "svmModels.sadanand"

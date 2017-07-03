@@ -8,6 +8,8 @@ tags:
 categories:
     - "Algorithms"
 link:
+authors:
+    - "Sadanand Singh"
 hasMath: true
 readingTime: 8
 disqus_identifier: "shortestSubstring.sadanand"

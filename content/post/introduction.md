@@ -6,6 +6,8 @@ categories:
 tags:
     - "Introduction"
 slug: "FirstPost"
+authors:
+    - "Sadanand Singh"
 readingTime: 4
 disqus_identifier: "http://sadanand-singh.github.io/posts/2014/08/First Post/"
 summary: "My Intro Post"

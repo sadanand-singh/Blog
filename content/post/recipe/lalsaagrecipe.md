@@ -7,6 +7,8 @@ tags:
     - "Recipe"
 categories:
     - "Food"
+authors:
+    - "Abha Mundepi"
 link:
 readingTime: 6
 disqus_identifier: "LaalSaagRecipe.sadanand"

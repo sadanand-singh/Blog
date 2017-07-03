@@ -7,6 +7,8 @@ tags:
 categories:
     - "Computers"
 link:
+authors:
+    - "Sadanand Singh"
 description:
 readingTime: 8
 disqus_identifier: "sublimetext.sadanand"

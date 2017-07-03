@@ -8,6 +8,8 @@ tags:
 categories:
     - "Puzzle"
 link:
+authors:
+    - "Sadanand Singh"
 hasMath: true
 readingTime: 6
 disqus_identifier: "PrimeNumberAndPath.sadanand"

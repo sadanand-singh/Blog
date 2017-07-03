@@ -7,6 +7,8 @@ tags:
     - "Recipe"
 categories:
     - "Food"
+authors:
+    - "Abha Mundepi"
 link:
 readingTime: 8
 disqus_identifier: "PalakPaneerRecipe.sadanand"

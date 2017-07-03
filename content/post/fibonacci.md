@@ -8,6 +8,8 @@ tags:
 categories:
     - "Algorithms"
 link:
+authors:
+    - "Sadanand Singh"
 hasMath: true
 readingTime: 10
 disqus_identifier: "FibonacciNumbers.sadanand"

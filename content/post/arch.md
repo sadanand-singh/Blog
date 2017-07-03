@@ -10,6 +10,8 @@ tags:
 categories:
     - "Computers"
 link:
+authors:
+    - "Sadanand Singh"
 readingTime: 16
 disqus_identifier: "archInstall.sadanand"
 description:

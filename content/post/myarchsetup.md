@@ -10,6 +10,8 @@ tags:
 categories:
     - "Computers"
 link:
+authors:
+    - "Sadanand Singh"
 description:
 readingTime: 21
 disqus_identifier: "CompleteSetupArchPlasma.sadanand"

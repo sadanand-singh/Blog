@@ -8,6 +8,8 @@ tags:
 categories:
     - "Tutorials"
 link:
+authors:
+    - "Sadanand Singh"
 readingTime: 15
 hasMath: true
 notebook: true

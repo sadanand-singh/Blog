@@ -9,6 +9,8 @@ categories:
     - "Blog"
 slug: "nikola2hugo"
 link:
+authors:
+    - "Sadanand Singh"
 hasMath: false
 notebook: false
 draft: false

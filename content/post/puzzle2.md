@@ -8,6 +8,8 @@ tags:
 categories:
     - "Puzzles"
 link:
+authors:
+    - "Sadanand Singh"
 readingTime: 6
 disqus_identifier: "http://sadanand-singh.github.io/posts/2014/08/ConsumeTransportProblem/"
 description:
