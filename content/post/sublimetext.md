@@ -149,7 +149,7 @@ to leave comments below for any questions or suggestions.
     "auto_complete": true,
     "bold_folder_labels": true,
     "caret_extra_width": 1.5,
-    "color_scheme": "Material Oceanic Next (SL).tmTheme",
+    "color_scheme": "Packages/Materialize/schemes/Material Oceanic Next.tmTheme",
     "default_line_ending": "unix",
     "drag_text": false,
     "draw_white_space": "all",
@@ -162,6 +162,7 @@ to leave comments below for any questions or suggestions.
         "subpixel_antialias"
     ],
     "font_size": 13,
+    "hot_exit": false,
     "ignored_packages":
     [
         "C++",
@@ -189,6 +190,7 @@ to leave comments below for any questions or suggestions.
     "material_theme_tabs_separator": true,
     "material_theme_tree_headings": true,
     "overlay_scroll_bars": "enabled",
+    "remember_open_files": false,
     "rulers":
     [
         80
@@ -201,8 +203,6 @@ to leave comments below for any questions or suggestions.
     "theme": "Material Oceanic Next.sublime-theme",
     "translate_tabs_to_spaces": true,
     "trim_trailing_white_space_on_save": true,
-    "word_wrap": true,
-    "hot_exit": false,
-    "remember_open_files": false
+    "word_wrap": true
 }
 {{< /code-block >}}
