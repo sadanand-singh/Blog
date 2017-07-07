@@ -14,7 +14,7 @@ authors:
     - "Sadanand Singh"
 description:
 aliases:
-    - /posts/CompleteSetupArchPlasma/
+    - /posts/CompleteSetupArchPlasma/index.html
 readingTime: 21
 disqus_identifier: "CompleteSetupArchPlasma.sadanand"
 ---

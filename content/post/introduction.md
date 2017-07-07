@@ -10,7 +10,7 @@ authors:
     - "Sadanand Singh"
 readingTime: 4
 aliases:
-    - /posts/2014/08/First%20Post/
+    - "/posts/2014/08/First Post/"
 disqus_identifier: "http://sadanand-singh.github.io/posts/2014/08/First Post/"
 summary: "My Intro Post"
 ---
