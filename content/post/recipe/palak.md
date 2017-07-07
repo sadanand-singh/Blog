@@ -10,6 +10,8 @@ categories:
 authors:
     - "Abha Mundepi"
 link:
+aliases:
+    - /PalakPaneer
 readingTime: 8
 disqus_identifier: "PalakPaneerRecipe.sadanand"
 description:

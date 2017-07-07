@@ -11,6 +11,8 @@ link:
 authors:
     - "Sadanand Singh"
 hasMath: true
+aliases:
+    - /FibonacciNumbers
 readingTime: 10
 disqus_identifier: "FibonacciNumbers.sadanand"
 description:

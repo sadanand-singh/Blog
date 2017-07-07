@@ -13,6 +13,8 @@ link:
 authors:
     - "Sadanand Singh"
 description:
+aliases:
+    - /posts/CompleteSetupArchPlasma/
 readingTime: 21
 disqus_identifier: "CompleteSetupArchPlasma.sadanand"
 ---

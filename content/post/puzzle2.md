@@ -11,6 +11,8 @@ link:
 authors:
     - "Sadanand Singh"
 readingTime: 6
+aliases:
+    - /posts/2014/08/ConsumeTransportProblem/
 disqus_identifier: "http://sadanand-singh.github.io/posts/2014/08/ConsumeTransportProblem/"
 description:
 ---

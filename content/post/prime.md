@@ -11,6 +11,8 @@ link:
 authors:
     - "Sadanand Singh"
 hasMath: true
+aliases:
+    - /PrimeNumberAndPath
 readingTime: 6
 disqus_identifier: "PrimeNumberAndPath.sadanand"
 description:
