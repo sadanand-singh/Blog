@@ -307,13 +307,13 @@ panel, label, emphasis, highlighted text, and block quotes. I also liked the fig
 
 <h1 id="other-caveats-and-fixes">Other Caveats and Fixes</h1>
 
-<p>While converting to Hugo was almost fun, there were some caveats. The issues I faced were mainly with home page, site search, and <code>ipython</code> notebook posts.</p>
+<p>While converting to Hugo was fun, there were some caveats. The issues I faced were mainly with home page, site search, and <code>ipython</code> notebook posts.</p>
 
 <h2 id="home-page-with-content-and-post-lists">Home Page with Content and Post Lists</h2>
 
-<p>Getting home page to work was very simple. Hugo documents page provides a very clear details about order in which various templates are looked. For home page, you will need to provide a template for <code>index.html</code>. Then Inside the <code>content</code> folder, you can put the <em>metadata</em> and the <em>content</em> for the home page in a file named <code>_index.md</code>.</p>
+<p>Getting home page to work was very simple. Hugo documentation page provides a very clear details about order in which various templates are looked. For home page, you will need to provide a template for <code>index.html</code>. Then Inside the <code>content</code> folder, you can put the <em>metadata</em> and the <em>content</em> for the home page in a file named <code>_index.md</code>.</p>
 
-<p>I also added following template code in the index.html file to get list of posts with certain tags:</p>
+<p>I also added following template code in the index.html template to get list of posts with machine learning related tags:</p>
 
 <pre  >
 <code class="language-markup"> 
@@ -459,9 +459,11 @@ $(document).ready(function() {
 
 <p>One of the advantages of  using Nikola is that, it provides native support for writing Blog posts in <code>jupyter</code> notebooks.</p>
 
-<p>But, on some google search, I found this neat solution at the following <a href="https://sharmamohit.com/post/jupyter-notebooks-in-blog/">Blog</a>.</p>
+<p>But, on some Google search, I found this neat <a href="https://sharmamohit.com/post/jupyter-notebooks-in-blog/">solution</a>.</p>
 
-<p>In summary, the solution is very simple - Use the linked <a href="http://sharmamohit.com/css/jupyter.css">jupyter.css</a> file in your template. I add this <code>css</code> file based on a <em>metadata</em> named <code>notebook: true</code> in a given post:</p>
+<p>In summary, the setup is very simple - Use the linked <a href="http://sharmamohit.com/css/jupyter.css">jupyter.css</a> file in your template, then
+add this <code>css</code> file to relevant pages. I do the this based on a
+<em>metadata</em> variable <code>notebook: true</code> via the following template code:</p>
 
 <pre  >
 <code class="language-markup"> 
@@ -483,11 +485,11 @@ jupyter nbconvert --to html --template basic *source_file.ipynb*
 </pre>
 
 
-<p>Then, finally, create a markdown file for your post, where simply put the contents of this HTML file as markdown supports including raw HTML code!</p>
+<p>Finally, create a markdown file for your post to put the contents of this HTML file. Works like charm since markdown supports including raw HTML code!</p>
 
 <h2 id="latex-math-equations">Latex Math Equations</h2>
 
-<p>I used <a href="https://github.com/Khan/KaTeX">katex</a> for using math in markdown. I was having some issue with the multi-line display math equations, so I created shortcode called <em>tex</em> to write HTML code explicitly so that <code>katex</code> could handle that easily.</p>
+<p>I used <a href="https://github.com/Khan/KaTeX">katex</a> for using math in markdown. I was having some issue with the multi-line display math equations, so I created a shortcode called <em>tex</em> to write HTML code explicitly so that <code>katex</code> could handle that easily.</p>
 
 <p>I added following code in the <code>&lt;head&gt;</code> of all of posts:</p>
 
