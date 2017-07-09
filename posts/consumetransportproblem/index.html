@@ -323,29 +323,26 @@ market is just 1978 - 422 = 1556! That&rsquo;s just 15.56% of all apples.</p>
     </aside>
 
     
+        <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    this.page.identifier = 'http:\/\/sadanand-singh.github.io\/posts\/2014\/08\/consumetransportproblem\/';
     
     
-    
-        
-            <div id="disqus_thread"></div>
-                <script>
-                var disqus_shortname ="sadanandsblog",
-                    disqus_url="https://sadanand-singh.github.io/posts/consumetransportproblem/",
-                disqus_title="Puzzle 2",
-                disqus_identifier="http://sadanand-singh.github.io/posts/2014/08/ConsumeTransportProblem/",
-                disqus_config = function () {
-                    this.language = "en";
-                };
-                (function() {
-                    var dsq = document.createElement('script'); dsq.async = true;
-                    dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
-                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-                })();
-            </script>
-            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
-            </noscript>
-            <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
-        
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "sadanandsblog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
     
 
     
