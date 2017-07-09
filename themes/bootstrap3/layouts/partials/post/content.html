@@ -22,30 +22,8 @@
     </nav>
     </aside>
 
-    {{ $link := absURL .Permalink }}
-    {{ $title := .Title }}
-    {{ $id := .Params.disqus_identifier }}
     {{ if not (eq .Params.comments false) }}
-        {{ with .Site.DisqusShortname }}
-            <div id="disqus_thread"></div>
-                <script>
-                var disqus_shortname ={{ . }},
-                    disqus_url={{ $link }},
-                disqus_title={{ $title }},
-                disqus_identifier={{ $id }},
-                disqus_config = function () {
-                    this.language = "en";
-                };
-                (function() {
-                    var dsq = document.createElement('script'); dsq.async = true;
-                    dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
-                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-                })();
-            </script>
-            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
-            </noscript>
-            <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
-        {{ end }}
+        {{ template "_internal/disqus.html" . }}
     {{ end }}
 
     {{ if .Params.hasMath }}
