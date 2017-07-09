@@ -83,13 +83,13 @@ I have also some additional shortcodes for code-blocks and math. I will be detai
 
 # Other Caveats and Fixes
 
-While converting to Hugo was almost fun, there were some caveats. The issues I faced were mainly with home page, site search, and `ipython` notebook posts.
+While converting to Hugo was fun, there were some caveats. The issues I faced were mainly with home page, site search, and `ipython` notebook posts.
 
 ## Home Page with Content and Post Lists
 
-Getting home page to work was very simple. Hugo documents page provides a very clear details about order in which various templates are looked. For home page, you will need to provide a template for `index.html`. Then Inside the `content` folder, you can put the _metadata_ and the _content_ for the home page in a file named `_index.md`. 
+Getting home page to work was very simple. Hugo documentation page provides a very clear details about order in which various templates are looked. For home page, you will need to provide a template for `index.html`. Then Inside the `content` folder, you can put the _metadata_ and the _content_ for the home page in a file named `_index.md`. 
 
-I also added following template code in the index.html file to get list of posts with certain tags:
+I also added following template code in the index.html template to get list of posts with machine learning related tags:
 
 {{< code-block code="markup" >}}
 {{ $.Scratch.Add "mlposts" slice }}
@@ -206,9 +206,11 @@ Finally, I create a shortcode called _code-block_ to add relevant classes and va
 
 One of the advantages of  using Nikola is that, it provides native support for writing Blog posts in `jupyter` notebooks.
 
-But, on some google search, I found this neat solution at the following [Blog](https://sharmamohit.com/post/jupyter-notebooks-in-blog/).
+But, on some Google search, I found this neat [solution](https://sharmamohit.com/post/jupyter-notebooks-in-blog/).
 
-In summary, the solution is very simple - Use the linked [jupyter.css](http://sharmamohit.com/css/jupyter.css) file in your template. I add this `css` file based on a _metadata_ named `notebook: true` in a given post:
+In summary, the setup is very simple - Use the linked [jupyter.css](http://sharmamohit.com/css/jupyter.css) file in your template, then 
+add this `css` file to relevant pages. I do the this based on a
+_metadata_ variable `notebook: true` via the following template code:
 
 {{< code-block code="markup" >}}
 {{ if .Params.notebook }}
@@ -222,11 +224,11 @@ Then for any jupyter notebook, convert it to basic HTML using the following comm
 jupyter nbconvert --to html --template basic *source_file.ipynb*
 {{< /code-block >}}
 
-Then, finally, create a markdown file for your post, where simply put the contents of this HTML file as markdown supports including raw HTML code!
+Finally, create a markdown file for your post to put the contents of this HTML file. Works like charm since markdown supports including raw HTML code!
 
 ## Latex Math Equations
 
-I used [katex](https://github.com/Khan/KaTeX) for using math in markdown. I was having some issue with the multi-line display math equations, so I created shortcode called _tex_ to write HTML code explicitly so that `katex` could handle that easily.
+I used [katex](https://github.com/Khan/KaTeX) for using math in markdown. I was having some issue with the multi-line display math equations, so I created a shortcode called _tex_ to write HTML code explicitly so that `katex` could handle that easily.
 
 I added following code in the `<head>` of all of posts:
 

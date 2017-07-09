@@ -298,7 +298,7 @@ iVBORw0KGgoAAAANSUhEUgAAAtMAAAG5CAYAAABMc7iQAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAL
 The common hyper-parameters in the case of SVM regressors are: $C$ (the error term), $\epsilon$ (specifies the epsilon-tube within which no penalty is associated in the training loss function with points predicted within a distance epsilon from the actual value) and $\gamma$ (Kernel coefficient for ‘rbf’, ‘poly’ and ‘sigmoid’ kernels). Given our example is extremely simplified, we won't be able to observe any significant impact of any of these parameters. In general, similar to classification case, `GridSearchCV` can be used to tune SVM regression models as well.
 
 # Concluding Remarks
-So that brings us to an end to the different aspects of Support Vector Machine algorithms. In the [first post]({{< relref "supportVector.md" >}}) on the topic, I discusses the theory and the mathematical details of the algorithm. In this post, I discusses the implementation details in Python and ways to tune various hyper-parameters in both classification  and regression setups.
+So that brings us to an end to the different aspects of Support Vector Machine algorithms. In the [first post]({{< relref "supportVector.md" >}}) on the topic, I described the theory and the mathematical formulation of the algorithm. In this post, I discussed the implementation details in Python and ways to tune various hyper-parameters in both classification  and regression cases.
 From practical experience, SVMs are great for:
 
 - Small to medium data sets only. Training becomes extremely slow in the case of larger datasets.
