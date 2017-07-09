@@ -13,6 +13,7 @@ authors:
 hasMath: true
 aliases:
     - /FibonacciNumbers
+    - /2015/fibonaccinumbers/
 readingTime: 10
 disqus_identifier: "FibonacciNumbers.sadanand"
 description:

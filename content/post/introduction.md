@@ -11,6 +11,7 @@ authors:
 readingTime: 4
 aliases:
     - "/posts/2014/08/First Post/"
+    - /2014/firstpost/index.html
 disqus_identifier: "http://sadanand-singh.github.io/posts/2014/08/First Post/"
 summary: "My Intro Post"
 ---

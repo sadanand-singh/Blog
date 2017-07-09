@@ -13,6 +13,7 @@ authors:
 hasMath: true
 aliases:
     - /PrimeNumberAndPath
+    - /2015/primenumberandpath/
 readingTime: 6
 disqus_identifier: "PrimeNumberAndPath.sadanand"
 description:

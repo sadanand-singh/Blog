@@ -13,6 +13,7 @@ authors:
 readingTime: 6
 aliases:
     - /posts/2014/08/ConsumeTransportProblem/
+    - /2014/consumertransportproblem/
 disqus_identifier: "http://sadanand-singh.github.io/posts/2014/08/ConsumeTransportProblem/"
 description:
 ---

@@ -12,6 +12,7 @@ authors:
 link:
 aliases:
     - /PalakPaneer
+    - /2015/palakpaneerrecipe/
 readingTime: 8
 disqus_identifier: "PalakPaneerRecipe.sadanand"
 description:
