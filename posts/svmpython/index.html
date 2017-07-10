@@ -237,6 +237,7 @@ I will be using the <a href="https://archive.ics.uci.edu/ml/datasets/iris">iris 
 
 <strong id="table-of-contents">Table of Contents</strong><nav id="TableOfContents">
 <ul>
+<li><a href="#preparing-data-for-svm-models">Preparing Data for SVM Models</a></li>
 <li><a href="#svm-for-classification-problems">SVM for Classification Problems</a>
 <ul>
 <li><a href="#setup">Setup</a></li>
@@ -253,6 +254,14 @@ I will be using the <a href="https://archive.ics.uci.edu/ml/datasets/iris">iris 
 
 <p>In Python, <a href="http://scikit-learn.org/stable/index.html">scikit-learn</a> is a widely used library for implementing machine learning algorithms, <a href="http://scikit-learn.org/stable/modules/svm.html">SVM</a> is also available in <a href="http://scikit-learn.org/stable/modules/classes.html#module-sklearn.svm">scikit-learn library</a> and follow the usual structure (Import library, object creation, fitting model and prediction). The <a href="http://scikit-learn.org/stable/modules/classes.html#module-sklearn.svm">sklearn.svm</a> module provides mainly two classes:
 <a href="http://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html#sklearn.svm.SVC">sklearn.svm.svc</a> for classification and <a href="http://scikit-learn.org/stable/modules/generated/sklearn.svm.SVR.html#sklearn.svm.SVR">sklearn.svm.svr</a> for regression.</p>
+
+<h1 id="preparing-data-for-svm-models">Preparing Data for SVM Models</h1>
+
+<p>As pointed out by <strong>Admiral deblue</strong> in the comments below, all practical implementations of SVMs have strict requirements for training and testing (prediction). The first requirement is that all data should be numerical. Therefore, if you have categorical features, they need to be converted to numerical values using variable transformation techniques like <a href="http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html">one-hot-encoding</a>, <a href="http://scikit-learn.org/stable/modules/preprocessing_targets.html#preprocessing-targets">label-encoding</a> etc. SVM model implementations in python also do not support missing values, hence you need to either remove data with missing values or use some form of data imputing. The <a href="http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.Imputer.html">sklearn.preprocessing.Imputer</a> module can be quite helpful for this exercise. Furthermore, since SVMs assume that the data it works with is in a standard range, usually either 0 to 1, or -1 to 1 etc. (so that all feature variables are treated equally), it would be best served to use the feature &ldquo;normalization&rdquo; before training the model. The <a href="http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html">sklearn.preprocessing.StandardScaler</a> module can use used for such normalization.</p>
+
+<p>In general, sklearn models require training data (X) to be <a href="http://www.numpy.org">numpy</a> nd-array and dependent variable (y) as numpy 1-d array. With newer versions of <a href="http://pandas.pydata.org">Pandas</a>, Pandas data-frame and series can also be used for providing X and y to sklearn models.</p>
+
+<p><a href="http://scikit-learn.org/stable/modules/classes.html#module-sklearn.pipeline">sklearn.pipeline</a> provides an impressive set of tools to deal with various aspects of data preparation for training different models in a coherent manner. This will be a topic of discussion for a post in near future.</p>
 
 <h1 id="svm-for-classification-problems">SVM for Classification Problems</h1>
 
