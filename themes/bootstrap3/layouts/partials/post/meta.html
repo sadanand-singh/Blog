@@ -13,7 +13,7 @@
     {{ partial "post/category.html" . }}
     {{ if not (eq .Params.comments false) }}
         {{ if .Site.DisqusShortname }}
-            {{ with .Params.disqus_identifier }}
+            {{ with .GetParam "disqus_identifier" }}
             <p class="commentline">
                 <a href="{{ $link }}#disqus_thread" data-disqus-identifier="{{ . }}">
                 Comments
