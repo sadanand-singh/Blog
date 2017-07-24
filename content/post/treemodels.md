@@ -166,7 +166,7 @@ in tuning models based on these methods.
 - **Parent and Child Node** A node, which is divided into sub-nodes is called parent node of sub-nodes where as sub-nodes are the child of parent node.
 - **Minimum samples for a node split** Minimum number of samples (or observations) which are required in a node to be considered for splitting. It is used to control over-fitting, higher values prevent a model from learning relations which might be highly specific to the particular sample. It should be tuned using cross validation.
 - **Minimum samples for a terminal node (leaf)** The minimum number of samples (or observations) required in a terminal node or leaf. Similar to the *minimum samples for a node split*, this is also used to control over-fitting. For imbalanced class problems, a lower value should be used since regions dominant with samples belonging to minority class will be much smaller in number.
-- **Maximum depth of tree (vertical depth)** The maximum depth of trees. It is used to control over-fitting, higher values prevent a model from learning relations which might be highly specific to the particular sample. It should be tuned using cross validation.
+- **Maximum depth of tree (vertical depth)** The maximum depth of trees. It is used to control over-fitting, lower values prevent a model from learning relations which might be highly specific to the particular sample. It should be tuned using cross validation.
 - **Maximum number of terminal nodes** Also referred as _number of leaves_. Can be defined in place of max_depth. Since binary trees are created, a depth of $n$ would produce a maximum of $2^n$ leaves.
 - **Maximum features to consider for split** The number of features to consider (selected randomly) while searching for a best split. A typical value is the square root of total number of available features. A higher typically leads to over-fitting but is dependent on the problem as well.
 
@@ -386,7 +386,7 @@ df_train_set.Income.value_counts()
     Name: Income, dtype: int64
 
 {{< code-block code="python" >}}
-df_train_set.Income.value_counts()
+df_test_set.Income.value_counts()
 {{< /code-block >}}
 
     <=50K    12435
