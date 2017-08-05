@@ -3635,8 +3635,9 @@ lySpQRjUJUlqEAZ1SZIahEFdkqQG8f8BjxcsZBH3cEkAAAAASUVORK5CYII=
 
 With optimization, we find an increase in the prediction accuracy of both classes.
 
-# Limitation of Decision Trees
-Even tough decision tree models have numerous advantages,
+# Limitations of Decision Trees
+
+Even though decision tree models have numerous advantages,
 
 - Very simple to understand and easy to interpret
 - Can be visualized
@@ -3728,9 +3729,10 @@ rclf.score(x_test, y_test)
 Even without any optimization, we find the model to be quite close to the optimized tree classifier with a test score of 85.1%. In terms of the confusion matrix, we again find this to be quite comparable to the optimized tree classifier with a prediction accuracy of 92.1% for the majority class (<=50K Income) and a prediction accuracy of 62.6% for the minority class (>50K Income).
 
 {{< code-block code="python" lines="1" >}}
-rclf = RandomForestClassifier(n_estimators=500)
-rclf.fit(x_train, y_train)
-rclf.score(x_test, y_test)
+y_pred = rclf.predict(x_test)
+cfm = confusion_matrix(y_test, y_pred, labels=[0, 1])
+plt.figure(figsize=(10,6))
+plot_confusion_matrix(cfm, classes=["<=50K", ">50K"], normalize=True)
 {{< /code-block >}}
 
 {{< png >}}
