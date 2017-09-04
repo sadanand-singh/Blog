@@ -15,7 +15,7 @@ hasMath: true
 notebook: true
 draft: false
 disqus_identifier: "treebasedmodels.sadanand"
-readingTime: 25
+readingTime: 30
 description:
 ---
 
@@ -3679,7 +3679,7 @@ and fit a decision tree to both halves, the results that we get could be quite d
 Given a set of $n$ independent observations $Z\_1, Z\_2, \ldots, Z\_n$, each with variance $\sigma^2$, the variance of the mean $\bar{Z}$ of the observations is given by $\sigma^2/n$. In other words, averaging a set of observations reduces variance.
 Hence a natural way to reduce the variance and hence increase the prediction accuracy of a statistical learning method is to take many training sets from the population, build a separate prediction model using each training set, and average the resulting predictions. Of there is only one problem here - __we do not have access to multiple training data sets.__ Instead, we can bootstrap, by taking repeated
 samples from the (single) training data set. In this approach we generate $B$ different bootstrapped training data sets. We then train our method on the $b^{th}$ bootstrapped training set to get a prediction $\hat{f}^{*b}(x)$ to obtain one aggregate prediction,
-{{< tex display="\hat{f}_{bag} = \begin{cases}\frac{1}{B}\sum_{b=1}^{B} \hat{f}^{*b}(x) & \text{ for Regression Problems} \\ \\ arg \max_{b=1 \ldots B} \hat{f}^{*b}(x) & \text{ for Classification Problems} \end{cases}" >}}
+{{< tex display="\hat{f}_{bag} = \begin{cases}\frac{1}{B}\sum_{b=1}^{B} \hat{f}^{*b}(x) & \text{ for Regression Problems} \\ \\ \mathop{\arg\max}\limits_{b=1 \ldots B} \hat{f}^{*b}(x) & \text{ for Classification Problems} \end{cases}" >}}
 This is called **bagging**.  Note that aggregating can have different meaning in regression and classification problems. While mean prediction works well in the case of regression problems, we will need to use _majority vote_: the overall prediction is the most commonly occurring majority class among the B predictions, as aggregation mechanism for classification problems.
 
 ## Out-of-Bag (OOB) Error

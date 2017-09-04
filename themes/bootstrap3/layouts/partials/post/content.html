@@ -9,7 +9,8 @@
                 {{ $tagsLength := len . }}
                 {{ if gt $tagsLength 0 }}
                   <div class="post-footer-tags">
-                    <span class="text-color-light text-small">{{ i18n "post.tagged_in" }}</span><br/>
+                    <br/>
+                    <strong><span class="text-color-light text-small">{{ i18n "post.tagged_in" }}</span></strong><br/>
                     {{ partial "post/tag.html" $ }}
                   </div>
                 {{ end }}
