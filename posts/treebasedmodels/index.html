@@ -11,7 +11,7 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.25.1">
+    <meta name="generator" content="Hugo 0.26">
     <meta name="theme" content="Bootstrap3-Lumen">
     
       <title>A Practical Guide to Tree Based Learning Algorithms | Sadanand&#39;s Notes</title>
@@ -271,7 +271,7 @@ quite well. Common examples of tree based models are:
 <li><a href="#eda">EDA</a></li>
 <li><a href="#tree-classifier">Tree Classifier</a></li>
 </ul></li>
-<li><a href="#limitation-of-decision-trees">Limitation of Decision Trees</a></li>
+<li><a href="#limitations-of-decision-trees">Limitations of Decision Trees</a></li>
 <li><a href="#bootstrap-aggregating-bagging">Bootstrap Aggregating (Bagging)</a>
 <ul>
 <li><a href="#out-of-bag-oob-error">Out-of-Bag (OOB) Error</a></li>
@@ -1030,9 +1030,9 @@ plot_confusion_matrix(cfm, classes=[&#34;&lt;=50K&#34;, &#34;&gt;50K&#34;], norm
 
 <p>With optimization, we find an increase in the prediction accuracy of both classes.</p>
 
-<h1 id="limitation-of-decision-trees">Limitation of Decision Trees</h1>
+<h1 id="limitations-of-decision-trees">Limitations of Decision Trees</h1>
 
-<p>Even tough decision tree models have numerous advantages,</p>
+<p>Even though decision tree models have numerous advantages,</p>
 
 <ul>
 <li>Very simple to understand and easy to interpret</li>
@@ -1083,13 +1083,13 @@ Hence a natural way to reduce the variance and hence increase the prediction acc
 samples from the (single) training data set. In this approach we generate $B$ different bootstrapped training data sets. We then train our method on the $b^{th}$ bootstrapped training set to get a prediction $\hat{f}^{*b}(x)$ to obtain one aggregate prediction,
 <span class="jsonly">
  
-$$\hat{f}_{bag} = \begin{cases}\frac{1}{B}\sum_{b=1}^{B} \hat{f}^{*b}(x) &amp; \text{ for Regression Problems} \\ \\ arg \max_{b=1 \ldots B} \hat{f}^{*b}(x) &amp; \text{ for Classification Problems} \end{cases}$$
+$$\hat{f}_{bag} = \begin{cases}\frac{1}{B}\sum_{b=1}^{B} \hat{f}^{*b}(x) &amp; \text{ for Regression Problems} \\ \\ \mathop{\arg\max}\limits_{b=1 \ldots B} \hat{f}^{*b}(x) &amp; \text{ for Classification Problems} \end{cases}$$
 
 </span>
 <noscript>
  
 <div style="text-align:center;">
-<img src="https://latex.codecogs.com/gif.latex?%5chat%7bf%7d_%7bbag%7d%20%3d%20%5cbegin%7bcases%7d%5cfrac%7b1%7d%7bB%7d%5csum_%7bb%3d1%7d%5e%7bB%7d%20%5chat%7bf%7d%5e%7b%2ab%7d%28x%29%20%26%20%5ctext%7b%20for%20Regression%20Problems%7d%20%5c%5c%20%5c%5c%20arg%20%5cmax_%7bb%3d1%20%5cldots%20B%7d%20%5chat%7bf%7d%5e%7b%2ab%7d%28x%29%20%26%20%5ctext%7b%20for%20Classification%20Problems%7d%20%5cend%7bcases%7d" title="\hat{f}_{bag} = \begin{cases}\frac{1}{B}\sum_{b=1}^{B} \hat{f}^{*b}(x) &amp; \text{ for Regression Problems} \\ \\ arg \max_{b=1 \ldots B} \hat{f}^{*b}(x) &amp; \text{ for Classification Problems} \end{cases}" />
+<img src="https://latex.codecogs.com/gif.latex?%5chat%7bf%7d_%7bbag%7d%20%3d%20%5cbegin%7bcases%7d%5cfrac%7b1%7d%7bB%7d%5csum_%7bb%3d1%7d%5e%7bB%7d%20%5chat%7bf%7d%5e%7b%2ab%7d%28x%29%20%26%20%5ctext%7b%20for%20Regression%20Problems%7d%20%5c%5c%20%5c%5c%20%5cmathop%7b%5carg%5cmax%7d%5climits_%7bb%3d1%20%5cldots%20B%7d%20%5chat%7bf%7d%5e%7b%2ab%7d%28x%29%20%26%20%5ctext%7b%20for%20Classification%20Problems%7d%20%5cend%7bcases%7d" title="\hat{f}_{bag} = \begin{cases}\frac{1}{B}\sum_{b=1}^{B} \hat{f}^{*b}(x) &amp; \text{ for Regression Problems} \\ \\ \mathop{\arg\max}\limits_{b=1 \ldots B} \hat{f}^{*b}(x) &amp; \text{ for Classification Problems} \end{cases}" />
 </div>
 
 </noscript>
@@ -1149,9 +1149,10 @@ rclf.score(x_test, y_test)
 
 <pre class="line-numbers"  >
 <code class="language-python"> 
-rclf = RandomForestClassifier(n_estimators=500)
-rclf.fit(x_train, y_train)
-rclf.score(x_test, y_test)
+y_pred = rclf.predict(x_test)
+cfm = confusion_matrix(y_test, y_pred, labels=[0, 1])
+plt.figure(figsize=(10,6))
+plot_confusion_matrix(cfm, classes=[&#34;&lt;=50K&#34;, &#34;&gt;50K&#34;], normalize=True)
 
 </code>
 </pre>
@@ -1270,7 +1271,8 @@ You can also let me know in the comments below if there is any particular algori
                 
                 
                   <div class="post-footer-tags">
-                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    <br/>
+                    <strong><span class="text-color-light text-small">TAGGED IN</span></strong><br/>
                     
   <a class="btag btag--primary btag--small" href="https://sadanand-singh.github.io//tags/machine-learning/">Machine Learning</a>
 
@@ -1293,6 +1295,10 @@ You can also let me know in the comments below if there is any particular algori
             <a href="/posts/svmpython/" rel="prev" title="Understanding Support Vector Machine via Examples">Previous post</a>
         </li>
     
+    
+        <li class="next">
+            <a href="/posts/boostedtrees/" rel="next" title="Understanding Boosted Trees Models">Next post</a>
+        </li>
     
   
 </ul>
@@ -1347,7 +1353,7 @@ You can also let me know in the comments below if there is any particular algori
         <footer id="footer">
   <span class="copyrights">
     
-    Contents &copy; 2017         <a href="mailto:sadanand.singh@aol.com">Sadanand Singh</a> - Powered by         <a href="https://gohugo.io/" rel="nofollow">Hugo 0.25.1</a> <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+    Contents &copy; 2017         <a href="mailto:sadanand.singh@aol.com">Sadanand Singh</a> - Powered by         <a href="https://gohugo.io/" rel="nofollow">Hugo 0.26</a> <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
     
   </span>
 </footer>
