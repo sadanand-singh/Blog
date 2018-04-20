@@ -1,0 +1,33 @@
+{{ partial "head.html" . }}
+  <body>
+      {{ partial "menubar.html" . }}
+          <div id="blog">
+            <div id="main" data-behavior="5">
+            <div id="tags-archives" class="main-content-wrap">
+            <section class="boxes">
+              {{ range .Data.Terms.ByCount }}
+                <div id="{{ .Name | urlize }}-list" class="archive box" data-tag="{{ .Name | lower }}">
+                  <h4 class="archive-title">
+                    <a class="link-unstyled" href="{{ .Name | urlize }}">
+                      {{ .Name }} ({{ .Pages | len }})
+                    </a>
+                  </h4>
+                  <ul class="archive-posts">
+                    {{ range .Pages.ByDate.Reverse }}
+                      <li class="archive-post">
+                        <a class="archive-post-title" href="{{ .Permalink }}">
+                          {{ .Title }}
+                        </a>
+                        <span class="archive-post-date"> - {{ partial "internal/date" . }}</span>
+                      </li>
+                    {{ end }}
+                  </ul>
+                </div>
+              {{ end }}
+           </section>
+         </div>
+        {{ partial "footer.html" . }}
+      </div>
+    </div>
+
+  {{ partial "foot.html" . }}

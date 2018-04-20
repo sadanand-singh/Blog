@@ -1,0 +1,23 @@
+{
+  "name": "bootstrap4",
+  "version": "0.0.1-BETA",
+  "description": "A gorgeous responsive theme for Hugo blog framework",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sadanand-singh/hugo-blog.git"
+  },
+  "keywords": [
+    "hugo",
+    "blog",
+    "bootstrap",
+    "bootswatch",
+    "lumen"
+  ],
+  "author": "Sadanand Singh <sadanand.singh@gmail.com> (https://sadanand-singh.github.io/)",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/sadanand-singh/hugo-blog/issues"
+  },
+  "homepage": "https://github.com/sadanand-singh/hugo-blog",
+  "dependencies": {}
+}

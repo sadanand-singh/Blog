@@ -1,0 +1,38 @@
+<!-- Menubar -->
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container"><!-- This keeps the margins nice -->
+        <a class="navbar-brand" href="{{ .Site.BaseURL }}">
+        {{ if .Site.Params.logoURL }}
+            <img src="{{ $.Site.BaseURL }}{{ .Site.Params.logoURL }}" alt="{{ .Site.Title }}" id="logo">
+        {{ end }}
+
+        {{ if .Site.Params.showTitle }}
+            {{ .Site.Title }}
+        {{ end }}
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
+            <ul class="navbar-nav mr-auto">
+              {{ $origURL := absURL .Permalink }}
+              {{ $currentPage := . }}
+              {{ range .Site.Menus.main }}
+                {{ $currURL := absURL .URL }}
+                {{ if eq $origURL $currURL }}
+                  <li class="nav nav-item active"><a class="nav-link" href="{{ .URL }}">{{ .Name }} <span class="sr-only">(active)</span></a>
+                {{ else }}
+                  <li class="nav nav-item"><a class="nav-link" href="{{ .URL }}">{{ .Name }}</a>
+                {{ end }}
+              {{ end }}
+            </ul>
+            <span class="navbar-form navbar-right">
+                <input type="text" id="tipue_search_input" class="form-control" placeholder="Search">
+            </span>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container -->
+</nav><!-- End of Menubar -->

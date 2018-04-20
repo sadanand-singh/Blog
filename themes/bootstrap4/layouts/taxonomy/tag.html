@@ -1,0 +1,27 @@
+{{ partial "head.html" . }}
+  <body>
+      <div id="blog">
+          {{ partial "menubar.html" . }}
+      {{ if or (not (isset .Site.Params "tagPagination")) (.Site.Params.tagPagination) }}
+      {{ end }}
+      <div id="main" data-behavior="3">
+        {{ if or (not (isset .Site.Params "tagPagination")) (.Site.Params.tagPagination) }}
+          <section class="postShorten-group main-content-wrap">
+            {{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
+            {{ range $paginator.Pages }}
+              {{ .Render "summary" }}
+            {{ end }}
+            {{ partial "paginator.html" . }}
+          </section>
+        {{ else }}
+          <div id="archives" class="main-content-wrap">
+            <form id="filter-form" action="#">
+              <input name="date" type="text" class="form-control input--xlarge" placeholder="{{ i18n "global.search_date" }}" autofocus="autofocus">
+            </form>
+            {{ partial "archive-post.html" (where .Data.Pages "Type" "post") }}
+          </div>
+        {{ end }}
+        {{ partial "footer.html" . }}
+      </div>
+    </div>
+{{ partial "foot.html" . }}

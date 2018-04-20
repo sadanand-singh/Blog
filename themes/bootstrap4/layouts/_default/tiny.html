@@ -1,0 +1,9 @@
+<article class="h-entry post-text">
+  <header><h3 class="p-name entry-title"><a href="{{ .Permalink }}" class="u-url"> {{ .Title }}</a></h3>
+  </header>
+  <div class="p-summary entry-summary">
+    <div>
+      {{ printf "%s" .Summary | markdownify }}
+      </div>
+  </div>
+</article>

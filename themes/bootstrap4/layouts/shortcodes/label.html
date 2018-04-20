@@ -1,0 +1,4 @@
+{{ $sign := .Get 0 | lower }}
+{{ if in (slice "default" "primary" "warning" "danger" "success" "info") $sign }}
+<span class="label label-{{ $sign }}"> {{ .Inner | chomp | markdownify }} </span>
+{{ end }}
