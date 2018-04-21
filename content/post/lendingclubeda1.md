@@ -157,8 +157,8 @@ Different data files for this analysis have already been downloaded in the curre
 <div class="prompt output_prompt">Out[5]:</div>
 
 
-<div class="output_html rendered_html output_subarea output_execute_result">
-<table border="1" class="dataframe">
+<!-- <div class="output_html rendered_html output_subarea output_execute_result"> -->
+<table border="1">
   <thead>
     <tr style="text-align: right;">
       <th></th>

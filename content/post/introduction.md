@@ -21,18 +21,8 @@ programmer, an Indian and a human being; with interests in world
 politics, economics, and society.
 
 <!--more-->
-
-<div class="col-md-6" style="min-height: 450px;"> <a class="twitter-timeline" data-lang="en" data-height="400" href="https://twitter.com/sadanandsingh">Tweets by sadanandsingh</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script> </div>
-
-{{< figure src="https://res.cloudinary.com/sadanandsingh/image/upload/v1496963333/sadanand_navmqu.jpg" alt="Me at Oregon Seaside" width="280pt" class="figure" >}}
-
-<div class="line-block">
-<div class="line"><br></div>
-</div>
-
-<div class="line-block">
-<div class="line"><br></div>
-</div>
+{{< figure src="https://res.cloudinary.com/sadanandsingh/image/upload/v1496963333/sadanand_navmqu.jpg" alt="Me at Oregon Seaside" width="280pt" class="col-md-4 figure" >}}
+<div class="float-right col-md-8" style="min-height: 400px;"> <a class="twitter-timeline" data-lang="en" data-height="400" href="https://twitter.com/sadanandsingh">Tweets by sadanandsingh</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script> </div>
 
 <div class="line-block">
 <div class="line"><br></div>
