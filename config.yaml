@@ -89,7 +89,7 @@ taxonomies:
   author:                   "authors"
 # theme to use (located by default in /themes/THEMENAME/)
 themesDir:                  "themes"
-theme:                      "bootstrap3"
+theme:                      "bootstrap4"
 title:                      "Sadanand's Notes"
 # if true, use /filename.html instead of /filename/
 uglyURLs:                   false
@@ -143,8 +143,8 @@ params:
   hierarchicalcategories:  false
   fbAppId:                 "993596464012237"
   showTitle:               true
-  bootswatch:              "lumen"
-  logoURL:                 "letter-s-blue.png"
+  bootswatch:              "litera"
+  logoURL:                 "letter-s.png"
   socialButtonsCode:       "ra-53f6d74a591ace8f"
   license:                 '<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.'
 
