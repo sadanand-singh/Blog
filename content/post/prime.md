@@ -66,7 +66,7 @@ In the original post this problem was ill defined.
 **Please solve this problem with the constraints that only up and right moves are allowed.**
 {{< /emph >}}
 
-{{< /panel >}}
+{{< /card >}}
 
 {{< figure src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Ternblad_grid_chess_problem.png" alt="Chess Board" class="figure img-responsive align-center" >}}
 
@@ -75,14 +75,14 @@ In the original post this problem was ill defined.
 Solution
 ----------
 
-{{% panel danger "**Correction**" %}}
+{{% card danger "**Correction**" %}}
 
 For an $N\times M$ grid, we need only $N-1$ right and $M-1$ up moves.
 {{% emph "success" %}}
 __Thank you Devin for pointing this out.__
 {{% /emph %}}
 
-{{% /panel %}}
+{{% /card %}}
 
 Given only forward moves are allowed, for any arbitrary grid of
 $N\times M$, a total of $(N-1) + (M-1)$ moves are needed.

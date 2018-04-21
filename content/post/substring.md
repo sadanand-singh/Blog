@@ -24,7 +24,7 @@ length, you must output all of them in the order of occurrence. The
 
 <!--more-->
 
-{{% panel primary "**Example**" %}}
+{{% card primary "**Example**" %}}
 
 Consider the following cases:
 
@@ -38,7 +38,7 @@ the answer should be `['sa', 'ad', 'da', 'na', 'nd', 'ds']`
 __Case 3:__ If the given string is `wwwwwwww`, the answer should be
 `['wwwwwwww']`
 
-{{% /panel %}}
+{{% /card %}}
 
 My Solution
 ===========

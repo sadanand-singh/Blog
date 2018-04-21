@@ -66,9 +66,9 @@ In particular case of the classification problems, we can also think of AdaBoost
 In practice, the above definition of the AdaBoost model is modified to include a learning rate term, $\gamma$, as a regularization term that shrinks the contribution of all of the models. In particular, the model is updated as, $\hat{F}(x) \leftarrow \hat{F}(x) + \gamma \lambda\_b \hat{f}^{b}(x)$. The main tuning parameters of AdaBosst are, the **learning rate $\gamma$**, **number of estimators $B$**, and decision tree related parameters like **depth of trees $d$**, and **number of samples per split** etc.
 
 <br>
-{{< panel primary "AdaBoost in Python" >}}
+{{< card primary "AdaBoost in Python" >}}
 The python scikit-learn library implementations of AdaBoost ([AdaBoostClassifier](http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.AdaBoostClassifier.html) and [AdaBoostRegressor](http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.AdaBoostRegressor.html)) are based on a modified version of the AdaBoost algorithms, [AdaBoost SAMME and SAMME.R](https://web.stanford.edu/~hastie/Papers/samme.pdf). Stage-wise Additive Modeling using a Multi-class Exponential loss function (SAMME) algorithm provides an extension of AdaBoost for the case of multi-class classification. The SAMME.R (R for _real_) variation of the algorithm is for prediction of weighted probabilities rather than the class itself.
-{{< /panel >}}
+{{< /card >}}
 
 ## AdaBoost Classifier in Python
 
@@ -407,7 +407,7 @@ Here $J$ refers to the number of terminal nodes (leaves) in any of constituent d
 a value of $4 \le J\_b \le 8$ [work well for boosting](https://web.stanford.edu/~hastie/Papers/ESLII.pdf).
 
 <br>
-{{< panel "primary" "Regularization of Gradient Boosted Trees" >}}
+{{< card "primary" "Regularization of Gradient Boosted Trees" >}}
 Gradient Boosted Trees can be regularized by multiple approaches. Some common approaches are:
 
 - **Shrinkage / Learning Rate:** For each gradient step, the step magnitude is multiplied by a factor between 0 and 1 called a learning rate ($0 <\nu < 1$). In other words, each gradient step is shrunken by some factor $\nu$. The rational for this to work as a regularization parameter has never been clear to me. My personal take is the shrinkage enables us to use a different prior. [Telgarsky et al.](https://arxiv.org/pdf/1303.4172.pdf) provide a mathematical proof that shrinkage makes gradient boosting to produce an approximate maximum margin classifier, i.e. a classifier which is able to maximize the associated distance from the decision boundary for each example.
@@ -444,13 +444,13 @@ The biggest drawback of the gradient boosting trees is that the algorithm is qui
 [XGBoost](https://github.com/dmlc/xgboost) is a python (C++ and R as well) library that provides an optimized implementation of gradient boosted trees. It uses various tricks like regularization of number of leaves and leaf weights, sparsity aware split finding, column block for parallel learning and cache-aware access. Using these tricks the implementation provides a parallelized efficient version of the algorithm. The details of these can be found [here](https://arxiv.org/pdf/1603.02754.pdf). XGBoost is one of the most famous machine learning libraries used in on-line machine learning competitions like Kaggle.
 
 <br>
-{{< panel primary "**XGBoost**: Additional Remarks">}}
+{{< card primary "**XGBoost**: Additional Remarks">}}
 **Regularization**: Apart from regular gradient boosted trees, XGBoost provides two additional types of regularization, by adding $L\_1$ constraints on number of leaves ($J\_b$) and $L\_2$ constraints on the leaf weights ($\gamma\_{jb}$) to the loss function. Mathematically, The loss function is modified as follows:
 {{< tex display="\text{Loss Term at step b}= \sum_{i=1}^{N} L\big( y_i, \hat{F_b}(x_i) \big) + \sum\_{k=1}^b \Big (\eta J_k + \frac{1}{2} \lambda \left\lVert \gamma\_{jk} \right\rVert^2 \Big )" >}}
 Here, the second term in the loss function, penalizes the complexity of the model, i.e. decision tree functions.
 
 **Additional Weak Learners**: Apart from decision trees, XGBoost also supports [linear models](https://en.wikipedia.org/wiki/Linear_model) and [DART (decision trees with dropout)](http://proceedings.mlr.press/v38/korlakaivinayak15.pdf) as weak learners. In the DART algorithm, only a subset of available trees are considered in calculating the pseudo-residuals on which the new trees are fit.
-{{< /panel >}}
+{{< /card >}}
 
 XGBoost has many parameters that control the fitting of the model. Below are some of the relevant parameters and tuning them would be helpful in the most common cases. _Please note that original XGBoost library parameters might have a different name than before, since I am using the scikit-learn API parameter names below._
 

@@ -109,7 +109,7 @@ iVBORw0KGgoAAAANSUhEUgAAA3sAAAFNCAYAAAC5cXZ6AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAL
 ## Parameter Tuning
 Similar to any machine learning algorithm, we need to choose/tune hyper-parameters for these models. The important parameters to tune are: C (the penalty parameter or the error term. Remember from our last post, this acts as a regularization parameter for SVM) and $\gamma$ (Kernel coefficient for ‘rbf’, ‘poly’ and ‘sigmoid’ kernels). In above example, we used a default value of $\gamma = \frac{1}{n\_{features}} = 0.5$.
 
-{{< panel primary "**Multi-class Classification**" >}}
+{{< card primary "**Multi-class Classification**" >}}
 
 SVM by definition is well suited for binary classification. In order to perform [multi-class classification](https://en.wikipedia.org/wiki/Multiclass_classification), the problem needs to be transformed into a set of binary classification problems.
 
@@ -121,7 +121,7 @@ __One vs. One Approach (OvO)__: In the one-vs.-one (OvO) strategy, one trains K(
 
 In svm.svc implementation, `decision_function_shape` parameter provides the option to choose one of two strategy. Although, by default OvO strategy is chosen for historical reasons, it is always recommended to switch to the OvR approach.
 
-{{< /panel >}}
+{{< /card >}}
 
 Let us first understand what effects $C$ and $\gamma$ parameters have on SVM models. As seen below, we find that higher the value of $\gamma$, it will try to exact fit the as per training data set i.e. generalization error and cause over-fitting problem. $C$ controls the trade off between smooth decision boundary and classifying the training points correctly.
 

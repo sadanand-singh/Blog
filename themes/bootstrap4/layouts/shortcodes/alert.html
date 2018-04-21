@@ -1,4 +1,4 @@
 {{ $signal := .Get 0 | lower }}
-{{ if in (slice "warning" "danger" "info" "success") $signal }}
+{{ if in (slice "warning" "danger" "info" "success" "primary" "secondary") $signal }}
 <div class="alert alert-dismissible alert-{{ $signal }}">
 {{ if len .Params | eq 2 }}{{ with .Get 1 }} {{ . | chomp | markdownify }} <p>{{ $.Inner | chomp | markdownify }}</p> </div> {{ end }} {{ else }} {{ .Inner | chomp | markdownify }} </div> {{ end }} {{ end }}

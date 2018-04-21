@@ -65,7 +65,7 @@ For reference, my installation system is a slightly upgraded form of
 Base Installation
 =================
 
-{{< panel warning "**NOTE**" >}}
+{{< card warning "**NOTE**" >}}
 
 I do not wish to repeat [Arch Installation Guide](https://wiki.archlinux.org/index.php/installation_guide) here.
 
@@ -73,7 +73,7 @@ Do not forget about [Arch Wiki], the best documentation in the world! Most of th
 in this post has been compiled from the [Arch wiki].
 [Arch wiki]: https://wiki.archlinux.org/
 
-{{< /panel >}}
+{{< /card >}}
 
 Before beginning this guide, I would assume that you have a bootable USB
 of the latest Arch Linux Installer. If not, please follow the [Arch wiki

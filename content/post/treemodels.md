@@ -68,14 +68,14 @@ It is used in the scikit-learn implementation of decision trees - [sklearn.tree.
 
 CART model involves selecting input variables and split points on those variables until a suitable tree is constructed. The selection of which input variable to use and the specific split or cut-point is chosen using a greedy algorithm to minimize a cost function. Tree construction ends using a predefined stopping criterion, such as a minimum number of training instances assigned to each leaf node of the tree.
 
-{{< panel "primary" "Other Decision Tree Algorithms" >}}
+{{< card "primary" "Other Decision Tree Algorithms" >}}
 
 - [ID3](https://en.wikipedia.org/wiki/ID3_algorithm) Iterative Dichotomiser 3
 - [C4.5](https://en.wikipedia.org/wiki/C4.5_algorithm) successor of ID3
 - [CHAID](https://en.wikipedia.org/wiki/CHAID) Chi-squared Automatic Interaction Detector
 - [MARS](https://en.wikipedia.org/wiki/Multivariate_adaptive_regression_splines): extends decision trees to handle numerical data better.
 - [Conditional Inference Trees](https://en.wikipedia.org/w/index.php?title=Conditional_Inference_Trees&action=edit&redlink=1)
-{{< /panel >}}
+{{< /card >}}
 
 ## Regression Trees
 
@@ -3668,7 +3668,7 @@ many terminal nodes, and so the above equation will tend to be minimized for a s
 Note that [sklearn.tree](http://scikit-learn.org/stable/modules/classes.html#module-sklearn.tree) decision tree classifier (and regressor) does not currently support pruning.
 {{< /marker >}}
 
-{{< /panel >}}
+{{< /card >}}
 
 # Bootstrap Aggregating (Bagging)
 
