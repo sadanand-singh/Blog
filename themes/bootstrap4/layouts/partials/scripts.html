@@ -1,12 +1,8 @@
 <!--SCRIPTS-->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha256-98vAGjEDGN79TjHkYWVD4s87rvWkdWLHPs5MC3FvFX4=" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js" integrity="sha256-lQrWH6UPtNlJURtEYCgKDqLyBscHa/uF/nFle9bx3tI=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.0/moment-with-locales.min.js" integrity="sha256-RD4uaXz3KfJR/tER2O0FDpPftthhg8kJih3adpCUkUU=" crossorigin="anonymous"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.colorbox/1.6.4/jquery.colorbox-min.js"></script>
-<script src="{{ $.Site.BaseURL }}js/prism.js"></script>
 <script src="{{ $.Site.BaseURL }}js/peak.min.js"></script>
 {{ with .Site.Params.socialButtonsCode }}
     <script async type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid={{ . }}"></script>
@@ -58,24 +54,6 @@ $(document).ready(function() {
         });
     });
 });
-</script>
-
-<!-- fancy dates -->
-<script>
-moment.locale("${momentjs_locales[lang]}");
-fancydates(${date_fanciness}, ${js_date_format});
-</script>
-<!-- end fancy dates -->
-
-<script>
-baguetteBox.run('a.reference:not(.islink)', {
-    captions: function(element) {
-        return element.getElementsByTagName('img')[0].alt;
-}});
-baguetteBox.run('img:not(.islink)', {
-    captions: function(element) {
-        return element.alt;
-}});
 </script>
 <!--SCRIPTS END-->
 

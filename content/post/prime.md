@@ -58,7 +58,7 @@ On a chess board, basically a $8\times 8$ grid, how many ways one can go
 from the left most bottom corner to the right most upper corner? In
 chess naming conventions, from $a1$ to $h8$.
 
-{{< panel "warning" "**NOTE**" >}}
+{{< card "warning" "**NOTE**" >}}
 
 In the original post this problem was ill defined.
 

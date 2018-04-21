@@ -67,9 +67,9 @@ preserveTaxonomyNames:      false
 publishDir:                 "public"
 # enables syntax guessing for code fences without specified language
 pygmentsCodeFencesGuessSyntax: false
-PygmentsCodeFences:            false
+PygmentsCodeFences:            true
 # color-codes for highlighting derived from this style
-pygmentsStyle:              ""
+pygmentsStyle:              "monokailight"
 # true: use pygments-css or false: color-codes directly
 pygmentsUseClasses:         false
 # maximum number of items in the RSS feed

@@ -91,11 +91,11 @@ this stage before proceeding any further.**
 You should boot into _UEFI_ mode if you have a UEFI motherboard and UEFI
 mode enabled.
 
-To verify you have booted in UEFU mode, run:
+To verify you have booted in UEFI mode, run:
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ efivar -l
-{{< /code-block >}}
+{{< /highlight >}}
 
 This should give you a list of set UEFI variables. Please look at the
 [Arch Installation
@@ -105,11 +105,11 @@ you do not get any list of UEFI variables.
 The very first thing that annoys me in the virtual console is how tiny
 all the fonts are. We will fix that by running the following commands:
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ pacman -Sy
 $ pacman -S terminus-font
 $ setfont ter-132n
-{{< /code-block >}}
+{{< /highlight >}}
 
 We are all set to get started with the actual installation process.
 
@@ -118,7 +118,7 @@ HDDs Partitioning
 
 First find the hard drive that you will be using as the main/root disk.
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ cat /proc/partitions
 
 # OUTPUT eg.
@@ -129,7 +129,7 @@ $ cat /proc/partitions
 # 19       0  268435456 sdc
 # 11       0     759808 sr0
 # 7        0     328616 loop0
-{{< /code-block >}}
+{{< /highlight >}}
 
 Say, we will be using */dev/sda* as the main disk and */dev/sdb* as
 */data* and */dev/sdc* as */media* .
@@ -142,34 +142,34 @@ if=/dev/urandom of=/dev/xxx*, the *dd* method is probably the best
 method, but is a lot slower. **The following step should take about 20
 minutes on a 240 GB SSD.**
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ badblocks -c 10240 -s -w -t random -v /dev/sda
-{{< /code-block >}}
+{{< /highlight >}}
 
 Next, we will create GPT partitions on all disks using _gdisk_ command.
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ dd if=/dev/zero of=/dev/sda bs=1M count=5000
 $ gdisk /dev/sda
 Found invalid MBR and corrupt GPT. What do you want to do? (Using the
 GPT MAY permit recovery of GPT data.)
  1 - Use current GPT
  2 - Create blank GPT
- {{< /code-block >}}
+ {{< /highlight >}}
 
 Then press 2 to create a blank GPT and start fresh
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 ZAP:
 $ press x - to go to extended menu
 $ press z - to zap
 $ press Y - to confirm
 $ press Y - to delete MBR
-{{< /code-block >}}
+{{< /highlight >}}
 
 It might now kick us out of _gdisk_, so get back into it:
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ gdisk /dev/sda
 
 $ Command (? for help): m
@@ -192,7 +192,7 @@ $ Changed type of partition to 'Linux filesystem'
 $ Command (? for help): p
 $ Press w to write to disk
 $ Press Y to confirm
-{{< /code-block >}}
+{{< /highlight >}}
 
 Repeat the above procedure for */dev/sdb* and */dev/sdc*, but create
 just one partition with all values as default. At the end we will have
@@ -208,7 +208,7 @@ encryption on */dev/sda2* only.
 In order to enable disk encryption, we will first create a root luks
 volume, open it and then format it.
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 # first, we need to prepare the encrypted (outer) volume
 $ cryptsetup --cipher aes-xts-plain64 --hash sha512 --use-random --verify-passphrase luksFormat /dev/sda2
 
@@ -219,30 +219,30 @@ $ cryptsetup --cipher aes-xts-plain64 --hash sha512 --use-random --verify-passph
 # then, we actually open it as a block device, and format the
 # inner volume later
 $ cryptsetup luksOpen /dev/sda2 root
-{{< /code-block >}}
+{{< /highlight >}}
 
-{{< panel success "**Automatic Key Login from an USB/SD Card**" >}}
+{{< card success "**Automatic Key Login from an USB/SD Card**" >}}
 
 If you want to automatically login the encrypted disk password from an
 externally attached USB or SD card, you will first need to create a key
 file.
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ dd bs=512 count=4 if=/dev/urandom of=KEYFILE
-{{< /code-block >}}
+{{< /highlight >}}
 
 Then, add this key to the luks container, so that it can be later used
 to open the encrypted drive.
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ cryptsetup luksAddKey /dev/sda2 KEYFILE
-{{< /code-block >}}
+{{< /highlight >}}
 
 {{< emph warning >}} Note that the KEYFILE here should be kept on a
 separate USB drive or SD card. {{< /emph >}} The recommended way of
 using such a disk would be as follows:
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 # assuming our USB of interest is /dev/sdd  and can be format
 #
 # Format the drive
@@ -260,11 +260,11 @@ $ mkfs.fat /dev/sdd1
 $ mount /dev/sdd1 /mnt
 $ mv KEYFILE /mnt/KEYFILE
 $ umount /mnt
-{{< /code-block >}}
+{{< /highlight >}}
 
 We will be later using this KEYFILE in boot loader setup.
 
-{{< /panel >}}
+{{< /card >}}
 
 Format HDDs
 -----------
@@ -274,17 +274,17 @@ At this point, we have following drives ready for format: */dev/sda1*,
 
 These can be format as follows:
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ mkfs.vfat -F32 /dev/sda1
 $ mkfs.btrfs -L arch /dev/mapper/root
 $ mkfs.btrfs -L data /dev/sdb1
 $ mkfs.btrfs -L media /dev/sdc1
-{{< /code-block >}}
+{{< /highlight >}}
 
 Now, we will create _btrfs_ subvolumes and mount them properly for
 installation and final setup.
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ mount /dev/mapper/root /mnt
 $ btrfs subvolume create /mnt/ROOT
 $ btrfs subvolume create /mnt/home
@@ -297,12 +297,12 @@ $ umount /mnt
 $ mount /dev/sdc1 /mnt
 $ btrfs subvolume create /mnt/media
 $ umount /mnt
-{{< /code-block >}}
+{{< /highlight >}}
 
 Now, once the sub-volumes have been created, we will mount them in
 appropriate locations with optimal flags.
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ SSD_MOUNTS="rw,noatime,nodev,compress=lzo,ssd,discard,
     space_cache,autodefrag,inode_cache"
 $ HDD_MOUNTS="rw,nosuid,nodev,relatime,space_cache"
@@ -317,38 +317,38 @@ $ mount -o $HDD_MOUNTS,subvol=media /dev/sdc1 /mnt/media
 
 $ mkdir -p /mnt/boot
 $ mount -o $EFI_MOUNTS /dev/sda1 /mnt/boot
-{{< /code-block >}}
+{{< /highlight >}}
 
 {{< marker cyan >}} Save the current <i>/etc/resolv.conf</i> file for future
 use! {{< /marker >}}
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ cp /etc/resolv.conf /mnt/etc/resolv.conf
-{{< /code-block >}}
+{{< /highlight >}}
 
 Base System Installation
 ------------------------
 
 Now, we will do the actually installation of base packages.
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ pacstrap /mnt base base-devel btrfs-progs
 $ genfstab -U -p /mnt >> /mnt/etc/fstab
-{{< /code-block >}}
+{{< /highlight >}}
 
 Initial System Setup
 --------------------
 
 Edit the _/mnt/ect/fstab_ file to add following _/tmp_ mounts.
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 tmpfs /tmp tmpfs rw,nodev,nosuid 0 0
 tmpfs /dev/shm tmpfs rw,nodev,nosuid,noexec 0 0
-{{< /code-block >}}
+{{< /highlight >}}
 
 Finally bind root for installation.
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ arch-chroot /mnt "bash"
 $ pacman -Syy
 $ pacman -Syu
@@ -371,23 +371,23 @@ $ sed -i "s/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/" /etc/sudoers
 $ HOSTNAME=euler
 $ echo $HOSTNAME > /etc/hostname
 $ passwd
-{{< /code-block >}}
+{{< /highlight >}}
 
 We will also add *hostname* to our `/etc/hosts` file:
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ vim /etc/hosts
 ...
 127.0.0.1       localhost.localdomain   localhost
 ::1             localhost.localdomain   localhost
 127.0.0.1       $HOSTNAME.localdomain   $HOSTNAME
 ...
-{{< /code-block >}}
+{{< /highlight >}}
 
 We also need to fix the `mkinitcpio.conf` to contain what we actually
 need.
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ vi /etc/mkinitcpio.conf
 # on the MODULES section, add "vfat aes_x86_64 crc32c-intel"
 # (and whatever else you know your hardware needs. Mine needs i915 too)
@@ -400,7 +400,7 @@ $ vi /etc/mkinitcpio.conf
 #
 # re-generate your initrd images
 mkinitcpio -p linux
-{{< /code-block >}}
+{{< /highlight >}}
 
 Boot Manager Setup
 ------------------
@@ -414,9 +414,9 @@ default.
 Assuming */boot* is your boot drive, first run the following command to
 get started:
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ bootctl --path=/boot install
-{{< /code-block >}}
+{{< /highlight >}}
 
 It will copy the systemd-boot binary to your EFI System Partition (
 `/boot/EFI/systemd/systemd-bootx64.efi` and `/boot/EFI/Boot/BOOTX64.EFI` -
@@ -427,7 +427,7 @@ EFI Boot Manager.
 Finally to configure out boot loader, we will need the UUID of some of
 our hard drives. These can be easily done using the *blkid* command.
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ blkid /dev/sda1 > /boot/loader/entries/arch.conf
 $ blkid /dev/sda2 >> /boot/loader/entries/arch.conf
 $ blkid /dev/mapper/root >> /boot/loader/entries/arch.conf
@@ -438,7 +438,7 @@ $ blkid /dev/sdd1 >> /boot/loader/entries/arch.conf
 # /dev/sda2 LABEL="arch"      UUID=33333333-3333-3333-3333-333333333333
 # /dev/mapper/root LABEL="Arch Linux"   UUID=44444444-4444-4444-4444-444444444444
 # /dev/sdd1 LABEL="USB"     UUID=0000-0000  # this is the drive where KEYFILE exists
-{{< /code-block >}}
+{{< /highlight >}}
 
 Now, make sure that the following two files look as follows, where UUIDs
 is the value obtained from above commands.
@@ -446,7 +446,7 @@ is the value obtained from above commands.
 {{< marker warning >}} Do not forget to modify UUIDs and KEYFIL entries!
 {{< /marker >}}
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ vim /boot/loader/loader.conf
 ...
 timeout 3
@@ -460,7 +460,7 @@ linux /vmlinuz-linux
 initrd /initramfs-linux.img
 options ro cryptdevice=UUID=33333333-3333-3333-3333-333333333333:luks-33333333-3333-3333-3333-333333333333 root=UUID=44444444-4444-4444-4444-444444444444 rootfstype=btrfs rootflags=subvol=ROOT cryptkey=UUID=0000-0000:vfat:KEYFILE
 ...
-{{< /code-block >}}
+{{< /highlight >}}
 
 Network Setup
 -------------
@@ -468,7 +468,7 @@ Network Setup
 At first we will need to figure out the Ethernet controller on which
 cable is connected.
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ networkctl
 #
 # IDX LINK             TYPE               OPERATIONAL SETUP
@@ -477,7 +477,7 @@ $ networkctl
 #   3 wlp6s0           wlan               no-carrier  unmanaged
 #   4 enp0s25          ether              routable    configured
 #
-{{< /code-block >}}
+{{< /highlight >}}
 
 In my case, the name of the device is *enp0s25*.
 
@@ -490,7 +490,7 @@ session.
 Network configurations are stored as \*.network in
 `/etc/systemd/network`. We need to create ours as follows.:
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ vim /etc/systemd/network/50-wired.network
 $
 ...
@@ -503,19 +503,19 @@ DHCP=ipv4
 ...
 
 $
-{{< /code-block >}}
+{{< /highlight >}}
 
 Now enable the `networkd` services:
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 systemctl enable systemd-networkd.service
-{{< /code-block >}}
+{{< /highlight >}}
 
 Your network should be ready for the first use!
 
 Sync time automatically using the *systemd* service:
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ vim /etc/systemd/timesyncd.conf
 $
 ...
@@ -537,7 +537,7 @@ NTP synchronized: yes
  RTC in local TZ: no
  ...
 $
-{{< /code-block >}}
+{{< /highlight >}}
 
 [Avahi](https://wiki.archlinux.org/index.php/avahi) is a tool that
 allows programs to publish and discover services and hosts running on a
@@ -547,33 +547,33 @@ and people to talk to.
 
 We can easily set it up it as follows:
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ pacman -S avahi nss-mdns
 $ systemctl enable avahi-daemon.service
-{{< /code-block >}}
+{{< /highlight >}}
 
 We will also install `terminus-font` on our system to work with proper
 fonts on first boot.
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ pacman -S terminus-font
-{{< /code-block >}}
+{{< /highlight >}}
 
 First Boot Installations
 ========================
 
 Now we are ready for the first boot! Run the following command:
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ exit
 $ umount -R /mnt
 $ reboot
-{{< /code-block >}}
+{{< /highlight >}}
 
 After your new system boots, Network should be setup at the start. Check
 the status of network using:
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 # Set readable font first!
 setfont ter-132n
 ping google.com -c 2
@@ -587,7 +587,7 @@ ping google.com -c 2
 # 2 packets transmitted, 2 received, 0% packet loss, time 999ms
 # rtt min/avg/max/mdev = 0.022/0.022/0.023/0.004 ms
 #
-{{< /code-block >}}
+{{< /highlight >}}
 
 If you do not get this output, please follow the troubleshooting links
 at Arch Wiki on [setting up
@@ -600,12 +600,12 @@ Choose `$USERNAME` per your liking. I chose *ssingh*, so in future
 commands whenever you see *ssingh* please replace it with your
 `$USERNAME`.
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ pacman -S zsh
 $ useradd -m -G wheel -s usr/bin/zsh $USERNAME
 $ chfn --full-name "$FULL_NAME" $USERNAME
 $ passwd $USERNAME
-{{< /code-block >}}
+{{< /highlight >}}
 
 GUI Installation with nvidia
 ----------------------------
@@ -615,14 +615,14 @@ I will be assuming you have an `NVIDIA` card for graphics installation.
 To setup a graphical desktop, first we need to install some basic X
 related packages, and some *essential* packages (including fonts):
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ pacman -S xorg-server nvidia nvidia-libgl nvidia-settings mesa
-{{< /code-block >}}
+{{< /highlight >}}
 
 To avoid the possibility of forgetting to update your *initramfs* after
 an *nvidia* upgrade, you have to use a *pacman* hook like this:
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ vim /etc/pacman.d/hooks/nvidia.hook
 $
 ...
@@ -639,17 +639,17 @@ When=PostTransaction
 Exec=/usr/bin/mkinitcpio -p linux
 ...
 $
-{{< /code-block >}}
+{{< /highlight >}}
 
 Nvidia has a daemon that is to be run at boot. To start the _persistence_
 daemon at boot, enable the `nvidia-persistenced.service`.
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ systemctl enable nvidia-persistenced.service
 $ systemctl start nvidia-persistenced.service
-{{< /code-block >}}
+{{< /highlight >}}
 
-{{< panel warning "**How to Avoid Screen Tearing**" >}}
+{{< card warning "**How to Avoid Screen Tearing**" >}}
 
 Tearing can be avoided by forcing a full composition pipeline,
 regardless of the compositor you are using.
@@ -658,7 +658,7 @@ In order to make this change permanent, We will need to edit nvidia
 configuration file. Since, by default there aren't any, we will first
 need to create one.
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ nvidia-xconfig
 $ mv /etc/X11/xorg.cong /etc/X11/xorg.conf.d/20-nvidia.conf
 #
@@ -679,22 +679,22 @@ vim /etc/X11/xorg.conf.d/20-nvidia.conf
 # EndSection
 # [...]
 # ------------------------------------------------
-{{< /code-block >}}
+{{< /highlight >}}
 
-{{< /panel >}}
+{{< /card >}}
 
 Specific for Plasma 5, we will also create the following file to avoid
 any tearing in Plasma.
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ vim /etc/profile.d/kwin.sh
 $
 ...
 export KWIN_TRIPLE_BUFFER=1
 ...
-{{< /code-block >}}
+{{< /highlight >}}
 
-{{< panel warning "**How to Enable Better Resolution During Boot**" >}}
+{{< card warning "**How to Enable Better Resolution During Boot**" >}}
 
 The kernel compiled in *efifb* module supports high-resolution nvidia
 console on EFI systems. This can enabled by enabling the DRM kernel mode
@@ -710,7 +710,7 @@ First, we will need to add following to MODULES section of the
 
 We will also need to pass the *nvidia-drm.modeset=1* kernel parameter during the boot.
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ vim /etc/mkinitcpio.conf
 $
 ...
@@ -724,9 +724,9 @@ options ro cryptdevice=UUID=:luks- root=UUID= rootfstype=btrfs rootflags=subvol=
 ...
 $
 $ mkinitcpio -p linux
-{{< /code-block >}}
+{{< /highlight >}}
 
-{{< /panel >}}
+{{< /card >}}
 
 Plasma 5 Installation and Setup
 -------------------------------
@@ -734,19 +734,19 @@ Plasma 5 Installation and Setup
 We can now proceed with the installation of Plasma 5. In the process, we
 will also install some useful fonts.
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ pacman -S ttf-hack ttf-anonymous-pro
 $ pacman -S ttf-dejavu ttf-freefont ttf-liberation
 $ pacman -S plasma-meta dolphin kdialog kfind
 $ pacman -S konsole gwenview okular spectacle kio-extras
 $ pacman -S kompare dolphin-plugins kwallet kwalletmanager
 $ pacman -S ark yakuake flite
-{{< /code-block >}}
+{{< /highlight >}}
 
 We will also need to select proper themes for the Plasma 5 display
 manager *sddm* and then enable its *systemd* service.
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ vim /etc/sddm.conf
 
 ....
@@ -760,7 +760,7 @@ CursorTheme=breeze_cursors
 
 $ systemctl enable sddm
 $ reboot
-{{< /code-block >}}
+{{< /highlight >}}
 
 Once, we boot into the new system, we should have a basic Plasma 5
 desktop waiting for you. In the following section, we will be do
@@ -774,18 +774,18 @@ use it properly we will need the NetworkManager service to be enabled.
 This applet allows user specific enabling of *wifi*, *ethernet* or even
 *VPN* connections.
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ sudo pacman -S networkmanager
 $ systemctl enable NetworkManager.service
 $ systemctl start NetworkManager.service
-{{< /code-block >}}
+{{< /highlight >}}
 
 We can also automate the *hostname* setup using the following *systemd*
 command:
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ hostnamectl set-hostname $HOSTNAME
-{{< /code-block >}}
+{{< /highlight >}}
 
 Selecting pacman Mirrors
 ------------------------
@@ -799,7 +799,7 @@ mirrors list file and then delete all non-US mirrors. We will then
 *rankmirrors* script on the modified list to get the top 6 mirrors for
 our regular use.
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
 $ cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.us
 $ vim /etc/pacman.d/mirrorlist.us
@@ -807,7 +807,7 @@ $ vim /etc/pacman.d/mirrorlist.us
 # Delete all non-US servers
 ....
 $ rankmirrors -n 6 /etc/pacman.d/mirrorlist.us > /etc/pacman.d/mirrorlist
-{{< /code-block >}}
+{{< /highlight >}}
 
 Setup AUR
 ---------
@@ -823,20 +823,20 @@ is uses exactly the same options that regular *pacman* uses.
 
 In order to install *pacuar*, first install dependencies.
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ sudo pacman -S expac yajl curl gnupg --noconfirm
-{{< /code-block >}}
+{{< /highlight >}}
 
 Create a temp directory for building packages:
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ mkdir ~/temp
 $ cp ~ temp
-{{< /code-block >}}
+{{< /highlight >}}
 
 Install *cower* first and then *pacaur*:
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ gpg --recv-keys --keyserver hkp://pgp.mit.edu 1EB2638FF56C0C53
 $ curl -o PKGBUILD https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=cower
 $ makepkg -i PKGBUILD --noconfirm
@@ -847,7 +847,7 @@ $ makepkg -i PKGBUILD --noconfirm
 # Finally cleanup and remove the temp directory
 $ cd ~
 $ rm -r ~/temp
-{{< /code-block >}}
+{{< /highlight >}}
 
 Audio Setup
 -----------
@@ -855,17 +855,17 @@ Audio Setup
 This is pretty simple. Install following packages and you should be
 done:
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ sudo pacaur -S alsa-utils pulseaudio pulseaudio-alsa mpv
 $ sudo pacaur -S libcanberra-pulse libcanberra-gstreamer
 $ sudo pacaur -S vlc-qt5
-{{< /code-block >}}
+{{< /highlight >}}
 
 Now start the *pulseaudio* service.
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ systemctl --user enable pulseaudio.socket
-{{< /code-block >}}
+{{< /highlight >}}
 
 Web Browsers
 ------------
@@ -873,9 +873,9 @@ Web Browsers
 My preferred choice of browsers is *google chrome*. However, it is also
 good to have the KDE native *qupzilla*.
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ sudo pacaur -S google-chrome qupzilla
-{{< /code-block >}}
+{{< /highlight >}}
 
 *Profile-sync-daemon (psd)* is a tiny pseudo-daemon designed to manage
 browser profile(s) in *tmpfs* and to periodically sync back to the
@@ -890,18 +890,18 @@ leads to following benefits:
 
 To setup. first install the *profile-sync-daemon* package.
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 sudo pacaur -S profile-sync-daemon
-{{< /code-block >}}
+{{< /highlight >}}
 
 Run *psd* the first time which will create a configuration file at
 \$XDG\_CONFIG\_HOME/psd/psd.conf which contains all settings.
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ psd
 # First time running psd so please edit
 # /home/$USERNAME/.config/psd/psd.conf to your liking and run again.
-{{< /code-block >}}
+{{< /highlight >}}
 
 In the config file change the BROWSERS variables to *google-chrome
 qupzilla*. Also, enable the use of *overlayfs* to improve sync speed
@@ -914,18 +914,18 @@ kernel version of 3.18.0 or greater to work. {{< /marker >}}
 In order to use the OVERLAYFS feature, you will also need to give *sudo*
 permissions to psd-helper as follows (replace `$USERNAME` accordingly):
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ vim /etc/sudoers
 ...
 $USERNAME ALL=(ALL) NOPASSWD: /usr/bin/psd-overlay-helper
 ...
-{{< /code-block >}}
+{{< /highlight >}}
 
 Verify the working of configuration using the preview mode of psd:
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 psd p
-{{< /code-block >}}
+{{< /highlight >}}
 
 *Google Chrome* by default uses *kdewallet* to manage passwords, where
 as *Qupzilla* does not. You can change that in its settings.
@@ -935,7 +935,7 @@ git Setup
 
 Install git and setup some global options as below:
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ sudo pacaur -S git
 $
 $ vim ~/.gitconfig
@@ -964,22 +964,22 @@ $ vim ~/.gitconfig
 [help]
     autocorrect = 1
 ...
-{{< /code-block >}}
+{{< /highlight >}}
 
 ssh Setup
 ---------
 
 To get started first install the *openssh* package.
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 sudo pacaur -S openssh
-{{< /code-block >}}
+{{< /highlight >}}
 
 The ssh server can be started using the *systemd* service. Before
 starting the service, however, we want to generate ssh keys and setup
 the server for login based only on keys.
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ ssh-keygen -t ed25519
 $
 # Create a .ssh/config file for rmate usage in sublime text
@@ -998,7 +998,7 @@ $ sudo vim /etc/ssh/sshd_config
 ...
 PasswordAuthentication no
 ...
-{{< /code-block >}}
+{{< /highlight >}}
 
 Furthermore, before enabling the *sshd* service, please also ensure to
 copy your keys to all your relevant other servers and places like
@@ -1006,10 +1006,10 @@ github.
 
 We can now use *systemd* to start the ssh service.
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ systemctl enable sshd.socket
 $ systemctl start sshd.socket
-{{< /code-block >}}
+{{< /highlight >}}
 
 zsh Setup
 ---------
@@ -1023,7 +1023,7 @@ In this section, we will be installing my variation of
 
 First install the main zprezto package:
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 $
 $ setopt EXTENDED_GLOB
@@ -1032,17 +1032,17 @@ do
     ln -sf "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
 done
 $
-{{< /code-block >}}
+{{< /highlight >}}
 
 Now, We will add my version of prezto to the same git repo.
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ cd ~/.zprezto
 $ git remote add personal git@github.com:sadanand-singh/My-Zprezto.git
 $ git pull personal arch
 $ git checkout arch
 $ git merge master
-{{< /code-block >}}
+{{< /highlight >}}
 
 And we are all setup for using *zsh*!
 
@@ -1057,7 +1057,7 @@ Once We have our keys setup, edit keys to change trust level.
 
 Once all keys are setup, we need to gpg-agent configuration file:
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ vim ~/.gnupg/gpg-agent.conf
 ..
 enable-ssh-support
@@ -1066,12 +1066,12 @@ default-cache-ttl 10800
 max-cache-ttl-ssh 10800
 ...
 $
-{{< /code-block >}}
+{{< /highlight >}}
 
 Also, add following to your *.zshrc* or *."bash"rc* file. If you are using
 my zprezto setup, you already have this!
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ vim ~/.zshrc
 ...
 # set GPG TTY
@@ -1087,11 +1087,11 @@ if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
 fi
 ...
 $
-{{< /code-block >}}
+{{< /highlight >}}
 
 Now, simply start the following systemd sockets as user:
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ systemctl --user enable gpg-agent.socket
 $ systemctl --user enable gpg-agent-ssh.socket
 $ systemctl --user enable dirmngr.socket
@@ -1101,13 +1101,13 @@ $ systemctl --user start gpg-agent.socket
 $ systemctl --user start gpg-agent-ssh.socket
 $ systemctl --user start dirmngr.socket
 $ systemctl --user start gpg-agent-browser.socket
-{{< /code-block >}}
+{{< /highlight >}}
 
 Finally add your ssh key to ssh agent.
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ ssh-add ~/.ssh/id_ed25519
-{{< /code-block >}}
+{{< /highlight >}}
 
 User Wallpapers
 ---------------
@@ -1116,34 +1116,34 @@ You can store your own wallpapers at the following location. A good
 place to get some good wallpapers are [KaOS
 Wallpapers](https://github.com/KaOSx/kaos-wallpapers).
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ mkdir -p $ $HOME/.local/wallpapers
 $ cp SOME_JPEG $HOME/.local/wallpapers/
-{{< /code-block >}}
+{{< /highlight >}}
 
 _conky_ Setup
 --------------
 
 First installed the *conky* package with lua and nvidia support:
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ paci conky-lua-nv
-{{< /code-block >}}
+{{< /highlight >}}
 
 Then, copy your conky configuration at \$HOME/.config/conky/conky.conf.
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ mkdir -p $HOME/.config/conky
 # Generate sample conky config file
 $ conky -C > $HOME/.config/conky/conky.conf
 $
 # start conky in background
 $ conky &
-{{< /code-block >}}
+{{< /highlight >}}
 
 Here, I have also put my simple configuration file:
 
-{{< code-block code="lua" >}}
+{{< highlight Lua >}}
 conky.config = {
         background = true,
         use_xft = true,
@@ -1201,37 +1201,37 @@ ${goto -80}${voffset -35}${font Pompiere:size=11}${color 3eafe8}//${color4} CPU:
 ${goto -80}${voffset -35}${font Pompiere:size=11}${color 3eafe8}//${color4} GPU: ${execi 1000000 nvidia-smi --query-gpu="name,driver_version" --format="csv,noheader" | cut -c 9-18} ${color ff3d3d} ${nvidia temp}°C ${color 3eafe8}//${color4} Load: ${color ff3d3d}${exec nvidia-smi --query-gpu="utilization.gpu" --format="csv,noheader"} ${color 3eafe8}// Free: ${color ff3d3d} ${exec nvidia-smi --query-gpu="memory.free" --format="csv,noheader"} ${color 3eafe8}//
 
 ]];
-{{< /code-block >}}
+{{< /highlight >}}
 
 Software Installations
 ----------------------
 
 Here is a running list of other common softwares that I install.
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ paci spotify tmux tree dropbox thesilver_searcher
 $ paci digikam imagemagick
-{{< /code-block >}}
+{{< /highlight >}}
 
 I also add the following repository to install the [Sublime
 Text](https://www.sublimetext.com/) editor. Refer to
 my previous post <sublimetext> for details on setting up Sublime
 Text.
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ curl -O https://download.sublimetext.com/sublimehq-pub.gpg
 $ sudo pacman-key --add sublimehq-pub.gpg
 $ sudo pacman-key --lsign-key 8A8F901A
 $ rm sublimehq-pub.gpg
 $
 $ echo -e "\n[sublime-text]\nServer = https://download.sublimetext.com/arch/dev/x86_64" | sudo tee -a /etc/pacman.conf
-{{< /code-block >}}
+{{< /highlight >}}
 
 Now we can install *sublime-text* as:
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ paci sublime-text/sublime-text
-{{< /code-block >}}
+{{< /highlight >}}
 
 This brings us to the conclusion of this installation guide. Hope many
 of you find it useful. Please drop your comments below if you have any

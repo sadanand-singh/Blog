@@ -53,7 +53,7 @@ if your answer has a better scaling.
 The function definition that I use for finding non-empty non-repeating
 strings is _recursive_.
 
-{{< code-block code="python" lines="1" hl="4-6" >}}
+{{< highlight python "linenos=table, hl_lines=4-6" >}}
 def findNsubString(s,n):
     subS = []
     for index in range(len(s)+1) :
@@ -64,11 +64,11 @@ def findNsubString(s,n):
         return subS
     else :
         return findNsubString(s,n+1)
-{{< /code-block >}}
+{{< /highlight >}}
 
 I call this method as follows to get the desired results:
 
-{{< code-block code="python" lines="1" >}}
+{{< highlight python "linenos=table" >}}
 #! /usr/bin/python
 import argparse
 # Parse Command Line Arguments
@@ -79,7 +79,7 @@ s = args.string
 # Call Method to find smallest non-repeating sub-string
 ans = findNsubString(s,1)
 print(ans)
-{{< /code-block >}}
+{{< /highlight >}}
 
 A similar solution can also be written in `JAVA` or `C++`. The corresponding
 `find()` and `rfind()` methods in JAVA are called `indexOf()` and

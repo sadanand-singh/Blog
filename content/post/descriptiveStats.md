@@ -106,7 +106,7 @@ the number {{< tex "\frac{[N + 1]}{2}" >}} in the ranked order. If the number of
 observations are even, then the median is the average value of the
 observations that are ranked at numbers {{< tex "\frac{[N]}{2}" >}} and {{< tex "\frac{[N + 1]}{2} + 1" >}}.
 
-{{< panel "success" "**Mean vs Median**" >}}
+{{< card "success" "**Mean vs Median**" >}}
 The median and the mean both measure central tendency. But
 unusual values, called [**outliers**][outliers], affect the
 median less than they affect the *mean*. When you have unusual
@@ -115,7 +115,7 @@ which is the better measure to use. If your data are symmetric,
 the *mean* and *median* are similar.
 
 [outliers]: https://en.wikipedia.org/wiki/Outlier
-{{< /panel >}}
+{{< /card >}}
 
 The concept of median can be generalized as [quartiles]. Quartiles
 are the three values – the first quartile at 25% ($Q_1$), the second

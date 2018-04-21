@@ -108,7 +108,7 @@ Shortcut Keys
 
 Here is a summary of my key map:
 
-{{< code-block code="json" >}}
+{{< highlight json >}}
 [
     { "keys": ["shift+alt+a"], "command": "find_all_under" },
     { "keys": ["control+v"], "command": "paste_and_indent" },
@@ -121,7 +121,7 @@ Here is a summary of my key map:
     { "keys": ["ctrl+alt+home"], "command": "column_select", "args": {"by": "all", "forward": false}},
     { "keys": ["ctrl+alt+end"], "command": "column_select", "args": {"by": "all", "forward": true}}
 ]
-{{< /code-block >}}
+{{< /highlight >}}
 
 Theme and Color Scheme
 ======================
@@ -143,7 +143,7 @@ User Settings / Preferences
 Here is my complete set of settings for Sublime Text. Please feel free
 to leave comments below for any questions or suggestions.
 
-{{< code-block code="json" >}}
+{{< highlight json >}}
 {
     "always_show_minimap_viewport": true,
     "auto_complete": true,
@@ -205,4 +205,4 @@ to leave comments below for any questions or suggestions.
     "trim_trailing_white_space_on_save": true,
     "word_wrap": true
 }
-{{< /code-block >}}
+{{< /highlight >}}

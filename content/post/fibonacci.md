@@ -85,14 +85,14 @@ Here is a simple plot of first few Fibonacci numbers:
 The most basic algorithm, that comes to mind is a recursive scheme that
 taps directly into the above definition of Fibonacci series.
 
-{{< code-block code="python" lines="1" >}}
+{{< highlight python "linenos=table" >}}
 def fibRecursive(n):
     if n == 0:
         return 0
     if n == 1:
         return 1
     return fibRecursive(n-2)+fibRecursive(n-1)
-{{< /code-block >}}
+{{< /highlight >}}
 
 If you analyze this scheme, this is in fact an exponential algorithm,
 i.e. fibRecursive( n ) is proportional to {{< tex "2^{0.694n} \approx (1.6)^n" >}},
@@ -110,7 +110,7 @@ First problem we should realize in the above recursive scheme is that we
 are recalculating lower $F_n$ at each recursion level. Lets solve this
 issue by storing each calculation and avoiding any re-calculation!
 
-{{< code-block code="python" lines="1" >}}
+{{< highlight python "linenos=table" >}}
 def fibN2(n):
     a = 0
     b = 1
@@ -123,7 +123,7 @@ def fibN2(n):
         b = c
 
     return b
-{{< /code-block >}}
+{{< /highlight >}}
 
 On first glance this looks like an $\mathcal{O}(n)$ scheme, as we
 consider each addition as one operation. However, we should realize that
@@ -139,7 +139,7 @@ You bet, we can! Lets consider the following scheme:
 We can use a recursive scheme to calculate this matrix power using a
 divide and conquer scheme in $\mathcal{O}(\log{}n)$ time.
 
-{{< code-block code="python" lines="1" >}}
+{{< highlight python "linenos=table" >}}
 def mul(A, B):
     a, b, c = A
     d, e, f = B
@@ -153,7 +153,7 @@ def pow(A, n):
 def fibLogN(n):
     if n < 2: return n
     return pow((1,1,0), n-1)[0]
-{{< /code-block >}}
+{{< /highlight >}}
 
 Lets think a bit harder about this. Is it really an
 $\mathcal{O}(\log{}n)$ scheme? It involves multiplication of numbers,
@@ -169,7 +169,7 @@ which is again a divide and conquer scheme.
 Here is one simple implementation (Same as the above scheme, but with
 the following mul(A,B) method):
 
-{{< code-block code="python" lines="1" >}}
+{{< highlight python "linenos=table" >}}
 
 _CUTOFF = 1536
 
@@ -197,7 +197,7 @@ def multiply(x, y):
         d = b - a - c
         return (((a << half) + d) << half) + c
 
-{{< /code-block >}}
+{{< /highlight >}}
 
 So, this final scheme is in $\mathcal{O}(n^{1.585}\log{}n)$ time.
 
@@ -213,7 +213,7 @@ If we know {{< tex "F_K" >}} and {{< tex "F_{K+1}" >}}, then we can find,
 
 We can implement this using the __Karatsuba multiplication__ as follows:
 
-{{< code-block code="python" lines="1" hl="3-5" >}}
+{{< highlight python "linenos=table" >}}
 def fibFast(n):
     if n <= 2:
         return 1
@@ -224,7 +224,7 @@ def fibFast(n):
         return multiply(a,a) + multiply(b,b)
     else:
         return multiply(b,(2*a - b))
-{{< /code-block >}}
+{{< /highlight >}}
 
 That's it for today. We saw how far algorithms can go in speed for such
 simple problems. Let me know in the comments below, if you have any

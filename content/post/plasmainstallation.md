@@ -38,18 +38,18 @@ Add New User
 Choose `$USERNAME` per your liking. I chose `ssingh`, so in future commands
 whenever you see `ssingh` please replace it with your `$USERNAME`.
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ useradd -m -G wheel -s /bin/bash $USERNAME
 $ chfn --full-name "$FULL_NAME" $USERNAME
 $ passwd $USERNAME
-{{< /code-block >}}
+{{< /highlight >}}
 
 Plasma 5 Desktop
 ================
 
 Network should be setup at the start. Check the status of network using:
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ ping google.com -c 2
 $
 $ PING google.com (10.38.24.84) 56(84) bytes of data.
@@ -60,7 +60,7 @@ $ --- google.com ping statistics ---
 $ 2 packets transmitted, 2 received, 0% packet loss, time 999ms
 $ rtt min/avg/max/mdev = 0.022/0.022/0.023/0.004 ms
 $
-{{< /code-block >}}
+{{< /highlight >}}
 
 If you do not get this output, please follow the troubleshooting links
 at [arch wiki](https://wiki.archlinux.org/index.php/systemd-networkd) on
@@ -71,14 +71,14 @@ I will be assuming you have an NVIDIA card for graphics installation.
 To setup a graphical desktop, first we need to install some basic X
 related packages, and some *essential* packages (including fonts):
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ pacman -S xorg-server xorg-server-utils nvidia nvidia-libgl
-{{< /code-block >}}
+{{< /highlight >}}
 
 To avoid the possibility of forgetting to update your _initramfs_ after an
 _nvidia_ upgrade, you have to use a _pacman_ hook like this:
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ vim /etc/pacman.d/hooks/nvidia.hook
 $
 ...
@@ -95,39 +95,39 @@ When=PostTransaction
 Exec=/usr/bin/mkinitcpio -p linux
 ...
 $
-{{< /code-block >}}
+{{< /highlight >}}
 
 Nvidia has a daemon that is to be run at boot. To start the persistence
 daemon at boot, enable the `nvidia-persistenced.service`.
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ systemctl enable nvidia-persistenced.service
 $ systemctl start nvidia-persistenced.service
-{{< /code-block >}}
+{{< /highlight >}}
 
 <br>
 
-{{< panel primary "**KWIN FLICKERING ISSUE**" >}}
+{{< card primary "**KWIN FLICKERING ISSUE**" >}}
 
 To avoid screen tearing in KDE (KWin), add following:
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ vim /etc/profile.d/kwin.sh
 $
 ...
 export __GL_YIELD="USLEEP"
 ...
-{{< /code-block >}}
+{{< /highlight >}}
 
 If this does not help please try adding the following instead -
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ vim /etc/profile.d/kwin.sh
 $
 ...
 export KWIN_TRIPLE_BUFFER=1
 ...
-{{< /code-block >}}
+{{< /highlight >}}
 
 {{< emph danger >}}
 __Do not have both of the above enabled at the same
@@ -136,27 +136,27 @@ Wiki](https://wiki.archlinux.org/index.php/NVIDIA/Troubleshooting) for
 additional details.__
 {{< /emph >}}
 
-{{< /panel >}}
+{{< /card >}}
 
 Now continue installing remaining important packages for the GUI.
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ pacman -S mesa ttf-hack ttf-anonymous-pro
 $ pacman -S tlp tlp-rdw acpi_call bash-completion git meld
 $ pacman -S ttf-dejavu ttf-freefont ttf-liberation
-{{< /code-block >}}
+{{< /highlight >}}
 
 Now, we will install the packages related to Plasma 5:
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ pacman -S plasma-meta kf5 kdebase kdeutils kde-applications
 $ pacman -S kdegraphics gwenview
-{{< /code-block >}}
+{{< /highlight >}}
 
 Now we have to setup a display manager. I chose recommended SDDM for
 plasma 5.
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ pacman -S sddm sddm-kcm
 $ vim /etc/sddm.conf
 
@@ -170,14 +170,14 @@ CursorTheme=breeze_cursors
 ...
 
 $ systemctl enable sddm
-{{< /code-block >}}
+{{< /highlight >}}
 
 Also make sure that network manager starts at boot:
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ systemctl disable dhcpcd.service
 $ systemctl enable NetworkManager
-{{< /code-block >}}
+{{< /highlight >}}
 
 Audio Setup
 ===========
@@ -185,11 +185,11 @@ Audio Setup
 This is pretty simple. Install following packages and you should be
 done:
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ pacman -S alsa-utils pulseaudio pulseaudio-alsa libcanberra-pulse
 $ pacman -S libcanberra-gstreamer jack2-dbus kmix
 $ pacman -S mpv mplayer
-{{< /code-block >}}
+{{< /highlight >}}
 
 Useful Tips
 ===========
@@ -197,7 +197,7 @@ Useful Tips
 This part is optional and you can choose as per your taste. Sync time
 using the `systemd` service:
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ vim /etc/systemd/timesyncd.conf
 $
 ...
@@ -219,15 +219,15 @@ NTP synchronized: yes
  RTC in local TZ: no
  ...
 $
-{{< /code-block >}}
+{{< /highlight >}}
 
 On Plasma 5, It is recommended to enable no-bitmaps to improve the font
 rendering:
 
-{{< code-block code="bash" >}}
+{{< highlight bash >}}
 $ sudo ln -s /etc/fonts/conf.avail/70-no-bitmaps.conf
    /etc/fonts/conf.d
-   {{< /code-block >}}
+   {{< /highlight >}}
 
 If you use vim as your primary editor, you may find
 this [vimrc](https://github.com/amix/vimrc) quite useful.
