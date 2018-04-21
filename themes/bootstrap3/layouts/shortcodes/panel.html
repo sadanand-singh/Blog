@@ -1,7 +1,0 @@
-{{ $sign := .Get 0 | lower }}
-{{ if in (slice "primary" "warning" "danger" "info" "success") $sign }}
-<div class="panel panel-{{ $sign }}">
-{{ if len .Params | eq 2 }}<div class="panel-heading">{{ .Get 1 | chomp | markdownify }}</div> {{ end }}
-<div class="panel-body"> {{ .Inner | markdownify }}</div>
-</div>
-{{ end }}

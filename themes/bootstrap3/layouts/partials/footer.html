@@ -1,9 +1,0 @@
-<footer id="footer">
-  <span class="copyrights">
-    {{ with .Site.Params.license }}
-    Contents &copy; {{ now.Format "2006" }}         <a href="mailto:{{ $.Site.Author.email }}">{{ $.Site.Author.name }}</a> - Powered by         <a href="https://gohugo.io/" rel="nofollow">Hugo {{ $.Hugo.Version }}</a> {{ . | safeHTML }}
-    {{ else }}
-    &copy; {{ now.Format "2006" }} {{ with .Site.Params.footer.copyright }}{{ . | safeHTML }}{{ else }}{{ with .Site.Author.name }}{{ . }}{{ else }}{{ with .Site.Title }}{{ . }}{{ end }}{{ end }}{{ end }}. {{ i18n "footer.all_rights_reserved" }}
-    {{ end }}
-  </span>
-</footer>

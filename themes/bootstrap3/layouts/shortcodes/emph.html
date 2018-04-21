@@ -1,4 +1,0 @@
-{{ $sign := .Get 0 | lower }}
-{{ if in (slice "warning" "danger" "info" "success") $sign }}
-<p class="text-{{ $sign }}"> {{ .Inner | chomp | markdownify }} </p>
-{{ end }}

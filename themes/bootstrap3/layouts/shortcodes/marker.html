@@ -1,4 +1,0 @@
-{{ $sign := .Get 0 | lower }}
-{{ if in (slice "error" "warning" "red" "yellow" "green" "cyan" "blue" "purple") $sign }}
-<span class="highlight-short-{{ $sign | lower }}">{{ .Inner | chomp | markdownify }}</span>
-{{ end }}
