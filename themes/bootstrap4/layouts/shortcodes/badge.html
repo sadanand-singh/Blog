@@ -1,0 +1,13 @@
+{{ $sign := .Get 0 | lower }}
+{{ if in (slice "light" "primary" "secondary" "warning" "danger" "success" "info" "dark") $sign }}
+    {{ if len .Params | eq 2 }}
+        {{ $pill := .Get 1 | lower }}
+        {{ if in (slice "round" "rounded" "pill" "curved" "smooth") $pill }}
+            <span class="badge badge-pill badge-{{ $sign }}"> {{ .Inner | chomp | markdownify }} </span>
+        {{ else }}
+            <span class="badge badge-{{ $sign }}"> {{ .Inner | chomp | markdownify }} </span>
+        {{ end }}
+    {{ else }}
+        <span class="badge badge-{{ $sign }}"> {{ .Inner | chomp | markdownify }} </span>
+    {{ end }}
+{{ end }}
