@@ -760,21 +760,31 @@ views and inputs in comments below.</p>
 </article>
 
             
-            <nav class="postindexpager">
-<ul class="pager">
-  
-      <li class="page-item previous">
-          <a href="/post/page/2/" rel="prev">Newer Posts</a>
-      </li>
-  
-  
-      <li class="page-item next">
-          <a href="/post/page/4/" rel="next">Older Posts</a>
-      </li>
-  
-  <li class="pagination-number">page 3 of 4</li>
-</ul>
-</nav>
+            
+  <div class="pagination-bar">
+    <ul class="pagination">
+      
+        
+          <li class="pagination-prev">
+            <a class="btn btn-outline-primary" href="/post/page/2/">
+              <i class="fa fa-angle-left text-base icon-mr"></i>
+              <span>NEWER POSTS</span>
+            </a>
+          </li>
+        
+        
+          <li class="pagination-next">
+            <a class="btn btn-outline-primary" href="/post/page/4/">
+              <span>OLDER POSTS</span>
+              <i class="fa fa-angle-right text-base icon-ml"></i>
+            </a>
+          </li>
+        
+      
+      <li class="pagination-number">page 3 of 4</li>
+    </ul>
+  </div>
+
 
           </section>
         </div>
@@ -807,18 +817,20 @@ views and inputs in comments below.</p>
 <script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
 
 
-<div id="search-results" class="modal fade" role="dialog" style="height: 80%;">
-    <div class="modal-dialog">
+<div id="search-results" class="modal" role="dialog" style="height: 80%;">
+    <div class="modal-dialog" role="document">
         
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">×</button>
             <h4 class="modal-title">Search Results:</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">x</span>
+            </button>
           </div>
           <div class="modal-body" id="tipue_search_content" style="max-height: 600px; overflow-y: auto;">
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
           </div>
         </div>
     </div>

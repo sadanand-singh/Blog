@@ -341,9 +341,9 @@ these problems.</p>
                     <br/>
                     <strong><span class="text-color-light text-small">TAGGED IN</span></strong><br/>
                     
-  <a class="btag btag--primary btag--small" href="https://sadanand-singh.github.io//tags/algorithms/">Algorithms</a>
+  <a class="badge badge-pill badge-dark" href="https://sadanand-singh.github.io//tags/algorithms/">Algorithms</a>
 
-  <a class="btag btag--primary btag--small" href="https://sadanand-singh.github.io//tags/puzzles/">Puzzles</a>
+  <a class="badge badge-pill badge-dark" href="https://sadanand-singh.github.io//tags/puzzles/">Puzzles</a>
 
 
                   </div>
@@ -353,20 +353,30 @@ these problems.</p>
     </div>
     <aside class="postpromonav">
     <nav>
-    <ul class="pager hidden-print">
-  
     
-        <li class="previous">
-            <a href="/posts/palakpaneerrecipe/" rel="prev" title="Palak Paneer Recipe">Previous post</a>
-        </li>
-    
-    
-        <li class="next">
-            <a href="/posts/archinstall/" rel="next" title="Arch Installation Guide">Next post</a>
-        </li>
-    
-  
-</ul>
+<div class="pagination-bar">
+    <ul class="pagination">
+          
+            <li class="pagination-next post-action">
+              
+                <a class="post-action-btn btn btn-outline-primary tooltip--top" href="/posts/archinstall/" data-tooltip="Arch Installation Guide">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="pagination-prev post-action">
+              
+                <a class="post-action-btn btn btn-outline-primary tooltip--top" href="/posts/palakpaneerrecipe/" data-tooltip="Palak Paneer Recipe">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+  </div>
+
     </nav>
     </aside>
 
@@ -445,18 +455,20 @@ these problems.</p>
 <script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
 
 
-<div id="search-results" class="modal fade" role="dialog" style="height: 80%;">
-    <div class="modal-dialog">
+<div id="search-results" class="modal" role="dialog" style="height: 80%;">
+    <div class="modal-dialog" role="document">
         
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">×</button>
             <h4 class="modal-title">Search Results:</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">x</span>
+            </button>
           </div>
           <div class="modal-body" id="tipue_search_content" style="max-height: 600px; overflow-y: auto;">
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
           </div>
         </div>
     </div>
