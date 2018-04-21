@@ -1,49 +1,20 @@
-{{ if not (eq .Params.showActions false) }}
-<div class="pagination-bar">
-    <ul class="pagination">
-          {{ if .Site.Params.swapPaginator }}
-            <li class="pagination-prev post-action">
-              {{ with .PrevInSection }}
-                <a class="post-action-btn btn btn-outline-primary tooltip--top" href="{{ .RelPermalink }}" data-tooltip="{{ .Title }}">
-              {{ else }}
-                <a class="post-action-btn btn btn--disabled">
-              {{ end }}
-                  <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">{{ i18n "pagination.previous" }}</span>
-                </a>
-            </li>
-            <li class="pagination-next post-action">
-              {{ with .NextInSection }}
-                <a class="post-action-btn btn btn-outline-primary tooltip--top" href="{{ .RelPermalink }}" data-tooltip="{{ .Title }}">
-              {{ else }}
-                <a class="post-action-btn btn btn--disabled">
-              {{ end }}
-                  <span class="hide-xs hide-sm text-small icon-mr">{{ i18n "pagination.next" }}</span>
-                  <i class="fa fa-angle-right"></i>
-                </a>
-            </li>
-          {{ else }}
-            <li class="pagination-next post-action">
-              {{ with .NextInSection }}
-                <a class="post-action-btn btn btn-outline-primary tooltip--top" href="{{ .RelPermalink }}" data-tooltip="{{ .Title }}">
-              {{ else }}
-                <a class="post-action-btn btn btn--disabled">
-              {{ end }}
-                  <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">{{ i18n "pagination.next" }}</span>
-                </a>
-            </li>
-            <li class="pagination-prev post-action">
-              {{ with .PrevInSection }}
-                <a class="post-action-btn btn btn-outline-primary tooltip--top" href="{{ .RelPermalink }}" data-tooltip="{{ .Title }}">
-              {{ else }}
-                <a class="post-action-btn btn btn--disabled">
-              {{ end }}
-                  <span class="hide-xs hide-sm text-small icon-mr">{{ i18n "pagination.previous" }}</span>
-                  <i class="fa fa-angle-right"></i>
-                </a>
-            </li>
-          {{ end }}
-        </ul>
-  </div>
-{{ end }}
+<ul class="mx-0 px-0 pager">
+  {{ if (not (eq .Params.showPagination false)) }}
+    {{ with .PrevInSection }}
+        <li class="previous btn btn-lg btn-primary">
+            <a href="{{ .RelPermalink }}" rel="prev" title="{{ .Title }}">
+            <i class="fa fa-angle-left text-base text-white icon-mr"></i>
+            <span class="text-white"> Previous post </span>
+            </a>
+        </li>
+    {{ end }}
+    {{ with .NextInSection }}
+        <li class="next mr-0 float-right btn btn-lg btn-primary">
+            <a href="{{ .RelPermalink }}" rel="next" title="{{ .Title }}">
+            <span class="text-white"> Next post </span>
+            <i class="fa fa-angle-right text-base text-white icon-ml"></i>
+            </a>
+        </li>
+    {{ end }}
+  {{ end }}
+</ul>
