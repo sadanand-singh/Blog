@@ -69,7 +69,7 @@ publishDir:                 "public"
 pygmentsCodeFencesGuessSyntax: false
 PygmentsCodeFences:            true
 # color-codes for highlighting derived from this style
-pygmentsStyle:              "monokailight"
+pygmentsStyle:              "monokai"
 # true: use pygments-css or false: color-codes directly
 pygmentsUseClasses:         false
 # maximum number of items in the RSS feed
