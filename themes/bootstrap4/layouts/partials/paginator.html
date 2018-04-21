@@ -1,12 +1,12 @@
 <nav class="postindexpager">
 <ul class="pager">
   {{ if .Paginator.HasPrev }}
-      <li class="previous">
+      <li class="page-item previous">
           <a href="{{ .Paginator.Prev.URL }}" rel="prev">Newer Posts</a>
       </li>
   {{ end }}
   {{ if .Paginator.HasNext }}
-      <li class="next">
+      <li class="page-item next">
           <a href="{{ .Paginator.Next.URL }}" rel="next">Older Posts</a>
       </li>
   {{ end }}

@@ -4,7 +4,7 @@
     <div class="container"><!-- This keeps the margins nice -->
         <a class="navbar-brand" href="{{ .Site.BaseURL }}">
         {{ if .Site.Params.logoURL }}
-            <img src="{{ $.Site.BaseURL }}{{ .Site.Params.logoURL }}" alt="{{ .Site.Title }}" id="logo">
+            <img class="px-2" src="{{ $.Site.BaseURL }}{{ .Site.Params.logoURL }}" alt="{{ .Site.Title }}" id="logo">
         {{ end }}
 
         {{ if .Site.Params.showTitle }}
