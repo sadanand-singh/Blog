@@ -11,7 +11,7 @@
             </button>
             <a class="navbar-brand" href="{{ .Site.BaseURL }}">
             {{ with .Site.Params.logoURL }}
-                <img src="{{ . }}" alt="{{ .Site.Title }}" id="logo">
+                <img src="{{ $.Site.BaseURL }}{{ . }}" alt="{{ $.Site.Title }}" id="logo">
             {{ end }}
 
             {{ if .Site.Params.showTitle }}

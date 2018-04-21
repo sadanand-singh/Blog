@@ -1,7 +1,7 @@
 {{ $sign := .Get 0 | lower }}
-{{ if in (slice "primary" "warning" "danger" "info" "success") $sign }}
-<div class="panel panel-{{ $sign }}">
-{{ if len .Params | eq 2 }}<div class="panel-heading">{{ .Get 1 | chomp | markdownify }}</div> {{ end }}
-<div class="panel-body"> {{ .Inner | markdownify }}</div>
+{{ if in (slice "primary" "warning" "danger" "info" "success" "light" "dark") $sign }}
+<div class="card border-{{ $sign }}">
+{{ if len .Params | eq 2 }}<div class="card-header">{{ .Get 1 | chomp | markdownify }}</div> {{ end }}
+<div class="card-body"> {{ .Inner | markdownify }}</div>
 </div>
 {{ end }}
