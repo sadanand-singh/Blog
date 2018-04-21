@@ -87,14 +87,13 @@ The data from the project corresponds to a typical data set at Facebook. You can
 
     
 
-    <link href="//cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/lumen/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="//stackpath.bootstrapcdn.com/bootswatch/4.1.0/litera/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.css" />
+   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" />
     <link href="https://sadanand-singh.github.io/css/rst.css" rel="stylesheet" type="text/css">
     <link href="https://sadanand-singh.github.io/css/theme.css" rel="stylesheet" type="text/css">
     <link href="https://sadanand-singh.github.io/css/peak.min.css" rel="stylesheet" type="text/css">
     <link href="https://sadanand-singh.github.io/css/colorbox.css" rel="stylesheet" type="text/css">
-    <link href="https://sadanand-singh.github.io/css/prism.min.css" rel="stylesheet" type="text/css">
     <link href="https://sadanand-singh.github.io/css/custom.min.css" rel="stylesheet" type="text/css">
     <link href="https://sadanand-singh.github.io/css/tags.min.css" rel="stylesheet" type="text/css">
     <link href="//cdnjs.cloudflare.com/ajax/libs/Tipue-Search/5.0.0/tipuesearch.css" rel="stylesheet" type="text/css">
@@ -119,48 +118,46 @@ The data from the project corresponds to a typical data set at Facebook. You can
 }(document, 'script', 'facebook-jssdk'));</script>
 
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
-<nav class="navbar navbar-default navbar-static-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="https://sadanand-singh.github.io/">
-            
-                <img src="https://sadanand-singh.github.io/letter-s-blue.png" alt="Sadanand&#39;s Notes" id="logo">
-            
+        <a class="navbar-brand" href="https://sadanand-singh.github.io/">
+        
+            <img class="px-2" src="https://sadanand-singh.github.io/letter-s.png" alt="Sadanand&#39;s Notes" id="logo">
+        
 
-            
-                <span id="blog-title">Sadanand&#39;s Notes</span>
-            
-            </a>
-        </div>
+        
+            Sadanand&#39;s Notes
+        
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        </button>
         <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
-            <ul class="nav navbar-nav">
+            <ul class="navbar-nav mr-auto">
               
               
               
                 
                 
-                  <li><a href="/post/">Blog</a>
+                  <li class="nav-item px-3"><a class="nav-link" href="/post/">Blog</a>
                 
               
                 
                 
-                  <li><a href="/tags/">Tags</a>
+                  <li class="nav-item px-3"><a class="nav-link" href="/tags/">Tags</a>
                 
               
                 
                 
-                  <li><a href="/categories/">Categories</a>
+                  <li class="nav-item px-3"><a class="nav-link" href="/categories/">Categories</a>
                 
               
                 
                 
-                  <li><a href="/archives/">Archive</a>
+                  <li class="nav-item px-3"><a class="nav-link" href="/archives/">Archive</a>
                 
               
             </ul>
@@ -175,7 +172,7 @@ The data from the project corresponds to a typical data set at Facebook. You can
     <div class="body-content">
         
         <div class="row">
-            <article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <article class=" mw-100 post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article">
     <header>
     
       <h1 class="p-name entry-title" itemprop="headline name">
@@ -237,7 +234,7 @@ The data from the project corresponds to a typical data set at Facebook. You can
 <div class="fb-like" data-send="true" data-layout="standard" data-action="like" data-size="small" data-show-faces="false" data-share="false"></div>
     </div>
 </header>
-    <div class="e-content entry-content" itemprop="articleBody text">
+    <div class="mw-100 e-content entry-content" itemprop="articleBody text">
         <p>In this post, we will learn about EDA of single variables using simple plots like <a href="https://en.wikipedia.org/wiki/Histogram">histograms</a>, <a href="https://www.khanacademy.org/math/pre-algebra/pre-algebra-math-reasoning/pre-algebra-frequency-dot-plot/v/frequency-tables-and-dot-plots">frequency plots</a> and <a href="https://en.wikipedia.org/wiki/Box_plot">box plots</a>.</p>
 
 <p>Data sets used below are part of a project from the UD651 course on <a href="https://www.udacity.com/">udacity</a> by Facebook.
@@ -3728,41 +3725,45 @@ Name: mobile_check_in, dtype: int64</pre>
                 
                 
                   <div class="post-footer-tags">
-                    <br/>
-                    <strong><span class="text-color-light text-small">TAGGED IN</span></strong><br/>
+                    <hr><br/>
+                    <strong><span class="text-color-light text-small">TAGGED IN:</span></strong>
                     
-  <a class="btag btag--primary btag--small" href="https://sadanand-singh.github.io//tags/machine-learning/">Machine Learning</a>
+  <a class="text-white badge badge-pill badge-dark" href="https://sadanand-singh.github.io//tags/machine-learning/">Machine Learning</a>
 
-  <a class="btag btag--primary btag--small" href="https://sadanand-singh.github.io//tags/eda/">EDA</a>
+  <a class="text-white badge badge-pill badge-dark" href="https://sadanand-singh.github.io//tags/eda/">EDA</a>
 
-  <a class="btag btag--primary btag--small" href="https://sadanand-singh.github.io//tags/python/">Python</a>
+  <a class="text-white badge badge-pill badge-dark" href="https://sadanand-singh.github.io//tags/python/">Python</a>
 
-  <a class="btag btag--primary btag--small" href="https://sadanand-singh.github.io//tags/data-science/">Data Science</a>
+  <a class="text-white badge badge-pill badge-dark" href="https://sadanand-singh.github.io//tags/data-science/">Data Science</a>
 
 
                   </div>
                 
             
         
-    </div>
-    <aside class="postpromonav">
-    <nav>
-    <ul class="pager hidden-print">
+        <br/>
+        <ul class="mx-0 px-0 pager">
   
     
-        <li class="previous">
-            <a href="/posts/pandasintroreddit/" rel="prev" title="Reddit Survey: Introduction to Pandas">Previous post</a>
+        <li class="previous btn btn-lg btn-primary">
+            <a href="/posts/pandasintroreddit/" rel="prev" title="Reddit Survey: Introduction to Pandas">
+            <i class="fa fa-angle-left text-base text-white icon-mr"></i>
+            <span class="text-white"> Previous post </span>
+            </a>
         </li>
     
     
-        <li class="next">
-            <a href="/posts/pyplotstwovariables/" rel="next" title="Pseudo Facebook Data - Exploring Two Variables">Next post</a>
+        <li class="next mr-0 float-right btn btn-lg btn-primary">
+            <a href="/posts/pyplotstwovariables/" rel="next" title="Pseudo Facebook Data - Exploring Two Variables">
+            <span class="text-white"> Next post </span>
+            <i class="fa fa-angle-right text-base text-white icon-ml"></i>
+            </a>
         </li>
     
   
 </ul>
-    </nav>
-    </aside>
+        <hr>
+    </div>
 
     
         <div id="disqus_thread"></div>
@@ -3804,14 +3805,10 @@ Name: mobile_check_in, dtype: int64</pre>
 </div>
     
     
-<script
-  src="//code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.js"></script>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.colorbox/1.6.4/jquery.colorbox-min.js"></script>
-<script src="https://sadanand-singh.github.io/js/prism.js"></script>
 <script src="https://sadanand-singh.github.io/js/peak.min.js"></script>
 
     <script async type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53f6d74a591ace8f"></script>
@@ -3822,18 +3819,20 @@ Name: mobile_check_in, dtype: int64</pre>
 <script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
 
 
-<div id="search-results" class="modal fade" role="dialog" style="height: 80%;">
-    <div class="modal-dialog">
+<div id="search-results" class="modal" role="dialog" style="height: 80%;">
+    <div class="modal-dialog" role="document">
         
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">×</button>
             <h4 class="modal-title">Search Results:</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">X</span>
+            </button>
           </div>
           <div class="modal-body" id="tipue_search_content" style="max-height: 600px; overflow-y: auto;">
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
           </div>
         </div>
     </div>

@@ -75,14 +75,13 @@ In this post, we will do a complete installation of Arch Linux with Plasma 5 as 
 
     
 
-    <link href="//cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/lumen/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="//stackpath.bootstrapcdn.com/bootswatch/4.1.0/litera/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.css" />
+   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" />
     <link href="https://sadanand-singh.github.io/css/rst.css" rel="stylesheet" type="text/css">
     <link href="https://sadanand-singh.github.io/css/theme.css" rel="stylesheet" type="text/css">
     <link href="https://sadanand-singh.github.io/css/peak.min.css" rel="stylesheet" type="text/css">
     <link href="https://sadanand-singh.github.io/css/colorbox.css" rel="stylesheet" type="text/css">
-    <link href="https://sadanand-singh.github.io/css/prism.min.css" rel="stylesheet" type="text/css">
     <link href="https://sadanand-singh.github.io/css/custom.min.css" rel="stylesheet" type="text/css">
     <link href="https://sadanand-singh.github.io/css/tags.min.css" rel="stylesheet" type="text/css">
     <link href="//cdnjs.cloudflare.com/ajax/libs/Tipue-Search/5.0.0/tipuesearch.css" rel="stylesheet" type="text/css">
@@ -105,48 +104,46 @@ In this post, we will do a complete installation of Arch Linux with Plasma 5 as 
 }(document, 'script', 'facebook-jssdk'));</script>
 
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
-<nav class="navbar navbar-default navbar-static-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="https://sadanand-singh.github.io/">
-            
-                <img src="https://sadanand-singh.github.io/letter-s-blue.png" alt="Sadanand&#39;s Notes" id="logo">
-            
+        <a class="navbar-brand" href="https://sadanand-singh.github.io/">
+        
+            <img class="px-2" src="https://sadanand-singh.github.io/letter-s.png" alt="Sadanand&#39;s Notes" id="logo">
+        
 
-            
-                <span id="blog-title">Sadanand&#39;s Notes</span>
-            
-            </a>
-        </div>
+        
+            Sadanand&#39;s Notes
+        
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        </button>
         <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
-            <ul class="nav navbar-nav">
+            <ul class="navbar-nav mr-auto">
               
               
               
                 
                 
-                  <li><a href="/post/">Blog</a>
+                  <li class="nav-item px-3"><a class="nav-link" href="/post/">Blog</a>
                 
               
                 
                 
-                  <li><a href="/tags/">Tags</a>
+                  <li class="nav-item px-3"><a class="nav-link" href="/tags/">Tags</a>
                 
               
                 
                 
-                  <li><a href="/categories/">Categories</a>
+                  <li class="nav-item px-3"><a class="nav-link" href="/categories/">Categories</a>
                 
               
                 
                 
-                  <li><a href="/archives/">Archive</a>
+                  <li class="nav-item px-3"><a class="nav-link" href="/archives/">Archive</a>
                 
               
             </ul>
@@ -161,7 +158,7 @@ In this post, we will do a complete installation of Arch Linux with Plasma 5 as 
     <div class="body-content">
         
         <div class="row">
-            <article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <article class=" mw-100 post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article">
     <header>
     
       <h1 class="p-name entry-title" itemprop="headline name">
@@ -223,7 +220,7 @@ In this post, we will do a complete installation of Arch Linux with Plasma 5 as 
 <div class="fb-like" data-send="true" data-layout="standard" data-action="like" data-size="small" data-show-faces="false" data-share="false"></div>
     </div>
 </header>
-    <div class="e-content entry-content" itemprop="articleBody text">
+    <div class="mw-100 e-content entry-content" itemprop="articleBody text">
         
 
 <p><a href="https://www.archlinux.org">Arch Linux</a> is a general purpose GNU/Linux distribution that provides
@@ -310,9 +307,9 @@ and a more complete version of my previous posts on
 
 
 
-<div class="panel panel-warning">
-<div class="panel-heading"><strong>NOTE</strong></div> 
-<div class="panel-body"> <p>I do not wish to repeat <a href="https://wiki.archlinux.org/index.php/installation_guide">Arch Installation Guide</a> here.</p>
+<div class="card border-thick border-warning">
+<div class="card-header"><strong>NOTE</strong></div> 
+<div class="card-body"> <p>I do not wish to repeat <a href="https://wiki.archlinux.org/index.php/installation_guide">Arch Installation Guide</a> here.</p>
 
 <p>Do not forget about <a href="https://wiki.archlinux.org/">Arch Wiki</a>, the best documentation in the world! Most of the content
 in this post has been compiled from the <a href="https://wiki.archlinux.org/">Arch wiki</a>.</p>
@@ -337,15 +334,9 @@ this stage before proceeding any further.</strong></p>
 <p>You should boot into <em>UEFI</em> mode if you have a UEFI motherboard and UEFI
 mode enabled.</p>
 
-<p>To verify you have booted in UEFU mode, run:</p>
+<p>To verify you have booted in UEFI mode, run:</p>
 
-<pre  >
-<code class="language-bash"> 
-$ efivar -l
-
-</code>
-</pre>
-
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ efivar -l</code></pre></div>
 
 <p>This should give you a list of set UEFI variables. Please look at the
 <a href="https://wiki.archlinux.org/index.php/installation_guide">Arch Installation
@@ -355,15 +346,9 @@ you do not get any list of UEFI variables.</p>
 <p>The very first thing that annoys me in the virtual console is how tiny
 all the fonts are. We will fix that by running the following commands:</p>
 
-<pre  >
-<code class="language-bash"> 
-$ pacman -Sy
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ pacman -Sy
 $ pacman -S terminus-font
-$ setfont ter-132n
-
-</code>
-</pre>
-
+$ setfont ter-132n</code></pre></div>
 
 <p>We are all set to get started with the actual installation process.</p>
 
@@ -371,22 +356,16 @@ $ setfont ter-132n
 
 <p>First find the hard drive that you will be using as the main/root disk.</p>
 
-<pre  >
-<code class="language-bash"> 
-$ cat /proc/partitions
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cat /proc/partitions
 
-# OUTPUT eg.
-# major minor  #blocks  name
-
-# 8        0  268435456 sda
-# 9        0  268435456 sdb
-# 19       0  268435456 sdc
-# 11       0     759808 sr0
-# 7        0     328616 loop0
-
-</code>
-</pre>
-
+<span style="color:#75715e"># OUTPUT eg.
+</span><span style="color:#75715e"># major minor  #blocks  name
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e"># 8        0  268435456 sda
+</span><span style="color:#75715e"># 9        0  268435456 sdb
+</span><span style="color:#75715e"># 19       0  268435456 sdc
+</span><span style="color:#75715e"># 11       0     759808 sr0
+</span><span style="color:#75715e"></span># <span style="color:#ae81ff">7</span>        <span style="color:#ae81ff">0</span>     <span style="color:#ae81ff">328616</span> loop0</code></pre></div>
 
 <p>Say, we will be using <em>/dev/sda</em> as the main disk and <em>/dev/sdb</em> as
 <em>/data</em> and <em>/dev/sdc</em> as <em>/media</em> .</p>
@@ -399,73 +378,50 @@ if=/dev/urandom of=/dev/xxx</em>, the <em>dd</em> method is probably the best
 method, but is a lot slower. <strong>The following step should take about 20
 minutes on a 240 GB SSD.</strong></p>
 
-<pre  >
-<code class="language-bash"> 
-$ badblocks -c 10240 -s -w -t random -v /dev/sda
-
-</code>
-</pre>
-
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ badblocks -c <span style="color:#ae81ff">10240</span> -s -w -t random -v /dev/sda</code></pre></div>
 
 <p>Next, we will create GPT partitions on all disks using <em>gdisk</em> command.</p>
 
-<pre  >
-<code class="language-bash"> 
-$ dd if=/dev/zero of=/dev/sda bs=1M count=5000
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ dd <span style="color:#00a8c8">if</span><span style="color:#f92672">=</span>/dev/zero <span style="color:#111">of</span><span style="color:#f92672">=</span>/dev/sda <span style="color:#111">bs</span><span style="color:#f92672">=</span>1M <span style="color:#111">count</span><span style="color:#f92672">=</span><span style="color:#ae81ff">5000</span>
 $ gdisk /dev/sda
-Found invalid MBR and corrupt GPT. What do you want to do? (Using the
-GPT MAY permit recovery of GPT data.)
- 1 - Use current GPT
- 2 - Create blank GPT
- 
-</code>
-</pre>
-
+Found invalid MBR and corrupt GPT. What <span style="color:#00a8c8">do</span> you want to <span style="color:#00a8c8">do</span>? <span style="color:#f92672">(</span>Using the
+GPT MAY permit recovery of GPT data.<span style="color:#f92672">)</span>
+ <span style="color:#ae81ff">1</span> - Use current GPT
+ <span style="color:#ae81ff">2</span> - Create blank GPT
+ </code></pre></div>
 
 <p>Then press 2 to create a blank GPT and start fresh</p>
 
-<pre  >
-<code class="language-bash"> 
-ZAP:
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ZAP:
 $ press x - to go to extended menu
 $ press z - to zap
 $ press Y - to confirm
-$ press Y - to delete MBR
-
-</code>
-</pre>
-
+$ press Y - to delete MBR</code></pre></div>
 
 <p>It might now kick us out of <em>gdisk</em>, so get back into it:</p>
 
-<pre  >
-<code class="language-bash"> 
-$ gdisk /dev/sda
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ gdisk /dev/sda
 
-$ Command (? for help): m
-$ Command (? for help): n
+$ Command <span style="color:#f92672">(</span>? <span style="color:#00a8c8">for</span> <span style="color:#111">help</span><span style="color:#f92672">)</span>: m
+$ Command <span style="color:#f92672">(</span>? <span style="color:#00a8c8">for</span> <span style="color:#111">help</span><span style="color:#f92672">)</span>: n
 
-$ Partition number (1-128, default 1):
-$ First sector (34-500118158, default = 2048) or {&#43;-}size{KMGTP}:
-$ Last sector (2048-500118, default = 500118) or {&#43;-}size{KMGTP}: 512M
-$ Current type is &#39;Linux filesystem&#39;
-$ Hex code or GUID (L to show codes, Enter = 8300): ef00
-$ Changed type of partition to &#39;EFI System&#39;
+$ Partition number <span style="color:#f92672">(</span><span style="color:#ae81ff">1</span>-128, default <span style="color:#ae81ff">1</span><span style="color:#f92672">)</span>:
+$ First sector <span style="color:#f92672">(</span><span style="color:#ae81ff">34</span>-500118158, <span style="color:#111">default</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">2048</span><span style="color:#f92672">)</span> or <span style="color:#f92672">{</span>+-<span style="color:#f92672">}</span>size<span style="color:#f92672">{</span>KMGTP<span style="color:#f92672">}</span>:
+$ Last sector <span style="color:#f92672">(</span><span style="color:#ae81ff">2048</span>-500118, <span style="color:#111">default</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">500118</span><span style="color:#f92672">)</span> or <span style="color:#f92672">{</span>+-<span style="color:#f92672">}</span>size<span style="color:#f92672">{</span>KMGTP<span style="color:#f92672">}</span>: 512M
+$ Current <span style="color:#111">type</span> is <span style="color:#d88200">&#39;Linux filesystem&#39;</span>
+$ Hex code or GUID <span style="color:#f92672">(</span>L to show codes, <span style="color:#111">Enter</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">8300</span><span style="color:#f92672">)</span>: ef00
+$ Changed <span style="color:#111">type</span> of partition to <span style="color:#d88200">&#39;EFI System&#39;</span>
 
-$ Partition number (2-128, default 2):
-$ First sector (34-500118, default = 16779264) or {&#43;-}size{KMGTP}:
-$ Last sector (16779264-500118, default = 500118) or {&#43;-}size{KMGTP}:
-$ Current type is &#39;Linux filesystem&#39;
-$ Hex code or GUID (L to show codes, Enter = 8300):
-$ Changed type of partition to &#39;Linux filesystem&#39;
+$ Partition number <span style="color:#f92672">(</span><span style="color:#ae81ff">2</span>-128, default <span style="color:#ae81ff">2</span><span style="color:#f92672">)</span>:
+$ First sector <span style="color:#f92672">(</span><span style="color:#ae81ff">34</span>-500118, <span style="color:#111">default</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">16779264</span><span style="color:#f92672">)</span> or <span style="color:#f92672">{</span>+-<span style="color:#f92672">}</span>size<span style="color:#f92672">{</span>KMGTP<span style="color:#f92672">}</span>:
+$ Last sector <span style="color:#f92672">(</span><span style="color:#ae81ff">16779264</span>-500118, <span style="color:#111">default</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">500118</span><span style="color:#f92672">)</span> or <span style="color:#f92672">{</span>+-<span style="color:#f92672">}</span>size<span style="color:#f92672">{</span>KMGTP<span style="color:#f92672">}</span>:
+$ Current <span style="color:#111">type</span> is <span style="color:#d88200">&#39;Linux filesystem&#39;</span>
+$ Hex code or GUID <span style="color:#f92672">(</span>L to show codes, <span style="color:#111">Enter</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">8300</span><span style="color:#f92672">)</span>:
+$ Changed <span style="color:#111">type</span> of partition to <span style="color:#d88200">&#39;Linux filesystem&#39;</span>
 
-$ Command (? for help): p
+$ Command <span style="color:#f92672">(</span>? <span style="color:#00a8c8">for</span> <span style="color:#111">help</span><span style="color:#f92672">)</span>: p
 $ Press w to write to disk
-$ Press Y to confirm
-
-</code>
-</pre>
-
+$ Press Y to confirm</code></pre></div>
 
 <p>Repeat the above procedure for <em>/dev/sdb</em> and <em>/dev/sdc</em>, but create
 just one partition with all values as default. At the end we will have
@@ -480,47 +436,31 @@ encryption on <em>/dev/sda2</em> only.</p>
 <p>In order to enable disk encryption, we will first create a root luks
 volume, open it and then format it.</p>
 
-<pre  >
-<code class="language-bash"> 
-# first, we need to prepare the encrypted (outer) volume
-$ cryptsetup --cipher aes-xts-plain64 --hash sha512 --use-random --verify-passphrase luksFormat /dev/sda2
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># first, we need to prepare the encrypted (outer) volume
+</span><span style="color:#75715e"></span>$ cryptsetup --cipher aes-xts-plain64 --hash sha512 --use-random --verify-passphrase luksFormat /dev/sda2
 
-# I really hope I don&#39;t have to lecture you on NOT LOSING this
-# password, lest all of your data will be forever inaccessible,
-# right?
-
-# then, we actually open it as a block device, and format the
-# inner volume later
-$ cryptsetup luksOpen /dev/sda2 root
-
-</code>
-</pre>
+<span style="color:#75715e"># I really hope I don&#39;t have to lecture you on NOT LOSING this
+</span><span style="color:#75715e"># password, lest all of your data will be forever inaccessible,
+</span><span style="color:#75715e"># right?
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e"># then, we actually open it as a block device, and format the
+</span><span style="color:#75715e"># inner volume later
+</span><span style="color:#75715e"></span>$ cryptsetup luksOpen /dev/sda2 root</code></pre></div>
 
 
 
-
-<div class="panel panel-success">
-<div class="panel-heading"><strong>Automatic Key Login from an USB/SD Card</strong></div> 
-<div class="panel-body"> <p>If you want to automatically login the encrypted disk password from an
+<div class="card border-thick border-success">
+<div class="card-header"><strong>Automatic Key Login from an USB/SD Card</strong></div> 
+<div class="card-body"> <p>If you want to automatically login the encrypted disk password from an
 externally attached USB or SD card, you will first need to create a key
 file.</p>
 
-<pre  >
-<code class="language-bash"> 
-$ dd bs=512 count=4 if=/dev/urandom of=KEYFILE
-
-</code>
-</pre>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ dd <span style="color:#111">bs</span><span style="color:#f92672">=</span><span style="color:#ae81ff">512</span> <span style="color:#111">count</span><span style="color:#f92672">=</span><span style="color:#ae81ff">4</span> <span style="color:#00a8c8">if</span><span style="color:#f92672">=</span>/dev/urandom <span style="color:#111">of</span><span style="color:#f92672">=</span>KEYFILE</code></pre></div>
 
 <p>Then, add this key to the luks container, so that it can be later used
 to open the encrypted drive.</p>
 
-<pre  >
-<code class="language-bash"> 
-$ cryptsetup luksAddKey /dev/sda2 KEYFILE
-
-</code>
-</pre>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cryptsetup luksAddKey /dev/sda2 KEYFILE</code></pre></div>
 
 <p class="text-warning"> Note that the KEYFILE here should be kept on a
 separate USB drive or SD card. </p>
@@ -528,28 +468,23 @@ separate USB drive or SD card. </p>
 <p>The recommended way of
 using such a disk would be as follows:</p>
 
-<pre  >
-<code class="language-bash"> 
-# assuming our USB of interest is /dev/sdd  and can be format
-#
-# Format the drive
-$ dd if=/dev/zero of=/dev/sdd bs=1M
-# Create partitions using gdisk
-#
-$ gdisk /dev/sdd
-#
-# Follow along to create one partition (/dev/sdd1) of type 0700
-#
-# format /dev/sdd1
-$ mkfs.fat /dev/sdd1
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># assuming our USB of interest is /dev/sdd  and can be format
+</span><span style="color:#75715e">#
+</span><span style="color:#75715e"># Format the drive
+</span><span style="color:#75715e"></span>$ dd <span style="color:#00a8c8">if</span><span style="color:#f92672">=</span>/dev/zero <span style="color:#111">of</span><span style="color:#f92672">=</span>/dev/sdd <span style="color:#111">bs</span><span style="color:#f92672">=</span>1M
+<span style="color:#75715e"># Create partitions using gdisk
+</span><span style="color:#75715e">#
+</span><span style="color:#75715e"></span>$ gdisk /dev/sdd
+<span style="color:#75715e">#
+</span><span style="color:#75715e"># Follow along to create one partition (/dev/sdd1) of type 0700
+</span><span style="color:#75715e">#
+</span><span style="color:#75715e"># format /dev/sdd1
+</span><span style="color:#75715e"></span>$ mkfs.fat /dev/sdd1
 
-# mount the newly format disk on /mnt and then copy the KEYFILE
-$ mount /dev/sdd1 /mnt
+<span style="color:#75715e"># mount the newly format disk on /mnt and then copy the KEYFILE
+</span><span style="color:#75715e"></span>$ mount /dev/sdd1 /mnt
 $ mv KEYFILE /mnt/KEYFILE
-$ umount /mnt
-
-</code>
-</pre>
+$ umount /mnt</code></pre></div>
 
 <p>We will be later using this KEYFILE in boot loader setup.</p>
 </div>
@@ -564,23 +499,15 @@ $ umount /mnt
 
 <p>These can be format as follows:</p>
 
-<pre  >
-<code class="language-bash"> 
-$ mkfs.vfat -F32 /dev/sda1
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mkfs.vfat -F32 /dev/sda1
 $ mkfs.btrfs -L arch /dev/mapper/root
 $ mkfs.btrfs -L data /dev/sdb1
-$ mkfs.btrfs -L media /dev/sdc1
-
-</code>
-</pre>
-
+$ mkfs.btrfs -L media /dev/sdc1</code></pre></div>
 
 <p>Now, we will create <em>btrfs</em> subvolumes and mount them properly for
 installation and final setup.</p>
 
-<pre  >
-<code class="language-bash"> 
-$ mount /dev/mapper/root /mnt
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mount /dev/mapper/root /mnt
 $ btrfs subvolume create /mnt/ROOT
 $ btrfs subvolume create /mnt/home
 $ umount /mnt
@@ -591,35 +518,25 @@ $ umount /mnt
 
 $ mount /dev/sdc1 /mnt
 $ btrfs subvolume create /mnt/media
-$ umount /mnt
-
-</code>
-</pre>
-
+$ umount /mnt</code></pre></div>
 
 <p>Now, once the sub-volumes have been created, we will mount them in
 appropriate locations with optimal flags.</p>
 
-<pre  >
-<code class="language-bash"> 
-$ SSD_MOUNTS=&#34;rw,noatime,nodev,compress=lzo,ssd,discard,
-    space_cache,autodefrag,inode_cache&#34;
-$ HDD_MOUNTS=&#34;rw,nosuid,nodev,relatime,space_cache&#34;
-$ EFI_MOUNTS=&#34;rw,noatime,discard,nodev,nosuid,noexec&#34;
-$ mount -o $SSD_MOUNTS,subvol=ROOT /dev/mapper/root /mnt
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ <span style="color:#111">SSD_MOUNTS</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;rw,noatime,nodev,compress=lzo,ssd,discard,
+</span><span style="color:#d88200">    space_cache,autodefrag,inode_cache&#34;</span>
+$ <span style="color:#111">HDD_MOUNTS</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;rw,nosuid,nodev,relatime,space_cache&#34;</span>
+$ <span style="color:#111">EFI_MOUNTS</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;rw,noatime,discard,nodev,nosuid,noexec&#34;</span>
+$ mount -o <span style="color:#111">$SSD_MOUNTS</span>,subvol<span style="color:#f92672">=</span>ROOT /dev/mapper/root /mnt
 $ mkdir -p /mnt/home
 $ mkdir -p /mnt/data
 $ mkdir -p /mnt/media
-$ mount -o $SSD_MOUNTS,nosuid,subvol=home /dev/mapper/root /mnt/home
-$ mount -o $HDD_MOUNTS,subvol=data /dev/sdb1 /mnt/data
-$ mount -o $HDD_MOUNTS,subvol=media /dev/sdc1 /mnt/media
+$ mount -o <span style="color:#111">$SSD_MOUNTS</span>,nosuid,subvol<span style="color:#f92672">=</span>home /dev/mapper/root /mnt/home
+$ mount -o <span style="color:#111">$HDD_MOUNTS</span>,subvol<span style="color:#f92672">=</span>data /dev/sdb1 /mnt/data
+$ mount -o <span style="color:#111">$HDD_MOUNTS</span>,subvol<span style="color:#f92672">=</span>media /dev/sdc1 /mnt/media
 
 $ mkdir -p /mnt/boot
-$ mount -o $EFI_MOUNTS /dev/sda1 /mnt/boot
-
-</code>
-</pre>
-
+$ mount -o <span style="color:#111">$EFI_MOUNTS</span> /dev/sda1 /mnt/boot</code></pre></div>
 
 
 
@@ -628,107 +545,71 @@ use!</span>
 
 
 
-<pre  >
-<code class="language-bash"> 
-$ cp /etc/resolv.conf /mnt/etc/resolv.conf
-
-</code>
-</pre>
-
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cp /etc/resolv.conf /mnt/etc/resolv.conf</code></pre></div>
 
 <h2 id="base-system-installation">Base System Installation</h2>
 
 <p>Now, we will do the actually installation of base packages.</p>
 
-<pre  >
-<code class="language-bash"> 
-$ pacstrap /mnt base base-devel btrfs-progs
-$ genfstab -U -p /mnt &gt;&gt; /mnt/etc/fstab
-
-</code>
-</pre>
-
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ pacstrap /mnt base base-devel btrfs-progs
+$ genfstab -U -p /mnt &gt;&gt; /mnt/etc/fstab</code></pre></div>
 
 <h2 id="initial-system-setup">Initial System Setup</h2>
 
 <p>Edit the <em>/mnt/ect/fstab</em> file to add following <em>/tmp</em> mounts.</p>
 
-<pre  >
-<code class="language-bash"> 
-tmpfs /tmp tmpfs rw,nodev,nosuid 0 0
-tmpfs /dev/shm tmpfs rw,nodev,nosuid,noexec 0 0
-
-</code>
-</pre>
-
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">tmpfs /tmp tmpfs rw,nodev,nosuid <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span>
+tmpfs /dev/shm tmpfs rw,nodev,nosuid,noexec <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span></code></pre></div>
 
 <p>Finally bind root for installation.</p>
 
-<pre  >
-<code class="language-bash"> 
-$ arch-chroot /mnt &#34;bash&#34;
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ arch-chroot /mnt <span style="color:#d88200">&#34;bash&#34;</span>
 $ pacman -Syy
 $ pacman -Syu
 $ pacman -S sudo vim
 $ vim /etc/locale.gen
 
 ...
-# en_SG ISO-8859-1
-en_US.UTF-8 UTF-8
-# en_US ISO-8859-1
-...
+<span style="color:#75715e"># en_SG ISO-8859-1
+</span><span style="color:#75715e"></span>en_US.UTF-8 UTF-8
+<span style="color:#75715e"># en_US ISO-8859-1
+</span><span style="color:#75715e"></span>...
 
 $ locale-gen
-$ echo LANG=en_US.UTF-8 &gt; /etc/locale.conf
-$ export LANG=en_US.UTF-8
+$ <span style="color:#111">echo</span> <span style="color:#111">LANG</span><span style="color:#f92672">=</span>en_US.UTF-8 &gt; /etc/locale.conf
+$ <span style="color:#111">export</span> <span style="color:#111">LANG</span><span style="color:#f92672">=</span>en_US.UTF-8
 $ ls -l /usr/share/zoneinfo
 $ ln -sf /usr/share/zoneinfo/Zone/SubZone /etc/localtime
 $ hwclock --systohc --utc
-$ sed -i &#34;s/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/&#34; /etc/sudoers
-$ HOSTNAME=euler
-$ echo $HOSTNAME &gt; /etc/hostname
-$ passwd
-
-</code>
-</pre>
-
+$ sed -i <span style="color:#d88200">&#34;s/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/&#34;</span> /etc/sudoers
+$ <span style="color:#111">HOSTNAME</span><span style="color:#f92672">=</span>euler
+$ <span style="color:#111">echo</span> <span style="color:#111">$HOSTNAME</span> &gt; /etc/hostname
+$ passwd</code></pre></div>
 
 <p>We will also add <em>hostname</em> to our <code>/etc/hosts</code> file:</p>
 
-<pre  >
-<code class="language-bash"> 
-$ vim /etc/hosts
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ vim /etc/hosts
 ...
-127.0.0.1       localhost.localdomain   localhost
+<span style="color:#ae81ff">127</span>.0.0.1       localhost.localdomain   localhost
 ::1             localhost.localdomain   localhost
-127.0.0.1       $HOSTNAME.localdomain   $HOSTNAME
-...
-
-</code>
-</pre>
-
+<span style="color:#ae81ff">127</span>.0.0.1       <span style="color:#111">$HOSTNAME</span>.localdomain   <span style="color:#111">$HOSTNAME</span>
+...</code></pre></div>
 
 <p>We also need to fix the <code>mkinitcpio.conf</code> to contain what we actually
 need.</p>
 
-<pre  >
-<code class="language-bash"> 
-$ vi /etc/mkinitcpio.conf
-# on the MODULES section, add &#34;vfat aes_x86_64 crc32c-intel&#34;
-# (and whatever else you know your hardware needs. Mine needs i915 too)
-# on the BINARIES section, add &#34;/usr/bin/btrfsck&#34;, since it&#39;s useful
-# to have in case your filesystem has troubles
-# on the HOOKS section:
-#  - add &#34;encrypt&#34; before &#34;filesystems&#34;
-#  - remove &#34;fsck&#34; and
-#  - add &#34;btrfs&#34; at the end
-#
-# re-generate your initrd images
-mkinitcpio -p linux
-
-</code>
-</pre>
-
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ vi /etc/mkinitcpio.conf
+<span style="color:#75715e"># on the MODULES section, add &#34;vfat aes_x86_64 crc32c-intel&#34;
+</span><span style="color:#75715e"># (and whatever else you know your hardware needs. Mine needs i915 too)
+</span><span style="color:#75715e"># on the BINARIES section, add &#34;/usr/bin/btrfsck&#34;, since it&#39;s useful
+</span><span style="color:#75715e"># to have in case your filesystem has troubles
+</span><span style="color:#75715e"># on the HOOKS section:
+</span><span style="color:#75715e">#  - add &#34;encrypt&#34; before &#34;filesystems&#34;
+</span><span style="color:#75715e">#  - remove &#34;fsck&#34; and
+</span><span style="color:#75715e">#  - add &#34;btrfs&#34; at the end
+</span><span style="color:#75715e">#
+</span><span style="color:#75715e"># re-generate your initrd images
+</span><span style="color:#75715e"></span>mkinitcpio -p linux</code></pre></div>
 
 <h2 id="boot-manager-setup">Boot Manager Setup</h2>
 
@@ -741,13 +622,7 @@ default.</p>
 <p>Assuming <em>/boot</em> is your boot drive, first run the following command to
 get started:</p>
 
-<pre  >
-<code class="language-bash"> 
-$ bootctl --path=/boot install
-
-</code>
-</pre>
-
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ bootctl --path<span style="color:#f92672">=</span>/boot install</code></pre></div>
 
 <p>It will copy the systemd-boot binary to your EFI System Partition (
 <code>/boot/EFI/systemd/systemd-bootx64.efi</code> and <code>/boot/EFI/Boot/BOOTX64.EFI</code> -
@@ -758,22 +633,16 @@ EFI Boot Manager.</p>
 <p>Finally to configure out boot loader, we will need the UUID of some of
 our hard drives. These can be easily done using the <em>blkid</em> command.</p>
 
-<pre  >
-<code class="language-bash"> 
-$ blkid /dev/sda1 &gt; /boot/loader/entries/arch.conf
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ blkid /dev/sda1 &gt; /boot/loader/entries/arch.conf
 $ blkid /dev/sda2 &gt;&gt; /boot/loader/entries/arch.conf
 $ blkid /dev/mapper/root &gt;&gt; /boot/loader/entries/arch.conf
 $ blkid /dev/sdd1 &gt;&gt; /boot/loader/entries/arch.conf
 
-# for this example, I&#39;m going to mark them like this:
-# /dev/sda1 LABEL=&#34;EFI&#34;                 UUID=11111111-1111-1111-1111-111111111111
-# /dev/sda2 LABEL=&#34;arch&#34;      UUID=33333333-3333-3333-3333-333333333333
-# /dev/mapper/root LABEL=&#34;Arch Linux&#34;   UUID=44444444-4444-4444-4444-444444444444
-# /dev/sdd1 LABEL=&#34;USB&#34;     UUID=0000-0000  # this is the drive where KEYFILE exists
-
-</code>
-</pre>
-
+<span style="color:#75715e"># for this example, I&#39;m going to mark them like this:
+</span><span style="color:#75715e"># /dev/sda1 LABEL=&#34;EFI&#34;                 UUID=11111111-1111-1111-1111-111111111111
+</span><span style="color:#75715e"># /dev/sda2 LABEL=&#34;arch&#34;      UUID=33333333-3333-3333-3333-333333333333
+</span><span style="color:#75715e"># /dev/mapper/root LABEL=&#34;Arch Linux&#34;   UUID=44444444-4444-4444-4444-444444444444
+</span><span style="color:#75715e"></span># /dev/sdd1 <span style="color:#111">LABEL</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;USB&#34;</span>     <span style="color:#111">UUID</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0000</span>-0000  # this is the drive where KEYFILE exists</code></pre></div>
 
 <p>Now, make sure that the following two files look as follows, where UUIDs
 is the value obtained from above commands.</p>
@@ -784,11 +653,9 @@ is the value obtained from above commands.</p>
 
 
 
-<pre  >
-<code class="language-bash"> 
-$ vim /boot/loader/loader.conf
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ vim /boot/loader/loader.conf
 ...
-timeout 3
+timeout <span style="color:#ae81ff">3</span>
 default arch
 ...
 $ vim /boot/loader/entries/arch.conf
@@ -797,32 +664,22 @@ $ vim /boot/loader/entries/arch.conf
 title Arch Linux
 linux /vmlinuz-linux
 initrd /initramfs-linux.img
-options ro cryptdevice=UUID=33333333-3333-3333-3333-333333333333:luks-33333333-3333-3333-3333-333333333333 root=UUID=44444444-4444-4444-4444-444444444444 rootfstype=btrfs rootflags=subvol=ROOT cryptkey=UUID=0000-0000:vfat:KEYFILE
-...
-
-</code>
-</pre>
-
+options ro <span style="color:#111">cryptdevice</span><span style="color:#f92672">=</span><span style="color:#111">UUID</span><span style="color:#f92672">=</span><span style="color:#ae81ff">33333333</span>-3333-3333-3333-333333333333:luks-33333333-3333-3333-3333-333333333333 <span style="color:#111">root</span><span style="color:#f92672">=</span><span style="color:#111">UUID</span><span style="color:#f92672">=</span><span style="color:#ae81ff">44444444</span>-4444-4444-4444-444444444444 <span style="color:#111">rootfstype</span><span style="color:#f92672">=</span>btrfs <span style="color:#111">rootflags</span><span style="color:#f92672">=</span><span style="color:#111">subvol</span><span style="color:#f92672">=</span>ROOT <span style="color:#111">cryptkey</span><span style="color:#f92672">=</span><span style="color:#111">UUID</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0000</span>-0000:vfat:KEYFILE
+...</code></pre></div>
 
 <h2 id="network-setup">Network Setup</h2>
 
 <p>At first we will need to figure out the Ethernet controller on which
 cable is connected.</p>
 
-<pre  >
-<code class="language-bash"> 
-$ networkctl
-#
-# IDX LINK             TYPE               OPERATIONAL SETUP
-#   1 lo               loopback           carrier     unmanaged
-#   2 enp3s0           ether              no-carrier  unmanaged
-#   3 wlp6s0           wlan               no-carrier  unmanaged
-#   4 enp0s25          ether              routable    configured
-#
-
-</code>
-</pre>
-
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ networkctl
+<span style="color:#75715e">#
+</span><span style="color:#75715e"># IDX LINK             TYPE               OPERATIONAL SETUP
+</span><span style="color:#75715e">#   1 lo               loopback           carrier     unmanaged
+</span><span style="color:#75715e">#   2 enp3s0           ether              no-carrier  unmanaged
+</span><span style="color:#75715e">#   3 wlp6s0           wlan               no-carrier  unmanaged
+</span><span style="color:#75715e">#   4 enp0s25          ether              routable    configured
+</span><span style="color:#75715e"></span>#</code></pre></div>
 
 <p>In my case, the name of the device is <em>enp0s25</em>.</p>
 
@@ -835,66 +692,48 @@ session.</p>
 <p>Network configurations are stored as *.network in
 <code>/etc/systemd/network</code>. We need to create ours as follows.:</p>
 
-<pre  >
-<code class="language-bash"> 
-$ vim /etc/systemd/network/50-wired.network
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ vim /etc/systemd/network/50-wired.network
 $
 ...
-[Match]
-Name=enp0s25
+<span style="color:#f92672">[</span>Match<span style="color:#f92672">]</span>
+<span style="color:#111">Name</span><span style="color:#f92672">=</span>enp0s25
 
-[Network]
-DHCP=ipv4
+<span style="color:#f92672">[</span>Network<span style="color:#f92672">]</span>
+<span style="color:#111">DHCP</span><span style="color:#f92672">=</span>ipv4
 
 ...
 
-$
-
-</code>
-</pre>
-
+$</code></pre></div>
 
 <p>Now enable the <code>networkd</code> services:</p>
 
-<pre  >
-<code class="language-bash"> 
-systemctl enable systemd-networkd.service
-
-</code>
-</pre>
-
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">systemctl <span style="color:#111">enable</span> systemd-networkd.service</code></pre></div>
 
 <p>Your network should be ready for the first use!</p>
 
 <p>Sync time automatically using the <em>systemd</em> service:</p>
 
-<pre  >
-<code class="language-bash"> 
-$ vim /etc/systemd/timesyncd.conf
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ vim /etc/systemd/timesyncd.conf
 $
 ...
-[Time]
-NTP=0.arch.pool.ntp.org 1.arch.pool.ntp.org 2.arch.pool.ntp.org 3.arch.pool.ntp.org
-FallbackNTP=0.pool.ntp.org 1.pool.ntp.org 0.fr.pool.ntp.org
+<span style="color:#f92672">[</span>Time<span style="color:#f92672">]</span>
+<span style="color:#111">NTP</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>.arch.pool.ntp.org <span style="color:#ae81ff">1</span>.arch.pool.ntp.org <span style="color:#ae81ff">2</span>.arch.pool.ntp.org <span style="color:#ae81ff">3</span>.arch.pool.ntp.org
+<span style="color:#111">FallbackNTP</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>.pool.ntp.org <span style="color:#ae81ff">1</span>.pool.ntp.org <span style="color:#ae81ff">0</span>.fr.pool.ntp.org
 ...
 $
-$ timedatectl set-ntp true
+$ timedatectl set-ntp <span style="color:#111">true</span>
 $ timedatectl status
 $
 ...
-      Local time: Tue 2016-09-20 16:40:44 PDT
-  Universal time: Tue 2016-09-20 23:40:44 UTC
-        RTC time: Tue 2016-09-20 23:40:44
-       Time zone: US/Pacific (PDT, -0700)
- Network time on: yes
+      Local time: Tue <span style="color:#ae81ff">2016</span>-09-20 <span style="color:#ae81ff">16</span>:40:44 PDT
+  Universal time: Tue <span style="color:#ae81ff">2016</span>-09-20 <span style="color:#ae81ff">23</span>:40:44 UTC
+        RTC time: Tue <span style="color:#ae81ff">2016</span>-09-20 <span style="color:#ae81ff">23</span>:40:44
+       Time zone: US/Pacific <span style="color:#f92672">(</span>PDT, -0700<span style="color:#f92672">)</span>
+ Network <span style="color:#111">time</span> on: yes
 NTP synchronized: yes
- RTC in local TZ: no
+ RTC in <span style="color:#111">local</span> TZ: no
  ...
-$
-
-</code>
-</pre>
-
+$</code></pre></div>
 
 <p><a href="https://wiki.archlinux.org/index.php/avahi">Avahi</a> is a tool that
 allows programs to publish and discover services and hosts running on a
@@ -904,62 +743,38 @@ and people to talk to.</p>
 
 <p>We can easily set it up it as follows:</p>
 
-<pre  >
-<code class="language-bash"> 
-$ pacman -S avahi nss-mdns
-$ systemctl enable avahi-daemon.service
-
-</code>
-</pre>
-
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ pacman -S avahi nss-mdns
+$ systemctl <span style="color:#111">enable</span> avahi-daemon.service</code></pre></div>
 
 <p>We will also install <code>terminus-font</code> on our system to work with proper
 fonts on first boot.</p>
 
-<pre  >
-<code class="language-bash"> 
-$ pacman -S terminus-font
-
-</code>
-</pre>
-
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ pacman -S terminus-font</code></pre></div>
 
 <h1 id="first-boot-installations">First Boot Installations</h1>
 
 <p>Now we are ready for the first boot! Run the following command:</p>
 
-<pre  >
-<code class="language-bash"> 
-$ exit
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ <span style="color:#111">exit</span>
 $ umount -R /mnt
-$ reboot
-
-</code>
-</pre>
-
+$ reboot</code></pre></div>
 
 <p>After your new system boots, Network should be setup at the start. Check
 the status of network using:</p>
 
-<pre  >
-<code class="language-bash"> 
-# Set readable font first!
-setfont ter-132n
-ping google.com -c 2
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Set readable font first!
+</span><span style="color:#75715e"></span>setfont ter-132n
+ping google.com -c <span style="color:#ae81ff">2</span>
 
-#
-# PING google.com (10.38.24.84) 56(84) bytes of data.
-# 64 bytes from google.com (10.38.24.84): icmp_seq=1 ttl=64 time=0.022 ms
-# 64 bytes from google.com (10.38.24.84): icmp_seq=2 ttl=64 time=0.023 ms
-#
-# --- google.com ping statistics ---
-# 2 packets transmitted, 2 received, 0% packet loss, time 999ms
-# rtt min/avg/max/mdev = 0.022/0.022/0.023/0.004 ms
-#
-
-</code>
-</pre>
-
+<span style="color:#75715e">#
+</span><span style="color:#75715e"># PING google.com (10.38.24.84) 56(84) bytes of data.
+</span><span style="color:#75715e"># 64 bytes from google.com (10.38.24.84): icmp_seq=1 ttl=64 time=0.022 ms
+</span><span style="color:#75715e"># 64 bytes from google.com (10.38.24.84): icmp_seq=2 ttl=64 time=0.023 ms
+</span><span style="color:#75715e">#
+</span><span style="color:#75715e"># --- google.com ping statistics ---
+</span><span style="color:#75715e"># 2 packets transmitted, 2 received, 0% packet loss, time 999ms
+</span><span style="color:#75715e"># rtt min/avg/max/mdev = 0.022/0.022/0.023/0.004 ms
+</span><span style="color:#75715e"></span>#</code></pre></div>
 
 <p>If you do not get this output, please follow the troubleshooting links
 at Arch Wiki on <a href="https://wiki.archlinux.org/index.php/systemd-networkd">setting up
@@ -971,16 +786,10 @@ network</a>.</p>
 commands whenever you see <em>ssingh</em> please replace it with your
 <code>$USERNAME</code>.</p>
 
-<pre  >
-<code class="language-bash"> 
-$ pacman -S zsh
-$ useradd -m -G wheel -s usr/bin/zsh $USERNAME
-$ chfn --full-name &#34;$FULL_NAME&#34; $USERNAME
-$ passwd $USERNAME
-
-</code>
-</pre>
-
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ pacman -S zsh
+$ useradd -m -G wheel -s usr/bin/zsh <span style="color:#111">$USERNAME</span>
+$ chfn --full-name <span style="color:#d88200">&#34;</span><span style="color:#111">$FULL_NAME</span><span style="color:#d88200">&#34;</span> <span style="color:#111">$USERNAME</span>
+$ passwd <span style="color:#111">$USERNAME</span></code></pre></div>
 
 <h2 id="gui-installation-with-nvidia">GUI Installation with nvidia</h2>
 
@@ -989,88 +798,65 @@ $ passwd $USERNAME
 <p>To setup a graphical desktop, first we need to install some basic X
 related packages, and some <em>essential</em> packages (including fonts):</p>
 
-<pre  >
-<code class="language-bash"> 
-$ pacman -S xorg-server nvidia nvidia-libgl nvidia-settings mesa
-
-</code>
-</pre>
-
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ pacman -S xorg-server nvidia nvidia-libgl nvidia-settings mesa</code></pre></div>
 
 <p>To avoid the possibility of forgetting to update your <em>initramfs</em> after
 an <em>nvidia</em> upgrade, you have to use a <em>pacman</em> hook like this:</p>
 
-<pre  >
-<code class="language-bash"> 
-$ vim /etc/pacman.d/hooks/nvidia.hook
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ vim /etc/pacman.d/hooks/nvidia.hook
 $
 ...
-[Trigger]
-Operation=Install
-Operation=Upgrade
-Operation=Remove
-Type=Package
-Target=nvidia
+<span style="color:#f92672">[</span>Trigger<span style="color:#f92672">]</span>
+<span style="color:#111">Operation</span><span style="color:#f92672">=</span>Install
+<span style="color:#111">Operation</span><span style="color:#f92672">=</span>Upgrade
+<span style="color:#111">Operation</span><span style="color:#f92672">=</span>Remove
+<span style="color:#111">Type</span><span style="color:#f92672">=</span>Package
+<span style="color:#111">Target</span><span style="color:#f92672">=</span>nvidia
 
-[Action]
-Depends=mkinitcpio
-When=PostTransaction
-Exec=/usr/bin/mkinitcpio -p linux
+<span style="color:#f92672">[</span>Action<span style="color:#f92672">]</span>
+<span style="color:#111">Depends</span><span style="color:#f92672">=</span>mkinitcpio
+<span style="color:#111">When</span><span style="color:#f92672">=</span>PostTransaction
+<span style="color:#111">Exec</span><span style="color:#f92672">=</span>/usr/bin/mkinitcpio -p linux
 ...
-$
-
-</code>
-</pre>
-
+$</code></pre></div>
 
 <p>Nvidia has a daemon that is to be run at boot. To start the <em>persistence</em>
 daemon at boot, enable the <code>nvidia-persistenced.service</code>.</p>
 
-<pre  >
-<code class="language-bash"> 
-$ systemctl enable nvidia-persistenced.service
-$ systemctl start nvidia-persistenced.service
-
-</code>
-</pre>
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ systemctl <span style="color:#111">enable</span> nvidia-persistenced.service
+$ systemctl start nvidia-persistenced.service</code></pre></div>
 
 
 
-
-<div class="panel panel-warning">
-<div class="panel-heading"><strong>How to Avoid Screen Tearing</strong></div> 
-<div class="panel-body"> <p>Tearing can be avoided by forcing a full composition pipeline,
+<div class="card border-thick border-warning">
+<div class="card-header"><strong>How to Avoid Screen Tearing</strong></div> 
+<div class="card-body"> <p>Tearing can be avoided by forcing a full composition pipeline,
 regardless of the compositor you are using.</p>
 
 <p>In order to make this change permanent, We will need to edit nvidia
 configuration file. Since, by default there aren&rsquo;t any, we will first
 need to create one.</p>
 
-<pre  >
-<code class="language-bash"> 
-$ nvidia-xconfig
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ nvidia-xconfig
 $ mv /etc/X11/xorg.cong /etc/X11/xorg.conf.d/20-nvidia.conf
-#
-# Edit this file as follows:
-vim /etc/X11/xorg.conf.d/20-nvidia.conf
-# -------------------------------------------
-# Section &#34;Screen&#34;
-#     Identifier     &#34;Screen0&#34;
-#     Option         &#34;metamodes&#34; &#34;nvidia-auto-select &#43;0&#43;0 { ForceFullCompositionPipeline = On }&#34;
-#     Option         &#34;AllowIndirectGLXProtocol&#34; &#34;off&#34;
-#     Option         &#34;TripleBuffer&#34; &#34;on&#34;
-# EndSection
-[...]
-# Section &#34;Device&#34;
-#     [...]
-#     Option         &#34;TripleBuffer&#34; &#34;True&#34;
-#     [...]
-# EndSection
-# [...]
-# ------------------------------------------------
-
-</code>
-</pre>
+<span style="color:#75715e">#
+</span><span style="color:#75715e"># Edit this file as follows:
+</span><span style="color:#75715e"></span>vim /etc/X11/xorg.conf.d/20-nvidia.conf
+<span style="color:#75715e"># -------------------------------------------
+</span><span style="color:#75715e"># Section &#34;Screen&#34;
+</span><span style="color:#75715e">#     Identifier     &#34;Screen0&#34;
+</span><span style="color:#75715e">#     Option         &#34;metamodes&#34; &#34;nvidia-auto-select +0+0 { ForceFullCompositionPipeline = On }&#34;
+</span><span style="color:#75715e">#     Option         &#34;AllowIndirectGLXProtocol&#34; &#34;off&#34;
+</span><span style="color:#75715e">#     Option         &#34;TripleBuffer&#34; &#34;on&#34;
+</span><span style="color:#75715e"># EndSection
+</span><span style="color:#75715e"></span><span style="color:#f92672">[</span>...<span style="color:#f92672">]</span>
+<span style="color:#75715e"># Section &#34;Device&#34;
+</span><span style="color:#75715e">#     [...]
+</span><span style="color:#75715e">#     Option         &#34;TripleBuffer&#34; &#34;True&#34;
+</span><span style="color:#75715e">#     [...]
+</span><span style="color:#75715e"># EndSection
+</span><span style="color:#75715e"># [...]
+</span><span style="color:#75715e"></span># ------------------------------------------------</code></pre></div>
 </div>
 </div>
 
@@ -1079,23 +865,17 @@ vim /etc/X11/xorg.conf.d/20-nvidia.conf
 <p>Specific for Plasma 5, we will also create the following file to avoid
 any tearing in Plasma.</p>
 
-<pre  >
-<code class="language-bash"> 
-$ vim /etc/profile.d/kwin.sh
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ vim /etc/profile.d/kwin.sh
 $
 ...
-export KWIN_TRIPLE_BUFFER=1
-...
-
-</code>
-</pre>
+<span style="color:#111">export</span> <span style="color:#111">KWIN_TRIPLE_BUFFER</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+...</code></pre></div>
 
 
 
-
-<div class="panel panel-warning">
-<div class="panel-heading"><strong>How to Enable Better Resolution During Boot</strong></div> 
-<div class="panel-body"> <p>The kernel compiled in <em>efifb</em> module supports high-resolution nvidia
+<div class="card border-thick border-warning">
+<div class="card-header"><strong>How to Enable Better Resolution During Boot</strong></div> 
+<div class="card-body"> <p>The kernel compiled in <em>efifb</em> module supports high-resolution nvidia
 console on EFI systems. This can enabled by enabling the DRM kernel mode
 setting.</p>
 
@@ -1111,24 +891,19 @@ setting.</p>
 
 <p>We will also need to pass the <em>nvidia-drm.modeset=1</em> kernel parameter during the boot.</p>
 
-<pre  >
-<code class="language-bash"> 
-$ vim /etc/mkinitcpio.conf
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ vim /etc/mkinitcpio.conf
 $
 ...
-MODULES=&#34;vfat aes_x86_64 crc32c-intel nvidia nvidia_modeset nvidia_uvm nvidia_drm&#34;
+<span style="color:#111">MODULES</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;vfat aes_x86_64 crc32c-intel nvidia nvidia_modeset nvidia_uvm nvidia_drm&#34;</span>
 ...
 $
 $ vim /boot/loader/entries/arch.conf
 $
 ...
-options ro cryptdevice=UUID=:luks- root=UUID= rootfstype=btrfs rootflags=subvol=ROOT cryptkey=UUID=:vfat:deepmind20170602 nvidia-drm.modeset=1
+options ro <span style="color:#111">cryptdevice</span><span style="color:#f92672">=</span><span style="color:#111">UUID</span><span style="color:#f92672">=</span>:luks- <span style="color:#111">root</span><span style="color:#f92672">=</span><span style="color:#111">UUID</span><span style="color:#f92672">=</span> <span style="color:#111">rootfstype</span><span style="color:#f92672">=</span>btrfs <span style="color:#111">rootflags</span><span style="color:#f92672">=</span><span style="color:#111">subvol</span><span style="color:#f92672">=</span>ROOT <span style="color:#111">cryptkey</span><span style="color:#f92672">=</span><span style="color:#111">UUID</span><span style="color:#f92672">=</span>:vfat:deepmind20170602 nvidia-drm.modeset<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
 ...
 $
-$ mkinitcpio -p linux
-
-</code>
-</pre>
+$ mkinitcpio -p linux</code></pre></div>
 </div>
 </div>
 
@@ -1139,41 +914,29 @@ $ mkinitcpio -p linux
 <p>We can now proceed with the installation of Plasma 5. In the process, we
 will also install some useful fonts.</p>
 
-<pre  >
-<code class="language-bash"> 
-$ pacman -S ttf-hack ttf-anonymous-pro
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ pacman -S ttf-hack ttf-anonymous-pro
 $ pacman -S ttf-dejavu ttf-freefont ttf-liberation
 $ pacman -S plasma-meta dolphin kdialog kfind
 $ pacman -S konsole gwenview okular spectacle kio-extras
 $ pacman -S kompare dolphin-plugins kwallet kwalletmanager
-$ pacman -S ark yakuake flite
-
-</code>
-</pre>
-
+$ pacman -S ark yakuake flite</code></pre></div>
 
 <p>We will also need to select proper themes for the Plasma 5 display
 manager <em>sddm</em> and then enable its <em>systemd</em> service.</p>
 
-<pre  >
-<code class="language-bash"> 
-$ vim /etc/sddm.conf
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ vim /etc/sddm.conf
 
 ....
-[Theme]
-# Current theme name
-Current=breeze
+<span style="color:#f92672">[</span>Theme<span style="color:#f92672">]</span>
+<span style="color:#75715e"># Current theme name
+</span><span style="color:#75715e"></span><span style="color:#111">Current</span><span style="color:#f92672">=</span>breeze
 
-# Cursor theme used in the greeter
-CursorTheme=breeze_cursors
+<span style="color:#75715e"># Cursor theme used in the greeter
+</span><span style="color:#75715e"></span><span style="color:#111">CursorTheme</span><span style="color:#f92672">=</span>breeze_cursors
 ...
 
-$ systemctl enable sddm
-$ reboot
-
-</code>
-</pre>
-
+$ systemctl <span style="color:#111">enable</span> sddm
+$ reboot</code></pre></div>
 
 <p>Once, we boot into the new system, we should have a basic Plasma 5
 desktop waiting for you. In the following section, we will be do
@@ -1186,26 +949,14 @@ use it properly we will need the NetworkManager service to be enabled.
 This applet allows user specific enabling of <em>wifi</em>, <em>ethernet</em> or even
 <em>VPN</em> connections.</p>
 
-<pre  >
-<code class="language-bash"> 
-$ sudo pacman -S networkmanager
-$ systemctl enable NetworkManager.service
-$ systemctl start NetworkManager.service
-
-</code>
-</pre>
-
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo pacman -S networkmanager
+$ systemctl <span style="color:#111">enable</span> NetworkManager.service
+$ systemctl start NetworkManager.service</code></pre></div>
 
 <p>We can also automate the <em>hostname</em> setup using the following <em>systemd</em>
 command:</p>
 
-<pre  >
-<code class="language-bash"> 
-$ hostnamectl set-hostname $HOSTNAME
-
-</code>
-</pre>
-
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hostnamectl set-hostname <span style="color:#111">$HOSTNAME</span></code></pre></div>
 
 <h2 id="selecting-pacman-mirrors">Selecting pacman Mirrors</h2>
 
@@ -1218,19 +969,13 @@ mirrors list file and then delete all non-US mirrors. We will then
 <em>rankmirrors</em> script on the modified list to get the top 6 mirrors for
 our regular use.</p>
 
-<pre  >
-<code class="language-bash"> 
-$ cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
 $ cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.us
 $ vim /etc/pacman.d/mirrorlist.us
 ....
-# Delete all non-US servers
-....
-$ rankmirrors -n 6 /etc/pacman.d/mirrorlist.us &gt; /etc/pacman.d/mirrorlist
-
-</code>
-</pre>
-
+<span style="color:#75715e"># Delete all non-US servers
+</span><span style="color:#75715e"></span>....
+$ rankmirrors -n <span style="color:#ae81ff">6</span> /etc/pacman.d/mirrorlist.us &gt; /etc/pacman.d/mirrorlist</code></pre></div>
 
 <h2 id="setup-aur">Setup AUR</h2>
 
@@ -1245,81 +990,45 @@ is uses exactly the same options that regular <em>pacman</em> uses.</p>
 
 <p>In order to install <em>pacuar</em>, first install dependencies.</p>
 
-<pre  >
-<code class="language-bash"> 
-$ sudo pacman -S expac yajl curl gnupg --noconfirm
-
-</code>
-</pre>
-
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo pacman -S expac yajl curl gnupg --noconfirm</code></pre></div>
 
 <p>Create a temp directory for building packages:</p>
 
-<pre  >
-<code class="language-bash"> 
-$ mkdir ~/temp
-$ cp ~ temp
-
-</code>
-</pre>
-
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mkdir ~/temp
+$ cp ~ temp</code></pre></div>
 
 <p>Install <em>cower</em> first and then <em>pacaur</em>:</p>
 
-<pre  >
-<code class="language-bash"> 
-$ gpg --recv-keys --keyserver hkp://pgp.mit.edu 1EB2638FF56C0C53
-$ curl -o PKGBUILD https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=cower
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ gpg --recv-keys --keyserver hkp://pgp.mit.edu 1EB2638FF56C0C53
+$ curl -o PKGBUILD https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h<span style="color:#f92672">=</span>cower
 $ makepkg -i PKGBUILD --noconfirm
 
-$ curl -o PKGBUILD https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=pacaur
+$ curl -o PKGBUILD https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h<span style="color:#f92672">=</span>pacaur
 $ makepkg -i PKGBUILD --noconfirm
 
-# Finally cleanup and remove the temp directory
-$ cd ~
-$ rm -r ~/temp
-
-</code>
-</pre>
-
+<span style="color:#75715e"># Finally cleanup and remove the temp directory
+</span><span style="color:#75715e"></span>$ <span style="color:#111">cd</span> ~
+$ rm -r ~/temp</code></pre></div>
 
 <h2 id="audio-setup">Audio Setup</h2>
 
 <p>This is pretty simple. Install following packages and you should be
 done:</p>
 
-<pre  >
-<code class="language-bash"> 
-$ sudo pacaur -S alsa-utils pulseaudio pulseaudio-alsa mpv
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo pacaur -S alsa-utils pulseaudio pulseaudio-alsa mpv
 $ sudo pacaur -S libcanberra-pulse libcanberra-gstreamer
-$ sudo pacaur -S vlc-qt5
-
-</code>
-</pre>
-
+$ sudo pacaur -S vlc-qt5</code></pre></div>
 
 <p>Now start the <em>pulseaudio</em> service.</p>
 
-<pre  >
-<code class="language-bash"> 
-$ systemctl --user enable pulseaudio.socket
-
-</code>
-</pre>
-
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ systemctl --user <span style="color:#111">enable</span> pulseaudio.socket</code></pre></div>
 
 <h2 id="web-browsers">Web Browsers</h2>
 
 <p>My preferred choice of browsers is <em>google chrome</em>. However, it is also
 good to have the KDE native <em>qupzilla</em>.</p>
 
-<pre  >
-<code class="language-bash"> 
-$ sudo pacaur -S google-chrome qupzilla
-
-</code>
-</pre>
-
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo pacaur -S google-chrome qupzilla</code></pre></div>
 
 <p><em>Profile-sync-daemon (psd)</em> is a tiny pseudo-daemon designed to manage
 browser profile(s) in <em>tmpfs</em> and to periodically sync back to the
@@ -1336,26 +1045,14 @@ leads to following benefits:</p>
 
 <p>To setup. first install the <em>profile-sync-daemon</em> package.</p>
 
-<pre  >
-<code class="language-bash"> 
-sudo pacaur -S profile-sync-daemon
-
-</code>
-</pre>
-
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo pacaur -S profile-sync-daemon</code></pre></div>
 
 <p>Run <em>psd</em> the first time which will create a configuration file at
 \$XDG_CONFIG_HOME/psd/psd.conf which contains all settings.</p>
 
-<pre  >
-<code class="language-bash"> 
-$ psd
-# First time running psd so please edit
-# /home/$USERNAME/.config/psd/psd.conf to your liking and run again.
-
-</code>
-</pre>
-
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ psd
+<span style="color:#75715e"># First time running psd so please edit
+</span><span style="color:#75715e"></span># /home/<span style="color:#111">$USERNAME</span>/.config/psd/psd.conf to your liking and run again.</code></pre></div>
 
 <p>In the config file change the BROWSERS variables to <em>google-chrome
 qupzilla</em>. Also, enable the use of <em>overlayfs</em> to improve sync speed
@@ -1372,26 +1069,14 @@ kernel version of 3.18.0 or greater to work.</span>
 <p>In order to use the OVERLAYFS feature, you will also need to give <em>sudo</em>
 permissions to psd-helper as follows (replace <code>$USERNAME</code> accordingly):</p>
 
-<pre  >
-<code class="language-bash"> 
-$ vim /etc/sudoers
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ vim /etc/sudoers
 ...
-$USERNAME ALL=(ALL) NOPASSWD: /usr/bin/psd-overlay-helper
-...
-
-</code>
-</pre>
-
+<span style="color:#111">$USERNAME</span> <span style="color:#111">ALL</span><span style="color:#f92672">=(</span>ALL<span style="color:#f92672">)</span> NOPASSWD: /usr/bin/psd-overlay-helper
+...</code></pre></div>
 
 <p>Verify the working of configuration using the preview mode of psd:</p>
 
-<pre  >
-<code class="language-bash"> 
-psd p
-
-</code>
-</pre>
-
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">psd p</code></pre></div>
 
 <p><em>Google Chrome</em> by default uses <em>kdewallet</em> to manage passwords, where
 as <em>Qupzilla</em> does not. You can change that in its settings.</p>
@@ -1400,81 +1085,63 @@ as <em>Qupzilla</em> does not. You can change that in its settings.</p>
 
 <p>Install git and setup some global options as below:</p>
 
-<pre  >
-<code class="language-bash"> 
-$ sudo pacaur -S git
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo pacaur -S git
 $
 $ vim ~/.gitconfig
 ...
-[user]
-    name = Sadanand Singh
-    email = EMAIL_ADDRESS
-[color]
-    ui = auto
-[status]
-    showuntrackedfiles = no
-[alias]
-    gist = log --graph --oneline --all --decorate --date-order
-    find = log --graph --oneline --all --decorate --date-order --regexp-ignore-case --extended-regexp --grep
-    rfind = log --graph --oneline --all --decorate --date-order --regexp-ignore-case --extended-regexp --invert-grep --grep
-    search = grep --line-number --ignore-case -E -I
-[pager]
-    status = true
-[push]
-    default = matching
-[merge]
-    tool = meld
-[diff]
-    tool = meld
+<span style="color:#f92672">[</span>user<span style="color:#f92672">]</span>
+    <span style="color:#111">name</span> <span style="color:#f92672">=</span> Sadanand Singh
+    <span style="color:#111">email</span> <span style="color:#f92672">=</span> EMAIL_ADDRESS
+<span style="color:#f92672">[</span>color<span style="color:#f92672">]</span>
+    <span style="color:#111">ui</span> <span style="color:#f92672">=</span> auto
+<span style="color:#f92672">[</span>status<span style="color:#f92672">]</span>
+    <span style="color:#111">showuntrackedfiles</span> <span style="color:#f92672">=</span> no
+<span style="color:#f92672">[</span>alias<span style="color:#f92672">]</span>
+    <span style="color:#111">gist</span> <span style="color:#f92672">=</span> log --graph --oneline --all --decorate --date-order
+    <span style="color:#111">find</span> <span style="color:#f92672">=</span> log --graph --oneline --all --decorate --date-order --regexp-ignore-case --extended-regexp --grep
+    <span style="color:#111">rfind</span> <span style="color:#f92672">=</span> log --graph --oneline --all --decorate --date-order --regexp-ignore-case --extended-regexp --invert-grep --grep
+    <span style="color:#111">search</span> <span style="color:#f92672">=</span> grep --line-number --ignore-case -E -I
+<span style="color:#f92672">[</span>pager<span style="color:#f92672">]</span>
+    <span style="color:#111">status</span> <span style="color:#f92672">=</span> <span style="color:#111">true</span>
+<span style="color:#f92672">[</span>push<span style="color:#f92672">]</span>
+    <span style="color:#111">default</span> <span style="color:#f92672">=</span> matching
+<span style="color:#f92672">[</span>merge<span style="color:#f92672">]</span>
+    <span style="color:#111">tool</span> <span style="color:#f92672">=</span> meld
+<span style="color:#f92672">[</span>diff<span style="color:#f92672">]</span>
+    <span style="color:#111">tool</span> <span style="color:#f92672">=</span> meld
 
-[help]
-    autocorrect = 1
-...
-
-</code>
-</pre>
-
+<span style="color:#f92672">[</span>help<span style="color:#f92672">]</span>
+    <span style="color:#111">autocorrect</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+...</code></pre></div>
 
 <h2 id="ssh-setup">ssh Setup</h2>
 
 <p>To get started first install the <em>openssh</em> package.</p>
 
-<pre  >
-<code class="language-bash"> 
-sudo pacaur -S openssh
-
-</code>
-</pre>
-
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo pacaur -S openssh</code></pre></div>
 
 <p>The ssh server can be started using the <em>systemd</em> service. Before
 starting the service, however, we want to generate ssh keys and setup
 the server for login based only on keys.</p>
 
-<pre  >
-<code class="language-bash"> 
-$ ssh-keygen -t ed25519
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ssh-keygen -t ed25519
 $
-# Create a .ssh/config file for rmate usage in sublime text
-$ vim ~/.ssh/config
+<span style="color:#75715e"># Create a .ssh/config file for rmate usage in sublime text
+</span><span style="color:#75715e"></span>$ vim ~/.ssh/config
 ...
-RemoteForward 52698 localhost:52698
+RemoteForward <span style="color:#ae81ff">52698</span> localhost:52698
 ...
 $
-# Create ~/.ssh/authorized_keys file with list of machines that
-# are allowed to login to this machine.
-$ touch ~/.ssh/authorized_keys
+<span style="color:#75715e"># Create ~/.ssh/authorized_keys file with list of machines that
+</span><span style="color:#75715e"># are allowed to login to this machine.
+</span><span style="color:#75715e"></span>$ touch ~/.ssh/authorized_keys
 $
-# Finally edit the /etc/ssh/sshd_config
-# file to disable Password based logins
-$ sudo vim /etc/ssh/sshd_config
+<span style="color:#75715e"># Finally edit the /etc/ssh/sshd_config
+</span><span style="color:#75715e"># file to disable Password based logins
+</span><span style="color:#75715e"></span>$ sudo vim /etc/ssh/sshd_config
 ...
 PasswordAuthentication no
-...
-
-</code>
-</pre>
-
+...</code></pre></div>
 
 <p>Furthermore, before enabling the <em>sshd</em> service, please also ensure to
 copy your keys to all your relevant other servers and places like
@@ -1482,14 +1149,8 @@ github.</p>
 
 <p>We can now use <em>systemd</em> to start the ssh service.</p>
 
-<pre  >
-<code class="language-bash"> 
-$ systemctl enable sshd.socket
-$ systemctl start sshd.socket
-
-</code>
-</pre>
-
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ systemctl <span style="color:#111">enable</span> sshd.socket
+$ systemctl start sshd.socket</code></pre></div>
 
 <h2 id="zsh-setup">zsh Setup</h2>
 
@@ -1502,34 +1163,22 @@ also activated a basic setup at first login by the user.</p>
 
 <p>First install the main zprezto package:</p>
 
-<pre  >
-<code class="language-bash"> 
-$ git clone --recursive https://github.com/sorin-ionescu/prezto.git &#34;${ZDOTDIR:-$HOME}/.zprezto&#34;
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git clone --recursive https://github.com/sorin-ionescu/prezto.git <span style="color:#d88200">&#34;</span><span style="color:#d88200">${</span><span style="color:#111">ZDOTDIR</span><span style="color:#00a8c8">:-</span><span style="color:#111">$HOME</span><span style="color:#d88200">}</span><span style="color:#d88200">/.zprezto&#34;</span>
 $
 $ setopt EXTENDED_GLOB
-$ for rcfile in &#34;${ZDOTDIR:-$HOME}&#34;/.zprezto/runcoms/^README.md(.N);
-do
-    ln -sf &#34;$rcfile&#34; &#34;${ZDOTDIR:-$HOME}/.${rcfile:t}&#34;
-done
-$
-
-</code>
-</pre>
-
+$ <span style="color:#00a8c8">for</span> rcfile in <span style="color:#d88200">&#34;</span><span style="color:#d88200">${</span><span style="color:#111">ZDOTDIR</span><span style="color:#00a8c8">:-</span><span style="color:#111">$HOME</span><span style="color:#d88200">}</span><span style="color:#d88200">&#34;</span>/.zprezto/runcoms/^README.md<span style="color:#f92672">(</span>.N<span style="color:#f92672">)</span><span style="color:#111">;</span>
+<span style="color:#00a8c8">do</span>
+    ln -sf <span style="color:#d88200">&#34;</span><span style="color:#111">$rcfile</span><span style="color:#d88200">&#34;</span> <span style="color:#d88200">&#34;</span><span style="color:#d88200">${</span><span style="color:#111">ZDOTDIR</span><span style="color:#00a8c8">:-</span><span style="color:#111">$HOME</span><span style="color:#d88200">}</span><span style="color:#d88200">/.</span><span style="color:#d88200">${</span><span style="color:#111">rcfile</span><span style="color:#111">:</span><span style="color:#111">t</span><span style="color:#d88200">}</span><span style="color:#d88200">&#34;</span>
+<span style="color:#00a8c8">done</span>
+$</code></pre></div>
 
 <p>Now, We will add my version of prezto to the same git repo.</p>
 
-<pre  >
-<code class="language-bash"> 
-$ cd ~/.zprezto
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ <span style="color:#111">cd</span> ~/.zprezto
 $ git remote add personal git@github.com:sadanand-singh/My-Zprezto.git
 $ git pull personal arch
 $ git checkout arch
-$ git merge master
-
-</code>
-</pre>
-
+$ git merge master</code></pre></div>
 
 <p>And we are all setup for using <em>zsh</em>!</p>
 
@@ -1543,73 +1192,49 @@ keys(s) or create one.</p>
 
 <p>Once all keys are setup, we need to gpg-agent configuration file:</p>
 
-<pre  >
-<code class="language-bash"> 
-$ vim ~/.gnupg/gpg-agent.conf
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ vim ~/.gnupg/gpg-agent.conf
 ..
 enable-ssh-support
-default-cache-ttl-ssh 10800
-default-cache-ttl 10800
-max-cache-ttl-ssh 10800
+default-cache-ttl-ssh <span style="color:#ae81ff">10800</span>
+default-cache-ttl <span style="color:#ae81ff">10800</span>
+max-cache-ttl-ssh <span style="color:#ae81ff">10800</span>
 ...
-$
-
-</code>
-</pre>
-
+$</code></pre></div>
 
 <p>Also, add following to your <em>.zshrc</em> or <em>.&ldquo;bash&rdquo;rc</em> file. If you are using
 my zprezto setup, you already have this!</p>
 
-<pre  >
-<code class="language-bash"> 
-$ vim ~/.zshrc
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ vim ~/.zshrc
 ...
-# set GPG TTY
-export GPG_TTY=$(tty)
+<span style="color:#75715e"># set GPG TTY
+</span><span style="color:#75715e"></span><span style="color:#111">export</span> <span style="color:#111">GPG_TTY</span><span style="color:#f92672">=</span><span style="color:#00a8c8">$(</span>tty<span style="color:#00a8c8">)</span>
 
-# Refresh gpg-agent tty in case user switches into an X Session
-gpg-connect-agent updatestartuptty /bye &gt;/dev/null
+<span style="color:#75715e"># Refresh gpg-agent tty in case user switches into an X Session
+</span><span style="color:#75715e"></span>gpg-connect-agent updatestartuptty /bye &gt;/dev/null
 
-# Set SSH to use gpg-agent
-unset SSH_AGENT_PID
-if [ &#34;${gnupg_SSH_AUTH_SOCK_by:-0}&#34; -ne $$ ]; then
-  export SSH_AUTH_SOCK=&#34;/run/user/$UID/gnupg/S.gpg-agent.ssh&#34;
-fi
+<span style="color:#75715e"># Set SSH to use gpg-agent
+</span><span style="color:#75715e"></span><span style="color:#111">unset</span> SSH_AGENT_PID
+<span style="color:#00a8c8">if</span> <span style="color:#f92672">[</span> <span style="color:#d88200">&#34;</span><span style="color:#d88200">${</span><span style="color:#111">gnupg_SSH_AUTH_SOCK_by</span><span style="color:#00a8c8">:-</span><span style="color:#111">0</span><span style="color:#d88200">}</span><span style="color:#d88200">&#34;</span> -ne <span style="color:#111">$$</span> <span style="color:#f92672">]</span><span style="color:#111">;</span> <span style="color:#00a8c8">then</span>
+  <span style="color:#111">export</span> <span style="color:#111">SSH_AUTH_SOCK</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;/run/user/</span><span style="color:#111">$UID</span><span style="color:#d88200">/gnupg/S.gpg-agent.ssh&#34;</span>
+<span style="color:#00a8c8">fi</span>
 ...
-$
-
-</code>
-</pre>
-
+$</code></pre></div>
 
 <p>Now, simply start the following systemd sockets as user:</p>
 
-<pre  >
-<code class="language-bash"> 
-$ systemctl --user enable gpg-agent.socket
-$ systemctl --user enable gpg-agent-ssh.socket
-$ systemctl --user enable dirmngr.socket
-$ systemctl --user enable gpg-agent-browser.socket
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ systemctl --user <span style="color:#111">enable</span> gpg-agent.socket
+$ systemctl --user <span style="color:#111">enable</span> gpg-agent-ssh.socket
+$ systemctl --user <span style="color:#111">enable</span> dirmngr.socket
+$ systemctl --user <span style="color:#111">enable</span> gpg-agent-browser.socket
 $
 $ systemctl --user start gpg-agent.socket
 $ systemctl --user start gpg-agent-ssh.socket
 $ systemctl --user start dirmngr.socket
-$ systemctl --user start gpg-agent-browser.socket
-
-</code>
-</pre>
-
+$ systemctl --user start gpg-agent-browser.socket</code></pre></div>
 
 <p>Finally add your ssh key to ssh agent.</p>
 
-<pre  >
-<code class="language-bash"> 
-$ ssh-add ~/.ssh/id_ed25519
-
-</code>
-</pre>
-
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ssh-add ~/.ssh/id_ed25519</code></pre></div>
 
 <h2 id="user-wallpapers">User Wallpapers</h2>
 
@@ -1617,148 +1242,106 @@ $ ssh-add ~/.ssh/id_ed25519
 place to get some good wallpapers are <a href="https://github.com/KaOSx/kaos-wallpapers">KaOS
 Wallpapers</a>.</p>
 
-<pre  >
-<code class="language-bash"> 
-$ mkdir -p $ $HOME/.local/wallpapers
-$ cp SOME_JPEG $HOME/.local/wallpapers/
-
-</code>
-</pre>
-
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mkdir -p $ <span style="color:#111">$HOME</span>/.local/wallpapers
+$ cp SOME_JPEG <span style="color:#111">$HOME</span>/.local/wallpapers/</code></pre></div>
 
 <h2 id="conky-setup"><em>conky</em> Setup</h2>
 
 <p>First installed the <em>conky</em> package with lua and nvidia support:</p>
 
-<pre  >
-<code class="language-bash"> 
-$ paci conky-lua-nv
-
-</code>
-</pre>
-
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ paci conky-lua-nv</code></pre></div>
 
 <p>Then, copy your conky configuration at \$HOME/.config/conky/conky.conf.</p>
 
-<pre  >
-<code class="language-bash"> 
-$ mkdir -p $HOME/.config/conky
-# Generate sample conky config file
-$ conky -C &gt; $HOME/.config/conky/conky.conf
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ mkdir -p <span style="color:#111">$HOME</span>/.config/conky
+<span style="color:#75715e"># Generate sample conky config file
+</span><span style="color:#75715e"></span>$ conky -C &gt; <span style="color:#111">$HOME</span>/.config/conky/conky.conf
 $
-# start conky in background
-$ conky &amp;
-
-</code>
-</pre>
-
+<span style="color:#75715e"># start conky in background
+</span><span style="color:#75715e"></span>$ conky <span style="color:#111">&amp;</span></code></pre></div>
 
 <p>Here, I have also put my simple configuration file:</p>
 
-<pre  >
-<code class="language-lua"> 
-conky.config = {
-        background = true,
-        use_xft = true,
-        xftalpha = 0.2,
-        update_interval = 1,
-        total_run_times = 0,
-        own_window_argb_visual = true,
-        own_window = true,
-        own_window_type = &#39;dock&#39;,
-        own_window_transparent = true,
-        own_window_hints = &#39;undecorated,below,sticky,skip_taskbar,skip_pager&#39;,
-        double_buffer = true,
-        draw_shades = false,
-        draw_outline = false,
-        draw_borders = false,
-        draw_graph_borders = false,
-        stippled_borders = 0,
-        border_width = 0,
-        default_color = &#39;white&#39;,
-        default_shade_color = &#39;#000000&#39;,
-        default_outline_color = &#39;#000000&#39;,
-        minimum_width = 2500, minimum_height = 3500,
-        maximum_width = 2500,
-        gap_x = 2980,
-        gap_y = 0,
-        alignment = &#39;top_left&#39;,
-        no_buffers = true,
-        uppercase = false,
-        cpu_avg_samples = 2,
-        net_avg_samples = 2,
-        --short_units = true,
-        text_buffer_size = 2048,
-        use_spacer = &#39;none&#39;,
-        override_utf8_locale = true,
-        color1 = &#39;#424240&#39;,
-        color2 = &#39;2a2b2f&#39;,
-        color3 = &#39;#FF4B4C&#39;,--0E87E4
-        color4 = &#39;#73bcca&#39;,
-        own_window_argb_value = 0,
-        --own_window_colour = &#39;#000000&#39;,
---lua_load rings-v1.2.1.lua
-        lua_draw_hook_pre = &#39;ring_stats&#39;,
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Lua" data-lang="Lua"><span style="color:#111">conky.config</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
+        <span style="color:#111">background</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">true</span><span style="color:#111">,</span>
+        <span style="color:#111">use_xft</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">true</span><span style="color:#111">,</span>
+        <span style="color:#111">xftalpha</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.2</span><span style="color:#111">,</span>
+        <span style="color:#111">update_interval</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span><span style="color:#111">,</span>
+        <span style="color:#111">total_run_times</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#111">,</span>
+        <span style="color:#111">own_window_argb_visual</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">true</span><span style="color:#111">,</span>
+        <span style="color:#111">own_window</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">true</span><span style="color:#111">,</span>
+        <span style="color:#111">own_window_type</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#39;dock&#39;</span><span style="color:#111">,</span>
+        <span style="color:#111">own_window_transparent</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">true</span><span style="color:#111">,</span>
+        <span style="color:#111">own_window_hints</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#39;undecorated,below,sticky,skip_taskbar,skip_pager&#39;</span><span style="color:#111">,</span>
+        <span style="color:#111">double_buffer</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">true</span><span style="color:#111">,</span>
+        <span style="color:#111">draw_shades</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">false</span><span style="color:#111">,</span>
+        <span style="color:#111">draw_outline</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">false</span><span style="color:#111">,</span>
+        <span style="color:#111">draw_borders</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">false</span><span style="color:#111">,</span>
+        <span style="color:#111">draw_graph_borders</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">false</span><span style="color:#111">,</span>
+        <span style="color:#111">stippled_borders</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#111">,</span>
+        <span style="color:#111">border_width</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#111">,</span>
+        <span style="color:#111">default_color</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#39;white&#39;</span><span style="color:#111">,</span>
+        <span style="color:#111">default_shade_color</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#39;#000000&#39;</span><span style="color:#111">,</span>
+        <span style="color:#111">default_outline_color</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#39;#000000&#39;</span><span style="color:#111">,</span>
+        <span style="color:#111">minimum_width</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">2500</span><span style="color:#111">,</span> <span style="color:#111">minimum_height</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">3500</span><span style="color:#111">,</span>
+        <span style="color:#111">maximum_width</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">2500</span><span style="color:#111">,</span>
+        <span style="color:#111">gap_x</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">2980</span><span style="color:#111">,</span>
+        <span style="color:#111">gap_y</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#111">,</span>
+        <span style="color:#111">alignment</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#39;top_left&#39;</span><span style="color:#111">,</span>
+        <span style="color:#111">no_buffers</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">true</span><span style="color:#111">,</span>
+        <span style="color:#111">uppercase</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">false</span><span style="color:#111">,</span>
+        <span style="color:#111">cpu_avg_samples</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span><span style="color:#111">,</span>
+        <span style="color:#111">net_avg_samples</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span><span style="color:#111">,</span>
+        <span style="color:#75715e">--short_units = true,</span>
+        <span style="color:#111">text_buffer_size</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">2048</span><span style="color:#111">,</span>
+        <span style="color:#111">use_spacer</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#39;none&#39;</span><span style="color:#111">,</span>
+        <span style="color:#111">override_utf8_locale</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">true</span><span style="color:#111">,</span>
+        <span style="color:#111">color1</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#39;#424240&#39;</span><span style="color:#111">,</span>
+        <span style="color:#111">color2</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#39;2a2b2f&#39;</span><span style="color:#111">,</span>
+        <span style="color:#111">color3</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#39;#FF4B4C&#39;</span><span style="color:#111">,</span><span style="color:#75715e">--0E87E4</span>
+        <span style="color:#111">color4</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#39;#73bcca&#39;</span><span style="color:#111">,</span>
+        <span style="color:#111">own_window_argb_value</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#111">,</span>
+        <span style="color:#75715e">--own_window_colour = &#39;#000000&#39;,</span>
+<span style="color:#75715e">--lua_load rings-v1.2.1.lua</span>
+        <span style="color:#111">lua_draw_hook_pre</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#39;ring_stats&#39;</span><span style="color:#111">,</span>
 
---lua_load lilas_rings.lua
-        lua_draw_hook_post = &#39;main&#39;,
-};
+<span style="color:#75715e">--lua_load lilas_rings.lua</span>
+        <span style="color:#111">lua_draw_hook_post</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#39;main&#39;</span><span style="color:#111">,</span>
+<span style="color:#111">};</span>
 
-conky.text = [[
-${goto 200}${voffset 100}${color2}${font Nothing You Could Do:size=50}${time %I:%M}${font Nothing You Could Do:size=20}${time %p}
-${goto 185}${voffset 10}${color4}${font Bad Script:size=30}${time %A}
-${goto 185}${voffset -35}${font Bad Script:size=18}${time  %d %B, %Y}
-
-${goto -80}${voffset -35}${font Pompiere:size=11}${color 3eafe8}//${color4} CPU: ${execi 1000 cat /proc/cpuinfo | grep &#39;model name&#39; | sed -e &#39;s/model name.*: //&#39;| uniq | cut -c 19-25} ${color ff3d3d}${hwmon 0 temp 1}°C ${color 3eafe8}//${color4} Load: ${color ff3d3d} ${cpu cpu0}% ${color 3eafe8}// RAM:${color ff3d3d} ${memperc}% / $memmax ${color 3eafe8}//
-
-${goto -80}${voffset -35}${font Pompiere:size=11}${color 3eafe8}//${color4} GPU: ${execi 1000000 nvidia-smi --query-gpu=&#34;name,driver_version&#34; --format=&#34;csv,noheader&#34; | cut -c 9-18} ${color ff3d3d} ${nvidia temp}°C ${color 3eafe8}//${color4} Load: ${color ff3d3d}${exec nvidia-smi --query-gpu=&#34;utilization.gpu&#34; --format=&#34;csv,noheader&#34;} ${color 3eafe8}// Free: ${color ff3d3d} ${exec nvidia-smi --query-gpu=&#34;memory.free&#34; --format=&#34;csv,noheader&#34;} ${color 3eafe8}//
-
-]];
-
-</code>
-</pre>
-
+<span style="color:#111">conky.text</span> <span style="color:#f92672">=</span> <span style="color:#d88200">[[
+</span><span style="color:#d88200">${goto 200}${voffset 100}${color2}${font Nothing You Could Do:size=50}${time %I:%M}${font Nothing You Could Do:size=20}${time %p}
+</span><span style="color:#d88200">${goto 185}${voffset 10}${color4}${font Bad Script:size=30}${time %A}
+</span><span style="color:#d88200">${goto 185}${voffset -35}${font Bad Script:size=18}${time  %d %B, %Y}
+</span><span style="color:#d88200">
+</span><span style="color:#d88200">${goto -80}${voffset -35}${font Pompiere:size=11}${color 3eafe8}//${color4} CPU: ${execi 1000 cat /proc/cpuinfo | grep &#39;model name&#39; | sed -e &#39;s/model name.*: //&#39;| uniq | cut -c 19-25} ${color ff3d3d}${hwmon 0 temp 1}°C ${color 3eafe8}//${color4} Load: ${color ff3d3d} ${cpu cpu0}% ${color 3eafe8}// RAM:${color ff3d3d} ${memperc}% / $memmax ${color 3eafe8}//
+</span><span style="color:#d88200">
+</span><span style="color:#d88200">${goto -80}${voffset -35}${font Pompiere:size=11}${color 3eafe8}//${color4} GPU: ${execi 1000000 nvidia-smi --query-gpu=&#34;name,driver_version&#34; --format=&#34;csv,noheader&#34; | cut -c 9-18} ${color ff3d3d} ${nvidia temp}°C ${color 3eafe8}//${color4} Load: ${color ff3d3d}${exec nvidia-smi --query-gpu=&#34;utilization.gpu&#34; --format=&#34;csv,noheader&#34;} ${color 3eafe8}// Free: ${color ff3d3d} ${exec nvidia-smi --query-gpu=&#34;memory.free&#34; --format=&#34;csv,noheader&#34;} ${color 3eafe8}//
+</span><span style="color:#d88200">
+</span><span style="color:#d88200">]]</span><span style="color:#111">;</span></code></pre></div>
 
 <h2 id="software-installations">Software Installations</h2>
 
 <p>Here is a running list of other common softwares that I install.</p>
 
-<pre  >
-<code class="language-bash"> 
-$ paci spotify tmux tree dropbox thesilver_searcher
-$ paci digikam imagemagick
-
-</code>
-</pre>
-
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ paci spotify tmux tree dropbox thesilver_searcher
+$ paci digikam imagemagick</code></pre></div>
 
 <p>I also add the following repository to install the <a href="https://www.sublimetext.com/">Sublime
 Text</a> editor. Refer to
 my previous post <sublimetext> for details on setting up Sublime
 Text.</p>
 
-<pre  >
-<code class="language-bash"> 
-$ curl -O https://download.sublimetext.com/sublimehq-pub.gpg
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ curl -O https://download.sublimetext.com/sublimehq-pub.gpg
 $ sudo pacman-key --add sublimehq-pub.gpg
 $ sudo pacman-key --lsign-key 8A8F901A
 $ rm sublimehq-pub.gpg
 $
-$ echo -e &#34;\n[sublime-text]\nServer = https://download.sublimetext.com/arch/dev/x86_64&#34; | sudo tee -a /etc/pacman.conf
-
-</code>
-</pre>
-
+$ <span style="color:#111">echo</span> -e <span style="color:#d88200">&#34;\n[sublime-text]\nServer = https://download.sublimetext.com/arch/dev/x86_64&#34;</span> <span style="color:#111">|</span> sudo tee -a /etc/pacman.conf</code></pre></div>
 
 <p>Now we can install <em>sublime-text</em> as:</p>
 
-<pre  >
-<code class="language-bash"> 
-$ paci sublime-text/sublime-text
-
-</code>
-</pre>
-
+<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ paci sublime-text/sublime-text</code></pre></div>
 
 <p>This brings us to the conclusion of this installation guide. Hope many
 of you find it useful. Please drop your comments below if you have any
@@ -1771,41 +1354,45 @@ suggestions for improvements etc.</p>
                 
                 
                   <div class="post-footer-tags">
-                    <br/>
-                    <strong><span class="text-color-light text-small">TAGGED IN</span></strong><br/>
+                    <hr><br/>
+                    <strong><span class="text-color-light text-small">TAGGED IN:</span></strong>
                     
-  <a class="btag btag--primary btag--small" href="https://sadanand-singh.github.io//tags/linux/">Linux</a>
+  <a class="text-white badge badge-pill badge-dark" href="https://sadanand-singh.github.io//tags/linux/">Linux</a>
 
-  <a class="btag btag--primary btag--small" href="https://sadanand-singh.github.io//tags/arch-linux/">Arch Linux</a>
+  <a class="text-white badge badge-pill badge-dark" href="https://sadanand-singh.github.io//tags/arch-linux/">Arch Linux</a>
 
-  <a class="btag btag--primary btag--small" href="https://sadanand-singh.github.io//tags/plasma-5/">Plasma 5</a>
+  <a class="text-white badge badge-pill badge-dark" href="https://sadanand-singh.github.io//tags/plasma-5/">Plasma 5</a>
 
-  <a class="btag btag--primary btag--small" href="https://sadanand-singh.github.io//tags/kde/">KDE</a>
+  <a class="text-white badge badge-pill badge-dark" href="https://sadanand-singh.github.io//tags/kde/">KDE</a>
 
 
                   </div>
                 
             
         
-    </div>
-    <aside class="postpromonav">
-    <nav>
-    <ul class="pager hidden-print">
+        <br/>
+        <ul class="mx-0 px-0 pager">
   
     
-        <li class="previous">
-            <a href="/posts/sublimetext/" rel="prev" title="Sublime Text Setup">Previous post</a>
+        <li class="previous btn btn-lg btn-primary">
+            <a href="/posts/sublimetext/" rel="prev" title="Sublime Text Setup">
+            <i class="fa fa-angle-left text-base text-white icon-mr"></i>
+            <span class="text-white"> Previous post </span>
+            </a>
         </li>
     
     
-        <li class="next">
-            <a href="/posts/descriptivestats/" rel="next" title="Descriptive Statistics">Next post</a>
+        <li class="next mr-0 float-right btn btn-lg btn-primary">
+            <a href="/posts/descriptivestats/" rel="next" title="Descriptive Statistics">
+            <span class="text-white"> Next post </span>
+            <i class="fa fa-angle-right text-base text-white icon-ml"></i>
+            </a>
         </li>
     
   
 </ul>
-    </nav>
-    </aside>
+        <hr>
+    </div>
 
     
         <div id="disqus_thread"></div>
@@ -1847,14 +1434,10 @@ suggestions for improvements etc.</p>
 </div>
     
     
-<script
-  src="//code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.js"></script>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.colorbox/1.6.4/jquery.colorbox-min.js"></script>
-<script src="https://sadanand-singh.github.io/js/prism.js"></script>
 <script src="https://sadanand-singh.github.io/js/peak.min.js"></script>
 
     <script async type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53f6d74a591ace8f"></script>
@@ -1865,18 +1448,20 @@ suggestions for improvements etc.</p>
 <script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
 
 
-<div id="search-results" class="modal fade" role="dialog" style="height: 80%;">
-    <div class="modal-dialog">
+<div id="search-results" class="modal" role="dialog" style="height: 80%;">
+    <div class="modal-dialog" role="document">
         
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">×</button>
             <h4 class="modal-title">Search Results:</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">X</span>
+            </button>
           </div>
           <div class="modal-body" id="tipue_search_content" style="max-height: 600px; overflow-y: auto;">
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
           </div>
         </div>
     </div>

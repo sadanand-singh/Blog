@@ -81,14 +81,13 @@ Different data files for this analysis have already been downloaded in the curre
 
     
 
-    <link href="//cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/lumen/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="//stackpath.bootstrapcdn.com/bootswatch/4.1.0/litera/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.css" />
+   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" />
     <link href="https://sadanand-singh.github.io/css/rst.css" rel="stylesheet" type="text/css">
     <link href="https://sadanand-singh.github.io/css/theme.css" rel="stylesheet" type="text/css">
     <link href="https://sadanand-singh.github.io/css/peak.min.css" rel="stylesheet" type="text/css">
     <link href="https://sadanand-singh.github.io/css/colorbox.css" rel="stylesheet" type="text/css">
-    <link href="https://sadanand-singh.github.io/css/prism.min.css" rel="stylesheet" type="text/css">
     <link href="https://sadanand-singh.github.io/css/custom.min.css" rel="stylesheet" type="text/css">
     <link href="https://sadanand-singh.github.io/css/tags.min.css" rel="stylesheet" type="text/css">
     <link href="//cdnjs.cloudflare.com/ajax/libs/Tipue-Search/5.0.0/tipuesearch.css" rel="stylesheet" type="text/css">
@@ -113,48 +112,46 @@ Different data files for this analysis have already been downloaded in the curre
 }(document, 'script', 'facebook-jssdk'));</script>
 
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
-<nav class="navbar navbar-default navbar-static-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="https://sadanand-singh.github.io/">
-            
-                <img src="https://sadanand-singh.github.io/letter-s-blue.png" alt="Sadanand&#39;s Notes" id="logo">
-            
+        <a class="navbar-brand" href="https://sadanand-singh.github.io/">
+        
+            <img class="px-2" src="https://sadanand-singh.github.io/letter-s.png" alt="Sadanand&#39;s Notes" id="logo">
+        
 
-            
-                <span id="blog-title">Sadanand&#39;s Notes</span>
-            
-            </a>
-        </div>
+        
+            Sadanand&#39;s Notes
+        
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        </button>
         <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
-            <ul class="nav navbar-nav">
+            <ul class="navbar-nav mr-auto">
               
               
               
                 
                 
-                  <li><a href="/post/">Blog</a>
+                  <li class="nav-item px-3"><a class="nav-link" href="/post/">Blog</a>
                 
               
                 
                 
-                  <li><a href="/tags/">Tags</a>
+                  <li class="nav-item px-3"><a class="nav-link" href="/tags/">Tags</a>
                 
               
                 
                 
-                  <li><a href="/categories/">Categories</a>
+                  <li class="nav-item px-3"><a class="nav-link" href="/categories/">Categories</a>
                 
               
                 
                 
-                  <li><a href="/archives/">Archive</a>
+                  <li class="nav-item px-3"><a class="nav-link" href="/archives/">Archive</a>
                 
               
             </ul>
@@ -169,7 +166,7 @@ Different data files for this analysis have already been downloaded in the curre
     <div class="body-content">
         
         <div class="row">
-            <article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <article class=" mw-100 post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article">
     <header>
     
       <h1 class="p-name entry-title" itemprop="headline name">
@@ -231,7 +228,7 @@ Different data files for this analysis have already been downloaded in the curre
 <div class="fb-like" data-send="true" data-layout="standard" data-action="like" data-size="small" data-show-faces="false" data-share="false"></div>
     </div>
 </header>
-    <div class="e-content entry-content" itemprop="articleBody text">
+    <div class="mw-100 e-content entry-content" itemprop="articleBody text">
         <p>We will first look at various aspects of the LendingClub data using techniques of Exploratory Data Analysis (EDA).
 Please look at my past post for finding further details on EDA techniques.
 Different data files for this analysis have already been downloaded in the current folder.
@@ -369,8 +366,9 @@ Different data files for this analysis have already been downloaded in the curre
 <div class="output_area">
 <div class="prompt output_prompt">Out[5]:</div>
 
-<div class="output_html rendered_html output_subarea output_execute_result">
-<table border="1" class="dataframe">
+<!-- <div class="output_html rendered_html output_subarea output_execute_result"> -->
+
+<p><table border="1">
   <thead>
     <tr style="text-align: right;">
       <th></th>
@@ -387,7 +385,7 @@ Different data files for this analysis have already been downloaded in the curre
     <tr>
       <th>2</th>
       <td>addr_state</td>
-      <td>The state provided by the borrower in the loan...</td>
+      <td>The state provided by the borrower in the loan&hellip;</td>
     </tr>
     <tr>
       <th>3</th>
@@ -397,17 +395,17 @@ Different data files for this analysis have already been downloaded in the curre
     <tr>
       <th>4</th>
       <td>annual_inc</td>
-      <td>The self-reported annual income provided by th...</td>
+      <td>The self-reported annual income provided by th&hellip;</td>
     </tr>
     <tr>
       <th>5</th>
       <td>annual_inc_joint</td>
-      <td>The combined self-reported annual income provi...</td>
+      <td>The combined self-reported annual income provi&hellip;</td>
     </tr>
     <tr>
       <th>6</th>
       <td>application_type</td>
-      <td>Indicates whether the loan is an individual ap...</td>
+      <td>Indicates whether the loan is an individual ap&hellip;</td>
     </tr>
     <tr>
       <th>7</th>
@@ -422,7 +420,7 @@ Different data files for this analysis have already been downloaded in the curre
     <tr>
       <th>9</th>
       <td>bc_util</td>
-      <td>Ratio of total current balance to high credit/...</td>
+      <td>Ratio of total current balance to high credit/&hellip;</td>
     </tr>
     <tr>
       <th>10</th>
@@ -437,17 +435,17 @@ Different data files for this analysis have already been downloaded in the curre
     <tr>
       <th>12</th>
       <td>collections_12_mths_ex_med</td>
-      <td>Number of collections in 12 months excluding m...</td>
+      <td>Number of collections in 12 months excluding m&hellip;</td>
     </tr>
     <tr>
       <th>13</th>
       <td>delinq_2yrs</td>
-      <td>The number of 30+ days past-due incidences of ...</td>
+      <td>The number of 30+ days past-due incidences of &hellip;</td>
     </tr>
     <tr>
       <th>14</th>
       <td>delinq_amnt</td>
-      <td>The past-due amount owed for the accounts on w...</td>
+      <td>The past-due amount owed for the accounts on w&hellip;</td>
     </tr>
     <tr>
       <th>15</th>
@@ -457,47 +455,47 @@ Different data files for this analysis have already been downloaded in the curre
     <tr>
       <th>16</th>
       <td>dti</td>
-      <td>A ratio calculated using the borrowerÕs total ...</td>
+      <td>A ratio calculated using the borrowerÕs total &hellip;</td>
     </tr>
     <tr>
       <th>17</th>
       <td>dti_joint</td>
-      <td>A ratio calculated using the co-borrowers' tot...</td>
+      <td>A ratio calculated using the co-borrowers&rsquo; tot&hellip;</td>
     </tr>
     <tr>
       <th>18</th>
       <td>earliest_cr_line</td>
-      <td>The month the borrower's earliest reported cre...</td>
+      <td>The month the borrower&rsquo;s earliest reported cre&hellip;</td>
     </tr>
     <tr>
       <th>19</th>
       <td>emp_length</td>
-      <td>Employment length in years. Possible values ar...</td>
+      <td>Employment length in years. Possible values ar&hellip;</td>
     </tr>
     <tr>
       <th>20</th>
       <td>emp_title</td>
-      <td>The job title supplied by the Borrower when ap...</td>
+      <td>The job title supplied by the Borrower when ap&hellip;</td>
     </tr>
     <tr>
       <th>21</th>
       <td>fico_range_high</td>
-      <td>The upper boundary range the borrowerÕs FICO a...</td>
+      <td>The upper boundary range the borrowerÕs FICO a&hellip;</td>
     </tr>
     <tr>
       <th>22</th>
       <td>fico_range_low</td>
-      <td>The lower boundary range the borrowerÕs FICO a...</td>
+      <td>The lower boundary range the borrowerÕs FICO a&hellip;</td>
     </tr>
     <tr>
       <th>23</th>
       <td>funded_amnt</td>
-      <td>The total amount committed to that loan at tha...</td>
+      <td>The total amount committed to that loan at tha&hellip;</td>
     </tr>
     <tr>
       <th>24</th>
       <td>funded_amnt_inv</td>
-      <td>The total amount committed by investors for th...</td>
+      <td>The total amount committed by investors for th&hellip;</td>
     </tr>
     <tr>
       <th>25</th>
@@ -507,7 +505,7 @@ Different data files for this analysis have already been downloaded in the curre
     <tr>
       <th>26</th>
       <td>home_ownership</td>
-      <td>The home ownership status provided by the borr...</td>
+      <td>The home ownership status provided by the borr&hellip;</td>
     </tr>
     <tr>
       <th>27</th>
@@ -517,12 +515,12 @@ Different data files for this analysis have already been downloaded in the curre
     <tr>
       <th>28</th>
       <td>il_util</td>
-      <td>Ratio of total current balance to high credit/...</td>
+      <td>Ratio of total current balance to high credit/&hellip;</td>
     </tr>
     <tr>
       <th>29</th>
       <td>initial_list_status</td>
-      <td>The initial listing status of the loan. Possib...</td>
+      <td>The initial listing status of the loan. Possib&hellip;</td>
     </tr>
     <tr>
       <th>30</th>
@@ -537,12 +535,12 @@ Different data files for this analysis have already been downloaded in the curre
     <tr>
       <th>32</th>
       <td>inq_last_6mths</td>
-      <td>The number of inquiries in past 6 months (excl...</td>
+      <td>The number of inquiries in past 6 months (excl&hellip;</td>
     </tr>
     <tr>
       <th>33</th>
       <td>installment</td>
-      <td>The monthly payment owed by the borrower if th...</td>
+      <td>The monthly payment owed by the borrower if th&hellip;</td>
     </tr>
     <tr>
       <th>34</th>
@@ -557,17 +555,17 @@ Different data files for this analysis have already been downloaded in the curre
     <tr>
       <th>36</th>
       <td>last_credit_pull_d</td>
-      <td>The most recent month LC pulled credit for thi...</td>
+      <td>The most recent month LC pulled credit for thi&hellip;</td>
     </tr>
     <tr>
       <th>37</th>
       <td>last_fico_range_high</td>
-      <td>The upper boundary range the borrowerÕs last F...</td>
+      <td>The upper boundary range the borrowerÕs last F&hellip;</td>
     </tr>
     <tr>
       <th>38</th>
       <td>last_fico_range_low</td>
-      <td>The lower boundary range the borrowerÕs last F...</td>
+      <td>The lower boundary range the borrowerÕs last F&hellip;</td>
     </tr>
     <tr>
       <th>39</th>
@@ -582,7 +580,7 @@ Different data files for this analysis have already been downloaded in the curre
     <tr>
       <th>41</th>
       <td>loan_amnt</td>
-      <td>The listed amount of the loan applied for by t...</td>
+      <td>The listed amount of the loan applied for by t&hellip;</td>
     </tr>
     <tr>
       <th>42</th>
@@ -592,7 +590,7 @@ Different data files for this analysis have already been downloaded in the curre
     <tr>
       <th>43</th>
       <td>max_bal_bc</td>
-      <td>Maximum current balance owed on all revolving ...</td>
+      <td>Maximum current balance owed on all revolving &hellip;</td>
     </tr>
     <tr>
       <th>44</th>
@@ -602,7 +600,7 @@ Different data files for this analysis have already been downloaded in the curre
     <tr>
       <th>45</th>
       <td>mo_sin_old_il_acct</td>
-      <td>Months since oldest bank installment account o...</td>
+      <td>Months since oldest bank installment account o&hellip;</td>
     </tr>
     <tr>
       <th>46</th>
@@ -627,7 +625,7 @@ Different data files for this analysis have already been downloaded in the curre
     <tr>
       <th>50</th>
       <td>mths_since_last_delinq</td>
-      <td>The number of months since the borrower's last...</td>
+      <td>The number of months since the borrower&rsquo;s last&hellip;</td>
     </tr>
     <tr>
       <th>51</th>
@@ -637,12 +635,12 @@ Different data files for this analysis have already been downloaded in the curre
     <tr>
       <th>52</th>
       <td>mths_since_last_record</td>
-      <td>The number of months since the last public rec...</td>
+      <td>The number of months since the last public rec&hellip;</td>
     </tr>
     <tr>
       <th>53</th>
       <td>mths_since_rcnt_il</td>
-      <td>Months since most recent installment accounts ...</td>
+      <td>Months since most recent installment accounts &hellip;</td>
     </tr>
     <tr>
       <th>54</th>
@@ -722,17 +720,17 @@ Different data files for this analysis have already been downloaded in the curre
     <tr>
       <th>69</th>
       <td>num_tl_120dpd_2m</td>
-      <td>Number of accounts currently 120 days past due...</td>
+      <td>Number of accounts currently 120 days past due&hellip;</td>
     </tr>
     <tr>
       <th>70</th>
       <td>num_tl_30dpd</td>
-      <td>Number of accounts currently 30 days past due ...</td>
+      <td>Number of accounts currently 30 days past due &hellip;</td>
     </tr>
     <tr>
       <th>71</th>
       <td>num_tl_90g_dpd_24m</td>
-      <td>Number of accounts 90 or more days past due in...</td>
+      <td>Number of accounts 90 or more days past due in&hellip;</td>
     </tr>
     <tr>
       <th>72</th>
@@ -742,7 +740,7 @@ Different data files for this analysis have already been downloaded in the curre
     <tr>
       <th>73</th>
       <td>open_acc</td>
-      <td>The number of open credit lines in the borrowe...</td>
+      <td>The number of open credit lines in the borrowe&hellip;</td>
     </tr>
     <tr>
       <th>74</th>
@@ -752,12 +750,12 @@ Different data files for this analysis have already been downloaded in the curre
     <tr>
       <th>75</th>
       <td>open_il_12m</td>
-      <td>Number of installment accounts opened in past ...</td>
+      <td>Number of installment accounts opened in past &hellip;</td>
     </tr>
     <tr>
       <th>76</th>
       <td>open_il_24m</td>
-      <td>Number of installment accounts opened in past ...</td>
+      <td>Number of installment accounts opened in past &hellip;</td>
     </tr>
     <tr>
       <th>77</th>
@@ -767,22 +765,22 @@ Different data files for this analysis have already been downloaded in the curre
     <tr>
       <th>78</th>
       <td>open_rv_12m</td>
-      <td>Number of revolving trades opened in past 12 m...</td>
+      <td>Number of revolving trades opened in past 12 m&hellip;</td>
     </tr>
     <tr>
       <th>79</th>
       <td>open_rv_24m</td>
-      <td>Number of revolving trades opened in past 24 m...</td>
+      <td>Number of revolving trades opened in past 24 m&hellip;</td>
     </tr>
     <tr>
       <th>80</th>
       <td>out_prncp</td>
-      <td>Remaining outstanding principal for total amou...</td>
+      <td>Remaining outstanding principal for total amou&hellip;</td>
     </tr>
     <tr>
       <th>81</th>
       <td>out_prncp_inv</td>
-      <td>Remaining outstanding principal for portion of...</td>
+      <td>Remaining outstanding principal for portion of&hellip;</td>
     </tr>
     <tr>
       <th>82</th>
@@ -792,12 +790,12 @@ Different data files for this analysis have already been downloaded in the curre
     <tr>
       <th>83</th>
       <td>percent_bc_gt_75</td>
-      <td>Percentage of all bankcard accounts &gt; 75% of l...</td>
+      <td>Percentage of all bankcard accounts &gt; 75% of l&hellip;</td>
     </tr>
     <tr>
       <th>84</th>
       <td>policy_code</td>
-      <td>publicly available policy_code=1 new products ...</td>
+      <td>publicly available policy_code=1 new products &hellip;</td>
     </tr>
     <tr>
       <th>85</th>
@@ -812,12 +810,12 @@ Different data files for this analysis have already been downloaded in the curre
     <tr>
       <th>87</th>
       <td>purpose</td>
-      <td>A category provided by the borrower for the lo...</td>
+      <td>A category provided by the borrower for the lo&hellip;</td>
     </tr>
     <tr>
       <th>88</th>
       <td>pymnt_plan</td>
-      <td>Indicates if a payment plan has been put in pl...</td>
+      <td>Indicates if a payment plan has been put in pl&hellip;</td>
     </tr>
     <tr>
       <th>89</th>
@@ -832,7 +830,7 @@ Different data files for this analysis have already been downloaded in the curre
     <tr>
       <th>91</th>
       <td>revol_util</td>
-      <td>Revolving line utilization rate, or the amount...</td>
+      <td>Revolving line utilization rate, or the amount&hellip;</td>
     </tr>
     <tr>
       <th>92</th>
@@ -847,7 +845,7 @@ Different data files for this analysis have already been downloaded in the curre
     <tr>
       <th>94</th>
       <td>term</td>
-      <td>The number of payments on the loan. Values are...</td>
+      <td>The number of payments on the loan. Values are&hellip;</td>
     </tr>
     <tr>
       <th>95</th>
@@ -872,7 +870,7 @@ Different data files for this analysis have already been downloaded in the curre
     <tr>
       <th>99</th>
       <td>total_acc</td>
-      <td>The total number of credit lines currently in ...</td>
+      <td>The total number of credit lines currently in &hellip;</td>
     </tr>
     <tr>
       <th>100</th>
@@ -907,7 +905,7 @@ Different data files for this analysis have already been downloaded in the curre
     <tr>
       <th>106</th>
       <td>total_pymnt_inv</td>
-      <td>Payments received to date for portion of total...</td>
+      <td>Payments received to date for portion of total&hellip;</td>
     </tr>
     <tr>
       <th>107</th>
@@ -937,21 +935,21 @@ Different data files for this analysis have already been downloaded in the curre
     <tr>
       <th>112</th>
       <td>verification_status</td>
-      <td>Indicates if income was verified by LC, not ve...</td>
+      <td>Indicates if income was verified by LC, not ve&hellip;</td>
     </tr>
     <tr>
       <th>113</th>
       <td>verified_status_joint</td>
-      <td>Indicates if the co-borrowers' joint income wa...</td>
+      <td>Indicates if the co-borrowers&rsquo; joint income wa&hellip;</td>
     </tr>
     <tr>
       <th>114</th>
       <td>zip_code</td>
-      <td>The first 3 numbers of the zip code provided b...</td>
+      <td>The first 3 numbers of the zip code provided b&hellip;</td>
     </tr>
   </tbody>
 </table>
-</div>
+</div></p>
 
 <p></div></p>
 
@@ -3763,41 +3761,45 @@ EEIIIYQQQuNkR64QQgghhBBCCCGEEEJo3P8DN9+9FcEXxokAAAAASUVORK5CYII=
                 
                 
                   <div class="post-footer-tags">
-                    <br/>
-                    <strong><span class="text-color-light text-small">TAGGED IN</span></strong><br/>
+                    <hr><br/>
+                    <strong><span class="text-color-light text-small">TAGGED IN:</span></strong>
                     
-  <a class="btag btag--primary btag--small" href="https://sadanand-singh.github.io//tags/machine-learning/">Machine Learning</a>
+  <a class="text-white badge badge-pill badge-dark" href="https://sadanand-singh.github.io//tags/machine-learning/">Machine Learning</a>
 
-  <a class="btag btag--primary btag--small" href="https://sadanand-singh.github.io//tags/eda/">EDA</a>
+  <a class="text-white badge badge-pill badge-dark" href="https://sadanand-singh.github.io//tags/eda/">EDA</a>
 
-  <a class="btag btag--primary btag--small" href="https://sadanand-singh.github.io//tags/python/">Python</a>
+  <a class="text-white badge badge-pill badge-dark" href="https://sadanand-singh.github.io//tags/python/">Python</a>
 
-  <a class="btag btag--primary btag--small" href="https://sadanand-singh.github.io//tags/data-science/">Data Science</a>
+  <a class="text-white badge badge-pill badge-dark" href="https://sadanand-singh.github.io//tags/data-science/">Data Science</a>
 
 
                   </div>
                 
             
         
-    </div>
-    <aside class="postpromonav">
-    <nav>
-    <ul class="pager hidden-print">
+        <br/>
+        <ul class="mx-0 px-0 pager">
   
     
-        <li class="previous">
-            <a href="/posts/pyplotsmultivariables/" rel="prev" title="Exploring Multiple Variables">Previous post</a>
+        <li class="previous btn btn-lg btn-primary">
+            <a href="/posts/pyplotsmultivariables/" rel="prev" title="Exploring Multiple Variables">
+            <i class="fa fa-angle-left text-base text-white icon-mr"></i>
+            <span class="text-white"> Previous post </span>
+            </a>
         </li>
     
     
-        <li class="next">
-            <a href="/posts/lceda2/" rel="next" title="EDA of Lending Club Data - II">Next post</a>
+        <li class="next mr-0 float-right btn btn-lg btn-primary">
+            <a href="/posts/lceda2/" rel="next" title="EDA of Lending Club Data - II">
+            <span class="text-white"> Next post </span>
+            <i class="fa fa-angle-right text-base text-white icon-ml"></i>
+            </a>
         </li>
     
   
 </ul>
-    </nav>
-    </aside>
+        <hr>
+    </div>
 
     
         <div id="disqus_thread"></div>
@@ -3839,14 +3841,10 @@ EEIIIYQQQuNkR64QQgghhBBCCCGEEEJo3P8DN9+9FcEXxokAAAAASUVORK5CYII=
 </div>
     
     
-<script
-  src="//code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.js"></script>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.colorbox/1.6.4/jquery.colorbox-min.js"></script>
-<script src="https://sadanand-singh.github.io/js/prism.js"></script>
 <script src="https://sadanand-singh.github.io/js/peak.min.js"></script>
 
     <script async type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53f6d74a591ace8f"></script>
@@ -3857,18 +3855,20 @@ EEIIIYQQQuNkR64QQgghhBBCCCGEEEJo3P8DN9+9FcEXxokAAAAASUVORK5CYII=
 <script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
 
 
-<div id="search-results" class="modal fade" role="dialog" style="height: 80%;">
-    <div class="modal-dialog">
+<div id="search-results" class="modal" role="dialog" style="height: 80%;">
+    <div class="modal-dialog" role="document">
         
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">×</button>
             <h4 class="modal-title">Search Results:</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">X</span>
+            </button>
           </div>
           <div class="modal-body" id="tipue_search_content" style="max-height: 600px; overflow-y: auto;">
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
           </div>
         </div>
     </div>
