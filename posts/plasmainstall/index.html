@@ -267,22 +267,22 @@ root using the password that we set.</p>
 <p>Choose <code>$USERNAME</code> per your liking. I chose <code>ssingh</code>, so in future commands
 whenever you see <code>ssingh</code> please replace it with your <code>$USERNAME</code>.</p>
 
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ useradd -m -G wheel -s /bin/bash <span style="color:#111">$USERNAME</span>
-$ chfn --full-name <span style="color:#d88200">&#34;</span><span style="color:#111">$FULL_NAME</span><span style="color:#d88200">&#34;</span> <span style="color:#111">$USERNAME</span>
-$ passwd <span style="color:#111">$USERNAME</span></code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ useradd -m -G wheel -s /bin/bash $USERNAME
+$ chfn --full-name <span style="color:#e6db74">&#34;</span>$FULL_NAME<span style="color:#e6db74">&#34;</span> $USERNAME
+$ passwd $USERNAME</code></pre></div>
 
 <h1 id="plasma-5-desktop">Plasma 5 Desktop</h1>
 
 <p>Network should be setup at the start. Check the status of network using:</p>
 
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ping google.com -c <span style="color:#ae81ff">2</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ ping google.com -c <span style="color:#ae81ff">2</span>
 $
 $ PING google.com <span style="color:#f92672">(</span><span style="color:#ae81ff">10</span>.38.24.84<span style="color:#f92672">)</span> <span style="color:#ae81ff">56</span><span style="color:#f92672">(</span><span style="color:#ae81ff">84</span><span style="color:#f92672">)</span> bytes of data.
-$ <span style="color:#ae81ff">64</span> bytes from google.com <span style="color:#f92672">(</span><span style="color:#ae81ff">10</span>.38.24.84<span style="color:#f92672">)</span>: <span style="color:#111">icmp_seq</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> <span style="color:#111">ttl</span><span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> <span style="color:#111">time</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>.022 ms
-$ <span style="color:#ae81ff">64</span> bytes from google.com <span style="color:#f92672">(</span><span style="color:#ae81ff">10</span>.38.24.84<span style="color:#f92672">)</span>: <span style="color:#111">icmp_seq</span><span style="color:#f92672">=</span><span style="color:#ae81ff">2</span> <span style="color:#111">ttl</span><span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> <span style="color:#111">time</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>.023 ms
+$ <span style="color:#ae81ff">64</span> bytes from google.com <span style="color:#f92672">(</span><span style="color:#ae81ff">10</span>.38.24.84<span style="color:#f92672">)</span>: icmp_seq<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> ttl<span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> time<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>.022 ms
+$ <span style="color:#ae81ff">64</span> bytes from google.com <span style="color:#f92672">(</span><span style="color:#ae81ff">10</span>.38.24.84<span style="color:#f92672">)</span>: icmp_seq<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span> ttl<span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> time<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>.023 ms
 $
 $ --- google.com ping statistics ---
-$ <span style="color:#ae81ff">2</span> packets transmitted, <span style="color:#ae81ff">2</span> received, <span style="color:#ae81ff">0</span>% packet loss, <span style="color:#111">time</span> 999ms
+$ <span style="color:#ae81ff">2</span> packets transmitted, <span style="color:#ae81ff">2</span> received, <span style="color:#ae81ff">0</span>% packet loss, time 999ms
 $ rtt min/avg/max/mdev <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>.022/0.022/0.023/0.004 ms
 $</code></pre></div>
 
@@ -295,32 +295,32 @@ setting up network.</p>
 <p>To setup a graphical desktop, first we need to install some basic X
 related packages, and some <em>essential</em> packages (including fonts):</p>
 
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ pacman -S xorg-server xorg-server-utils nvidia nvidia-libgl</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ pacman -S xorg-server xorg-server-utils nvidia nvidia-libgl</code></pre></div>
 
 <p>To avoid the possibility of forgetting to update your <em>initramfs</em> after an
 <em>nvidia</em> upgrade, you have to use a <em>pacman</em> hook like this:</p>
 
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ vim /etc/pacman.d/hooks/nvidia.hook
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ vim /etc/pacman.d/hooks/nvidia.hook
 $
 ...
 <span style="color:#f92672">[</span>Trigger<span style="color:#f92672">]</span>
-<span style="color:#111">Operation</span><span style="color:#f92672">=</span>Install
-<span style="color:#111">Operation</span><span style="color:#f92672">=</span>Upgrade
-<span style="color:#111">Operation</span><span style="color:#f92672">=</span>Remove
-<span style="color:#111">Type</span><span style="color:#f92672">=</span>Package
-<span style="color:#111">Target</span><span style="color:#f92672">=</span>nvidia
+Operation<span style="color:#f92672">=</span>Install
+Operation<span style="color:#f92672">=</span>Upgrade
+Operation<span style="color:#f92672">=</span>Remove
+Type<span style="color:#f92672">=</span>Package
+Target<span style="color:#f92672">=</span>nvidia
 
 <span style="color:#f92672">[</span>Action<span style="color:#f92672">]</span>
-<span style="color:#111">Depends</span><span style="color:#f92672">=</span>mkinitcpio
-<span style="color:#111">When</span><span style="color:#f92672">=</span>PostTransaction
-<span style="color:#111">Exec</span><span style="color:#f92672">=</span>/usr/bin/mkinitcpio -p linux
+Depends<span style="color:#f92672">=</span>mkinitcpio
+When<span style="color:#f92672">=</span>PostTransaction
+Exec<span style="color:#f92672">=</span>/usr/bin/mkinitcpio -p linux
 ...
 $</code></pre></div>
 
 <p>Nvidia has a daemon that is to be run at boot. To start the persistence
 daemon at boot, enable the <code>nvidia-persistenced.service</code>.</p>
 
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ systemctl <span style="color:#111">enable</span> nvidia-persistenced.service
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ systemctl enable nvidia-persistenced.service
 $ systemctl start nvidia-persistenced.service</code></pre></div>
 
 <p><br></p>
@@ -331,18 +331,18 @@ $ systemctl start nvidia-persistenced.service</code></pre></div>
 <div class="card-header"><strong>KWIN FLICKERING ISSUE</strong></div> 
 <div class="card-body"> <p>To avoid screen tearing in KDE (KWin), add following:</p>
 
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ vim /etc/profile.d/kwin.sh
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ vim /etc/profile.d/kwin.sh
 $
 ...
-<span style="color:#111">export</span> <span style="color:#111">__GL_YIELD</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;USLEEP&#34;</span>
+export __GL_YIELD<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;USLEEP&#34;</span>
 ...</code></pre></div>
 
 <p>If this does not help please try adding the following instead -</p>
 
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ vim /etc/profile.d/kwin.sh
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ vim /etc/profile.d/kwin.sh
 $
 ...
-<span style="color:#111">export</span> <span style="color:#111">KWIN_TRIPLE_BUFFER</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+export KWIN_TRIPLE_BUFFER<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
 ...</code></pre></div>
 
 <p class="text-danger"> <strong>Do not have both of the above enabled at the same
@@ -356,43 +356,43 @@ additional details.</strong> </p>
 
 <p>Now continue installing remaining important packages for the GUI.</p>
 
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ pacman -S mesa ttf-hack ttf-anonymous-pro
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ pacman -S mesa ttf-hack ttf-anonymous-pro
 $ pacman -S tlp tlp-rdw acpi_call bash-completion git meld
 $ pacman -S ttf-dejavu ttf-freefont ttf-liberation</code></pre></div>
 
 <p>Now, we will install the packages related to Plasma 5:</p>
 
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ pacman -S plasma-meta kf5 kdebase kdeutils kde-applications
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ pacman -S plasma-meta kf5 kdebase kdeutils kde-applications
 $ pacman -S kdegraphics gwenview</code></pre></div>
 
 <p>Now we have to setup a display manager. I chose recommended SDDM for
 plasma 5.</p>
 
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ pacman -S sddm sddm-kcm
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ pacman -S sddm sddm-kcm
 $ vim /etc/sddm.conf
 
 ...
 <span style="color:#f92672">[</span>Theme<span style="color:#f92672">]</span>
 <span style="color:#75715e"># Current theme name
-</span><span style="color:#75715e"></span><span style="color:#111">Current</span><span style="color:#f92672">=</span>breeze
+</span><span style="color:#75715e"></span>Current<span style="color:#f92672">=</span>breeze
 
 <span style="color:#75715e"># Cursor theme
-</span><span style="color:#75715e"></span><span style="color:#111">CursorTheme</span><span style="color:#f92672">=</span>breeze_cursors
+</span><span style="color:#75715e"></span>CursorTheme<span style="color:#f92672">=</span>breeze_cursors
 ...
 
-$ systemctl <span style="color:#111">enable</span> sddm</code></pre></div>
+$ systemctl enable sddm</code></pre></div>
 
 <p>Also make sure that network manager starts at boot:</p>
 
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ systemctl disable dhcpcd.service
-$ systemctl <span style="color:#111">enable</span> NetworkManager</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ systemctl disable dhcpcd.service
+$ systemctl enable NetworkManager</code></pre></div>
 
 <h1 id="audio-setup">Audio Setup</h1>
 
 <p>This is pretty simple. Install following packages and you should be
 done:</p>
 
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ pacman -S alsa-utils pulseaudio pulseaudio-alsa libcanberra-pulse
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ pacman -S alsa-utils pulseaudio pulseaudio-alsa libcanberra-pulse
 $ pacman -S libcanberra-gstreamer jack2-dbus kmix
 $ pacman -S mpv mplayer</code></pre></div>
 
@@ -401,15 +401,15 @@ $ pacman -S mpv mplayer</code></pre></div>
 <p>This part is optional and you can choose as per your taste. Sync time
 using the <code>systemd</code> service:</p>
 
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ vim /etc/systemd/timesyncd.conf
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ vim /etc/systemd/timesyncd.conf
 $
 ...
 <span style="color:#f92672">[</span>Time<span style="color:#f92672">]</span>
-<span style="color:#111">NTP</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>.arch.pool.ntp.org <span style="color:#ae81ff">1</span>.arch.pool.ntp.org <span style="color:#ae81ff">2</span>.arch.pool.ntp.org <span style="color:#ae81ff">3</span>.arch.pool.ntp.org
-<span style="color:#111">FallbackNTP</span><span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>.pool.ntp.org <span style="color:#ae81ff">1</span>.pool.ntp.org <span style="color:#ae81ff">0</span>.fr.pool.ntp.org
+NTP<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>.arch.pool.ntp.org <span style="color:#ae81ff">1</span>.arch.pool.ntp.org <span style="color:#ae81ff">2</span>.arch.pool.ntp.org <span style="color:#ae81ff">3</span>.arch.pool.ntp.org
+FallbackNTP<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>.pool.ntp.org <span style="color:#ae81ff">1</span>.pool.ntp.org <span style="color:#ae81ff">0</span>.fr.pool.ntp.org
 ...
 $
-$ timedatectl set-ntp <span style="color:#111">true</span>
+$ timedatectl set-ntp true
 $ timedatectl status
 $
 ...
@@ -417,16 +417,16 @@ $
   Universal time: Tue <span style="color:#ae81ff">2016</span>-09-20 <span style="color:#ae81ff">23</span>:40:44 UTC
         RTC time: Tue <span style="color:#ae81ff">2016</span>-09-20 <span style="color:#ae81ff">23</span>:40:44
        Time zone: US/Pacific <span style="color:#f92672">(</span>PDT, -0700<span style="color:#f92672">)</span>
- Network <span style="color:#111">time</span> on: yes
+ Network time on: yes
 NTP synchronized: yes
- RTC in <span style="color:#111">local</span> TZ: no
+ RTC in local TZ: no
  ...
 $</code></pre></div>
 
 <p>On Plasma 5, It is recommended to enable no-bitmaps to improve the font
 rendering:</p>
 
-<div class="highlight"><pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo ln -s /etc/fonts/conf.avail/70-no-bitmaps.conf
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo ln -s /etc/fonts/conf.avail/70-no-bitmaps.conf
    /etc/fonts/conf.d
    </code></pre></div>
 

@@ -279,59 +279,59 @@ if your answer has a better scaling.</p>
 <p>The function definition that I use for finding non-empty non-repeating
 strings is <em>recursive</em>.</p>
 
-<div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 3
-</span><span style="display:block;width:100%;background-color:#e1e1e1"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 4
-</span></span><span style="display:block;width:100%;background-color:#e1e1e1"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 5
-</span></span><span style="display:block;width:100%;background-color:#e1e1e1"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 6
-</span></span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">10
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3
+</span><span style="display:block;width:100%;background-color:#3c3d38"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4
+</span></span><span style="display:block;width:100%;background-color:#3c3d38"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5
+</span></span><span style="display:block;width:100%;background-color:#3c3d38"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6
+</span></span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#00a8c8">def</span> <span style="color:#75af00">findNsubString</span><span style="color:#111">(</span><span style="color:#111">s</span><span style="color:#111">,</span><span style="color:#111">n</span><span style="color:#111">):</span>
-    <span style="color:#111">subS</span> <span style="color:#f92672">=</span> <span style="color:#111">[]</span>
-    <span style="color:#00a8c8">for</span> <span style="color:#111">index</span> <span style="color:#f92672">in</span> <span style="color:#111">range</span><span style="color:#111">(</span><span style="color:#111">len</span><span style="color:#111">(</span><span style="color:#111">s</span><span style="color:#111">)</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span><span style="color:#111">)</span> <span style="color:#111">:</span>
-<span style="display:block;width:100%;background-color:#e1e1e1">        <span style="color:#111">x</span> <span style="color:#f92672">=</span> <span style="color:#111">s</span><span style="color:#111">[</span><span style="color:#111">index</span><span style="color:#111">:</span><span style="color:#111">index</span><span style="color:#f92672">+</span><span style="color:#111">n</span><span style="color:#111">]</span>
-</span><span style="display:block;width:100%;background-color:#e1e1e1">        <span style="color:#00a8c8">if</span> <span style="color:#111">s</span><span style="color:#f92672">.</span><span style="color:#111">find</span><span style="color:#111">(</span><span style="color:#111">x</span><span style="color:#111">)</span><span style="color:#f92672">==</span><span style="color:#111">s</span><span style="color:#f92672">.</span><span style="color:#111">rfind</span><span style="color:#111">(</span><span style="color:#111">x</span><span style="color:#111">)</span> <span style="color:#111">:</span>
-</span><span style="display:block;width:100%;background-color:#e1e1e1">            <span style="color:#111">subS</span><span style="color:#f92672">.</span><span style="color:#111">append</span><span style="color:#111">(</span><span style="color:#111">x</span><span style="color:#111">)</span>
-</span>    <span style="color:#00a8c8">if</span> <span style="color:#111">subS</span> <span style="color:#111">:</span>
-        <span style="color:#00a8c8">return</span> <span style="color:#111">subS</span>
-    <span style="color:#00a8c8">else</span> <span style="color:#111">:</span>
-        <span style="color:#00a8c8">return</span> <span style="color:#111">findNsubString</span><span style="color:#111">(</span><span style="color:#111">s</span><span style="color:#111">,</span><span style="color:#111">n</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span><span style="color:#111">)</span></code></pre></td></tr></table>
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">findNsubString</span>(s,n):
+    subS <span style="color:#f92672">=</span> []
+    <span style="color:#66d9ef">for</span> index <span style="color:#f92672">in</span> range(len(s)<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>) :
+<span style="display:block;width:100%;background-color:#3c3d38">        x <span style="color:#f92672">=</span> s[index:index<span style="color:#f92672">+</span>n]
+</span><span style="display:block;width:100%;background-color:#3c3d38">        <span style="color:#66d9ef">if</span> s<span style="color:#f92672">.</span>find(x)<span style="color:#f92672">==</span>s<span style="color:#f92672">.</span>rfind(x) :
+</span><span style="display:block;width:100%;background-color:#3c3d38">            subS<span style="color:#f92672">.</span>append(x)
+</span>    <span style="color:#66d9ef">if</span> subS :
+        <span style="color:#66d9ef">return</span> subS
+    <span style="color:#66d9ef">else</span> :
+        <span style="color:#66d9ef">return</span> findNsubString(s,n<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)</code></pre></td></tr></table>
 </div>
 </div>
 
 <p>I call this method as follows to get the desired results:</p>
 
-<p><div class="highlight"><div style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<p><div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#939390">10
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#! /usr/bin/python</span>
-<span style="color:#f92672">import</span> <span style="color:#111">argparse</span>
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#! /usr/bin/python</span>
+<span style="color:#f92672">import</span> argparse
 <span style="color:#75715e"># Parse Command Line Arguments</span>
-<span style="color:#111">parser</span> <span style="color:#f92672">=</span> <span style="color:#111">argparse</span><span style="color:#f92672">.</span><span style="color:#111">ArgumentParser</span><span style="color:#111">()</span>
-<span style="color:#111">parser</span><span style="color:#f92672">.</span><span style="color:#111">add_argument</span><span style="color:#111">(</span><span style="color:#d88200">&#34;-s&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;--string&#34;</span><span style="color:#111">,</span> <span style="color:#111">default</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#34;asda&#34;</span><span style="color:#111">,</span> <span style="color:#111">help</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;Input&#34;</span><span style="color:#111">)</span>
-<span style="color:#111">args</span> <span style="color:#f92672">=</span> <span style="color:#111">parser</span><span style="color:#f92672">.</span><span style="color:#111">parse_args</span><span style="color:#111">()</span>
-<span style="color:#111">s</span> <span style="color:#f92672">=</span> <span style="color:#111">args</span><span style="color:#f92672">.</span><span style="color:#111">string</span>
+parser <span style="color:#f92672">=</span> argparse<span style="color:#f92672">.</span>ArgumentParser()
+parser<span style="color:#f92672">.</span>add_argument(<span style="color:#e6db74">&#34;-s&#34;</span>, <span style="color:#e6db74">&#34;--string&#34;</span>, default <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;asda&#34;</span>, help<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Input&#34;</span>)
+args <span style="color:#f92672">=</span> parser<span style="color:#f92672">.</span>parse_args()
+s <span style="color:#f92672">=</span> args<span style="color:#f92672">.</span>string
 <span style="color:#75715e"># Call Method to find smallest non-repeating sub-string</span>
-<span style="color:#111">ans</span> <span style="color:#f92672">=</span> <span style="color:#111">findNsubString</span><span style="color:#111">(</span><span style="color:#111">s</span><span style="color:#111">,</span><span style="color:#ae81ff">1</span><span style="color:#111">)</span>
-<span style="color:#00a8c8">print</span><span style="color:#111">(</span><span style="color:#111">ans</span><span style="color:#111">)</span></code></pre></td></tr></table>
+ans <span style="color:#f92672">=</span> findNsubString(s,<span style="color:#ae81ff">1</span>)
+<span style="color:#66d9ef">print</span>(ans)</code></pre></td></tr></table>
 </div>
 </div></p>
 
