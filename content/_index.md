@@ -9,7 +9,7 @@ description:
 type: index
 ---
 
-{{< imgproc profile_pic Resize "x280" >}}
+{{< imgproc profile_pic Resize "x200" >}}
 
 My name is **Sadanand Singh**. I am
 [sadanand-singh](https://github.com/sadanand-singh) at Github and
