@@ -10,7 +10,7 @@ type: index
 ---
 
 
-{{< figure src="https://res.cloudinary.com/sadanandsingh/image/upload/v1496963333/sadanand_pic_dtdy2b.jpg" alt="sadanand" class="figure align-left img-responsive" width="200pt" >}}
+{{< figure src="profile_pic.png" alt="sadanand" class="figure align-left img-responsive" width="320pt" >}}
 
 
 My name is **Sadanand Singh**. I am
