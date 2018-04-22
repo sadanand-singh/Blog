@@ -249,7 +249,14 @@ themes.</p>
 </ul>
 </nav>
 
-<p>{{&lt; figure src=&ldquo;<a href="https://res.cloudinary.com/sadanandsingh/image/upload/v1496963550/st3_wdpsqu.png&quot;">https://res.cloudinary.com/sadanandsingh/image/upload/v1496963550/st3_wdpsqu.png&quot;</a> alt=&ldquo;Sublime Text&rdquo; class=&ldquo;figure img-responsive align-center&rdquo; &gt;}}</p>
+
+<figure class="figure img-responsive align-center">
+    
+        <img src="https://res.cloudinary.com/sadanandsingh/image/upload/v1496963550/st3_wdpsqu.png" alt="Sublime Text" />
+    
+    
+</figure>
+
 
 <h1 id="packages">Packages</h1>
 
@@ -329,26 +336,24 @@ silver_seracher</a> (<code>ag</code>) for this purpose.</p>
 
 <p><strong>SublimeLinter</strong> and <strong>SublimeLinter-flake8</strong> is plug-in that provides
 an interface to <a href="http://flake8.pycqa.org/en/latest/">flake8</a>. It will be
-used with files that have the {{% code Python %}} syntax.</p>
+used with files that have the <code>Python</code> syntax.</p>
 
 <h1 id="shortcut-keys">Shortcut Keys</h1>
 
 <p>Here is a summary of my key map:</p>
 
-<p>{{&lt; highlight json &gt;}}
-[
-    { &ldquo;keys&rdquo;: [&ldquo;shift+alt+a&rdquo;], &ldquo;command&rdquo;: &ldquo;find_all_under&rdquo; },
-    { &ldquo;keys&rdquo;: [&ldquo;control+v&rdquo;], &ldquo;command&rdquo;: &ldquo;paste_and_indent&rdquo; },
-    { &ldquo;keys&rdquo;: [&ldquo;control+shift+v&rdquo;], &ldquo;command&rdquo;: &ldquo;paste&rdquo; },
-    { &ldquo;keys&rdquo;: [&ldquo;ctrl+alt+;&rdquo;], &ldquo;command&rdquo;: &ldquo;alignment&rdquo; },
-    { &ldquo;keys&rdquo;: [&ldquo;ctrl+alt+up&rdquo;], &ldquo;command&rdquo;: &ldquo;column_select&rdquo;, &ldquo;args&rdquo;: {&ldquo;by&rdquo;: &ldquo;lines&rdquo;, &ldquo;forward&rdquo;: false}},
-    { &ldquo;keys&rdquo;: [&ldquo;ctrl+alt+down&rdquo;], &ldquo;command&rdquo;: &ldquo;column_select&rdquo;, &ldquo;args&rdquo;: {&ldquo;by&rdquo;: &ldquo;lines&rdquo;, &ldquo;forward&rdquo;: true}},
-    { &ldquo;keys&rdquo;: [&ldquo;ctrl+alt+pageup&rdquo;], &ldquo;command&rdquo;: &ldquo;column_select&rdquo;, &ldquo;args&rdquo;: {&ldquo;by&rdquo;: &ldquo;pages&rdquo;, &ldquo;forward&rdquo;: false}},
-    { &ldquo;keys&rdquo;: [&ldquo;ctrl+alt+pagedown&rdquo;], &ldquo;command&rdquo;: &ldquo;column_select&rdquo;, &ldquo;args&rdquo;: {&ldquo;by&rdquo;: &ldquo;pages&rdquo;, &ldquo;forward&rdquo;: true}},
-    { &ldquo;keys&rdquo;: [&ldquo;ctrl+alt+home&rdquo;], &ldquo;command&rdquo;: &ldquo;column_select&rdquo;, &ldquo;args&rdquo;: {&ldquo;by&rdquo;: &ldquo;all&rdquo;, &ldquo;forward&rdquo;: false}},
-    { &ldquo;keys&rdquo;: [&ldquo;ctrl+alt+end&rdquo;], &ldquo;command&rdquo;: &ldquo;column_select&rdquo;, &ldquo;args&rdquo;: {&ldquo;by&rdquo;: &ldquo;all&rdquo;, &ldquo;forward&rdquo;: true}}
-]
-{{&lt; /highlight &gt;}}</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
+    { <span style="color:#f92672">&#34;keys&#34;</span>: [<span style="color:#e6db74">&#34;shift+alt+a&#34;</span>], <span style="color:#f92672">&#34;command&#34;</span>: <span style="color:#e6db74">&#34;find_all_under&#34;</span> },
+    { <span style="color:#f92672">&#34;keys&#34;</span>: [<span style="color:#e6db74">&#34;control+v&#34;</span>], <span style="color:#f92672">&#34;command&#34;</span>: <span style="color:#e6db74">&#34;paste_and_indent&#34;</span> },
+    { <span style="color:#f92672">&#34;keys&#34;</span>: [<span style="color:#e6db74">&#34;control+shift+v&#34;</span>], <span style="color:#f92672">&#34;command&#34;</span>: <span style="color:#e6db74">&#34;paste&#34;</span> },
+    { <span style="color:#f92672">&#34;keys&#34;</span>: [<span style="color:#e6db74">&#34;ctrl+alt+;&#34;</span>], <span style="color:#f92672">&#34;command&#34;</span>: <span style="color:#e6db74">&#34;alignment&#34;</span> },
+    { <span style="color:#f92672">&#34;keys&#34;</span>: [<span style="color:#e6db74">&#34;ctrl+alt+up&#34;</span>], <span style="color:#f92672">&#34;command&#34;</span>: <span style="color:#e6db74">&#34;column_select&#34;</span>, <span style="color:#f92672">&#34;args&#34;</span>: {<span style="color:#f92672">&#34;by&#34;</span>: <span style="color:#e6db74">&#34;lines&#34;</span>, <span style="color:#f92672">&#34;forward&#34;</span>: <span style="color:#66d9ef">false</span>}},
+    { <span style="color:#f92672">&#34;keys&#34;</span>: [<span style="color:#e6db74">&#34;ctrl+alt+down&#34;</span>], <span style="color:#f92672">&#34;command&#34;</span>: <span style="color:#e6db74">&#34;column_select&#34;</span>, <span style="color:#f92672">&#34;args&#34;</span>: {<span style="color:#f92672">&#34;by&#34;</span>: <span style="color:#e6db74">&#34;lines&#34;</span>, <span style="color:#f92672">&#34;forward&#34;</span>: <span style="color:#66d9ef">true</span>}},
+    { <span style="color:#f92672">&#34;keys&#34;</span>: [<span style="color:#e6db74">&#34;ctrl+alt+pageup&#34;</span>], <span style="color:#f92672">&#34;command&#34;</span>: <span style="color:#e6db74">&#34;column_select&#34;</span>, <span style="color:#f92672">&#34;args&#34;</span>: {<span style="color:#f92672">&#34;by&#34;</span>: <span style="color:#e6db74">&#34;pages&#34;</span>, <span style="color:#f92672">&#34;forward&#34;</span>: <span style="color:#66d9ef">false</span>}},
+    { <span style="color:#f92672">&#34;keys&#34;</span>: [<span style="color:#e6db74">&#34;ctrl+alt+pagedown&#34;</span>], <span style="color:#f92672">&#34;command&#34;</span>: <span style="color:#e6db74">&#34;column_select&#34;</span>, <span style="color:#f92672">&#34;args&#34;</span>: {<span style="color:#f92672">&#34;by&#34;</span>: <span style="color:#e6db74">&#34;pages&#34;</span>, <span style="color:#f92672">&#34;forward&#34;</span>: <span style="color:#66d9ef">true</span>}},
+    { <span style="color:#f92672">&#34;keys&#34;</span>: [<span style="color:#e6db74">&#34;ctrl+alt+home&#34;</span>], <span style="color:#f92672">&#34;command&#34;</span>: <span style="color:#e6db74">&#34;column_select&#34;</span>, <span style="color:#f92672">&#34;args&#34;</span>: {<span style="color:#f92672">&#34;by&#34;</span>: <span style="color:#e6db74">&#34;all&#34;</span>, <span style="color:#f92672">&#34;forward&#34;</span>: <span style="color:#66d9ef">false</span>}},
+    { <span style="color:#f92672">&#34;keys&#34;</span>: [<span style="color:#e6db74">&#34;ctrl+alt+end&#34;</span>], <span style="color:#f92672">&#34;command&#34;</span>: <span style="color:#e6db74">&#34;column_select&#34;</span>, <span style="color:#f92672">&#34;args&#34;</span>: {<span style="color:#f92672">&#34;by&#34;</span>: <span style="color:#e6db74">&#34;all&#34;</span>, <span style="color:#f92672">&#34;forward&#34;</span>: <span style="color:#66d9ef">true</span>}}
+]</code></pre></div>
 
 <h1 id="theme-and-color-scheme">Theme and Color Scheme</h1>
 
@@ -370,69 +375,67 @@ settings for this theme can be seen in my settings below.</p>
 <p>Here is my complete set of settings for Sublime Text. Please feel free
 to leave comments below for any questions or suggestions.</p>
 
-<p>{{&lt; highlight json &gt;}}
-{
-    &ldquo;always_show_minimap_viewport&rdquo;: true,
-    &ldquo;auto_complete&rdquo;: true,
-    &ldquo;bold_folder_labels&rdquo;: true,
-    &ldquo;caret_extra_width&rdquo;: 1.5,
-    &ldquo;color_scheme&rdquo;: &ldquo;Packages/Materialize/schemes/Material Oceanic Next.tmTheme&rdquo;,
-    &ldquo;default_line_ending&rdquo;: &ldquo;unix&rdquo;,
-    &ldquo;drag_text&rdquo;: false,
-    &ldquo;draw_white_space&rdquo;: &ldquo;all&rdquo;,
-    &ldquo;enable_tab_scrolling&rdquo;: false,
-    &ldquo;font_face&rdquo;: &ldquo;Hack&rdquo;,
-    &ldquo;font_options&rdquo;:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+    <span style="color:#f92672">&#34;always_show_minimap_viewport&#34;</span>: <span style="color:#66d9ef">true</span>,
+    <span style="color:#f92672">&#34;auto_complete&#34;</span>: <span style="color:#66d9ef">true</span>,
+    <span style="color:#f92672">&#34;bold_folder_labels&#34;</span>: <span style="color:#66d9ef">true</span>,
+    <span style="color:#f92672">&#34;caret_extra_width&#34;</span>: <span style="color:#ae81ff">1.5</span>,
+    <span style="color:#f92672">&#34;color_scheme&#34;</span>: <span style="color:#e6db74">&#34;Packages/Materialize/schemes/Material Oceanic Next.tmTheme&#34;</span>,
+    <span style="color:#f92672">&#34;default_line_ending&#34;</span>: <span style="color:#e6db74">&#34;unix&#34;</span>,
+    <span style="color:#f92672">&#34;drag_text&#34;</span>: <span style="color:#66d9ef">false</span>,
+    <span style="color:#f92672">&#34;draw_white_space&#34;</span>: <span style="color:#e6db74">&#34;all&#34;</span>,
+    <span style="color:#f92672">&#34;enable_tab_scrolling&#34;</span>: <span style="color:#66d9ef">false</span>,
+    <span style="color:#f92672">&#34;font_face&#34;</span>: <span style="color:#e6db74">&#34;Hack&#34;</span>,
+    <span style="color:#f92672">&#34;font_options&#34;</span>:
     [
-        &ldquo;directwrite&rdquo;,
-        &ldquo;gray_antialias&rdquo;,
-        &ldquo;subpixel_antialias&rdquo;
+        <span style="color:#e6db74">&#34;directwrite&#34;</span>,
+        <span style="color:#e6db74">&#34;gray_antialias&#34;</span>,
+        <span style="color:#e6db74">&#34;subpixel_antialias&#34;</span>
     ],
-    &ldquo;font_size&rdquo;: 13,
-    &ldquo;hot_exit&rdquo;: false,
-    &ldquo;ignored_packages&rdquo;:
+    <span style="color:#f92672">&#34;font_size&#34;</span>: <span style="color:#ae81ff">13</span>,
+    <span style="color:#f92672">&#34;hot_exit&#34;</span>: <span style="color:#66d9ef">false</span>,
+    <span style="color:#f92672">&#34;ignored_packages&#34;</span>:
     [
-        &ldquo;C++&rdquo;,
-        &ldquo;Python&rdquo;,
-        &ldquo;Vintage&rdquo;
+        <span style="color:#e6db74">&#34;C++&#34;</span>,
+        <span style="color:#e6db74">&#34;Python&#34;</span>,
+        <span style="color:#e6db74">&#34;Vintage&#34;</span>
     ],
-    &ldquo;indent_guide_options&rdquo;:
+    <span style="color:#f92672">&#34;indent_guide_options&#34;</span>:
     [
-        &ldquo;draw_normal&rdquo;,
-        &ldquo;draw_active&rdquo;
+        <span style="color:#e6db74">&#34;draw_normal&#34;</span>,
+        <span style="color:#e6db74">&#34;draw_active&#34;</span>
     ],
-    &ldquo;line_padding_bottom&rdquo;: 1,
-    &ldquo;line_padding_top&rdquo;: 1,
-    &ldquo;material_theme_bold_tab&rdquo;: true,
-    &ldquo;material_theme_compact_panel&rdquo;: true,
-    &ldquo;material_theme_compact_sidebar&rdquo;: false,
-    &ldquo;material_theme_contrast_mode&rdquo;: true,
-    &ldquo;material_theme_disable_fileicons&rdquo;: false,
-    &ldquo;material_theme_disable_folder_animation&rdquo;: true,
-    &ldquo;material_theme_disable_tree_indicator&rdquo;: true,
-    &ldquo;material_theme_panel_separator&rdquo;: true,
-    &ldquo;material_theme_small_statusbar&rdquo;: true,
-    &ldquo;material_theme_small_tab&rdquo;: true,
-    &ldquo;material_theme_tabs_autowidth&rdquo;: true,
-    &ldquo;material_theme_tabs_separator&rdquo;: true,
-    &ldquo;material_theme_tree_headings&rdquo;: true,
-    &ldquo;overlay_scroll_bars&rdquo;: &ldquo;enabled&rdquo;,
-    &ldquo;remember_open_files&rdquo;: false,
-    &ldquo;rulers&rdquo;:
+    <span style="color:#f92672">&#34;line_padding_bottom&#34;</span>: <span style="color:#ae81ff">1</span>,
+    <span style="color:#f92672">&#34;line_padding_top&#34;</span>: <span style="color:#ae81ff">1</span>,
+    <span style="color:#f92672">&#34;material_theme_bold_tab&#34;</span>: <span style="color:#66d9ef">true</span>,
+    <span style="color:#f92672">&#34;material_theme_compact_panel&#34;</span>: <span style="color:#66d9ef">true</span>,
+    <span style="color:#f92672">&#34;material_theme_compact_sidebar&#34;</span>: <span style="color:#66d9ef">false</span>,
+    <span style="color:#f92672">&#34;material_theme_contrast_mode&#34;</span>: <span style="color:#66d9ef">true</span>,
+    <span style="color:#f92672">&#34;material_theme_disable_fileicons&#34;</span>: <span style="color:#66d9ef">false</span>,
+    <span style="color:#f92672">&#34;material_theme_disable_folder_animation&#34;</span>: <span style="color:#66d9ef">true</span>,
+    <span style="color:#f92672">&#34;material_theme_disable_tree_indicator&#34;</span>: <span style="color:#66d9ef">true</span>,
+    <span style="color:#f92672">&#34;material_theme_panel_separator&#34;</span>: <span style="color:#66d9ef">true</span>,
+    <span style="color:#f92672">&#34;material_theme_small_statusbar&#34;</span>: <span style="color:#66d9ef">true</span>,
+    <span style="color:#f92672">&#34;material_theme_small_tab&#34;</span>: <span style="color:#66d9ef">true</span>,
+    <span style="color:#f92672">&#34;material_theme_tabs_autowidth&#34;</span>: <span style="color:#66d9ef">true</span>,
+    <span style="color:#f92672">&#34;material_theme_tabs_separator&#34;</span>: <span style="color:#66d9ef">true</span>,
+    <span style="color:#f92672">&#34;material_theme_tree_headings&#34;</span>: <span style="color:#66d9ef">true</span>,
+    <span style="color:#f92672">&#34;overlay_scroll_bars&#34;</span>: <span style="color:#e6db74">&#34;enabled&#34;</span>,
+    <span style="color:#f92672">&#34;remember_open_files&#34;</span>: <span style="color:#66d9ef">false</span>,
+    <span style="color:#f92672">&#34;rulers&#34;</span>:
     [
-        80
+        <span style="color:#ae81ff">80</span>
     ],
-    &ldquo;scroll_past_end&rdquo;: true,
-    &ldquo;soda_classic_tabs&rdquo;: true,
-    &ldquo;soda_folder_icons&rdquo;: true,
-    &ldquo;tab_completion&rdquo;: false,
-    &ldquo;tab_size&rdquo;: 4,
-    &ldquo;theme&rdquo;: &ldquo;Material Oceanic Next.sublime-theme&rdquo;,
-    &ldquo;translate_tabs_to_spaces&rdquo;: true,
-    &ldquo;trim_trailing_white_space_on_save&rdquo;: true,
-    &ldquo;word_wrap&rdquo;: true
-}
-{{&lt; /highlight &gt;}}</p>
+    <span style="color:#f92672">&#34;scroll_past_end&#34;</span>: <span style="color:#66d9ef">true</span>,
+    <span style="color:#f92672">&#34;soda_classic_tabs&#34;</span>: <span style="color:#66d9ef">true</span>,
+    <span style="color:#f92672">&#34;soda_folder_icons&#34;</span>: <span style="color:#66d9ef">true</span>,
+    <span style="color:#f92672">&#34;tab_completion&#34;</span>: <span style="color:#66d9ef">false</span>,
+    <span style="color:#f92672">&#34;tab_size&#34;</span>: <span style="color:#ae81ff">4</span>,
+    <span style="color:#f92672">&#34;theme&#34;</span>: <span style="color:#e6db74">&#34;Material Oceanic Next.sublime-theme&#34;</span>,
+    <span style="color:#f92672">&#34;translate_tabs_to_spaces&#34;</span>: <span style="color:#66d9ef">true</span>,
+    <span style="color:#f92672">&#34;trim_trailing_white_space_on_save&#34;</span>: <span style="color:#66d9ef">true</span>,
+    <span style="color:#f92672">&#34;word_wrap&#34;</span>: <span style="color:#66d9ef">true</span>
+}</code></pre></div>
     </div>
     <div id="post-footer" class="post-footer">
         
