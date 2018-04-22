@@ -9,9 +9,7 @@ description:
 type: index
 ---
 
-
-{{< figure src="profile_pic.png" alt="sadanand" class="figure align-left img-responsive" width="320pt" >}}
-
+{{< imgproc profile_pic Resize "x280" >}}
 
 My name is **Sadanand Singh**. I am
 [sadanand-singh](https://github.com/sadanand-singh) at Github and
