@@ -101,7 +101,7 @@ silver_seracher](https://geoff.greer.fm/ag/) (`ag`) for this purpose.
 
 **SublimeLinter** and **SublimeLinter-flake8** is plug-in that provides
 an interface to [flake8](http://flake8.pycqa.org/en/latest/). It will be
-used with files that have the {{% code Python %}} syntax.
+used with files that have the `Python` syntax.
 
 Shortcut Keys
 =============
