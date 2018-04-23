@@ -14,7 +14,7 @@ authors:
     - "Sadanand Singh"
 hasMath: true
 notebook: false
-draft: false
+draft: yes
 disqus_identifier: autoencoders.sadanand
 readingTime: 10
 description:
