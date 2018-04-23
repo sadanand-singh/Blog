@@ -48,7 +48,7 @@ A typical problem to solve is to predict the _class_ of the iris plant based on 
 ## Setup
 Below is the simplest implementation of a SVM for this problem. In this example, we see the simplest implementation of SVM classifier with the linear and the [radial basis function (rbf)](https://en.wikipedia.org/wiki/Radial_basis_function_kernel) kernels.
 
-{{< highlight python "linenos=table" >}}
+{{< highlight lang="python" linenos="yes" >}}
 import pandas as pd
 import numpy as np
 from sklearn import svm, datasets
@@ -134,7 +134,7 @@ iVBORw0KGgoAAAANSUhEUgAAA3sAAAFNCAYAAAC5cXZ6AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAL
 {{< /png >}}
 We will be using 5-fold cross validation to perform grid search to calculate optimal hyper-parameters. This is easily achieved in scikit-learn using the [sklearn.model_selection.GridSearchCV](http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html#) class.
 
-{{< highlight python "linenos=table, hl_lines=22-23" >}}
+{{< highlight lang="python" linenos="yes" hl="22-23" >}}
 from sklearn.model_selection import train_test_split
 from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import classification_report
@@ -224,7 +224,7 @@ By default scikit-learn uses accuracy as score for classification tasks. GridSea
 
 Finally, we can test our model on the test dataset and evaluate various classification metrics using the `classification_report()` method.
 
-{{< highlight python "linenos=table" >}}
+{{< highlight lang="python" linenos="yes" >}}
 print("Detailed classification report:")
 print()
 print("The model is trained on the full development set.")
@@ -263,18 +263,18 @@ __Support__: Although not a scoring metric, it is an important quantity when loo
 # SVM for Regression Problems
 Let us first generate a random dataset where we want to generate a regression model. In order to have a good visualization of our results, it would be best to use a single feature as an example. In order to study effect of non-linear models, we will be generating our data from the `sin()` function.
 
-{{< highlight python "linenos=table" >}}
+{{< highlight lang="python" linenos="yes" >}}
 X = np.sort(5 * np.random.rand(200, 1), axis=0)
 y = np.sin(X).ravel()
 y[::5] += 3 * (0.5 - np.random.rand(40))
 {{< /highlight >}}
 
-## Setup 
+## Setup
 Below is the simplest implementation of a SVM for this regression problem. In sci-kit learn SVM regression models are implemented using the [svm.SVR](http://scikit-learn.org/stable/modules/generated/sklearn.svm.SVR.html) class.
 
 In this example, we see the simplest implementation of SVM regressors with the linear, polynomial of degree 3 and the radial basis function (rbf) kernels.
 
-{{< highlight python "linenos=table" >}}
+{{< highlight lang="python" linenos="yes" >}}
 from sklearn.svm import SVR
 svr_rbf = SVR(kernel='rbf', C=1e3, gamma=0.1)
 svr_lin = SVR(kernel='linear', C=1e3)

@@ -85,7 +85,7 @@ Here is a simple plot of first few Fibonacci numbers:
 The most basic algorithm, that comes to mind is a recursive scheme that
 taps directly into the above definition of Fibonacci series.
 
-{{< highlight python "linenos=table" >}}
+{{< highlight lang="python" linenos="yes" >}}
 def fibRecursive(n):
     if n == 0:
         return 0
@@ -110,14 +110,14 @@ First problem we should realize in the above recursive scheme is that we
 are recalculating lower $F_n$ at each recursion level. Lets solve this
 issue by storing each calculation and avoiding any re-calculation!
 
-{{< highlight python "linenos=table" >}}
+{{< highlight lang="python" linenos="yes" >}}
 def fibN2(n):
     a = 0
     b = 1
     if n == 0:
         return 0
 
-    for i in range(1,n+1):
+    for i in range(1, n+1):
         c = a + b
         a = b
         b = c
@@ -139,7 +139,7 @@ You bet, we can! Lets consider the following scheme:
 We can use a recursive scheme to calculate this matrix power using a
 divide and conquer scheme in $\mathcal{O}(\log{}n)$ time.
 
-{{< highlight python "linenos=table" >}}
+{{< highlight lang="python" linenos="yes" >}}
 def mul(A, B):
     a, b, c = A
     d, e, f = B
@@ -169,7 +169,7 @@ which is again a divide and conquer scheme.
 Here is one simple implementation (Same as the above scheme, but with
 the following mul(A,B) method):
 
-{{< highlight python "linenos=table" >}}
+{{< highlight lang="python" linenos="yes" >}}
 
 _CUTOFF = 1536
 
@@ -213,7 +213,7 @@ If we know {{< tex "F_K" >}} and {{< tex "F_{K+1}" >}}, then we can find,
 
 We can implement this using the __Karatsuba multiplication__ as follows:
 
-{{< highlight python "linenos=table" >}}
+{{< highlight lang="python" linenos="yes" >}}
 def fibFast(n):
     if n <= 2:
         return 1

@@ -50,7 +50,7 @@ Initial Setup
 Download the latest iso from Arch website and create the uefi usb
 installation media. I used my mac to do this on terminal:
 
-{{< highlight bash >}}
+{{< highlight lang="bash" linenos="true" >}}
 
 $ diskutil list
 $ diskutil unmountDisk /dev/disk1
@@ -70,7 +70,7 @@ motherboard and UEFI mode enabled.
 
 To verify you have booted in UEFU mode, run:
 
-{{< highlight bash >}}
+{{< highlight lang="bash" linenos="true" >}}
 $ efivar -l
 {{< /highlight >}}
 
@@ -88,7 +88,7 @@ with all the installation.
 
 To setup wifi simply run:
 
-{{< highlight bash >}}
+{{< highlight lang="bash" linenos="true" >}}
 $ wifi-menu
 {{< /highlight >}}
 
@@ -104,7 +104,7 @@ System Updates
 For editing different configurations, I tend to use *vim*. So we will
 update our package cache and install vim.
 
-{{< highlight bash >}}
+{{< highlight lang="bash" linenos="true" >}}
 $ pacman -Syy
 $ pacman -S vim
 {{< /highlight >}}
@@ -125,14 +125,14 @@ benefits of using _btrfs_ partitions.
 
 First list your hard drives with the following:
 
-{{< highlight bash >}}
+{{< highlight lang="bash" linenos="true" >}}
 $ lsblk
 $ cat /proc/partitions
 {{< /highlight >}}
 
 Assuming, my setup above, now create gpt partitions and format them.
 
-{{< highlight bash >}}
+{{< highlight lang="bash" linenos="true" >}}
 $ dd if=/dev/zero of=/dev/sda bs=1M count=5000
 $ gdisk /dev/sda
 Found invalid MBR and corrupt GPT. What do you want to do? (Using the
@@ -143,7 +143,7 @@ GPT MAY permit recovery of GPT data.)
 
 Then press 2 to create a blank GPT and start fresh
 
-{{< highlight bash >}}
+{{< highlight lang="bash" linenos="true" >}}
 ZAP:
 $ press x - to go to extended menu
 $ press z - to zap
@@ -153,7 +153,7 @@ $ press Y - to delete MBR
 
 It might now kick us out of _gdisk_, so get back into it:
 
-{{< highlight bash >}}
+{{< highlight lang="bash" linenos="true" >}}
 $ gdisk /dev/sda
 
 $ Command (? for help): m
@@ -184,7 +184,7 @@ three partitions: */dev/sda1, /dev/sda2, /dev/sdb1* and */dev/sdc1*
 
 Now we will format these partitions.
 
-{{< highlight bash >}}
+{{< highlight lang="bash" linenos="true" >}}
 $ mkfs.vfat -F32 /dev/sda1
 $ mkfs.btrfs -L arch /dev/sda2
 $ mkfs.btrfs -L data /dev/sdb1
@@ -194,7 +194,7 @@ $ mkfs.btrfs -L media /dev/sdc1
 Now, we will create btrfs subvolumes and mount them properly for
 installation and final setup.
 
-{{< highlight bash >}}
+{{< highlight lang="bash" linenos="true" >}}
 $ mount /dev/sda2 /mnt
 $ btrfs subvolume create /mnt/ROOT
 $ btrfs subvolume create /mnt/home
@@ -212,7 +212,7 @@ $ umount /mnt
 Now, once the sub-volumes have been created, we will mount them in
 appropriate locations with optimal flags.
 
-{{< highlight bash >}}
+{{< highlight lang="bash" linenos="true" >}}
 $SSD_MOUNTS="rw,noatime,nodev,compress=lzo,ssd,discard,
     space_cache,autodefrag,inode_cache"
 $ HDD_MOUNTS="rw,nosuid,nodev,relatime,space_cache"
@@ -234,14 +234,14 @@ Base Installation
 
 Now, we will do the actually installation of base packages.
 
-{{< highlight bash >}}
+{{< highlight lang="bash" linenos="true" >}}
 $ pacstrap /mnt base base-devel btrfs-progs
 $ genfstab -U -p /mnt >> /mnt/etc/fstab
 {{< /highlight >}}
 
 Edit the /mnt/ect/fstab file to add following /tmp mounts.
 
-{{< highlight bash >}}
+{{< highlight lang="bash" linenos="true" >}}
 tmpfs /tmp tmpfs rw,nodev,nosuid 0 0
 tmpfs /dev/shm tmpfs rw,nodev,nosuid,noexec 0 0
 {{< /highlight >}}
@@ -251,12 +251,12 @@ tmpfs /dev/shm tmpfs rw,nodev,nosuid,noexec 0 0
 Copy our current _wifi_ setup file into the
 new system. This will enable _wifi_ at first boot. Next, _chroot_ into
 our newly installed system:
-{{< highlight bash >}}$cp /etc/netctl/wl* /mnt/etc/netctl/{{< /highlight >}}
+{{< highlight lang="bash" linenos="true" >}}$cp /etc/netctl/wl* /mnt/etc/netctl/{{< /highlight >}}
 {{< /card >}}
 
 Finally bind root for installation.
 
-{{< highlight bash >}}
+{{< highlight lang="bash" linenos="true" >}}
 $ arch-chroot /mnt /bin/bash
 {{< /highlight >}}
 
@@ -266,7 +266,7 @@ Basic Setup
 Here are some basic commands you need to run to get the installation
 started.
 
-{{< highlight bash >}}
+{{< highlight lang="bash" linenos="true" >}}
 $ pacman -Syy
 $ pacman -S sudo vim
 $ vim /etc/locale.gen
@@ -296,13 +296,13 @@ $ passwd
 We also need to install following packages for
 wifi to work at first boot:
 
-{{< highlight bash >}} $ pacman -S iw wpa_supplicant {{< /highlight >}}
+{{< highlight lang="bash" linenos="true" >}} $ pacman -S iw wpa_supplicant {{< /highlight >}}
 {{< /card >}}
 
 
 We will also add *hostname* to our /etc/hosts file:
 
-{{< highlight bash >}}
+{{< highlight lang="bash" linenos="true" >}}
 $ vim /etc/hosts
 ...
 127.0.0.1       localhost.localdomain   localhost $HOSTNAME
@@ -321,7 +321,7 @@ configured pattern (glob) or an on-screen menu. It is included with the
 Assuming _/boot_ is your boot drive, first run the following command to
 get started:
 
-{{< highlight bash >}}
+{{< highlight lang="bash" linenos="true" >}}
 $ bootctl --path=/boot install
 {{< /highlight >}}
 
@@ -334,14 +334,14 @@ EFI Boot Manager.
 Finally to configure out boot loader, we will need the UUID of out root
 drive (_/dev/sda2_). You can find that by:
 
-{{< highlight bash >}}
+{{< highlight lang="bash" linenos="true" >}}
 $ lsblk -no NAME,UUID /dev/sda2
 {{< /highlight >}}
 
 Now, make sure that the following two files look as follows, where
 $UUID is the value obtained from above command:
 
-{{< highlight bash >}}
+{{< highlight lang="bash" linenos="true" >}}
 $ vim /boot/loader/loader.conf
 ...
 timeout 3
@@ -362,7 +362,7 @@ options root=UUID=$UUID rw rootfstype=btrfs rootflags=subvol=ROOT
 Please note that you will to need manually run
 `bootctl` command every time `systemd-boot` gets updated.
 
-{{< highlight bash >}} $ bootctl update {{< /highlight >}}
+{{< highlight lang="bash" linenos="true" >}} $ bootctl update {{< /highlight >}}
 {{< /card >}}
 
 
@@ -371,7 +371,7 @@ Network Setup
 
 First setup hostname using _systemd_:
 
-{{< highlight bash >}}
+{{< highlight lang="bash" linenos="true" >}}
 $ hostnamectl set-hostname $HOSTNAME
 {{< /highlight >}}
 
@@ -379,7 +379,7 @@ Check the "Ethernet controller" entry (or similar) from the `lspci -v`
 output. It should tell you which kernel module contains the driver for
 your network device. For example:
 
-{{< highlight bash >}}
+{{< highlight lang="bash" linenos="true" >}}
 $ lspci -v
 $
 ...
@@ -399,7 +399,7 @@ $
 Next, check that the driver was loaded via `dmesg | grep module_name`.
 For example:
 
-{{< highlight bash >}}
+{{< highlight lang="bash" linenos="true" >}}
 $ dmesg | grep r8169
 $
 ...
@@ -422,7 +422,7 @@ guide for further assistance.
 
 Get current device names via `/sys/class/net` or `ip link`. For example:
 
-{{< highlight bash >}}
+{{< highlight lang="bash" linenos="true" >}}
 $ ls /sys/class/net
 $
 ...
@@ -445,14 +445,14 @@ two systemd services: *systemd-networkd.service* and
 For compatibility with resolv.conf, delete or rename the existing file
 and create the following symbolic link:
 
-{{< highlight bash >}}
+{{< highlight lang="bash" linenos="true" >}}
 $ ln -s /usr/lib/systemd/resolv.conf /etc/resolv.conf
 {{< /highlight >}}
 
 Network configurations are stored as \*.network in
 */etc/systemd/network*. We need to create ours as follows.:
 
-{{< highlight bash >}}
+{{< highlight lang="bash" linenos="true" >}}
 $ vim /etc/systemd/network/wired.network
 $
 ...
@@ -469,7 +469,7 @@ $
 
 Now enable these services:
 
-{{< highlight bash >}}
+{{< highlight lang="bash" linenos="true" >}}
 $ systemctl enable systemd-resolved.service
 $ systemctl enable systemd-networkd.service
 {{< /highlight >}}
@@ -481,7 +481,7 @@ First Boot
 
 Now we are ready for the first boot! Run the following command:
 
-{{< highlight bash >}}
+{{< highlight lang="bash" linenos="true" >}}
 $ exit
 $ umount -R /mnt
 $ reboot

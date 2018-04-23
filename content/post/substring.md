@@ -53,7 +53,7 @@ if your answer has a better scaling.
 The function definition that I use for finding non-empty non-repeating
 strings is _recursive_.
 
-{{< highlight python "linenos=table, hl_lines=4-6" >}}
+{{< highlight lang="python" linenos="yes" hl="4-6" >}}
 def findNsubString(s,n):
     subS = []
     for index in range(len(s)+1) :
@@ -68,7 +68,7 @@ def findNsubString(s,n):
 
 I call this method as follows to get the desired results:
 
-{{< highlight python "linenos=table" >}}
+{{< highlight lang="python" linenos="yes" >}}
 #! /usr/bin/python
 import argparse
 # Parse Command Line Arguments

@@ -90,9 +90,9 @@ In order to construct $J$ regions, $R\_1, R\_2, \ldots , R\_J$, the predictor sp
 
 where, $\hat{y}\_{R\_j}$ is the mean response for the training observations within the $j^{th}$ box.
 
-Since considering every possible such partition of space is computationally infeasible, a _greedy approach_ is used to divide the space, called [recursive binary splitting](https://en.wikipedia.org/wiki/Binary_splitting). It is _greedy_ because at each step of the 
-tree building process, the best split is made at that particular step, 
-rather than looking ahead and picking a split that will lead to a 
+Since considering every possible such partition of space is computationally infeasible, a _greedy approach_ is used to divide the space, called [recursive binary splitting](https://en.wikipedia.org/wiki/Binary_splitting). It is _greedy_ because at each step of the
+tree building process, the best split is made at that particular step,
+rather than looking ahead and picking a split that will lead to a
 better tree in some future step. Note that all divided regions $R\_j \forall j \in [1, J]$ would be rectangular.
 
 In order to perform recursive binary splitting, first select the predictor $X\_j$ and the cut point $s$ such that splitting the predictor space into the regions (half planes) {{< tex "R_1(j,s)=\big\{ X|Xj < s \big\}" >}} and {{< tex "R_2(j,s)=\big\{ X|Xj \ge s \big\}" >}} leads to the greatest possible reduction in RSS. Mathematically, we seek $j$ and $s$ that minimizes,
@@ -108,35 +108,35 @@ Once the regions $R\_1, R\_2, \ldots , R\_J$ have been created, the response for
 
 ## Classification Trees
 
-A classification tree is very similar to a regression tree, except 
-that it is used to predict a qualitative response rather than a 
-quantitative one. Recall that for a regression tree, the predicted 
-response for an observation is given by the mean response of the 
-training observations that belong to the same terminal node. In 
-contrast, for a classification tree, we predict that each observation 
-belongs to the _most commonly occurring_ class of training 
-observations in the region to which it belongs (i.e. the [mode response]({{< relref "descriptiveStats.md#mode" >}}) of the training 
-observations). For the purpose of classification, many a times one is 
+A classification tree is very similar to a regression tree, except
+that it is used to predict a qualitative response rather than a
+quantitative one. Recall that for a regression tree, the predicted
+response for an observation is given by the mean response of the
+training observations that belong to the same terminal node. In
+contrast, for a classification tree, we predict that each observation
+belongs to the _most commonly occurring_ class of training
+observations in the region to which it belongs (i.e. the [mode response]({{< relref "descriptiveStats.md#mode" >}}) of the training
+observations). For the purpose of classification, many a times one is
 not only interested in predicting the class, rather also
 in _probabilities_ of being in a given class.
 
-The task of growing a classification tree is quite similar to the task 
-of growing a regression tree. Just as in the regression setting, 
-recursive binary splitting is used to grow a classification tree. 
-However, in the classification setting, RSS cannot be used as a 
+The task of growing a classification tree is quite similar to the task
+of growing a regression tree. Just as in the regression setting,
+recursive binary splitting is used to grow a classification tree.
+However, in the classification setting, RSS cannot be used as a
 criterion for  making the binary splits. We can replace RSS by a generic definition of node impurity measure $Q\_m$, a measure of the homogeneity of the target variable within the subset regions $R\_1, R\_2, \ldots , R\_J$. In a node $m$, representing a region $R\_m$ with $N\_m$ observations, the proportion of training observations in the $m^{th}$ region that are from the $k^{th}$ class can be given by,
 {{< tex display="\hat{p}_{mk} = \frac{1}{N_m}\sum_{x_i \in R_m} I\big(y_i = k\big)" >}}
 where, $I\big(y\_i = k\big)$ is the _indicator function_ that is 1 if $y\_i = k$, and 0 otherwise.
 
-A natural definition of the impurity measure $Q\_m$ 
+A natural definition of the impurity measure $Q\_m$
 is the _classification error rate_. The classification error rate is
 the fraction of the training observations in that region that do not
 belong to the most common class:
 {{< tex display="E = 1 - \max_{k}\hat{p}_{mk}" >}}
 Given this is not differentiable, and hence less amenable to
-numerical optimization. Furthermore, this is quite insensitive to 
-changes in the node probabilities, making classification error rate 
-quite ineffective for growing trees. Two alternative definitions of 
+numerical optimization. Furthermore, this is quite insensitive to
+changes in the node probabilities, making classification error rate
+quite ineffective for growing trees. Two alternative definitions of
 node impurity measure that are more commonly used are
 [gini index](https://en.wikipedia.org/wiki/Gini_coefficient)
 and [cross entropy](https://en.wikipedia.org/wiki/Cross_entropy).
@@ -155,7 +155,7 @@ Similar to $G$, a small value of $S$ indicates that a node contains predominantl
 
 Now, that we understand decision tree mathematically, let us summarize
 some of the most common terms used in decision trees and tree-based
-learning algorithms. Understanding these terms should also be helpful 
+learning algorithms. Understanding these terms should also be helpful
 in tuning models based on these methods.
 
 - **Root Node** Represents entire population and further gets divided into two or more sets.
@@ -175,7 +175,7 @@ in tuning models based on these methods.
 For demonstrating different tree based models, I will be using the
 [US Income dataset available at Kaggle](https://www.kaggle.com/johnolafenwa/us-census-data). You should be able to download the data from [Kaggle.com](https://www.kaggle.com/johnolafenwa/us-census-data). Let us first look at all the different features available in this data set.
 
-{{< highlight python "linenos=table" >}}
+{{< highlight lang="python" linenos="yes" >}}
 import pandas as pd
 import numpy as np
 from plotnine import *
@@ -203,7 +203,7 @@ In the above code, we imported all needed modules, loaded both test and training
 
 Let us look at the first 5 rows of the training data:
 
-{{< highlight python >}}
+{{< highlight lang="python" linenos="yes" >}}
 df_train_set.head()
 {{< /highlight >}}
 <div class="output_html rendered_html output_subarea output_execute_result">
@@ -334,14 +334,14 @@ df_train_set.head()
 
 We also need to do some data cleanup. First, I will be removing any special characters from all columns. Furthermore, any space or "." characters too will be removed from any `str` data.
 
-{{< highlight python "linenos=table" >}}
+{{< highlight lang="python" linenos="yes" >}}
 #replace the special character to "Unknown"
 for i in df_train_set.columns:
     df_train_set[i].replace(' ?', 'Unknown', inplace=True)
     df_test_set[i].replace(' ?', 'Unknown', inplace=True)
 
 for col in df_train_set.columns:
-    if df_train_set[col].dtype != 'int64': 
+    if df_train_set[col].dtype != 'int64':
         df_train_set[col] = df_train_set[col].apply(lambda val: val.replace(" ", ""))
         df_train_set[col] = df_train_set[col].apply(lambda val: val.replace(".", ""))
         df_test_set[col] = df_test_set[col].apply(lambda val: val.replace(" ", ""))
@@ -350,14 +350,14 @@ for col in df_train_set.columns:
 
 As you can see, there are two columns that describe education of individuals - __Education__ and __EdNum__. I would assume both of these to be highly correlated and hence remove the __Education__ column. The __Country__ column too should not play a role in prediction of __Income__ and hence we would remove that as well.
 
-{{< highlight python >}}
+{{< highlight lang="python" linenos="yes" >}}
 df_train_set.drop(["Country", "Education"], axis=1, inplace=True)
 df_test_set.drop(["Country", "Education"], axis=1, inplace=True)
 {{< /highlight >}}
 
 Although the __Age__ and __EdNum__ columns are numeric, they can be easily binned and be more effective. We will bin age in bins of 10 and no. of years of education into bins of 5.
 
-{{< highlight python "linenos=table" >}}
+{{< highlight lang="python" linenos="yes" >}}
 colnames = list(df_train_set.columns)
 colnames.remove('Age')
 colnames.remove('EdNum')
@@ -377,7 +377,7 @@ df_test_set = df_test_set[colnames]
 
 Now that we have cleaned the data, let us look how balanced out data set is:
 
-{{< highlight python >}}
+{{< highlight lang="python" linenos="yes" >}}
 df_train_set.Income.value_counts()
 {{< /highlight >}}
 
@@ -385,7 +385,7 @@ df_train_set.Income.value_counts()
     >50K      7841
     Name: Income, dtype: int64
 
-{{< highlight python >}}
+{{< highlight lang="python" linenos="yes" >}}
 df_test_set.Income.value_counts()
 {{< /highlight >}}
 
@@ -401,7 +401,7 @@ Now, let us look at distribution and inter-dependence of different features in t
 
 Let us first see how __Relationships__ and __MaritalStatus__ features are interrelated.
 
-{{< highlight python >}}
+{{< highlight lang="python" linenos="yes" >}}
 (ggplot(df_train_set, aes(x = "Relationship", fill = "MaritalStatus"))
  + geom_bar(position="fill")
  + theme(axis_text_x = element_text(angle = 60, hjust = 1))
@@ -1051,7 +1051,7 @@ iIiIiCz6D032rpRMKKCIAAAAAElFTkSuQmCC
 
 Let us look at effect of __Education__ (measured in terms of bins of no. of years of education) on __Income__ for different Age groups.
 
-{{< highlight python >}}
+{{< highlight lang="python" linenos="yes" >}}
 (ggplot(df_train_set, aes(x = "Education", fill = "Income"))
  + geom_bar(position="fill")
  + theme(axis_text_x = element_text(angle = 60, hjust = 1))
@@ -1563,7 +1563,7 @@ Pnw4Fi5caPcYHh4e2LVrF3Q6HX7+85/j+eefx7p16zBw4EC74+666y4UFBRApVIhPT0dP/vZz7Br
 
 Recently, there has been a lot of talk about effect of gender based bias/gap in the income. We can look at the effect of __Education__ and __Race__ for males and females separately.
 
-{{< highlight python >}}
+{{< highlight lang="python" linenos="yes" >}}
 (ggplot(df_train_set, aes(x = "Education", fill = "Income"))
  + geom_bar(position="fill")
  + theme(axis_text_x = element_text(angle = -90, hjust = 1))
@@ -1841,7 +1841,7 @@ AGA0AisAAACMRmAFAACA0QisAAAAMBqBFQAAAEYjsAIAAMBoBFYAAAAYjcAKAAAAo/1/yF33LDeB
 3EoAAAAASUVORK5CYII=
 {{< /png >}}
 
-{{< highlight python >}}
+{{< highlight lang="python" linenos="yes" >}}
 (ggplot(df_train_set, aes(x = "Race", fill = "Income"))
  + geom_bar(position="fill")
  + theme(axis_text_x = element_text(angle = -90, hjust = 1))
@@ -2208,7 +2208,7 @@ TkSuQmCC
 
 Until now, we have only looked at the inter-dependence of non-numeric features. Let us now look at the effect of __CapitalGain__ and __CapitalLoss__ on income.
 
-{{< highlight python >}}
+{{< highlight lang="python" linenos="yes" >}}
 (ggplot(df_train_set, aes(x="Income", y="CapitalGain"))
  + geom_jitter(position=position_jitter(0.1))
 )
@@ -2541,7 +2541,7 @@ REQyMUARERERycQARURERCQTAxQRERGRTAxQRERERDIxQBERERHJxABFREREJBMDFBEREZFMDFBE
 REREMjFAEREREcn0D159JBvJdZQ+AAAAAElFTkSuQmCC
 {{< /png >}}
 
-{{< highlight python >}}
+{{< highlight lang="python" linenos="yes" >}}
 (ggplot(df_train_set, aes(x="Income", y="CapitalLoss"))
  + geom_jitter(position=position_jitter(0.1))
 )
@@ -3058,7 +3058,7 @@ AABJRU5ErkJggg==
 Now that we understand some relationship in our data, let us build a simple tree classifier model using [sklearn.tree.DecisionTreeClassifier](http://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html).
 However, in order to use this module, we need to convert all of our non-numeric data to numeric ones. This can be quite easily achieved using the [sklearn.preprocessing.LabelEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html) module along with the [sklearn_pandas](https://github.com/pandas-dev/sklearn-pandas) module to apply this on pandas data-frames directly.
 
-{{< highlight python "linenos=table" >}}
+{{< highlight lang="python" linenos="yes" >}}
 mapper = DataFrameMapper([
     ('AgeGroup', LabelEncoder()),
     ('Education', LabelEncoder()),
@@ -3088,7 +3088,7 @@ x_test, y_test = df_test[cols].values, df_test["Income"].values
 
 Now we have training as well testing data in correct format to build our first model!
 
-{{< highlight python "linenos=table" >}}
+{{< highlight lang="python" linenos="yes" >}}
 treeClassifier = DecisionTreeClassifier()
 treeClassifier.fit(x_train, y_train)
 treeClassifier.score(x_test, y_test)
@@ -3096,7 +3096,7 @@ treeClassifier.score(x_test, y_test)
 
 The simplest possible tree classifier model with no optimization gave us an accuracy of 83.5%. In the case of classification problems, [confusion matrix](https://en.wikipedia.org/wiki/Confusion_matrix) is a good way to judge the accuracy of models. Using the following code we can plot the confusion matrix for any of the tree-based models.
 
-{{< highlight python "linenos=table" >}}
+{{< highlight lang="python" linenos="yes" >}}
 import itertools
 from sklearn.metrics import confusion_matrix
 def plot_confusion_matrix(cm, classes, normalize=False):
@@ -3109,7 +3109,7 @@ def plot_confusion_matrix(cm, classes, normalize=False):
     if normalize:
         cm = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
         cm = np.around(cm, decimals=3)
-        
+
     plt.imshow(cm, interpolation='nearest', cmap=cmap)
     plt.title(title)
     plt.colorbar()
@@ -3130,7 +3130,7 @@ def plot_confusion_matrix(cm, classes, normalize=False):
 
 Now, we can take a look at the confusion matrix of out first model:
 
-{{< highlight python "linenos=table" >}}
+{{< highlight lang="python" linenos="yes" >}}
 y_pred = treeClassifier.predict(x_test)
 cfm = confusion_matrix(y_test, y_pred, labels=[0, 1])
 plt.figure(figsize=(10,6))
@@ -3373,7 +3373,7 @@ We find that the majority class (<=50K Income) has an accuracy of 90.5%, while t
 
 Let us look at ways of tuning this simple classifier. We can use [GridSearchCV()](http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html) with 5-fold cross-validation to tune various important parameters of tree classifiers.
 
-{{< highlight python "linenos=table" >}}
+{{< highlight lang="python" linenos="yes" >}}
 from sklearn.model_selection import GridSearchCV
 parameters = {
      'max_features':(None, 9, 6),
@@ -3396,7 +3396,7 @@ clf.best_score_, clf.score(x_test, y_test), clf.best_params_
 
 With the optimization, we find the accuracy to increase to 85.9%. In the above, we can also look at the parameters of the best model. Now, let us have a look at the confusion matrix of the optimized model.
 
-{{< highlight python "linenos=table" >}}
+{{< highlight lang="python" linenos="yes" >}}
 y_pred = clf.predict(x_test)
 cfm = confusion_matrix(y_test, y_pred, labels=[0, 1])
 plt.figure(figsize=(10,6))
@@ -3646,7 +3646,7 @@ Even though decision tree models have numerous advantages,
 
 These models are NOT common in use directly. Some common drawbacks of decision tree are:
 
-- Can create over-complex trees that do not generalize the data well. 
+- Can create over-complex trees that do not generalize the data well.
 - Can be unstable because small variations in the data might result in a completely different tree being generated.
 - Practical decision-tree learning algorithms are based on heuristic algorithms such as the greedy algorithm where locally optimal decisions are made at each node. Such algorithms cannot guarantee to return the globally optimal decision tree.
 - Decision tree learners create biased trees if some classes dominate. It is therefore recommended to balance the dataset prior to fitting with the decision tree.
@@ -3720,7 +3720,7 @@ There are three main tuning parameters of random forests:
 
 Using the same income data as above, let us make a simple RandomForest classifier model with 500 trees.
 
-{{< highlight python "linenos=table" >}}
+{{< highlight lang="python" linenos="yes" >}}
 rclf = RandomForestClassifier(n_estimators=500)
 rclf.fit(x_train, y_train)
 rclf.score(x_test, y_test)
@@ -3728,7 +3728,7 @@ rclf.score(x_test, y_test)
 
 Even without any optimization, we find the model to be quite close to the optimized tree classifier with a test score of 85.1%. In terms of the confusion matrix, we again find this to be quite comparable to the optimized tree classifier with a prediction accuracy of 92.1% for the majority class (<=50K Income) and a prediction accuracy of 62.6% for the minority class (>50K Income).
 
-{{< highlight python "linenos=table" >}}
+{{< highlight lang="python" linenos="yes" >}}
 y_pred = rclf.predict(x_test)
 cfm = confusion_matrix(y_test, y_pred, labels=[0, 1])
 plt.figure(figsize=(10,6))
@@ -3965,7 +3965,7 @@ iP8P4Q7YzyMgzysAAAAASUVORK5CYII=
 
 As discussed before, random forest models also provide us with a metric of feature importances. We can see importance of different features in our current model as below:
 
-{{< highlight python "linenos=table" >}}
+{{< highlight lang="python" linenos="yes" >}}
 importances = rclf.feature_importances_
 indices = np.argsort(importances)
 cols = [cols[x] for x in indices]
@@ -4211,7 +4211,7 @@ SVInBkhJkiR18v8DjLJmKM4y7ocAAAAASUVORK5CYII=
 
 Now, let us try to optimize our random forest model. Again, this can be done using the GridSearchCV() apt with 5-fold cross-validation as below:
 
-{{< highlight python "linenos=table" >}}
+{{< highlight lang="python" linenos="yes" >}}
 parameters = {
      'n_estimators':(100, 500, 1000),
      'max_depth':(None, 24, 16),
@@ -4232,7 +4232,7 @@ clf.best_score_, clf.best_params_
 
 We can see this model to be significantly better than our all previous models, with a prediction rate of 86.6%. In terms of confusion matrix though, we see a significant increase in the prediction accuracy of the majority class (<= 50K Income) with slight decrease in the accuracy for the minority class (>50K Income). This is a common problem with classification problems with imbalanced data.
 
-{{< highlight python "linenos=table" >}}
+{{< highlight lang="python" linenos="yes" >}}
 rclf2 = RandomForestClassifier(n_estimators=1000,max_depth=24,min_samples_leaf=4,min_samples_split=8)
 rclf2.fit(x_train, y_train)
 
@@ -4473,7 +4473,7 @@ eVdE3Fk8MvabYlx9e+CuoqfgdeCEzLw/Iq4FHgCepjJE0JkvAfcU5R+m7R8PjwJ/ADYCPpaZf4+I
 
 Finally, let us also look at the feature importance from the best model.
 
-{{< highlight python "linenos=table" >}}
+{{< highlight lang="python" linenos="yes" >}}
 importances = rclf2.feature_importances_
 indices = np.argsort(importances)
 cols = [cols[x] for x in indices]
@@ -4718,5 +4718,5 @@ Apart from generic limitations of bagged trees, some of limitations of random fo
 - They are quite slow at both training and prediction.
 - They don’t deal well with a large number of categories in categorical variables.
 
-Overall, Random Forest is usually less accurate than Boosting on a wide range of tasks, and usually slower in the runtime. In the next post, we will look at the details of boosting. I hope this post has helped you understand tree based methods in more detail now. Please let me know what topics I missed or should have been more clear about. 
+Overall, Random Forest is usually less accurate than Boosting on a wide range of tasks, and usually slower in the runtime. In the next post, we will look at the details of boosting. I hope this post has helped you understand tree based methods in more detail now. Please let me know what topics I missed or should have been more clear about.
 You can also let me know in the comments below if there is any particular algorithm/topic that you want me to write about!

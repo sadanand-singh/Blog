@@ -108,7 +108,7 @@ Shortcut Keys
 
 Here is a summary of my key map:
 
-{{< highlight json >}}
+{{< highlight lang="json" linenos="yes" >}}
 [
     { "keys": ["shift+alt+a"], "command": "find_all_under" },
     { "keys": ["control+v"], "command": "paste_and_indent" },
@@ -143,7 +143,7 @@ User Settings / Preferences
 Here is my complete set of settings for Sublime Text. Please feel free
 to leave comments below for any questions or suggestions.
 
-{{< highlight json >}}
+{{< highlight lang="json" linenos="yes" >}}
 {
     "always_show_minimap_viewport": true,
     "auto_complete": true,
