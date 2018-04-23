@@ -102,6 +102,7 @@ states that:
     <link href="https://sadanand-singh.github.io/css/rst.css" rel="stylesheet" type="text/css">
     <link href="https://sadanand-singh.github.io/css/theme.css" rel="stylesheet" type="text/css">
     <link href="https://sadanand-singh.github.io/css/peak.min.css" rel="stylesheet" type="text/css">
+    <link href="https://sadanand-singh.github.io/css/prism.min.css" rel="stylesheet" type="text/css">
     <link href="https://sadanand-singh.github.io/css/colorbox.css" rel="stylesheet" type="text/css">
     <link href="https://sadanand-singh.github.io/css/custom.min.css" rel="stylesheet" type="text/css">
     <link href="https://sadanand-singh.github.io/css/tags.min.css" rel="stylesheet" type="text/css">
@@ -360,24 +361,17 @@ calculate say <span class="jsonly">
 <p>The most basic algorithm, that comes to mind is a recursive scheme that
 taps directly into the above definition of Fibonacci series.</p>
 
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">6
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">fibRecursive</span>(n):
-    <span style="color:#66d9ef">if</span> n <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
-        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
-    <span style="color:#66d9ef">if</span> n <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>:
-        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>
-    <span style="color:#66d9ef">return</span> fibRecursive(n<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>)<span style="color:#f92672">+</span>fibRecursive(n<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)</code></pre></td></tr></table>
-</div>
-</div>
+<pre class="line-numbers"  >
+<code class="language-python"> 
+def fibRecursive(n):
+    if n == 0:
+        return 0
+    if n == 1:
+        return 1
+    return fibRecursive(n-2)&#43;fibRecursive(n-1)
+
+</code>
+</pre>
 
 <p>If you analyze this scheme, this is in fact an exponential algorithm,
 i.e. fibRecursive( n ) is proportional to <span class="jsonly">
@@ -440,36 +434,23 @@ number, $F_n$.</p>
 are recalculating lower $F_n$ at each recursion level. Lets solve this
 issue by storing each calculation and avoiding any re-calculation!</p>
 
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">12
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">fibN2</span>(n):
-    a <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-    b <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
-    <span style="color:#66d9ef">if</span> n <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
-        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
+<pre class="line-numbers"  >
+<code class="language-python"> 
+def fibN2(n):
+    a = 0
+    b = 1
+    if n == 0:
+        return 0
 
-    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>,n<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>):
-        c <span style="color:#f92672">=</span> a <span style="color:#f92672">+</span> b
-        a <span style="color:#f92672">=</span> b
-        b <span style="color:#f92672">=</span> c
+    for i in range(1, n&#43;1):
+        c = a &#43; b
+        a = b
+        b = c
 
-    <span style="color:#66d9ef">return</span> b</code></pre></td></tr></table>
-</div>
-</div>
+    return b
+
+</code>
+</pre>
 
 <p>On first glance this looks like an $\mathcal{O}(n)$ scheme, as we
 consider each addition as one operation. However, we should realize that
@@ -496,38 +477,24 @@ $$\begin{pmatrix} 1&amp;1 \\ 1&amp;0 \end{pmatrix}^n = \begin{pmatrix} F_{n&#43;
 <p>We can use a recursive scheme to calculate this matrix power using a
 divide and conquer scheme in $\mathcal{O}(\log{}n)$ time.</p>
 
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">13
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">mul</span>(A, B):
-    a, b, c <span style="color:#f92672">=</span> A
-    d, e, f <span style="color:#f92672">=</span> B
-    <span style="color:#66d9ef">return</span> a<span style="color:#f92672">*</span>d <span style="color:#f92672">+</span> b<span style="color:#f92672">*</span>e, a<span style="color:#f92672">*</span>e <span style="color:#f92672">+</span> b<span style="color:#f92672">*</span>f, b<span style="color:#f92672">*</span>e <span style="color:#f92672">+</span> c<span style="color:#f92672">*</span>f
+<pre class="line-numbers"  >
+<code class="language-python"> 
+def mul(A, B):
+    a, b, c = A
+    d, e, f = B
+    return a*d &#43; b*e, a*e &#43; b*f, b*e &#43; c*f
 
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">pow</span>(A, n):
-    <span style="color:#66d9ef">if</span> n <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>:     <span style="color:#66d9ef">return</span> A
-    <span style="color:#66d9ef">if</span> n <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>: <span style="color:#66d9ef">return</span> pow(mul(A, A), n<span style="color:#f92672">//</span><span style="color:#ae81ff">2</span>)
-    <span style="color:#66d9ef">else</span>:          <span style="color:#66d9ef">return</span> mul(A, pow(mul(A, A), (n<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)<span style="color:#f92672">//</span><span style="color:#ae81ff">2</span>))
+def pow(A, n):
+    if n == 1:     return A
+    if n &amp; 1 == 0: return pow(mul(A, A), n//2)
+    else:          return mul(A, pow(mul(A, A), (n-1)//2))
 
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">fibLogN</span>(n):
-    <span style="color:#66d9ef">if</span> n <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">2</span>: <span style="color:#66d9ef">return</span> n
-    <span style="color:#66d9ef">return</span> pow((<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">0</span>), n<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)[<span style="color:#ae81ff">0</span>]</code></pre></td></tr></table>
-</div>
-</div>
+def fibLogN(n):
+    if n &lt; 2: return n
+    return pow((1,1,0), n-1)[0]
+
+</code>
+</pre>
 
 <p>Lets think a bit harder about this. Is it really an
 $\mathcal{O}(\log{}n)$ scheme? It involves multiplication of numbers,
@@ -543,62 +510,38 @@ which is again a divide and conquer scheme.</p>
 <p>Here is one simple implementation (Same as the above scheme, but with
 the following mul(A,B) method):</p>
 
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">25
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">_CUTOFF <span style="color:#f92672">=</span> <span style="color:#ae81ff">1536</span>
+<pre class="line-numbers"  >
+<code class="language-python"> 
 
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">mul</span>(A, B):
-    a, b, c <span style="color:#f92672">=</span> A
-    d, e, f <span style="color:#f92672">=</span> B
-    <span style="color:#66d9ef">return</span> multiply(a,d) <span style="color:#f92672">+</span> multiply(b,e), multiply(a,e) <span style="color:#f92672">+</span> multiply(b,f), multiply(b,e) <span style="color:#f92672">+</span> multiply(c,f)
+_CUTOFF = 1536
 
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">multiply</span>(x, y):
-    <span style="color:#66d9ef">if</span> x<span style="color:#f92672">.</span>bit_length() <span style="color:#f92672">&lt;=</span> _CUTOFF <span style="color:#f92672">or</span> y<span style="color:#f92672">.</span>bit_length() <span style="color:#f92672">&lt;=</span> _CUTOFF:
-        <span style="color:#66d9ef">return</span> x <span style="color:#f92672">*</span> y
+def mul(A, B):
+    a, b, c = A
+    d, e, f = B
+    return multiply(a,d) &#43; multiply(b,e), multiply(a,e) &#43; multiply(b,f), multiply(b,e) &#43; multiply(c,f)
 
-    <span style="color:#66d9ef">else</span>:
-        n <span style="color:#f92672">=</span> max(x<span style="color:#f92672">.</span>bit_length(), y<span style="color:#f92672">.</span>bit_length())
-        half <span style="color:#f92672">=</span> (n <span style="color:#f92672">+</span> <span style="color:#ae81ff">32</span>) <span style="color:#f92672">//</span> <span style="color:#ae81ff">64</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">32</span>
-        mask <span style="color:#f92672">=</span> (<span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;&lt;</span> half) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>
-        xlow <span style="color:#f92672">=</span> x <span style="color:#f92672">&amp;</span> mask
-        ylow <span style="color:#f92672">=</span> y <span style="color:#f92672">&amp;</span> mask
-        xhigh <span style="color:#f92672">=</span> x <span style="color:#f92672">&gt;&gt;</span> half
-        yhigh <span style="color:#f92672">=</span> y <span style="color:#f92672">&gt;&gt;</span> half
+def multiply(x, y):
+    if x.bit_length() &lt;= _CUTOFF or y.bit_length() &lt;= _CUTOFF:
+        return x * y
 
-        a <span style="color:#f92672">=</span> multiply(xhigh, yhigh)
-        b <span style="color:#f92672">=</span> multiply(xlow <span style="color:#f92672">+</span> xhigh, ylow <span style="color:#f92672">+</span> yhigh)
-        c <span style="color:#f92672">=</span> multiply(xlow, ylow)
-        d <span style="color:#f92672">=</span> b <span style="color:#f92672">-</span> a <span style="color:#f92672">-</span> c
-        <span style="color:#66d9ef">return</span> (((a <span style="color:#f92672">&lt;&lt;</span> half) <span style="color:#f92672">+</span> d) <span style="color:#f92672">&lt;&lt;</span> half) <span style="color:#f92672">+</span> c</code></pre></td></tr></table>
-</div>
-</div>
+    else:
+        n = max(x.bit_length(), y.bit_length())
+        half = (n &#43; 32) // 64 * 32
+        mask = (1 &lt;&lt; half) - 1
+        xlow = x &amp; mask
+        ylow = y &amp; mask
+        xhigh = x &gt;&gt; half
+        yhigh = y &gt;&gt; half
+
+        a = multiply(xhigh, yhigh)
+        b = multiply(xlow &#43; xhigh, ylow &#43; yhigh)
+        c = multiply(xlow, ylow)
+        d = b - a - c
+        return (((a &lt;&lt; half) &#43; d) &lt;&lt; half) &#43; c
+
+
+</code>
+</pre>
 
 <p>So, this final scheme is in $\mathcal{O}(n^{1.585}\log{}n)$ time.</p>
 
@@ -654,32 +597,21 @@ $$F_{2K&#43;1} = {F_{K&#43;1}}^2&#43;{F_K}^2$$
 
 <p>We can implement this using the <strong>Karatsuba multiplication</strong> as follows:</p>
 
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">fibFast</span>(n):
-    <span style="color:#66d9ef">if</span> n <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">2</span>:
-        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>
-    k <span style="color:#f92672">=</span> n <span style="color:#f92672">//</span> <span style="color:#ae81ff">2</span>
-    a <span style="color:#f92672">=</span> fibFast(k <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)
-    b <span style="color:#f92672">=</span> fibFast(k)
-    <span style="color:#66d9ef">if</span> n <span style="color:#f92672">%</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>:
-        <span style="color:#66d9ef">return</span> multiply(a,a) <span style="color:#f92672">+</span> multiply(b,b)
-    <span style="color:#66d9ef">else</span>:
-        <span style="color:#66d9ef">return</span> multiply(b,(<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>a <span style="color:#f92672">-</span> b))</code></pre></td></tr></table>
-</div>
-</div>
+<pre class="line-numbers"  >
+<code class="language-python"> 
+def fibFast(n):
+    if n &lt;= 2:
+        return 1
+    k = n // 2
+    a = fibFast(k &#43; 1)
+    b = fibFast(k)
+    if n % 2 == 1:
+        return multiply(a,a) &#43; multiply(b,b)
+    else:
+        return multiply(b,(2*a - b))
+
+</code>
+</pre>
 
 <p>That&rsquo;s it for today. We saw how far algorithms can go in speed for such
 simple problems. Let me know in the comments below, if you have any
@@ -786,9 +718,11 @@ faster or alternate algorithms in mind. Have fun, May zero be with you!</p>
     
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.colorbox/1.6.4/jquery.colorbox-min.js"></script>
 <script src="https://sadanand-singh.github.io/js/peak.min.js"></script>
+<script src="https://sadanand-singh.github.io/js/prism.min.js"></script>
 
     <script async type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53f6d74a591ace8f"></script>
 

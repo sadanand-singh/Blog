@@ -105,6 +105,7 @@ static site builder, lately its is becoming more and more bloated.
     <link href="https://sadanand-singh.github.io/css/rst.css" rel="stylesheet" type="text/css">
     <link href="https://sadanand-singh.github.io/css/theme.css" rel="stylesheet" type="text/css">
     <link href="https://sadanand-singh.github.io/css/peak.min.css" rel="stylesheet" type="text/css">
+    <link href="https://sadanand-singh.github.io/css/prism.min.css" rel="stylesheet" type="text/css">
     <link href="https://sadanand-singh.github.io/css/colorbox.css" rel="stylesheet" type="text/css">
     <link href="https://sadanand-singh.github.io/css/custom.min.css" rel="stylesheet" type="text/css">
     <link href="https://sadanand-singh.github.io/css/tags.min.css" rel="stylesheet" type="text/css">
@@ -314,91 +315,126 @@ panel, label, emphasis, highlighted text, and block quotes. I also liked the fig
 
 <p>I also added following template code in the index.html template to get list of posts with machine learning related tags:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go HTML template" data-lang="go HTML template"><span style="color:#75715e">{{</span> <span style="color:#a6e22e">$.Scratch.Add</span> <span style="color:#e6db74">&#34;mlposts&#34;</span> <span style="color:#a6e22e">slice</span> <span style="color:#75715e">}}</span>
-<span style="color:#75715e">{{</span> <span style="color:#a6e22e">$tags</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">(</span><span style="color:#a6e22e">slice</span> <span style="color:#e6db74">&#34;Machine Learning&#34;</span> <span style="color:#e6db74">&#34;EDA&#34;</span> <span style="color:#e6db74">&#34;Kaggle&#34;</span> <span style="color:#e6db74">&#34;ML&#34;</span> <span style="color:#e6db74">&#34;Deep Learning&#34;</span> <span style="color:#e6db74">&#34;DL&#34;</span> <span style="color:#e6db74">&#34;Data Science&#34;</span><span style="color:#f92672">)</span> <span style="color:#75715e">}}</span>
-<span style="color:#75715e">{{</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">.Site.RegularPages</span> <span style="color:#75715e">}}</span>
-    <span style="color:#75715e">{{</span> <span style="color:#a6e22e">$page</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">.</span> <span style="color:#75715e">}}</span>
-    <span style="color:#75715e">{{</span> <span style="color:#a6e22e">$has_common_tags</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">intersect</span> <span style="color:#a6e22e">$tags</span> <span style="color:#a6e22e">.Params.tags</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">len</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">lt</span> <span style="color:#a6e22e">0</span> <span style="color:#75715e">}}</span>
-    <span style="color:#75715e">{{</span> <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">$has_common_tags</span> <span style="color:#75715e">}}</span>
-        <span style="color:#75715e">{{</span> <span style="color:#a6e22e">$.Scratch.Add</span> <span style="color:#e6db74">&#34;mlposts&#34;</span> <span style="color:#a6e22e">$page</span> <span style="color:#75715e">}}</span>
-    <span style="color:#75715e">{{</span> <span style="color:#66d9ef">end</span> <span style="color:#75715e">}}</span>
-<span style="color:#75715e">{{</span> <span style="color:#66d9ef">end</span> <span style="color:#75715e">}}</span>
-<span style="color:#75715e">{{</span> <span style="color:#a6e22e">$cand</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">.Scratch.Get</span> <span style="color:#e6db74">&#34;mlposts&#34;</span> <span style="color:#75715e">}}</span>
-<span style="color:#75715e">{{</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">first</span> <span style="color:#a6e22e">10</span> <span style="color:#a6e22e">$cand</span> <span style="color:#75715e">}}</span>
-    <span style="color:#75715e">{{</span> <span style="color:#a6e22e">.Render</span> <span style="color:#e6db74">&#34;li&#34;</span><span style="color:#75715e">}}</span>
-<span style="color:#75715e">{{</span> <span style="color:#66d9ef">end</span> <span style="color:#75715e">}}</span></code></pre></div>
+<pre class="line-numbers"  >
+<code class="language-html"> 
+{{ $.Scratch.Add &#34;mlposts&#34; slice }}
+{{ $tags := (slice &#34;Machine Learning&#34; &#34;EDA&#34; &#34;Kaggle&#34; &#34;ML&#34; &#34;Deep Learning&#34; &#34;DL&#34; &#34;Data Science&#34;) }}
+{{ range .Site.RegularPages }}
+    {{ $page := . }}
+    {{ $has_common_tags := intersect $tags .Params.tags | len | lt 0 }}
+    {{ if $has_common_tags }}
+        {{ $.Scratch.Add &#34;mlposts&#34; $page }}
+    {{ end }}
+{{ end }}
+{{ $cand := .Scratch.Get &#34;mlposts&#34; }}
+{{ range first 10 $cand }}
+    {{ .Render &#34;li&#34;}}
+{{ end }}
+
+</code>
+</pre>
 
 <h2 id="tipue-search">tipue Search</h2>
 
 <p>Hugo has support for several output formats, including HTML and JSON. For implementing <a href="http://www.tipue.com/search/">tipue search</a>, we need to generate a JSON file with site content. This can be done by adding following to the configuration file:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-YAML" data-lang="YAML"><span style="color:#75715e"># Output formats</span>
+<pre class="line-numbers"  >
+<code class="language-yaml"> 
+# Output formats
 outputs:
-  home: [ <span style="color:#e6db74">&#34;HTML&#34;</span>, <span style="color:#e6db74">&#34;JSON&#34;</span>]
-  page: [ <span style="color:#e6db74">&#34;HTML&#34;</span>]</code></pre></div>
+  home: [ &#34;HTML&#34;, &#34;JSON&#34;]
+  page: [ &#34;HTML&#34;]
+
+</code>
+</pre>
 
 <p>and, using the following <code>index.json</code> template:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go HTML template" data-lang="go HTML template"><span style="color:#75715e">{{-</span> <span style="color:#a6e22e">$.Scratch.Add</span> <span style="color:#e6db74">&#34;index&#34;</span> <span style="color:#a6e22e">slice</span> <span style="color:#75715e">-}}</span>
-<span style="color:#75715e">{{-</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">where</span> <span style="color:#a6e22e">.Site.RegularPages</span> <span style="color:#e6db74">&#34;Type&#34;</span> <span style="color:#e6db74">&#34;not in&#34;</span>  <span style="color:#f92672">(</span><span style="color:#a6e22e">slice</span> <span style="color:#e6db74">&#34;page&#34;</span> <span style="color:#e6db74">&#34;json&#34;</span> <span style="color:#e6db74">&#34;nosearch&#34;</span><span style="color:#f92672">)</span> <span style="color:#75715e">-}}</span>
-<span style="color:#75715e">{{-</span> <span style="color:#a6e22e">$.Scratch.Add</span> <span style="color:#e6db74">&#34;index&#34;</span> <span style="color:#f92672">(</span><span style="color:#a6e22e">dict</span> <span style="color:#e6db74">&#34;url&#34;</span> <span style="color:#a6e22e">.Permalink</span> <span style="color:#e6db74">&#34;title&#34;</span> <span style="color:#a6e22e">.Title</span> <span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">.Plain</span> <span style="color:#e6db74">&#34;tags&#34;</span> <span style="color:#f92672">(</span><span style="color:#a6e22e">delimit</span> <span style="color:#a6e22e">.Params.tags</span> <span style="color:#e6db74">&#34;, &#34;</span><span style="color:#f92672">))</span> <span style="color:#75715e">-}}</span>
-<span style="color:#75715e">{{-</span> <span style="color:#66d9ef">end</span> <span style="color:#75715e">-}}</span>
-{&#34;pages&#34;: <span style="color:#75715e">{{-</span> <span style="color:#a6e22e">$.Scratch.Get</span> <span style="color:#e6db74">&#34;index&#34;</span> <span style="color:#f92672">|</span> <span style="color:#a6e22e">jsonify</span> <span style="color:#75715e">-}}</span>}</code></pre></div>
+<pre class="line-numbers"  >
+<code class="language-html"> 
+{{- $.Scratch.Add &#34;index&#34; slice -}}
+{{- range where .Site.RegularPages &#34;Type&#34; &#34;not in&#34;  (slice &#34;page&#34; &#34;json&#34; &#34;nosearch&#34;) -}}
+{{- $.Scratch.Add &#34;index&#34; (dict &#34;url&#34; .Permalink &#34;title&#34; .Title &#34;text&#34; .Plain &#34;tags&#34; (delimit .Params.tags &#34;, &#34;)) -}}
+{{- end -}}
+{&#34;pages&#34;: {{- $.Scratch.Get &#34;index&#34; | jsonify -}}}
+
+</code>
+</pre>
 
 <p>Now, include the following <code>css</code> in the <code>&lt;head&gt;</code> of your pages:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-HTML" data-lang="HTML">&lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;//cdnjs.cloudflare.com/ajax/libs/Tipue-Search/5.0.0/tipuesearch.css&#34;</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/css&#34;</span>&gt;</code></pre></div>
+<pre class="line-numbers"  >
+<code class="language-html"> 
+&lt;link href=&#34;//cdnjs.cloudflare.com/ajax/libs/Tipue-Search/5.0.0/tipuesearch.css&#34; rel=&#34;stylesheet&#34; type=&#34;text/css&#34;&gt;
+
+</code>
+</pre>
 
 <p>The following <code>modal</code> code is needed to display the search results,
 preferably at the end of the <strong>body</strong> of the HTMLpage:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-HTML" data-lang="HTML">&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;search-resuts&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;modal fade&#34;</span> <span style="color:#a6e22e">role</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;dialog&#34;</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;height: 80%;&#34;</span>&gt;
-&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;modal-dialog&#34;</span>&gt;
-    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;modal-content&#34;</span>&gt;
-      &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;modal-header&#34;</span>&gt;
-        &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;button&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;close&#34;</span> <span style="color:#a6e22e">data-dismiss</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;modal&#34;</span>&gt;×&lt;/<span style="color:#f92672">button</span>&gt;
-        &lt;<span style="color:#f92672">h4</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;modal-title&#34;</span>&gt;Search Results:&lt;/<span style="color:#f92672">h4</span>&gt;
-      &lt;/<span style="color:#f92672">div</span>&gt;
-      &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;modal-body&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;tipue_search_content&#34;</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;max-height: 600px; overflow-y: auto;&#34;</span>&gt;
-      &lt;/<span style="color:#f92672">div</span>&gt;
-      &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;modal-footer&#34;</span>&gt;
-        &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;button&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;btn btn-default&#34;</span> <span style="color:#a6e22e">data-dismiss</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;modal&#34;</span>&gt;Close&lt;/<span style="color:#f92672">button</span>&gt;
-      &lt;/<span style="color:#f92672">div</span>&gt;
-    &lt;/<span style="color:#f92672">div</span>&gt;
-&lt;/<span style="color:#f92672">div</span>&gt;
-&lt;/<span style="color:#f92672">div</span>&gt;</code></pre></div>
+<pre class="line-numbers"  >
+<code class="language-html"> 
+&lt;div id=&#34;search-resuts&#34; class=&#34;modal fade&#34; role=&#34;dialog&#34; style=&#34;height: 80%;&#34;&gt;
+&lt;div class=&#34;modal-dialog&#34;&gt;
+    &lt;div class=&#34;modal-content&#34;&gt;
+      &lt;div class=&#34;modal-header&#34;&gt;
+        &lt;button type=&#34;button&#34; class=&#34;close&#34; data-dismiss=&#34;modal&#34;&gt;×&lt;/button&gt;
+        &lt;h4 class=&#34;modal-title&#34;&gt;Search Results:&lt;/h4&gt;
+      &lt;/div&gt;
+      &lt;div class=&#34;modal-body&#34; id=&#34;tipue_search_content&#34; style=&#34;max-height: 600px; overflow-y: auto;&#34;&gt;
+      &lt;/div&gt;
+      &lt;div class=&#34;modal-footer&#34;&gt;
+        &lt;button type=&#34;button&#34; class=&#34;btn btn-default&#34; data-dismiss=&#34;modal&#34;&gt;Close&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+</code>
+</pre>
 
 <p>Finally, the following <code>javascript</code> in the lower end of the <strong>body</strong> of HTML pages:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-HTML" data-lang="HTML">&lt;<span style="color:#f92672">script</span>&gt;
-<span style="color:#a6e22e">$</span>(document).<span style="color:#a6e22e">ready</span>(<span style="color:#66d9ef">function</span>() {
-    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">url1</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://cdnjs.cloudflare.com/ajax/libs/Tipue-Search/5.0.0/tipuesearch_set.js&#34;</span>;
-    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">url2</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://cdnjs.cloudflare.com/ajax/libs/Tipue-Search/5.0.0/tipuesearch.min.js&#34;</span>;
-    <span style="color:#a6e22e">$</span>.<span style="color:#a6e22e">when</span>(
-        <span style="color:#a6e22e">$</span>.<span style="color:#a6e22e">getScript</span>( <span style="color:#a6e22e">url1</span> ),
-        <span style="color:#a6e22e">$</span>.<span style="color:#a6e22e">getScript</span>( <span style="color:#a6e22e">url2</span> ),
-        <span style="color:#a6e22e">$</span>.<span style="color:#a6e22e">Deferred</span>(<span style="color:#66d9ef">function</span>( <span style="color:#a6e22e">deferred</span> ){
-            <span style="color:#a6e22e">$</span>( <span style="color:#a6e22e">deferred</span>.<span style="color:#a6e22e">resolve</span> );
+<pre class="line-numbers"  >
+<code class="language-html"> 
+&lt;script&gt;
+$(document).ready(function() {
+    var url1 = &#34;https://cdnjs.cloudflare.com/ajax/libs/Tipue-Search/5.0.0/tipuesearch_set.js&#34;;
+    var url2 = &#34;https://cdnjs.cloudflare.com/ajax/libs/Tipue-Search/5.0.0/tipuesearch.min.js&#34;;
+    $.when(
+        $.getScript( url1 ),
+        $.getScript( url2 ),
+        $.Deferred(function( deferred ){
+            $( deferred.resolve );
         })
-    ).<span style="color:#a6e22e">done</span>(<span style="color:#66d9ef">function</span>() {
-        <span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;#tipue_search_input&#39;</span>).<span style="color:#a6e22e">tipuesearch</span>({
-            <span style="color:#e6db74">&#39;mode&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;json&#39;</span>,
-            <span style="color:#e6db74">&#39;contentLocation&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/index.json&#39;</span>
+    ).done(function() {
+        $(&#39;#tipue_search_input&#39;).tipuesearch({
+            &#39;mode&#39;: &#39;json&#39;,
+            &#39;contentLocation&#39;: &#39;/index.json&#39;
         });
-        <span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;#tipue_search_input&#39;</span>).<span style="color:#a6e22e">keyup</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">e</span>) {
-            <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">keyCode</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">13</span>) {
-                <span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;#search-results&#39;</span>).<span style="color:#a6e22e">modal</span>()
+        $(&#39;#tipue_search_input&#39;).keyup(function (e) {
+            if (e.keyCode == 13) {
+                $(&#39;#search-results&#39;).modal()
             }
         });
     });
 });
-&lt;/<span style="color:#f92672">script</span>&gt;</code></pre></div>
+&lt;/script&gt;
+
+</code>
+</pre>
 
 <p>And, of course you will need a form/input for performing the search:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-HTML" data-lang="HTML">&lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;navbar-form navbar-right&#34;</span>&gt;
-    &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;tipue_search_input&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form-control&#34;</span> <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Search&#34;</span>&gt;
-&lt;/<span style="color:#f92672">span</span>&gt;</code></pre></div>
+<pre class="line-numbers"  >
+<code class="language-html"> 
+&lt;span class=&#34;navbar-form navbar-right&#34;&gt;
+    &lt;input type=&#34;text&#34; id=&#34;tipue_search_input&#34; class=&#34;form-control&#34; placeholder=&#34;Search&#34;&gt;
+&lt;/span&gt;
+
+</code>
+</pre>
 
 <h2 id="code-highlighting">Code Highlighting</h2>
 
@@ -422,13 +458,23 @@ preferably at the end of the <strong>body</strong> of the HTMLpage:</p>
 add this <code>css</code> file to relevant pages. I do the this based on a
 <em>metadata</em> variable <code>notebook: true</code> via the following template code:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Go HTML Template" data-lang="Go HTML Template"><span style="color:#75715e">{{</span> <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">.Params.notebook</span> <span style="color:#75715e">}}</span>
-    &lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#75715e">{{</span> <span style="color:#a6e22e">$.Site.BaseURL</span> <span style="color:#75715e">}}</span><span style="color:#e6db74">css/jupyter.css&#34;</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/css&#34;</span>&gt;
-<span style="color:#75715e">{{</span> <span style="color:#66d9ef">end</span> <span style="color:#75715e">}}</span></code></pre></div>
+<pre class="line-numbers"  >
+<code class="language-html"> 
+{{ if .Params.notebook }}
+    &lt;link href=&#34;{{ $.Site.BaseURL }}css/jupyter.css&#34; rel=&#34;stylesheet&#34; type=&#34;text/css&#34;&gt;
+{{ end }}
+
+</code>
+</pre>
 
 <p>Then for any jupyter notebook, convert it to basic HTML using the following command:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">jupyter nbconvert --to html --template basic *source_file.ipynb*</code></pre></div>
+<pre class="line-numbers"  >
+<code class="language-bash"> 
+jupyter nbconvert --to html --template basic *source_file.ipynb*
+
+</code>
+</pre>
 
 <p>Finally, create a markdown file for your post to put the contents of this HTML file. Works like charm since markdown supports including raw HTML code!</p>
 
@@ -438,35 +484,45 @@ add this <code>css</code> file to relevant pages. I do the this based on a
 
 <p>I added following code in the <code>&lt;head&gt;</code> of all of posts:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Go HTML Template" data-lang="Go HTML Template"><span style="color:#75715e">{{</span> <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">.Params.hasMath</span> <span style="color:#75715e">}}</span>
-    &lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css&#34;</span>
-    <span style="color:#a6e22e">integrity</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0&#34;</span>
-    <span style="color:#a6e22e">crossorigin</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;anonymous&#34;</span>&gt;
-<span style="color:#75715e">{{</span> <span style="color:#66d9ef">end</span> <span style="color:#75715e">}}</span></code></pre></div>
+<pre class="line-numbers"  >
+<code class="language-html"> 
+{{ if .Params.hasMath }}
+    &lt;link rel=&#34;stylesheet&#34; href=&#34;//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css&#34;
+    integrity=&#34;sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv&#43;uR2SE/mbQcG7ATL28aI9H0&#34;
+    crossorigin=&#34;anonymous&#34;&gt;
+{{ end }}
+
+</code>
+</pre>
 
 <p>And the following script at the end of the <code>&lt;body&gt;</code> section:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Go HTML Template" data-lang="Go HTML Template"><span style="color:#75715e">{{</span> <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">.Params.hasMath</span> <span style="color:#75715e">}}</span>
-    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js&#34;</span>
-    <span style="color:#a6e22e">integrity</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1&#34;</span> 
-    <span style="color:#a6e22e">crossorigin</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;anonymous&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
-    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js&#34;</span>
-    <span style="color:#a6e22e">integrity</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sha256-ExtbCSBuYA7kq1Pz362ibde9nnsHYPt6JxuxYeZbU+c=&#34;</span> 
-    <span style="color:#a6e22e">crossorigin</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;anonymous&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
-    &lt;<span style="color:#f92672">script</span>&gt;
-        <span style="color:#a6e22e">renderMathInElement</span>(document.<span style="color:#a6e22e">body</span>,
+<pre class="line-numbers"  >
+<code class="language-html"> 
+{{ if .Params.hasMath }}
+    &lt;script src=&#34;https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js&#34;
+    integrity=&#34;sha384-/y1Nn9&#43;QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1&#34;
+    crossorigin=&#34;anonymous&#34;&gt;&lt;/script&gt;
+    &lt;script src=&#34;https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js&#34;
+    integrity=&#34;sha256-ExtbCSBuYA7kq1Pz362ibde9nnsHYPt6JxuxYeZbU&#43;c=&#34;
+    crossorigin=&#34;anonymous&#34;&gt;&lt;/script&gt;
+    &lt;script&gt;
+        renderMathInElement(document.body,
             {
-                <span style="color:#a6e22e">delimiters</span><span style="color:#f92672">:</span> [
-                    {<span style="color:#a6e22e">left</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;\\\\begin{equation*}&#34;</span>, <span style="color:#a6e22e">right</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;\\\\end{equation*}&#34;</span>, <span style="color:#a6e22e">display</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>},
-                    {<span style="color:#a6e22e">left</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;$$&#34;</span>, <span style="color:#a6e22e">right</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;$$&#34;</span>, <span style="color:#a6e22e">display</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>},
-                    {<span style="color:#a6e22e">left</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;\\\[&#34;</span>, <span style="color:#a6e22e">right</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;\\\]&#34;</span>, <span style="color:#a6e22e">display</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>},
-                    {<span style="color:#a6e22e">left</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;$&#34;</span>, <span style="color:#a6e22e">right</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;$&#34;</span>, <span style="color:#a6e22e">display</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>},
-                    {<span style="color:#a6e22e">left</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;\\\(&#34;</span>, <span style="color:#a6e22e">right</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;\\\)&#34;</span>, <span style="color:#a6e22e">display</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>}
+                delimiters: [
+                    {left: &#34;\\\\begin{equation*}&#34;, right: &#34;\\\\end{equation*}&#34;, display: true},
+                    {left: &#34;$$&#34;, right: &#34;$$&#34;, display: true},
+                    {left: &#34;\\\[&#34;, right: &#34;\\\]&#34;, display: true},
+                    {left: &#34;$&#34;, right: &#34;$&#34;, display: false},
+                    {left: &#34;\\\(&#34;, right: &#34;\\\)&#34;, display: false}
                 ]
             }
         );
-    &lt;/<span style="color:#f92672">script</span>&gt;
-<span style="color:#75715e">{{</span> <span style="color:#66d9ef">end</span> <span style="color:#75715e">}}</span></code></pre></div>
+    &lt;/script&gt;
+{{ end }}
+
+</code>
+</pre>
 
 <p>Now, whenever, I need to add math equations in a post, enable the <code>hasMath: true</code> parameter in its <em>metadata</em>.</p>
 
@@ -558,9 +614,11 @@ add this <code>css</code> file to relevant pages. I do the this based on a
     
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.colorbox/1.6.4/jquery.colorbox-min.js"></script>
 <script src="https://sadanand-singh.github.io/js/peak.min.js"></script>
+<script src="https://sadanand-singh.github.io/js/prism.min.js"></script>
 
     <script async type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53f6d74a591ace8f"></script>
 

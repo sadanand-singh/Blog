@@ -96,6 +96,7 @@ space is NOT considered as a valid non-repeating substring.
     <link href="https://sadanand-singh.github.io/css/rst.css" rel="stylesheet" type="text/css">
     <link href="https://sadanand-singh.github.io/css/theme.css" rel="stylesheet" type="text/css">
     <link href="https://sadanand-singh.github.io/css/peak.min.css" rel="stylesheet" type="text/css">
+    <link href="https://sadanand-singh.github.io/css/prism.min.css" rel="stylesheet" type="text/css">
     <link href="https://sadanand-singh.github.io/css/colorbox.css" rel="stylesheet" type="text/css">
     <link href="https://sadanand-singh.github.io/css/custom.min.css" rel="stylesheet" type="text/css">
     <link href="https://sadanand-singh.github.io/css/tags.min.css" rel="stylesheet" type="text/css">
@@ -279,61 +280,39 @@ if your answer has a better scaling.</p>
 <p>The function definition that I use for finding non-empty non-repeating
 strings is <em>recursive</em>.</p>
 
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3
-</span><span style="display:block;width:100%;background-color:#3c3d38"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4
-</span></span><span style="display:block;width:100%;background-color:#3c3d38"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5
-</span></span><span style="display:block;width:100%;background-color:#3c3d38"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6
-</span></span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">findNsubString</span>(s,n):
-    subS <span style="color:#f92672">=</span> []
-    <span style="color:#66d9ef">for</span> index <span style="color:#f92672">in</span> range(len(s)<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>) :
-<span style="display:block;width:100%;background-color:#3c3d38">        x <span style="color:#f92672">=</span> s[index:index<span style="color:#f92672">+</span>n]
-</span><span style="display:block;width:100%;background-color:#3c3d38">        <span style="color:#66d9ef">if</span> s<span style="color:#f92672">.</span>find(x)<span style="color:#f92672">==</span>s<span style="color:#f92672">.</span>rfind(x) :
-</span><span style="display:block;width:100%;background-color:#3c3d38">            subS<span style="color:#f92672">.</span>append(x)
-</span>    <span style="color:#66d9ef">if</span> subS :
-        <span style="color:#66d9ef">return</span> subS
-    <span style="color:#66d9ef">else</span> :
-        <span style="color:#66d9ef">return</span> findNsubString(s,n<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)</code></pre></td></tr></table>
-</div>
-</div>
+<pre class="line-numbers"  data-line="4-6">
+<code class="language-python"> 
+def findNsubString(s,n):
+    subS = []
+    for index in range(len(s)&#43;1) :
+        x = s[index:index&#43;n]
+        if s.find(x)==s.rfind(x) :
+            subS.append(x)
+    if subS :
+        return subS
+    else :
+        return findNsubString(s,n&#43;1)
+
+</code>
+</pre>
 
 <p>I call this method as follows to get the desired results:</p>
 
-<p><div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7c7c79">10
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#! /usr/bin/python</span>
-<span style="color:#f92672">import</span> argparse
-<span style="color:#75715e"># Parse Command Line Arguments</span>
-parser <span style="color:#f92672">=</span> argparse<span style="color:#f92672">.</span>ArgumentParser()
-parser<span style="color:#f92672">.</span>add_argument(<span style="color:#e6db74">&#34;-s&#34;</span>, <span style="color:#e6db74">&#34;--string&#34;</span>, default <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;asda&#34;</span>, help<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Input&#34;</span>)
-args <span style="color:#f92672">=</span> parser<span style="color:#f92672">.</span>parse_args()
-s <span style="color:#f92672">=</span> args<span style="color:#f92672">.</span>string
-<span style="color:#75715e"># Call Method to find smallest non-repeating sub-string</span>
-ans <span style="color:#f92672">=</span> findNsubString(s,<span style="color:#ae81ff">1</span>)
-<span style="color:#66d9ef">print</span>(ans)</code></pre></td></tr></table>
-</div>
-</div></p>
+<pre class="line-numbers"  >
+<code class="language-python"> 
+#! /usr/bin/python
+import argparse
+# Parse Command Line Arguments
+parser = argparse.ArgumentParser()
+parser.add_argument(&#34;-s&#34;, &#34;--string&#34;, default = &#34;asda&#34;, help=&#34;Input&#34;)
+args = parser.parse_args()
+s = args.string
+# Call Method to find smallest non-repeating sub-string
+ans = findNsubString(s,1)
+print(ans)
+
+</code>
+</pre>
 
 <p>A similar solution can also be written in <code>JAVA</code> or <code>C++</code>. The corresponding
 <code>find()</code> and <code>rfind()</code> methods in JAVA are called <code>indexOf()</code> and
@@ -444,9 +423,11 @@ language.</p>
     
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.colorbox/1.6.4/jquery.colorbox-min.js"></script>
 <script src="https://sadanand-singh.github.io/js/peak.min.js"></script>
+<script src="https://sadanand-singh.github.io/js/prism.min.js"></script>
 
     <script async type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53f6d74a591ace8f"></script>
 

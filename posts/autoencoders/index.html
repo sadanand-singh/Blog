@@ -14,7 +14,7 @@
     <meta name="generator" content="Hugo 0.39">
     <meta name="theme" content="Bootstrap3-Lumen">
     
-      <title>Two Simple Math Puzzles | Sadanand&#39;s Notes</title>
+      <title>Autoencoders: Theory and Applications | Sadanand&#39;s Notes</title>
     
     <meta name="author" content="Sadanand Singh">
     <meta name="keywords" content="">
@@ -50,19 +50,31 @@
     
 
     
-    <meta name="description" content="Here are two math puzzles, solve, comment and enjoy the discussion!
+    <meta name="description" content="Usually in a conventional neural network, one tries to predict a target vector
+$y$ from input vectors $x$. In an autoencoder network, one tries to predict $x$
+from $x$. It is trivial to learn a mapping from $x$ to $x$ if the network has no
+constraints, but if the network is constrained the learning process becomes more
+interesting.
 
 ">
-    <meta property="og:description" content="Here are two math puzzles, solve, comment and enjoy the discussion!
+    <meta property="og:description" content="Usually in a conventional neural network, one tries to predict a target vector
+$y$ from input vectors $x$. In an autoencoder network, one tries to predict $x$
+from $x$. It is trivial to learn a mapping from $x$ to $x$ if the network has no
+constraints, but if the network is constrained the learning process becomes more
+interesting.
 
 ">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="Two Simple Math Puzzles">
-    <meta property="og:url" content="/posts/primenumberandpath/">
+    <meta property="og:title" content="Autoencoders: Theory and Applications">
+    <meta property="og:url" content="/posts/autoencoders/">
     <meta property="og:site_name" content="Sadanand&#39;s Notes">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Sadanand&#39;s Notes">
-    <meta name="twitter:description" content="Here are two math puzzles, solve, comment and enjoy the discussion!
+    <meta name="twitter:description" content="Usually in a conventional neural network, one tries to predict a target vector
+$y$ from input vectors $x$. In an autoencoder network, one tries to predict $x$
+from $x$. It is trivial to learn a mapping from $x$ to $x$ if the network has no
+constraints, but if the network is constrained the learning process becomes more
+interesting.
 
 ">
     
@@ -169,7 +181,7 @@
     <header>
     
       <h1 class="p-name entry-title" itemprop="headline name">
-        Two Simple Math Puzzles
+        Autoencoders: Theory and Applications
       </h1>
     
     <div class="metadata">
@@ -187,14 +199,14 @@
     
     
         <p class="dateline">on
-            <a href="https://sadanand-singh.github.io/posts/primenumberandpath/" rel="bookmark">
-              <time itemprop="datePublished" datetime="2015-06-21T00:00:00Z">
+            <a href="https://sadanand-singh.github.io/posts/autoencoders/" rel="bookmark">
+              <time itemprop="datePublished" datetime="2018-04-22T14:47:44-07:00">
                 
   
   
   
   
-    2015-06-21
+    2018-04-22
   
 
               </time>
@@ -206,7 +218,7 @@
   
     <span>in</span>
     
-      <a class="category-link" href="/categories/puzzle">Puzzle</a>
+      <a class="category-link" href="/categories/machine-learning">Machine Learning</a>
     
   
 
@@ -215,7 +227,7 @@
         
             
             <p class="commentline">
-                <a href="https://sadanand-singh.github.io/posts/primenumberandpath/#disqus_thread" data-disqus-identifier="PrimeNumberAndPath.sadanand">
+                <a href="https://sadanand-singh.github.io/posts/autoencoders/#disqus_thread" data-disqus-identifier="autoencoders.sadanand">
                 Comments
                 </a>
             </p>
@@ -228,108 +240,27 @@
     </div>
 </header>
     <div class="mw-100 e-content entry-content" itemprop="articleBody text">
-        <p>Here are two math puzzles, solve, comment and enjoy the discussion!</p>
+        <p>Usually in a conventional neural network, one tries to predict a target vector
+$y$ from input vectors $x$. In an autoencoder network, one tries to predict $x$
+from $x$. It is trivial to learn a mapping from $x$ to $x$ if the network has no
+constraints, but if the network is constrained the learning process becomes more
+interesting.</p>
 
 <p></p>
 
 <strong id="table-of-contents">Table of Contents</strong><nav id="TableOfContents">
 <ul>
-<li><a href="#puzzle-1-prime-numbers">Puzzle 1: Prime Numbers</a>
+<li>
 <ul>
-<li><a href="#solution">Solution</a></li>
-</ul></li>
-<li><a href="#puzzle-2-hopping-on-a-chess-board">Puzzle 2: Hopping on a Chess Board</a>
-<ul>
-<li><a href="#solution-1">Solution</a></li>
+<li><a href="#sections">Sections</a></li>
+<li><a href="#new-cool-posts">New Cool Posts</a></li>
 </ul></li>
 </ul>
 </nav>
 
-<h1 id="puzzle-1-prime-numbers">Puzzle 1: Prime Numbers</h1>
+<h2 id="sections">Sections</h2>
 
-<p>Prove that $p^2-1$ is divisible by 24, where $p$ is a prime number with
-$p&gt;3$.</p>
-
-<p>This is a simple one - do not go by the technicality of the problem
-statement.</p>
-
-<h2 id="solution">Solution</h2>
-
-<p>$p^2-1 = (p-1)\times (p+1)$ Given, $p$ is a prime number $&gt;3$, $p-1$ and
-$p+1$ are even. We can also write,</p>
-
-<p>$$p-1=2K, \text{and } p+1=2K+2=2(K+1)$$</p>
-
-<p>Given, $K \in \mathbb{N}$, either $K$ or $K+1$ are also even. Hence,
-$(p-1)\times (p+1)$ is divisible by $2\times 4 = 8$.</p>
-
-<p>Furthermore, as $p$ is prime, we can write it as either $p = 3s+1$ or
-$p = 3s-1$, where $s \in \mathbb{N}$. In either case, one of $p-1$ or
-$p+1$ are divisible by 3 as well.</p>
-
-<p>Hence, $p^2-1$ is divisible by $8\times 3 = 24$.</p>
-
-<h1 id="puzzle-2-hopping-on-a-chess-board">Puzzle 2: Hopping on a Chess Board</h1>
-
-<p>On a chess board, basically a $8\times 8$ grid, how many ways one can go
-from the left most bottom corner to the right most upper corner? In
-chess naming conventions, from $a1$ to $h8$.</p>
-
-
-
-<div class="card border-thick border-warning">
-<div class="card-header"><strong>NOTE</strong></div> 
-<div class="card-body"> <p>In the original post this problem was ill defined.</p>
-
-<p class="text-success"> <strong>Please solve this problem with the constraints that only up and right moves are allowed.</strong> </p>
-</div>
-</div>
-
-
-
-
-<figure class="figure img-responsive align-center">
-    
-        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Ternblad_grid_chess_problem.png" alt="Chess Board" />
-    
-    
-</figure>
-
-
-<p><strong>Can you find the generic answer for the case of $N\times M$ grid?</strong></p>
-
-<h2 id="solution-1">Solution</h2>
-
-
-
-<div class="card border-thick border-danger">
-<div class="card-header"><strong>Correction</strong></div> 
-<div class="card-body"> <p>For an $N\times M$ grid, we need only $N-1$ right and $M-1$ up moves.</p>
-
-<p class="text-success"> <strong>Thank you Devin for pointing this out.</strong> </p>
-</div>
-</div>
-
-
-
-<p>Given only forward moves are allowed, for any arbitrary grid of
-$N\times M$, a total of $(N-1) + (M-1)$ moves are needed.</p>
-
-<p>Any $N-1$ of these moves can be of type <em>right</em> and $M-1$ of type <em>up</em>.
-In short, this is a combinatorial problem of distributing $N+M-2$
-objects into groups of $N-1$ and $M-1$. This is simply,</p>
-
-<p>$$\dbinom{N+M-2}{N-1} = \frac{(N+M-2)!}{(N-1)! (M-1)!}$$</p>
-
-<p>In the particular case of the chess board, $N = M = 8$. Hence, total
-number of possible paths are:</p>
-
-<p>$$\text{No. of Paths} = \frac{14!}{7! 7!} =3432$$</p>
-
-<p>Thank you <strong>Rohit</strong> and <strong>Amber</strong> for posting quick solutions!</p>
-
-<p>Let me know if you have any other interesting <em>alternative</em> solutions to
-these problems.</p>
+<h2 id="new-cool-posts">New Cool Posts</h2>
     </div>
     <div id="post-footer" class="post-footer">
         
@@ -340,9 +271,13 @@ these problems.</p>
                     <hr><br/>
                     <strong><span class="text-color-light text-small">TAGGED IN:</span></strong>
                     
-  <a class="text-white badge badge-pill badge-dark" href="https://sadanand-singh.github.io//tags/algorithms/">Algorithms</a>
+  <a class="text-white badge badge-pill badge-dark" href="https://sadanand-singh.github.io//tags/deep-learning/">Deep Learning</a>
 
-  <a class="text-white badge badge-pill badge-dark" href="https://sadanand-singh.github.io//tags/puzzles/">Puzzles</a>
+  <a class="text-white badge badge-pill badge-dark" href="https://sadanand-singh.github.io//tags/machine-learning/">Machine Learning</a>
+
+  <a class="text-white badge badge-pill badge-dark" href="https://sadanand-singh.github.io//tags/python/">Python</a>
+
+  <a class="text-white badge badge-pill badge-dark" href="https://sadanand-singh.github.io//tags/data-science/">Data Science</a>
 
 
                   </div>
@@ -354,19 +289,12 @@ these problems.</p>
   
     
         <li class="previous btn btn-lg btn-primary">
-            <a href="/posts/palakpaneerrecipe/" rel="prev" title="Palak Paneer Recipe">
+            <a href="/posts/boostedtrees/" rel="prev" title="Understanding Boosted Trees Models">
             <i class="fa fa-angle-left text-base text-white icon-mr"></i>
             <span class="text-white"> Previous post </span>
             </a>
         </li>
     
-    
-        <li class="next mr-0 float-right btn btn-lg btn-primary">
-            <a href="/posts/archinstall/" rel="next" title="Arch Installation Guide">
-            <span class="text-white"> Next post </span>
-            <i class="fa fa-angle-right text-base text-white icon-ml"></i>
-            </a>
-        </li>
     
   
 </ul>
@@ -377,7 +305,7 @@ these problems.</p>
         <div id="disqus_thread"></div>
 <script>
     var disqus_config = function () {
-    this.page.identifier = 'PrimeNumberAndPath.sadanand';
+    this.page.identifier = 'autoencoders.sadanand';
     
     
     };
