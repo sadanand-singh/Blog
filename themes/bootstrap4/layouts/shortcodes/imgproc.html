@@ -1,6 +1,6 @@
-{{ $original := .Page.Resources.GetMatch (printf "%s*" (.Get 0)) }}
-{{ $command := .Get 1 }}
-{{ $options := .Get 2 }}
+{{ $original := .Page.Resources.GetMatch (printf "%s*" (.Get "image")) }}
+{{ $command := .Get "command" }}
+{{ $options := .Get "options" }}
 {{ if eq $command "Fit"}}
 {{ .Scratch.Set "image" ($original.Fit $options) }}
 {{ else if eq $command "Resize"}}
@@ -11,6 +11,6 @@
 {{ errorf "Invalid image processing command: Must be one of Fit, Fill or Resize."}}
 {{ end }}
 {{ $image := .Scratch.Get "image" }}
-<figure class="figure align-left img-responsive">
+<figure {{ with .Get "class" }}class="{{.}}"{{ else }}class="figure img-responsive align-center"{{ end }}>
     <img src="{{ $image.RelPermalink }}">
 </figure>
