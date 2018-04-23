@@ -19,21 +19,21 @@ readingTime: 10
 description:
 ---
 
-I have been using [Nikola] to build this Blog. Its a great static site 
-build system that is based on Python. However, It has some crazy 
+I have been using [Nikola] to build this Blog. Its a great static site
+build system that is based on Python. However, It has some crazy
 amount of dependencies (to have reasonable looking site). It
-uses [restructured text (rst)][rst] as the primary language for 
-content creation. Personally, I use markdown for almost every thing 
-else - taking notes, making diary, code documentation etc. 
-Furthermore, given Nikola tries to support almost everything in a 
+uses [restructured text (rst)][rst] as the primary language for
+content creation. Personally, I use markdown for almost every thing
+else - taking notes, making diary, code documentation etc.
+Furthermore, given Nikola tries to support almost everything in a
 static site builder, lately its is becoming more and more bloated.
 
 <!--more-->
 
-Case in  point, recently it got support for [shortcodes] and although that did 
-enable me to write posts in Markdown, but it is so difficult to 
-develop them (It does not help to have almost no documentation/guide 
-for their development). They are heavily tied to the [plugin] system 
+Case in  point, recently it got support for [shortcodes] and although that did
+enable me to write posts in Markdown, but it is so difficult to
+develop them (It does not help to have almost no documentation/guide
+for their development). They are heavily tied to the [plugin] system
 with light support for template based shortcodes.
 
 [nikola]: https://getnikola.com
@@ -87,11 +87,11 @@ While converting to Hugo was fun, there were some caveats. The issues I faced we
 
 ## Home Page with Content and Post Lists
 
-Getting home page to work was very simple. Hugo documentation page provides a very clear details about order in which various templates are looked. For home page, you will need to provide a template for `index.html`. Then Inside the `content` folder, you can put the _metadata_ and the _content_ for the home page in a file named `_index.md`. 
+Getting home page to work was very simple. Hugo documentation page provides a very clear details about order in which various templates are looked. For home page, you will need to provide a template for `index.html`. Then Inside the `content` folder, you can put the _metadata_ and the _content_ for the home page in a file named `_index.md`.
 
 I also added following template code in the index.html template to get list of posts with machine learning related tags:
 
-{{< highlight "go HTML template" >}}
+{{< highlight lang="html" linenos="yes" >}}
 {{ $.Scratch.Add "mlposts" slice }}
 {{ $tags := (slice "Machine Learning" "EDA" "Kaggle" "ML" "Deep Learning" "DL" "Data Science") }}
 {{ range .Site.RegularPages }}
@@ -111,7 +111,7 @@ I also added following template code in the index.html template to get list of p
 
 Hugo has support for several output formats, including HTML and JSON. For implementing [tipue search](http://www.tipue.com/search/), we need to generate a JSON file with site content. This can be done by adding following to the configuration file:
 
-{{< highlight YAML >}}
+{{< highlight lang="yaml" linenos="yes" >}}
 # Output formats
 outputs:
   home: [ "HTML", "JSON"]
@@ -120,7 +120,7 @@ outputs:
 
 and, using the following `index.json` template:
 
-{{< highlight "go HTML template" >}}
+{{< highlight lang="html" linenos="yes" >}}
 {{- $.Scratch.Add "index" slice -}}
 {{- range where .Site.RegularPages "Type" "not in"  (slice "page" "json" "nosearch") -}}
 {{- $.Scratch.Add "index" (dict "url" .Permalink "title" .Title "text" .Plain "tags" (delimit .Params.tags ", ")) -}}
@@ -130,7 +130,7 @@ and, using the following `index.json` template:
 
 Now, include the following `css` in the `<head>` of your pages:
 
-{{< highlight HTML >}}
+{{< highlight lang="html" linenos="yes" >}}
 <link href="//cdnjs.cloudflare.com/ajax/libs/Tipue-Search/5.0.0/tipuesearch.css" rel="stylesheet" type="text/css">
 {{< /highlight >}}
 
@@ -138,7 +138,7 @@ Now, include the following `css` in the `<head>` of your pages:
 The following `modal` code is needed to display the search results,
 preferably at the end of the __body__ of the HTMLpage:
 
-{{< highlight HTML >}}
+{{< highlight lang="html" linenos="yes" >}}
 <div id="search-resuts" class="modal fade" role="dialog" style="height: 80%;">
 <div class="modal-dialog">
     <div class="modal-content">
@@ -158,7 +158,7 @@ preferably at the end of the __body__ of the HTMLpage:
 
 Finally, the following `javascript` in the lower end of the **body** of HTML pages:
 
-{{< highlight HTML >}}
+{{< highlight lang="html" linenos="yes" >}}
 <script>
 $(document).ready(function() {
     var url1 = "https://cdnjs.cloudflare.com/ajax/libs/Tipue-Search/5.0.0/tipuesearch_set.js";
@@ -186,7 +186,7 @@ $(document).ready(function() {
 
 And, of course you will need a form/input for performing the search:
 
-{{< highlight HTML >}}
+{{< highlight lang="html" linenos="yes" >}}
 <span class="navbar-form navbar-right">
     <input type="text" id="tipue_search_input" class="form-control" placeholder="Search">
 </span>
@@ -208,11 +208,11 @@ One of the advantages of  using Nikola is that, it provides native support for w
 
 But, on some Google search, I found this neat [solution](https://sharmamohit.com/post/jupyter-notebooks-in-blog/).
 
-In summary, the setup is very simple - Use the linked [jupyter.css](http://sharmamohit.com/css/jupyter.css) file in your template, then 
+In summary, the setup is very simple - Use the linked [jupyter.css](http://sharmamohit.com/css/jupyter.css) file in your template, then
 add this `css` file to relevant pages. I do the this based on a
 _metadata_ variable `notebook: true` via the following template code:
 
-{{< highlight "Go HTML Template" >}}
+{{< highlight lang="html" linenos="yes" >}}
 {{ if .Params.notebook }}
     <link href="{{ $.Site.BaseURL }}css/jupyter.css" rel="stylesheet" type="text/css">
 {{ end }}
@@ -220,7 +220,7 @@ _metadata_ variable `notebook: true` via the following template code:
 
 Then for any jupyter notebook, convert it to basic HTML using the following command:
 
-{{< highlight bash >}}
+{{< highlight lang="bash" linenos="yes" >}}
 jupyter nbconvert --to html --template basic *source_file.ipynb*
 {{< /highlight >}}
 
@@ -232,7 +232,7 @@ I used [katex](https://github.com/Khan/KaTeX) for using math in markdown. I was 
 
 I added following code in the `<head>` of all of posts:
 
-{{< highlight "Go HTML Template" >}}
+{{< highlight lang="html" linenos="yes" >}}
 {{ if .Params.hasMath }}
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css"
     integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0"
@@ -242,13 +242,13 @@ I added following code in the `<head>` of all of posts:
 
 And the following script at the end of the `<body>` section:
 
-{{< highlight "Go HTML Template" >}}
+{{< highlight lang="html" linenos="yes" >}}
 {{ if .Params.hasMath }}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js"
-    integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" 
+    integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1"
     crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js"
-    integrity="sha256-ExtbCSBuYA7kq1Pz362ibde9nnsHYPt6JxuxYeZbU+c=" 
+    integrity="sha256-ExtbCSBuYA7kq1Pz362ibde9nnsHYPt6JxuxYeZbU+c="
     crossorigin="anonymous"></script>
     <script>
         renderMathInElement(document.body,

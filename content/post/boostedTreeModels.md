@@ -72,11 +72,11 @@ The python scikit-learn library implementations of AdaBoost ([AdaBoostClassifier
 
 ## AdaBoost Classifier in Python
 
-Recall the [US income data](https://www.kaggle.com/johnolafenwa/us-census-data) that we used in the [previous based post on tree based methods]({{< relref "treemodels.md">}}). In summary, in this dataset, we are required to predict the income range of adults (<=50K or >50K) based on following features: `Race`, `Sex`, `Education`, `Work Class`, `Capital Loss`, `Capital Gain`, `Relationship`, `Marital Status`, `Age Group`, `Occupation` and `Hours of Work per Week`. We have already seen that, with the best decision tree model, we were able to achieve a prediction accuracy of 85.9%. With the use of random forest models, we were able to increase the accuracy to 86.6%.
+Recall the [US income data](https://www.kaggle.com/johnolafenwa/us-census-data) that we used in the [previous based post on tree based methods]({{<relref "treemodels.md">}}). In summary, in this dataset, we are required to predict the income range of adults (<=50K or >50K) based on following features: `Race`, `Sex`, `Education`, `Work Class`, `Capital Loss`, `Capital Gain`, `Relationship`, `Marital Status`, `Age Group`, `Occupation` and `Hours of Work per Week`. We have already seen that, with the best decision tree model, we were able to achieve a prediction accuracy of 85.9%. With the use of random forest models, we were able to increase the accuracy to 86.6%.
 
-Let us try to solve the same problem using [AdaBoost classifier from scikit-learn module](http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.AdaBoostClassifier.html). Please have a look at the [previous post on tree-based methods]({{< relref "treemodels.md">}}) to understand the EDA and preparation of the data.
+Let us try to solve the same problem using [AdaBoost classifier from scikit-learn module](http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.AdaBoostClassifier.html). Please have a look at the [previous post on tree-based methods]({{<relref "treemodels.md">}}) to understand the EDA and preparation of the data.
 
-{{< highlight python "linenos=table" >}}
+{{< highlight lang="python" linenos="yes" >}}
 from sklearn.ensemble import AdaBoostClassifier
 aclf = AdaBoostClassifier(DecisionTreeClassifier(max_depth=5), n_estimators=100)
 aclf.fit(x_train, y_train)
@@ -94,7 +94,7 @@ The genetic algorithm itself has three main parameters: `population size`, `tour
 
 Let us try using genetic algorithm to find optimal model parameters for AdaBoost classifier.
 
-{{< highlight python "linenos=table" >}}
+{{< highlight lang="python" linenos="yes" >}}
 from evolutionary_search import EvolutionaryAlgorithmSearchCV
 
 parameters = {
@@ -123,7 +123,7 @@ clf2.fit(x_train, y_train)
 This should take about **50 minutes** on a reasonable desktop machine!
 We can now use the best parameters from this and create a new AdaBoost classifier.
 
-{{< highlight python "linenos=table" >}}
+{{< highlight lang="python" linenos="yes" >}}
 aclf = AdaBoostClassifier(DecisionTreeClassifier(max_depth=4, max_features=11, min_samples_leaf=4, min_samples_split=2),
                          n_estimators=100, learning_rate=0.1)
 aclf.fit(x_train, y_train)
@@ -134,7 +134,7 @@ We see a significant improvement in our results with an accuracy of 87.06% on th
 
 Given our data is highly imbalanced, let us look at the confusion matrix of our model on the test data. Note that we are using the `confusion_matrix()` method from the [previous post on tree based methods]({{< relref "treemodels.md">}}).
 
-{{< highlight python "linenos=table" >}}
+{{< highlight lang="python" linenos="yes" >}}
 y_pred = aclf.predict(x_test)
 cfm = confusion_matrix(y_test, y_pred, labels=[0, 1])
 plt.figure(figsize=(10,6))
@@ -403,7 +403,7 @@ Now, we can replace $\hat{f^b}(x)$ in above algorithm and replace $\gamma\_b$ fo
 where $\gamma\_{jb}$ is given by the following line search,
 {{< tex display="\gamma_{jb} = \mathop{\arg\min}\limits_{\gamma} \sum_{x_i \in R_{jb}} L\big(y_i, \hat{F}_{b-1}(x) + \gamma \big)" >}}
 
-Here $J$ refers to the number of terminal nodes (leaves) in any of constituent decision trees. A value of $J\_b =2$, i.e. **decision stumps** means no interactions among feature variables are considered. With a value of $J\_b=3$ the model may include effects of the interaction between up to two variables, and so on. Typically 
+Here $J$ refers to the number of terminal nodes (leaves) in any of constituent decision trees. A value of $J\_b =2$, i.e. **decision stumps** means no interactions among feature variables are considered. With a value of $J\_b=3$ the model may include effects of the interaction between up to two variables, and so on. Typically
 a value of $4 \le J\_b \le 8$ [work well for boosting](https://web.stanford.edu/~hastie/Papers/ESLII.pdf).
 
 <br>
@@ -422,7 +422,7 @@ Gradient Boosted Trees can be regularized by multiple approaches. Some common ap
 
 [scikit-learn](http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html) provides a simple and generic implementation of the above described algorithm that is valid of different types of loss functions. Below is a simple implementation for the case of income data.
 
-{{< highlight python "linenos=table" >}}
+{{< highlight lang="python" linenos="yes" >}}
 from sklearn.ensemble import GradientBoostingClassifier
 
 params = {'n_estimators': 200, 'max_depth': 4, 'subsample': 0.75,
@@ -455,7 +455,7 @@ Here, the second term in the loss function, penalizes the complexity of the mode
 XGBoost has many parameters that control the fitting of the model. Below are some of the relevant parameters and tuning them would be helpful in the most common cases. _Please note that original XGBoost library parameters might have a different name than before, since I am using the scikit-learn API parameter names below._
 
 1. **max_depth (default=3)** : Maximum depth of a tree, increase this value will make the model more complex / likely to be over-fitting. A  value of 0 indicates no limit. _A Typical Value in the range of 2-10 can be used for model optimization_.
-> 2. **n_estimators (default=100)** : The number of boosting steps to perform. This can also be seen as number of trees to be used in the boosted model. This number is inversely proportional to the learning_rate (eta) parameter, i.e. if we use a smaller value of learning_rate, n_estimators has be made larger. _A Typical Value in the range of $\ge 100$ can be used for model optimization. However, it is best to used XGBoost built-in `cv()` method to find this parameter (See the example ahead)_.
+2. **n_estimators (default=100)** : The number of boosting steps to perform. This can also be seen as number of trees to be used in the boosted model. This number is inversely proportional to the learning_rate (eta) parameter, i.e. if we use a smaller value of learning_rate, n_estimators has be made larger. _A Typical Value in the range of $\ge 100$ can be used for model optimization. However, it is best to used XGBoost built-in `cv()` method to find this parameter (See the example ahead)_.
 3. **min_child_weight (default=1)** : The minimum sum of instance weight needed in a child node. If the tree partition step results in a leaf node with the sum of instance weight less than the min_child_weight, then any further partitioning will be stopped. The larger the value of this parameter, the more conservative the algorithm will be. _A Typical Value in the range of 1-10 can be used for model optimization_.
 4. **learning_rate (default=0.1)** : The step size shrinkage used  to prevent over-fitting. After each boosting step, we can directly get the weights of new features. and the learning_rate parameter (also referred as **eta** in regular XGBoost API) shrinks the feature weights to make the boosting process more conservative (See above formulation of Gradient Boosted Trees for mathematical details). _A Typical Value in the range of 0.001-0.3 can be used for model optimization_.
 5. **gamma (default=0)** : (Also referred as **min_split_loss** in regular XGBoost API) The minimum loss reduction required to make a further partition on a leaf node of the tree. The larger, the more conservative the algorithm will be. _The value of this parameter depends on the type of loss function being used. A Typical Value in the range of 0.0-0.7 can be used for model optimization_.
@@ -469,7 +469,7 @@ Apart from above set of parameters, there are several parameters that should als
 
 Let us tune XGBoost model for our problem of income prediction. A simple sklearn API implementation can be used as below.
 
-{{< highlight python "linenos=table" >}}
+{{< highlight lang="python" linenos="yes" >}}
 import xgboost as xgb
 
 params = {'n_estimators': 100,
@@ -492,7 +492,7 @@ With this reasonable guess of parameters based on previous models, we already se
 
 Let us try to find the optimal parameters for the XGBoost model. If we simply try to do a brute force grid search, it can be computationally very expensive and unreasonable on a desktop. Here is a sample parameters list that can give us an idea of what such a grid search could look like.
 
-{{< highlight python "linenos=table" >}}
+{{< highlight lang="python" linenos="yes" >}}
 independent_params = {
     'random_state': 32,
     'objective': 'binary:logistic',
@@ -514,7 +514,7 @@ If we try to do a grid search of this with 5-fold cross validation, it will invo
 
 I will take an approach of optimizing different set of parameters in batches. To begin, we will choose a fixed learning rate of 0.1, and n_estimators=200. We will try to find only tree related parameters (i.e. **max_depth**, **gamma**, **subsample** and **colsample_bytree**) using grid search or genetic algorithm.
 
-{{< highlight python "linenos=table" >}}
+{{< highlight lang="python" linenos="yes" >}}
 ind_params = {
     'random_state': 32,
     'objective': 'binary:logistic',
@@ -550,7 +550,7 @@ We can do a finer grid search to get more precise values. For this exercise, let
 
 XGBoost provides an optimized version of cross validation using `cv()` method which supports early stopping to give us optimal value of **n_estimators**.
 
-{{< highlight python "linenos=table" >}}
+{{< highlight lang="python" linenos="yes" >}}
 xgb1 = xgb.XGBClassifier(
  learning_rate =0.1,
  n_estimators=10000,
@@ -572,7 +572,7 @@ print("Number of Predicted n_estimators = ", cvresult.shape[0])
 
 This gives us a value of **n_estimators = 206**. We will now use these parameters to search for the next set of tree building parameters: **max_depth** and **min_child_weight**.
 
-{{< highlight python "linenos=table" >}}
+{{< highlight lang="python" linenos="yes" >}}
 params = {
  'max_depth':range(3,10,2),
  'min_child_weight':range(1,6,2)
@@ -607,7 +607,7 @@ The optimal set of parameters found by this are:
 
 We can now use these parameters as fixed values and optimize regularization parameters: **reg_alpha** and **reg_lambda**.
 
-{{< highlight python "linenos=table" >}}
+{{< highlight lang="python" linenos="yes" >}}
 ind_params = {'learning_rate': 0.1,
  'n_estimators': 206,
  'gamma': 0.2,
@@ -641,7 +641,7 @@ The optimal set of parameters found by this search are:
 
 We can now decrease the learning rate by an order to magnitude to get a more stable model. However, we will also need to find the optimal value of number of estimators again using the `cv()` method.
 
-{{< highlight python "linenos=table" >}}
+{{< highlight lang="python" linenos="yes" >}}
 ind_params = {'learning_rate': 0.01,
  'n_estimators': 5000,
  'gamma': 0.2,
@@ -665,7 +665,7 @@ print("Number of Predicted n_estimators = ", cvresult.shape[0])
 
 We get an optimal value of **n_estimators = 1559**. Let us use now all of these optimized values to make a final XGBoost model.
 
-{{< highlight python "linenos=table" >}}
+{{< highlight lang="python" linenos="yes" >}}
 ind_params = {'learning_rate': 0.01,
  'n_estimators': 1559,
  'gamma': 0.2,
@@ -687,7 +687,7 @@ xclf.score(x_test, y_test)
 
 We get test accuracy of 86.99%. Now, this seems odd. After we did all this computation and we still have got a test accuracy that is smaller than an optimized version of scikit-learn's Gradient Boosting Tree implementation. However, if you have paid attention to the metric, you can notice - for cross validation, I started using 'auc' as metric, instead of 'accuracy'. This will give us better accuracy for the less abundant class (> 50K salary) but at the cost of slight decrease in the accuracy of the more abundant class (<= 50K salary). We can verify this by the following confusion matrix plot.
 
-{{< highlight python "linenos=table" >}}
+{{< highlight lang="python" linenos="yes" >}}
 y_pred = xclf.predict(x_test)
 cfm = confusion_matrix(y_test, y_pred, labels=[0, 1])
 plt.figure(figsize=(10,6))
@@ -700,7 +700,7 @@ iVBORw0KGgoAAAANSUhEUgAAAfUAAAG2CAYAAABmhB/TAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAL
 
 We see the largest accuracy of the less abundant class with an accuracy of 64.9%, compared to the previous best of 64.2%. We can also look the importance of different features for this XGBoost model.
 
-{{< highlight python "linenos=table" >}}
+{{< highlight lang="python" linenos="yes" >}}
 importances = xclf.feature_importances_
 indices = np.argsort(importances)
 cols = [cols[x] for x in indices]
@@ -742,7 +742,7 @@ When using the scikit-learn API of LightGBM, one should keep in mind that some o
 
 Let us tune a LightGBM model for the problem of Income prediction.
 
-{{< highlight python "linenos=table" >}}
+{{< highlight lang="python" linenos="yes" >}}
 import lightgbm as lgb
 
 params = {'n_estimators': 100,
@@ -760,13 +760,13 @@ lclf.fit(x_train, y_train)
 lclf.score(x_test, y_test)
 {{< /highlight >}}
 
-This results in test accuracy of 86.8%. 
+This results in test accuracy of 86.8%.
 
 Given this library also has many parameters, similar to XGBoost, we need to use a similar strategy of tuning in stages.
 
 First we will fix learning rate to a reasonable value of 0.1 and number of estimators = 200, and tune only the major tree building parameters: `max_depth`, `subsample`, `colsample_bytree` and `num_leaves`. We will use the genetic algorithm to search for optimal values of these parameters.
 
-{{< highlight python "linenos=table" >}}
+{{< highlight lang="python" linenos="yes" >}}
 ind_params = {
     'seed': 32,
     'n_estimators': 200,
@@ -801,7 +801,7 @@ This gives the following set of optimal parameters:
 Now, we can use grid search to fine tune the search of number of leaves parameter.
 
 
-{{< highlight python "linenos=table" >}}
+{{< highlight lang="python" linenos="yes" >}}
 ind_params = {
     'seed': 32,
     'n_estimators': 200,
@@ -822,7 +822,7 @@ print(clf2.best_params_)
 
 Similar to XGBoost, LightGBM also provides a `cv()` method that can be used to find optimal value of number of estimators using early stopping strategy. Another strategy would be to search for this parameter as well. In the following, I want to use this grid search strategy to find best value of number of estimators, just to show how tedious this can be!
 
-{{< highlight python "linenos=table" >}}
+{{< highlight lang="python" linenos="yes" >}}
 ind_params = {
     'seed': 32,
     'learning_rate': 0.1,
@@ -856,7 +856,7 @@ We find that the optimal value of `n_estimators` to be 327.
 
 Now, we can use the similar strategy to find and fine-tune the best regularization parameters.
 
-{{< highlight python "linenos=table" >}}
+{{< highlight lang="python" linenos="yes" >}}
 ind_params = {
     'seed': 32,
     'learning_rate': 0.1,
@@ -892,7 +892,7 @@ print(clf2.best_params_)
 
 Finally, we can decrease the learning rate to 0.01 and find the optimal value of `n_estimators`.
 
-{{< highlight python "linenos=table" >}}
+{{< highlight lang="python" linenos="yes" >}}
 ind_params = {
     'seed': 32,
     'learning_rate': 0.01,
@@ -925,7 +925,7 @@ print(clf2.best_params_)
 
 We find the optimal `n_estimators` to be equal to 3327 for a learning rate of 0.01. We can now built a final LightGBM model using these parameters and evaluate the test data.
 
-{{< highlight python "linenos=table" >}}
+{{< highlight lang="python" linenos="yes" >}}
 ind_params = {
     'seed': 32,
     'learning_rate': 0.01,
@@ -945,7 +945,7 @@ lclf.score(x_test, y_test)
 
 We get a test accuracy of 87.01%. Similar to previous cases, we can again look at the accuracy of individual classes using the following confusion matrix plot:
 
-{{< highlight python "linenos=table" >}}
+{{< highlight lang="python" linenos="yes" >}}
 y_pred = lclf.predict(x_test)
 cfm = confusion_matrix(y_test, y_pred, labels=[0, 1])
 plt.figure(figsize=(10,6))
@@ -958,7 +958,7 @@ iVBORw0KGgoAAAANSUhEUgAAAfUAAAG2CAYAAABmhB/TAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAL
 
 We find the results to be slightly better than XGBoost with 65% accuracy of the less abundant >50K salary class. We can also look the importance of different features in this model:
 
-{{< highlight python "linenos=table" >}}
+{{< highlight lang="python" linenos="yes" >}}
 importances = lclf.feature_importances_
 indices = np.argsort(importances)
 cols = [cols[x] for x in indices]
