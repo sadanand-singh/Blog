@@ -95,14 +95,14 @@ Dimensionality reduction using
 AEs leads to better results than classical dimensionality reduction techniques
 such as [PCA] due to the non-linearities and the type of constraints applied.
 
-{{% marker "warning" %}}
+{{< card "" "PCA and Autoencoders" >}}
 If we were to construct a linear network (i.e. without the use of
 nonlinear activation functions at each layer) we would observe a similar
 dimensionality reduction as observed in [PCA].
 See [Geoffrey Hinton's discussion][1].
 [PCA]: https://en.wikipedia.org/wiki/Principal_component_analysis
 [1]: https://www.coursera.org/learn/neural-networks/lecture/JiT1i/from-pca-to-autoencoders-5-mins
-{{% /marker %}}
+{{< /card >}}
 
 [PCA]: https://en.wikipedia.org/wiki/Principal_component_analysis
 
@@ -251,7 +251,7 @@ display_reconstructed(x_test, decoded_imgs, 10)
 The top row is the original image, while bottom row is the reconstructed image.
 We can see that we are loosing a lot of fine details.
 
-{{< figure src="../../images/ae_basic_fm.png" alt="sample images" class="figure img-responsive align-center" >}}
+{{< figure src="../../images/autoencoders/ae_basic_fm.png" alt="sample images" class="figure img-responsive align-center" >}}
 
 ## Sparsity Constraint
 
@@ -312,7 +312,7 @@ decoded_imgs = autoencoder.predict(x_test)
 display_reconstructed(x_test, decoded_imgs, 10)
 {{< /highlight >}}
 
-{{< figure src="../../images/ae_sparsity_fm.png" alt="sample images" class="figure img-responsive align-center" >}}
+{{< figure src="../../images/autoencoders/ae_sparsity_fm.png" alt="sample images" class="figure img-responsive align-center" >}}
 
 ## Deep Autoencoders
 
@@ -355,7 +355,7 @@ decoded_imgs = autoencoder.predict(x_test)
 display_reconstructed(x_test, decoded_imgs, 10)
 {{< /highlight >}}
 
-{{< figure src="../../images/ae_deep_fm.png" alt="sample images" class="figure img-responsive align-center" >}}
+{{< figure src="../../images/autoencoders/ae_deep_fm.png" alt="sample images" class="figure img-responsive align-center" >}}
 
 ## Convolutional Autoencoders
 
@@ -449,7 +449,7 @@ decoded_imgs = autoencoder.predict(x_test)
 display_reconstructed(x_test, decoded_imgs, 10)
 {{< /highlight >}}
 
-{{< figure src="../../images/ae_conv_fm.png" alt="sample images" class="figure img-responsive align-center" >}}
+{{< figure src="../../images/autoencoders/ae_conv_fm.png" alt="sample images" class="figure img-responsive align-center" >}}
 
 At first glance, it seems not much of improvement over the deep autoencoders 
 result. However, if you notice closely, we start to see small feature 
@@ -506,7 +506,7 @@ Here is how the corrupted images look now. They are barely recognizable now!
 display_reconstructed(x_test_noisy, None)
 {{< /highlight >}}
 
-{{< figure src="../../images/ae_noisy_sample.png" alt="sample images" class="figure img-responsive align-center" >}}
+{{< figure src="../../images/autoencoders/ae_noisy_sample.png" alt="sample images" class="figure img-responsive align-center" >}}
 
 We will use a slightly modified version of the previous convolution 
 autoencoder, the one with larger number of filters in the intermediate
@@ -570,20 +570,27 @@ decoded_imgs = autoencoder.predict(x_test_noisy)
 display_reconstructed(x_test_noisy, decoded_imgs, 10)
 {{< /highlight >}}
 
-{{< figure src="../../images/dae_conv_fm.png" alt="sample images" class="figure img-responsive align-center" >}}
+{{< figure src="../../images/autoencoders/dae_conv_fm.png" alt="sample images" class="figure img-responsive align-center" >}}
 
-If you inputs are sequences, rather than 2D images, then you may 
+{{< card "" "Sequence-to-Sequence Autoencoders" >}}
+If your inputs are sequences, rather than 2D images, then you may 
 want to use as encoder and decoder a type of model that can capture temporal 
 structure, such as a [LSTM]. To build a LSTM-based auto-encoder, first use a 
 [LSTM] encoder to turn your input sequences into a single vector that contains 
 information about the entire sequence, then repeat this vector $n$ times (
-where $n$ is the number of time steps in the output sequence), and run a [LSTM] 
+where $n$ is the number of time steps in the output sequence), and run a [LSTM]
 decoder to turn this constant sequence into the target sequence.
 
 [LSTM]: https://towardsdatascience.com/recurrent-neural-networks-and-lstm-4b601dd822a5
+{{< /card >}}
 
 # Variational Autoencoders (VAE)
 
+{{< figure src="../../images/autoencoders/vae.png" alt="VAE network" class="figure img-responsive align-right" >}}
+
+[vae]: https://ermongroup.github.io/cs228-notes/extras/vae/
+
 # Usage of Autoencoders
+
 
 ## Anamoly detection
