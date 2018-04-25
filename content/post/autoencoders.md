@@ -591,6 +591,11 @@ Variational autoencoders are stochastic version of the regular autoencoders.
 {{< figure src="../../images/autoencoders/vae.png" alt="VAE network" class="figure img-responsive align-center" >}}
 
 [vae]: https://ermongroup.github.io/cs228-notes/extras/vae/
+[vae1]: http://kvfrans.com/variational-autoencoders-explained/
+[vae2]: https://wiseodd.github.io/techblog/2016/12/10/variational-autoencoder/
+[vae3]: https://jaan.io/what-is-variational-autoencoder-vae-tutorial/
+[vae ref1]: https://arxiv.org/pdf/1312.6114.pdf
+[vae ref2]: https://arxiv.org/abs/1401.4082
 
 {{< highlight lang="python" linenos="yes" >}}
 from scipy.stats import norm
