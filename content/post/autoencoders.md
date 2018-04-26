@@ -964,9 +964,9 @@ plot_latentSpace(encoder, x_test, y_test, batch_size)
 
 {{< figure src="../../images/autoencoders/vae_conv_latent.png" alt="VAE network" class="figure img-responsive align-center" >}}
 
-We can see now the separation between different class of images are larger than the simple MLP based VAE model.
+We can now see that the separation between different class of images are larger than the simple MLP based VAE model.
 
-We can now generate new images from our, hopefully, better model.
+Finally, we can now generate new images from our, hopefully, better VAE model.
 
 {{< highlight lang="python" linenos="yes" >}}
 # generator that can sample from the learned distribution
