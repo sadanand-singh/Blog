@@ -1,6 +1,6 @@
 ---
-title: "Autoencoders: Theory and Applications"
-date: 2018-04-22T14:47:44-07:00
+title: "A Practical guide to Autoencoders"
+date: 2018-04-26T18:47:44-07:00
 tags:
     - Deep Learning
     - Machine Learning
@@ -14,7 +14,7 @@ authors:
     - "Sadanand Singh"
 hasMath: true
 notebook: false
-draft: true
+draft: false
 disqus_identifier: "autoencoders.sadanand"
 readingTime: 10
 description:
@@ -985,8 +985,60 @@ plot_generatedImages(generator)
 
 {{< figure src="../../images/autoencoders/vae_conv_gen.png" alt="VAE network" class="figure img-responsive align-center" >}}
 
+[kpca]: https://en.wikipedia.org/wiki/Kernel_principal_component_analysis
 
 # Usage of Autoencoders
 
+Most common uses of Autoenoders are:
 
-## Anamoly detection
+- **Dimensionality Reduction**: Dimensionality reduction was one of the first
+applications of representation learning and deep learning. Lower-dimensional 
+representations can improve performance on many tasks, such as classification. 
+Models of smaller spaces consume less memory and runtime. The hints provided 
+by the mapping to the lower-dimensional space aid generalization. Due to 
+non-linear nature, autoencoders tend to perform better than traditional 
+techniques like [PCA], [kernel PCA][kpca] etc.
+- **Denoising and Transformation**: You can distort the data and add some noise in it before feeding it to DAEs. This can help in generalizing over the test set. AEs are also useful in [image transformation tasks][ref3], eg. [document cleaning][ref4], [applying color to images][ref5], [medical image segmentation using U-net][unet], a variant of autoencoders etc.
+[ref3]: https://arxiv.org/pdf/1703.00848.pdf
+[ref4]: https://www.kaggle.com/c/denoising-dirty-documents
+[ref5]: https://arxiv.org/pdf/1603.08511.pdf
+[unet]: https://arxiv.org/abs/1505.04597
+- **Information Retrieval**: the task of finding entries in a database that 
+resemble a query entry. This task derives the usual benefits from 
+dimensionality reduction that other tasks do, but also derives the 
+additional benefit that search can become extremely efficient in certain 
+kinds of low-dimensional spaces.
+
+- **In Natural Language Processing**
+  * Word Embeddings
+  * Machine Translation
+  * Document Clustering
+  * Sentiment Analysis
+  * Paraphrase Detection
+
+- **Image/data Generation**: We saw theoretical details of generative nature of VAEs above. See [this blog post by openAI][gen] for a detailed review of image generation.
+
+
+- **Anamoly detection**: For highly imbalanced data (like [credit card fraud 
+detection][fraud], defects in manufacturing etc.) you may have sufficient data 
+for the positive class and very few or no data for the negative class. In such 
+situations, you can train an AE on your positive data and learn features and 
+then compute reconstruction error on the training set to find a threshold. 
+During testing, you can use this threshold to reject those test instances 
+whose values are greater than this threshold. However, optimizing the 
+threshold that can generalize well on the unseen test cases is challenging.
+VAEs have been used as [alternative for this task][anamoly], where 
+reconstruction error is probabilistic and hence easier to generalize. See this 
+article by [FICO][fico] where they use autoencoders for detecting anomalies in 
+credit scores.
+
+[fico]: http://www.fico.com/en/blogs/analytics-optimization/improving-model-data-governance-auto-encoders/
+[anamoly]: https://arxiv.org/pdf/1802.03903.pdf
+[fraud]: https://www.kaggle.com/mlg-ulb/creditcardfraud
+[gen]: https://blog.openai.com/generative-models/
+
+This is it! its been quite a long article. Hope this is helpful to some of 
+you. Please let me know via comments below if any particular issues/concepts 
+you would like me to go over in more details. I would also love to know if any 
+particular topic in machine/deep learning you would like me to cover in future 
+posts.
