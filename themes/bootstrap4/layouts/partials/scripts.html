@@ -59,6 +59,12 @@ $(document).ready(function() {
 </script>
 <!--SCRIPTS END-->
 
+{{ if .Params.bokeh }}
+<script src="//cdnjs.cloudflare.com/ajax/libs/bokeh/0.12.15/bokeh.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/bokeh/0.12.15/bokeh-widgets.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/bokeh/0.12.15/bokeh-tables.min.js"></script>
+{{ end }}
+
 {{ range .Site.Params.CustomJS }}
   <script src="{{ $.Site.BaseURL }}{{ . }}"></script>
 {{ end }}

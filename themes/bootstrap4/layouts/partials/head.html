@@ -66,6 +66,12 @@
       <link rel="stylesheet" href="{{ $.Site.BaseURL }}{{ . }}">
     {{ end }}
 
+    {{ if .Params.bokeh }}
+    <link href="//cdnjs.cloudflare.com/ajax/libs/bokeh/0.12.15/bokeh.min.css" rel="stylesheet" type="text/css">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/bokeh/0.12.15/bokeh-widgets.min.css" rel="stylesheet" type="text/css">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/bokeh/0.12.15/bokeh-tables.min.css" rel="stylesheet" type="text/css">
+    {{ end }}
+
     {{ if .Params.hasMath }}
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.9.0/dist/katex.min.css" integrity="sha384-TEMocfGvRuD1rIAacqrknm5BQZ7W7uWitoih+jMNFXQIbNl16bO8OZmylH/Vi/Ei" crossorigin="anonymous">
 
