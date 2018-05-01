@@ -24,9 +24,9 @@ stories - they’re carefully constructed to surface key findings.
 Exploratory analysis, on the other hand, is what you do to get familiar with 
 the data. You may start out with a hypothesis or question, or you may just 
 really be delving into the data to determine what might be interesting about 
-it. **Exploratory** visualizations “create an interface into a dataset or 
+it. **Exploratory** visualizations, "create an interface into a dataset or 
 subject matter... they facilitate the user exploring the data, letting them 
-unearth their own insights: findings they consider relevant or interesting.”
+unearth their own insights: findings they consider relevant or interesting."
 
 <!--more-->
 
