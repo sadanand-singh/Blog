@@ -9,7 +9,7 @@ description:
 type: index
 ---
 
-{{< imgproc image="profile_pic" command="Resize" options="x212" class="figure img-responsive align-left">}}
+{{< figure src="https://res.cloudinary.com/sadanandsingh/image/upload/v1496963333/sadanand_pic_dtdy2b.jpg" alt="sadanand" class="figure align-left img-responsive" width="180pt" >}}
 
 My name is **Sadanand Singh**. I am
 [sadanand-singh](https://github.com/sadanand-singh) at Github and
