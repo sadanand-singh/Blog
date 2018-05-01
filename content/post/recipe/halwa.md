@@ -10,7 +10,6 @@ categories:
 authors:
     - "Abha Mundepi"
 link:
-readingTime: 6
 disqus_identifier: "CarrotHalwaRecipe.abha"
 description:
 ---

@@ -11,7 +11,6 @@ link:
 authors:
     - "Sadanand Singh"
 hasMath: true
-readingTime: 16
 disqus_identifier: "svmModels.sadanand"
 description:
 ---

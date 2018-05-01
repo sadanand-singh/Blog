@@ -10,7 +10,6 @@ categories:
 authors:
     - "Abha Mundepi"
 link:
-readingTime: 8
 disqus_identifier: "MixedVegPaneer.sadanand"
 description:
 ---

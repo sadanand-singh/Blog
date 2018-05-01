@@ -15,7 +15,6 @@ hasMath: true
 notebook: true
 draft: false
 disqus_identifier: "treebasedmodels.sadanand"
-readingTime: 30
 description:
 ---
 

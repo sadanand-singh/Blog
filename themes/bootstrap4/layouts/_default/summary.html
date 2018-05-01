@@ -6,9 +6,7 @@
     <div>
       {{ printf "%s" .Summary | markdownify }}
       <p class="more">
-      {{ with .Params.readingTime }}
-        <span class="text-success"> Reading Time: {{ . }} minutes &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-      {{ end }}
+        <span class="postShorten-readingtime text-success"> Reading Time: {{ .ReadingTime }} minutes &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
         <a href="{{ .Permalink }}">Read more…</a>
       </p>
       </div>

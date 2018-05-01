@@ -14,7 +14,6 @@ hasMath: false
 notebook: false
 draft: false
 disqus_identifier: "interactivedatavis.sadanand"
-readingTime: 15
 description:
 ---
 

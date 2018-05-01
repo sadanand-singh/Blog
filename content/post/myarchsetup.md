@@ -15,7 +15,6 @@ authors:
 description:
 aliases:
     - /posts/CompleteSetupArchPlasma/index.html
-readingTime: 21
 disqus_identifier: "CompleteSetupArchPlasma.sadanand"
 ---
 

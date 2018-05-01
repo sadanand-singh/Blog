@@ -10,7 +10,6 @@ categories:
 link:
 authors:
     - "Sadanand Singh"
-readingTime: 5
 aliases:
     - /posts/2014/08/TrainSpeedProblem/
     - /2014/trainspeedproblem/

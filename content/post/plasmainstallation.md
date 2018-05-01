@@ -12,7 +12,6 @@ categories:
 link:
 authors:
     - "Sadanand Singh"
-readingTime: 12
 disqus_identifier: "plasmaInstall.sadanand"
 description:
 ---

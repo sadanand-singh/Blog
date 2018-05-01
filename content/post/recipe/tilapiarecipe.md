@@ -10,7 +10,6 @@ categories:
 authors:
     - "Sadanand Singh"
 link:
-readingTime: 5
 disqus_identifier: "TilapiaFish.sadanand"
 description:
 ---

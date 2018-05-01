@@ -12,7 +12,6 @@ categories:
 link:
 authors:
     - "Sadanand Singh"
-readingTime: 10
 notebook: true
 disqus_identifier: "lcEDA1.sadanand"
 description:

@@ -10,7 +10,6 @@ categories:
 link:
 authors:
     - "Sadanand Singh"
-readingTime: 16
 hasMath: true
 notebook: true
 disqus_identifier: "pythontutorialweek2.sadanand"

@@ -9,7 +9,6 @@ categories:
 link:
 authors:
     - "Sadanand Singh"
-readingTime: 4
 disqus_identifier: "myNewCompSpecs.sadanand"
 description:
 ---

@@ -13,7 +13,6 @@ hasMath: false
 notebook: false
 draft: true
 disqus_identifier: ""
-readingTime: 10
 description:
 ---
 

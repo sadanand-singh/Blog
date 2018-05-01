@@ -14,7 +14,6 @@ hasMath: true
 notebook: false
 draft: false
 disqus_identifier: "svmpython.sadanand"
-readingTime: 18
 description:
 ---
 

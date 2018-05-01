@@ -8,7 +8,6 @@ tags:
 slug: "FirstPost"
 authors:
     - "Sadanand Singh"
-readingTime: 4
 aliases:
     - "/posts/2014/08/First Post/"
     - /2014/firstpost/index.html

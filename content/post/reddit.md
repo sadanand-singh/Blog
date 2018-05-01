@@ -11,7 +11,6 @@ categories:
 link:
 authors:
     - "Sadanand Singh"
-readingTime: 5
 notebook: true
 disqus_identifier: "RIntroReddit.sadanand"
 description:

@@ -16,7 +16,6 @@ hasMath: true
 notebook: false
 draft: false
 disqus_identifier: "autoencoders.sadanand"
-readingTime: 30
 description:
 ---
 

@@ -12,7 +12,6 @@ categories:
 link:
 authors:
     - "Sadanand Singh"
-readingTime: 8
 aliases:
     - /RplotsFacebbok
 notebook: true

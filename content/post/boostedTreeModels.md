@@ -15,7 +15,6 @@ hasMath: true
 notebook: true
 draft: false
 disqus_identifier: "boostedtrees.sadanand"
-readingTime: 30
 description:
 ---
 

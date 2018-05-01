@@ -12,7 +12,6 @@ link:
 authors:
     - "Sadanand Singh"
 hasMath: true
-readingTime: 15
 description:
 ---
 
