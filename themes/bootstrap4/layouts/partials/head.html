@@ -67,9 +67,14 @@
     {{ end }}
 
     {{ if .Params.bokeh }}
+    {{ $filename := $.Params.bokeh }}
+    {{ $directory := "static/js/" }}
+    {{ $fullpath := $filename | printf "%s%s" $directory | printf "%s" }}
+    {{ if (fileExists $fullpath) }}
     <link href="//cdnjs.cloudflare.com/ajax/libs/bokeh/0.12.15/bokeh.min.css" rel="stylesheet" type="text/css">
     <link href="//cdnjs.cloudflare.com/ajax/libs/bokeh/0.12.15/bokeh-widgets.min.css" rel="stylesheet" type="text/css">
     <link href="//cdnjs.cloudflare.com/ajax/libs/bokeh/0.12.15/bokeh-tables.min.css" rel="stylesheet" type="text/css">
+    {{ end }}
     {{ end }}
 
     {{ if .Params.hasMath }}

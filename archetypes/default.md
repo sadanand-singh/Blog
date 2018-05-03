@@ -12,7 +12,7 @@ authors:
 hasMath: false
 notebook: false
 draft: true
-bokeh: false
+bokeh: ""
 disqus_identifier: ""
 description:
 ---

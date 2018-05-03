@@ -59,11 +59,18 @@ $(document).ready(function() {
 </script>
 <!--SCRIPTS END-->
 
-{{ if .Params.bokeh }}
+{{ with .Params.bokeh }}
+{{ $filename := $.Params.bokeh }}
+{{ $directory := "static/js/" }}
+{{ $fullpath := $filename | printf "%s%s" $directory | printf "%s" }}
+{{ if (fileExists $fullpath) }}
 <script src="//cdnjs.cloudflare.com/ajax/libs/bokeh/0.12.15/bokeh.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/bokeh/0.12.15/bokeh-widgets.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/bokeh/0.12.15/bokeh-tables.min.js"></script>
+<script src="/js/{{ . }}"></script>
 {{ end }}
+{{ end }}
+
 
 {{ range .Site.Params.CustomJS }}
   <script src="{{ $.Site.BaseURL }}{{ . }}"></script>

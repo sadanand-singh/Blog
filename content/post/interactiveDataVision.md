@@ -13,7 +13,7 @@ authors:
 hasMath: false
 notebook: false
 draft: false
-bokeh: true
+bokeh: "interactivePlots_min.js"
 disqus_identifier: "interactivedatavis.sadanand"
 description:
 ---
@@ -135,19 +135,34 @@ The resulting `<div>` will look something like:
 </div>
 {{< /highlight >}}
 
+There will be one `<div>` for each of your plots and they should be placed at 
+where you want your plot to appear. The `<script>` section should be placed 
+in a typical place - the bottom of the `<body>` section for late loading.
+
 {{< /card >}}
 
-# Types of Interaction
+# Examples
 
 Bokeh has built-in support for various types of interactions (like pan, wheel zoom, box zoom, reset and save etc.) on all plots. Additionally, all of such interactions can be customized.
 
-In the following sections, we will look few major types of interactions that are required typically in an exploratory plot.
+In the following sections, we will look at few major types of interactions that are required typically in an exploratory plot.
 
 ## Hover/ Tool-tips
 
-Scatter plots are a great tool to visualize two dimensional data.
+Visualization of high dimensional data is a pretty common task in data science projects. The two most common algorithms to project high dimensional data to 2-dimensional space are [t-sne] and [UMAP]. The [scikit-learn][sklearn] and [umap-learn] python libraries provide a neat implementation of these algorithms.
 
+ss
 
+[t-sne]: https://lvdmaaten.github.io/tsne/
+[umap]: https://arxiv.org/abs/1802.03426
+[sklearn]: http://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html
+[umap-learn]: https://github.com/lmcinnes/umap
+
+<div style="display:table; margin:0 auto;">
+  <div class="bk-root">
+      <div class="bk-plotdiv" id="e50aea6c-81ff-4db9-b1ff-4a666e47aa94"></div>
+  </div>
+</div> 
 
 ## Linked Plots
 
@@ -157,7 +172,4 @@ Scatter plots are a great tool to visualize two dimensional data.
 # High level bokeh plots using holoviews Library
 
 <!-- GMap API KEY: AIzaSyAVRy9HYHhRWrZQwjSdTMJuEo-63Gjoak4 -->
-
-<!-- <div style="display:table; margin:0 auto;">
-</div> -->
 
