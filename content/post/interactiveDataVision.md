@@ -151,25 +151,178 @@ In the following sections, we will look at few major types of interactions that 
 
 Visualization of high dimensional data is a pretty common task in data science projects. The two most common algorithms to project high dimensional data to 2-dimensional space are [t-sne] and [UMAP]. The [scikit-learn][sklearn] and [umap-learn] python libraries provide a neat implementation of these algorithms.
 
-ss
+In this post, as an example, we will use the [fashion MNIST] data to look at 
+its tsne and UMAP embeddings. We can first load the data from the [Keras] 
+libarary. We will load only the training data and save both images and labels 
+in a [pandas] dataframe.
 
 [t-sne]: https://lvdmaaten.github.io/tsne/
 [umap]: https://arxiv.org/abs/1802.03426
 [sklearn]: http://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html
 [umap-learn]: https://github.com/lmcinnes/umap
+[fashion MNIST]: https://github.com/zalandoresearch/fashion-mnist
+[Keras]: https://keras.io
+
+{{< highlight lang="python" linenos="true" >}}
+from keras.datasets import fashion_mnist
+import numpy as np
+import pandas as pd
+
+(X, y), (_, _) = fashion_mnist.load_data()
+X = X.astype('float32') / 255.
+X = X.reshape((-1, np.prod(X.shape[1:])))
+
+feat_cols = ['pixel'+str(i) for i in range(X.shape[1])]
+df = pd.DataFrame(X,columns=feat_cols)
+df['label'] = y
+df['label'] = df['label'].apply(lambda i: str(i))
+{{< /highlight >}}
+
+We will also create randomized permutation of indices so that we can access 
+random elements of our data.
+
+{{< highlight lang="python" linenos="true" >}}
+rndperm = np.random.permutation(df.shape[0])
+{{< /highlight >}}
+
+Now, we can calculate the tsne and umap features. For faster computation, we will use only random 7000 samples.
+
+{{< highlight lang="python" linenos="true" >}}
+from sklearn.manifold import TSNE
+import umap
+
+n_sne = 7000
+df_small = df.loc[rndperm[:n_sne],:].copy()
+
+tsne = TSNE(n_components=2, verbose=1, perplexity=100, n_iter=1000)
+tsne_results = tsne.fit_transform(df_small[:, feat_cols].values)
+
+umap_obj = umap.UMAP(n_neighbors=5,
+                      min_dist=0.1,
+                      metric='correlation')
+umap_results = umap_obj.fit_transform(df_small[:, feat_cols].values)
+{{< /highlight >}}
+
+Now, we can use the resulting arrays `tsne_results` and `umap_results` to make bokeh plots. In particular, we will use scatter plots to compare two embeddings. To make more sense of the data,it would be great if hovering over a point could show the corrensponding image. We will enable that using a customozed `HoverTool()` tool.
+
+{{< highlight lang="python" linenos="true" >}}
+from bokeh.plotting import figure, show, ColumnDataSource
+from bokeh.layouts import gridplot
+from bokeh.models import CDSView, Legend, GroupFilter, HoverTool, BoxZoomTool
+from bokeh.models import LassoSelectTool, WheelZoomTool, BoxSelectTool, ResetTool
+
+fm = {'0':'T-Shirt', '1':'Trouser', '2':'Pullover', '3':'Dress', '4':'Coat', '5':'Sandle', '6':'Shirt', '7':'Sneaker', '8':'Bag', '9':'Ankle Boot'}
+hover = HoverTool( tooltips="""
+    <div>
+        <div>
+            @title
+            <img
+                src="@imgs" height="28" alt="@imgs" width="28"
+            ></img>
+        </div>
+    </div>
+    """
+)
+
+source = ColumnDataSource(data=dict(
+    x1=umap_results[:,0],
+    y1=umap_results[:,1],
+    x2=tsne_results[:,0],
+    y2=tsne_results[:,1],
+    l=df_small.label,
+    imgs=["/images/interactive/"+i+'.png' for i in df_small.label],
+    title=[fm[i] for i in df_small.label],
+))
+tools = [hover, BoxSelectTool(), LassoSelectTool(), WheelZoomTool(), BoxZoomTool(), ResetTool()]
+clr = {'0':'darkred', '1':'darkgreen', '2':'goldenrod', '3':'blue', '4':'darkorange', '5':'darkslategray', '6':'hotpink', '7':'brown', '8':'black', '9':'dodgerblue'}
+p1 = figure(plot_width=430, plot_height=300, title="UMAP", tools=tools)
+legend_it = []
+for c in clr:
+    view0 = CDSView(source=source, filters=[GroupFilter(column_name='l', group=c)])
+    circle = p1.circle(x='x1', y='y1', source=source, view=view0, color=clr[c], alpha=0.4)
+    legend_it.append((fm[c], [circle]))
+    
+legend = Legend(items=legend_it, location=(20, 0))
+legend.click_policy="mute"
+
+p1.add_layout(legend, 'right')
+
+p2 = figure(plot_width=300, plot_height=300, title="TSNE", tools=tools)
+for c in clr:
+    view0 = CDSView(source=source, filters=[GroupFilter(column_name='l', group=c)])
+    circle = p2.circle(x='x2', y='y2', source=source, view=view0, color=clr[c], alpha=0.4)
+
+p3 = gridplot([[p2, p1]])
+show(p3)
+{{< /highlight >}}
+
+Notice, how the two plots are linked - If you select some points in one, it 
+will highlight the corresponding points in other!
 
 <div style="display:table; margin:0 auto;">
   <div class="bk-root">
       <div class="bk-plotdiv" id="e50aea6c-81ff-4db9-b1ff-4a666e47aa94"></div>
   </div>
-</div> 
+</div>
+
+Also notice the trick used in the right plot of UMAP embeddings to move 
+legends outside the plot area. Commonly, `circle()` has an option
+for `legend`, however this leads to legend being shown inside the main
+plot region!
 
 ## Linked Plots
 
-## Interacting via Data
+Although we already have seen above how one can enable linked plots. In this 
+example, I want to highlight a different kind of linking. It’s often desired 
+to link pan or zooming actions across many plots. All that is needed to enable 
+this feature is to share range objects between `figure()` calls.
+
+For this example, we will use the simpler [Boston Housing] dataset. We can 
+load this data using the Keras library and save it in a pandas dataframe.
+
+[Boston Housing]: https://www.cs.toronto.edu/~delve/data/boston/bostonDetail.html
+
+{{< highlight lang="python" linenos="true" >}}
+from keras.datasets import boston_housing
+
+(x_train, y_train), (_, _) = boston_housing.load_data()
+
+df_boston = pd.DataFrame(x_train)
+cols = ["CRIM", "ZN", "INDUS", "CHAS", "NOX"]
+cols += ["RM", "AGE", "DIS", "RAD", "TAX", "PTRATIO", "B", "LRATIO"]
+df_boston.columns = cols
+
+df_boston['price'] = y_train
+{{< /highlight >}}
+
+
+
+## Filter/Select Data
+
+In the final example on types of interactive plots, I want to highlight a very 
+different type of desired interactions - filter/select data on the fly and 
+keep updating the plot! I also want to show the plots of maps and geo 
+locations in bokeh. I will be using the San Fransisco Crime dataset to 
+showcase this.
 
 
 # High level bokeh plots using holoviews Library
+
+By now you might have noticed, bokeh provides only low level APIs for 
+plotting. Theoretically this enables to us plot any kind of complex plots. 
+However, for common day-to-do plots like box plots, histograms etc. we need to 
+write a lot of code! Luckily, [holoviews] library come to our rescue!
+
+In the final example, I will show a simple example of box and histogram plots 
+on [Boston Housing] data using holoviews.
+
+Hopefully, this was enough to convince to start using interactive plots for 
+some of your [EDA]. Go through the APIs of bokeh and holoviews to find 
+additional details. Bokeh also provides a nice [tutorial] for new users.
+If you have any question regarding any type of plot, feel free to leave a 
+comment below!
+
+[tutorial]: https://mybinder.org/v2/gh/bokeh/bokeh-notebooks/master?filepath=tutorial%2F00%20-%20Introduction%20and%20Setup.ipynb
 
 <!-- GMap API KEY: AIzaSyAVRy9HYHhRWrZQwjSdTMJuEo-63Gjoak4 -->
 
