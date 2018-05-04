@@ -271,9 +271,9 @@ Notice, how the two plots are linked - If you select some points in one, it
 will highlight the corresponding points in other!
 
 <div style="display:table; margin:0 auto;">
-  <div class="bk-root">
-      <div class="bk-plotdiv" id="99d275b3-6022-499f-ba4d-8e79b15ff193"></div>
-  </div>
+<div class="bk-root">
+  <div class="bk-plotdiv" id="f5ff386f-f7e4-40c4-959b-6c4324392147"></div>
+</div>
 </div>
 
 Also notice the trick used in the right plot of UMAP embeddings to move 
@@ -340,9 +340,9 @@ plots. Notice, similar to the previous plot, we can still do selection across
 all three plots since all plots share a common `ColumnDataSource`.
 
 <div style="display:table; margin:0 auto;">
-  <div class="bk-root">
-      <div class="bk-plotdiv" id="cbba7a70-f2de-44bd-9053-77226014f442"></div>
-  </div>
+<div class="bk-root">
+    <div class="bk-plotdiv" id="ebfb65a6-ba7d-4dcf-a7a2-88d3b5ecc907"></div>
+</div>
 </div>
 
 ## Filter/Select Data
@@ -389,9 +389,9 @@ get corresponding bokeh figure from it and apply all modifications from bokeh.
 This makes it easy to use as well as quite customizable.
 
 <div style="display:table; margin:0 auto;">
-  <div class="bk-root">
-      <div class="bk-plotdiv" id="bda6e269-cc48-4abf-8b05-52f3b2ad5c63"></div>
-  </div>
+<div class="bk-root">
+    <div class="bk-plotdiv" id="51f43d24-878e-4d83-9593-74dbee6ae0a6"></div>
+</div>
 </div>
 
 To illustrate making of histogram plots, we can take a look at the overall 
@@ -415,9 +415,9 @@ show(p46)
 We get an interactive histogram plot with a single line of code!
 
 <div style="display:table; margin:0 auto;">
-  <div class="bk-root">
-      <div class="bk-plotdiv" id="1f8bfd18-c9f9-4e78-8ecc-8bd04319b855"></div>
-  </div>
+<div class="bk-root">
+    <div class="bk-plotdiv" id="071e4f37-b692-426b-97ed-cd6cfded2ec2"></div>
+</div>
 </div>
 
 Similar to the box plot, we customized it by getting the corresponding bokeh 
