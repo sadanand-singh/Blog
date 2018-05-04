@@ -271,9 +271,9 @@ Notice, how the two plots are linked - If you select some points in one, it
 will highlight the corresponding points in other!
 
 <div style="display:table; margin:0 auto;">
-<div class="bk-root">
-  <div class="bk-plotdiv" id="f5ff386f-f7e4-40c4-959b-6c4324392147"></div>
-</div>
+  <div class="bk-root">
+      <div class="bk-plotdiv" id="18987b61-e8e6-41ec-b1a3-396e697d2858"></div>
+  </div>
 </div>
 
 Also notice the trick used in the right plot of UMAP embeddings to move 
@@ -340,9 +340,9 @@ plots. Notice, similar to the previous plot, we can still do selection across
 all three plots since all plots share a common `ColumnDataSource`.
 
 <div style="display:table; margin:0 auto;">
-<div class="bk-root">
-    <div class="bk-plotdiv" id="ebfb65a6-ba7d-4dcf-a7a2-88d3b5ecc907"></div>
-</div>
+  <div class="bk-root">
+      <div class="bk-plotdiv" id="5d4613e7-5b0a-47b8-a98b-2ddaccf97736"></div>
+  </div>
 </div>
 
 ## Filter/Select Data
@@ -350,9 +350,97 @@ all three plots since all plots share a common `ColumnDataSource`.
 In the final example on types of interactive plots, I want to highlight a very 
 different type of desired interactions - filter/select data on the fly and 
 keep updating the plot! I also want to show the plots of maps and geo 
-locations in bokeh. I will be using the San Fransisco Crime dataset to 
+locations in bokeh. I will be using the [San Fransisco Crime dataset][sfo] to 
 showcase this.
 
+[sfo]: https://www.kaggle.com/c/sf-crime/data
+[gmap]: https://developers.google.com/maps/documentation/javascript/tutorial
+
+Let us first download the file from abve link and load it as a dataframe:
+
+{{< highlight lang="python" linenos="true" >}}
+df_sfo = pd.read_csv("./train.csv")
+{{< /highlight >}}
+
+Now, we want to look at the crime rate at different days of weeks. We want to 
+view this interactively. Users can choose All or a particular day and our plot 
+should show us distribution of crime for that/those days on the map. I will be 
+using the google maps API for displaying the map. You can get your own API at 
+the [this link][gmap].
+
+We will use the `Seelct` bokeh widget to let users choose the day of the week 
+to visualize. Notice the use of `callback` method to implement interaction 
+between our widget and plot.
+
+{{< highlight lang="python" linenos="true" >}}
+from bokeh.models.widgets import Select
+from bokeh.models import CustomJS
+from bokeh.models import GMapOptions
+from bokeh.plotting import gmap
+from bokeh.layouts import column
+
+source = ColumnDataSource(data=dict(
+    x=df_sfo.head(350).X,
+    y=df_sfo.head(350).Y,
+    c = ['blue']*350,
+))
+
+source2 = ColumnDataSource(data=dict(
+    All_x=df_sfo.head(350).X,
+    All_y=df_sfo.head(350).Y,
+    All_c=['blue']*350,
+    Sunday_x=df_sfo[df_sfo.DayOfWeek == 'Sunday'].head(50).X,
+    Sunday_y=df_sfo[df_sfo.DayOfWeek == 'Sunday'].head(50).Y,
+    Sunday_c=['red']*50,
+    Monday_x=df_sfo[df_sfo.DayOfWeek == 'Monday'].head(50).X,
+    Monday_y=df_sfo[df_sfo.DayOfWeek == 'Monday'].head(50).Y,
+    Monday_c=['green']*50,
+    Tuesday_x=df_sfo[df_sfo.DayOfWeek == 'Tuesday'].head(50).X,
+    Tuesday_y=df_sfo[df_sfo.DayOfWeek == 'Tuesday'].head(50).Y,
+    Tuesday_c=['cyan']*50,
+    Wednesday_x=df_sfo[df_sfo.DayOfWeek == 'Wednesday'].head(50).X,
+    Wednesday_y=df_sfo[df_sfo.DayOfWeek == 'Wednesday'].head(50).Y,
+    Wednesday_c=['teal']*50,
+    Thursday_x=df_sfo[df_sfo.DayOfWeek == 'Thursday'].head(50).X,
+    Thursday_y=df_sfo[df_sfo.DayOfWeek == 'Thursday'].head(50).Y,
+    Thursday_c=['orange']*50,
+    Friday_x=df_sfo[df_sfo.DayOfWeek == 'Friday'].head(50).X,
+    Friday_y=df_sfo[df_sfo.DayOfWeek == 'Friday'].head(50).Y,
+    Friday_c=['black']*50,
+    Saturday_x=df_sfo[df_sfo.DayOfWeek == 'Saturday'].head(50).X,
+    Saturday_y=df_sfo[df_sfo.DayOfWeek == 'Saturday'].head(50).Y,
+    Saturday_c=['pink']*50,
+))
+
+def callback(source=source, source2=source2):
+    data = source.data
+    data2 = source2.data
+    f = cb_obj.value
+    data.x=data2[f+'_x']
+    data.y=data2[f+'_y']
+    data.c=data2[f+'_c']
+    source.change.emit()
+
+select = Select(title="Day of Week:", value="All", callback=CustomJS.from_py_func(callback), options=['All','Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'])
+
+
+map_options = GMapOptions(lat=37.7749, lng=-122.4194, map_type="roadmap", zoom=12)
+p47 = gmap("YOUR_GMAP_API_KEY_HERE", map_options, title="San Fransisco")
+p47.circle(x='x', y='y', size=15, fill_color='c', fill_alpha=0.8, source=source)
+
+p477 = column(select, p47)
+show(p477)
+{{< /highlight >}}
+
+<div style="display:table; margin:0 auto;">
+  <div class="bk-root">
+    <div class="bk-plotdiv" id="b270467e-6185-4cce-95ac-7d6c090b4e57"></div>
+</div>
+</div>
+
+You can choose the Day of Week in the Selection dropdown menu at the top and 
+see how the plot updates itself. For this example, I have restricted to 
+showing only 50 entries for each day to keep the `js` file small.
 
 # High level bokeh plots using holoviews Library
 
@@ -389,9 +477,9 @@ get corresponding bokeh figure from it and apply all modifications from bokeh.
 This makes it easy to use as well as quite customizable.
 
 <div style="display:table; margin:0 auto;">
-<div class="bk-root">
-    <div class="bk-plotdiv" id="51f43d24-878e-4d83-9593-74dbee6ae0a6"></div>
-</div>
+  <div class="bk-root">
+      <div class="bk-plotdiv" id="f1968bdf-4641-442e-95fd-495ecd066265"></div>
+  </div>
 </div>
 
 To illustrate making of histogram plots, we can take a look at the overall 
@@ -415,9 +503,9 @@ show(p46)
 We get an interactive histogram plot with a single line of code!
 
 <div style="display:table; margin:0 auto;">
-<div class="bk-root">
-    <div class="bk-plotdiv" id="071e4f37-b692-426b-97ed-cd6cfded2ec2"></div>
-</div>
+  <div class="bk-root">
+      <div class="bk-plotdiv" id="bc5b4830-e140-48eb-a1b3-75b57701acb4"></div>
+  </div>
 </div>
 
 Similar to the box plot, we customized it by getting the corresponding bokeh 
@@ -432,6 +520,3 @@ If you have any question regarding any type of plot, feel free to leave a
 comment below!
 
 [tutorial]: https://mybinder.org/v2/gh/bokeh/bokeh-notebooks/master?filepath=tutorial%2F00%20-%20Introduction%20and%20Setup.ipynb
-
-<!-- GMap API KEY: AIzaSyAVRy9HYHhRWrZQwjSdTMJuEo-63Gjoak4 -->
-
