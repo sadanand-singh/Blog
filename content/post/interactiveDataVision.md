@@ -1,6 +1,6 @@
 ---
 title: "Interactive Data Visualization in Python"
-date: 2018-04-28
+date: 2018-05-04
 tags:
     - "Data Science"
     - "Python"
@@ -270,7 +270,7 @@ show(p3)
 Notice, how the two plots are linked - If you select some points in one, it 
 will highlight the corresponding points in other!
 
-<div style="display:table; margin:0 auto;">
+<div class="figure img-responsive" style="display:table; margin:0 auto;">
   <div class="bk-root">
       <div class="bk-plotdiv" id="18987b61-e8e6-41ec-b1a3-396e697d2858"></div>
   </div>
@@ -339,7 +339,7 @@ others will move too! This is enabled by letting `x_range` be shared to all
 plots. Notice, similar to the previous plot, we can still do selection across 
 all three plots since all plots share a common `ColumnDataSource`.
 
-<div style="display:table; margin:0 auto;">
+<div class="figure img-responsive" style="display:table; margin:0 auto;">
   <div class="bk-root">
       <div class="bk-plotdiv" id="5d4613e7-5b0a-47b8-a98b-2ddaccf97736"></div>
   </div>
@@ -432,7 +432,7 @@ p477 = column(select, p47)
 show(p477)
 {{< /highlight >}}
 
-<div style="display:table; margin:0 auto;">
+<div class="figure img-responsive" style="display:table; margin:0 auto;">
   <div class="bk-root">
     <div class="bk-plotdiv" id="b270467e-6185-4cce-95ac-7d6c090b4e57"></div>
 </div>
@@ -476,7 +476,7 @@ Notice, plotting was just a single line in holoviews! Furthermore, we could
 get corresponding bokeh figure from it and apply all modifications from bokeh.
 This makes it easy to use as well as quite customizable.
 
-<div style="display:table; margin:0 auto;">
+<div class="figure img-responsive" style="display:table; margin:0 auto;">
   <div class="bk-root">
       <div class="bk-plotdiv" id="f1968bdf-4641-442e-95fd-495ecd066265"></div>
   </div>
@@ -502,7 +502,7 @@ show(p46)
 
 We get an interactive histogram plot with a single line of code!
 
-<div style="display:table; margin:0 auto;">
+<div class="figure img-responsive" style="display:table; margin:0 auto;">
   <div class="bk-root">
       <div class="bk-plotdiv" id="bc5b4830-e140-48eb-a1b3-75b57701acb4"></div>
   </div>
