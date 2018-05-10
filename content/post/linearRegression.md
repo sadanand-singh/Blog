@@ -1,5 +1,5 @@
 ---
-title: "A Comprehensive Guide to Linear and Logistic Regression"
+title: "A Comprehensive Guide to Linear Regression"
 date: 2018-05-07T21:09:21-07:00
 tags:
     - "Machine Learning"
@@ -7,7 +7,7 @@ tags:
     - Python
 categories:
     - "Machine Learning"
-slug: "linear-logistic-regression"
+slug: "linear-regression"
 link:
 authors:
     - "Sadanand Singh"
@@ -15,19 +15,50 @@ hasMath: true
 notebook: false
 draft: true
 bokeh: ""
-disqus_identifier: "linear-logistic-regression.sadanand"
+disqus_identifier: "linear-regression.sadanand"
 description:
 ---
 
-Modelling the relationship between a scalar response (or dependent variable) 
-and one or more explanatory variables (or independent variables) is commonly 
-referred as a **regression** problem. The simplest model of such a 
+Modeling the relationship between a scalar response (or dependent variable)
+and one or more explanatory variables (or independent variables) is commonly
+referred as a **regression** problem. The simplest model of such a
 relationship can be described by a linear function - referred
-as **linear regression**.
+as _linear regression_.
 
 <!--more-->
 
 <!--TOC-->
+
+# Theory of Linear Regression
+
+Linear Regression represents a linear relationship between the input
+variables ($X$) and single output variable($y$). When the input ($X$) is a
+single variable, this model is called **Simple Linear Regression** and when
+there are mutiple input variables ($X$), it is called
+**Multiple Linear Regression**. Mathematically, A simple linear regression
+model can be represented as,
+
+{{< tex display="y_i = b + w x_i" >}}
+
+For $n$ data points, we can write these equations in matrix form as,
+
+{{< tex display="\begin{bmatrix} y_1 \\ y_2 \\ \vdots \\ y_n \end{bmatrix} = \begin{bmatrix} x_1 & 1 \\ x_2 & 1\\ \vdots & \vdots \\ x_n & 1 \end{bmatrix} \begin{bmatrix} w \\ b \end{bmatrix}" >}}
+
+For the general case of multiple input variables
+{{< tex "x_{i1}, x_{i2}, \ldots x_{im}" >}},
+we can write the above matrix equation as,
+
+{{< tex display="\begin{bmatrix} y_1 \\ y_2 \\ \vdots \\ y_n \end{bmatrix} = \begin{bmatrix} x_{11} & x_{12} & \ldots & x_{1m} & 1 \\ x_{21} & x_{22} & \ldots & x_{2m} & 1\\ \vdots & \vdots & \ldots & \vdots \\ x_{n1} & x_{n2} & \ldots & x_{nm} & 1 \end{bmatrix} \begin{bmatrix} w_1 \\ w_2 \\ \vdots \\ w_m \\ b \end{bmatrix}" >}}
+
+In matrix notation, this can be written as,
+$$y = \mathbf{X}w$$
+
+In terms of a regression problem, given the data $\mathbf{X}$ and the
+response $\hat{y}$, we want to estimate the weights vector $w$, such
+that $y = \mathbf{X}w$ is as close as possible to $\hat{y}$.
+
+
+
 
 # Sections
 
