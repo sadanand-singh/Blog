@@ -29,7 +29,7 @@ as _linear regression_.
 
 <!--TOC-->
 
-# Theory of Linear Regression
+# Classical approach to Linear Regression
 
 Linear Regression represents a linear relationship between the input
 variables ($X$) and single output variable($y$). When the input ($X$) is a
@@ -44,7 +44,7 @@ For $n$ data points, we can write these equations in matrix form as,
 
 {{< tex display="\begin{bmatrix} y_1 \\ y_2 \\ \vdots \\ y_n \end{bmatrix} = \begin{bmatrix} x_1 & 1 \\ x_2 & 1\\ \vdots & \vdots \\ x_n & 1 \end{bmatrix} \begin{bmatrix} w \\ b \end{bmatrix}" >}}
 
-For the general case of multiple input variables
+For the general case of multi-dimensional input variable, $X \equiv$
 {{< tex "x_{i1}, x_{i2}, \ldots x_{im}" >}},
 we can write the above matrix equation as,
 
