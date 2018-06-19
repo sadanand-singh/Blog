@@ -1,6 +1,6 @@
 ---
 title: "A Comprehensive Guide to Linear Regression"
-date: 2018-05-07T21:09:21-07:00
+date: 2018-05-19T21:09:21-07:00
 tags:
     - "Machine Learning"
     - "Data Science"
@@ -35,7 +35,7 @@ Linear Regression represents a linear relationship between the input
 variables ($X$) and single output variable($y$). When the input ($X$) is a
 single variable, this model is called **Simple Linear Regression** and when
 there are multiple input variables ($X$), it is called
-**Multiple Linear Regression**. Mathematically, A simple linear regression
+**Multiple Linear Regression**. Mathematically, a simple linear regression
 model can be represented as,
 
 {{< tex display="y_i \approx b + w x_i" >}}
@@ -62,21 +62,23 @@ The most common way to define and get the closeness of the predicted
 response $\hat{y}$ and the true response $y$ is using the
 **residual sum of squares (RSS)**.
 
-{{< tex display="RSS = \sum_{i=1}^N \big ( y_i - \hat{y}_i \big)^2" >}}
+{{< tex display="RSS = \sum_{i=1}^N \big ( y_i - \hat{y}_i \big)^2 = (y - \mathbf{X}w)^T (y - \mathbf{X}w)" >}}
 
-where $N$ is total number of samples.
-
-Using some linear algebra, we can show that, in the matrix form, the solution
-to the weights vector $w$ can be given by,
+where $N$ is the total number of samples.
+Using some linear algebra and calculus, we can show that, in the matrix form,
+the solution to the weights vector $w$ can be given by,
 
 {{< tex display="w = \big(\mathbf{X}^T\mathbf{X}\big)^{-1} \mathbf{X}^T y" >}}
 
+This approach of estimating weights for linear regression is called **Ordinary Least Squares** ([OLS]).
+
+[OLS]: https://en.wikipedia.org/wiki/Ordinary_least_squares
 
 # Key Metrics
 
 # Key Assumptions
 
-# Regularization
+# Regularization: Ridge and Lasso Regression
 
 ## A Bayesian Perspective
 
