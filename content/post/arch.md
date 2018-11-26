@@ -49,18 +49,18 @@ Initial Setup
 Download the latest iso from Arch website and create the uefi usb
 installation media. I used my mac to do this on terminal:
 
-{{< highlight lang="bash" linenos="true" >}}
+```bash
 
-$ diskutil list
-$ diskutil unmountDisk /dev/disk1
-$ dd if=image.iso of=/dev/rdisk1 bs=1m
+diskutil list
+diskutil unmountDisk /dev/disk1
+dd if=image.iso of=/dev/rdisk1 bs=1m
 20480+0 records in
 20480+0 records out
 167772160 bytes transferred in 220.016918 secs (762542 bytes/sec)
 
-$ diskutil eject /dev/disk1
+diskutil eject /dev/disk1
 
-{{< /highlight >}}
+```
 
 Use this media to boot into your machine. You should boot into UEFI mode
 if you have a
@@ -69,9 +69,9 @@ motherboard and UEFI mode enabled.
 
 To verify you have booted in UEFU mode, run:
 
-{{< highlight lang="bash" linenos="true" >}}
-$ efivar -l
-{{< /highlight >}}
+```bash
+efivar -l
+```
 
 This should give you a list of set UEFI variables. Please look at the
 [Begineers' Guide](https://wiki.archlinux.org/index.php/Beginners%27_guide) in case
@@ -87,9 +87,9 @@ with all the installation.
 
 To setup wifi simply run:
 
-{{< highlight lang="bash" linenos="true" >}}
-$ wifi-menu
-{{< /highlight >}}
+```bash
+wifi-menu
+```
 
 This is a pretty straight forward tool and will setup wifi for you for
 this installation session.
@@ -103,10 +103,10 @@ System Updates
 For editing different configurations, I tend to use *vim*. So we will
 update our package cache and install vim.
 
-{{< highlight lang="bash" linenos="true" >}}
-$ pacman -Syy
-$ pacman -S vim
-{{< /highlight >}}
+```bash
+pacman -Syy
+pacman -S vim
+```
 
 Hard Drives
 -----------
@@ -124,58 +124,58 @@ benefits of using _btrfs_ partitions.
 
 First list your hard drives with the following:
 
-{{< highlight lang="bash" linenos="true" >}}
-$ lsblk
-$ cat /proc/partitions
-{{< /highlight >}}
+```bash
+lsblk
+cat /proc/partitions
+```
 
 Assuming, my setup above, now create gpt partitions and format them.
 
-{{< highlight lang="bash" linenos="true" >}}
-$ dd if=/dev/zero of=/dev/sda bs=1M count=5000
-$ gdisk /dev/sda
+```bash
+dd if=/dev/zero of=/dev/sda bs=1M count=5000
+gdisk /dev/sda
 Found invalid MBR and corrupt GPT. What do you want to do? (Using the
 GPT MAY permit recovery of GPT data.)
  1 - Use current GPT
  2 - Create blank GPT
- {{< /highlight >}}
+ ```
 
 Then press 2 to create a blank GPT and start fresh
 
-{{< highlight lang="bash" linenos="true" >}}
+```bash
 ZAP:
-$ press x - to go to extended menu
-$ press z - to zap
-$ press Y - to confirm
-$ press Y - to delete MBR
-{{< /highlight >}}
+press x - to go to extended menu
+press z - to zap
+press Y - to confirm
+press Y - to delete MBR
+```
 
 It might now kick us out of _gdisk_, so get back into it:
 
-{{< highlight lang="bash" linenos="true" >}}
-$ gdisk /dev/sda
+```bash
+gdisk /dev/sda
 
-$ Command (? for help): m
-$ Command (? for help): n
+Command (? for help): m
+Command (? for help): n
 
-$ Partition number (1-128, default 1):
-$ First sector (34-500118158, default = 2048) or {+-}size{KMGTP}:
-$ Last sector (2048-500118, default = 500118) or {+-}size{KMGTP}: 512M
-$ Current type is 'Linux filesystem'
-$ Hex code or GUID (L to show codes, Enter = 8300): ef00
-$ Changed type of partition to 'EFI System'
+Partition number (1-128, default 1):
+First sector (34-500118158, default = 2048) or {+-}size{KMGTP}:
+Last sector (2048-500118, default = 500118) or {+-}size{KMGTP}: 512M
+Current type is 'Linux filesystem'
+Hex code or GUID (L to show codes, Enter = 8300): ef00
+Changed type of partition to 'EFI System'
 
-$ Partition number (2-128, default 2):
-$ First sector (34-500118, default = 16779264) or {+-}size{KMGTP}:
-$ Last sector (16779264-500118, default = 500118) or {+-}size{KMGTP}:
-$ Current type is 'Linux filesystem'
-$ Hex code or GUID (L to show codes, Enter = 8300):
-$ Changed type of partition to 'Linux filesystem'
+Partition number (2-128, default 2):
+First sector (34-500118, default = 16779264) or {+-}size{KMGTP}:
+Last sector (16779264-500118, default = 500118) or {+-}size{KMGTP}:
+Current type is 'Linux filesystem'
+Hex code or GUID (L to show codes, Enter = 8300):
+Changed type of partition to 'Linux filesystem'
 
-$ Command (? for help): p
-$ Press w to write to disk
-$ Press Y to confirm
-{{< /highlight >}}
+Command (? for help): p
+Press w to write to disk
+Press Y to confirm
+```
 
 Repeat the above procedure for */dev/sdb* and */dev/sdc*, but create
 just one partition with all values as default. At the end we will have
@@ -183,81 +183,81 @@ three partitions: */dev/sda1, /dev/sda2, /dev/sdb1* and */dev/sdc1*
 
 Now we will format these partitions.
 
-{{< highlight lang="bash" linenos="true" >}}
-$ mkfs.vfat -F32 /dev/sda1
-$ mkfs.btrfs -L arch /dev/sda2
-$ mkfs.btrfs -L data /dev/sdb1
-$ mkfs.btrfs -L media /dev/sdc1
-{{< /highlight >}}
+```bash
+mkfs.vfat -F32 /dev/sda1
+mkfs.btrfs -L arch /dev/sda2
+mkfs.btrfs -L data /dev/sdb1
+mkfs.btrfs -L media /dev/sdc1
+```
 
 Now, we will create btrfs subvolumes and mount them properly for
 installation and final setup.
 
-{{< highlight lang="bash" linenos="true" >}}
-$ mount /dev/sda2 /mnt
-$ btrfs subvolume create /mnt/ROOT
-$ btrfs subvolume create /mnt/home
-$ umount /mnt
+```bash
+mount /dev/sda2 /mnt
+btrfs subvolume create /mnt/ROOT
+btrfs subvolume create /mnt/home
+umount /mnt
 
-$ mount /dev/sdb1 /mnt
-$ btrfs subvolume create /mnt/data
-$ umount /mnt
+mount /dev/sdb1 /mnt
+btrfs subvolume create /mnt/data
+umount /mnt
 
-$ mount /dev/sdc1 /mnt
-$ btrfs subvolume create /mnt/media
-$ umount /mnt
-{{< /highlight >}}
+mount /dev/sdc1 /mnt
+btrfs subvolume create /mnt/media
+umount /mnt
+```
 
 Now, once the sub-volumes have been created, we will mount them in
 appropriate locations with optimal flags.
 
-{{< highlight lang="bash" linenos="true" >}}
+```bash
 $SSD_MOUNTS="rw,noatime,nodev,compress=lzo,ssd,discard,
     space_cache,autodefrag,inode_cache"
-$ HDD_MOUNTS="rw,nosuid,nodev,relatime,space_cache"
-$ EFI_MOUNTS="rw,noatime,discard,nodev,nosuid,noexec"
-$ mount -o $SSD_MOUNTS,subvol=ROOT /dev/sda2 /mnt
-$ mkdir -p /mnt/home
-$ mkdir -p /mnt/data
-$ mkdir -p /mnt/media
-$ mount -o $SSD_MOUNTS,nosuid,subvol=home /dev/sda2 /mnt/home
-$ mount -o $HDD_MOUNTS,subvol=data /dev/sdb1 /mnt/data
-$ mount -o $HDD_MOUNTS,subvol=media /dev/sdc1 /mnt/media
+HDD_MOUNTS="rw,nosuid,nodev,relatime,space_cache"
+EFI_MOUNTS="rw,noatime,discard,nodev,nosuid,noexec"
+mount -o $SSD_MOUNTS,subvol=ROOT /dev/sda2 /mnt
+mkdir -p /mnt/home
+mkdir -p /mnt/data
+mkdir -p /mnt/media
+mount -o $SSD_MOUNTS,nosuid,subvol=home /dev/sda2 /mnt/home
+mount -o $HDD_MOUNTS,subvol=data /dev/sdb1 /mnt/data
+mount -o $HDD_MOUNTS,subvol=media /dev/sdc1 /mnt/media
 
-$ mkdir -p /mnt/boot
-$ mount -o $EFI_MOUNTS /dev/sda1 /mnt/boot
-{{< /highlight >}}
+mkdir -p /mnt/boot
+mount -o $EFI_MOUNTS /dev/sda1 /mnt/boot
+```
 
 Base Installation
 =================
 
 Now, we will do the actually installation of base packages.
 
-{{< highlight lang="bash" linenos="true" >}}
-$ pacstrap /mnt base base-devel btrfs-progs
-$ genfstab -U -p /mnt >> /mnt/etc/fstab
-{{< /highlight >}}
+```bash
+pacstrap /mnt base base-devel btrfs-progs
+genfstab -U -p /mnt >> /mnt/etc/fstab
+```
 
 Edit the /mnt/ect/fstab file to add following /tmp mounts.
 
-{{< highlight lang="bash" linenos="true" >}}
+```bash
 tmpfs /tmp tmpfs rw,nodev,nosuid 0 0
 tmpfs /dev/shm tmpfs rw,nodev,nosuid,noexec 0 0
-{{< /highlight >}}
+```
 
 
 {{< card "primary" "**Wifi at First Boot**" >}}
 Copy our current _wifi_ setup file into the
 new system. This will enable _wifi_ at first boot. Next, _chroot_ into
 our newly installed system:
-{{< highlight lang="bash" linenos="true" >}}$cp /etc/netctl/wl* /mnt/etc/netctl/{{< /highlight >}}
+```bash
 {{< /card >}}
 
 Finally bind root for installation.
 
-{{< highlight lang="bash" linenos="true" >}}
-$ arch-chroot /mnt /bin/bash
-{{< /highlight >}}
+```bash
+arch-chroot /mnt /bin/bash
+```
 
 Basic Setup
 -----------
@@ -265,10 +265,10 @@ Basic Setup
 Here are some basic commands you need to run to get the installation
 started.
 
-{{< highlight lang="bash" linenos="true" >}}
-$ pacman -Syy
-$ pacman -S sudo vim
-$ vim /etc/locale.gen
+```bash
+pacman -Syy
+pacman -S sudo vim
+vim /etc/locale.gen
 
 ...
 # en_SG ISO-8859-1
@@ -276,38 +276,38 @@ en_US.UTF-8 UTF-8
 # en_US ISO-8859-1
 ...
 
-$ locale-gen
-$ echo LANG=en_US.UTF-8 > /etc/locale.conf
-$ export LANG=en_US.UTF-8
-$ ls -l /usr/share/zoneinfo
-$ ln -sf /usr/share/zoneinfo/Zone/SubZone /etc/localtime
-$ hwclock --systohc --utc
-$ sed -i "s/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/" /etc/sudoers
-$ HOSTNAME=euler
-$ echo $HOSTNAME > /etc/hostname
-$ pacman -S dosfstools efibootmgr
-$ sed -i 's/^\(HOOKS=.*fsck\)\(.*$\)/\1 btrfs\2/g' /etc/mkinitcpio.conf
-$ mkinitcpio -p linux
-$ passwd
-{{< /highlight >}}
+locale-gen
+echo LANG=en_US.UTF-8 > /etc/locale.conf
+export LANG=en_US.UTF-8
+ls -l /usr/share/zoneinfo
+ln -sf /usr/share/zoneinfo/Zone/SubZone /etc/localtime
+hwclock --systohc --utc
+sed -i "s/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/" /etc/sudoers
+HOSTNAME=euler
+echo $HOSTNAME > /etc/hostname
+pacman -S dosfstools efibootmgr
+sed -i 's/^\(HOOKS=.*fsck\)\(.*$\)/\1 btrfs\2/g' /etc/mkinitcpio.conf
+mkinitcpio -p linux
+passwd
+```
 
 {{< card warning "**Wifi Packages**" >}}
 We also need to install following packages for
 wifi to work at first boot:
 
-{{< highlight lang="bash" linenos="true" >}} $ pacman -S iw wpa_supplicant {{< /highlight >}}
+```bash
 {{< /card >}}
 
 
 We will also add *hostname* to our /etc/hosts file:
 
-{{< highlight lang="bash" linenos="true" >}}
-$ vim /etc/hosts
+```bash
+vim /etc/hosts
 ...
 127.0.0.1       localhost.localdomain   localhost $HOSTNAME
 ::1             localhost.localdomain   localhost $HOSTNAME
 ...
-{{< /highlight >}}
+```
 
 Bootloader Setup
 ----------------
@@ -320,9 +320,9 @@ configured pattern (glob) or an on-screen menu. It is included with the
 Assuming _/boot_ is your boot drive, first run the following command to
 get started:
 
-{{< highlight lang="bash" linenos="true" >}}
-$ bootctl --path=/boot install
-{{< /highlight >}}
+```bash
+bootctl --path=/boot install
+```
 
 It will copy the systemd-boot binary to your EFI System Partition (
 `/boot/EFI/systemd/systemd-bootx64.efi` and `/boot/EFI/Boot/BOOTX64.EFI` -
@@ -333,20 +333,20 @@ EFI Boot Manager.
 Finally to configure out boot loader, we will need the UUID of out root
 drive (_/dev/sda2_). You can find that by:
 
-{{< highlight lang="bash" linenos="true" >}}
-$ lsblk -no NAME,UUID /dev/sda2
-{{< /highlight >}}
+```bash
+lsblk -no NAME,UUID /dev/sda2
+```
 
 Now, make sure that the following two files look as follows, where
 $UUID is the value obtained from above command:
 
-{{< highlight lang="bash" linenos="true" >}}
-$ vim /boot/loader/loader.conf
+```bash
+vim /boot/loader/loader.conf
 ...
 timeout 3
 default arch
 ...
-$ vim /boot/loader/entries/arch.conf
+vim /boot/loader/entries/arch.conf
 ...
 
 title Arch Linux
@@ -354,14 +354,14 @@ linux /vmlinuz-linux
 initrd /initramfs-linux.img
 options root=UUID=$UUID rw rootfstype=btrfs rootflags=subvol=ROOT
 ...
-{{< /highlight >}}
+```
 
 
 {{< card danger "**IMPORTANT**" >}}
 Please note that you will to need manually run
 `bootctl` command every time `systemd-boot` gets updated.
 
-{{< highlight lang="bash" linenos="true" >}} $ bootctl update {{< /highlight >}}
+```bash
 {{< /card >}}
 
 
@@ -370,16 +370,16 @@ Network Setup
 
 First setup hostname using _systemd_:
 
-{{< highlight lang="bash" linenos="true" >}}
-$ hostnamectl set-hostname $HOSTNAME
-{{< /highlight >}}
+```bash
+hostnamectl set-hostname $HOSTNAME
+```
 
 Check the "Ethernet controller" entry (or similar) from the `lspci -v`
 output. It should tell you which kernel module contains the driver for
 your network device. For example:
 
-{{< highlight lang="bash" linenos="true" >}}
-$ lspci -v
+```bash
+lspci -v
 $
 ...
 04:00.0 Ethernet controller: Realtek Semiconductor Co., Ltd. RTL8111/8168/8411 PCI Express Gigabit Ethernet Controller (rev 11)
@@ -393,13 +393,13 @@ $
         Kernel modules: r8169
 ...
 $
-{{< /highlight >}}
+```
 
 Next, check that the driver was loaded via `dmesg | grep module_name`.
 For example:
 
-{{< highlight lang="bash" linenos="true" >}}
-$ dmesg | grep r8169
+```bash
+dmesg | grep r8169
 $
 ...
 [    3.215178] r8169 Gigabit Ethernet driver 2.3LK-NAPI loaded
@@ -412,7 +412,7 @@ $
 [    8.110869] r8169 0000:04:00.0 enp4s0: link up
 ...
 $
-{{< /highlight >}}
+```
 
 Proceed if the driver was loaded successfully. Otherwise, you will need
 to know which module is needed for your particular model. Please follow
@@ -421,21 +421,21 @@ guide for further assistance.
 
 Get current device names via `/sys/class/net` or `ip link`. For example:
 
-{{< highlight lang="bash" linenos="true" >}}
-$ ls /sys/class/net
+```bash
+ls /sys/class/net
 $
 ...
 enp4s0  lo  wlp3s0
 ...
 $
-$ ip link
+ip link
 $
 ...
 2: enp4s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP mode DEFAULT group default qlen 1000
     link/ether 78:24:af:d7:1d:3d brd ff:ff:ff:ff:ff:ff
 ...
 $
-{{< /highlight >}}
+```
 
 Using this name of the device, we need to configure, enable following
 two systemd services: *systemd-networkd.service* and
@@ -444,15 +444,15 @@ two systemd services: *systemd-networkd.service* and
 For compatibility with resolv.conf, delete or rename the existing file
 and create the following symbolic link:
 
-{{< highlight lang="bash" linenos="true" >}}
-$ ln -s /usr/lib/systemd/resolv.conf /etc/resolv.conf
-{{< /highlight >}}
+```bash
+ln -s /usr/lib/systemd/resolv.conf /etc/resolv.conf
+```
 
 Network configurations are stored as \*.network in
 */etc/systemd/network*. We need to create ours as follows.:
 
-{{< highlight lang="bash" linenos="true" >}}
-$ vim /etc/systemd/network/wired.network
+```bash
+vim /etc/systemd/network/wired.network
 $
 ...
 [Match]
@@ -464,14 +464,14 @@ DHCP=ipv4
 ...
 
 $
-{{< /highlight >}}
+```
 
 Now enable these services:
 
-{{< highlight lang="bash" linenos="true" >}}
-$ systemctl enable systemd-resolved.service
-$ systemctl enable systemd-networkd.service
-{{< /highlight >}}
+```bash
+systemctl enable systemd-resolved.service
+systemctl enable systemd-networkd.service
+```
 
 Your network should be ready for first use!
 
@@ -480,11 +480,11 @@ First Boot
 
 Now we are ready for the first boot! Run the following command:
 
-{{< highlight lang="bash" linenos="true" >}}
-$ exit
-$ umount -R /mnt
-$ reboot
-{{< /highlight >}}
+```bash
+exit
+umount -R /mnt
+reboot
+```
 
 Awesome! We are ready to play with our new system. Alas! what you have
 is just a basic installation without any GUI.

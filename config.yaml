@@ -65,13 +65,6 @@ pluralizeListTitles:        true
 preserveTaxonomyNames:      false
 # filesystem path to write files to
 publishDir:                 "public"
-# enables syntax guessing for code fences without specified language
-pygmentsCodeFencesGuessSyntax: false
-PygmentsCodeFences:            true
-# color-codes for highlighting derived from this style
-pygmentsStyle:              "monokai"
-# true: use pygments-css or false: color-codes directly
-pygmentsUseClasses:         false
 # maximum number of items in the RSS feed
 rssLimit:                   15
 # default sitemap configuration map
@@ -145,6 +138,7 @@ params:
   showTitle:               true
   bootswatch:              "cosmo"
   menubarColor:            "primary"
+  highlightTheme:           "default"
   logoURL:                 "letter-s.png"
   socialButtonsCode:       "ra-53f6d74a591ace8f"
   license:                 '<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>'

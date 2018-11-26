@@ -90,7 +90,7 @@ Getting home page to work was very simple. Hugo documentation page provides a ve
 
 I also added following template code in the index.html template to get list of posts with machine learning related tags:
 
-{{< highlight lang="html" linenos="yes" >}}
+```html
 {{ $.Scratch.Add "mlposts" slice }}
 {{ $tags := (slice "Machine Learning" "EDA" "Kaggle" "ML" "Deep Learning" "DL" "Data Science") }}
 {{ range .Site.RegularPages }}
@@ -104,40 +104,40 @@ I also added following template code in the index.html template to get list of p
 {{ range first 10 $cand }}
     {{ .Render "li"}}
 {{ end }}
-{{< /highlight >}}
+```
 
 ## tipue Search
 
 Hugo has support for several output formats, including HTML and JSON. For implementing [tipue search](http://www.tipue.com/search/), we need to generate a JSON file with site content. This can be done by adding following to the configuration file:
 
-{{< highlight lang="yaml" linenos="yes" >}}
+```html
 # Output formats
 outputs:
   home: [ "HTML", "JSON"]
   page: [ "HTML"]
-{{< /highlight >}}
+```
 
 and, using the following `index.json` template:
 
-{{< highlight lang="html" linenos="yes" >}}
+```html
 {{- $.Scratch.Add "index" slice -}}
 {{- range where .Site.RegularPages "Type" "not in"  (slice "page" "json" "nosearch") -}}
 {{- $.Scratch.Add "index" (dict "url" .Permalink "title" .Title "text" .Plain "tags" (delimit .Params.tags ", ")) -}}
 {{- end -}}
 {"pages": {{- $.Scratch.Get "index" | jsonify -}}}
-{{< /highlight >}}
+```
 
 Now, include the following `css` in the `<head>` of your pages:
 
-{{< highlight lang="html" linenos="yes" >}}
+```html
 <link href="//cdnjs.cloudflare.com/ajax/libs/Tipue-Search/5.0.0/tipuesearch.css" rel="stylesheet" type="text/css">
-{{< /highlight >}}
+```
 
 
 The following `modal` code is needed to display the search results,
 preferably at the end of the __body__ of the HTMLpage:
 
-{{< highlight lang="html" linenos="yes" >}}
+```html
 <div id="search-resuts" class="modal fade" role="dialog" style="height: 80%;">
 <div class="modal-dialog">
     <div class="modal-content">
@@ -153,11 +153,11 @@ preferably at the end of the __body__ of the HTMLpage:
     </div>
 </div>
 </div>
-{{< /highlight >}}
+```
 
 Finally, the following `javascript` in the lower end of the **body** of HTML pages:
 
-{{< highlight lang="html" linenos="yes" >}}
+```html
 <script>
 $(document).ready(function() {
     var url1 = "https://cdnjs.cloudflare.com/ajax/libs/Tipue-Search/5.0.0/tipuesearch_set.js";
@@ -181,15 +181,15 @@ $(document).ready(function() {
     });
 });
 </script>
-{{< /highlight >}}
+```
 
 And, of course you will need a form/input for performing the search:
 
-{{< highlight lang="html" linenos="yes" >}}
+```html
 <span class="navbar-form navbar-right">
     <input type="text" id="tipue_search_input" class="form-control" placeholder="Search">
 </span>
-{{< /highlight >}}
+```
 
 ## Code Highlighting
 
@@ -211,17 +211,17 @@ In summary, the setup is very simple - Use the linked [jupyter.css](http://sharm
 add this `css` file to relevant pages. I do the this based on a
 _metadata_ variable `notebook: true` via the following template code:
 
-{{< highlight lang="html" linenos="yes" >}}
+```html
 {{ if .Params.notebook }}
     <link href="{{ $.Site.BaseURL }}css/jupyter.css" rel="stylesheet" type="text/css">
 {{ end }}
-{{< /highlight >}}
+```
 
 Then for any jupyter notebook, convert it to basic HTML using the following command:
 
-{{< highlight lang="bash" linenos="yes" >}}
+```html
 jupyter nbconvert --to html --template basic *source_file.ipynb*
-{{< /highlight >}}
+```
 
 Finally, create a markdown file for your post to put the contents of this HTML file. Works like charm since markdown supports including raw HTML code!
 
@@ -231,17 +231,17 @@ I used [katex](https://github.com/Khan/KaTeX) for using math in markdown. I was 
 
 I added following code in the `<head>` of all of posts:
 
-{{< highlight lang="html" linenos="yes" >}}
+```html
 {{ if .Params.hasMath }}
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css"
     integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0"
     crossorigin="anonymous">
 {{ end }}
-{{< /highlight >}}
+```
 
 And the following script at the end of the `<body>` section:
 
-{{< highlight lang="html" linenos="yes" >}}
+```html
 {{ if .Params.hasMath }}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js"
     integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1"
@@ -263,7 +263,7 @@ And the following script at the end of the `<body>` section:
         );
     </script>
 {{ end }}
-{{< /highlight >}}
+```
 
 Now, whenever, I need to add math equations in a post, enable the `hasMath: true` parameter in its _metadata_.
 

@@ -107,7 +107,7 @@ Shortcut Keys
 
 Here is a summary of my key map:
 
-{{< highlight lang="json" linenos="yes" >}}
+```json
 [
     { "keys": ["shift+alt+a"], "command": "find_all_under" },
     { "keys": ["control+v"], "command": "paste_and_indent" },
@@ -120,7 +120,7 @@ Here is a summary of my key map:
     { "keys": ["ctrl+alt+home"], "command": "column_select", "args": {"by": "all", "forward": false}},
     { "keys": ["ctrl+alt+end"], "command": "column_select", "args": {"by": "all", "forward": true}}
 ]
-{{< /highlight >}}
+```
 
 Theme and Color Scheme
 ======================
@@ -142,25 +142,25 @@ User Settings / Preferences
 Here is my complete set of settings for Sublime Text. Please feel free
 to leave comments below for any questions or suggestions.
 
-{{< highlight lang="json" linenos="yes" >}}
+```json
 {
     "always_show_minimap_viewport": true,
     "auto_complete": true,
     "bold_folder_labels": true,
     "caret_extra_width": 1.5,
-    "color_scheme": "Packages/Materialize/schemes/Material Oceanic Next.tmTheme",
+    "color_scheme": "Packages/ayu/ayu-mirage.tmTheme",
     "default_line_ending": "unix",
     "drag_text": false,
     "draw_white_space": "all",
     "enable_tab_scrolling": false,
-    "font_face": "Hack",
+    "font_face": "Roboto mono",
     "font_options":
     [
         "directwrite",
         "gray_antialias",
         "subpixel_antialias"
     ],
-    "font_size": 13,
+    "font_size": 15,
     "hot_exit": false,
     "ignored_packages":
     [
@@ -175,33 +175,27 @@ to leave comments below for any questions or suggestions.
     ],
     "line_padding_bottom": 1,
     "line_padding_top": 1,
-    "material_theme_bold_tab": true,
-    "material_theme_compact_panel": true,
-    "material_theme_compact_sidebar": false,
-    "material_theme_contrast_mode": true,
-    "material_theme_disable_fileicons": false,
-    "material_theme_disable_folder_animation": true,
-    "material_theme_disable_tree_indicator": true,
-    "material_theme_panel_separator": true,
-    "material_theme_small_statusbar": true,
-    "material_theme_small_tab": true,
-    "material_theme_tabs_autowidth": true,
-    "material_theme_tabs_separator": true,
-    "material_theme_tree_headings": true,
     "overlay_scroll_bars": "enabled",
     "remember_open_files": false,
     "rulers":
     [
-        80
+        100
     ],
     "scroll_past_end": true,
     "soda_classic_tabs": true,
     "soda_folder_icons": true,
     "tab_completion": false,
     "tab_size": 4,
-    "theme": "Material Oceanic Next.sublime-theme",
+    "theme": "ayu-mirage.sublime-theme",
     "translate_tabs_to_spaces": true,
     "trim_trailing_white_space_on_save": true,
+    "ui_big_tabs": true,
+    "ui_fix_tab_labels": true,
+    "ui_font_default": true,
+    "ui_font_size_small": true,
+    "ui_font_source_code_pro": true,
+    "ui_separator": true,
+    "ui_wide_scrollbars": true,
     "word_wrap": true
 }
-{{< /highlight >}}
+```

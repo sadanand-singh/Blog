@@ -174,7 +174,7 @@ in tuning models based on these methods.
 For demonstrating different tree based models, I will be using the
 [US Income dataset available at Kaggle](https://www.kaggle.com/johnolafenwa/us-census-data). You should be able to download the data from [Kaggle.com](https://www.kaggle.com/johnolafenwa/us-census-data). Let us first look at all the different features available in this data set.
 
-{{< highlight lang="python" linenos="yes" >}}
+```python
 import pandas as pd
 import numpy as np
 from plotnine import *
@@ -197,14 +197,14 @@ df_test_set = pd.read_csv(test_data, names=columns, skiprows=1)
 df_train_set.drop('fnlgwt', axis=1, inplace=True)
 df_test_set.drop('fnlgwt', axis=1, inplace=True)
 
-{{< /highlight >}}
+```
 In the above code, we imported all needed modules, loaded both test and training data as data-frames. We also got rid of the _fnlgwt_ column that is of no importance in our modeling exercise.
 
 Let us look at the first 5 rows of the training data:
 
-{{< highlight lang="python" linenos="yes" >}}
+```python
 df_train_set.head()
-{{< /highlight >}}
+```
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <style>
@@ -333,7 +333,7 @@ df_train_set.head()
 
 We also need to do some data cleanup. First, I will be removing any special characters from all columns. Furthermore, any space or "." characters too will be removed from any `str` data.
 
-{{< highlight lang="python" linenos="yes" >}}
+```python
 #replace the special character to "Unknown"
 for i in df_train_set.columns:
     df_train_set[i].replace(' ?', 'Unknown', inplace=True)
@@ -345,18 +345,18 @@ for col in df_train_set.columns:
         df_train_set[col] = df_train_set[col].apply(lambda val: val.replace(".", ""))
         df_test_set[col] = df_test_set[col].apply(lambda val: val.replace(" ", ""))
         df_test_set[col] = df_test_set[col].apply(lambda val: val.replace(".", ""))
-{{< /highlight >}}
+```
 
 As you can see, there are two columns that describe education of individuals - __Education__ and __EdNum__. I would assume both of these to be highly correlated and hence remove the __Education__ column. The __Country__ column too should not play a role in prediction of __Income__ and hence we would remove that as well.
 
-{{< highlight lang="python" linenos="yes" >}}
+```python
 df_train_set.drop(["Country", "Education"], axis=1, inplace=True)
 df_test_set.drop(["Country", "Education"], axis=1, inplace=True)
-{{< /highlight >}}
+```
 
 Although the __Age__ and __EdNum__ columns are numeric, they can be easily binned and be more effective. We will bin age in bins of 10 and no. of years of education into bins of 5.
 
-{{< highlight lang="python" linenos="yes" >}}
+```python
 colnames = list(df_train_set.columns)
 colnames.remove('Age')
 colnames.remove('EdNum')
@@ -372,21 +372,21 @@ df_test_set['Education'] = pd.cut(df_test_set.EdNum, range(0, 21, 5), right=Fals
 
 df_train_set = df_train_set[colnames]
 df_test_set = df_test_set[colnames]
-{{< /highlight >}}
+```
 
 Now that we have cleaned the data, let us look how balanced out data set is:
 
-{{< highlight lang="python" linenos="yes" >}}
+```python
 df_train_set.Income.value_counts()
-{{< /highlight >}}
+```
 
     <=50K    24720
     >50K      7841
     Name: Income, dtype: int64
 
-{{< highlight lang="python" linenos="yes" >}}
+```python
 df_test_set.Income.value_counts()
-{{< /highlight >}}
+```
 
     <=50K    12435
     >50K      3846
@@ -400,12 +400,12 @@ Now, let us look at distribution and inter-dependence of different features in t
 
 Let us first see how __Relationships__ and __MaritalStatus__ features are interrelated.
 
-{{< highlight lang="python" linenos="yes" >}}
+```python
 (ggplot(df_train_set, aes(x = "Relationship", fill = "MaritalStatus"))
  + geom_bar(position="fill")
  + theme(axis_text_x = element_text(angle = 60, hjust = 1))
 )
-{{< /highlight >}}
+```
 
 {{< png >}}
 iVBORw0KGgoAAAANSUhEUgAAAw4AAAH1CAYAAABfiKm+AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
@@ -1050,13 +1050,13 @@ iIiIiCz6D032rpRMKKCIAAAAAElFTkSuQmCC
 
 Let us look at effect of __Education__ (measured in terms of bins of no. of years of education) on __Income__ for different Age groups.
 
-{{< highlight lang="python" linenos="yes" >}}
+```python
 (ggplot(df_train_set, aes(x = "Education", fill = "Income"))
  + geom_bar(position="fill")
  + theme(axis_text_x = element_text(angle = 60, hjust = 1))
  + facet_wrap('~AgeGroup')
 )
-{{< /highlight >}}
+```
 
 {{< png >}}
 iVBORw0KGgoAAAANSUhEUgAAAqwAAAHZCAYAAABDxWnfAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
@@ -1562,13 +1562,13 @@ Pnw4Fi5caPcYHh4e2LVrF3Q6HX7+85/j+eefx7p16zBw4EC74+666y4UFBRApVIhPT0dP/vZz7Br
 
 Recently, there has been a lot of talk about effect of gender based bias/gap in the income. We can look at the effect of __Education__ and __Race__ for males and females separately.
 
-{{< highlight lang="python" linenos="yes" >}}
+```python
 (ggplot(df_train_set, aes(x = "Education", fill = "Income"))
  + geom_bar(position="fill")
  + theme(axis_text_x = element_text(angle = -90, hjust = 1))
  + facet_wrap('~Sex')
 )
-{{< /highlight >}}
+```
 
 {{< png >}}
 iVBORw0KGgoAAAANSUhEUgAAAqwAAAHYCAYAAACImbp6AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
@@ -1840,13 +1840,13 @@ AGA0AisAAACMRmAFAACA0QisAAAAMBqBFQAAAEYjsAIAAMBoBFYAAAAYjcAKAAAAo/1/yF33LDeB
 3EoAAAAASUVORK5CYII=
 {{< /png >}}
 
-{{< highlight lang="python" linenos="yes" >}}
+```python
 (ggplot(df_train_set, aes(x = "Race", fill = "Income"))
  + geom_bar(position="fill")
  + theme(axis_text_x = element_text(angle = -90, hjust = 1))
  + facet_wrap('~Sex')
 )
-{{< /highlight >}}
+```
 
 {{< png >}}
 iVBORw0KGgoAAAANSUhEUgAAAqwAAAIxCAYAAACIOuqtAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
@@ -2207,11 +2207,11 @@ TkSuQmCC
 
 Until now, we have only looked at the inter-dependence of non-numeric features. Let us now look at the effect of __CapitalGain__ and __CapitalLoss__ on income.
 
-{{< highlight lang="python" linenos="yes" >}}
+```python
 (ggplot(df_train_set, aes(x="Income", y="CapitalGain"))
  + geom_jitter(position=position_jitter(0.1))
 )
-{{< /highlight >}}
+```
 
 {{< png >}}
 iVBORw0KGgoAAAANSUhEUgAAAlAAAAGxCAYAAACtEoj/AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
@@ -2540,11 +2540,11 @@ REQyMUARERERycQARURERCQTAxQRERGRTAxQRERERDIxQBERERHJxABFREREJBMDFBEREZFMDFBE
 REREMjFAEREREcn0D159JBvJdZQ+AAAAAElFTkSuQmCC
 {{< /png >}}
 
-{{< highlight lang="python" linenos="yes" >}}
+```python
 (ggplot(df_train_set, aes(x="Income", y="CapitalLoss"))
  + geom_jitter(position=position_jitter(0.1))
 )
-{{< /highlight >}}
+```
 
 {{< png >}}
 iVBORw0KGgoAAAANSUhEUgAAAkEAAAGxCAYAAABlfmIpAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
@@ -3057,7 +3057,7 @@ AABJRU5ErkJggg==
 Now that we understand some relationship in our data, let us build a simple tree classifier model using [sklearn.tree.DecisionTreeClassifier](http://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html).
 However, in order to use this module, we need to convert all of our non-numeric data to numeric ones. This can be quite easily achieved using the [sklearn.preprocessing.LabelEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html) module along with the [sklearn_pandas](https://github.com/pandas-dev/sklearn-pandas) module to apply this on pandas data-frames directly.
 
-{{< highlight lang="python" linenos="yes" >}}
+```python
 mapper = DataFrameMapper([
     ('AgeGroup', LabelEncoder()),
     ('Education', LabelEncoder()),
@@ -3083,19 +3083,19 @@ df_test.columns = cols
 cols.remove("Income")
 x_train, y_train = df_train[cols].values, df_train["Income"].values
 x_test, y_test = df_test[cols].values, df_test["Income"].values
-{{< /highlight >}}
+```
 
 Now we have training as well testing data in correct format to build our first model!
 
-{{< highlight lang="python" linenos="yes" >}}
+```python
 treeClassifier = DecisionTreeClassifier()
 treeClassifier.fit(x_train, y_train)
 treeClassifier.score(x_test, y_test)
-{{< /highlight >}}
+```
 
 The simplest possible tree classifier model with no optimization gave us an accuracy of 83.5%. In the case of classification problems, [confusion matrix](https://en.wikipedia.org/wiki/Confusion_matrix) is a good way to judge the accuracy of models. Using the following code we can plot the confusion matrix for any of the tree-based models.
 
-{{< highlight lang="python" linenos="yes" >}}
+```python
 import itertools
 from sklearn.metrics import confusion_matrix
 def plot_confusion_matrix(cm, classes, normalize=False):
@@ -3125,16 +3125,16 @@ def plot_confusion_matrix(cm, classes, normalize=False):
     plt.tight_layout()
     plt.ylabel('True label')
     plt.xlabel('Predicted label')
-{{< /highlight >}}
+```
 
 Now, we can take a look at the confusion matrix of out first model:
 
-{{< highlight lang="python" linenos="yes" >}}
+```python
 y_pred = treeClassifier.predict(x_test)
 cfm = confusion_matrix(y_test, y_pred, labels=[0, 1])
 plt.figure(figsize=(10,6))
 plot_confusion_matrix(cfm, classes=["<=50K", ">50K"], normalize=True)
-{{< /highlight >}}
+```
 
 {{< png >}}
 iVBORw0KGgoAAAANSUhEUgAAAfUAAAG2CAYAAABmhB/TAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
@@ -3372,7 +3372,7 @@ We find that the majority class (<=50K Income) has an accuracy of 90.5%, while t
 
 Let us look at ways of tuning this simple classifier. We can use [GridSearchCV()](http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html) with 5-fold cross-validation to tune various important parameters of tree classifiers.
 
-{{< highlight lang="python" linenos="yes" >}}
+```python
 from sklearn.model_selection import GridSearchCV
 parameters = {
      'max_features':(None, 9, 6),
@@ -3384,7 +3384,7 @@ parameters = {
 clf = GridSearchCV(treeClassifier, parameters, cv=5, n_jobs=4)
 clf.fit(x_train, y_train)
 clf.best_score_, clf.score(x_test, y_test), clf.best_params_
-{{< /highlight >}}
+```
 
     (0.85934092933263717,
      0.85897672133161351,
@@ -3395,12 +3395,12 @@ clf.best_score_, clf.score(x_test, y_test), clf.best_params_
 
 With the optimization, we find the accuracy to increase to 85.9%. In the above, we can also look at the parameters of the best model. Now, let us have a look at the confusion matrix of the optimized model.
 
-{{< highlight lang="python" linenos="yes" >}}
+```python
 y_pred = clf.predict(x_test)
 cfm = confusion_matrix(y_test, y_pred, labels=[0, 1])
 plt.figure(figsize=(10,6))
 plot_confusion_matrix(cfm, classes=["<=50K", ">50K"], normalize=True)
-{{< /highlight >}}
+```
 
 {{< png >}}
 iVBORw0KGgoAAAANSUhEUgAAAfUAAAG2CAYAAABmhB/TAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
@@ -3719,20 +3719,20 @@ There are three main tuning parameters of random forests:
 
 Using the same income data as above, let us make a simple RandomForest classifier model with 500 trees.
 
-{{< highlight lang="python" linenos="yes" >}}
+```python
 rclf = RandomForestClassifier(n_estimators=500)
 rclf.fit(x_train, y_train)
 rclf.score(x_test, y_test)
-{{< /highlight >}}
+```
 
 Even without any optimization, we find the model to be quite close to the optimized tree classifier with a test score of 85.1%. In terms of the confusion matrix, we again find this to be quite comparable to the optimized tree classifier with a prediction accuracy of 92.1% for the majority class (<=50K Income) and a prediction accuracy of 62.6% for the minority class (>50K Income).
 
-{{< highlight lang="python" linenos="yes" >}}
+```python
 y_pred = rclf.predict(x_test)
 cfm = confusion_matrix(y_test, y_pred, labels=[0, 1])
 plt.figure(figsize=(10,6))
 plot_confusion_matrix(cfm, classes=["<=50K", ">50K"], normalize=True)
-{{< /highlight >}}
+```
 
 {{< png >}}
 iVBORw0KGgoAAAANSUhEUgAAAfUAAAG2CAYAAABmhB/TAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
@@ -3964,7 +3964,7 @@ iP8P4Q7YzyMgzysAAAAASUVORK5CYII=
 
 As discussed before, random forest models also provide us with a metric of feature importances. We can see importance of different features in our current model as below:
 
-{{< highlight lang="python" linenos="yes" >}}
+```python
 importances = rclf.feature_importances_
 indices = np.argsort(importances)
 cols = [cols[x] for x in indices]
@@ -3973,7 +3973,7 @@ plt.title('Feature Importances')
 plt.barh(range(len(indices)), importances[indices], color='b', align='center')
 plt.yticks(range(len(indices)), cols)
 plt.xlabel('Relative Importance')
-{{< /highlight >}}
+```
 
 {{< png >}}
 iVBORw0KGgoAAAANSUhEUgAAApAAAAGDCAYAAACcHyD4AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
@@ -4210,7 +4210,7 @@ SVInBkhJkiR18v8DjLJmKM4y7ocAAAAASUVORK5CYII=
 
 Now, let us try to optimize our random forest model. Again, this can be done using the GridSearchCV() apt with 5-fold cross-validation as below:
 
-{{< highlight lang="python" linenos="yes" >}}
+```python
 parameters = {
      'n_estimators':(100, 500, 1000),
      'max_depth':(None, 24, 16),
@@ -4221,7 +4221,7 @@ parameters = {
 clf = GridSearchCV(RandomForestClassifier(), parameters, cv=5, n_jobs=8)
 clf.fit(x_train, y_train)
 clf.best_score_, clf.best_params_
-{{< /highlight >}}
+```
 
     0.86606676699118579
     {'max_depth': 24,
@@ -4231,7 +4231,7 @@ clf.best_score_, clf.best_params_
 
 We can see this model to be significantly better than our all previous models, with a prediction rate of 86.6%. In terms of confusion matrix though, we see a significant increase in the prediction accuracy of the majority class (<= 50K Income) with slight decrease in the accuracy for the minority class (>50K Income). This is a common problem with classification problems with imbalanced data.
 
-{{< highlight lang="python" linenos="yes" >}}
+```python
 rclf2 = RandomForestClassifier(n_estimators=1000,max_depth=24,min_samples_leaf=4,min_samples_split=8)
 rclf2.fit(x_train, y_train)
 
@@ -4239,7 +4239,7 @@ y_pred = rclf2.predict(x_test)
 cfm = confusion_matrix(y_test, y_pred, labels=[0, 1])
 plt.figure(figsize=(10,6))
 plot_confusion_matrix(cfm, classes=["<=50K", ">50K"], normalize=True)
-{{< /highlight >}}
+```
 
 {{< png >}}
 iVBORw0KGgoAAAANSUhEUgAAAfUAAAG2CAYAAABmhB/TAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
@@ -4472,7 +4472,7 @@ eVdE3Fk8MvabYlx9e+CuoqfgdeCEzLw/Iq4FHgCepjJE0JkvAfcU5R+m7R8PjwJ/ADYCPpaZf4+I
 
 Finally, let us also look at the feature importance from the best model.
 
-{{< highlight lang="python" linenos="yes" >}}
+```python
 importances = rclf2.feature_importances_
 indices = np.argsort(importances)
 cols = [cols[x] for x in indices]
@@ -4481,7 +4481,7 @@ plt.title('Feature Importances')
 plt.barh(range(len(indices)), importances[indices], color='b', align='center')
 plt.yticks(range(len(indices)), cols)
 plt.xlabel('Relative Importance')
-{{< /highlight >}}
+```
 
 {{< png >}}
 iVBORw0KGgoAAAANSUhEUgAAApAAAAGDCAYAAACcHyD4AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz

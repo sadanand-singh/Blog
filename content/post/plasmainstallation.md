@@ -37,29 +37,29 @@ Add New User
 Choose `$USERNAME` per your liking. I chose `ssingh`, so in future commands
 whenever you see `ssingh` please replace it with your `$USERNAME`.
 
-{{< highlight lang="bash" linenos="yes" >}}
-$ useradd -m -G wheel -s /bin/bash $USERNAME
-$ chfn --full-name "$FULL_NAME" $USERNAME
-$ passwd $USERNAME
-{{< /highlight >}}
+```bash
+useradd -m -G wheel -s /bin/bash $USERNAME
+chfn --full-name "$FULL_NAME" $USERNAME
+passwd $USERNAME
+```
 
 Plasma 5 Desktop
 ================
 
 Network should be setup at the start. Check the status of network using:
 
-{{< highlight lang="bash" linenos="yes" >}}
-$ ping google.com -c 2
+```bash
+ping google.com -c 2
 $
-$ PING google.com (10.38.24.84) 56(84) bytes of data.
-$ 64 bytes from google.com (10.38.24.84): icmp_seq=1 ttl=64 time=0.022 ms
-$ 64 bytes from google.com (10.38.24.84): icmp_seq=2 ttl=64 time=0.023 ms
+PING google.com (10.38.24.84) 56(84) bytes of data.
+64 bytes from google.com (10.38.24.84): icmp_seq=1 ttl=64 time=0.022 ms
+64 bytes from google.com (10.38.24.84): icmp_seq=2 ttl=64 time=0.023 ms
 $
-$ --- google.com ping statistics ---
-$ 2 packets transmitted, 2 received, 0% packet loss, time 999ms
-$ rtt min/avg/max/mdev = 0.022/0.022/0.023/0.004 ms
+--- google.com ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 999ms
+rtt min/avg/max/mdev = 0.022/0.022/0.023/0.004 ms
 $
-{{< /highlight >}}
+```
 
 If you do not get this output, please follow the troubleshooting links
 at [arch wiki](https://wiki.archlinux.org/index.php/systemd-networkd) on
@@ -70,15 +70,15 @@ I will be assuming you have an NVIDIA card for graphics installation.
 To setup a graphical desktop, first we need to install some basic X
 related packages, and some *essential* packages (including fonts):
 
-{{< highlight lang="bash" linenos="yes" >}}
-$ pacman -S xorg-server xorg-server-utils nvidia nvidia-libgl
-{{< /highlight >}}
+```bash
+pacman -S xorg-server xorg-server-utils nvidia nvidia-libgl
+```
 
 To avoid the possibility of forgetting to update your _initramfs_ after an
 _nvidia_ upgrade, you have to use a _pacman_ hook like this:
 
-{{< highlight lang="bash" linenos="yes" >}}
-$ vim /etc/pacman.d/hooks/nvidia.hook
+```bash
+vim /etc/pacman.d/hooks/nvidia.hook
 $
 ...
 [Trigger]
@@ -94,15 +94,15 @@ When=PostTransaction
 Exec=/usr/bin/mkinitcpio -p linux
 ...
 $
-{{< /highlight >}}
+```
 
 Nvidia has a daemon that is to be run at boot. To start the persistence
 daemon at boot, enable the `nvidia-persistenced.service`.
 
-{{< highlight lang="bash" linenos="yes" >}}
-$ systemctl enable nvidia-persistenced.service
-$ systemctl start nvidia-persistenced.service
-{{< /highlight >}}
+```bash
+systemctl enable nvidia-persistenced.service
+systemctl start nvidia-persistenced.service
+```
 
 <br>
 
@@ -110,23 +110,23 @@ $ systemctl start nvidia-persistenced.service
 
 To avoid screen tearing in KDE (KWin), add following:
 
-{{< highlight lang="bash" linenos="yes" >}}
-$ vim /etc/profile.d/kwin.sh
+```bash
+vim /etc/profile.d/kwin.sh
 $
 ...
 export __GL_YIELD="USLEEP"
 ...
-{{< /highlight >}}
+```
 
 If this does not help please try adding the following instead -
 
-{{< highlight lang="bash" linenos="yes" >}}
-$ vim /etc/profile.d/kwin.sh
+```bash
+vim /etc/profile.d/kwin.sh
 $
 ...
 export KWIN_TRIPLE_BUFFER=1
 ...
-{{< /highlight >}}
+```
 
 {{< emph danger >}}
 __Do not have both of the above enabled at the same
@@ -139,25 +139,25 @@ additional details.__
 
 Now continue installing remaining important packages for the GUI.
 
-{{< highlight lang="bash" linenos="yes" >}}
-$ pacman -S mesa ttf-hack ttf-anonymous-pro
-$ pacman -S tlp tlp-rdw acpi_call bash-completion git meld
-$ pacman -S ttf-dejavu ttf-freefont ttf-liberation
-{{< /highlight >}}
+```bash
+pacman -S mesa ttf-hack ttf-anonymous-pro
+pacman -S tlp tlp-rdw acpi_call bash-completion git meld
+pacman -S ttf-dejavu ttf-freefont ttf-liberation
+```
 
 Now, we will install the packages related to Plasma 5:
 
-{{< highlight lang="bash" linenos="yes" >}}
-$ pacman -S plasma-meta kf5 kdebase kdeutils kde-applications
-$ pacman -S kdegraphics gwenview
-{{< /highlight >}}
+```bash
+pacman -S plasma-meta kf5 kdebase kdeutils kde-applications
+pacman -S kdegraphics gwenview
+```
 
 Now we have to setup a display manager. I chose recommended SDDM for
 plasma 5.
 
-{{< highlight lang="bash" linenos="yes" >}}
-$ pacman -S sddm sddm-kcm
-$ vim /etc/sddm.conf
+```bash
+pacman -S sddm sddm-kcm
+vim /etc/sddm.conf
 
 ...
 [Theme]
@@ -168,15 +168,15 @@ Current=breeze
 CursorTheme=breeze_cursors
 ...
 
-$ systemctl enable sddm
-{{< /highlight >}}
+systemctl enable sddm
+```
 
 Also make sure that network manager starts at boot:
 
-{{< highlight lang="bash" linenos="yes" >}}
-$ systemctl disable dhcpcd.service
-$ systemctl enable NetworkManager
-{{< /highlight >}}
+```bash
+systemctl disable dhcpcd.service
+systemctl enable NetworkManager
+```
 
 Audio Setup
 ===========
@@ -184,11 +184,11 @@ Audio Setup
 This is pretty simple. Install following packages and you should be
 done:
 
-{{< highlight lang="bash" linenos="yes" >}}
-$ pacman -S alsa-utils pulseaudio pulseaudio-alsa libcanberra-pulse
-$ pacman -S libcanberra-gstreamer jack2-dbus kmix
-$ pacman -S mpv mplayer
-{{< /highlight >}}
+```bash
+pacman -S alsa-utils pulseaudio pulseaudio-alsa libcanberra-pulse
+pacman -S libcanberra-gstreamer jack2-dbus kmix
+pacman -S mpv mplayer
+```
 
 Useful Tips
 ===========
@@ -196,8 +196,8 @@ Useful Tips
 This part is optional and you can choose as per your taste. Sync time
 using the `systemd` service:
 
-{{< highlight lang="bash" linenos="yes" >}}
-$ vim /etc/systemd/timesyncd.conf
+```bash
+vim /etc/systemd/timesyncd.conf
 $
 ...
 [Time]
@@ -205,8 +205,8 @@ NTP=0.arch.pool.ntp.org 1.arch.pool.ntp.org 2.arch.pool.ntp.org 3.arch.pool.ntp.
 FallbackNTP=0.pool.ntp.org 1.pool.ntp.org 0.fr.pool.ntp.org
 ...
 $
-$ timedatectl set-ntp true
-$ timedatectl status
+timedatectl set-ntp true
+timedatectl status
 $
 ...
       Local time: Tue 2016-09-20 16:40:44 PDT
@@ -218,15 +218,15 @@ NTP synchronized: yes
  RTC in local TZ: no
  ...
 $
-{{< /highlight >}}
+```
 
 On Plasma 5, It is recommended to enable no-bitmaps to improve the font
 rendering:
 
-{{< highlight lang="bash" linenos="yes" >}}
-$ sudo ln -s /etc/fonts/conf.avail/70-no-bitmaps.conf
+```bash
+sudo ln -s /etc/fonts/conf.avail/70-no-bitmaps.conf
    /etc/fonts/conf.d
-   {{< /highlight >}}
+   ```
 
 If you use vim as your primary editor, you may find
 this [vimrc](https://github.com/amix/vimrc) quite useful.
