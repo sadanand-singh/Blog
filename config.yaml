@@ -143,7 +143,7 @@ params:
   hierarchicalcategories:  false
   fbAppId:                 "993596464012237"
   showTitle:               true
-  bootswatch:              "flatly"
+  bootswatch:              "cosmo"
   menubarColor:            "primary"
   logoURL:                 "letter-s.png"
   socialButtonsCode:       "ra-53f6d74a591ace8f"
@@ -191,5 +191,20 @@ author:
   twitter:     "sadanandsingh"
   # Your google plus profile id. E.g : +ThibaudLepretre or 114625208755123718311
   googlePlus:  "107573452639034499888"
+
+imaging:
+  # Default resample filter used for resizing. Default is Box,
+  # a simple and fast averaging filter appropriate for downscaling.
+  # See https://github.com/disintegration/imaging
+  resampleFilter: "box"
+
+  # Default JPEG quality setting. Default is 75.
+  quality: 75
+
+  # Anchor used when cropping pictures.
+  # Default is "smart" which does Smart Cropping, using https://github.com/muesli/smartcrop
+  # Smart Cropping is content aware and tries to find the best crop for each image.
+  # Valid values are Smart, Center, TopLeft, Top, TopRight, Left, Right, BottomLeft, Bottom, BottomRight
+  anchor: "smart"
 
 ---

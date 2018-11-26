@@ -21,10 +21,10 @@ description:
 
 Usually in a conventional neural network, one tries to predict a target vector
 $y$ from input vectors $x$. In an auto-encoder network, one tries to predict
-$x$ from $x$. It is trivial to learn a mapping from $x$ to $x$ if the network 
-has no constraints, but if the network is constrained the learning process 
-becomes more interesting. In this article, we are going to take a detailed 
-look at the mathematics of different types of autoencoders (with different 
+$x$ from $x$. It is trivial to learn a mapping from $x$ to $x$ if the network
+has no constraints, but if the network is constrained the learning process
+becomes more interesting. In this article, we are going to take a detailed
+look at the mathematics of different types of autoencoders (with different
 constraints) along with a sample implementation of it using [Keras],
 with a [tensorflow] back-end.
 
@@ -82,7 +82,7 @@ It can be easily noticed that if the number of units in the hidden layer is
 greater than or equal to the number of input units, the network will learn
 the identity function easily.
 Hence, the simplest constraint used in real-life autoencoders is the
-__number of hidden units__ ($z$) should be less than the dimensions ($d$) of 
+__number of hidden units__ ($z$) should be less than the dimensions ($d$) of
 the input ($z < d$).
 
 By limiting the amount of information that can flow through the network, AE
@@ -365,7 +365,7 @@ simply perform much better.
 
 The encoder will consist of a stack of `Conv2D` and `MaxPooling2D` layers (max
 pooling being used for spatial down-sampling), while the decoder will consist
-of a stack of `Conv2D` and `UpSampling2D` layers. We will also be using 
+of a stack of `Conv2D` and `UpSampling2D` layers. We will also be using
 `BatchNormalization`. One major difference between this network and prior ones is that now we have 256 (4x4x16) elements in the bottleneck layer as opposed to
 just 32 before!
 

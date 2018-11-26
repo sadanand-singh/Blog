@@ -4,7 +4,7 @@
 <div class="container" id="content" role="main">
     <div class="body-content">
           <div class="postindex">
-          <section class="postShorten-group main-content-wrap">
+          <section class="postShorten-group">
             {{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
             {{ range $paginator.Pages }}
               {{ .Render "summary" }}
