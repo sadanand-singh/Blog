@@ -13,7 +13,7 @@ authors:
 hasMath: false
 notebook: false
 draft: false
-bokeh: "interactivePlots_min.js"
+bokeh: "https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/js/interactivePlots_min.js"
 disqus_identifier: "interactivedatavis.sadanand"
 description:
 ---
