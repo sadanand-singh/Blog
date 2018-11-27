@@ -249,7 +249,7 @@ display_reconstructed(x_test, decoded_imgs, 10)
 The top row is the original image, while bottom row is the reconstructed image.
 We can see that we are loosing a lot of fine details.
 
-{{< figure src="../../images/autoencoders/ae_basic_fm.png" alt="sample images" class="figure img-responsive align-center" >}}
+{{< figure src="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/images/autoencoders/ae_basic_fm.png" alt="sample images" class="figure img-responsive align-center" >}}
 
 ## Sparsity Constraint
 
@@ -310,7 +310,7 @@ decoded_imgs = autoencoder.predict(x_test)
 display_reconstructed(x_test, decoded_imgs, 10)
 ```
 
-{{< figure src="../../images/autoencoders/ae_sparsity_fm.png" alt="sample images" class="figure img-responsive align-center" >}}
+{{< figure src="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/images/autoencoders/ae_sparsity_fm.png" alt="sample images" class="figure img-responsive align-center" >}}
 
 ## Deep Autoencoders
 
@@ -353,7 +353,7 @@ decoded_imgs = autoencoder.predict(x_test)
 display_reconstructed(x_test, decoded_imgs, 10)
 ```
 
-{{< figure src="../../images/autoencoders/ae_deep_fm.png" alt="sample images" class="figure img-responsive align-center" >}}
+{{< figure src="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/images/autoencoders/ae_deep_fm.png" alt="sample images" class="figure img-responsive align-center" >}}
 
 ## Convolutional Autoencoders
 
@@ -447,7 +447,7 @@ decoded_imgs = autoencoder.predict(x_test)
 display_reconstructed(x_test, decoded_imgs, 10)
 ```
 
-{{< figure src="../../images/autoencoders/ae_conv_fm.png" alt="sample images" class="figure img-responsive align-center" >}}
+{{< figure src="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/images/autoencoders/ae_conv_fm.png" alt="sample images" class="figure img-responsive align-center" >}}
 
 At first glance, it seems not much of improvement over the deep autoencoders
 result. However, if you notice closely, we start to see small feature
@@ -504,7 +504,7 @@ Here is how the corrupted images look now. They are barely recognizable now!
 display_reconstructed(x_test_noisy, None)
 ```
 
-{{< figure src="../../images/autoencoders/ae_noisy_sample.png" alt="sample images" class="figure img-responsive align-center" >}}
+{{< figure src="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/images/autoencoders/ae_noisy_sample.png" alt="sample images" class="figure img-responsive align-center" >}}
 
 We will use a slightly modified version of the previous convolution
 autoencoder, the one with larger number of filters in the intermediate
@@ -568,7 +568,7 @@ decoded_imgs = autoencoder.predict(x_test_noisy)
 display_reconstructed(x_test_noisy, decoded_imgs, 10)
 ```
 
-{{< figure src="../../images/autoencoders/dae_conv_fm.png" alt="sample images" class="figure img-responsive align-center" >}}
+{{< figure src="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/images/autoencoders/dae_conv_fm.png" alt="sample images" class="figure img-responsive align-center" >}}
 
 {{< card "" "Sequence-to-Sequence Autoencoders" >}}
 If your inputs are sequences, rather than 2D images, then you may
@@ -584,7 +584,7 @@ decoder to turn this constant sequence into the target sequence.
 
 # Variational Autoencoders (VAE)
 
-{{< figure src="../../images/autoencoders/vae.png" alt="VAE network" class="figure img-responsive align-right" >}}
+{{< figure src="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/images/autoencoders/vae.png" alt="VAE network" class="figure img-responsive align-right" >}}
 
 Variational autoencoders (VAE) are stochastic version of the regular
 autoencoders. It's a type of autoencoder with added constraints on the encoded
@@ -752,7 +752,7 @@ Below is the loss for the training and the validation datasets during training
 epochs. We find that loss has converged in 100 epochs without any sign of over
 fitting.
 
-{{< figure src="../../images/autoencoders/vae_fc_hist.png" alt="VAE network" class="figure img-responsive align-center" >}}
+{{< figure src="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/images/autoencoders/vae_fc_hist.png" alt="VAE network" class="figure img-responsive align-center" >}}
 
 Because our latent space is two-dimensional, there are a few cool visualizations that can be done at this point. One is to look at the neighborhoods of different classes on the latent 2D plane:
 
@@ -771,7 +771,7 @@ def plot_latentSpace(encoder, x_test, y_test, batch_size):
 plot_latentSpace(encoder, x_test, y_test, batch_size)
 ```
 
-{{< figure src="../../images/autoencoders/vae_fc_latent.png" alt="VAE network" class="figure img-responsive align-center" >}}
+{{< figure src="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/images/autoencoders/vae_fc_latent.png" alt="VAE network" class="figure img-responsive align-center" >}}
 
 Each of these colored clusters is a type of the fashion item. Close clusters
 are items that are structurally similar (i.e. items that share information in
@@ -818,7 +818,7 @@ def plot_generatedImages(generator):
 plot_generatedImages(generator)
 ```
 
-{{< figure src="../../images/autoencoders/vae_fc_gen.png" alt="VAE network" class="figure img-responsive align-center" >}}
+{{< figure src="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/images/autoencoders/vae_fc_gen.png" alt="VAE network" class="figure img-responsive align-center" >}}
 
 We find our model has done only a so-so job in generating new images. Still,
 given the simplicity and very small amount of simple code we had to write,
@@ -960,7 +960,7 @@ encoder = Model(x, z_mean)
 plot_latentSpace(encoder, x_test, y_test, batch_size)
 ```
 
-{{< figure src="../../images/autoencoders/vae_conv_latent.png" alt="VAE network" class="figure img-responsive align-center" >}}
+{{< figure src="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/images/autoencoders/vae_conv_latent.png" alt="VAE network" class="figure img-responsive align-center" >}}
 
 We can now see that the separation between different class of images are larger than the simple MLP based VAE model.
 
@@ -981,7 +981,7 @@ generator = Model(decoder_input, _x_decoded_mean_squash)
 plot_generatedImages(generator)
 ```
 
-{{< figure src="../../images/autoencoders/vae_conv_gen.png" alt="VAE network" class="figure img-responsive align-center" >}}
+{{< figure src="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/images/autoencoders/vae_conv_gen.png" alt="VAE network" class="figure img-responsive align-center" >}}
 
 [kpca]: https://en.wikipedia.org/wiki/Kernel_principal_component_analysis
 

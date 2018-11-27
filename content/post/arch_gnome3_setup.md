@@ -12,6 +12,7 @@ link:
 authors:
     - "Sadanand Singh"
 description:
+draft: true
 disqus_identifier: "CompleteSetupArchGnome.sadanand"
 ---
 
@@ -23,8 +24,15 @@ GPU to 1080 Ti to be able to run some computer vision models at reasonable speed
 for some audio processing and some kaggle-level computer vision/deep learning.
 
 <!-- more -->
-
-{{< gallery dir="/images/gnome3/" />}} {{< load-photoswipe >}}
+{{< load-photoswipe >}}
+{{< gallery >}}
+{{< figure-thumb link="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/images/gnome3/ApplicationMenu.png" caption="Applications Menu" >}}
+{{< figure-thumb link="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/images/gnome3/SystemInfo.png" caption="System Info" >}}
+{{< figure-thumb link="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/images/gnome3/workspaces.png" caption="Gnome 3 Workspaces" >}}
+{{< figure-thumb link="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/images/gnome3/Apps.png" caption="Apps" >}}
+{{< figure-thumb link="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/images/gnome3/editors.png" caption="Editors" >}}
+{{< figure-thumb link="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/images/gnome3/pcloud.png" caption="pCloud" >}}
+{{< /gallery >}}
 
 In this post, we will do a complete installation of Arch Linux with Gnome 3 as the desktop
 environment. Our setup will also involve encryption of the root partition that will be formatted in

@@ -14,7 +14,6 @@ authors:
 hasMath: true
 notebook: false
 draft: true
-bokeh: ""
 disqus_identifier: "linear-regression.sadanand"
 description:
 ---
@@ -45,7 +44,7 @@ For $n$ data points, we can write these equations in matrix form as,
 {{< tex display="\begin{bmatrix} y_1 \\ y_2 \\ \vdots \\ y_n \end{bmatrix} \approx \begin{bmatrix} x_1 & 1 \\ x_2 & 1\\ \vdots & \vdots \\ x_n & 1 \end{bmatrix} \begin{bmatrix} w \\ b \end{bmatrix}" >}}
 
 For the general case of multi-dimensional input variable, $X \equiv$
-{{< tex "x_{i1}, x_{i2}, \ldots x_{im}" >}}, 
+{{< tex "x_{i1}, x_{i2}, \ldots x_{im}" >}},
 we can write the above matrix equation as,
 
 {{< tex display="\begin{bmatrix} y_1 \\ y_2 \\ \vdots \\ y_n \end{bmatrix} \approx \begin{bmatrix} x_{11} & x_{12} & \ldots & x_{1m} & 1 \\ x_{21} & x_{22} & \ldots & x_{2m} & 1\\ \vdots & \vdots & \ldots & \vdots \\ x_{n1} & x_{n2} & \ldots & x_{nm} & 1 \end{bmatrix} \begin{bmatrix} w_1 \\ w_2 \\ \vdots \\ w_m \\ b \end{bmatrix}" >}}

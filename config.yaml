@@ -136,43 +136,43 @@ params:
   hierarchicalcategories:  false
   fbAppId:                 "993596464012237"
   showTitle:               true
-  bootswatch:              "spacelab"
+  bootswatch:              "litera"
   menubarColor:            "primary"
   # Use options from https://highlightjs.org/static/demo/
-  highlightTheme:           "atom-one-dark-reasonable"
-  logoURL:                 "letter-s.png"
+  highlightTheme:           "default"
+  logoURL:                 "https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/letter-s.png"
   socialButtonsCode:       "ra-53f6d74a591ace8f"
   license:                 '<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>'
 
 # Things that will be passed to CONTENT_FOOTER.format().  This is done
   favicons:
-    - Icon: "favicon.ico"
+    - Icon: "https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/favicon.ico"
       Size: "16x16"
-    - Icon: "favicon-32x32.png"
+    - Icon: "https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/favicon-32x32.png"
       Size: "32x32"
-    - Icon: "favicon-96x96.png"
+    - Icon: "https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/favicon-96x96.png"
       Size: "96x96"
-    - Icon: "apple-icon.png"
+    - Icon: "https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon.png"
       Size: "192x192"
-    - Icon: "apple-icon-precomposed.png"
+    - Icon: "https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-precomposed.png"
       Size: "192x192"
-    - Icon: "apple-icon-57x57.png"
+    - Icon: "https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-57x57.png"
       Size: "57x57"
-    - Icon: "apple-icon-60x60.png"
+    - Icon: "https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-60x60.png"
       Size: "60x60"
-    - Icon: "apple-icon-72x72.png"
+    - Icon: "https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-72x72.png"
       Size: "72x72"
-    - Icon: "apple-icon-76x76.png"
+    - Icon: "https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-76x76.png"
       Size: "76x76"
-    - Icon: "apple-icon-114x114.png"
+    - Icon: "https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-114x114.png"
       Size: "114x114"
-    - Icon: "apple-icon-120x120.png"
+    - Icon: "https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-120x120.png"
       Size: "120x120"
-    - Icon: "apple-icon-144x144.png"
+    - Icon: "https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-144x144.png"
       Size: "144x144"
-    - Icon: "apple-icon-152x152.png"
+    - Icon: "https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-152x152.png"
       Size: "152x152"
-    - Icon: "apple-icon-180x180.png"
+    - Icon: "https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-180x180.png"
       Size: "180x180"
 
 # Author details
@@ -181,7 +181,7 @@ author:
   # Your email used here only for copyright
   email:       "sadanand.singh@aol.com"
   # Your profile picture
-  picture:     "apple-icon-76x76.png"
+  picture:     "https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-76x76.png"
   # Your Twitter username without the @. E.g : thibaudlepretre
   twitter:     "sadanandsingh"
   # Your google plus profile id. E.g : +ThibaudLepretre or 114625208755123718311

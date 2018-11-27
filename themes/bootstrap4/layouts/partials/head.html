@@ -22,7 +22,7 @@
     <meta name="keywords" content="{{ with .Keywords }}{{ delimit . ", " }}{{ end }}{{ if .Site.Params.keywords }}, {{ delimit .Site.Params.keywords ", " }}{{ end }}">
 
     {{ range .Site.Params.favicons }}
-        <link rel="icon" href="{{ $.Site.BaseURL }}{{ .Icon }}" sizes="{{ .Size }}">
+        <link rel="icon" href="{{ .Icon }}" sizes="{{ .Size }}">
     {{ end }}
 
     <!-- open graph data -->
@@ -67,15 +67,10 @@
       <link rel="stylesheet" href="{{ $.Site.BaseURL }}{{ . }}">
     {{ end }}
 
-    {{ if .Params.bokeh }}
-    {{ $filename := $.Params.bokeh }}
-    {{ $directory := "static/js/" }}
-    {{ $fullpath := $filename | printf "%s%s" $directory | printf "%s" }}
-    {{ if (fileExists $fullpath) }}
+    {{ if (isset .Params "bokeh") }}
     <link href="//cdnjs.cloudflare.com/ajax/libs/bokeh/0.12.15/bokeh.min.css" rel="stylesheet" type="text/css">
     <link href="//cdnjs.cloudflare.com/ajax/libs/bokeh/0.12.15/bokeh-widgets.min.css" rel="stylesheet" type="text/css">
     <link href="//cdnjs.cloudflare.com/ajax/libs/bokeh/0.12.15/bokeh-tables.min.css" rel="stylesheet" type="text/css">
-    {{ end }}
     {{ end }}
 
     {{ if .Params.hasMath }}
