@@ -1,481 +1,72 @@
-
-
-  
-    
-  
-
-
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.51">
-    <meta name="theme" content="Bootstrap3-Lumen">
-    
-      <title>Support Vector Machines | Sadanand&#39;s Notes</title>
-    
-    <meta name="author" content="Sadanand Singh">
-    <meta name="keywords" content="">
-
-    
-        <link rel="icon" href="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/favicon.ico" sizes="16x16">
-    
-        <link rel="icon" href="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/favicon-32x32.png" sizes="32x32">
-    
-        <link rel="icon" href="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/favicon-96x96.png" sizes="96x96">
-    
-        <link rel="icon" href="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon.png" sizes="192x192">
-    
-        <link rel="icon" href="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-precomposed.png" sizes="192x192">
-    
-        <link rel="icon" href="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-57x57.png" sizes="57x57">
-    
-        <link rel="icon" href="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-60x60.png" sizes="60x60">
-    
-        <link rel="icon" href="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-72x72.png" sizes="72x72">
-    
-        <link rel="icon" href="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-76x76.png" sizes="76x76">
-    
-        <link rel="icon" href="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-114x114.png" sizes="114x114">
-    
-        <link rel="icon" href="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-120x120.png" sizes="120x120">
-    
-        <link rel="icon" href="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-144x144.png" sizes="144x144">
-    
-        <link rel="icon" href="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-152x152.png" sizes="152x152">
-    
-        <link rel="icon" href="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-180x180.png" sizes="180x180">
-    
-
-    
-    <meta name="description" content="In this post we will explore a class of machine learning methods called
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=generator content="Hugo 0.51"><meta name=theme content=Bootstrap3-Lumen><title>Support Vector Machines | Sadanand&#39;s Notes</title><meta name=author content="Sadanand Singh"><meta name=keywords content><link rel=icon href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/favicon.ico sizes=16x16><link rel=icon href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/favicon-32x32.png sizes=32x32><link rel=icon href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/favicon-96x96.png sizes=96x96><link rel=icon href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon.png sizes=192x192><link rel=icon href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-precomposed.png sizes=192x192><link rel=icon href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-57x57.png sizes=57x57><link rel=icon href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-60x60.png sizes=60x60><link rel=icon href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-72x72.png sizes=72x72><link rel=icon href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-76x76.png sizes=76x76><link rel=icon href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-114x114.png sizes=114x114><link rel=icon href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-120x120.png sizes=120x120><link rel=icon href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-144x144.png sizes=144x144><link rel=icon href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-152x152.png sizes=152x152><link rel=icon href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-180x180.png sizes=180x180><meta name=description content="In this post we will explore a class of machine learning methods called
 Support Vector
 Machines also
-known commonly as SVM.">
-    <meta property="og:description" content="In this post we will explore a class of machine learning methods called
+known commonly as SVM."><meta property=og:description content="In this post we will explore a class of machine learning methods called
 Support Vector
 Machines also
-known commonly as SVM.">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="Support Vector Machines">
-    <meta property="og:url" content="/posts/svmmodels/">
-    <meta property="og:site_name" content="Sadanand&#39;s Notes">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Sadanand&#39;s Notes">
-    <meta name="twitter:description" content="In this post we will explore a class of machine learning methods called
+known commonly as SVM."><meta property=og:type content=blog><meta property=og:title content="Support Vector Machines"><meta property=og:url content=/posts/svmmodels/><meta property=og:site_name content="Sadanand's Notes"><meta name=twitter:card content=summary><meta name=twitter:title content="Sadanand's Notes"><meta name=twitter:description content="In this post we will explore a class of machine learning methods called
 Support Vector
 Machines also
-known commonly as SVM.">
-    
-      <meta name="twitter:creator" content="@sadanandsingh">
-    
-    
-      <meta property="fb:app_id" content="993596464012237">
-    
-
-    
-      <meta property="og:image" content="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-76x76.png">
-    
-
-    
-
-    <link href="//stackpath.bootstrapcdn.com/bootswatch/4.1.0/litera/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" />
-    <link href="https://sadanand-singh.github.io/css/rst.css" rel="stylesheet" type="text/css">
-    <link href="https://sadanand-singh.github.io/css/theme.css" rel="stylesheet" type="text/css">
-    <link href="https://sadanand-singh.github.io/css/peak.min.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet"
-      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css">
-    <link href="https://sadanand-singh.github.io/css/colorbox.css" rel="stylesheet" type="text/css">
-    <link href="https://sadanand-singh.github.io/css/custom.min.css" rel="stylesheet" type="text/css">
-    <link href="https://sadanand-singh.github.io/css/tags.min.css" rel="stylesheet" type="text/css">
-    <link href="//cdnjs.cloudflare.com/ajax/libs/Tipue-Search/5.0.0/tipuesearch.css" rel="stylesheet" type="text/css">
-
-    
-
-    
-
-    
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.9.0/dist/katex.min.css" integrity="sha384-TEMocfGvRuD1rIAacqrknm5BQZ7W7uWitoih+jMNFXQIbNl16bO8OZmylH/Vi/Ei" crossorigin="anonymous">
-
-    
-    
-    
-  </head>
-
-<body>
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
-<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-
-    <div class="container">
-        <a class="navbar-brand" href="https://sadanand-singh.github.io/">
-        
-            <img class="px-2" src="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/letter-s.png" alt="Sadanand&#39;s Notes" id="logo">
-        
-
-        
-            Sadanand&#39;s Notes
-        
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
-            <ul class="navbar-nav mr-auto">
-              
-              
-              
-                
-                
-                  <li class="nav-item px-3"><a class="nav-link" href="/post/">Blog</a>
-                
-              
-                
-                
-                  <li class="nav-item px-3"><a class="nav-link" href="/tags/">Tags</a>
-                
-              
-                
-                
-                  <li class="nav-item px-3"><a class="nav-link" href="/categories/">Categories</a>
-                
-              
-                
-                
-                  <li class="nav-item px-3"><a class="nav-link" href="/archives/">Archive</a>
-                
-              
-            </ul>
-            <span class="navbar-form navbar-right">
-                <input type="text" id="tipue_search_input" class="form-control" style="padding-left: 50px; border-radius: 20px;" placeholder="Search">
-            </span>
-        </div>
-    </div>
-</nav>
-
-<div class="container" id="content" role="main">
-    <div class="body-content">
-        
-        <div class="row">
-            <article class=" mw-100 post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article">
-    <header>
-    
-      <h1 class="p-name entry-title" itemprop="headline name">
-        Support Vector Machines
-      </h1>
-    
-    <div class="metadata">
-    
-  
-  
-    
-    <p class="byline author vcard"><span class="byline-name fn"> By
-    <a href="/authors/sadanand-singh">Sadanand Singh</a>
-    </span></p>
-    
-  
-
-
-    
-    
-        <p class="dateline">on
-            <a href="https://sadanand-singh.github.io/posts/svmmodels/" rel="bookmark">
-              <time itemprop="datePublished" datetime="2016-11-11T00:00:00Z">
-                
-  
-  
-  
-  
-    2016-11-11
-  
-
-              </time>
-            </a>
-        </p>
-    
-    
-  
-  
-    <span>in</span>
-    
-      <a class="category-link" href="/categories/machine-learning">Machine Learning</a>
-    
-  
-
-
-    
-        
-            
-            <p class="commentline">
-                <a href="https://sadanand-singh.github.io/posts/svmmodels/#disqus_thread" data-disqus-identifier="svmModels.sadanand">
-                Comments
-                </a>
-            </p>
-            
-        
-    
-
-    &nbsp;
-<div class="fb-like" data-send="true" data-layout="standard" data-action="like" data-size="small" data-show-faces="false" data-share="false"></div>
-    </div>
-</header>
-    <div class="mw-100 e-content entry-content" itemprop="articleBody text">
-        <p>In this post we will explore a class of machine learning methods called
-<a href="https://en.wikipedia.org/wiki/Support_vector_machine">Support Vector
+known commonly as SVM."><meta name=twitter:creator content=@sadanandsingh><meta property=fb:app_id content=993596464012237><meta property=og:image content=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-76x76.png><link href=//stackpath.bootstrapcdn.com/bootswatch/4.1.0/litera/bootstrap.min.css rel=stylesheet type=text/css><link rel=stylesheet href=//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css><link rel=stylesheet href=//cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css><link href=https://sadanand-singh.github.io/css/rst.css rel=stylesheet type=text/css><link href=https://sadanand-singh.github.io/css/theme.css rel=stylesheet type=text/css><link href=https://sadanand-singh.github.io/css/peak.min.css rel=stylesheet type=text/css><link rel=stylesheet href=//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css><link href=https://sadanand-singh.github.io/css/colorbox.css rel=stylesheet type=text/css><link href=https://sadanand-singh.github.io/css/custom.min.css rel=stylesheet type=text/css><link href=https://sadanand-singh.github.io/css/tags.min.css rel=stylesheet type=text/css><link href=https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css><link href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/css/tipuesearch.css rel=stylesheet type=text/css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.9.0/dist/katex.min.css integrity=sha384-TEMocfGvRuD1rIAacqrknm5BQZ7W7uWitoih+jMNFXQIbNl16bO8OZmylH/Vi/Ei crossorigin=anonymous></head><body><div id=fb-root></div><script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script><a href=#content class="sr-only sr-only-focusable">Skip to main content</a><nav class="navbar navbar-expand-lg navbar-dark bg-primary"><div class=container><a class=navbar-brand href=https://sadanand-singh.github.io/><img class=px-2 src=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/letter-s.png alt="Sadanand's Notes" id=logo>
+Sadanand&#39;s Notes</a>
+<button class=navbar-toggler type=button data-toggle=collapse data-target=#bs-navbar aria-controls=bs-navbar aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span><span class=icon-bar></span><span class=icon-bar></span><span class=icon-bar></span></button><div class="collapse navbar-collapse" id=bs-navbar aria-expanded=false><ul class="navbar-nav mr-auto"><li class="nav-item px-3"><a class=nav-link href=/post/>Blog</a><li class="nav-item px-3"><a class=nav-link href=/tags/>Tags</a><li class="nav-item px-3"><a class=nav-link href=/categories/>Categories</a><li class="nav-item px-3"><a class=nav-link href=/archives/>Archive</a></ul><span class="navbar-form navbar-right"><div class=tipue_search_group><input type=text name=q id=tipue_search_input pattern=.{3,} title="At least 3 characters" required>
+<button type=submit class=tipue_search_button><div class=tipue_search_icon>&#9906;</div></button></div></span></div></div></nav><div class=container id=content role=main><div class=body-content><div class=row><article class="mw-100 post-text h-entry hentry postpage" itemscope itemtype=http://schema.org/Article><header><h1 class="p-name entry-title" itemprop="headline name">Support Vector Machines</h1><div class=metadata><p class="byline author vcard"><span class="byline-name fn">By
+<a href=/authors/sadanand-singh>Sadanand Singh</a></span></p><p class=dateline>on
+<a href=https://sadanand-singh.github.io/posts/svmmodels/ rel=bookmark><time itemprop=datePublished datetime=2016-11-11T00:00:00Z>2016-11-11</time></a></p><span>in</span>
+<a class=category-link href=/categories/machine-learning>Machine Learning</a><p class=commentline><a href=https://sadanand-singh.github.io/posts/svmmodels/#disqus_thread data-disqus-identifier=svmModels.sadanand>Comments</a></p>&nbsp;<div class=fb-like data-send=true data-layout=standard data-action=like data-size=small data-show-faces=false data-share=false></div></div></header><div class="mw-100 e-content entry-content" itemprop="articleBody text"><p>In this post we will explore a class of machine learning methods called
+<a href=https://en.wikipedia.org/wiki/Support_vector_machine>Support Vector
 Machines</a> also
-known commonly as <em>SVM</em>.</p>
-
-<strong id="table-of-contents">Table of Contents</strong><nav id="TableOfContents">
-<ul>
-<li><a href="#introduction">Introduction</a></li>
-<li><a href="#support-vector-classifier">Support Vector Classifier</a></li>
-<li><a href="#the-kernel-trick">The Kernel Trick</a></li>
-<li><a href="#curse-of-dimensionality-huh">Curse of Dimensionality&hellip;. huh!!!</a></li>
-</ul>
-</nav>
-
-<h1 id="introduction">Introduction</h1>
-
-<p>SVM is a <a href="https://en.wikipedia.org/wiki/Supervised_learning">supervised machine learning</a> algorithm
-which can be used for both classification and regression.</p>
-
-<figure class="figure img-responsive align-right">
-    <img src="https://res.cloudinary.com/sadanandsingh/image/upload/v1496963330/binaryclass_2d-300x284_kmozm1.png"
-         alt="SVC"/> 
-</figure>
-
-
-<p>In the simplest classification problem, given some data points each
+known commonly as <em>SVM</em>.</p><strong id=table-of-contents>Table of Contents</strong><nav id=TableOfContents><ul><li><a href=#introduction>Introduction</a></li><li><a href=#support-vector-classifier>Support Vector Classifier</a></li><li><a href=#the-kernel-trick>The Kernel Trick</a></li><li><a href=#curse-of-dimensionality-huh>Curse of Dimensionality&hellip;. huh!!!</a></li></ul></nav><h1 id=introduction>Introduction</h1><p>SVM is a <a href=https://en.wikipedia.org/wiki/Supervised_learning>supervised machine learning</a> algorithm
+which can be used for both classification and regression.</p><figure class="figure img-responsive align-right"><img src=https://res.cloudinary.com/sadanandsingh/image/upload/v1496963330/binaryclass_2d-300x284_kmozm1.png alt=SVC></figure><p>In the simplest classification problem, given some data points each
 belonging to one of the two classes, the goal is to decide which class a
 new data point will be in. A simple linear solution to this problem can
 be viewed in a framework where a data point is viewed as a
 $p$-dimensional vector, and we want to know whether we can separate such
-points with a ($p-1$)-dimensional hyperplane.</p>
-
-<p>There are many hyperplanes that might classify the data. One reasonable
+points with a ($p-1$)-dimensional hyperplane.</p><p>There are many hyperplanes that might classify the data. One reasonable
 choice as the best hyperplane is the one that represents the largest
 separation, or margin, between the two classes. So we choose the
 hyperplane so that the distance from it to the nearest data point on
 each side is maximized. If such a hyperplane exists, it is known as the
 maximum-margin hyperplane and the linear classifier it defines is known
 as a <strong>maximum margin classifier</strong>; or equivalently, the perceptron of
-optimal stability.</p>
-
-<p>The figure on the right is a binary classification problem (points
+optimal stability.</p><p>The figure on the right is a binary classification problem (points
 labeled $y_i = \pm 1$) that is linearly separable in space defined by
 the vector <strong>x</strong>. Green and purple line separate two classes with a
 small margin, whereas yellow line separates them with the maximum
-margin.</p>
-
-<figure class="figure img-responsive align-left">
-    <img src="https://res.cloudinary.com/sadanandsingh/image/upload/v1496963331/binaryclass_margin-300x266_wammb3.png"
-         alt="MaxMarginClassification"/> 
-</figure>
-
-
-<p>Mathematically, for the linearly separable case, any point <strong>x</strong> lying
-on the separating hyperplane satisfies: <span class="jsonly">
-              
-\(\mathbf{x}^T\mathbf{w} &#43; b = 0\)
-
-</span>
-<noscript>
-              
-<img style="display:inline;vertical-align:middle;" src="https://latex.codecogs.com/gif.latex?\inline&space;%5cmathbf%7bx%7d%5eT%5cmathbf%7bw%7d%20%2b%20b%20%3d%200" title="\mathbf{x}^T\mathbf{w} &#43; b = 0" />
-
-</noscript>,
+margin.</p><figure class="figure img-responsive align-left"><img src=https://res.cloudinary.com/sadanandsingh/image/upload/v1496963331/binaryclass_margin-300x266_wammb3.png alt=MaxMarginClassification></figure><p>Mathematically, for the linearly separable case, any point <strong>x</strong> lying
+on the separating hyperplane satisfies: <span class=jsonly>\(\mathbf{x}^T\mathbf{w} &#43; b = 0\)</span><noscript><img style=display:inline;vertical-align:middle src=https://latex.codecogs.com/gif.latex?\inline&space;%5cmathbf%7bx%7d%5eT%5cmathbf%7bw%7d%20%2b%20b%20%3d%200 title="\mathbf{x}^T\mathbf{w} &#43; b = 0"></noscript>,
 where $\mathbf{w}$ is the vector normal to the hyperplane, and $b$ is a
 constant that describes how much plane is shifted relative to the
 origin. The distance of the hyperplane from the origin is
-<span class="jsonly">
-              
-\(\frac{b}{\lVert \mathbf{w} \rVert}\)
-
-</span>
-<noscript>
-              
-<img style="display:inline;vertical-align:middle;" src="https://latex.codecogs.com/gif.latex?\inline&space;%5cfrac%7bb%7d%7b%5clVert%20%5cmathbf%7bw%7d%20%5crVert%7d" title="\frac{b}{\lVert \mathbf{w} \rVert}" />
-
-</noscript>.</p>
-
-<p>Now draw parallel planes on either side of the decision boundary, so we
+<span class=jsonly>\(\frac{b}{\lVert \mathbf{w} \rVert}\)</span><noscript><img style=display:inline;vertical-align:middle src=https://latex.codecogs.com/gif.latex?\inline&space;%5cfrac%7bb%7d%7b%5clVert%20%5cmathbf%7bw%7d%20%5crVert%7d title="\frac{b}{\lVert \mathbf{w} \rVert}"></noscript>.</p><p>Now draw parallel planes on either side of the decision boundary, so we
 have what looks like a channel, with the decision boundary as the
 central line, and the additional planes as gutters. The margin, i.e. the
-width of the channel, is <span class="jsonly">
-              
-\((d_&#43; &#43; d_-)\)
-
-</span>
-<noscript>
-              
-<img style="display:inline;vertical-align:middle;" src="https://latex.codecogs.com/gif.latex?\inline&space;%28d_%2b%20%2b%20d_-%29" title="(d_&#43; &#43; d_-)" />
-
-</noscript> and is restricted by the data
+width of the channel, is <span class=jsonly>\((d_&#43; &#43; d_-)\)</span><noscript><img style=display:inline;vertical-align:middle src=https://latex.codecogs.com/gif.latex?\inline&space;%28d_%2b%20%2b%20d_-%29 title="(d_&#43; &#43; d_-)"></noscript>and is restricted by the data
 points closest to the boundary, which lie on the gutters. The two
 bounding hyperplanes of the channel can be represented by a constant
 shift in the decision boundary. In other words, these planes ensure that
 all the points are at least a signed distance <em>d</em> away from the decision
 boundary. The channel region can be also represented by the following
-equations:</p>
-
-<span class="jsonly">
- 
-$$\begin{aligned} &amp; \mathbf{x}_i^T\mathbf{w} &#43; b \ge &#43;a, \text{for  } y_i = &#43;1 \\ &amp; \mathbf{x}_i^T\mathbf{w} &#43; b \le -a, \text{for  } y_i = -1 \end{aligned}$$
-
-</span>
-<noscript>
- 
-<div style="text-align:center;">
-<img src="https://latex.codecogs.com/gif.latex?%5cbegin%7baligned%7d%20%26%20%5cmathbf%7bx%7d_i%5eT%5cmathbf%7bw%7d%20%2b%20b%20%5cge%20%2ba%2c%20%5ctext%7bfor%20%20%7d%20y_i%20%3d%20%2b1%20%5c%5c%20%26%20%5cmathbf%7bx%7d_i%5eT%5cmathbf%7bw%7d%20%2b%20b%20%5cle%20-a%2c%20%5ctext%7bfor%20%20%7d%20y_i%20%3d%20-1%20%5cend%7baligned%7d" title="\begin{aligned} &amp; \mathbf{x}_i^T\mathbf{w} &#43; b \ge &#43;a, \text{for  } y_i = &#43;1 \\ &amp; \mathbf{x}_i^T\mathbf{w} &#43; b \le -a, \text{for  } y_i = -1 \end{aligned}" />
-</div>
-
-</noscript>
-
-<p>These conditions can be put more succinctly as:</p>
-
-<span class="jsonly">
- 
-$$y_i (\mathbf{x}_i^T\mathbf{w} &#43; b) \ge a, \forall i$$
-
-</span>
-<noscript>
- 
-<div style="text-align:center;">
-<img src="https://latex.codecogs.com/gif.latex?y_i%20%28%5cmathbf%7bx%7d_i%5eT%5cmathbf%7bw%7d%20%2b%20b%29%20%5cge%20a%2c%20%5cforall%20i" title="y_i (\mathbf{x}_i^T\mathbf{w} &#43; b) \ge a, \forall i" />
-</div>
-
-</noscript>
-
-<p>Using the formulation of distance from origin of three hyper planes, we
+equations:</p><span class=jsonly>$$\begin{aligned} &amp; \mathbf{x}_i^T\mathbf{w} &#43; b \ge &#43;a, \text{for } y_i = &#43;1 \\ &amp; \mathbf{x}_i^T\mathbf{w} &#43; b \le -a, \text{for } y_i = -1 \end{aligned}$$</span><noscript><div style=text-align:center><img src=https://latex.codecogs.com/gif.latex?%5cbegin%7baligned%7d%20%26%20%5cmathbf%7bx%7d_i%5eT%5cmathbf%7bw%7d%20%2b%20b%20%5cge%20%2ba%2c%20%5ctext%7bfor%20%20%7d%20y_i%20%3d%20%2b1%20%5c%5c%20%26%20%5cmathbf%7bx%7d_i%5eT%5cmathbf%7bw%7d%20%2b%20b%20%5cle%20-a%2c%20%5ctext%7bfor%20%20%7d%20y_i%20%3d%20-1%20%5cend%7baligned%7d title="\begin{aligned} &amp; \mathbf{x}_i^T\mathbf{w} &#43; b \ge &#43;a, \text{for  } y_i = &#43;1 \\ &amp; \mathbf{x}_i^T\mathbf{w} &#43; b \le -a, \text{for  } y_i = -1 \end{aligned}"></div></noscript><p>These conditions can be put more succinctly as:</p><span class=jsonly>$$y_i (\mathbf{x}_i^T\mathbf{w} &#43; b) \ge a, \forall i$$</span><noscript><div style=text-align:center><img src=https://latex.codecogs.com/gif.latex?y_i%20%28%5cmathbf%7bx%7d_i%5eT%5cmathbf%7bw%7d%20%2b%20b%29%20%5cge%20a%2c%20%5cforall%20i title="y_i (\mathbf{x}_i^T\mathbf{w} &#43; b) \ge a, \forall i"></div></noscript><p>Using the formulation of distance from origin of three hyper planes, we
 can show that, the margin, M is equivalent to $d_+ + d_- = 2a / \lVert \mathbf{w} \rVert$. Without any loss of
-generality, we can set <span class="jsonly">
-              
-\(a = 1\)
-
-</span>
-<noscript>
-              
-<img style="display:inline;vertical-align:middle;" src="https://latex.codecogs.com/gif.latex?\inline&space;a%20%3d%201" title="a = 1" />
-
-</noscript>, since it only sets the scale (units) of
-<span class="jsonly">
-              
-\(b\)
-
-</span>
-<noscript>
-              
-<img style="display:inline;vertical-align:middle;" src="https://latex.codecogs.com/gif.latex?\inline&space;b" title="b" />
-
-</noscript> and $\mathbf{w}$. So to maximize the margin, we have to maximize
-<span class="jsonly">
-              
-\(1 / \lVert \mathbf{w} \rVert\)
-
-</span>
-<noscript>
-              
-<img style="display:inline;vertical-align:middle;" src="https://latex.codecogs.com/gif.latex?\inline&space;1%20%2f%20%5clVert%20%5cmathbf%7bw%7d%20%5crVert" title="1 / \lVert \mathbf{w} \rVert" />
-
-</noscript>. Such a non-convex objective function can
+generality, we can set <span class=jsonly>\(a = 1\)</span><noscript><img style=display:inline;vertical-align:middle src=https://latex.codecogs.com/gif.latex?\inline&space;a%20%3d%201 title="a = 1"></noscript>, since it only sets the scale (units) of
+<span class=jsonly>\(b\)</span><noscript><img style=display:inline;vertical-align:middle src=https://latex.codecogs.com/gif.latex?\inline&space;b title=b></noscript>and $\mathbf{w}$. So to maximize the margin, we have to maximize
+<span class=jsonly>\(1 / \lVert \mathbf{w} \rVert\)</span><noscript><img style=display:inline;vertical-align:middle src=https://latex.codecogs.com/gif.latex?\inline&space;1%20%2f%20%5clVert%20%5cmathbf%7bw%7d%20%5crVert title="1 / \lVert \mathbf{w} \rVert"></noscript>. Such a non-convex objective function can
 be avoided if we choose in stead to minimize
-<span class="jsonly">
-              
-\({\lVert \mathbf{w} \rVert}^2\)
-
-</span>
-<noscript>
-              
-<img style="display:inline;vertical-align:middle;" src="https://latex.codecogs.com/gif.latex?\inline&space;%7b%5clVert%20%5cmathbf%7bw%7d%20%5crVert%7d%5e2" title="{\lVert \mathbf{w} \rVert}^2" />
-
-</noscript>.</p>
-
-<p>In summary, for a problem with m numbers of training data points, we
-need to solve the following quadratic programming problem:</p>
-
-<span class="jsonly">
- 
-$$\begin{aligned} &amp; {\text{maximize  }} M \\&amp; \text{subject to  } y_i (\mathbf{x}_i^T\mathbf{w} &#43; b) \ge M, \forall \text{ } i = 1 \ldots m \end{aligned}$$
-
-</span>
-<noscript>
- 
-<div style="text-align:center;">
-<img src="https://latex.codecogs.com/gif.latex?%5cbegin%7baligned%7d%20%26%20%7b%5ctext%7bmaximize%20%20%7d%7d%20M%20%5c%5c%26%20%5ctext%7bsubject%20to%20%20%7d%20y_i%20%28%5cmathbf%7bx%7d_i%5eT%5cmathbf%7bw%7d%20%2b%20b%29%20%5cge%20M%2c%20%5cforall%20%5ctext%7b%20%7d%20i%20%3d%201%20%5cldots%20m%20%5cend%7baligned%7d" title="\begin{aligned} &amp; {\text{maximize  }} M \\&amp; \text{subject to  } y_i (\mathbf{x}_i^T\mathbf{w} &#43; b) \ge M, \forall \text{ } i = 1 \ldots m \end{aligned}" />
-</div>
-
-</noscript>
-
-<p>This can be more conveniently put as:</p>
-
-<span class="jsonly">
- 
-$$\begin{aligned} &amp; {\text{minimize  }} f(w)  \equiv \frac{1}{2} {\lVert \mathbf{w} \rVert}^2 \\ &amp; \text{subject to  } g(\mathbf{w}, b) \equiv -y_i (\mathbf{x}_i^T\mathbf{w} &#43; b) &#43; 1 \le 0, i = 1 \ldots m \end{aligned}$$
-
-</span>
-<noscript>
- 
-<div style="text-align:center;">
-<img src="https://latex.codecogs.com/gif.latex?%5cbegin%7baligned%7d%20%26%20%7b%5ctext%7bminimize%20%20%7d%7d%20f%28w%29%20%20%5cequiv%20%5cfrac%7b1%7d%7b2%7d%20%7b%5clVert%20%5cmathbf%7bw%7d%20%5crVert%7d%5e2%20%5c%5c%20%26%20%5ctext%7bsubject%20to%20%20%7d%20g%28%5cmathbf%7bw%7d%2c%20b%29%20%5cequiv%20-y_i%20%28%5cmathbf%7bx%7d_i%5eT%5cmathbf%7bw%7d%20%2b%20b%29%20%2b%201%20%5cle%200%2c%20i%20%3d%201%20%5cldots%20m%20%5cend%7baligned%7d" title="\begin{aligned} &amp; {\text{minimize  }} f(w)  \equiv \frac{1}{2} {\lVert \mathbf{w} \rVert}^2 \\ &amp; \text{subject to  } g(\mathbf{w}, b) \equiv -y_i (\mathbf{x}_i^T\mathbf{w} &#43; b) &#43; 1 \le 0, i = 1 \ldots m \end{aligned}" />
-</div>
-
-</noscript>
-
-<p>The maximal margin classifier is a very natural way to perform
+<span class=jsonly>\({\lVert \mathbf{w} \rVert}^2\)</span><noscript><img style=display:inline;vertical-align:middle src=https://latex.codecogs.com/gif.latex?\inline&space;%7b%5clVert%20%5cmathbf%7bw%7d%20%5crVert%7d%5e2 title="{\lVert \mathbf{w} \rVert}^2"></noscript>.</p><p>In summary, for a problem with m numbers of training data points, we
+need to solve the following quadratic programming problem:</p><span class=jsonly>$$\begin{aligned} &amp; {\text{maximize }} M \\&amp; \text{subject to } y_i (\mathbf{x}_i^T\mathbf{w} &#43; b) \ge M, \forall \text{ } i = 1 \ldots m \end{aligned}$$</span><noscript><div style=text-align:center><img src=https://latex.codecogs.com/gif.latex?%5cbegin%7baligned%7d%20%26%20%7b%5ctext%7bmaximize%20%20%7d%7d%20M%20%5c%5c%26%20%5ctext%7bsubject%20to%20%20%7d%20y_i%20%28%5cmathbf%7bx%7d_i%5eT%5cmathbf%7bw%7d%20%2b%20b%29%20%5cge%20M%2c%20%5cforall%20%5ctext%7b%20%7d%20i%20%3d%201%20%5cldots%20m%20%5cend%7baligned%7d title="\begin{aligned} &amp; {\text{maximize  }} M \\&amp; \text{subject to  } y_i (\mathbf{x}_i^T\mathbf{w} &#43; b) \ge M, \forall \text{ } i = 1 \ldots m \end{aligned}"></div></noscript><p>This can be more conveniently put as:</p><span class=jsonly>$$\begin{aligned} &amp; {\text{minimize }} f(w) \equiv \frac{1}{2} {\lVert \mathbf{w} \rVert}^2 \\ &amp; \text{subject to } g(\mathbf{w}, b) \equiv -y_i (\mathbf{x}_i^T\mathbf{w} &#43; b) &#43; 1 \le 0, i = 1 \ldots m \end{aligned}$$</span><noscript><div style=text-align:center><img src=https://latex.codecogs.com/gif.latex?%5cbegin%7baligned%7d%20%26%20%7b%5ctext%7bminimize%20%20%7d%7d%20f%28w%29%20%20%5cequiv%20%5cfrac%7b1%7d%7b2%7d%20%7b%5clVert%20%5cmathbf%7bw%7d%20%5crVert%7d%5e2%20%5c%5c%20%26%20%5ctext%7bsubject%20to%20%20%7d%20g%28%5cmathbf%7bw%7d%2c%20b%29%20%5cequiv%20-y_i%20%28%5cmathbf%7bx%7d_i%5eT%5cmathbf%7bw%7d%20%2b%20b%29%20%2b%201%20%5cle%200%2c%20i%20%3d%201%20%5cldots%20m%20%5cend%7baligned%7d title="\begin{aligned} &amp; {\text{minimize  }} f(w)  \equiv \frac{1}{2} {\lVert \mathbf{w} \rVert}^2 \\ &amp; \text{subject to  } g(\mathbf{w}, b) \equiv -y_i (\mathbf{x}_i^T\mathbf{w} &#43; b) &#43; 1 \le 0, i = 1 \ldots m \end{aligned}"></div></noscript><p>The maximal margin classifier is a very natural way to perform
 classification, if a separating hyper plane exists. However, in most
 real-life cases no separating hyper plane exists, and so there is no
-maximal margin classifier.</p>
-
-<h1 id="support-vector-classifier">Support Vector Classifier</h1>
-
-<figure class="figure img-responsive align-right">
-    <img src="https://res.cloudinary.com/sadanandsingh/image/upload/v1496963334/softmargin-300x266_lqp75o.png"
-         alt="MaxMarginClassification"/> 
-</figure>
-
-
-<p>We can extend the concept of a separating hyper plane in order to develop
+maximal margin classifier.</p><h1 id=support-vector-classifier>Support Vector Classifier</h1><figure class="figure img-responsive align-right"><img src=https://res.cloudinary.com/sadanandsingh/image/upload/v1496963334/softmargin-300x266_lqp75o.png alt=MaxMarginClassification></figure><p>We can extend the concept of a separating hyper plane in order to develop
 a hyper plane that <em>almost</em> separates the classes, using a so-called
 <em>soft margin</em>. The generalization of the maximal margin classifier to
-the non-separable case is known as the <strong>support vector</strong> classifier.</p>
-
-<p>Assuming the classes overlap in the given feature space. One way to deal
+the non-separable case is known as the <strong>support vector</strong> classifier.</p><p>Assuming the classes overlap in the given feature space. One way to deal
 with the overlap is to still maximize M, but allow for some points to be
 on the wrong side of the margin. In order to allow these, we can define
 the slack variables as, $\xi = ( \xi_1, \xi_2 \ldots \xi_m)$. Now,
 keeping the above optimization problem as a convex problem, we can
-modify the constraints as:</p>
-
-<span class="jsonly">
- 
-$$\begin{aligned} &amp; y_i (\mathbf{x}_i^T\mathbf{w} &#43; b) \ge M(1-\xi_i), \forall \text{  } i = 1 \ldots m, \\ &amp; \xi_i \ge 0 \text{   and   } \sum_{i=1}^{m}\xi_i \le C \text{  }\forall \text{   } i = 1 \ldots m, \end{aligned}$$
-
-</span>
-<noscript>
- 
-<div style="text-align:center;">
-<img src="https://latex.codecogs.com/gif.latex?%5cbegin%7baligned%7d%20%26%20y_i%20%28%5cmathbf%7bx%7d_i%5eT%5cmathbf%7bw%7d%20%2b%20b%29%20%5cge%20M%281-%5cxi_i%29%2c%20%5cforall%20%5ctext%7b%20%20%7d%20i%20%3d%201%20%5cldots%20m%2c%20%5c%5c%20%26%20%5cxi_i%20%5cge%200%20%5ctext%7b%20%20%20and%20%20%20%7d%20%5csum_%7bi%3d1%7d%5e%7bm%7d%5cxi_i%20%5cle%20C%20%5ctext%7b%20%20%7d%5cforall%20%5ctext%7b%20%20%20%7d%20i%20%3d%201%20%5cldots%20m%2c%20%5cend%7baligned%7d" title="\begin{aligned} &amp; y_i (\mathbf{x}_i^T\mathbf{w} &#43; b) \ge M(1-\xi_i), \forall \text{  } i = 1 \ldots m, \\ &amp; \xi_i \ge 0 \text{   and   } \sum_{i=1}^{m}\xi_i \le C \text{  }\forall \text{   } i = 1 \ldots m, \end{aligned}" />
-</div>
-
-</noscript>
-
-<p>We can think of this formulation in the following context. The value
+modify the constraints as:</p><span class=jsonly>$$\begin{aligned} &amp; y_i (\mathbf{x}_i^T\mathbf{w} &#43; b) \ge M(1-\xi_i), \forall \text{ } i = 1 \ldots m, \\ &amp; \xi_i \ge 0 \text{ and } \sum_{i=1}^{m}\xi_i \le C \text{ }\forall \text{ } i = 1 \ldots m, \end{aligned}$$</span><noscript><div style=text-align:center><img src=https://latex.codecogs.com/gif.latex?%5cbegin%7baligned%7d%20%26%20y_i%20%28%5cmathbf%7bx%7d_i%5eT%5cmathbf%7bw%7d%20%2b%20b%29%20%5cge%20M%281-%5cxi_i%29%2c%20%5cforall%20%5ctext%7b%20%20%7d%20i%20%3d%201%20%5cldots%20m%2c%20%5c%5c%20%26%20%5cxi_i%20%5cge%200%20%5ctext%7b%20%20%20and%20%20%20%7d%20%5csum_%7bi%3d1%7d%5e%7bm%7d%5cxi_i%20%5cle%20C%20%5ctext%7b%20%20%7d%5cforall%20%5ctext%7b%20%20%20%7d%20i%20%3d%201%20%5cldots%20m%2c%20%5cend%7baligned%7d title="\begin{aligned} &amp; y_i (\mathbf{x}_i^T\mathbf{w} &#43; b) \ge M(1-\xi_i), \forall \text{  } i = 1 \ldots m, \\ &amp; \xi_i \ge 0 \text{   and   } \sum_{i=1}^{m}\xi_i \le C \text{  }\forall \text{   } i = 1 \ldots m, \end{aligned}"></div></noscript><p>We can think of this formulation in the following context. The value
 $\xi_i$ in the constraint
 $y_i (\mathbf{x}_i^T\mathbf{w} + b) \ge M(1-\xi_i)$ is the proportional
 amount by which the prediction $f(x_i)=x_i^T\mathbf{w} + b$ is on the
@@ -483,147 +74,21 @@ wrong side of its margin. Hence by bounding the sum $\sum \xi_i$, we can
 bound the total proportional amount by which predictions fall on the
 wrong side of their margin. Mis-classifications occur when $\xi_i &gt; 1$,
 so bounding $\sum \xi_i$ at a value K say, bounds the total number of
-training mis-classifications at K.</p>
-
-<p>Similar to the case of maximum margin classifier, we can rewrite the
-optimization problem more conveniently as,</p>
-
-<span class="jsonly">
- 
-$$\begin{aligned} &amp; {\text{minimize  }} \frac{1}{2} {\lVert \mathbf{w} \rVert}^2 &#43; C \sum_{i}^{m} \xi_i\\ &amp; \text{subject to  } y_i (\mathbf{x}_i^T\mathbf{w} &#43; b) \ge 1 - \xi_i, \text{  } \text{   and   } \xi_i \ge 0, \text{   } i = 1 \ldots m \end{aligned}$$
-
-</span>
-<noscript>
- 
-<div style="text-align:center;">
-<img src="https://latex.codecogs.com/gif.latex?%5cbegin%7baligned%7d%20%26%20%7b%5ctext%7bminimize%20%20%7d%7d%20%5cfrac%7b1%7d%7b2%7d%20%7b%5clVert%20%5cmathbf%7bw%7d%20%5crVert%7d%5e2%20%2b%20C%20%5csum_%7bi%7d%5e%7bm%7d%20%5cxi_i%5c%5c%20%26%20%5ctext%7bsubject%20to%20%20%7d%20y_i%20%28%5cmathbf%7bx%7d_i%5eT%5cmathbf%7bw%7d%20%2b%20b%29%20%5cge%201%20-%20%5cxi_i%2c%20%5ctext%7b%20%20%7d%20%5ctext%7b%20%20%20and%20%20%20%7d%20%5cxi_i%20%5cge%200%2c%20%5ctext%7b%20%20%20%7d%20i%20%3d%201%20%5cldots%20m%20%5cend%7baligned%7d" title="\begin{aligned} &amp; {\text{minimize  }} \frac{1}{2} {\lVert \mathbf{w} \rVert}^2 &#43; C \sum_{i}^{m} \xi_i\\ &amp; \text{subject to  } y_i (\mathbf{x}_i^T\mathbf{w} &#43; b) \ge 1 - \xi_i, \text{  } \text{   and   } \xi_i \ge 0, \text{   } i = 1 \ldots m \end{aligned}" />
-</div>
-
-</noscript>
-
-<p>Now, the question before us is to find a way to solve this optimization
-problem efficiently.</p>
-
-<p>The problem above is quadratic with linear constraints, hence is a
+training mis-classifications at K.</p><p>Similar to the case of maximum margin classifier, we can rewrite the
+optimization problem more conveniently as,</p><span class=jsonly>$$\begin{aligned} &amp; {\text{minimize }} \frac{1}{2} {\lVert \mathbf{w} \rVert}^2 &#43; C \sum_{i}^{m} \xi_i\\ &amp; \text{subject to } y_i (\mathbf{x}_i^T\mathbf{w} &#43; b) \ge 1 - \xi_i, \text{ } \text{ and } \xi_i \ge 0, \text{ } i = 1 \ldots m \end{aligned}$$</span><noscript><div style=text-align:center><img src=https://latex.codecogs.com/gif.latex?%5cbegin%7baligned%7d%20%26%20%7b%5ctext%7bminimize%20%20%7d%7d%20%5cfrac%7b1%7d%7b2%7d%20%7b%5clVert%20%5cmathbf%7bw%7d%20%5crVert%7d%5e2%20%2b%20C%20%5csum_%7bi%7d%5e%7bm%7d%20%5cxi_i%5c%5c%20%26%20%5ctext%7bsubject%20to%20%20%7d%20y_i%20%28%5cmathbf%7bx%7d_i%5eT%5cmathbf%7bw%7d%20%2b%20b%29%20%5cge%201%20-%20%5cxi_i%2c%20%5ctext%7b%20%20%7d%20%5ctext%7b%20%20%20and%20%20%20%7d%20%5cxi_i%20%5cge%200%2c%20%5ctext%7b%20%20%20%7d%20i%20%3d%201%20%5cldots%20m%20%5cend%7baligned%7d title="\begin{aligned} &amp; {\text{minimize  }} \frac{1}{2} {\lVert \mathbf{w} \rVert}^2 &#43; C \sum_{i}^{m} \xi_i\\ &amp; \text{subject to  } y_i (\mathbf{x}_i^T\mathbf{w} &#43; b) \ge 1 - \xi_i, \text{  } \text{   and   } \xi_i \ge 0, \text{   } i = 1 \ldots m \end{aligned}"></div></noscript><p>Now, the question before us is to find a way to solve this optimization
+problem efficiently.</p><p>The problem above is quadratic with linear constraints, hence is a
 convex optimization problem. We can describe a quadratic programming
 solution using Lagrange multipliers and then solving using the Wolfe
-dual problem.</p>
-
-<p>The Lagrange (primal) function for this problem is:</p>
-
-<span class="jsonly">
- 
-$$L_P = \frac{1}{2} {\lVert \mathbf{w} \rVert}^2 &#43; C \sum_{i}^{m} \xi_i - \sum_{i=1}^{m} \alpha_i[y_i (\mathbf{x}_i^T\mathbf{w} &#43; b) - (1 - \xi_i)] - \sum_{i=1}^{m} \mu_i \xi_i,$$
-
-</span>
-<noscript>
- 
-<div style="text-align:center;">
-<img src="https://latex.codecogs.com/gif.latex?L_P%20%3d%20%5cfrac%7b1%7d%7b2%7d%20%7b%5clVert%20%5cmathbf%7bw%7d%20%5crVert%7d%5e2%20%2b%20C%20%5csum_%7bi%7d%5e%7bm%7d%20%5cxi_i%20-%20%5csum_%7bi%3d1%7d%5e%7bm%7d%20%5calpha_i%5by_i%20%28%5cmathbf%7bx%7d_i%5eT%5cmathbf%7bw%7d%20%2b%20b%29%20-%20%281%20-%20%5cxi_i%29%5d%20-%20%5csum_%7bi%3d1%7d%5e%7bm%7d%20%5cmu_i%20%5cxi_i%2c" title="L_P = \frac{1}{2} {\lVert \mathbf{w} \rVert}^2 &#43; C \sum_{i}^{m} \xi_i - \sum_{i=1}^{m} \alpha_i[y_i (\mathbf{x}_i^T\mathbf{w} &#43; b) - (1 - \xi_i)] - \sum_{i=1}^{m} \mu_i \xi_i," />
-</div>
-
-</noscript>
-
-<p>which we can minimize w.r.t. $\mathbf{w}$, b, and $\xi_i$. Setting the
-respective derivatives to zero, we get,</p>
-
-<span class="jsonly">
- 
-$$\begin{aligned} &amp; \mathbf{w} = \sum_{i=1}^{m} \alpha_i y_i \mathbf{x_i} \\ &amp; 0 = \sum_{i=1}^{m} \alpha_i y_i \\ &amp; \alpha_i = C - \mu_i, \forall i, \end{aligned}$$
-
-</span>
-<noscript>
- 
-<div style="text-align:center;">
-<img src="https://latex.codecogs.com/gif.latex?%5cbegin%7baligned%7d%20%26%20%5cmathbf%7bw%7d%20%3d%20%5csum_%7bi%3d1%7d%5e%7bm%7d%20%5calpha_i%20y_i%20%5cmathbf%7bx_i%7d%20%5c%5c%20%26%200%20%3d%20%5csum_%7bi%3d1%7d%5e%7bm%7d%20%5calpha_i%20y_i%20%5c%5c%20%26%20%5calpha_i%20%3d%20C%20-%20%5cmu_i%2c%20%5cforall%20i%2c%20%5cend%7baligned%7d" title="\begin{aligned} &amp; \mathbf{w} = \sum_{i=1}^{m} \alpha_i y_i \mathbf{x_i} \\ &amp; 0 = \sum_{i=1}^{m} \alpha_i y_i \\ &amp; \alpha_i = C - \mu_i, \forall i, \end{aligned}" />
-</div>
-
-</noscript>
-
-<p>as well as the positivity constraints, $\alpha_i$, $\mu_i$,
-$\xi_i \ge 0, \text{  } \forall i$. By substituting these conditions
+dual problem.</p><p>The Lagrange (primal) function for this problem is:</p><span class=jsonly>$$L_P = \frac{1}{2} {\lVert \mathbf{w} \rVert}^2 &#43; C \sum_{i}^{m} \xi_i - \sum_{i=1}^{m} \alpha_i[y_i (\mathbf{x}_i^T\mathbf{w} &#43; b) - (1 - \xi_i)] - \sum_{i=1}^{m} \mu_i \xi_i,$$</span><noscript><div style=text-align:center><img src=https://latex.codecogs.com/gif.latex?L_P%20%3d%20%5cfrac%7b1%7d%7b2%7d%20%7b%5clVert%20%5cmathbf%7bw%7d%20%5crVert%7d%5e2%20%2b%20C%20%5csum_%7bi%7d%5e%7bm%7d%20%5cxi_i%20-%20%5csum_%7bi%3d1%7d%5e%7bm%7d%20%5calpha_i%5by_i%20%28%5cmathbf%7bx%7d_i%5eT%5cmathbf%7bw%7d%20%2b%20b%29%20-%20%281%20-%20%5cxi_i%29%5d%20-%20%5csum_%7bi%3d1%7d%5e%7bm%7d%20%5cmu_i%20%5cxi_i%2c title="L_P = \frac{1}{2} {\lVert \mathbf{w} \rVert}^2 &#43; C \sum_{i}^{m} \xi_i - \sum_{i=1}^{m} \alpha_i[y_i (\mathbf{x}_i^T\mathbf{w} &#43; b) - (1 - \xi_i)] - \sum_{i=1}^{m} \mu_i \xi_i,"></div></noscript><p>which we can minimize w.r.t. $\mathbf{w}$, b, and $\xi_i$. Setting the
+respective derivatives to zero, we get,</p><span class=jsonly>$$\begin{aligned} &amp; \mathbf{w} = \sum_{i=1}^{m} \alpha_i y_i \mathbf{x_i} \\ &amp; 0 = \sum_{i=1}^{m} \alpha_i y_i \\ &amp; \alpha_i = C - \mu_i, \forall i, \end{aligned}$$</span><noscript><div style=text-align:center><img src=https://latex.codecogs.com/gif.latex?%5cbegin%7baligned%7d%20%26%20%5cmathbf%7bw%7d%20%3d%20%5csum_%7bi%3d1%7d%5e%7bm%7d%20%5calpha_i%20y_i%20%5cmathbf%7bx_i%7d%20%5c%5c%20%26%200%20%3d%20%5csum_%7bi%3d1%7d%5e%7bm%7d%20%5calpha_i%20y_i%20%5c%5c%20%26%20%5calpha_i%20%3d%20C%20-%20%5cmu_i%2c%20%5cforall%20i%2c%20%5cend%7baligned%7d title="\begin{aligned} &amp; \mathbf{w} = \sum_{i=1}^{m} \alpha_i y_i \mathbf{x_i} \\ &amp; 0 = \sum_{i=1}^{m} \alpha_i y_i \\ &amp; \alpha_i = C - \mu_i, \forall i, \end{aligned}"></div></noscript><p>as well as the positivity constraints, $\alpha_i$, $\mu_i$,
+$\xi_i \ge 0, \text{ } \forall i$. By substituting these conditions
 back into the Lagrange primal function, we get the Wolfe dual of the
-problem as,</p>
-
-<span class="jsonly">
- 
-$$L_D = \sum_{i=1}^{m} \alpha_i - \frac{1}{2} \sum_{i=1}^{m} \sum_{j=1}^{m} \alpha_i \alpha_j y_i y_j x_i^T x_j$$
-
-</span>
-<noscript>
- 
-<div style="text-align:center;">
-<img src="https://latex.codecogs.com/gif.latex?L_D%20%3d%20%5csum_%7bi%3d1%7d%5e%7bm%7d%20%5calpha_i%20-%20%5cfrac%7b1%7d%7b2%7d%20%5csum_%7bi%3d1%7d%5e%7bm%7d%20%5csum_%7bj%3d1%7d%5e%7bm%7d%20%5calpha_i%20%5calpha_j%20y_i%20y_j%20x_i%5eT%20x_j" title="L_D = \sum_{i=1}^{m} \alpha_i - \frac{1}{2} \sum_{i=1}^{m} \sum_{j=1}^{m} \alpha_i \alpha_j y_i y_j x_i^T x_j" />
-</div>
-
-</noscript>
-
-<p>which gives a lower bound on the original objective function of the
-quadratic programming problem for any feasible point. We maximize <span class="jsonly">
-              
-\(L_D\)
-
-</span>
-<noscript>
-              
-<img style="display:inline;vertical-align:middle;" src="https://latex.codecogs.com/gif.latex?\inline&space;L_D" title="L_D" />
-
-</noscript>
-subject to <span class="jsonly">
-              
-\(0 \le \alpha_i \le C\)
-
-</span>
-<noscript>
-              
-<img style="display:inline;vertical-align:middle;" src="https://latex.codecogs.com/gif.latex?\inline&space;0%20%5cle%20%5calpha_i%20%5cle%20C" title="0 \le \alpha_i \le C" />
-
-</noscript> and <span class="jsonly">
-              
-\(\sum_{i=1}^{m} \alpha_i y_i = 0\)
-
-</span>
-<noscript>
-              
-<img style="display:inline;vertical-align:middle;" src="https://latex.codecogs.com/gif.latex?\inline&space;%5csum_%7bi%3d1%7d%5e%7bm%7d%20%5calpha_i%20y_i%20%3d%200" title="\sum_{i=1}^{m} \alpha_i y_i = 0" />
-
-</noscript>.
+problem as,</p><span class=jsonly>$$L_D = \sum_{i=1}^{m} \alpha_i - \frac{1}{2} \sum_{i=1}^{m} \sum_{j=1}^{m} \alpha_i \alpha_j y_i y_j x_i^T x_j$$</span><noscript><div style=text-align:center><img src=https://latex.codecogs.com/gif.latex?L_D%20%3d%20%5csum_%7bi%3d1%7d%5e%7bm%7d%20%5calpha_i%20-%20%5cfrac%7b1%7d%7b2%7d%20%5csum_%7bi%3d1%7d%5e%7bm%7d%20%5csum_%7bj%3d1%7d%5e%7bm%7d%20%5calpha_i%20%5calpha_j%20y_i%20y_j%20x_i%5eT%20x_j title="L_D = \sum_{i=1}^{m} \alpha_i - \frac{1}{2} \sum_{i=1}^{m} \sum_{j=1}^{m} \alpha_i \alpha_j y_i y_j x_i^T x_j"></div></noscript><p>which gives a lower bound on the original objective function of the
+quadratic programming problem for any feasible point. We maximize <span class=jsonly>\(L_D\)</span><noscript><img style=display:inline;vertical-align:middle src=https://latex.codecogs.com/gif.latex?\inline&space;L_D title=L_D></noscript>subject to <span class=jsonly>\(0 \le \alpha_i \le C\)</span><noscript><img style=display:inline;vertical-align:middle src=https://latex.codecogs.com/gif.latex?\inline&space;0%20%5cle%20%5calpha_i%20%5cle%20C title="0 \le \alpha_i \le C"></noscript>and <span class=jsonly>\(\sum_{i=1}^{m} \alpha_i y_i = 0\)</span><noscript><img style=display:inline;vertical-align:middle src=https://latex.codecogs.com/gif.latex?\inline&space;%5csum_%7bi%3d1%7d%5e%7bm%7d%20%5calpha_i%20y_i%20%3d%200 title="\sum_{i=1}^{m} \alpha_i y_i = 0"></noscript>.
 In addition to above constraints, the Karush-Kuhn-Tucker (KKT)
-conditions include the following constraints,</p>
-
-<span class="jsonly">
- 
-$$\begin{aligned} &amp; \alpha_i[y_i (\mathbf{x}_i^T\mathbf{w} &#43; b) - (1 - \xi_i)] = 0, \\ &amp; \mu_i \xi_i = 0, \\ &amp; y_i (\mathbf{x}_i^T\mathbf{w} &#43; b) - (1 - \xi_i) \ge 0, \end{aligned}$$
-
-</span>
-<noscript>
- 
-<div style="text-align:center;">
-<img src="https://latex.codecogs.com/gif.latex?%5cbegin%7baligned%7d%20%26%20%5calpha_i%5by_i%20%28%5cmathbf%7bx%7d_i%5eT%5cmathbf%7bw%7d%20%2b%20b%29%20-%20%281%20-%20%5cxi_i%29%5d%20%3d%200%2c%20%5c%5c%20%26%20%5cmu_i%20%5cxi_i%20%3d%200%2c%20%5c%5c%20%26%20y_i%20%28%5cmathbf%7bx%7d_i%5eT%5cmathbf%7bw%7d%20%2b%20b%29%20-%20%281%20-%20%5cxi_i%29%20%5cge%200%2c%20%5cend%7baligned%7d" title="\begin{aligned} &amp; \alpha_i[y_i (\mathbf{x}_i^T\mathbf{w} &#43; b) - (1 - \xi_i)] = 0, \\ &amp; \mu_i \xi_i = 0, \\ &amp; y_i (\mathbf{x}_i^T\mathbf{w} &#43; b) - (1 - \xi_i) \ge 0, \end{aligned}" />
-</div>
-
-</noscript>
-
-<p>for $i = 1 \ldots m$. Together these equations uniquely characterize the
-solution to the primal and the dual problem.</p>
-
-<p>Let us look at some special properties of the solution. We can see that
-the solution for $\mathbf{w}$ has the for</p>
-
-<span class="jsonly">
- 
-$$\mathbf{\hat{w}} = \sum_{i=1}^{m} \hat{\alpha_i} y_i \mathbf{x_i}$$
-
-</span>
-<noscript>
- 
-<div style="text-align:center;">
-<img src="https://latex.codecogs.com/gif.latex?%5cmathbf%7b%5chat%7bw%7d%7d%20%3d%20%5csum_%7bi%3d1%7d%5e%7bm%7d%20%5chat%7b%5calpha_i%7d%20y_i%20%5cmathbf%7bx_i%7d" title="\mathbf{\hat{w}} = \sum_{i=1}^{m} \hat{\alpha_i} y_i \mathbf{x_i}" />
-</div>
-
-</noscript>
-
-<p>with nonzero coefficients $\hat{\alpha}_i$ only for those i for which
+conditions include the following constraints,</p><span class=jsonly>$$\begin{aligned} &amp; \alpha_i[y_i (\mathbf{x}_i^T\mathbf{w} &#43; b) - (1 - \xi_i)] = 0, \\ &amp; \mu_i \xi_i = 0, \\ &amp; y_i (\mathbf{x}_i^T\mathbf{w} &#43; b) - (1 - \xi_i) \ge 0, \end{aligned}$$</span><noscript><div style=text-align:center><img src=https://latex.codecogs.com/gif.latex?%5cbegin%7baligned%7d%20%26%20%5calpha_i%5by_i%20%28%5cmathbf%7bx%7d_i%5eT%5cmathbf%7bw%7d%20%2b%20b%29%20-%20%281%20-%20%5cxi_i%29%5d%20%3d%200%2c%20%5c%5c%20%26%20%5cmu_i%20%5cxi_i%20%3d%200%2c%20%5c%5c%20%26%20y_i%20%28%5cmathbf%7bx%7d_i%5eT%5cmathbf%7bw%7d%20%2b%20b%29%20-%20%281%20-%20%5cxi_i%29%20%5cge%200%2c%20%5cend%7baligned%7d title="\begin{aligned} &amp; \alpha_i[y_i (\mathbf{x}_i^T\mathbf{w} &#43; b) - (1 - \xi_i)] = 0, \\ &amp; \mu_i \xi_i = 0, \\ &amp; y_i (\mathbf{x}_i^T\mathbf{w} &#43; b) - (1 - \xi_i) \ge 0, \end{aligned}"></div></noscript><p>for $i = 1 \ldots m$. Together these equations uniquely characterize the
+solution to the primal and the dual problem.</p><p>Let us look at some special properties of the solution. We can see that
+the solution for $\mathbf{w}$ has the for</p><span class=jsonly>$$\mathbf{\hat{w}} = \sum_{i=1}^{m} \hat{\alpha_i} y_i \mathbf{x_i}$$</span><noscript><div style=text-align:center><img src=https://latex.codecogs.com/gif.latex?%5cmathbf%7b%5chat%7bw%7d%7d%20%3d%20%5csum_%7bi%3d1%7d%5e%7bm%7d%20%5chat%7b%5calpha_i%7d%20y_i%20%5cmathbf%7bx_i%7d title="\mathbf{\hat{w}} = \sum_{i=1}^{m} \hat{\alpha_i} y_i \mathbf{x_i}"></div></noscript><p>with nonzero coefficients $\hat{\alpha}_i$ only for those i for which
 $y_i (\mathbf{x}_i^T\mathbf{w} + b) - (1 - \xi_i) = 0$. These i
 observations are called <em>&ldquo;support vectors&rdquo;</em> since $\mathbf{w}$ is
 represented in terms of them alone. Among these support points, some
@@ -631,362 +96,54 @@ will lie on the edge of the margin $(\hat{\xi}_i = 0)$, and hence
 characterized by $0 &lt; \hat{\alpha}_i &lt; C$; the remainder
 $(\hat{\xi}_i &gt; 0)$ have $\hat{\alpha}_i = C$. Any of these margin
 points can be used to solve for b. Typically, once can use an average
-value from all of the solutions from the support points.</p>
-
-<p>In this formulation, C is model hyper parameter and can be used as a
+value from all of the solutions from the support points.</p><p>In this formulation, C is model hyper parameter and can be used as a
 regularizer to control the capacity and generalization error of the
-model.</p>
-
-<h1 id="the-kernel-trick">The Kernel Trick</h1>
-
-<p>The support vector classifier described so far finds linear boundaries
+model.</p><h1 id=the-kernel-trick>The Kernel Trick</h1><p>The support vector classifier described so far finds linear boundaries
 in the input feature space. As with other linear methods, we can make
 the procedure more flexible by enlarging the feature space using basis
 expansions such as polynomials or splines. Generally linear boundaries
 in the enlarged space achieve better training-class separation, and
 translate to nonlinear boundaries in the original space. Once the basis
 functions $h_i(x), i=1 \ldots m$ are selected, the procedure remains
-same as before.</p>
-
-<p>Now recall that in calculating the actual classifier, we needed only
+same as before.</p><p>Now recall that in calculating the actual classifier, we needed only
 support vector points, i.e. we need smaller amount of computation if
 data has better training-class separation. Furthermore, if one looks
 closely, we can find an additional trick. The separating plane can be
-given by the function:</p>
-
-<span class="jsonly">
- 
-$$\begin{aligned} f(x) &amp; = \mathbf{x}^T \mathbf{w} &#43; b \\ &amp; = \mathbf{x}^T \sum_{i=1}^{m} \hat{\alpha_i} y_i \mathbf{x_i} &#43; b\\ &amp; = \sum_{i=1}^{m} \hat{\alpha_i} y_i \mathbf{x}^T \mathbf{x}_i &#43; b\\ &amp; = \sum_{i=1}^{m} \hat{\alpha_i} y_i \langle\mathbf{x} \mathbf{x}_i\rangle &#43; b \end{aligned}$$
-
-</span>
-<noscript>
- 
-<div style="text-align:center;">
-<img src="https://latex.codecogs.com/gif.latex?%5cbegin%7baligned%7d%20f%28x%29%20%26%20%3d%20%5cmathbf%7bx%7d%5eT%20%5cmathbf%7bw%7d%20%2b%20b%20%5c%5c%20%26%20%3d%20%5cmathbf%7bx%7d%5eT%20%5csum_%7bi%3d1%7d%5e%7bm%7d%20%5chat%7b%5calpha_i%7d%20y_i%20%5cmathbf%7bx_i%7d%20%2b%20b%5c%5c%20%26%20%3d%20%5csum_%7bi%3d1%7d%5e%7bm%7d%20%5chat%7b%5calpha_i%7d%20y_i%20%5cmathbf%7bx%7d%5eT%20%5cmathbf%7bx%7d_i%20%2b%20b%5c%5c%20%26%20%3d%20%5csum_%7bi%3d1%7d%5e%7bm%7d%20%5chat%7b%5calpha_i%7d%20y_i%20%5clangle%5cmathbf%7bx%7d%20%5cmathbf%7bx%7d_i%5crangle%20%2b%20b%20%5cend%7baligned%7d" title="\begin{aligned} f(x) &amp; = \mathbf{x}^T \mathbf{w} &#43; b \\ &amp; = \mathbf{x}^T \sum_{i=1}^{m} \hat{\alpha_i} y_i \mathbf{x_i} &#43; b\\ &amp; = \sum_{i=1}^{m} \hat{\alpha_i} y_i \mathbf{x}^T \mathbf{x}_i &#43; b\\ &amp; = \sum_{i=1}^{m} \hat{\alpha_i} y_i \langle\mathbf{x} \mathbf{x}_i\rangle &#43; b \end{aligned}" />
-</div>
-
-</noscript>
-
-<p>where, $\langle \mathbf{x} \mathbf{y} \rangle$ denotes inner product of
+given by the function:</p><span class=jsonly>$$\begin{aligned} f(x) &amp; = \mathbf{x}^T \mathbf{w} &#43; b \\ &amp; = \mathbf{x}^T \sum_{i=1}^{m} \hat{\alpha_i} y_i \mathbf{x_i} &#43; b\\ &amp; = \sum_{i=1}^{m} \hat{\alpha_i} y_i \mathbf{x}^T \mathbf{x}_i &#43; b\\ &amp; = \sum_{i=1}^{m} \hat{\alpha_i} y_i \langle\mathbf{x} \mathbf{x}_i\rangle &#43; b \end{aligned}$$</span><noscript><div style=text-align:center><img src=https://latex.codecogs.com/gif.latex?%5cbegin%7baligned%7d%20f%28x%29%20%26%20%3d%20%5cmathbf%7bx%7d%5eT%20%5cmathbf%7bw%7d%20%2b%20b%20%5c%5c%20%26%20%3d%20%5cmathbf%7bx%7d%5eT%20%5csum_%7bi%3d1%7d%5e%7bm%7d%20%5chat%7b%5calpha_i%7d%20y_i%20%5cmathbf%7bx_i%7d%20%2b%20b%5c%5c%20%26%20%3d%20%5csum_%7bi%3d1%7d%5e%7bm%7d%20%5chat%7b%5calpha_i%7d%20y_i%20%5cmathbf%7bx%7d%5eT%20%5cmathbf%7bx%7d_i%20%2b%20b%5c%5c%20%26%20%3d%20%5csum_%7bi%3d1%7d%5e%7bm%7d%20%5chat%7b%5calpha_i%7d%20y_i%20%5clangle%5cmathbf%7bx%7d%20%5cmathbf%7bx%7d_i%5crangle%20%2b%20b%20%5cend%7baligned%7d title="\begin{aligned} f(x) &amp; = \mathbf{x}^T \mathbf{w} &#43; b \\ &amp; = \mathbf{x}^T \sum_{i=1}^{m} \hat{\alpha_i} y_i \mathbf{x_i} &#43; b\\ &amp; = \sum_{i=1}^{m} \hat{\alpha_i} y_i \mathbf{x}^T \mathbf{x}_i &#43; b\\ &amp; = \sum_{i=1}^{m} \hat{\alpha_i} y_i \langle\mathbf{x} \mathbf{x}_i\rangle &#43; b \end{aligned}"></div></noscript><p>where, $\langle \mathbf{x} \mathbf{y} \rangle$ denotes inner product of
 vectors $\mathbf{x}$ and $\mathbf{y}$. This shows us that we can rewrite
-training phase operations completely in terms of inner products!</p>
-
-<p>If we were to replace linear terms with a predefined non-linear
+training phase operations completely in terms of inner products!</p><p>If we were to replace linear terms with a predefined non-linear
 operation $h(x)$, the above formulation of the separating plane will
-simply modify into:</p>
-
-<span class="jsonly">
- 
-$$\begin{aligned} f(x) &amp; = h(\mathbf{x})^T \mathbf{w} &#43; b \\ &amp; = h(\mathbf{x})^T \sum_{i=1}^{m} \hat{\alpha_i} y_i h(\mathbf{x}_i) &#43; b\\ &amp; = \sum_{i=1}^{m} \hat{\alpha_i} y_i h(\mathbf{x})^T h(\mathbf{x}_i) &#43; b\\ &amp; = \sum_{i=1}^{m} \hat{\alpha_i} y_i \langle h(\mathbf{x}) h(\mathbf{x}_i) \rangle &#43; b \end{aligned}$$
-
-</span>
-<noscript>
- 
-<div style="text-align:center;">
-<img src="https://latex.codecogs.com/gif.latex?%5cbegin%7baligned%7d%20f%28x%29%20%26%20%3d%20h%28%5cmathbf%7bx%7d%29%5eT%20%5cmathbf%7bw%7d%20%2b%20b%20%5c%5c%20%26%20%3d%20h%28%5cmathbf%7bx%7d%29%5eT%20%5csum_%7bi%3d1%7d%5e%7bm%7d%20%5chat%7b%5calpha_i%7d%20y_i%20h%28%5cmathbf%7bx%7d_i%29%20%2b%20b%5c%5c%20%26%20%3d%20%5csum_%7bi%3d1%7d%5e%7bm%7d%20%5chat%7b%5calpha_i%7d%20y_i%20h%28%5cmathbf%7bx%7d%29%5eT%20h%28%5cmathbf%7bx%7d_i%29%20%2b%20b%5c%5c%20%26%20%3d%20%5csum_%7bi%3d1%7d%5e%7bm%7d%20%5chat%7b%5calpha_i%7d%20y_i%20%5clangle%20h%28%5cmathbf%7bx%7d%29%20h%28%5cmathbf%7bx%7d_i%29%20%5crangle%20%2b%20b%20%5cend%7baligned%7d" title="\begin{aligned} f(x) &amp; = h(\mathbf{x})^T \mathbf{w} &#43; b \\ &amp; = h(\mathbf{x})^T \sum_{i=1}^{m} \hat{\alpha_i} y_i h(\mathbf{x}_i) &#43; b\\ &amp; = \sum_{i=1}^{m} \hat{\alpha_i} y_i h(\mathbf{x})^T h(\mathbf{x}_i) &#43; b\\ &amp; = \sum_{i=1}^{m} \hat{\alpha_i} y_i \langle h(\mathbf{x}) h(\mathbf{x}_i) \rangle &#43; b \end{aligned}" />
-</div>
-
-</noscript>
-
-<p>As before, given $\hat{\alpha_i}$, b can be determined by solving
+simply modify into:</p><span class=jsonly>$$\begin{aligned} f(x) &amp; = h(\mathbf{x})^T \mathbf{w} &#43; b \\ &amp; = h(\mathbf{x})^T \sum_{i=1}^{m} \hat{\alpha_i} y_i h(\mathbf{x}_i) &#43; b\\ &amp; = \sum_{i=1}^{m} \hat{\alpha_i} y_i h(\mathbf{x})^T h(\mathbf{x}_i) &#43; b\\ &amp; = \sum_{i=1}^{m} \hat{\alpha_i} y_i \langle h(\mathbf{x}) h(\mathbf{x}_i) \rangle &#43; b \end{aligned}$$</span><noscript><div style=text-align:center><img src=https://latex.codecogs.com/gif.latex?%5cbegin%7baligned%7d%20f%28x%29%20%26%20%3d%20h%28%5cmathbf%7bx%7d%29%5eT%20%5cmathbf%7bw%7d%20%2b%20b%20%5c%5c%20%26%20%3d%20h%28%5cmathbf%7bx%7d%29%5eT%20%5csum_%7bi%3d1%7d%5e%7bm%7d%20%5chat%7b%5calpha_i%7d%20y_i%20h%28%5cmathbf%7bx%7d_i%29%20%2b%20b%5c%5c%20%26%20%3d%20%5csum_%7bi%3d1%7d%5e%7bm%7d%20%5chat%7b%5calpha_i%7d%20y_i%20h%28%5cmathbf%7bx%7d%29%5eT%20h%28%5cmathbf%7bx%7d_i%29%20%2b%20b%5c%5c%20%26%20%3d%20%5csum_%7bi%3d1%7d%5e%7bm%7d%20%5chat%7b%5calpha_i%7d%20y_i%20%5clangle%20h%28%5cmathbf%7bx%7d%29%20h%28%5cmathbf%7bx%7d_i%29%20%5crangle%20%2b%20b%20%5cend%7baligned%7d title="\begin{aligned} f(x) &amp; = h(\mathbf{x})^T \mathbf{w} &#43; b \\ &amp; = h(\mathbf{x})^T \sum_{i=1}^{m} \hat{\alpha_i} y_i h(\mathbf{x}_i) &#43; b\\ &amp; = \sum_{i=1}^{m} \hat{\alpha_i} y_i h(\mathbf{x})^T h(\mathbf{x}_i) &#43; b\\ &amp; = \sum_{i=1}^{m} \hat{\alpha_i} y_i \langle h(\mathbf{x}) h(\mathbf{x}_i) \rangle &#43; b \end{aligned}"></div></noscript><p>As before, given $\hat{\alpha_i}$, b can be determined by solving
 $y_i f(\mathbf{x}_i) = 1$ for any (or all) $x_i$ for which
 $0 &lt; \hat{\alpha}_i &lt; C$. More importantly, this tells us that we do not
 need to specify the exact nonlinear transformation $h(x)$ at all, rather
 only the knowledge of the Kernel function
-<span class="jsonly">
-              
-\(K(x, x&#39;) = \langle h(x)h(x&#39;) \rangle\)
-
-</span>
-<noscript>
-              
-<img style="display:inline;vertical-align:middle;" src="https://latex.codecogs.com/gif.latex?\inline&space;K%28x%2c%20x%27%29%20%3d%20%5clangle%20h%28x%29h%28x%27%29%20%5crangle" title="K(x, x&#39;) = \langle h(x)h(x&#39;) \rangle" />
-
-</noscript> that computes inner products in
+<span class=jsonly>\(K(x, x&#39;) = \langle h(x)h(x&#39;) \rangle\)</span><noscript><img style=display:inline;vertical-align:middle src=https://latex.codecogs.com/gif.latex?\inline&space;K%28x%2c%20x%27%29%20%3d%20%5clangle%20h%28x%29h%28x%27%29%20%5crangle title="K(x, x') = \langle h(x)h(x') \rangle"></noscript>that computes inner products in
 the transformed space is enough. <strong>Note that for the dual problem to be
 convex quadratic programming problem, $K$ would need to be symmetric
-positive semi-definite.</strong></p>
-
-<p>Some common choices of kernels are:</p>
-
-<p>
-
-<span class="highlight-short-cyan">$d^{th}$ degree polynomial:</span>
-
-
-<span class="jsonly">
-              
-\(K(x, x&#39;) = (1&#43;\langle x x&#39; \rangle )^d\)
-
-</span>
-<noscript>
-              
-<img style="display:inline;vertical-align:middle;" src="https://latex.codecogs.com/gif.latex?\inline&space;K%28x%2c%20x%27%29%20%3d%20%281%2b%5clangle%20x%20x%27%20%5crangle%20%29%5ed" title="K(x, x&#39;) = (1&#43;\langle x x&#39; \rangle )^d" />
-
-</noscript></p>
-
-<p>
-
-<span class="highlight-short-cyan">Radial basis:</span>
-
-
-<span class="jsonly">
-              
-\(K(x, x&#39;) = \exp (-\gamma  \lVert \mathbf{x - x&#39;} \rVert^2 )\)
-
-</span>
-<noscript>
-              
-<img style="display:inline;vertical-align:middle;" src="https://latex.codecogs.com/gif.latex?\inline&space;K%28x%2c%20x%27%29%20%3d%20%5cexp%20%28-%5cgamma%20%20%5clVert%20%5cmathbf%7bx%20-%20x%27%7d%20%5crVert%5e2%20%29" title="K(x, x&#39;) = \exp (-\gamma  \lVert \mathbf{x - x&#39;} \rVert^2 )" />
-
-</noscript></p>
-
-<p>
-
-<span class="highlight-short-cyan">Neural network:</span>
-
-
-<span class="jsonly">
-              
-\(K(x, x&#39;) = \tanh (\kappa_1 \langle x x&#39; \rangle &#43; \kappa_2)\)
-
-</span>
-<noscript>
-              
-<img style="display:inline;vertical-align:middle;" src="https://latex.codecogs.com/gif.latex?\inline&space;K%28x%2c%20x%27%29%20%3d%20%5ctanh%20%28%5ckappa_1%20%5clangle%20x%20x%27%20%5crangle%20%2b%20%5ckappa_2%29" title="K(x, x&#39;) = \tanh (\kappa_1 \langle x x&#39; \rangle &#43; \kappa_2)" />
-
-</noscript></p>
-
-<p>The role of the hyper-parameter $C$ is clearer in an enlarged feature
+positive semi-definite.</strong></p><p>Some common choices of kernels are:</p><p><span class=highlight-short-cyan>$d^{th}$ degree polynomial:</span>
+<span class=jsonly>\(K(x, x&#39;) = (1&#43;\langle x x&#39; \rangle )^d\)</span><noscript><img style=display:inline;vertical-align:middle src=https://latex.codecogs.com/gif.latex?\inline&space;K%28x%2c%20x%27%29%20%3d%20%281%2b%5clangle%20x%20x%27%20%5crangle%20%29%5ed title="K(x, x') = (1&#43;\langle x x' \rangle )^d"></noscript></p><p><span class=highlight-short-cyan>Radial basis:</span>
+<span class=jsonly>\(K(x, x&#39;) = \exp (-\gamma \lVert \mathbf{x - x&#39;} \rVert^2 )\)</span><noscript><img style=display:inline;vertical-align:middle src=https://latex.codecogs.com/gif.latex?\inline&space;K%28x%2c%20x%27%29%20%3d%20%5cexp%20%28-%5cgamma%20%20%5clVert%20%5cmathbf%7bx%20-%20x%27%7d%20%5crVert%5e2%20%29 title="K(x, x') = \exp (-\gamma  \lVert \mathbf{x - x'} \rVert^2 )"></noscript></p><p><span class=highlight-short-cyan>Neural network:</span>
+<span class=jsonly>\(K(x, x&#39;) = \tanh (\kappa_1 \langle x x&#39; \rangle &#43; \kappa_2)\)</span><noscript><img style=display:inline;vertical-align:middle src=https://latex.codecogs.com/gif.latex?\inline&space;K%28x%2c%20x%27%29%20%3d%20%5ctanh%20%28%5ckappa_1%20%5clangle%20x%20x%27%20%5crangle%20%2b%20%5ckappa_2%29 title="K(x, x') = \tanh (\kappa_1 \langle x x' \rangle &#43; \kappa_2)"></noscript></p><p>The role of the hyper-parameter $C$ is clearer in an enlarged feature
 space, since perfect separation is often achievable there. A large value
 of $C$ will discourage any positive $\xi_i$, and lead to an over-fit
 wiggly boundary in the original feature space; a small value of $C$ will
 encourage a small value of $\lVert w \rVert$, which in turn causes
 $f(x)$ and hence the boundary to be smoother, potentially at the cost of
-more points as support vectors.</p>
-
-<h1 id="curse-of-dimensionality-huh">Curse of Dimensionality&hellip;. huh!!!</h1>
-
-<p>With m training examples, $p$ predictors and M support vectors, the SVM
+more points as support vectors.</p><h1 id=curse-of-dimensionality-huh>Curse of Dimensionality&hellip;. huh!!!</h1><p>With m training examples, $p$ predictors and M support vectors, the SVM
 requires $M^3 + Mm + mpM$ operations. This suggests the choice of the
 kernel and hence number of support vectors M will play a big role in
 feasibility of this method. For a really good choice of kernel that
 leads to very high training-class separation, i.e. $M &lt;&lt;&lt; m$, the method
 can be viewed as linear in m. However, for a bad choice case,
-$M \approx m$ we will be looking at an $O (m^3)$ algorithm.</p>
-
-<p>The modern incarnation of deep learning was designed to overcome these
+$M \approx m$ we will be looking at an $O (m^3)$ algorithm.</p><p>The modern incarnation of deep learning was designed to overcome these
 limitations (large order of computations and clever problem-specific
 choice of kernels) of kernel machines. We will look at the details of a
-generic deep learning algorithm in a future post.</p>
-    </div>
-    <div id="post-footer" class="post-footer">
-        
-            
-                
-                
-                  <div class="post-footer-tags">
-                    <hr><br/>
-                    <strong><span class="text-color-light text-small">TAGGED IN:</span></strong>
-                    
-  <a class="text-white badge badge-pill badge-dark" href="https://sadanand-singh.github.io//tags/algorithms/">Algorithms</a>
-
-  <a class="text-white badge badge-pill badge-dark" href="https://sadanand-singh.github.io//tags/machine-learning/">Machine Learning</a>
-
-
-                  </div>
-                
-            
-        
-        <br/>
-        <ul class="mx-0 px-0 pager">
-  
-    
-        <li class="previous btn btn-lg btn-primary">
-            <a href="/posts/pythontutorialweek2/" rel="prev" title="Python Tutorial - Week 2">
-            <i class="fa fa-angle-left text-base text-white icon-mr"></i>
-            <span class="text-white"> Previous post </span>
-            </a>
-        </li>
-    
-    
-        <li class="next mr-0 float-right btn btn-lg btn-primary">
-            <a href="/posts/sublimetext/" rel="next" title="Sublime Text Setup">
-            <span class="text-white"> Next post </span>
-            <i class="fa fa-angle-right text-base text-white icon-ml"></i>
-            </a>
-        </li>
-    
-  
-</ul>
-        <hr>
-    </div>
-
-    
-        <div id="disqus_thread"></div>
-<script type="application/javascript">
-    var disqus_config = function () {
-    this.page.identifier = 'svmModels.sadanand';
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "sadanandsblog" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-    
-
-    
-        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"
-    onload="renderMathInElement(document.body);"></script>
-<script>
-    renderMathInElement(document.body,
-        {
-            delimiters: [
-                {left: "\\\\begin{equation*}", right: "\\\\end{equation*}", display: true},
-                {left: "$$", right: "$$", display: true},
-                {left: "\\\[", right: "\\\]", display: true},
-                {left: "$", right: "$", display: false},
-                {left: "\\\(", right: "\\\)", display: false}
-            ]
-        }
-    );
-</script>
-
-    
-</article>
-
-        </div>
-        
-        <footer id="footer">
-  <span class="copyrights">
-    
-    Contents &copy; 2018         <a href="mailto:sadanand.singh@aol.com">Sadanand Singh</a> - Powered by         <a href="https://gohugo.io/" rel="nofollow">Hugo 0.51</a> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>
-    
-  </span>
-</footer>
-
-    </div>
-</div>
-    
-    
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.colorbox/1.6.4/jquery.colorbox-min.js"></script>
-<script src="https://sadanand-singh.github.io/js/peak.min.js"></script>
-<script src="https://sadanand-singh.github.io/js/highlight.pack.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
-
-
-
-    <script async type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53f6d74a591ace8f"></script>
-
-
-<script>var disqus_shortname="sadanandsblog";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
-
-<script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
-
-
-<div id="search-results" class="modal" role="dialog" style="height: 80%;">
-    <div class="modal-dialog" role="document">
-        
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title">Search Results:</h4>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">X</span>
-            </button>
-          </div>
-          <div class="modal-body" id="tipue_search_content" style="max-height: 600px; overflow-y: auto;">
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-          </div>
-        </div>
-    </div>
-</div>
-
-<script>
-$(document).ready(function() {
-    var url1 = "https://cdnjs.cloudflare.com/ajax/libs/Tipue-Search/5.0.0/tipuesearch_set.js";
-    var url2 = "https://cdnjs.cloudflare.com/ajax/libs/Tipue-Search/5.0.0/tipuesearch.min.js";
-    $.when(
-        $.getScript( url1 ),
-        $.getScript( url2 ),
-        $.Deferred(function( deferred ){
-            $( deferred.resolve );
-        })
-    ).done(function() {
-        $('#tipue_search_input').tipuesearch({
-            'mode': 'json',
-            'contentLocation': '/index.json'
-        });
-        $('#tipue_search_input').keyup(function (e) {
-            if (e.keyCode == 13) {
-                $('#search-results').modal()
-            }
-        });
-    });
-});
-</script>
-
-
-
-
-
-
-
-
-  
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-54080172-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-
-
-
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '993596464012237',
-      xfbml      : true,
-      version    : 'v2.12'
-    });
-
-    FB.AppEvents.logPageView();
-
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "https://connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script>
-
-    
-  </body>
-</html>
-
+generic deep learning algorithm in a future post.</p></div><div id=post-footer class=post-footer><div class=post-footer-tags><hr><br><strong><span class="text-color-light text-small">TAGGED IN:</span></strong>
+<a class="text-white badge badge-pill badge-dark" href=https://sadanand-singh.github.io//tags/algorithms/>Algorithms</a>
+<a class="text-white badge badge-pill badge-dark" href=https://sadanand-singh.github.io//tags/machine-learning/>Machine Learning</a></div><br><ul class="mx-0 px-0 pager"><li class="previous btn btn-lg btn-primary"><a href=/posts/pythontutorialweek2/ rel=prev title="Python Tutorial - Week 2"><i class="fa fa-angle-left text-base text-white icon-mr"></i><span class=text-white>Previous post</span></a></li><li class="next mr-0 float-right btn btn-lg btn-primary"><a href=/posts/sublimetext/ rel=next title="Sublime Text Setup"><span class=text-white>Next post</span>
+<i class="fa fa-angle-right text-base text-white icon-ml"></i></a></li></ul><hr></div><div id=disqus_thread></div><script type=application/javascript>var disqus_config=function(){this.page.identifier='svmModels.sadanand';};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return;}
+var d=document,s=d.createElement('script');s.async=true;s.src='//'+"sadanandsblog"+'.disqus.com/embed.js';s.setAttribute('data-timestamp',+new Date());(d.head||d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+<script src=https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js integrity=sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js integrity=sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe crossorigin=anonymous onload=renderMathInElement(document.body);></script><script>renderMathInElement(document.body,{delimiters:[{left:"\\\\begin{equation*}",right:"\\\\end{equation*}",display:true},{left:"$$",right:"$$",display:true},{left:"\\\[",right:"\\\]",display:true},{left:"$",right:"$",display:false},{left:"\\\(",right:"\\\)",display:false}]});</script></article></div><footer id=footer><span class=copyrights>Contents &copy; 2018 <a href=mailto:sadanand.singh@aol.com>Sadanand Singh</a> - Powered by <a href=https://gohugo.io/ rel=nofollow>Hugo 0.51</a> <a rel=license href=http://creativecommons.org/licenses/by-nc-sa/4.0/><img alt="Creative Commons License" style=border-width:0 src=https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png></a><br>This work is licensed under a <a rel=license href=http://creativecommons.org/licenses/by-nc-sa/4.0/>Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a></span></footer></div></div><script src=https://code.jquery.com/jquery-3.3.1.min.js integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin=anonymous></script><script src=https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js integrity=sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm crossorigin=anonymous></script><script src=//cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js></script><script src=//cdnjs.cloudflare.com/ajax/libs/jquery.colorbox/1.6.4/jquery.colorbox-min.js></script><script src=https://sadanand-singh.github.io/js/peak.min.js></script><script src=https://sadanand-singh.github.io/js/highlight.pack.js></script><script>hljs.initHighlightingOnLoad();</script><script async type=text/javascript src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53f6d74a591ace8f"></script><script>var disqus_shortname="sadanandsblog";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><button type=button class="btn btn-primary" data-toggle=modal data-target=.bs-example-modal-lg>Large modal</button><div id=search-results class="modal fade bs-example-modal-lg" tabindex=-1 role=dialog style=height:80%><div class="modal-dialog modal-xl" role=document><div class=modal-content><div class=modal-header><h4 class=modal-title>Search Results:</h4><button type=button class=close data-dismiss=modal aria-label=Close>
+<span aria-hidden=true>X</span></button></div><div class=modal-body id=tipue_search_content style=max-height:600px;overflow-y:auto></div><div class=modal-footer><button type=button class="btn btn-danger" data-dismiss=modal>Close</button></div></div></div></div><script src=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/js/tipuesearch_set.js></script><script src=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/js/tipuesearch.min.js></script><script>var tipuesearch=(function(){var json=null;$.ajax({'async':false,'global':false,'url':"/index.json",'dataType':"json",'success':function(data){json=data;}});return json;})();$(document).ready(function(){$('#tipue_search_input').tipuesearch();$('#tipue_search_input').keyup(function(e){if(e.keyCode==13){$('#search-results').modal()}});});</script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create','UA-54080172-1','auto');ga('send','pageview');}</script><script>window.fbAsyncInit=function(){FB.init({appId:'993596464012237',xfbml:true,version:'v2.12'});FB.AppEvents.logPageView();};(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return;}
+js=d.createElement(s);js.id=id;js.src="https://connect.facebook.net/en_US/sdk.js";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script></body></html>

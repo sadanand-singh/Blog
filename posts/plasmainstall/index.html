@@ -1,277 +1,27 @@
-
-
-  
-    
-  
-
-
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.51">
-    <meta name="theme" content="Bootstrap3-Lumen">
-    
-      <title>Plasma 5 Installation on Arch Linux | Sadanand&#39;s Notes</title>
-    
-    <meta name="author" content="Sadanand Singh">
-    <meta name="keywords" content="">
-
-    
-        <link rel="icon" href="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/favicon.ico" sizes="16x16">
-    
-        <link rel="icon" href="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/favicon-32x32.png" sizes="32x32">
-    
-        <link rel="icon" href="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/favicon-96x96.png" sizes="96x96">
-    
-        <link rel="icon" href="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon.png" sizes="192x192">
-    
-        <link rel="icon" href="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-precomposed.png" sizes="192x192">
-    
-        <link rel="icon" href="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-57x57.png" sizes="57x57">
-    
-        <link rel="icon" href="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-60x60.png" sizes="60x60">
-    
-        <link rel="icon" href="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-72x72.png" sizes="72x72">
-    
-        <link rel="icon" href="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-76x76.png" sizes="76x76">
-    
-        <link rel="icon" href="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-114x114.png" sizes="114x114">
-    
-        <link rel="icon" href="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-120x120.png" sizes="120x120">
-    
-        <link rel="icon" href="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-144x144.png" sizes="144x144">
-    
-        <link rel="icon" href="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-152x152.png" sizes="152x152">
-    
-        <link rel="icon" href="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-180x180.png" sizes="180x180">
-    
-
-    
-    <meta name="description" content="In my last post on
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=generator content="Hugo 0.51"><meta name=theme content=Bootstrap3-Lumen><title>Plasma 5 Installation on Arch Linux | Sadanand&#39;s Notes</title><meta name=author content="Sadanand Singh"><meta name=keywords content><link rel=icon href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/favicon.ico sizes=16x16><link rel=icon href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/favicon-32x32.png sizes=32x32><link rel=icon href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/favicon-96x96.png sizes=96x96><link rel=icon href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon.png sizes=192x192><link rel=icon href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-precomposed.png sizes=192x192><link rel=icon href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-57x57.png sizes=57x57><link rel=icon href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-60x60.png sizes=60x60><link rel=icon href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-72x72.png sizes=72x72><link rel=icon href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-76x76.png sizes=76x76><link rel=icon href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-114x114.png sizes=114x114><link rel=icon href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-120x120.png sizes=120x120><link rel=icon href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-144x144.png sizes=144x144><link rel=icon href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-152x152.png sizes=152x152><link rel=icon href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-180x180.png sizes=180x180><meta name=description content="In my last post on
 Arch Installation Guide , We
 installed the base system and we can now login into our new system as
-root using the password that we set.">
-    <meta property="og:description" content="In my last post on
+root using the password that we set."><meta property=og:description content="In my last post on
 Arch Installation Guide , We
 installed the base system and we can now login into our new system as
-root using the password that we set.">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="Plasma 5 Installation on Arch Linux">
-    <meta property="og:url" content="/posts/plasmainstall/">
-    <meta property="og:site_name" content="Sadanand&#39;s Notes">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Sadanand&#39;s Notes">
-    <meta name="twitter:description" content="In my last post on
+root using the password that we set."><meta property=og:type content=blog><meta property=og:title content="Plasma 5 Installation on Arch Linux"><meta property=og:url content=/posts/plasmainstall/><meta property=og:site_name content="Sadanand's Notes"><meta name=twitter:card content=summary><meta name=twitter:title content="Sadanand's Notes"><meta name=twitter:description content="In my last post on
 Arch Installation Guide , We
 installed the base system and we can now login into our new system as
-root using the password that we set.">
-    
-      <meta name="twitter:creator" content="@sadanandsingh">
-    
-    
-      <meta property="fb:app_id" content="993596464012237">
-    
-
-    
-      <meta property="og:image" content="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-76x76.png">
-    
-
-    
-
-    <link href="//stackpath.bootstrapcdn.com/bootswatch/4.1.0/litera/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" />
-    <link href="https://sadanand-singh.github.io/css/rst.css" rel="stylesheet" type="text/css">
-    <link href="https://sadanand-singh.github.io/css/theme.css" rel="stylesheet" type="text/css">
-    <link href="https://sadanand-singh.github.io/css/peak.min.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet"
-      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css">
-    <link href="https://sadanand-singh.github.io/css/colorbox.css" rel="stylesheet" type="text/css">
-    <link href="https://sadanand-singh.github.io/css/custom.min.css" rel="stylesheet" type="text/css">
-    <link href="https://sadanand-singh.github.io/css/tags.min.css" rel="stylesheet" type="text/css">
-    <link href="//cdnjs.cloudflare.com/ajax/libs/Tipue-Search/5.0.0/tipuesearch.css" rel="stylesheet" type="text/css">
-
-    
-
-    
-
-    
-    
-    
-  </head>
-
-<body>
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
-<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-
-    <div class="container">
-        <a class="navbar-brand" href="https://sadanand-singh.github.io/">
-        
-            <img class="px-2" src="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/letter-s.png" alt="Sadanand&#39;s Notes" id="logo">
-        
-
-        
-            Sadanand&#39;s Notes
-        
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
-            <ul class="navbar-nav mr-auto">
-              
-              
-              
-                
-                
-                  <li class="nav-item px-3"><a class="nav-link" href="/post/">Blog</a>
-                
-              
-                
-                
-                  <li class="nav-item px-3"><a class="nav-link" href="/tags/">Tags</a>
-                
-              
-                
-                
-                  <li class="nav-item px-3"><a class="nav-link" href="/categories/">Categories</a>
-                
-              
-                
-                
-                  <li class="nav-item px-3"><a class="nav-link" href="/archives/">Archive</a>
-                
-              
-            </ul>
-            <span class="navbar-form navbar-right">
-                <input type="text" id="tipue_search_input" class="form-control" style="padding-left: 50px; border-radius: 20px;" placeholder="Search">
-            </span>
-        </div>
-    </div>
-</nav>
-
-<div class="container" id="content" role="main">
-    <div class="body-content">
-        
-        <div class="row">
-            <article class=" mw-100 post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article">
-    <header>
-    
-      <h1 class="p-name entry-title" itemprop="headline name">
-        Plasma 5 Installation on Arch Linux
-      </h1>
-    
-    <div class="metadata">
-    
-  
-  
-    
-    <p class="byline author vcard"><span class="byline-name fn"> By
-    <a href="/authors/sadanand-singh">Sadanand Singh</a>
-    </span></p>
-    
-  
-
-
-    
-    
-        <p class="dateline">on
-            <a href="https://sadanand-singh.github.io/posts/plasmainstall/" rel="bookmark">
-              <time itemprop="datePublished" datetime="2015-06-22T00:00:00Z">
-                
-  
-  
-  
-  
-    2015-06-22
-  
-
-              </time>
-            </a>
-        </p>
-    
-    
-  
-  
-    <span>in</span>
-    
-      <a class="category-link" href="/categories/computers">Computers</a>
-    
-  
-
-
-    
-        
-            
-            <p class="commentline">
-                <a href="https://sadanand-singh.github.io/posts/plasmainstall/#disqus_thread" data-disqus-identifier="plasmaInstall.sadanand">
-                Comments
-                </a>
-            </p>
-            
-        
-    
-
-    &nbsp;
-<div class="fb-like" data-send="true" data-layout="standard" data-action="like" data-size="small" data-show-faces="false" data-share="false"></div>
-    </div>
-</header>
-    <div class="mw-100 e-content entry-content" itemprop="articleBody text">
-        <p>In my last post on
-<a href="/posts/archinstall/">Arch Installation Guide</a> , We
+root using the password that we set."><meta name=twitter:creator content=@sadanandsingh><meta property=fb:app_id content=993596464012237><meta property=og:image content=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-76x76.png><link href=//stackpath.bootstrapcdn.com/bootswatch/4.1.0/litera/bootstrap.min.css rel=stylesheet type=text/css><link rel=stylesheet href=//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css><link rel=stylesheet href=//cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css><link href=https://sadanand-singh.github.io/css/rst.css rel=stylesheet type=text/css><link href=https://sadanand-singh.github.io/css/theme.css rel=stylesheet type=text/css><link href=https://sadanand-singh.github.io/css/peak.min.css rel=stylesheet type=text/css><link rel=stylesheet href=//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css><link href=https://sadanand-singh.github.io/css/colorbox.css rel=stylesheet type=text/css><link href=https://sadanand-singh.github.io/css/custom.min.css rel=stylesheet type=text/css><link href=https://sadanand-singh.github.io/css/tags.min.css rel=stylesheet type=text/css><link href=https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css><link href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/css/tipuesearch.css rel=stylesheet type=text/css></head><body><div id=fb-root></div><script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script><a href=#content class="sr-only sr-only-focusable">Skip to main content</a><nav class="navbar navbar-expand-lg navbar-dark bg-primary"><div class=container><a class=navbar-brand href=https://sadanand-singh.github.io/><img class=px-2 src=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/letter-s.png alt="Sadanand's Notes" id=logo>
+Sadanand&#39;s Notes</a>
+<button class=navbar-toggler type=button data-toggle=collapse data-target=#bs-navbar aria-controls=bs-navbar aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span><span class=icon-bar></span><span class=icon-bar></span><span class=icon-bar></span></button><div class="collapse navbar-collapse" id=bs-navbar aria-expanded=false><ul class="navbar-nav mr-auto"><li class="nav-item px-3"><a class=nav-link href=/post/>Blog</a><li class="nav-item px-3"><a class=nav-link href=/tags/>Tags</a><li class="nav-item px-3"><a class=nav-link href=/categories/>Categories</a><li class="nav-item px-3"><a class=nav-link href=/archives/>Archive</a></ul><span class="navbar-form navbar-right"><div class=tipue_search_group><input type=text name=q id=tipue_search_input pattern=.{3,} title="At least 3 characters" required>
+<button type=submit class=tipue_search_button><div class=tipue_search_icon>&#9906;</div></button></div></span></div></div></nav><div class=container id=content role=main><div class=body-content><div class=row><article class="mw-100 post-text h-entry hentry postpage" itemscope itemtype=http://schema.org/Article><header><h1 class="p-name entry-title" itemprop="headline name">Plasma 5 Installation on Arch Linux</h1><div class=metadata><p class="byline author vcard"><span class="byline-name fn">By
+<a href=/authors/sadanand-singh>Sadanand Singh</a></span></p><p class=dateline>on
+<a href=https://sadanand-singh.github.io/posts/plasmainstall/ rel=bookmark><time itemprop=datePublished datetime=2015-06-22T00:00:00Z>2015-06-22</time></a></p><span>in</span>
+<a class=category-link href=/categories/computers>Computers</a><p class=commentline><a href=https://sadanand-singh.github.io/posts/plasmainstall/#disqus_thread data-disqus-identifier=plasmaInstall.sadanand>Comments</a></p>&nbsp;<div class=fb-like data-send=true data-layout=standard data-action=like data-size=small data-show-faces=false data-share=false></div></div></header><div class="mw-100 e-content entry-content" itemprop="articleBody text"><p>In my last post on
+<a href=/posts/archinstall/>Arch Installation Guide</a> , We
 installed the base system and we can now login into our new system as
-root using the password that we set.</p>
-
-<strong id="table-of-contents">Table of Contents</strong><nav id="TableOfContents">
-<ul>
-<li><a href="#add-new-user">Add New User</a></li>
-<li><a href="#plasma-5-desktop">Plasma 5 Desktop</a></li>
-<li><a href="#audio-setup">Audio Setup</a></li>
-<li><a href="#useful-tips">Useful Tips</a></li>
-</ul>
-</nav>
-
-<figure class="figure img-responsive align-center">
-    <img src="http://imgur.com/IjJYMR0.jpg"
-         alt="Plasma 5 Looks"/> 
-</figure>
-
-
-<p><br></p>
-
-<p>Now, we will proceed further to install the Plasma 5 desktop.</p>
-
-<h1 id="add-new-user">Add New User</h1>
-
-<p>Choose <code>$USERNAME</code> per your liking. I chose <code>ssingh</code>, so in future commands
-whenever you see <code>ssingh</code> please replace it with your <code>$USERNAME</code>.</p>
-
-<pre><code class="language-bash">useradd -m -G wheel -s /bin/bash $USERNAME
+root using the password that we set.</p><strong id=table-of-contents>Table of Contents</strong><nav id=TableOfContents><ul><li><a href=#add-new-user>Add New User</a></li><li><a href=#plasma-5-desktop>Plasma 5 Desktop</a></li><li><a href=#audio-setup>Audio Setup</a></li><li><a href=#useful-tips>Useful Tips</a></li></ul></nav><figure class="figure img-responsive align-center"><img src=http://imgur.com/IjJYMR0.jpg alt="Plasma 5 Looks"></figure><p><br></p><p>Now, we will proceed further to install the Plasma 5 desktop.</p><h1 id=add-new-user>Add New User</h1><p>Choose <code>$USERNAME</code> per your liking. I chose <code>ssingh</code>, so in future commands
+whenever you see <code>ssingh</code> please replace it with your <code>$USERNAME</code>.</p><pre><code class=language-bash>useradd -m -G wheel -s /bin/bash $USERNAME
 chfn --full-name &quot;$FULL_NAME&quot; $USERNAME
 passwd $USERNAME
-</code></pre>
-
-<h1 id="plasma-5-desktop">Plasma 5 Desktop</h1>
-
-<p>Network should be setup at the start. Check the status of network using:</p>
-
-<pre><code class="language-bash">ping google.com -c 2
+</code></pre><h1 id=plasma-5-desktop>Plasma 5 Desktop</h1><p>Network should be setup at the start. Check the status of network using:</p><pre><code class=language-bash>ping google.com -c 2
 $
 PING google.com (10.38.24.84) 56(84) bytes of data.
 64 bytes from google.com (10.38.24.84): icmp_seq=1 ttl=64 time=0.022 ms
@@ -281,24 +31,12 @@ $
 2 packets transmitted, 2 received, 0% packet loss, time 999ms
 rtt min/avg/max/mdev = 0.022/0.022/0.023/0.004 ms
 $
-</code></pre>
-
-<p>If you do not get this output, please follow the troubleshooting links
-at <a href="https://wiki.archlinux.org/index.php/systemd-networkd">arch wiki</a> on
-setting up network.</p>
-
-<p>I will be assuming you have an NVIDIA card for graphics installation.</p>
-
-<p>To setup a graphical desktop, first we need to install some basic X
-related packages, and some <em>essential</em> packages (including fonts):</p>
-
-<pre><code class="language-bash">pacman -S xorg-server xorg-server-utils nvidia nvidia-libgl
-</code></pre>
-
-<p>To avoid the possibility of forgetting to update your <em>initramfs</em> after an
-<em>nvidia</em> upgrade, you have to use a <em>pacman</em> hook like this:</p>
-
-<pre><code class="language-bash">vim /etc/pacman.d/hooks/nvidia.hook
+</code></pre><p>If you do not get this output, please follow the troubleshooting links
+at <a href=https://wiki.archlinux.org/index.php/systemd-networkd>arch wiki</a> on
+setting up network.</p><p>I will be assuming you have an NVIDIA card for graphics installation.</p><p>To setup a graphical desktop, first we need to install some basic X
+related packages, and some <em>essential</em> packages (including fonts):</p><pre><code class=language-bash>pacman -S xorg-server xorg-server-utils nvidia nvidia-libgl
+</code></pre><p>To avoid the possibility of forgetting to update your <em>initramfs</em> after an
+<em>nvidia</em> upgrade, you have to use a <em>pacman</em> hook like this:</p><pre><code class=language-bash>vim /etc/pacman.d/hooks/nvidia.hook
 $
 ...
 [Trigger]
@@ -314,65 +52,29 @@ When=PostTransaction
 Exec=/usr/bin/mkinitcpio -p linux
 ...
 $
-</code></pre>
-
-<p>Nvidia has a daemon that is to be run at boot. To start the persistence
-daemon at boot, enable the <code>nvidia-persistenced.service</code>.</p>
-
-<pre><code class="language-bash">systemctl enable nvidia-persistenced.service
+</code></pre><p>Nvidia has a daemon that is to be run at boot. To start the persistence
+daemon at boot, enable the <code>nvidia-persistenced.service</code>.</p><pre><code class=language-bash>systemctl enable nvidia-persistenced.service
 systemctl start nvidia-persistenced.service
-</code></pre>
-
-<p><br></p>
-
-
-
-<div class="card border-thick border-primary">
-<div class="card-header"><strong>KWIN FLICKERING ISSUE</strong></div> 
-<div class="card-body"> <p>To avoid screen tearing in KDE (KWin), add following:</p>
-
-<pre><code class="language-bash">vim /etc/profile.d/kwin.sh
+</code></pre><p><br></p><div class="card border-thick border-primary"><div class=card-header><strong>KWIN FLICKERING ISSUE</strong></div><div class=card-body><p>To avoid screen tearing in KDE (KWin), add following:</p><pre><code class=language-bash>vim /etc/profile.d/kwin.sh
 $
 ...
 export __GL_YIELD=&quot;USLEEP&quot;
 ...
-</code></pre>
-
-<p>If this does not help please try adding the following instead -</p>
-
-<pre><code class="language-bash">vim /etc/profile.d/kwin.sh
+</code></pre><p>If this does not help please try adding the following instead -</p><pre><code class=language-bash>vim /etc/profile.d/kwin.sh
 $
 ...
 export KWIN_TRIPLE_BUFFER=1
 ...
-</code></pre>
-
-<p class="text-danger"> <strong>Do not have both of the above enabled at the same
-time. Please look at <a href="https://wiki.archlinux.org/index.php/NVIDIA/Troubleshooting">Arch
+</code></pre><p class=text-danger><strong>Do not have both of the above enabled at the same
+time. Please look at <a href=https://wiki.archlinux.org/index.php/NVIDIA/Troubleshooting>Arch
 Wiki</a> for
-additional details.</strong> </p>
-</div>
-</div>
-
-
-
-<p>Now continue installing remaining important packages for the GUI.</p>
-
-<pre><code class="language-bash">pacman -S mesa ttf-hack ttf-anonymous-pro
+additional details.</strong></p></div></div><p>Now continue installing remaining important packages for the GUI.</p><pre><code class=language-bash>pacman -S mesa ttf-hack ttf-anonymous-pro
 pacman -S tlp tlp-rdw acpi_call bash-completion git meld
 pacman -S ttf-dejavu ttf-freefont ttf-liberation
-</code></pre>
-
-<p>Now, we will install the packages related to Plasma 5:</p>
-
-<pre><code class="language-bash">pacman -S plasma-meta kf5 kdebase kdeutils kde-applications
+</code></pre><p>Now, we will install the packages related to Plasma 5:</p><pre><code class=language-bash>pacman -S plasma-meta kf5 kdebase kdeutils kde-applications
 pacman -S kdegraphics gwenview
-</code></pre>
-
-<p>Now we have to setup a display manager. I chose recommended SDDM for
-plasma 5.</p>
-
-<pre><code class="language-bash">pacman -S sddm sddm-kcm
+</code></pre><p>Now we have to setup a display manager. I chose recommended SDDM for
+plasma 5.</p><pre><code class=language-bash>pacman -S sddm sddm-kcm
 vim /etc/sddm.conf
 
 ...
@@ -385,30 +87,14 @@ CursorTheme=breeze_cursors
 ...
 
 systemctl enable sddm
-</code></pre>
-
-<p>Also make sure that network manager starts at boot:</p>
-
-<pre><code class="language-bash">systemctl disable dhcpcd.service
+</code></pre><p>Also make sure that network manager starts at boot:</p><pre><code class=language-bash>systemctl disable dhcpcd.service
 systemctl enable NetworkManager
-</code></pre>
-
-<h1 id="audio-setup">Audio Setup</h1>
-
-<p>This is pretty simple. Install following packages and you should be
-done:</p>
-
-<pre><code class="language-bash">pacman -S alsa-utils pulseaudio pulseaudio-alsa libcanberra-pulse
+</code></pre><h1 id=audio-setup>Audio Setup</h1><p>This is pretty simple. Install following packages and you should be
+done:</p><pre><code class=language-bash>pacman -S alsa-utils pulseaudio pulseaudio-alsa libcanberra-pulse
 pacman -S libcanberra-gstreamer jack2-dbus kmix
 pacman -S mpv mplayer
-</code></pre>
-
-<h1 id="useful-tips">Useful Tips</h1>
-
-<p>This part is optional and you can choose as per your taste. Sync time
-using the <code>systemd</code> service:</p>
-
-<pre><code class="language-bash">vim /etc/systemd/timesyncd.conf
+</code></pre><h1 id=useful-tips>Useful Tips</h1><p>This part is optional and you can choose as per your taste. Sync time
+using the <code>systemd</code> service:</p><pre><code class=language-bash>vim /etc/systemd/timesyncd.conf
 $
 ...
 [Time]
@@ -429,217 +115,19 @@ NTP synchronized: yes
  RTC in local TZ: no
  ...
 $
-</code></pre>
-
-<p>On Plasma 5, It is recommended to enable no-bitmaps to improve the font
-rendering:</p>
-
-<pre><code class="language-bash">sudo ln -s /etc/fonts/conf.avail/70-no-bitmaps.conf
+</code></pre><p>On Plasma 5, It is recommended to enable no-bitmaps to improve the font
+rendering:</p><pre><code class=language-bash>sudo ln -s /etc/fonts/conf.avail/70-no-bitmaps.conf
    /etc/fonts/conf.d
-</code></pre>
-
-<p>If you use vim as your primary editor, you may find
-this <a href="https://github.com/amix/vimrc">vimrc</a> quite useful.</p>
-
-<p>That&rsquo;s It. You are done. Start playing your new beautiful desktop.
+</code></pre><p>If you use vim as your primary editor, you may find
+this <a href=https://github.com/amix/vimrc>vimrc</a> quite useful.</p><p>That&rsquo;s It. You are done. Start playing your new beautiful desktop.
 Please leave your comments with suggestions or any word of appreciation
-if this has been of any help to you.</p>
-
-<p>Follow this page for any additional suggestions or improvements in this
-guide.</p>
-    </div>
-    <div id="post-footer" class="post-footer">
-        
-            
-                
-                
-                  <div class="post-footer-tags">
-                    <hr><br/>
-                    <strong><span class="text-color-light text-small">TAGGED IN:</span></strong>
-                    
-  <a class="text-white badge badge-pill badge-dark" href="https://sadanand-singh.github.io//tags/linux/">Linux</a>
-
-  <a class="text-white badge badge-pill badge-dark" href="https://sadanand-singh.github.io//tags/arch-linux/">Arch Linux</a>
-
-  <a class="text-white badge badge-pill badge-dark" href="https://sadanand-singh.github.io//tags/plasma-5/">Plasma 5</a>
-
-  <a class="text-white badge badge-pill badge-dark" href="https://sadanand-singh.github.io//tags/kde/">KDE</a>
-
-
-                  </div>
-                
-            
-        
-        <br/>
-        <ul class="mx-0 px-0 pager">
-  
-    
-        <li class="previous btn btn-lg btn-primary">
-            <a href="/posts/archinstall/" rel="prev" title="Arch Installation Guide">
-            <i class="fa fa-angle-left text-base text-white icon-mr"></i>
-            <span class="text-white"> Previous post </span>
-            </a>
-        </li>
-    
-    
-        <li class="next mr-0 float-right btn btn-lg btn-primary">
-            <a href="/posts/fibonaccinumbers/" rel="next" title="Moore&#39;s Law and Algorithms - Case of Fibonacci Numbers">
-            <span class="text-white"> Next post </span>
-            <i class="fa fa-angle-right text-base text-white icon-ml"></i>
-            </a>
-        </li>
-    
-  
-</ul>
-        <hr>
-    </div>
-
-    
-        <div id="disqus_thread"></div>
-<script type="application/javascript">
-    var disqus_config = function () {
-    this.page.identifier = 'plasmaInstall.sadanand';
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "sadanandsblog" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-    
-
-    
-</article>
-
-        </div>
-        
-        <footer id="footer">
-  <span class="copyrights">
-    
-    Contents &copy; 2018         <a href="mailto:sadanand.singh@aol.com">Sadanand Singh</a> - Powered by         <a href="https://gohugo.io/" rel="nofollow">Hugo 0.51</a> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>
-    
-  </span>
-</footer>
-
-    </div>
-</div>
-    
-    
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.colorbox/1.6.4/jquery.colorbox-min.js"></script>
-<script src="https://sadanand-singh.github.io/js/peak.min.js"></script>
-<script src="https://sadanand-singh.github.io/js/highlight.pack.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
-
-
-
-    <script async type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53f6d74a591ace8f"></script>
-
-
-<script>var disqus_shortname="sadanandsblog";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
-
-<script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
-
-
-<div id="search-results" class="modal" role="dialog" style="height: 80%;">
-    <div class="modal-dialog" role="document">
-        
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title">Search Results:</h4>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">X</span>
-            </button>
-          </div>
-          <div class="modal-body" id="tipue_search_content" style="max-height: 600px; overflow-y: auto;">
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-          </div>
-        </div>
-    </div>
-</div>
-
-<script>
-$(document).ready(function() {
-    var url1 = "https://cdnjs.cloudflare.com/ajax/libs/Tipue-Search/5.0.0/tipuesearch_set.js";
-    var url2 = "https://cdnjs.cloudflare.com/ajax/libs/Tipue-Search/5.0.0/tipuesearch.min.js";
-    $.when(
-        $.getScript( url1 ),
-        $.getScript( url2 ),
-        $.Deferred(function( deferred ){
-            $( deferred.resolve );
-        })
-    ).done(function() {
-        $('#tipue_search_input').tipuesearch({
-            'mode': 'json',
-            'contentLocation': '/index.json'
-        });
-        $('#tipue_search_input').keyup(function (e) {
-            if (e.keyCode == 13) {
-                $('#search-results').modal()
-            }
-        });
-    });
-});
-</script>
-
-
-
-
-
-
-
-
-  
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-54080172-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-
-
-
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '993596464012237',
-      xfbml      : true,
-      version    : 'v2.12'
-    });
-
-    FB.AppEvents.logPageView();
-
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "https://connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script>
-
-    
-  </body>
-</html>
-
+if this has been of any help to you.</p><p>Follow this page for any additional suggestions or improvements in this
+guide.</p></div><div id=post-footer class=post-footer><div class=post-footer-tags><hr><br><strong><span class="text-color-light text-small">TAGGED IN:</span></strong>
+<a class="text-white badge badge-pill badge-dark" href=https://sadanand-singh.github.io//tags/linux/>Linux</a>
+<a class="text-white badge badge-pill badge-dark" href=https://sadanand-singh.github.io//tags/arch-linux/>Arch Linux</a>
+<a class="text-white badge badge-pill badge-dark" href=https://sadanand-singh.github.io//tags/plasma-5/>Plasma 5</a>
+<a class="text-white badge badge-pill badge-dark" href=https://sadanand-singh.github.io//tags/kde/>KDE</a></div><br><ul class="mx-0 px-0 pager"><li class="previous btn btn-lg btn-primary"><a href=/posts/archinstall/ rel=prev title="Arch Installation Guide"><i class="fa fa-angle-left text-base text-white icon-mr"></i><span class=text-white>Previous post</span></a></li><li class="next mr-0 float-right btn btn-lg btn-primary"><a href=/posts/fibonaccinumbers/ rel=next title="Moore's Law and Algorithms - Case of Fibonacci Numbers"><span class=text-white>Next post</span>
+<i class="fa fa-angle-right text-base text-white icon-ml"></i></a></li></ul><hr></div><div id=disqus_thread></div><script type=application/javascript>var disqus_config=function(){this.page.identifier='plasmaInstall.sadanand';};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return;}
+var d=document,s=d.createElement('script');s.async=true;s.src='//'+"sadanandsblog"+'.disqus.com/embed.js';s.setAttribute('data-timestamp',+new Date());(d.head||d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></article></div><footer id=footer><span class=copyrights>Contents &copy; 2018 <a href=mailto:sadanand.singh@aol.com>Sadanand Singh</a> - Powered by <a href=https://gohugo.io/ rel=nofollow>Hugo 0.51</a> <a rel=license href=http://creativecommons.org/licenses/by-nc-sa/4.0/><img alt="Creative Commons License" style=border-width:0 src=https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png></a><br>This work is licensed under a <a rel=license href=http://creativecommons.org/licenses/by-nc-sa/4.0/>Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a></span></footer></div></div><script src=https://code.jquery.com/jquery-3.3.1.min.js integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin=anonymous></script><script src=https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js integrity=sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm crossorigin=anonymous></script><script src=//cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js></script><script src=//cdnjs.cloudflare.com/ajax/libs/jquery.colorbox/1.6.4/jquery.colorbox-min.js></script><script src=https://sadanand-singh.github.io/js/peak.min.js></script><script src=https://sadanand-singh.github.io/js/highlight.pack.js></script><script>hljs.initHighlightingOnLoad();</script><script async type=text/javascript src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53f6d74a591ace8f"></script><script>var disqus_shortname="sadanandsblog";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><button type=button class="btn btn-primary" data-toggle=modal data-target=.bs-example-modal-lg>Large modal</button><div id=search-results class="modal fade bs-example-modal-lg" tabindex=-1 role=dialog style=height:80%><div class="modal-dialog modal-xl" role=document><div class=modal-content><div class=modal-header><h4 class=modal-title>Search Results:</h4><button type=button class=close data-dismiss=modal aria-label=Close>
+<span aria-hidden=true>X</span></button></div><div class=modal-body id=tipue_search_content style=max-height:600px;overflow-y:auto></div><div class=modal-footer><button type=button class="btn btn-danger" data-dismiss=modal>Close</button></div></div></div></div><script src=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/js/tipuesearch_set.js></script><script src=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/js/tipuesearch.min.js></script><script>var tipuesearch=(function(){var json=null;$.ajax({'async':false,'global':false,'url':"/index.json",'dataType':"json",'success':function(data){json=data;}});return json;})();$(document).ready(function(){$('#tipue_search_input').tipuesearch();$('#tipue_search_input').keyup(function(e){if(e.keyCode==13){$('#search-results').modal()}});});</script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create','UA-54080172-1','auto');ga('send','pageview');}</script><script>window.fbAsyncInit=function(){FB.init({appId:'993596464012237',xfbml:true,version:'v2.12'});FB.AppEvents.logPageView();};(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return;}
+js=d.createElement(s);js.id=id;js.src="https://connect.facebook.net/en_US/sdk.js";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script></body></html>

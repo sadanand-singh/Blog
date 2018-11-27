@@ -1,294 +1,41 @@
-
-
-  
-    
-  
-
-
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.51">
-    <meta name="theme" content="Bootstrap3-Lumen">
-    
-      <title>Interactive Data Visualization in Python | Sadanand&#39;s Notes</title>
-    
-    <meta name="author" content="Sadanand Singh">
-    <meta name="keywords" content="">
-
-    
-        <link rel="icon" href="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/favicon.ico" sizes="16x16">
-    
-        <link rel="icon" href="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/favicon-32x32.png" sizes="32x32">
-    
-        <link rel="icon" href="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/favicon-96x96.png" sizes="96x96">
-    
-        <link rel="icon" href="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon.png" sizes="192x192">
-    
-        <link rel="icon" href="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-precomposed.png" sizes="192x192">
-    
-        <link rel="icon" href="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-57x57.png" sizes="57x57">
-    
-        <link rel="icon" href="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-60x60.png" sizes="60x60">
-    
-        <link rel="icon" href="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-72x72.png" sizes="72x72">
-    
-        <link rel="icon" href="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-76x76.png" sizes="76x76">
-    
-        <link rel="icon" href="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-114x114.png" sizes="114x114">
-    
-        <link rel="icon" href="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-120x120.png" sizes="120x120">
-    
-        <link rel="icon" href="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-144x144.png" sizes="144x144">
-    
-        <link rel="icon" href="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-152x152.png" sizes="152x152">
-    
-        <link rel="icon" href="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-180x180.png" sizes="180x180">
-    
-
-    
-    <meta name="description" content="There are two types of data visualizations: exploratory and explanatory.
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=generator content="Hugo 0.51"><meta name=theme content=Bootstrap3-Lumen><title>Interactive Data Visualization in Python | Sadanand&#39;s Notes</title><meta name=author content="Sadanand Singh"><meta name=keywords content><link rel=icon href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/favicon.ico sizes=16x16><link rel=icon href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/favicon-32x32.png sizes=32x32><link rel=icon href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/favicon-96x96.png sizes=96x96><link rel=icon href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon.png sizes=192x192><link rel=icon href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-precomposed.png sizes=192x192><link rel=icon href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-57x57.png sizes=57x57><link rel=icon href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-60x60.png sizes=60x60><link rel=icon href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-72x72.png sizes=72x72><link rel=icon href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-76x76.png sizes=76x76><link rel=icon href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-114x114.png sizes=114x114><link rel=icon href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-120x120.png sizes=120x120><link rel=icon href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-144x144.png sizes=144x144><link rel=icon href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-152x152.png sizes=152x152><link rel=icon href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-180x180.png sizes=180x180><meta name=description content="There are two types of data visualizations: exploratory and explanatory.
 Explanatory analysis is what happens when you have something specific you want
 to show an audience. The aim of explanatory visualizations is to tell
-stories - they’re carefully constructed to surface key findings.">
-    <meta property="og:description" content="There are two types of data visualizations: exploratory and explanatory.
+stories - they’re carefully constructed to surface key findings."><meta property=og:description content="There are two types of data visualizations: exploratory and explanatory.
 Explanatory analysis is what happens when you have something specific you want
 to show an audience. The aim of explanatory visualizations is to tell
-stories - they’re carefully constructed to surface key findings.">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="Interactive Data Visualization in Python">
-    <meta property="og:url" content="/posts/interactivedatavis/">
-    <meta property="og:site_name" content="Sadanand&#39;s Notes">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Sadanand&#39;s Notes">
-    <meta name="twitter:description" content="There are two types of data visualizations: exploratory and explanatory.
+stories - they’re carefully constructed to surface key findings."><meta property=og:type content=blog><meta property=og:title content="Interactive Data Visualization in Python"><meta property=og:url content=/posts/interactivedatavis/><meta property=og:site_name content="Sadanand's Notes"><meta name=twitter:card content=summary><meta name=twitter:title content="Sadanand's Notes"><meta name=twitter:description content="There are two types of data visualizations: exploratory and explanatory.
 Explanatory analysis is what happens when you have something specific you want
 to show an audience. The aim of explanatory visualizations is to tell
-stories - they’re carefully constructed to surface key findings.">
-    
-      <meta name="twitter:creator" content="@sadanandsingh">
-    
-    
-      <meta property="fb:app_id" content="993596464012237">
-    
-
-    
-      <meta property="og:image" content="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-76x76.png">
-    
-
-    
-
-    <link href="//stackpath.bootstrapcdn.com/bootswatch/4.1.0/litera/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" />
-    <link href="https://sadanand-singh.github.io/css/rst.css" rel="stylesheet" type="text/css">
-    <link href="https://sadanand-singh.github.io/css/theme.css" rel="stylesheet" type="text/css">
-    <link href="https://sadanand-singh.github.io/css/peak.min.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet"
-      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css">
-    <link href="https://sadanand-singh.github.io/css/colorbox.css" rel="stylesheet" type="text/css">
-    <link href="https://sadanand-singh.github.io/css/custom.min.css" rel="stylesheet" type="text/css">
-    <link href="https://sadanand-singh.github.io/css/tags.min.css" rel="stylesheet" type="text/css">
-    <link href="//cdnjs.cloudflare.com/ajax/libs/Tipue-Search/5.0.0/tipuesearch.css" rel="stylesheet" type="text/css">
-
-    
-
-    
-    <link href="//cdnjs.cloudflare.com/ajax/libs/bokeh/1.0.1/bokeh.min.css" rel="stylesheet" type="text/css">
-    <link href="//cdnjs.cloudflare.com/ajax/libs/bokeh/1.0.1/bokeh-widgets.min.css" rel="stylesheet" type="text/css">
-    <link href="//cdnjs.cloudflare.com/ajax/libs/bokeh/1.0.1/bokeh-tables.min.css" rel="stylesheet" type="text/css">
-    
-
-    
-    
-    
-  </head>
-
-<body>
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
-<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-
-    <div class="container">
-        <a class="navbar-brand" href="https://sadanand-singh.github.io/">
-        
-            <img class="px-2" src="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/letter-s.png" alt="Sadanand&#39;s Notes" id="logo">
-        
-
-        
-            Sadanand&#39;s Notes
-        
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
-            <ul class="navbar-nav mr-auto">
-              
-              
-              
-                
-                
-                  <li class="nav-item px-3"><a class="nav-link" href="/post/">Blog</a>
-                
-              
-                
-                
-                  <li class="nav-item px-3"><a class="nav-link" href="/tags/">Tags</a>
-                
-              
-                
-                
-                  <li class="nav-item px-3"><a class="nav-link" href="/categories/">Categories</a>
-                
-              
-                
-                
-                  <li class="nav-item px-3"><a class="nav-link" href="/archives/">Archive</a>
-                
-              
-            </ul>
-            <span class="navbar-form navbar-right">
-                <input type="text" id="tipue_search_input" class="form-control" style="padding-left: 50px; border-radius: 20px;" placeholder="Search">
-            </span>
-        </div>
-    </div>
-</nav>
-
-<div class="container" id="content" role="main">
-    <div class="body-content">
-        
-        <div class="row">
-            <article class=" mw-100 post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article">
-    <header>
-    
-      <h1 class="p-name entry-title" itemprop="headline name">
-        Interactive Data Visualization in Python
-      </h1>
-    
-    <div class="metadata">
-    
-  
-  
-    
-    <p class="byline author vcard"><span class="byline-name fn"> By
-    <a href="/authors/sadanand-singh">Sadanand Singh</a>
-    </span></p>
-    
-  
-
-
-    
-    
-        <p class="dateline">on
-            <a href="https://sadanand-singh.github.io/posts/interactivedatavis/" rel="bookmark">
-              <time itemprop="datePublished" datetime="2018-05-04T00:00:00Z">
-                
-  
-  
-  
-  
-    2018-05-04
-  
-
-              </time>
-            </a>
-        </p>
-    
-    
-  
-  
-    <span>in</span>
-    
-      <a class="category-link" href="/categories/data-science">Data Science</a>
-    
-  
-
-
-    
-        
-            
-            <p class="commentline">
-                <a href="https://sadanand-singh.github.io/posts/interactivedatavis/#disqus_thread" data-disqus-identifier="interactivedatavis.sadanand">
-                Comments
-                </a>
-            </p>
-            
-        
-    
-
-    &nbsp;
-<div class="fb-like" data-send="true" data-layout="standard" data-action="like" data-size="small" data-show-faces="false" data-share="false"></div>
-    </div>
-</header>
-    <div class="mw-100 e-content entry-content" itemprop="articleBody text">
-        <p>There are two types of data visualizations: <em>exploratory</em> and <em>explanatory</em>.
+stories - they’re carefully constructed to surface key findings."><meta name=twitter:creator content=@sadanandsingh><meta property=fb:app_id content=993596464012237><meta property=og:image content=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-76x76.png><link href=//stackpath.bootstrapcdn.com/bootswatch/4.1.0/litera/bootstrap.min.css rel=stylesheet type=text/css><link rel=stylesheet href=//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css><link rel=stylesheet href=//cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css><link href=https://sadanand-singh.github.io/css/rst.css rel=stylesheet type=text/css><link href=https://sadanand-singh.github.io/css/theme.css rel=stylesheet type=text/css><link href=https://sadanand-singh.github.io/css/peak.min.css rel=stylesheet type=text/css><link rel=stylesheet href=//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css><link href=https://sadanand-singh.github.io/css/colorbox.css rel=stylesheet type=text/css><link href=https://sadanand-singh.github.io/css/custom.min.css rel=stylesheet type=text/css><link href=https://sadanand-singh.github.io/css/tags.min.css rel=stylesheet type=text/css><link href=https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css><link href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/css/tipuesearch.css rel=stylesheet type=text/css><link href=//cdnjs.cloudflare.com/ajax/libs/bokeh/1.0.1/bokeh.min.css rel=stylesheet type=text/css><link href=//cdnjs.cloudflare.com/ajax/libs/bokeh/1.0.1/bokeh-widgets.min.css rel=stylesheet type=text/css><link href=//cdnjs.cloudflare.com/ajax/libs/bokeh/1.0.1/bokeh-tables.min.css rel=stylesheet type=text/css></head><body><div id=fb-root></div><script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script><a href=#content class="sr-only sr-only-focusable">Skip to main content</a><nav class="navbar navbar-expand-lg navbar-dark bg-primary"><div class=container><a class=navbar-brand href=https://sadanand-singh.github.io/><img class=px-2 src=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/letter-s.png alt="Sadanand's Notes" id=logo>
+Sadanand&#39;s Notes</a>
+<button class=navbar-toggler type=button data-toggle=collapse data-target=#bs-navbar aria-controls=bs-navbar aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span><span class=icon-bar></span><span class=icon-bar></span><span class=icon-bar></span></button><div class="collapse navbar-collapse" id=bs-navbar aria-expanded=false><ul class="navbar-nav mr-auto"><li class="nav-item px-3"><a class=nav-link href=/post/>Blog</a><li class="nav-item px-3"><a class=nav-link href=/tags/>Tags</a><li class="nav-item px-3"><a class=nav-link href=/categories/>Categories</a><li class="nav-item px-3"><a class=nav-link href=/archives/>Archive</a></ul><span class="navbar-form navbar-right"><div class=tipue_search_group><input type=text name=q id=tipue_search_input pattern=.{3,} title="At least 3 characters" required>
+<button type=submit class=tipue_search_button><div class=tipue_search_icon>&#9906;</div></button></div></span></div></div></nav><div class=container id=content role=main><div class=body-content><div class=row><article class="mw-100 post-text h-entry hentry postpage" itemscope itemtype=http://schema.org/Article><header><h1 class="p-name entry-title" itemprop="headline name">Interactive Data Visualization in Python</h1><div class=metadata><p class="byline author vcard"><span class="byline-name fn">By
+<a href=/authors/sadanand-singh>Sadanand Singh</a></span></p><p class=dateline>on
+<a href=https://sadanand-singh.github.io/posts/interactivedatavis/ rel=bookmark><time itemprop=datePublished datetime=2018-05-04T00:00:00Z>2018-05-04</time></a></p><span>in</span>
+<a class=category-link href=/categories/data-science>Data Science</a><p class=commentline><a href=https://sadanand-singh.github.io/posts/interactivedatavis/#disqus_thread data-disqus-identifier=interactivedatavis.sadanand>Comments</a></p>&nbsp;<div class=fb-like data-send=true data-layout=standard data-action=like data-size=small data-show-faces=false data-share=false></div></div></header><div class="mw-100 e-content entry-content" itemprop="articleBody text"><p>There are two types of data visualizations: <em>exploratory</em> and <em>explanatory</em>.
 Explanatory analysis is what happens when you have something specific you want
 to show an audience. The aim of <strong>explanatory</strong> visualizations is to tell
-stories - they’re carefully constructed to surface key findings.</p>
-
-<p>Exploratory analysis, on the other hand, is what you do to get familiar with
+stories - they’re carefully constructed to surface key findings.</p><p>Exploratory analysis, on the other hand, is what you do to get familiar with
 the data. You may start out with a hypothesis or question, or you may just
 really be delving into the data to determine what might be interesting about
 it. <strong>Exploratory</strong> visualizations, &ldquo;create an interface into a dataset or
 subject matter&hellip; they facilitate the user exploring the data, letting them
-unearth their own insights: findings they consider relevant or interesting.&rdquo;</p>
-
-<p>In a previous series of posts on
-<a href="https://en.wikipedia.org/wiki/Exploratory_data_analysis">exploratory data analysis (EDA)</a> - <a href="/posts/pandasintroreddit/">EDA 1</a>, <a href="/posts/onevariableeda/">EDA 2</a>, <a href="/posts/pyplotstwovariables/">EDA 3</a> and
-<a href="/posts/pyplotsmultivariables/">EDA 4</a>, we have covered static plotting in python using major libraries
-like <a href="https://matplotlib.org/">matplotlib</a>, <a href="https://seaborn.pydata.org/">seaborn</a>, <a href="https://plotnine.readthedocs.io/en/stable/">plotnine</a>, and <a href="https://pandas.pydata.org/">pandas</a>. <code>plotnine</code> is an implementation of a grammar of graphics in Python, based on the <a href="http://ggplot2.org/">ggplot2</a> library in R. The grammar allows users to compose plots by explicitly mapping data to the visual objects that make up the plot.</p>
-
-<p>In this article, we will focus on EDA using interactive plots. More often than not, exploratory visualizations are easier when they are interactive!</p>
-
-<strong id="table-of-contents">Table of Contents</strong><nav id="TableOfContents">
-<ul>
-<li><a href="#python-libraries">Python Libraries</a></li>
-<li><a href="#examples">Examples</a>
-<ul>
-<li><a href="#hover-tool-tips">Hover/ Tool-tips</a></li>
-<li><a href="#linked-plots">Linked Plots</a></li>
-<li><a href="#filter-select-data">Filter/Select Data</a></li>
-</ul></li>
-<li><a href="#high-level-bokeh-plots-using-holoviews-library">High level bokeh plots using holoviews Library</a></li>
-</ul>
-</nav>
-
-<h1 id="python-libraries">Python Libraries</h1>
-
-<p>Although there are few libraries in python that can help us make interactive
-plots, I find <a href="https://bokeh.pydata.org/en/latest/">bokeh</a> and <a href="https://holoviews.org/">holoviews</a> to be the only ones that can cover most
-use cases. Others like <a href="https://plot.ly/">plotly</a> and <a href="http://pygal.org/en/stable/">pygal</a> seem to be too specific and <a href="https://github.com/mpld3/mpld3">mpld3</a>
-is no longer being actively maintained.</p>
-
-<p><code>bokeh</code> provides fundamental blocks for making interactive plots, following
+unearth their own insights: findings they consider relevant or interesting.&rdquo;</p><p>In a previous series of posts on
+<a href=https://en.wikipedia.org/wiki/Exploratory_data_analysis>exploratory data analysis (EDA)</a> - <a href=/posts/pandasintroreddit/>EDA 1</a>, <a href=/posts/onevariableeda/>EDA 2</a>, <a href=/posts/pyplotstwovariables/>EDA 3</a> and
+<a href=/posts/pyplotsmultivariables/>EDA 4</a>, we have covered static plotting in python using major libraries
+like <a href=https://matplotlib.org/>matplotlib</a>, <a href=https://seaborn.pydata.org/>seaborn</a>, <a href=https://plotnine.readthedocs.io/en/stable/>plotnine</a>, and <a href=https://pandas.pydata.org/>pandas</a>. <code>plotnine</code> is an implementation of a grammar
+of graphics in Python, based on the <a href=http://ggplot2.org/>ggplot2</a> library in R. The grammar allows users to compose
+plots by explicitly mapping data to the visual objects that make up the plot.</p><p>In this article, we will focus on EDA using interactive plots. More often than not, exploratory
+visualizations are easier when they are interactive!</p><strong id=table-of-contents>Table of Contents</strong><nav id=TableOfContents><ul><li><a href=#python-libraries>Python Libraries</a></li><li><a href=#examples>Examples</a><ul><li><a href=#hover-tool-tips>Hover/ Tool-tips</a></li><li><a href=#linked-plots>Linked Plots</a></li><li><a href=#filter-select-data>Filter/Select Data</a></li></ul></li><li><a href=#high-level-bokeh-plots-using-holoviews-library>High level bokeh plots using holoviews Library</a></li></ul></nav><h1 id=python-libraries>Python Libraries</h1><p>Although there are few libraries in python that can help us make interactive
+plots, I find <a href=https://bokeh.pydata.org/en/latest/>bokeh</a> and <a href=https://holoviews.org/>holoviews</a> to be the only ones that can cover most
+use cases. Others like <a href=https://plot.ly/>plotly</a> and <a href=http://pygal.org/en/stable/>pygal</a> seem to be too specific and <a href=https://github.com/mpld3/mpld3>mpld3</a>
+is no longer being actively maintained.</p><p><code>bokeh</code> provides fundamental blocks for making interactive plots, following
 the grammar of graphics. <code>holoviews</code> on the hand uses bokeh as back-end to
 provide high level APIs for making plots. All of these interactive plots can
 be viewed in a browser and are aided by corresponding bokeh javascript and css
-files.</p>
-
-
-
-<div class="card border-secondary">
-<div class="card-header"><strong>Embedding bokeh Plots in Web Pages</strong></div> 
-<div class="card-body"> <p>In order to incorporate bokeh figures in a web page, you will first need to include following <code>css</code> and <code>js</code> files in your page:</p>
-
-<pre><code class="language-html">&lt;!-- css --&gt;
+files.</p><div class="card border-secondary"><div class=card-header><strong>Embedding bokeh Plots in Web Pages</strong></div><div class=card-body><p>In order to incorporate bokeh figures in a web page, you will first need to include following <code>css</code> and <code>js</code> files in your page:</p><pre><code class=language-html>&lt;!-- css --&gt;
 &lt;link href=&quot;//cdnjs.cloudflare.com/ajax/libs/bokeh/1.0.1/bokeh.min.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;
 &lt;link href=&quot;//cdnjs.cloudflare.com/ajax/libs/bokeh/1.0.1/bokeh-widgets.min.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;
 &lt;link href=&quot;//cdnjs.cloudflare.com/ajax/libs/bokeh/1.0.1/bokeh-tables.min.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;
@@ -297,29 +44,19 @@ files.</p>
 &lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/bokeh/1.0.1/bokeh.min.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/bokeh/1.0.1/bokeh-widgets.min.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/bokeh/1.0.1/bokeh-tables.min.js&quot;&gt;&lt;/script&gt;
-</code></pre>
-
-<p>The &ldquo;-widgets&rdquo; files are only necessary if your document includes bokeh
+</code></pre><p>The &ldquo;-widgets&rdquo; files are only necessary if your document includes bokeh
 widgets. Similarly, the &ldquo;-tables&rdquo; files are only necessary if you are using
-Bokeh data tables in your document.</p>
-
-<p>Then you can use the <code>bokeh.embed.components()</code> to generate relevant code for
+Bokeh data tables in your document.</p><p>Then you can use the <code>bokeh.embed.components()</code> to generate relevant code for
 your plots. This function returns a <code>&lt;script&gt;</code> that contains the data for your
 plot, together with an accompanying <code>&lt;div&gt;</code> tag that the plot view is loaded
-into. These tags can be used in HTML documents however you like:</p>
-
-<pre><code class="language-python">from bokeh.plotting import figure
+into. These tags can be used in HTML documents however you like:</p><pre><code class=language-python>from bokeh.plotting import figure
 from bokeh.embed import components
 
 plot = figure()
 plot.circle([1, 2], [3, 4])
 
 script, div = components(plot)
-</code></pre>
-
-<p>The returned <code>&lt;script&gt;</code> will look something like:</p>
-
-<pre><code class="language-html">&lt;script type=&quot;text/javascript&quot;&gt;
+</code></pre><p>The returned <code>&lt;script&gt;</code> will look something like:</p><pre><code class=language-html>&lt;script type=&quot;text/javascript&quot;&gt;
     (function() {
   var fn = function() {
     Bokeh.safely(function() {
@@ -338,44 +75,19 @@ script, div = components(plot)
 })();
 
 &lt;/script&gt;
-</code></pre>
-
-<p>The resulting <code>&lt;div&gt;</code> will look something like:</p>
-
-<pre><code class="language-html">&lt;div class=&quot;bk-root&quot; id=&quot;9574d123-9332-4b5f-96cc-6323bef37f40&quot;&gt;&lt;/div&gt;
-</code></pre>
-
-<p>There will be one <code>&lt;div&gt;</code> for each of your plots and they should be placed at
+</code></pre><p>The resulting <code>&lt;div&gt;</code> will look something like:</p><pre><code class=language-html>&lt;div class=&quot;bk-root&quot; id=&quot;9574d123-9332-4b5f-96cc-6323bef37f40&quot;&gt;&lt;/div&gt;
+</code></pre><p>There will be one <code>&lt;div&gt;</code> for each of your plots and they should be placed at
 where you want your plot to appear. The <code>&lt;script&gt;</code> section should be placed
-in a typical place - the bottom of the <code>&lt;body&gt;</code> section for late loading.</p>
-</div>
-</div>
-
-
-
-
-<h1 id="examples">Examples</h1>
-
-<p>Bokeh has built-in support for various types of interactions (like pan, wheel
+in a typical place - the bottom of the <code>&lt;body&gt;</code> section for late loading.</p></div></div><h1 id=examples>Examples</h1><p>Bokeh has built-in support for various types of interactions (like pan, wheel
 zoom, box zoom, reset and save etc.) on all plots. Additionally, all of such
-interactions can be customized.</p>
-
-<p>In the following sections, we will look at few major types of interactions that are required typically in an exploratory plot.</p>
-
-<h2 id="hover-tool-tips">Hover/ Tool-tips</h2>
-
-<p>Visualization of high dimensional data is a pretty common task in data science
+interactions can be customized.</p><p>In the following sections, we will look at few major types of interactions that are required typically in an exploratory plot.</p><h2 id=hover-tool-tips>Hover/ Tool-tips</h2><p>Visualization of high dimensional data is a pretty common task in data science
 projects. The two most common algorithms to project high dimensional data to
-2-dimensional space are <a href="https://lvdmaaten.github.io/tsne/">t-sne</a> and <a href="https://arxiv.org/abs/1802.03426">UMAP</a>. The <a href="http://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html">scikit-learn</a>
-and <a href="https://github.com/lmcinnes/umap">umap-learn</a> python libraries provide a neat implementation of
-these algorithms.</p>
-
-<p>In this post, as an example, we will use the <a href="https://github.com/zalandoresearch/fashion-mnist">fashion MNIST</a> data to look at
-its tsne and UMAP embeddings. We can first load the data from the <a href="https://keras.io">Keras</a>
+2-dimensional space are <a href=https://lvdmaaten.github.io/tsne/>t-sne</a> and <a href=https://arxiv.org/abs/1802.03426>UMAP</a>. The <a href=http://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html>scikit-learn</a>
+and <a href=https://github.com/lmcinnes/umap>umap-learn</a> python libraries provide a neat implementation of
+these algorithms.</p><p>In this post, as an example, we will use the <a href=https://github.com/zalandoresearch/fashion-mnist>fashion MNIST</a> data to look at
+its tsne and UMAP embeddings. We can first load the data from the <a href=https://pytorch.org/>Pytorch</a>
 libarary. We will load only the training data and save both images and labels
-in a <a href="https://pandas.pydata.org/">pandas</a> dataframe.</p>
-
-<pre><code class="language-python">from torchvision.datasets import FashionMNIST
+in a <a href=https://pandas.pydata.org/>pandas</a> dataframe.</p><pre><code class=language-python>from torchvision.datasets import FashionMNIST
 import numpy as np
 import pandas as pd
 
@@ -389,17 +101,9 @@ feat_cols = ['pixel'+str(i) for i in range(X.shape[1])]
 df = pd.DataFrame(X, columns=feat_cols)
 df['label'] = y
 df['label'] = df['label'].apply(lambda i: str(i))
-</code></pre>
-
-<p>We will also create randomized permutation of indices so that we can access
-random elements of our data.</p>
-
-<pre><code class="language-python">rndperm = np.random.permutation(df.shape[0])
-</code></pre>
-
-<p>Now, we can calculate the tsne and umap features. For faster computation, we will use only random 7000 samples.</p>
-
-<pre><code class="language-python">from sklearn.manifold import TSNE
+</code></pre><p>We will also create randomized permutation of indices so that we can access
+random elements of our data.</p><pre><code class=language-python>rndperm = np.random.permutation(df.shape[0])
+</code></pre><p>Now, we can calculate the tsne and umap features. For faster computation, we will use only random 7000 samples.</p><pre><code class=language-python>from sklearn.manifold import TSNE
 import umap
 
 n_sne = 7000
@@ -412,18 +116,14 @@ umap_obj = umap.UMAP(n_neighbors=5,
                       min_dist=0.1,
                       metric='correlation')
 umap_results = umap_obj.fit_transform(df_small[feat_cols].values)
-</code></pre>
-
-<p>Now, we can use the resulting arrays <code>tsne_results</code> and <code>umap_results</code> to make
+</code></pre><p>Now, we can use the resulting arrays <code>tsne_results</code> and <code>umap_results</code> to make
 bokeh plots. In particular, we will use scatter plots to compare two
 embeddings. To make more sense of the data,it would be great if hovering over
 a point could show the corresponding image. We will enable that using a
 customized <code>HoverTool()</code> tool. The constructor for the <code>HoverTool</code> object
 takes a <code>tooltips</code> option in the form of html code, that represents what is
 shown when one hovers over a point. The data is provided in terms of arrays in
-the <code>ColumnDataSource</code>, by prefixing column names with &lsquo;@&rsquo; symbol.</p>
-
-<pre><code class="language-python">from bokeh.plotting import figure, show, ColumnDataSource
+the <code>ColumnDataSource</code>, by prefixing column names with &lsquo;@&rsquo; symbol.</p><pre><code class=language-python>from bokeh.plotting import figure, show, ColumnDataSource
 from bokeh.layouts import gridplot
 from bokeh.models import CDSView, Legend, GroupFilter, HoverTool, BoxZoomTool
 from bokeh.models import LassoSelectTool, WheelZoomTool, BoxSelectTool, ResetTool
@@ -467,33 +167,15 @@ for c in clr:
 
 p3 = gridplot([[p2, p1]])
 show(p3)
-</code></pre>
-
-<p>Notice, how the two plots are linked - If you select some points in one, it
-will highlight the corresponding points in other!</p>
-
-<div class="figure img-responsive" style="display:table; margin:0 auto;">
-  <div class="bk-root">
-    <div class="bk-plotdiv" id="d9974e49-c1ca-4a7d-a444-8872598754b1"></div>
-  </div>
-</div>
-
-<p>Also notice the trick used in the right plot of UMAP embeddings to move
+</code></pre><p>Notice, how the two plots are linked - If you select some points in one, it
+will highlight the corresponding points in other!</p><div class="figure img-responsive" style="display:table;margin:0 auto"><div class=bk-root><div class=bk-plotdiv id=d9974e49-c1ca-4a7d-a444-8872598754b1></div></div></div><p>Also notice the trick used in the right plot of UMAP embeddings to move
 legends outside the plot area. Commonly, <code>circle()</code> has an option
 for <code>legend</code>, however this leads to legend being shown inside the main
-plot region!</p>
-
-<h2 id="linked-plots">Linked Plots</h2>
-
-<p>Although we already have seen above how one can enable linked plots. In this
+plot region!</p><h2 id=linked-plots>Linked Plots</h2><p>Although we already have seen above how one can enable linked plots. In this
 example, I want to highlight a different kind of linking. It’s often desired
 to link pan or zooming actions across many plots. All that is needed to enable
-this feature is to share range objects between <code>figure()</code> calls.</p>
-
-<p>For this example, we will use the simpler <a href="https://www.cs.toronto.edu/~delve/data/boston/bostonDetail.html">Boston Housing</a> dataset. We can
-load this data using the Keras library and save it in a pandas dataframe.</p>
-
-<pre><code class="language-python">from sklearn.datasets import load_boston
+this feature is to share range objects between <code>figure()</code> calls.</p><p>For this example, we will use the simpler <a href=https://www.cs.toronto.edu/~delve/data/boston/bostonDetail.html>Boston Housing</a> dataset. We can
+load this data using the <a href=http://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html>scikit-learn library</a> and save it in a pandas dataframe.</p><pre><code class=language-python>from sklearn.datasets import load_boston
 
 x_train, y_train = load_boston(return_X_y=True)
 df_boston = pd.DataFrame(x_train)
@@ -502,14 +184,10 @@ cols += [&quot;RM&quot;, &quot;AGE&quot;, &quot;DIS&quot;, &quot;RAD&quot;, &quo
 df_boston.columns = cols
 
 df_boston['price'] = y_train
-</code></pre>
-
-<p>In particular, we want to look at the effect of average number of rooms per
+</code></pre><p>In particular, we want to look at the effect of average number of rooms per
 dwelling (RM), per capita crime rate by town (CRIM) and pupil-teacher ratio (
 PTRATIO) on the sales price of houses. We can visualize such a correlation by
-scatter plots of each of these variables wrt price.</p>
-
-<pre><code class="language-python">tools =&quot;pan,hover,box_select,lasso_select,wheel_zoom,box_zoom,reset&quot;
+scatter plots of each of these variables wrt price.</p><pre><code class=language-python>tools =&quot;pan,hover,box_select,lasso_select,wheel_zoom,box_zoom,reset&quot;
 source = ColumnDataSource(data=dict(
     x=df_boston.price,
     y1=df_boston.RM,
@@ -528,44 +206,22 @@ p4.xaxis.axis_label = &quot;Price (in thousands)&quot;
 p5.xaxis.axis_label = &quot;Price (in thousands)&quot;
 p6.xaxis.axis_label = &quot;Price (in thousands)&quot;
 show(p44)
-</code></pre>
-
-<p>In the following plot, with &ldquo;pan&rdquo; tool selected (the first one that looks like
+</code></pre><p>In the following plot, with &ldquo;pan&rdquo; tool selected (the first one that looks like
 a +-like anchor symbol), if you drag any one of the plots along x-axis all of
 others will move too! This is enabled by letting <code>x_range</code> be shared to all
 plots. Notice, similar to the previous plot, we can still do selection across
-all three plots since all plots share a common <code>ColumnDataSource</code>.</p>
-
-<div class="figure img-responsive" style="display:table; margin:0 auto;">
-  <div class="bk-root">
-      <div class="bk-plotdiv" id="57f15c88-ca53-4398-9194-fc7bcc5744d1"></div>
-  </div>
-</div>
-
-<h2 id="filter-select-data">Filter/Select Data</h2>
-
-<p>In the final example on types of interactive plots, I want to highlight a very
+all three plots since all plots share a common <code>ColumnDataSource</code>.</p><div class="figure img-responsive" style="display:table;margin:0 auto"><div class=bk-root><div class=bk-plotdiv id=57f15c88-ca53-4398-9194-fc7bcc5744d1></div></div></div><h2 id=filter-select-data>Filter/Select Data</h2><p>In the final example on types of interactive plots, I want to highlight a very
 different type of desired interactions - filter/select data on the fly and
 keep updating the plot! I also want to show the plots of maps and geo
-locations in bokeh. I will be using the <a href="https://www.kaggle.com/c/sf-crime/data">San Fransisco Crime dataset</a> to
-showcase this.</p>
-
-<p>Let us first download the file from abve link and load it as a dataframe:</p>
-
-<pre><code class="language-python">df_sfo = pd.read_csv(&quot;./train.csv&quot;)
-</code></pre>
-
-<p>Now, we want to look at the crime rate at different days of weeks. We want to
+locations in bokeh. I will be using the <a href=https://www.kaggle.com/c/sf-crime/data>San Fransisco Crime dataset</a> to
+showcase this.</p><p>Let us first download the file from abve link and load it as a dataframe:</p><pre><code class=language-python>df_sfo = pd.read_csv(&quot;./train.csv&quot;)
+</code></pre><p>Now, we want to look at the crime rate at different days of weeks. We want to
 view this interactively. Users can choose All or a particular day and our plot
 should show us distribution of crime for that/those days on the map. I will be
 using the google maps API for displaying the map. You can get your own API at
-the <a href="https://developers.google.com/maps/documentation/javascript/tutorial">this link</a>.</p>
-
-<p>We will use the <code>Seelct</code> bokeh widget to let users choose the day of the week
+the <a href=https://developers.google.com/maps/documentation/javascript/tutorial>this link</a>.</p><p>We will use the <code>Seelct</code> bokeh widget to let users choose the day of the week
 to visualize. Notice the use of <code>callback</code> method to implement interaction
-between our widget and plot.</p>
-
-<pre><code class="language-python">from bokeh.models.widgets import Select
+between our widget and plot.</p><pre><code class=language-python>from bokeh.models.widgets import Select
 from bokeh.models import CustomJS
 from bokeh.models import GMapOptions
 from bokeh.plotting import gmap
@@ -622,31 +278,13 @@ p47.circle(x='x', y='y', size=15, fill_color='c', fill_alpha=0.8, source=source)
 
 p477 = column(select, p47)
 show(p477)
-</code></pre>
-
-<div class="figure img-responsive" style="display:table; margin:0 auto;">
-  <div class="bk-root">
-    <div class="bk-plotdiv" id="762965ba-f6b0-4cb0-8edf-d40a25c48183"></div>
-</div>
-</div>
-
-<p>You can choose the Day of Week in the Selection dropdown menu at the top and
+</code></pre><div class="figure img-responsive" style="display:table;margin:0 auto"><div class=bk-root><div class=bk-plotdiv id=762965ba-f6b0-4cb0-8edf-d40a25c48183></div></div></div><p>You can choose the Day of Week in the Selection dropdown menu at the top and
 see how the plot updates itself. For this example, I have restricted to
-showing only 50 entries for each day to keep the <code>js</code> file small.</p>
-
-<h1 id="high-level-bokeh-plots-using-holoviews-library">High level bokeh plots using holoviews Library</h1>
-
-<p>By now you might have noticed, bokeh provides only low level APIs for
+showing only 50 entries for each day to keep the <code>js</code> file small.</p><h1 id=high-level-bokeh-plots-using-holoviews-library>High level bokeh plots using holoviews Library</h1><p>By now you might have noticed, bokeh provides only low level APIs for
 plotting. Theoretically this enables to us plot any kind of complex plots.
 However, for common day-to-do plots like box plots, histograms etc. we need to
-write a lot of code! Luckily, <a href="https://holoviews.org/">holoviews</a> library comes to our rescue!</p>
-
-<p>In the final example, I will show a simple example of box and histogram plots
-on <a href="https://www.cs.toronto.edu/~delve/data/boston/bostonDetail.html">Boston Housing</a> data using holoviews.</p>
-
-<p>First we want to look at the distribution of prices for houses with different room sizes. We will first need to bin no. of rooms using <code>cut()</code> method of pandas. Then we can make Box (Whisker) plot using holoviews!</p>
-
-<pre><code class="language-python">import holoviews as hv
+write a lot of code! Luckily, <a href=https://holoviews.org/>holoviews</a> library comes to our rescue!</p><p>In the final example, I will show a simple example of box and histogram plots
+on <a href=https://www.cs.toronto.edu/~delve/data/boston/bostonDetail.html>Boston Housing</a> data using holoviews.</p><p>First we want to look at the distribution of prices for houses with different room sizes. We will first need to bin no. of rooms using <code>cut()</code> method of pandas. Then we can make Box (Whisker) plot using holoviews!</p><pre><code class=language-python>import holoviews as hv
 hv.extension('bokeh')
 
 rooms = ['3', '4', '5', '6', '7', '8']
@@ -661,242 +299,31 @@ p45.y_range.end = 60
 p45.yaxis.axis_label = &quot;Price (in thousands)&quot;
 p45.plot_width = 500
 show(p45)
-</code></pre>
-
-<p>Notice, plotting was just a single line in holoviews! Furthermore, we could
+</code></pre><p>Notice, plotting was just a single line in holoviews! Furthermore, we could
 get corresponding bokeh figure from it and apply all modifications from bokeh.
-This makes it easy to use as well as quite customizable.</p>
-
-<div class="figure img-responsive" style="display:table; margin:0 auto;">
-  <div class="bk-root">
-      <div class="bk-plotdiv" id="149e0576-1a44-44af-b45a-c7d15c7839e1"></div>
-  </div>
-</div>
-
-<p>To illustrate making of histogram plots, we can take a look at the overall
+This makes it easy to use as well as quite customizable.</p><div class="figure img-responsive" style="display:table;margin:0 auto"><div class=bk-root><div class=bk-plotdiv id=149e0576-1a44-44af-b45a-c7d15c7839e1></div></div></div><p>To illustrate making of histogram plots, we can take a look at the overall
 distribution of house prices. We will first calculate the histograms
-using <code>numpy</code> and then plot it using holoviews.</p>
-
-<pre><code class="language-python">f, e = np.histogram(df_boston.price.values, 20)
+using <code>numpy</code> and then plot it using holoviews.</p><pre><code class=language-python>f, e = np.histogram(df_boston.price.values, 20)
 
 hist = hv.Histogram((e, f))
 
 p46 = renderer.get_plot(hist).state
-p46.y_range.end = 70
+p46.y_range.end = 90
 p46.x_range.start = -1
 p46.x_range.end = 55
 p46.xaxis.axis_label = &quot;Price (in thousands)&quot;
 p46.plot_width = 500
 show(p46)
-</code></pre>
-
-<p>We get an interactive histogram plot with a single line of code!</p>
-
-<div class="figure img-responsive" style="display:table; margin:0 auto;">
-  <div class="bk-root">
-      <div class="bk-plotdiv" id="b4358e13-edef-4764-a84f-b442726e076d"></div>
-  </div>
-</div>
-
-<p>Similar to the box plot, we customized it by getting the corresponding bokeh
+</code></pre><p>We get an interactive histogram plot with a single line of code!</p><div class="figure img-responsive" style="display:table;margin:0 auto"><div class=bk-root><div class=bk-plotdiv id=b4358e13-edef-4764-a84f-b442726e076d></div></div></div><p>Similar to the box plot, we customized it by getting the corresponding bokeh
 figure. We have touched only the simplest of plots using holoviews. If you
 look at their web page, you can make pretty complex interactive figures quite
-easily!</p>
-
-<p>Hopefully, this was enough to convince to start using interactive plots for
-some of your <a href="https://en.wikipedia.org/wiki/Exploratory_data_analysis">EDA</a>. Go through the APIs of bokeh and holoviews to find
+easily!</p><p>Hopefully, this was enough to convince to start using interactive plots for
+some of your <a href=https://en.wikipedia.org/wiki/Exploratory_data_analysis>EDA</a>. Go through the APIs of bokeh and holoviews to find
 additional details. Bokeh also provides a nice <a href="https://mybinder.org/v2/gh/bokeh/bokeh-notebooks/master?filepath=tutorial%2F00%20-%20Introduction%20and%20Setup.ipynb">tutorial</a> for new users.
 If you have any question regarding any type of plot, feel free to leave a
-comment below!</p>
-    </div>
-    <div id="post-footer" class="post-footer">
-        
-            
-                
-                
-                  <div class="post-footer-tags">
-                    <hr><br/>
-                    <strong><span class="text-color-light text-small">TAGGED IN:</span></strong>
-                    
-  <a class="text-white badge badge-pill badge-dark" href="https://sadanand-singh.github.io//tags/data-science/">Data Science</a>
-
-  <a class="text-white badge badge-pill badge-dark" href="https://sadanand-singh.github.io//tags/python/">Python</a>
-
-
-                  </div>
-                
-            
-        
-        <br/>
-        <ul class="mx-0 px-0 pager">
-  
-    
-        <li class="previous btn btn-lg btn-primary">
-            <a href="/posts/autoencoders/" rel="prev" title="A Practical guide to Autoencoders">
-            <i class="fa fa-angle-left text-base text-white icon-mr"></i>
-            <span class="text-white"> Previous post </span>
-            </a>
-        </li>
-    
-    
-  
-</ul>
-        <hr>
-    </div>
-
-    
-        <div id="disqus_thread"></div>
-<script type="application/javascript">
-    var disqus_config = function () {
-    this.page.identifier = 'interactivedatavis.sadanand';
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "sadanandsblog" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-    
-
-    
-</article>
-
-        </div>
-        
-        <footer id="footer">
-  <span class="copyrights">
-    
-    Contents &copy; 2018         <a href="mailto:sadanand.singh@aol.com">Sadanand Singh</a> - Powered by         <a href="https://gohugo.io/" rel="nofollow">Hugo 0.51</a> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>
-    
-  </span>
-</footer>
-
-    </div>
-</div>
-    
-    
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.colorbox/1.6.4/jquery.colorbox-min.js"></script>
-<script src="https://sadanand-singh.github.io/js/peak.min.js"></script>
-<script src="https://sadanand-singh.github.io/js/highlight.pack.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
-
-
-
-    <script async type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53f6d74a591ace8f"></script>
-
-
-<script>var disqus_shortname="sadanandsblog";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
-
-<script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
-
-
-<div id="search-results" class="modal" role="dialog" style="height: 80%;">
-    <div class="modal-dialog" role="document">
-        
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title">Search Results:</h4>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">X</span>
-            </button>
-          </div>
-          <div class="modal-body" id="tipue_search_content" style="max-height: 600px; overflow-y: auto;">
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-          </div>
-        </div>
-    </div>
-</div>
-
-<script>
-$(document).ready(function() {
-    var url1 = "https://cdnjs.cloudflare.com/ajax/libs/Tipue-Search/5.0.0/tipuesearch_set.js";
-    var url2 = "https://cdnjs.cloudflare.com/ajax/libs/Tipue-Search/5.0.0/tipuesearch.min.js";
-    $.when(
-        $.getScript( url1 ),
-        $.getScript( url2 ),
-        $.Deferred(function( deferred ){
-            $( deferred.resolve );
-        })
-    ).done(function() {
-        $('#tipue_search_input').tipuesearch({
-            'mode': 'json',
-            'contentLocation': '/index.json'
-        });
-        $('#tipue_search_input').keyup(function (e) {
-            if (e.keyCode == 13) {
-                $('#search-results').modal()
-            }
-        });
-    });
-});
-</script>
-
-
-
-
-<script src="//cdnjs.cloudflare.com/ajax/libs/bokeh/1.0.1/bokeh.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/bokeh/1.0.1/bokeh-widgets.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/bokeh/1.0.1/bokeh-tables.min.js"></script>
-<script src="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/js/interactivePlots_min.js"></script>
-
-
-
-
-
-
-
-  
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-54080172-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-
-
-
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '993596464012237',
-      xfbml      : true,
-      version    : 'v2.12'
-    });
-
-    FB.AppEvents.logPageView();
-
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "https://connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script>
-
-    
-  </body>
-</html>
-
+comment below!</p></div><div id=post-footer class=post-footer><div class=post-footer-tags><hr><br><strong><span class="text-color-light text-small">TAGGED IN:</span></strong>
+<a class="text-white badge badge-pill badge-dark" href=https://sadanand-singh.github.io//tags/data-science/>Data Science</a>
+<a class="text-white badge badge-pill badge-dark" href=https://sadanand-singh.github.io//tags/python/>Python</a></div><br><ul class="mx-0 px-0 pager"><li class="previous btn btn-lg btn-primary"><a href=/posts/autoencoders/ rel=prev title="A Practical guide to Autoencoders"><i class="fa fa-angle-left text-base text-white icon-mr"></i><span class=text-white>Previous post</span></a></li></ul><hr></div><div id=disqus_thread></div><script type=application/javascript>var disqus_config=function(){this.page.identifier='interactivedatavis.sadanand';};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return;}
+var d=document,s=d.createElement('script');s.async=true;s.src='//'+"sadanandsblog"+'.disqus.com/embed.js';s.setAttribute('data-timestamp',+new Date());(d.head||d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></article></div><footer id=footer><span class=copyrights>Contents &copy; 2018 <a href=mailto:sadanand.singh@aol.com>Sadanand Singh</a> - Powered by <a href=https://gohugo.io/ rel=nofollow>Hugo 0.51</a> <a rel=license href=http://creativecommons.org/licenses/by-nc-sa/4.0/><img alt="Creative Commons License" style=border-width:0 src=https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png></a><br>This work is licensed under a <a rel=license href=http://creativecommons.org/licenses/by-nc-sa/4.0/>Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a></span></footer></div></div><script src=https://code.jquery.com/jquery-3.3.1.min.js integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin=anonymous></script><script src=https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js integrity=sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm crossorigin=anonymous></script><script src=//cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js></script><script src=//cdnjs.cloudflare.com/ajax/libs/jquery.colorbox/1.6.4/jquery.colorbox-min.js></script><script src=https://sadanand-singh.github.io/js/peak.min.js></script><script src=https://sadanand-singh.github.io/js/highlight.pack.js></script><script>hljs.initHighlightingOnLoad();</script><script async type=text/javascript src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53f6d74a591ace8f"></script><script>var disqus_shortname="sadanandsblog";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><button type=button class="btn btn-primary" data-toggle=modal data-target=.bs-example-modal-lg>Large modal</button><div id=search-results class="modal fade bs-example-modal-lg" tabindex=-1 role=dialog style=height:80%><div class="modal-dialog modal-xl" role=document><div class=modal-content><div class=modal-header><h4 class=modal-title>Search Results:</h4><button type=button class=close data-dismiss=modal aria-label=Close>
+<span aria-hidden=true>X</span></button></div><div class=modal-body id=tipue_search_content style=max-height:600px;overflow-y:auto></div><div class=modal-footer><button type=button class="btn btn-danger" data-dismiss=modal>Close</button></div></div></div></div><script src=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/js/tipuesearch_set.js></script><script src=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/js/tipuesearch.min.js></script><script>var tipuesearch=(function(){var json=null;$.ajax({'async':false,'global':false,'url':"/index.json",'dataType':"json",'success':function(data){json=data;}});return json;})();$(document).ready(function(){$('#tipue_search_input').tipuesearch();$('#tipue_search_input').keyup(function(e){if(e.keyCode==13){$('#search-results').modal()}});});</script><script src=//cdnjs.cloudflare.com/ajax/libs/bokeh/1.0.1/bokeh.min.js></script><script src=//cdnjs.cloudflare.com/ajax/libs/bokeh/1.0.1/bokeh-widgets.min.js></script><script src=//cdnjs.cloudflare.com/ajax/libs/bokeh/1.0.1/bokeh-tables.min.js></script><script src=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/js/interactivePlots_min.js></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create','UA-54080172-1','auto');ga('send','pageview');}</script><script>window.fbAsyncInit=function(){FB.init({appId:'993596464012237',xfbml:true,version:'v2.12'});FB.AppEvents.logPageView();};(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return;}
+js=d.createElement(s);js.id=id;js.src="https://connect.facebook.net/en_US/sdk.js";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script></body></html>

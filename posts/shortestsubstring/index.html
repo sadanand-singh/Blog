@@ -1,281 +1,33 @@
-
-
-  
-    
-  
-
-
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.51">
-    <meta name="theme" content="Bootstrap3-Lumen">
-    
-      <title>Shortest Non-repeating Substring | Sadanand&#39;s Notes</title>
-    
-    <meta name="author" content="Sadanand Singh">
-    <meta name="keywords" content="">
-
-    
-        <link rel="icon" href="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/favicon.ico" sizes="16x16">
-    
-        <link rel="icon" href="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/favicon-32x32.png" sizes="32x32">
-    
-        <link rel="icon" href="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/favicon-96x96.png" sizes="96x96">
-    
-        <link rel="icon" href="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon.png" sizes="192x192">
-    
-        <link rel="icon" href="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-precomposed.png" sizes="192x192">
-    
-        <link rel="icon" href="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-57x57.png" sizes="57x57">
-    
-        <link rel="icon" href="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-60x60.png" sizes="60x60">
-    
-        <link rel="icon" href="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-72x72.png" sizes="72x72">
-    
-        <link rel="icon" href="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-76x76.png" sizes="76x76">
-    
-        <link rel="icon" href="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-114x114.png" sizes="114x114">
-    
-        <link rel="icon" href="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-120x120.png" sizes="120x120">
-    
-        <link rel="icon" href="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-144x144.png" sizes="144x144">
-    
-        <link rel="icon" href="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-152x152.png" sizes="152x152">
-    
-        <link rel="icon" href="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-180x180.png" sizes="180x180">
-    
-
-    
-    <meta name="description" content="Given an alphanumeric string, find the shortest substring that occurs
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=generator content="Hugo 0.51"><meta name=theme content=Bootstrap3-Lumen><title>Shortest Non-repeating Substring | Sadanand&#39;s Notes</title><meta name=author content="Sadanand Singh"><meta name=keywords content><link rel=icon href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/favicon.ico sizes=16x16><link rel=icon href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/favicon-32x32.png sizes=32x32><link rel=icon href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/favicon-96x96.png sizes=96x96><link rel=icon href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon.png sizes=192x192><link rel=icon href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-precomposed.png sizes=192x192><link rel=icon href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-57x57.png sizes=57x57><link rel=icon href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-60x60.png sizes=60x60><link rel=icon href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-72x72.png sizes=72x72><link rel=icon href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-76x76.png sizes=76x76><link rel=icon href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-114x114.png sizes=114x114><link rel=icon href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-120x120.png sizes=120x120><link rel=icon href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-144x144.png sizes=144x144><link rel=icon href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-152x152.png sizes=152x152><link rel=icon href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-180x180.png sizes=180x180><meta name=description content="Given an alphanumeric string, find the shortest substring that occurs
 exactly once as a (contiguous) substring in it. Overlapping occurrences
 are counted as distinct. If there are several candidates of the same
 length, you must output all of them in the order of occurrence. The
-space is NOT considered as a valid non-repeating substring.">
-    <meta property="og:description" content="Given an alphanumeric string, find the shortest substring that occurs
+space is NOT considered as a valid non-repeating substring."><meta property=og:description content="Given an alphanumeric string, find the shortest substring that occurs
 exactly once as a (contiguous) substring in it. Overlapping occurrences
 are counted as distinct. If there are several candidates of the same
 length, you must output all of them in the order of occurrence. The
-space is NOT considered as a valid non-repeating substring.">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="Shortest Non-repeating Substring">
-    <meta property="og:url" content="/posts/shortestsubstring/">
-    <meta property="og:site_name" content="Sadanand&#39;s Notes">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Sadanand&#39;s Notes">
-    <meta name="twitter:description" content="Given an alphanumeric string, find the shortest substring that occurs
+space is NOT considered as a valid non-repeating substring."><meta property=og:type content=blog><meta property=og:title content="Shortest Non-repeating Substring"><meta property=og:url content=/posts/shortestsubstring/><meta property=og:site_name content="Sadanand's Notes"><meta name=twitter:card content=summary><meta name=twitter:title content="Sadanand's Notes"><meta name=twitter:description content="Given an alphanumeric string, find the shortest substring that occurs
 exactly once as a (contiguous) substring in it. Overlapping occurrences
 are counted as distinct. If there are several candidates of the same
 length, you must output all of them in the order of occurrence. The
-space is NOT considered as a valid non-repeating substring.">
-    
-      <meta name="twitter:creator" content="@sadanandsingh">
-    
-    
-      <meta property="fb:app_id" content="993596464012237">
-    
-
-    
-      <meta property="og:image" content="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-76x76.png">
-    
-
-    
-
-    <link href="//stackpath.bootstrapcdn.com/bootswatch/4.1.0/litera/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" />
-    <link href="https://sadanand-singh.github.io/css/rst.css" rel="stylesheet" type="text/css">
-    <link href="https://sadanand-singh.github.io/css/theme.css" rel="stylesheet" type="text/css">
-    <link href="https://sadanand-singh.github.io/css/peak.min.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet"
-      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css">
-    <link href="https://sadanand-singh.github.io/css/colorbox.css" rel="stylesheet" type="text/css">
-    <link href="https://sadanand-singh.github.io/css/custom.min.css" rel="stylesheet" type="text/css">
-    <link href="https://sadanand-singh.github.io/css/tags.min.css" rel="stylesheet" type="text/css">
-    <link href="//cdnjs.cloudflare.com/ajax/libs/Tipue-Search/5.0.0/tipuesearch.css" rel="stylesheet" type="text/css">
-
-    
-
-    
-
-    
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.9.0/dist/katex.min.css" integrity="sha384-TEMocfGvRuD1rIAacqrknm5BQZ7W7uWitoih+jMNFXQIbNl16bO8OZmylH/Vi/Ei" crossorigin="anonymous">
-
-    
-    
-    
-  </head>
-
-<body>
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
-<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-
-    <div class="container">
-        <a class="navbar-brand" href="https://sadanand-singh.github.io/">
-        
-            <img class="px-2" src="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/letter-s.png" alt="Sadanand&#39;s Notes" id="logo">
-        
-
-        
-            Sadanand&#39;s Notes
-        
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="bs-navbar" aria-expanded="false">
-            <ul class="navbar-nav mr-auto">
-              
-              
-              
-                
-                
-                  <li class="nav-item px-3"><a class="nav-link" href="/post/">Blog</a>
-                
-              
-                
-                
-                  <li class="nav-item px-3"><a class="nav-link" href="/tags/">Tags</a>
-                
-              
-                
-                
-                  <li class="nav-item px-3"><a class="nav-link" href="/categories/">Categories</a>
-                
-              
-                
-                
-                  <li class="nav-item px-3"><a class="nav-link" href="/archives/">Archive</a>
-                
-              
-            </ul>
-            <span class="navbar-form navbar-right">
-                <input type="text" id="tipue_search_input" class="form-control" style="padding-left: 50px; border-radius: 20px;" placeholder="Search">
-            </span>
-        </div>
-    </div>
-</nav>
-
-<div class="container" id="content" role="main">
-    <div class="body-content">
-        
-        <div class="row">
-            <article class=" mw-100 post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article">
-    <header>
-    
-      <h1 class="p-name entry-title" itemprop="headline name">
-        Shortest Non-repeating Substring
-      </h1>
-    
-    <div class="metadata">
-    
-  
-  
-    
-    <p class="byline author vcard"><span class="byline-name fn"> By
-    <a href="/authors/sadanand-singh">Sadanand Singh</a>
-    </span></p>
-    
-  
-
-
-    
-    
-        <p class="dateline">on
-            <a href="https://sadanand-singh.github.io/posts/shortestsubstring/" rel="bookmark">
-              <time itemprop="datePublished" datetime="2015-01-27T00:00:00Z">
-                
-  
-  
-  
-  
-    2015-01-27
-  
-
-              </time>
-            </a>
-        </p>
-    
-    
-  
-  
-    <span>in</span>
-    
-      <a class="category-link" href="/categories/algorithms">Algorithms</a>
-    
-  
-
-
-    
-        
-            
-            <p class="commentline">
-                <a href="https://sadanand-singh.github.io/posts/shortestsubstring/#disqus_thread" data-disqus-identifier="shortestSubstring.sadanand">
-                Comments
-                </a>
-            </p>
-            
-        
-    
-
-    &nbsp;
-<div class="fb-like" data-send="true" data-layout="standard" data-action="like" data-size="small" data-show-faces="false" data-share="false"></div>
-    </div>
-</header>
-    <div class="mw-100 e-content entry-content" itemprop="articleBody text">
-        <p>Given an alphanumeric string, find the shortest substring that occurs
+space is NOT considered as a valid non-repeating substring."><meta name=twitter:creator content=@sadanandsingh><meta property=fb:app_id content=993596464012237><meta property=og:image content=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/apple-icon-76x76.png><link href=//stackpath.bootstrapcdn.com/bootswatch/4.1.0/litera/bootstrap.min.css rel=stylesheet type=text/css><link rel=stylesheet href=//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css><link rel=stylesheet href=//cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css><link href=https://sadanand-singh.github.io/css/rst.css rel=stylesheet type=text/css><link href=https://sadanand-singh.github.io/css/theme.css rel=stylesheet type=text/css><link href=https://sadanand-singh.github.io/css/peak.min.css rel=stylesheet type=text/css><link rel=stylesheet href=//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css><link href=https://sadanand-singh.github.io/css/colorbox.css rel=stylesheet type=text/css><link href=https://sadanand-singh.github.io/css/custom.min.css rel=stylesheet type=text/css><link href=https://sadanand-singh.github.io/css/tags.min.css rel=stylesheet type=text/css><link href=https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css><link href=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/css/tipuesearch.css rel=stylesheet type=text/css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.9.0/dist/katex.min.css integrity=sha384-TEMocfGvRuD1rIAacqrknm5BQZ7W7uWitoih+jMNFXQIbNl16bO8OZmylH/Vi/Ei crossorigin=anonymous></head><body><div id=fb-root></div><script>(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script><a href=#content class="sr-only sr-only-focusable">Skip to main content</a><nav class="navbar navbar-expand-lg navbar-dark bg-primary"><div class=container><a class=navbar-brand href=https://sadanand-singh.github.io/><img class=px-2 src=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/letter-s.png alt="Sadanand's Notes" id=logo>
+Sadanand&#39;s Notes</a>
+<button class=navbar-toggler type=button data-toggle=collapse data-target=#bs-navbar aria-controls=bs-navbar aria-expanded=false aria-label="Toggle navigation">
+<span class=navbar-toggler-icon></span><span class=icon-bar></span><span class=icon-bar></span><span class=icon-bar></span></button><div class="collapse navbar-collapse" id=bs-navbar aria-expanded=false><ul class="navbar-nav mr-auto"><li class="nav-item px-3"><a class=nav-link href=/post/>Blog</a><li class="nav-item px-3"><a class=nav-link href=/tags/>Tags</a><li class="nav-item px-3"><a class=nav-link href=/categories/>Categories</a><li class="nav-item px-3"><a class=nav-link href=/archives/>Archive</a></ul><span class="navbar-form navbar-right"><div class=tipue_search_group><input type=text name=q id=tipue_search_input pattern=.{3,} title="At least 3 characters" required>
+<button type=submit class=tipue_search_button><div class=tipue_search_icon>&#9906;</div></button></div></span></div></div></nav><div class=container id=content role=main><div class=body-content><div class=row><article class="mw-100 post-text h-entry hentry postpage" itemscope itemtype=http://schema.org/Article><header><h1 class="p-name entry-title" itemprop="headline name">Shortest Non-repeating Substring</h1><div class=metadata><p class="byline author vcard"><span class="byline-name fn">By
+<a href=/authors/sadanand-singh>Sadanand Singh</a></span></p><p class=dateline>on
+<a href=https://sadanand-singh.github.io/posts/shortestsubstring/ rel=bookmark><time itemprop=datePublished datetime=2015-01-27T00:00:00Z>2015-01-27</time></a></p><span>in</span>
+<a class=category-link href=/categories/algorithms>Algorithms</a><p class=commentline><a href=https://sadanand-singh.github.io/posts/shortestsubstring/#disqus_thread data-disqus-identifier=shortestSubstring.sadanand>Comments</a></p>&nbsp;<div class=fb-like data-send=true data-layout=standard data-action=like data-size=small data-show-faces=false data-share=false></div></div></header><div class="mw-100 e-content entry-content" itemprop="articleBody text"><p>Given an alphanumeric string, find the shortest substring that occurs
 exactly once as a (contiguous) substring in it. Overlapping occurrences
 are counted as distinct. If there are several candidates of the same
 length, you must output all of them in the order of occurrence. The
-<em>space</em> is NOT considered as a valid non-repeating substring.</p>
-
-<div class="card border-thick border-primary">
-<div class="card-header"><strong>Example</strong></div> 
-<div class="card-body"> <p>Consider the following cases:</p>
-
-<p><strong>Case 1:</strong> If the given string is <code>asdfsasa</code>, the answer should be
-<code>['d', 'f']</code></p>
-
-<p><strong>Case 2:</strong> If the given string is <code>sadanands</code>,</p>
-
-<p>the answer should be <code>['sa', 'ad', 'da', 'na', 'nd', 'ds']</code></p>
-
-<p><strong>Case 3:</strong> If the given string is <code>wwwwwwww</code>, the answer should be
-<code>['wwwwwwww']</code></p>
-</div>
-</div>
-
-
-
-<h1 id="my-solution">My Solution</h1>
-
-<p>Here is my solution in <em>Python</em>.</p>
-
-<p>It is quite brute force. I am not sure about the order of <code>find()</code> and
+<em>space</em> is NOT considered as a valid non-repeating substring.</p><div class="card border-thick border-primary"><div class=card-header><strong>Example</strong></div><div class=card-body><p>Consider the following cases:</p><p><strong>Case 1:</strong> If the given string is <code>asdfsasa</code>, the answer should be
+<code>['d', 'f']</code></p><p><strong>Case 2:</strong> If the given string is <code>sadanands</code>,</p><p>the answer should be <code>['sa', 'ad', 'da', 'na', 'nd', 'ds']</code></p><p><strong>Case 3:</strong> If the given string is <code>wwwwwwww</code>, the answer should be
+<code>['wwwwwwww']</code></p></div></div><h1 id=my-solution>My Solution</h1><p>Here is my solution in <em>Python</em>.</p><p>It is quite brute force. I am not sure about the order of <code>find()</code> and
 <code>rfind()</code> built-in methods in <em>Python</em>. Assuming these are $O(n)$, my
 algorithm is in $O(n^3)$. Please put your answers in comments below,
-if your answer has a better scaling.</p>
-
-<p>The function definition that I use for finding non-empty non-repeating
-strings is <em>recursive</em>.</p>
-
-<pre><code class="language-python">def findNsubString(s, n):
+if your answer has a better scaling.</p><p>The function definition that I use for finding non-empty non-repeating
+strings is <em>recursive</em>.</p><pre><code class=language-python>def findNsubString(s, n):
     subS = []
     for index in range(len(s)+1):
         x = s[index:index+n]
@@ -285,11 +37,7 @@ strings is <em>recursive</em>.</p>
         return subS
     else:
         return findNsubString(s, n+1)
-</code></pre>
-
-<p>I call this method as follows to get the desired results:</p>
-
-<pre><code class="language-python">#! /usr/bin/python
+</code></pre><p>I call this method as follows to get the desired results:</p><pre><code class=language-python>#! /usr/bin/python
 import argparse
 # Parse Command Line Arguments
 parser = argparse.ArgumentParser()
@@ -299,223 +47,15 @@ s = args.string
 # Call Method to find smallest non-repeating sub-string
 ans = findNsubString(s, 1)
 print(ans)
-</code></pre>
-
-<p>A similar solution can also be written in <code>JAVA</code> or <code>C++</code>. The corresponding
+</code></pre><p>A similar solution can also be written in <code>JAVA</code> or <code>C++</code>. The corresponding
 <code>find()</code> and <code>rfind()</code> methods in JAVA are called <code>indexOf()</code> and
 <code>lastIndexOf()</code>, respectively. In C++, these methods are called same as
-in Python.</p>
-
-<p>Please feel free to put your method definition in any programming
-language.</p>
-    </div>
-    <div id="post-footer" class="post-footer">
-        
-            
-                
-                
-                  <div class="post-footer-tags">
-                    <hr><br/>
-                    <strong><span class="text-color-light text-small">TAGGED IN:</span></strong>
-                    
-  <a class="text-white badge badge-pill badge-dark" href="https://sadanand-singh.github.io//tags/algorithms/">Algorithms</a>
-
-  <a class="text-white badge badge-pill badge-dark" href="https://sadanand-singh.github.io//tags/python/">Python</a>
-
-
-                  </div>
-                
-            
-        
-        <br/>
-        <ul class="mx-0 px-0 pager">
-  
-    
-        <li class="previous btn btn-lg btn-primary">
-            <a href="/posts/laalsaagrecipe/" rel="prev" title="Lal Saag Recipe">
-            <i class="fa fa-angle-left text-base text-white icon-mr"></i>
-            <span class="text-white"> Previous post </span>
-            </a>
-        </li>
-    
-    
-        <li class="next mr-0 float-right btn btn-lg btn-primary">
-            <a href="/posts/desinoodlesrecipe/" rel="next" title="Indian Vermicelli Recipe">
-            <span class="text-white"> Next post </span>
-            <i class="fa fa-angle-right text-base text-white icon-ml"></i>
-            </a>
-        </li>
-    
-  
-</ul>
-        <hr>
-    </div>
-
-    
-        <div id="disqus_thread"></div>
-<script type="application/javascript">
-    var disqus_config = function () {
-    this.page.identifier = 'shortestSubstring.sadanand';
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "sadanandsblog" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-    
-
-    
-        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"
-    onload="renderMathInElement(document.body);"></script>
-<script>
-    renderMathInElement(document.body,
-        {
-            delimiters: [
-                {left: "\\\\begin{equation*}", right: "\\\\end{equation*}", display: true},
-                {left: "$$", right: "$$", display: true},
-                {left: "\\\[", right: "\\\]", display: true},
-                {left: "$", right: "$", display: false},
-                {left: "\\\(", right: "\\\)", display: false}
-            ]
-        }
-    );
-</script>
-
-    
-</article>
-
-        </div>
-        
-        <footer id="footer">
-  <span class="copyrights">
-    
-    Contents &copy; 2018         <a href="mailto:sadanand.singh@aol.com">Sadanand Singh</a> - Powered by         <a href="https://gohugo.io/" rel="nofollow">Hugo 0.51</a> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>
-    
-  </span>
-</footer>
-
-    </div>
-</div>
-    
-    
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.colorbox/1.6.4/jquery.colorbox-min.js"></script>
-<script src="https://sadanand-singh.github.io/js/peak.min.js"></script>
-<script src="https://sadanand-singh.github.io/js/highlight.pack.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
-
-
-
-    <script async type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53f6d74a591ace8f"></script>
-
-
-<script>var disqus_shortname="sadanandsblog";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script>
-
-<script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
-
-
-<div id="search-results" class="modal" role="dialog" style="height: 80%;">
-    <div class="modal-dialog" role="document">
-        
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title">Search Results:</h4>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">X</span>
-            </button>
-          </div>
-          <div class="modal-body" id="tipue_search_content" style="max-height: 600px; overflow-y: auto;">
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-          </div>
-        </div>
-    </div>
-</div>
-
-<script>
-$(document).ready(function() {
-    var url1 = "https://cdnjs.cloudflare.com/ajax/libs/Tipue-Search/5.0.0/tipuesearch_set.js";
-    var url2 = "https://cdnjs.cloudflare.com/ajax/libs/Tipue-Search/5.0.0/tipuesearch.min.js";
-    $.when(
-        $.getScript( url1 ),
-        $.getScript( url2 ),
-        $.Deferred(function( deferred ){
-            $( deferred.resolve );
-        })
-    ).done(function() {
-        $('#tipue_search_input').tipuesearch({
-            'mode': 'json',
-            'contentLocation': '/index.json'
-        });
-        $('#tipue_search_input').keyup(function (e) {
-            if (e.keyCode == 13) {
-                $('#search-results').modal()
-            }
-        });
-    });
-});
-</script>
-
-
-
-
-
-
-
-
-  
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-54080172-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-
-
-
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '993596464012237',
-      xfbml      : true,
-      version    : 'v2.12'
-    });
-
-    FB.AppEvents.logPageView();
-
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "https://connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script>
-
-    
-  </body>
-</html>
-
+in Python.</p><p>Please feel free to put your method definition in any programming
+language.</p></div><div id=post-footer class=post-footer><div class=post-footer-tags><hr><br><strong><span class="text-color-light text-small">TAGGED IN:</span></strong>
+<a class="text-white badge badge-pill badge-dark" href=https://sadanand-singh.github.io//tags/algorithms/>Algorithms</a>
+<a class="text-white badge badge-pill badge-dark" href=https://sadanand-singh.github.io//tags/python/>Python</a></div><br><ul class="mx-0 px-0 pager"><li class="previous btn btn-lg btn-primary"><a href=/posts/laalsaagrecipe/ rel=prev title="Lal Saag Recipe"><i class="fa fa-angle-left text-base text-white icon-mr"></i><span class=text-white>Previous post</span></a></li><li class="next mr-0 float-right btn btn-lg btn-primary"><a href=/posts/desinoodlesrecipe/ rel=next title="Indian Vermicelli Recipe"><span class=text-white>Next post</span>
+<i class="fa fa-angle-right text-base text-white icon-ml"></i></a></li></ul><hr></div><div id=disqus_thread></div><script type=application/javascript>var disqus_config=function(){this.page.identifier='shortestSubstring.sadanand';};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return;}
+var d=document,s=d.createElement('script');s.async=true;s.src='//'+"sadanandsblog"+'.disqus.com/embed.js';s.setAttribute('data-timestamp',+new Date());(d.head||d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+<script src=https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js integrity=sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js integrity=sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe crossorigin=anonymous onload=renderMathInElement(document.body);></script><script>renderMathInElement(document.body,{delimiters:[{left:"\\\\begin{equation*}",right:"\\\\end{equation*}",display:true},{left:"$$",right:"$$",display:true},{left:"\\\[",right:"\\\]",display:true},{left:"$",right:"$",display:false},{left:"\\\(",right:"\\\)",display:false}]});</script></article></div><footer id=footer><span class=copyrights>Contents &copy; 2018 <a href=mailto:sadanand.singh@aol.com>Sadanand Singh</a> - Powered by <a href=https://gohugo.io/ rel=nofollow>Hugo 0.51</a> <a rel=license href=http://creativecommons.org/licenses/by-nc-sa/4.0/><img alt="Creative Commons License" style=border-width:0 src=https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png></a><br>This work is licensed under a <a rel=license href=http://creativecommons.org/licenses/by-nc-sa/4.0/>Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a></span></footer></div></div><script src=https://code.jquery.com/jquery-3.3.1.min.js integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin=anonymous></script><script src=https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js integrity=sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm crossorigin=anonymous></script><script src=//cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js></script><script src=//cdnjs.cloudflare.com/ajax/libs/jquery.colorbox/1.6.4/jquery.colorbox-min.js></script><script src=https://sadanand-singh.github.io/js/peak.min.js></script><script src=https://sadanand-singh.github.io/js/highlight.pack.js></script><script>hljs.initHighlightingOnLoad();</script><script async type=text/javascript src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53f6d74a591ace8f"></script><script>var disqus_shortname="sadanandsblog";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script><button type=button class="btn btn-primary" data-toggle=modal data-target=.bs-example-modal-lg>Large modal</button><div id=search-results class="modal fade bs-example-modal-lg" tabindex=-1 role=dialog style=height:80%><div class="modal-dialog modal-xl" role=document><div class=modal-content><div class=modal-header><h4 class=modal-title>Search Results:</h4><button type=button class=close data-dismiss=modal aria-label=Close>
+<span aria-hidden=true>X</span></button></div><div class=modal-body id=tipue_search_content style=max-height:600px;overflow-y:auto></div><div class=modal-footer><button type=button class="btn btn-danger" data-dismiss=modal>Close</button></div></div></div></div><script src=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/js/tipuesearch_set.js></script><script src=https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/js/tipuesearch.min.js></script><script>var tipuesearch=(function(){var json=null;$.ajax({'async':false,'global':false,'url':"/index.json",'dataType':"json",'success':function(data){json=data;}});return json;})();$(document).ready(function(){$('#tipue_search_input').tipuesearch();$('#tipue_search_input').keyup(function(e){if(e.keyCode==13){$('#search-results').modal()}});});</script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create','UA-54080172-1','auto');ga('send','pageview');}</script><script>window.fbAsyncInit=function(){FB.init({appId:'993596464012237',xfbml:true,version:'v2.12'});FB.AppEvents.logPageView();};(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return;}
+js=d.createElement(s);js.id=id;js.src="https://connect.facebook.net/en_US/sdk.js";fjs.parentNode.insertBefore(js,fjs);}(document,'script','facebook-jssdk'));</script></body></html>
