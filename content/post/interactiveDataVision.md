@@ -14,6 +14,7 @@ hasMath: false
 notebook: false
 draft: false
 bokeh: "https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/js/interactivePlots_min.js"
+bokeh_version: 1.0.1
 disqus_identifier: "interactivedatavis.sadanand"
 description:
 ---
@@ -35,7 +36,9 @@ unearth their own insights: findings they consider relevant or interesting."
 In a previous series of posts on
 [exploratory data analysis (EDA)][EDA] - [EDA 1], [EDA 2], [EDA 3] and
 [EDA 4], we have covered static plotting in python using major libraries
-like [matplotlib], [seaborn], [plotnine], and [pandas]. `plotnine` is an implementation of a grammar of graphics in Python, based on the [ggplot2] library in R. The grammar allows users to compose plots by explicitly mapping data to the visual objects that make up the plot.
+like [matplotlib], [seaborn], [plotnine], and [pandas]. `plotnine` is an implementation of a grammar
+of graphics in Python, based on the [ggplot2] library in R. The grammar allows users to compose
+plots by explicitly mapping data to the visual objects that make up the plot.
 
 [EDA]: https://en.wikipedia.org/wiki/Exploratory_data_analysis
 [EDA 1]: {{< relref "reddit.md" >}}
@@ -48,7 +51,8 @@ like [matplotlib], [seaborn], [plotnine], and [pandas]. `plotnine` is an impleme
 [plotnine]: https://plotnine.readthedocs.io/en/stable/
 [ggplot2]: http://ggplot2.org/
 
-In this article, we will focus on EDA using interactive plots. More often than not, exploratory visualizations are easier when they are interactive!
+In this article, we will focus on EDA using interactive plots. More often than not, exploratory
+visualizations are easier when they are interactive!
 
 <!--TOC-->
 
@@ -158,7 +162,7 @@ and [umap-learn] python libraries provide a neat implementation of
 these algorithms.
 
 In this post, as an example, we will use the [fashion MNIST] data to look at
-its tsne and UMAP embeddings. We can first load the data from the [Keras]
+its tsne and UMAP embeddings. We can first load the data from the [Pytorch]
 libarary. We will load only the training data and save both images and labels
 in a [pandas] dataframe.
 
@@ -167,7 +171,7 @@ in a [pandas] dataframe.
 [sklearn]: http://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html
 [umap-learn]: https://github.com/lmcinnes/umap
 [fashion MNIST]: https://github.com/zalandoresearch/fashion-mnist
-[Keras]: https://keras.io
+[Pytorch]: https://pytorch.org/
 
 ```python
 from torchvision.datasets import FashionMNIST
@@ -289,7 +293,7 @@ to link pan or zooming actions across many plots. All that is needed to enable
 this feature is to share range objects between `figure()` calls.
 
 For this example, we will use the simpler [Boston Housing] dataset. We can
-load this data using the Keras library and save it in a pandas dataframe.
+load this data using the [scikit-learn library][sklearn] and save it in a pandas dataframe.
 
 [Boston Housing]: https://www.cs.toronto.edu/~delve/data/boston/bostonDetail.html
 
@@ -491,7 +495,7 @@ f, e = np.histogram(df_boston.price.values, 20)
 hist = hv.Histogram((e, f))
 
 p46 = renderer.get_plot(hist).state
-p46.y_range.end = 70
+p46.y_range.end = 90
 p46.x_range.start = -1
 p46.x_range.end = 55
 p46.xaxis.axis_label = "Price (in thousands)"
