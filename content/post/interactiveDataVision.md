@@ -76,14 +76,14 @@ In order to incorporate bokeh figures in a web page, you will first need to incl
 
 ```html
 <!-- css -->
-<link href="//cdnjs.cloudflare.com/ajax/libs/bokeh/0.12.15/bokeh.min.css" rel="stylesheet" type="text/css">
-<link href="//cdnjs.cloudflare.com/ajax/libs/bokeh/0.12.15/bokeh-widgets.min.css" rel="stylesheet" type="text/css">
-<link href="//cdnjs.cloudflare.com/ajax/libs/bokeh/0.12.15/bokeh-tables.min.css" rel="stylesheet" type="text/css">
+<link href="//cdnjs.cloudflare.com/ajax/libs/bokeh/1.0.1/bokeh.min.css" rel="stylesheet" type="text/css">
+<link href="//cdnjs.cloudflare.com/ajax/libs/bokeh/1.0.1/bokeh-widgets.min.css" rel="stylesheet" type="text/css">
+<link href="//cdnjs.cloudflare.com/ajax/libs/bokeh/1.0.1/bokeh-tables.min.css" rel="stylesheet" type="text/css">
 
 <!-- java script -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/bokeh/0.12.15/bokeh.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/bokeh/0.12.15/bokeh-widgets.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/bokeh/0.12.15/bokeh-tables.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/bokeh/1.0.1/bokeh.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/bokeh/1.0.1/bokeh-widgets.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/bokeh/1.0.1/bokeh-tables.min.js"></script>
 ```
 
 The "-widgets" files are only necessary if your document includes bokeh
@@ -100,7 +100,7 @@ from bokeh.plotting import figure
 from bokeh.embed import components
 
 plot = figure()
-plot.circle([1,2], [3,4])
+plot.circle([1, 2], [3, 4])
 
 script, div = components(plot)
 ```
@@ -132,9 +132,7 @@ The returned `<script>` will look something like:
 The resulting `<div>` will look something like:
 
 ```html
-<div class="bk-root">
-    <div class="bk-plotdiv" id="9574d123-9332-4b5f-96cc-6323bef37f40"></div>
-</div>
+<div class="bk-root" id="9574d123-9332-4b5f-96cc-6323bef37f40"></div>
 ```
 
 There will be one `<div>` for each of your plots and they should be placed at
@@ -172,16 +170,18 @@ in a [pandas] dataframe.
 [Keras]: https://keras.io
 
 ```python
-from keras.datasets import fashion_mnist
+from torchvision.datasets import FashionMNIST
 import numpy as np
 import pandas as pd
 
-(X, y), (_, _) = fashion_mnist.load_data()
+fashion_mnist = FashionMNIST(root='./', download=True)
+
+X, y = fashion_mnist.train_data.numpy(), fashion_mnist.train_labels.numpy()
 X = X.astype('float32') / 255.
 X = X.reshape((-1, np.prod(X.shape[1:])))
 
 feat_cols = ['pixel'+str(i) for i in range(X.shape[1])]
-df = pd.DataFrame(X,columns=feat_cols)
+df = pd.DataFrame(X, columns=feat_cols)
 df['label'] = y
 df['label'] = df['label'].apply(lambda i: str(i))
 ```
@@ -200,15 +200,15 @@ from sklearn.manifold import TSNE
 import umap
 
 n_sne = 7000
-df_small = df.loc[rndperm[:n_sne],:].copy()
+df_small = df.loc[rndperm[:n_sne], :].copy()
 
 tsne = TSNE(n_components=2, verbose=1, perplexity=100, n_iter=1000)
-tsne_results = tsne.fit_transform(df_small[:, feat_cols].values)
+tsne_results = tsne.fit_transform(df_small[feat_cols].values)
 
 umap_obj = umap.UMAP(n_neighbors=5,
                       min_dist=0.1,
                       metric='correlation')
-umap_results = umap_obj.fit_transform(df_small[:, feat_cols].values)
+umap_results = umap_obj.fit_transform(df_small[feat_cols].values)
 ```
 
 Now, we can use the resulting arrays `tsne_results` and `umap_results` to make
@@ -236,10 +236,10 @@ hover = HoverTool( tooltips="""
 )
 
 source = ColumnDataSource(data=dict(
-    x1=umap_results[:,0],
-    y1=umap_results[:,1],
-    x2=tsne_results[:,0],
-    y2=tsne_results[:,1],
+    x1=umap_results[:, 0],
+    y1=umap_results[:, 1],
+    x2=tsne_results[:, 0],
+    y2=tsne_results[:, 1],
     l=df_small.label,
     imgs=["https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/images/interactive/"+i+'.png' for i in df_small.label],
     title=[fm[i] for i in df_small.label],
@@ -272,7 +272,7 @@ will highlight the corresponding points in other!
 
 <div class="figure img-responsive" style="display:table; margin:0 auto;">
   <div class="bk-root">
-      <div class="bk-plotdiv" id="18987b61-e8e6-41ec-b1a3-396e697d2858"></div>
+    <div class="bk-plotdiv" id="d9974e49-c1ca-4a7d-a444-8872598754b1"></div>
   </div>
 </div>
 
@@ -294,10 +294,9 @@ load this data using the Keras library and save it in a pandas dataframe.
 [Boston Housing]: https://www.cs.toronto.edu/~delve/data/boston/bostonDetail.html
 
 ```python
-from keras.datasets import boston_housing
+from sklearn.datasets import load_boston
 
-(x_train, y_train), (_, _) = boston_housing.load_data()
-
+x_train, y_train = load_boston(return_X_y=True)
 df_boston = pd.DataFrame(x_train)
 cols = ["CRIM", "ZN", "INDUS", "CHAS", "NOX"]
 cols += ["RM", "AGE", "DIS", "RAD", "TAX", "PTRATIO", "B", "LRATIO"]
@@ -312,7 +311,7 @@ PTRATIO) on the sales price of houses. We can visualize such a correlation by
 scatter plots of each of these variables wrt price.
 
 ```python
-tools="pan,hover,box_select,lasso_select,wheel_zoom,box_zoom,reset"
+tools ="pan,hover,box_select,lasso_select,wheel_zoom,box_zoom,reset"
 source = ColumnDataSource(data=dict(
     x=df_boston.price,
     y1=df_boston.RM,
@@ -341,7 +340,7 @@ all three plots since all plots share a common `ColumnDataSource`.
 
 <div class="figure img-responsive" style="display:table; margin:0 auto;">
   <div class="bk-root">
-      <div class="bk-plotdiv" id="5d4613e7-5b0a-47b8-a98b-2ddaccf97736"></div>
+      <div class="bk-plotdiv" id="57f15c88-ca53-4398-9194-fc7bcc5744d1"></div>
   </div>
 </div>
 
@@ -382,7 +381,7 @@ from bokeh.layouts import column
 source = ColumnDataSource(data=dict(
     x=df_sfo.head(350).X,
     y=df_sfo.head(350).Y,
-    c = ['blue']*350,
+    c=['blue']*350,
 ))
 
 source2 = ColumnDataSource(data=dict(
@@ -416,12 +415,12 @@ def callback(source=source, source2=source2):
     data = source.data
     data2 = source2.data
     f = cb_obj.value
-    data.x=data2[f+'_x']
-    data.y=data2[f+'_y']
-    data.c=data2[f+'_c']
+    data.x = data2[f+'_x']
+    data.y = data2[f+'_y']
+    data.c = data2[f+'_c']
     source.change.emit()
 
-select = Select(title="Day of Week:", value="All", callback=CustomJS.from_py_func(callback), options=['All','Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'])
+select = Select(title="Day of Week:", value="All", callback=CustomJS.from_py_func(callback), options=['All', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'])
 
 
 map_options = GMapOptions(lat=37.7749, lng=-122.4194, map_type="roadmap", zoom=12)
@@ -434,7 +433,7 @@ show(p477)
 
 <div class="figure img-responsive" style="display:table; margin:0 auto;">
   <div class="bk-root">
-    <div class="bk-plotdiv" id="b270467e-6185-4cce-95ac-7d6c090b4e57"></div>
+    <div class="bk-plotdiv" id="762965ba-f6b0-4cb0-8edf-d40a25c48183"></div>
 </div>
 </div>
 
@@ -478,7 +477,7 @@ This makes it easy to use as well as quite customizable.
 
 <div class="figure img-responsive" style="display:table; margin:0 auto;">
   <div class="bk-root">
-      <div class="bk-plotdiv" id="f1968bdf-4641-442e-95fd-495ecd066265"></div>
+      <div class="bk-plotdiv" id="149e0576-1a44-44af-b45a-c7d15c7839e1"></div>
   </div>
 </div>
 
@@ -504,7 +503,7 @@ We get an interactive histogram plot with a single line of code!
 
 <div class="figure img-responsive" style="display:table; margin:0 auto;">
   <div class="bk-root">
-      <div class="bk-plotdiv" id="bc5b4830-e140-48eb-a1b3-75b57701acb4"></div>
+      <div class="bk-plotdiv" id="b4358e13-edef-4764-a84f-b442726e076d"></div>
   </div>
 </div>
 

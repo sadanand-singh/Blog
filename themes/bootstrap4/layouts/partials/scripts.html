@@ -67,9 +67,9 @@ $(document).ready(function() {
 
 {{ if (isset .Params "bokeh") }}
 {{ with .Params.bokeh }}
-<script src="//cdnjs.cloudflare.com/ajax/libs/bokeh/0.12.15/bokeh.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/bokeh/0.12.15/bokeh-widgets.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/bokeh/0.12.15/bokeh-tables.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/bokeh/1.0.1/bokeh.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/bokeh/1.0.1/bokeh-widgets.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/bokeh/1.0.1/bokeh-tables.min.js"></script>
 <script src="{{ . }}"></script>
 {{ end }}
 {{ end }}
