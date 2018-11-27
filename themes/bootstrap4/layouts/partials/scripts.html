@@ -1,5 +1,9 @@
 <!--SCRIPTS-->
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous">
+</script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.colorbox/1.6.4/jquery.colorbox-min.js"></script>
@@ -21,8 +25,9 @@
 <script>$('a.image-reference:not(.islink) img:not(.islink)').parent().colorbox({rel:"gal",maxWidth:"100%",maxHeight:"100%",scalePhotos:true});</script>
 
 <!-- Modal -->
-<div id="search-results" class="modal" role="dialog" style="height: 80%;">
-    <div class="modal-dialog" role="document">
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Large modal</button>
+<div id="search-results" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" style="height: 80%;">
+    <div class="modal-dialog modal-xl" role="document">
         <!-- Modal content-->
         <div class="modal-content">
           <div class="modal-header">
@@ -40,29 +45,38 @@
     </div>
 </div>
 
+<script src="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/js/tipuesearch_set.js"></script>
+<script src="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/js/tipuesearch.min.js"></script>
+
+
+<!-- Other code may be here -->
 <script>
-$(document).ready(function() {
-    var url1 = "https://cdnjs.cloudflare.com/ajax/libs/Tipue-Search/5.0.0/tipuesearch_set.js";
-    var url2 = "https://cdnjs.cloudflare.com/ajax/libs/Tipue-Search/5.0.0/tipuesearch.min.js";
-    $.when(
-        $.getScript( url1 ),
-        $.getScript( url2 ),
-        $.Deferred(function( deferred ){
-            $( deferred.resolve );
-        })
-    ).done(function() {
-        $('#tipue_search_input').tipuesearch({
-            'mode': 'json',
-            'contentLocation': '/index.json'
+    var tipuesearch = (function() {
+        var json = null;
+        $.ajax({
+            'async': false,
+            'global': false,
+            'url': "/index.json",
+            'dataType': "json",
+            'success': function (data) {
+                json = data;
+            }
         });
+        return json;
+    })();
+
+    $(document).ready(function() {
+
+        $('#tipue_search_input').tipuesearch();
+
         $('#tipue_search_input').keyup(function (e) {
             if (e.keyCode == 13) {
                 $('#search-results').modal()
             }
         });
     });
-});
 </script>
+
 <!--SCRIPTS END-->
 
 {{ if (isset .Params "bokeh") }}

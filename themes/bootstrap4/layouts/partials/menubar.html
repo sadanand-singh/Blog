@@ -35,7 +35,12 @@
               {{ end }}
             </ul>
             <span class="navbar-form navbar-right">
-                <input type="text" id="tipue_search_input" class="form-control" style="padding-left: 50px; border-radius: 20px;" placeholder="Search">
+                    <div class="tipue_search_group">
+                        <input type="text" name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required>
+                            <button type="submit" class="tipue_search_button">
+                                <div class="tipue_search_icon">&#9906;</div>
+                            </button>
+                    </div>
             </span>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container -->
