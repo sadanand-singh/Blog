@@ -1,10 +1,6 @@
 <!-- Menubar -->
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
-{{ with .Site.Params.menubarColor }}
-<nav class="navbar navbar-expand-lg navbar-dark bg-{{ . }}">
-{{ else }}
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-{{ end }}
+<nav class="navbar navbar-expand-lg navbar-dark bg-{{ .Site.Params.menubarColor | default "primary" }}">
     <div class="container"><!-- This keeps the margins nice -->
         <a class="navbar-brand" href="{{ .Site.BaseURL }}">
         {{ if .Site.Params.logoURL }}

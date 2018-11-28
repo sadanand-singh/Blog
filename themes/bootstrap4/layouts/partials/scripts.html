@@ -102,8 +102,9 @@
   window.fbAsyncInit = function() {
     FB.init({
       appId      : '{{ .Site.Params.fbAppId }}',
+      cookie     : true,
       xfbml      : true,
-      version    : 'v2.12'
+      version    : '{{ .Site.Params.fb_api_version | default "v3.2" }}'
     });
 
     FB.AppEvents.logPageView();

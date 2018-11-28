@@ -134,7 +134,8 @@ menu:
 params:
   dateFormat:              "2006-01-02"
   hierarchicalcategories:  false
-  fbAppId:                 "993596464012237"
+  fbAppId:                 "202188990663719"
+  fb_api_version:          "v3.2"
   showTitle:               true
   bootswatch:              "litera"
   menubarColor:            "primary"
