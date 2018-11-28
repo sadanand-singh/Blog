@@ -45,14 +45,14 @@ environment. Our setup will also involve encryption of the root partition that w
 I do not wish to repeat [Arch Installation Guide][arch guide] here.
 
 Do not forget about [Arch Wiki], the best documentation in the world! Most of the content
-in this post has been compiled from the [Arch wiki] and my personal experience.
+in this post has been compiled from the [Arch wiki] and my personal experiences.
 [Arch wiki]: https://wiki.archlinux.org/
+[arch guide]: https://wiki.archlinux.org/index.php/installation_guide
 {{< /card >}}
 <br/>
 
 <!--toc-->
 
-[arch guide]: https://wiki.archlinux.org/index.php/installation_guide
 [Arch Linux]: https://www.archlinux.org
 [Gnome 3]: https://www.gnome.org/gnome-3/
 [btrfs]: https://en.wikipedia.org/wiki/Btrfs
