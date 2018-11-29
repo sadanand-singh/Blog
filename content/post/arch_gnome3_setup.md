@@ -295,7 +295,7 @@ Base System Installation
 ------------------------
 
 Now, we will do the actually installation of base packages. At this point, we will also
-{{< emph info >}} save the current `/etc/resolv.conf` file for future use! {{< /emph >}}
+**save the current `/etc/resolv.conf` file for future use!**
 
 
 ```bash
@@ -736,7 +736,6 @@ psd
 In the config file change the BROWSERS variables to `google-chrome`. Also, enable the use of
 `overlayfs` to improve sync speed and to use a smaller memory footprint. Do this in the
 `USE_OVERLAYFS="yes"` variable.
-
 {{< emph info >}}
 Note: USE_OVERLAYFS feature requires a Linux kernel version of 3.18.0 or greater
 to work.
