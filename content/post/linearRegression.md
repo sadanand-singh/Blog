@@ -1,6 +1,6 @@
 ---
-title: "A Comprehensive Guide to Linear Regression"
-date: 2018-05-19T21:09:21-07:00
+title: "Understanding Linear Regression with Examples"
+date: 2018-11-28T21:09:21-07:00
 tags:
     - "Machine Learning"
     - "Data Science"
@@ -13,7 +13,7 @@ authors:
     - "Sadanand Singh"
 hasMath: true
 notebook: false
-draft: true
+draft: false
 disqus_identifier: "linear-regression.sadanand"
 description:
 ---
