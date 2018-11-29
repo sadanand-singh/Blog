@@ -276,9 +276,8 @@ appropriate locations with optimal flags.
 
 
 ```bash
-SSD_MOUNTS="rw,noatime,nodev,compress=lzo,ssd,discard,
-    space_cache,autodefrag,inode_cache"
-HDD_MOUNTS="rw,nosuid,nodev,relatime,space_cache"
+SSD_MOUNTS="rw,nodev,noatime,nodiratime,compress=lzo,ssd,discard,space_cache"
+HDD_MOUNTS="rw,relatime,attr2,inode64,noquota"
 EFI_MOUNTS="rw,noatime,discard,nodev,nosuid,noexec"
 mount -o $SSD_MOUNTS,subvol=ROOT /dev/mapper/root /mnt
 mkdir -p /mnt/home
