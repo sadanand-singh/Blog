@@ -16,6 +16,9 @@ disqus_identifier: "plasmaInstall.sadanand"
 description:
 ---
 
+**UPDATE: Please see [my latest post]({{< relref "arch_gnome3_setup.md" >}}) on installing Arch
+linux with Gnome 3 for an upto date version of this guide.**
+
 In my last post on
 [Arch Installation Guide]({{< relref "arch.md" >}}) , We
 installed the base system and we can now login into our new system as

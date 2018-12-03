@@ -16,6 +16,9 @@ disqus_identifier: "archInstall.sadanand"
 description:
 ---
 
+**UPDATE: Please see [my latest post]({{< relref "arch_gnome3_setup.md" >}}) on installing Arch
+linux with Gnome 3 for an upto date version of this guide.**
+
 You must be thinking - yet another installation guide! There is no
 dearth of *Installation* guides of Arch on web. So why another one?
 

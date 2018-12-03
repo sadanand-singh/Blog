@@ -18,6 +18,9 @@ aliases:
 disqus_identifier: "CompleteSetupArchPlasma.sadanand"
 ---
 
+**UPDATE: Please see [my latest post]({{< relref "arch_gnome3_setup.md" >}}) on installing Arch
+linux with Gnome 3 for an upto date version of this guide.**
+
 [Arch Linux] is a general purpose GNU/Linux distribution that provides
 most up-to-date software by following the rolling-release model. Arch
 Linux allows you to use updated cutting-edge software and packages as
