@@ -13,7 +13,7 @@ authors:
     - "Sadanand Singh"
 hasMath: true
 notebook: false
-draft: false
+draft: true
 disqus_identifier: "linear-regression.sadanand"
 description:
 ---

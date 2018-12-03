@@ -18,7 +18,8 @@ disqus_identifier: "CompleteSetupArchGnome.sadanand"
 If you have been following me on this space, you would have known by now, I am very particular about
 my computers, its operating systems, looks, softwares etc. Before you start getting any wrong ideas,
 my love for [Arch Linux] is still going strong. However, I have moved on to [Gnome 3] as my choice
-desktop. This post is an update for the latest configuration of my machine. I have also update my
+desktop. This post is an updated version of my [previous post]({{< relref "myarchsetup.md" >}})
+with the latest configuration of my machine. I have also update my
 GPU to 1080 Ti to be able to run some computer vision models at reasonable speeds. I use this desktop
 for some audio processing and some kaggle-level computer vision/deep learning.
 
@@ -386,7 +387,7 @@ command to get started:
 [systemd]: https://wiki.archlinux.org/index.php/Systemd
 
 ```bash
-bootctl --path=/boot install
+bootctl install
 ```
 
 It will copy the systemd-boot binary to your EFI System Partition
@@ -399,6 +400,7 @@ be easily done using the `blkid` command.
 
 ```bash
 blkid /dev/sda2 > /boot/loader/entries/arch.conf
+blkid /dev/sda2 >> /boot/loader/entries/arch.conf
 blkid /dev/mapper/root >> /boot/loader/entries/arch.conf
 blkid /dev/sdd1 >> /boot/loader/entries/arch.conf
 
@@ -628,7 +630,7 @@ Choose `$USERNAME` per your liking. I chose `ssingh`, so in future commands when
 
 ```bash
 pacman -S zsh
-useradd -m -G wheel -s usr/bin/zsh $USERNAME
+useradd -m -G wheel -s /usr/bin/zsh $USERNAME
 chfn --full-name "$FULL_NAME" $USERNAME
 passwd $USERNAME
 ```
@@ -646,7 +648,25 @@ pacman -S gnome gdm guake gnome-tweak-tool
 pacman -S screenfetch curl wget dconf-editor dmidecode git meld
 pacman -S unace unrar zip unzip sharutils  uudeview  arj cabextract file-roller
 
-sudo systemctl enable gdm.service
+systemctl enable gdm.service
+```
+
+Choose pacman Mirrors
+----------------------
+
+We will now choose fastest merrors for pacman. The `pacman-contrib` package provides a bash
+script, `/usr/bin/rankmirrors`, which can be used to rank the mirrors according to their connection
+and opening speeds to take advantage of using the fastest local mirror. Finally, we can reboot to
+log on to our new gnome system.
+
+```bash
+pacman -S pacman-contrib
+cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
+#
+rankmirrors -n 6 /etc/pacman.d/mirrorlist.us > /etc/pacman.d/mirrorlist
+pacman -Sy
+pacman -Syu
+#
 systemctl reboot
 ```
 
@@ -661,21 +681,6 @@ This should give you a vanilla gnome 3 screen. We will first install few essenti
 our gnome 3 to look something to my linking. In order to proceed, find the `terminal` program
 by pressing `alt + s` and searching for terminal.
 
-Choose pacman Mirrors
-----------------------
-
-At first we will choose fastest merrors for pacman. The `pacman-contrib` package provides a bash
-script, `/usr/bin/rankmirrors`, which can be used to rank the mirrors according to their connection
-and opening speeds to take advantage of using the fastest local mirror.
-
-```bash
-sudo pacman -S pacman-contrib
-sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
-#
-sudo rankmirrors -n 10 /etc/pacman.d/mirrorlist.us | sudo tee /etc/pacman.d/mirrorlist > /dev/null
-sudo pacman -S
-sudo pacman -Syu
-```
 
 Setup AUR
 ---------
@@ -874,7 +879,7 @@ We will modify gnome 3 by changing theme, icons and fonts. First install additio
 icons etc.
 
 ```bash
-yay -S ttf-font-awesome
+yay -S ttf-font-awesome adobe-source-code-pro-fonts
 
 # Sardi icons
 git clone https://github.com/erikdubois/Sardi-Extra /tmp/Sardi-Extra
@@ -949,7 +954,7 @@ yay -S pcloud-drive
 Editors
 -------
 
-My choice of editor is neovim and sublime text. Please refer to my previous post <sublimetext> for
+My choice of editor is neovim and sublime text. Please [refer to my previous post]({{< relref "sublimetext.md" >}}) for
 details on setting up Sublime Text 3. Following is the setup required to install it:
 
 ```bash
