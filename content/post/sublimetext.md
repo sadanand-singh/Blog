@@ -23,12 +23,12 @@ shortcut keys and themes.
 
 {{< load-photoswipe >}}
 {{< gallery >}}
-{{< figure-thumb link="/images/sublime/Settings.png" caption="Settings" >}}
-{{< figure-thumb link="/images/sublime/CommandPallette.png" caption="Command Pallette" >}}
-{{< figure-thumb link="/images/sublime/PythonAnaconda.png" caption="Python Autocompletion" >}}
-{{< figure-thumb link="/images/sublime/MarkdownEditing.png" caption="MarkDown" >}}
-{{< figure-thumb link="/images/sublime/JsonEditing.png" caption="Json" >}}
-{{< figure-thumb link="/images/sublime/ImageView.png" caption="View Images" >}}
+{{< figure-thumb link="https://res.cloudinary.com/sadanandsingh/image/upload/v1544988652/images/sublime/Settings.png" caption="Settings" >}}
+{{< figure-thumb link="https://res.cloudinary.com/sadanandsingh/image/upload/v1544988653/images/sublime/CommandPallette.png" caption="Command Pallette" >}}
+{{< figure-thumb link="https://res.cloudinary.com/sadanandsingh/image/upload/v1544988652/images/sublime/PythonAnaconda.png" caption="Python Autocompletion" >}}
+{{< figure-thumb link="https://res.cloudinary.com/sadanandsingh/image/upload/v1544988652/images/sublime/MarkdownEditing.png" caption="MarkDown" >}}
+{{< figure-thumb link="https://res.cloudinary.com/sadanandsingh/image/upload/v1544988653/images/sublime/JsonEditing.png" caption="Json" >}}
+{{< figure-thumb link="https://res.cloudinary.com/sadanandsingh/image/upload/v1544988653/images/sublime/ImageView.png" caption="View Images" >}}
 {{< /gallery >}}
 
 <!--toc-->

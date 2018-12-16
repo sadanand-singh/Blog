@@ -26,12 +26,12 @@ for some audio processing and some kaggle-level computer vision/deep learning.
 <!-- more -->
 {{< load-photoswipe >}}
 {{< gallery >}}
-{{< figure-thumb link="/images/gnome3/ApplicationMenu.png" caption="Applications Menu" >}}
-{{< figure-thumb link="/images/gnome3/SystemInfo.png" caption="System Info" >}}
-{{< figure-thumb link="/images/gnome3/workspaces.png" caption="Gnome 3 Workspaces" >}}
-{{< figure-thumb link="/images/gnome3/Apps.png" caption="Apps" >}}
-{{< figure-thumb link="/images/gnome3/editors.png" caption="Editors" >}}
-{{< figure-thumb link="/images/gnome3/pcloud.png" caption="pCloud" >}}
+{{< figure-thumb link="https://res.cloudinary.com/sadanandsingh/image/upload/v1544988349/images/gnome3/ApplicationMenu.png" caption="Applications Menu" >}}
+{{< figure-thumb link="https://res.cloudinary.com/sadanandsingh/image/upload/v1544988349/images/gnome3/SystemInfo.png" caption="System Info" >}}
+{{< figure-thumb link="https://res.cloudinary.com/sadanandsingh/image/upload/v1544988350/images/gnome3/workspaces.png" caption="Gnome 3 Workspaces" >}}
+{{< figure-thumb link="https://res.cloudinary.com/sadanandsingh/image/upload/v1544988349/images/gnome3/Apps.png" caption="Apps" >}}
+{{< figure-thumb link="https://res.cloudinary.com/sadanandsingh/image/upload/v1544988348/images/gnome3/editors.png" caption="Editors" >}}
+{{< figure-thumb link="https://res.cloudinary.com/sadanandsingh/image/upload/v1544988350/images/gnome3/pcloud.png" caption="pCloud" >}}
 {{< /gallery >}}
 
 In this post, we will do a complete installation of Arch Linux with Gnome 3 as the desktop
