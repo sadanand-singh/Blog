@@ -22,7 +22,7 @@
     <meta name="keywords" content="{{ with .Keywords }}{{ delimit . ", " }}{{ end }}{{ if .Site.Params.keywords }}, {{ delimit .Site.Params.keywords ", " }}{{ end }}">
 
     {{ range .Site.Params.favicons }}
-        <link rel="icon" href="{{ .Icon }}" sizes="{{ .Size }}">
+        <link rel="icon" href="{{ $.Site.BaseURL }}{{ .Icon }}" sizes="{{ .Size }}">
     {{ end }}
 
     <!-- open graph data -->
