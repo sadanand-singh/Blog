@@ -13,7 +13,7 @@ authors:
 hasMath: false
 notebook: false
 draft: false
-bokeh: "js/interactivePlots_min.js"
+bokeh: "/js/interactivePlots_min.js"
 bokeh_version: 1.0.1
 disqus_identifier: "interactivedatavis.sadanand"
 description:

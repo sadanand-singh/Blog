@@ -62,7 +62,7 @@
     <link href="{{ $.Site.BaseURL }}css/custom.min.css" rel="stylesheet" type="text/css">
     <link href="{{ $.Site.BaseURL }}css/tags.min.css" rel="stylesheet" type="text/css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
-    <link href="css/tipuesearch.css" rel="stylesheet" type="text/css">
+    <link href="{{ $.Site.BaseURL }}css/tipuesearch.css" rel="stylesheet" type="text/css">
 
     {{ range .Site.Params.CustomCSS }}
       <link rel="stylesheet" href="{{ $.Site.BaseURL }}{{ . }}">
