@@ -13,7 +13,7 @@ authors:
 hasMath: false
 notebook: false
 draft: false
-bokeh: "https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/js/interactivePlots_min.js"
+bokeh: "js/interactivePlots_min.js"
 bokeh_version: 1.0.1
 disqus_identifier: "interactivedatavis.sadanand"
 description:
@@ -245,7 +245,7 @@ source = ColumnDataSource(data=dict(
     x2=tsne_results[:, 0],
     y2=tsne_results[:, 1],
     l=df_small.label,
-    imgs=["https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/images/interactive/"+i+'.png' for i in df_small.label],
+    imgs=["images/interactive/"+i+'.png' for i in df_small.label],
     title=[fm[i] for i in df_small.label],
 ))
 tools = [hover, BoxSelectTool(), LassoSelectTool(), WheelZoomTool(), BoxZoomTool(), ResetTool()]

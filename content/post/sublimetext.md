@@ -23,12 +23,12 @@ shortcut keys and themes.
 
 {{< load-photoswipe >}}
 {{< gallery >}}
-{{< figure-thumb link="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/images/sublime/Settings.png" caption="Settings" >}}
-{{< figure-thumb link="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/images/sublime/CommandPallette.png" caption="Command Pallette" >}}
-{{< figure-thumb link="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/images/sublime/PythonAnaconda.png" caption="Python Autocompletion" >}}
-{{< figure-thumb link="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/images/sublime/MarkdownEditing.png" caption="MarkDown" >}}
-{{< figure-thumb link="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/images/sublime/JsonEditing.png" caption="Json" >}}
-{{< figure-thumb link="https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/images/sublime/ImageView.png" caption="View Images" >}}
+{{< figure-thumb link="images/sublime/Settings.png" caption="Settings" >}}
+{{< figure-thumb link="images/sublime/CommandPallette.png" caption="Command Pallette" >}}
+{{< figure-thumb link="images/sublime/PythonAnaconda.png" caption="Python Autocompletion" >}}
+{{< figure-thumb link="images/sublime/MarkdownEditing.png" caption="MarkDown" >}}
+{{< figure-thumb link="images/sublime/JsonEditing.png" caption="Json" >}}
+{{< figure-thumb link="images/sublime/ImageView.png" caption="View Images" >}}
 {{< /gallery >}}
 
 <!--toc-->
