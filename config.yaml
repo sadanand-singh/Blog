@@ -1,6 +1,6 @@
 ---
 # hostname (and path) to the root, e.g. http://spf13.com/
-baseURL:                    "https://sadanand-singh.github.io/"
+baseURL:                    "https://datasciencevision.com/"
 # include content marked as draft
 buildDrafts:                false
 # include content with publishdate in the future
