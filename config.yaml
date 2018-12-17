@@ -147,46 +147,23 @@ params:
 
 # Things that will be passed to CONTENT_FOOTER.format().  This is done
   favicons:
-    - Icon: "favicon.ico"
-      Size: "16x16"
-    - Icon: "favicon-32x32.png"
-      Size: "32x32"
-    - Icon: "favicon-96x96.png"
-      Size: "96x96"
-    - Icon: "apple-icon.png"
-      Size: "192x192"
-    - Icon: "apple-icon-precomposed.png"
-      Size: "192x192"
-    - Icon: "apple-icon-57x57.png"
-      Size: "57x57"
-    - Icon: "apple-icon-60x60.png"
-      Size: "60x60"
-    - Icon: "apple-icon-72x72.png"
-      Size: "72x72"
-    - Icon: "apple-icon-76x76.png"
-      Size: "76x76"
-    - Icon: "apple-icon-114x114.png"
-      Size: "114x114"
-    - Icon: "apple-icon-120x120.png"
-      Size: "120x120"
-    - Icon: "apple-icon-144x144.png"
-      Size: "144x144"
-    - Icon: "apple-icon-152x152.png"
-      Size: "152x152"
-    - Icon: "apple-icon-180x180.png"
+    - File: "apple-touch-icon.png"
       Size: "180x180"
+      Name: "apple-touch-icon"
+    - File: "favicon-32x32.png"
+      Size: "32x32"
+      Name: "icon"
+    - File: "favicon-16x16.png"
+      Size: "16x16"
+      Name: "icon"
 
 # Author details
 author:
   name:        "Sadanand Singh"
   # Your email used here only for copyright
   email:       "sadanand.singh@aol.com"
-  # Your profile picture
-  picture:     "apple-icon-76x76.png"
   # Your Twitter username without the @. E.g : thibaudlepretre
   twitter:     "sadanandsingh"
-  # Your google plus profile id. E.g : +ThibaudLepretre or 114625208755123718311
-  googlePlus:  "107573452639034499888"
 
 imaging:
   # Default resample filter used for resizing. Default is Box,
