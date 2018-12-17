@@ -276,7 +276,7 @@ will highlight the corresponding points in other!
 
 <div class="figure img-responsive" style="display:table; margin:0 auto;">
   <div class="bk-root">
-    <div class="bk-plotdiv" id="d9974e49-c1ca-4a7d-a444-8872598754b1"></div>
+    <div class="bk-plotdiv" id="70a9bff7-7337-40c4-8cdc-df05cca05bbc"></div>
   </div>
 </div>
 
@@ -344,7 +344,7 @@ all three plots since all plots share a common `ColumnDataSource`.
 
 <div class="figure img-responsive" style="display:table; margin:0 auto;">
   <div class="bk-root">
-      <div class="bk-plotdiv" id="57f15c88-ca53-4398-9194-fc7bcc5744d1"></div>
+      <div class="bk-plotdiv" id="4eb7ee0d-9bbd-4913-8fe3-cdf4ac8d3b76"></div>
   </div>
 </div>
 
@@ -437,7 +437,7 @@ show(p477)
 
 <div class="figure img-responsive" style="display:table; margin:0 auto;">
   <div class="bk-root">
-    <div class="bk-plotdiv" id="762965ba-f6b0-4cb0-8edf-d40a25c48183"></div>
+    <div class="bk-plotdiv" id="263adf9e-e4ca-4956-b639-625cb60db723"></div>
 </div>
 </div>
 
@@ -481,7 +481,7 @@ This makes it easy to use as well as quite customizable.
 
 <div class="figure img-responsive" style="display:table; margin:0 auto;">
   <div class="bk-root">
-      <div class="bk-plotdiv" id="149e0576-1a44-44af-b45a-c7d15c7839e1"></div>
+      <div class="bk-plotdiv" id="25335196-889d-4a91-abf1-50eab0a82026"></div>
   </div>
 </div>
 
@@ -507,7 +507,7 @@ We get an interactive histogram plot with a single line of code!
 
 <div class="figure img-responsive" style="display:table; margin:0 auto;">
   <div class="bk-root">
-      <div class="bk-plotdiv" id="b4358e13-edef-4764-a84f-b442726e076d"></div>
+      <div class="bk-plotdiv" id="f1d5b738-1f83-49b0-89e6-81cde11f75fd"></div>
   </div>
 </div>
 
