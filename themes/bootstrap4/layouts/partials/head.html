@@ -22,7 +22,7 @@
     <meta name="keywords" content="{{ with .Keywords }}{{ delimit . ", " }}{{ end }}{{ if .Site.Params.keywords }}, {{ delimit .Site.Params.keywords ", " }}{{ end }}">
 
     {{ range .Site.Params.favicons }}
-        <link rel="{ .Name }}" href="/{{ .File }}" sizes="{{ .Size }}">
+        <link rel="{{ .Name }}" href="/{{ .File }}" sizes="{{ .Size }}">
     {{ end }}
     <link rel="manifest" href="/site.webmanifest">
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
