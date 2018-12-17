@@ -147,7 +147,7 @@ params:
 
 # Things that will be passed to CONTENT_FOOTER.format().  This is done
   favicons:
-    - File: "apple-touch-icon.png"
+    - File: "apple-touch-icon.png?ver=1.1"
       Size: "180x180"
       Name: "apple-touch-icon"
     - File: "favicon-32x32.png"
