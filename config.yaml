@@ -137,8 +137,8 @@ params:
   fbAppId:                 "202188990663719"
   fb_api_version:          "v3.2"
   showTitle:               true
-  bootswatch:              "litera"
-  menubarColor:            "dark"
+  bootswatch:              "united"
+  menubarColor:            "primary"
   # Use options from https://highlightjs.org/static/demo/
   highlightTheme:           "default"
   logoURL:                 "letter-s.png"
