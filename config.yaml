@@ -138,7 +138,7 @@ params:
   fb_api_version:          "v3.2"
   showTitle:               true
   bootswatch:              "litera"
-  menubarColor:            "primary"
+  menubarColor:            "dark"
   # Use options from https://highlightjs.org/static/demo/
   highlightTheme:           "default"
   logoURL:                 "letter-s.png"
@@ -147,7 +147,7 @@ params:
 
 # Things that will be passed to CONTENT_FOOTER.format().  This is done
   favicons:
-    - File: "apple-touch-icon.png?ver=1.1"
+    - File: "apple-touch-icon.png"
       Size: "180x180"
       Name: "apple-touch-icon"
     - File: "favicon-32x32.png"
