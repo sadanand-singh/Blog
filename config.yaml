@@ -137,7 +137,7 @@ params:
   fbAppId:                 "202188990663719"
   fb_api_version:          "v3.2"
   showTitle:               true
-  bootswatch:              "united"
+  bootswatch:              "cosmo"
   menubarColor:            "primary"
   # Use options from https://highlightjs.org/static/demo/
   highlightTheme:           "default"
@@ -156,6 +156,15 @@ params:
     - File: "favicon-16x16.png"
       Size: "16x16"
       Name: "icon"
+
+# Call to Action
+  cta:
+    enable: true
+    title: "SO WHAT YOU THINK ?"
+    content: "Would you like me to write on any particular topics in machine learning, deep learning? Do you like aything here or have any suggestions? Please leave me a note at any of the social links. You may also leave comments at any specific pages/posts."
+    btnText: "Visit my Github Page"
+    btnURL: "https://github.com/sadanand-singh"
+
 
 # Author details
 author:

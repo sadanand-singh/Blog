@@ -13,6 +13,7 @@
     <div class="e-content entry-content" itemprop="articleBody text">
         {{ .Content | safeHTML }}
     </div>
+    <br>
     {{ if .Params.hasMath }}
         {{ partial "post/math.html" . }}
     {{ end }}

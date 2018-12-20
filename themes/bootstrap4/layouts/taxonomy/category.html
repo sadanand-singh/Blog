@@ -2,11 +2,9 @@
   <body>
       <div id="blog">
           {{ partial "menubar.html" . }}
-      {{ if or (not (isset .Site.Params "tagPagination")) (.Site.Params.tagPagination) }}
-      {{ end }}
-      <div id="main" data-behavior=3>
+      <div class="container" id="content" role="main">
         {{ if or (not (isset .Site.Params "categoryPagination")) (.Site.Params.categoryPagination) }}
-          <section class="postShorten-group main-content-wrap">
+          <section class="postShorten-group">
             {{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
             {{ range $paginator.Pages }}
               {{ .Render "summary" }}
@@ -21,7 +19,8 @@
             {{ partial "archive-post.html" (where .Data.Pages "Type" "post") }}
           </div>
         {{ end }}
-        {{ partial "footer.html" . }}
       </div>
+      {{ partial "cta.html" . }}
+      {{ partial "footer.html" . }}
     </div>
 {{ partial "foot.html" . }}

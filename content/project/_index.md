@@ -21,6 +21,7 @@ at some of my past
 for additional details of this work.
 
 {{% /card %}}
+<br>
 
 {{% card info "**Flac To mp3 Converter**" %}}
 
@@ -31,6 +32,7 @@ in sync. The code
 Github.
 
 {{% /card %}}
+<br>
 
 {{% card danger "**Kaggle Competitions**" %}}
 
@@ -40,6 +42,7 @@ The repositories (names starting with *kaggle*) can be found on my
 [Github](https://github.com/sadanand-singh/) account page.
 
 {{% /card %}}
+<br>
 
 {{% card success "**TicTacToe in Qt5**" %}}
 
@@ -50,6 +53,7 @@ An unbeatable game of TicTacToe using `minimax` algorithm and `PyQt5`. The
 available on Github. You need to have `PyQt5` installed to run this.
 
 {{% /card %}}
+<br>
 
 {{% card primary "**RNA-binding Residues in Proteins**" %}}
 
@@ -61,6 +65,7 @@ learning models built with
 [keras](https://keras.io/) and [tensorflow](https://www.tensorflow.org/).
 
 {{% /card %}}
+<br>
 
 {{% card warning "**Ludo in Qt5**" %}}
 
