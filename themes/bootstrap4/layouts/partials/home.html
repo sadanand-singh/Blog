@@ -9,17 +9,20 @@
     <div class="e-content entry-content" itemprop="articleBody text">
         {{ .Content }}
     </div>
-    <div class="section" id="recent-posts">
-        <h2>Recent Posts</h2>
-        <div id="post_list_a62e4f1357814240975477a3e678d9ee" class="post-list">
-            <ul class="post-list">
-                {{ range first 10 (where .Site.RegularPages "Type" "post") }}
-                    {{ .Render "li"}}
-                {{ end }}
-            </ul>
-        </div>
-    </div>
-
+    <div class="row">
+            <div class="col-sm-6">
+                <div class="section" id="recent-posts">
+                    <h2>Recent Posts</h2>
+                    <div id="post_list_a62e4f1357814240975477a3e678d9ee" class="post-list">
+                        <ul class="post-list">
+                            {{ range first 10 (where .Site.RegularPages "Type" "post") }}
+                                {{ .Render "li"}}
+                            {{ end }}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+    <div class="col-sm-6">
     <div class="section" id="recent-posts-ml">
         <h2>Machine Learning Posts</h2>
         <div id="post_list_35f5ac8b383b424d9b96d240bc08686b5" class="post-list">
@@ -40,4 +43,6 @@
             </ul>
         </div>
     </div>
+</div>
+</div>
 </article>
