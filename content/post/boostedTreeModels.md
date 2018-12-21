@@ -12,7 +12,7 @@ link:
 authors:
     - "Sadanand Singh"
 hasMath: true
-notebook: true
+notebook: false
 draft: false
 disqus_identifier: "boostedtrees.sadanand"
 description:
