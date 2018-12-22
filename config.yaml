@@ -160,7 +160,7 @@ params:
 # Call to Action
   cta:
     enable: true
-    title: "SO WHAT YOU THINK ?"
+    title: "SO WHAT DO YOU THINK ?"
     content: "Would you like me to write on any particular topics in machine learning, deep learning? Do you like aything here or have any suggestions? Please leave me a note at any of the social links. You may also leave comments at any specific pages/posts."
     btnText: "Visit my Github Page"
     btnURL: "https://github.com/sadanand-singh"
