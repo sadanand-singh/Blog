@@ -28,7 +28,7 @@ in milk and mango puree.
 
 <!--TOC-->
 
-{{< figure src="http://www.radiantpeach.com/wp-content/uploads/2014/04/organic-carrot.jpg" alt="Fresh Carrots" class="figure img-responsive align-center" >}}
+{{< figure src="https://res.cloudinary.com/sadanandsingh/image/upload/v1545501875/project/organic-carrot.jpg" alt="Fresh Carrots" class="figure img-responsive align-center" >}}
 
 Ingredients
 ===========
@@ -57,11 +57,11 @@ Preparation
 8.  Let the halwa cool down.
 9.  Garnish it with nuts and dried milk.
 
-{{% figure src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI7N8inA-3SKNF_MjmZ_C8WOGYMhxzy4SRSF3yhRUfX58tpDdiNw" alt="My Creation Before Entering My Tummy" class="figure img-responsive align-center" %}}
+{{% figure src="https://res.cloudinary.com/sadanandsingh/image/upload/v1545501946/project/carrot-halwa.jpg" alt="My Creation Before Entering My Tummy" class="figure img-responsive align-center" %}}
 
 Interesting Facts
 =================
 
--   [Nutritional Value](http://www.nutrition-and-you.com/carrots.html)
+-   [Nutritional Value](https://www.nutrition-and-you.com/carrots.html)
     of carrots.
 -   More about [Gajar Halwa](https://en.wikipedia.org/wiki/Gajar_Ka_Halwa)

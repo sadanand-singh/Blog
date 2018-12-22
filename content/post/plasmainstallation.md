@@ -28,7 +28,7 @@ root using the password that we set.
 
 <!--TOC-->
 
-{{< figure src="http://imgur.com/IjJYMR0.jpg" alt="Plasma 5 Looks" class="figure img-responsive align-center" >}}
+{{< figure src="https://res.cloudinary.com/sadanandsingh/image/upload/v1545502051/project/arch-plasma.jpg" alt="Plasma 5 Looks" class="figure img-responsive align-center" >}}
 
 <br>
 

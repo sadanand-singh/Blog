@@ -49,7 +49,7 @@ plots by explicitly mapping data to the visual objects that make up the plot.
 [pandas]: https://pandas.pydata.org/
 [seaborn]: https://seaborn.pydata.org/
 [plotnine]: https://plotnine.readthedocs.io/en/stable/
-[ggplot2]: http://ggplot2.org/
+[ggplot2]: https://ggplot2.org/
 
 In this article, we will focus on EDA using interactive plots. More often than not, exploratory
 visualizations are easier when they are interactive!
@@ -66,7 +66,7 @@ is no longer being actively maintained.
 [bokeh]: https://bokeh.pydata.org/en/latest/
 [holoviews]: https://holoviews.org/
 [plotly]: https://plot.ly/
-[pygal]: http://pygal.org/en/stable/
+[pygal]: https://pygal.org/en/stable/
 [mpld3]: https://github.com/mpld3/mpld3
 
 `bokeh` provides fundamental blocks for making interactive plots, following
@@ -168,7 +168,7 @@ in a [pandas] dataframe.
 
 [t-sne]: https://lvdmaaten.github.io/tsne/
 [umap]: https://arxiv.org/abs/1802.03426
-[sklearn]: http://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html
+[sklearn]: https://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html
 [umap-learn]: https://github.com/lmcinnes/umap
 [fashion MNIST]: https://github.com/zalandoresearch/fashion-mnist
 [Pytorch]: https://pytorch.org/

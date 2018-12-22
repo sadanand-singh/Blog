@@ -17,7 +17,7 @@ description:
 I am quite found of *Paneer*. However, cooking it can be a hassle.
 
 You can get *paneer* generally at any Indian grocery store. For
-enthusiasts, [Here](http://thewayofcheese.com/2013/02/18/paneer/) is a
+enthusiasts, [Here](https://thewayofcheese.com/2013/02/18/paneer/) is a
 recipe for making *Paneer* from milk.
 
 Here is a version of recipe that I use quite often. It involves two
@@ -94,6 +94,6 @@ rice.
 Interesting Facts
 =================
 
--   [Nutritional Value](http://nutritiondata.self.com/facts/recipe/1770692/2) of *Paneer*.
+-   [Nutritional Value](https://nutritiondata.self.com/facts/recipe/1770692/2) of *Paneer*.
 -   Baked *Paneer* in this recipe is also referred as *Paneer Tikka*
 -   More about [Paneer](https://en.wikipedia.org/wiki/Paneer)

@@ -122,7 +122,7 @@ In my desktop, I have three hard drives, one 256 GB solid state drive
 For UEFI machines, we need to use a GPT partition table and _/boot_
 partition has to be a fat32 partition with a minimum size of 512 MB. We
 will format rest other partitions with BTRFS. See this
-[link](http://www.makeuseof.com/tag/ext4-btrfs-making-switch-linux/) for
+[link](https://www.makeuseof.com/tag/ext4-btrfs-making-switch-linux/) for
 benefits of using _btrfs_ partitions.
 
 First list your hard drives with the following:

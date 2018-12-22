@@ -18,7 +18,7 @@ disqus_identifier: "boostedtrees.sadanand"
 description:
 ---
 
-In the [previous post]({{< relref "treemodels.md">}}), we learned about tree based learning methods - basics of tree based models and the use of [bagging]({{< relref "treemodels.md#bootstrap-aggregating-bagging">}}) to reduce variance. We also looked at one of the most famous learning algorithms based on the idea of bagging- [random forests]({{< relref "treemodels.md#random-forest-models">}}). In this post, we will look into the details of yet another type of tree-based learning algorithms: [boosted trees](http://machinelearningmastery.com/gentle-introduction-gradient-boosting-algorithm-machine-learning/).
+In the [previous post]({{< relref "treemodels.md">}}), we learned about tree based learning methods - basics of tree based models and the use of [bagging]({{< relref "treemodels.md#bootstrap-aggregating-bagging">}}) to reduce variance. We also looked at one of the most famous learning algorithms based on the idea of bagging- [random forests]({{< relref "treemodels.md#random-forest-models">}}). In this post, we will look into the details of yet another type of tree-based learning algorithms: [boosted trees](https://machinelearningmastery.com/gentle-introduction-gradient-boosting-algorithm-machine-learning/).
 <!--more-->
 
 <!--TOC-->
@@ -66,14 +66,14 @@ In practice, the above definition of the AdaBoost model is modified to include a
 
 <br>
 {{< card primary "AdaBoost in Python" >}}
-The python scikit-learn library implementations of AdaBoost ([AdaBoostClassifier](http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.AdaBoostClassifier.html) and [AdaBoostRegressor](http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.AdaBoostRegressor.html)) are based on a modified version of the AdaBoost algorithms, [AdaBoost SAMME and SAMME.R](https://web.stanford.edu/~hastie/Papers/samme.pdf). Stage-wise Additive Modeling using a Multi-class Exponential loss function (SAMME) algorithm provides an extension of AdaBoost for the case of multi-class classification. The SAMME.R (R for _real_) variation of the algorithm is for prediction of weighted probabilities rather than the class itself.
+The python scikit-learn library implementations of AdaBoost ([AdaBoostClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.AdaBoostClassifier.html) and [AdaBoostRegressor](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.AdaBoostRegressor.html)) are based on a modified version of the AdaBoost algorithms, [AdaBoost SAMME and SAMME.R](https://web.stanford.edu/~hastie/Papers/samme.pdf). Stage-wise Additive Modeling using a Multi-class Exponential loss function (SAMME) algorithm provides an extension of AdaBoost for the case of multi-class classification. The SAMME.R (R for _real_) variation of the algorithm is for prediction of weighted probabilities rather than the class itself.
 {{< /card >}}
 
 ## AdaBoost Classifier in Python
 
 Recall the [US income data](https://www.kaggle.com/johnolafenwa/us-census-data) that we used in the [previous based post on tree based methods]({{<relref "treemodels.md">}}). In summary, in this dataset, we are required to predict the income range of adults (<=50K or >50K) based on following features: `Race`, `Sex`, `Education`, `Work Class`, `Capital Loss`, `Capital Gain`, `Relationship`, `Marital Status`, `Age Group`, `Occupation` and `Hours of Work per Week`. We have already seen that, with the best decision tree model, we were able to achieve a prediction accuracy of 85.9%. With the use of random forest models, we were able to increase the accuracy to 86.6%.
 
-Let us try to solve the same problem using [AdaBoost classifier from scikit-learn module](http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.AdaBoostClassifier.html). Please have a look at the [previous post on tree-based methods]({{<relref "treemodels.md">}}) to understand the EDA and preparation of the data.
+Let us try to solve the same problem using [AdaBoost classifier from scikit-learn module](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.AdaBoostClassifier.html). Please have a look at the [previous post on tree-based methods]({{<relref "treemodels.md">}}) to understand the EDA and preparation of the data.
 
 ```python
 from sklearn.ensemble import AdaBoostClassifier
@@ -419,7 +419,7 @@ Gradient Boosted Trees can be regularized by multiple approaches. Some common ap
 
 ## scikit-learn Implementation
 
-[scikit-learn](http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html) provides a simple and generic implementation of the above described algorithm that is valid of different types of loss functions. Below is a simple implementation for the case of income data.
+[scikit-learn](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html) provides a simple and generic implementation of the above described algorithm that is valid of different types of loss functions. Below is a simple implementation for the case of income data.
 
 ```python
 from sklearn.ensemble import GradientBoostingClassifier
@@ -434,7 +434,7 @@ gclf.score(x_test, y_test)
 
 Turns out we have got a quite good model just by chance! This has an accuracy of 87.11% on our test data!
 
-We could try finding optimal parameters for this as before. However, in my experience this is a very academic implementation of boosted trees. Other implementation like [XGBoost](https://github.com/dmlc/xgboost), [LightGBM](http://lightgbm.readthedocs.io/en/latest/) and [CatBoost](https://github.com/catboost/catboost) are more optimized implementations and hence we will focus our tuning for some of these libraries only.
+We could try finding optimal parameters for this as before. However, in my experience this is a very academic implementation of boosted trees. Other implementation like [XGBoost](https://github.com/dmlc/xgboost), [LightGBM](https://lightgbm.readthedocs.io/en/latest/) and [CatBoost](https://github.com/catboost/catboost) are more optimized implementations and hence we will focus our tuning for some of these libraries only.
 
 ## XGBoost
 
@@ -448,7 +448,7 @@ The biggest drawback of the gradient boosting trees is that the algorithm is qui
 {{< tex display="\text{Loss Term at step b}= \sum_{i=1}^{N} L\big( y_i, \hat{F_b}(x_i) \big) + \sum\_{k=1}^b \Big (\eta J_k + \frac{1}{2} \lambda \left\lVert \gamma\_{jk} \right\rVert^2 \Big )" >}}
 Here, the second term in the loss function, penalizes the complexity of the model, i.e. decision tree functions.
 
-**Additional Weak Learners**: Apart from decision trees, XGBoost also supports [linear models](https://en.wikipedia.org/wiki/Linear_model) and [DART (decision trees with dropout)](http://proceedings.mlr.press/v38/korlakaivinayak15.pdf) as weak learners. In the DART algorithm, only a subset of available trees are considered in calculating the pseudo-residuals on which the new trees are fit.
+**Additional Weak Learners**: Apart from decision trees, XGBoost also supports [linear models](https://en.wikipedia.org/wiki/Linear_model) and [DART (decision trees with dropout)](https://proceedings.mlr.press/v38/korlakaivinayak15.pdf) as weak learners. In the DART algorithm, only a subset of available trees are considered in calculating the pseudo-residuals on which the new trees are fit.
 {{< /card >}}
 
 XGBoost has many parameters that control the fitting of the model. Below are some of the relevant parameters and tuning them would be helpful in the most common cases. _Please note that original XGBoost library parameters might have a different name than before, since I am using the scikit-learn API parameter names below._
@@ -716,7 +716,7 @@ iVBORw0KGgoAAAANSUhEUgAAApAAAAGDCAYAAACcHyD4AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAL
 
 ## LightGBM
 
-Similar to XGBoost, [LightGBM](http://lightgbm.readthedocs.io/en/latest/) is another optimized implementation of Gradient Boosting developed by [Microsoft](https://www.microsoft.com/en-us/defaultd.aspx) (similar to XGBoost available in Python, C++ and R). The main difference between LightGBM and other Gradient boosted trees (like XGBoost) implementations is in the way trees are grown. The details of this can be found on their [features page](https://github.com/Microsoft/LightGBM/wiki/Features). Briefly, LightGBM splits the tree leaf-wise with the best fit whereas other boosting algorithms split the tree depth-wise or level-wise. The two approaches can be best visualized in the following illustrations:
+Similar to XGBoost, [LightGBM](https://lightgbm.readthedocs.io/en/latest/) is another optimized implementation of Gradient Boosting developed by [Microsoft](https://www.microsoft.com/en-us/defaultd.aspx) (similar to XGBoost available in Python, C++ and R). The main difference between LightGBM and other Gradient boosted trees (like XGBoost) implementations is in the way trees are grown. The details of this can be found on their [features page](https://github.com/Microsoft/LightGBM/wiki/Features). Briefly, LightGBM splits the tree leaf-wise with the best fit whereas other boosting algorithms split the tree depth-wise or level-wise. The two approaches can be best visualized in the following illustrations:
 
 **Level-wise Splits:**
 

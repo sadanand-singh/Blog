@@ -55,7 +55,7 @@ Here is a list of packages that I currently use:
 -   [Column Select](https://github.com/ehuss/Sublime-Column-Select)
 -   [DocBlockr Python](https://github.com/adambullmer/sublime_docblockr_python)
 -   [GitGutter](https://github.com/jisaacks/GitGutter)
--   [Anaconda](http://damnwidget.github.io/anaconda/)
+-   [Anaconda](https://damnwidget.github.io/anaconda/)
 -   [MagicPython](https://github.com/MagicStack/MagicPython)
 -   [rsub](https://github.com/henrikpersson/rsub)
 -   [Sidebar Enhancements](https://github.com/SideBarEnhancements-org/SideBarEnhancements)
@@ -203,7 +203,7 @@ embedding into CSS! ), copy as tags img/a/script/style, duplicate etc.
 different types of files and folders.
 
 **SublimeLinter** and **SublimeLinter-flake8** is plug-in that provides
-an interface to [flake8](http://flake8.pycqa.org/en/latest/). It will be
+an interface to [flake8](https://flake8.pycqa.org/en/latest/). It will be
 used with files that have the `Python` syntax. **SublimeLinter addon black for flake** is tiny
 add-on package to make sublack fully compatible with flake linter.
 

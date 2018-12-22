@@ -50,4 +50,4 @@ travel all of the tunnel. Therefore, the train is traveling at twice the
 speed of the man.
 
 **Disclaimer:** This puzzle has been copied from a
-[Blog](http://www.mytechinterviews.com/) on Technical Interviews.
+[Blog](https://www.mytechinterviews.com/) on Technical Interviews.

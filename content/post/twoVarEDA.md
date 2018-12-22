@@ -1914,7 +1914,7 @@ SkqmuWAcAAAAAElFTkSuQmCC
 <span class="sd">        ``set_yscale`` will be passed along to the scale&#39;s</span>
 <span class="sd">        constructor.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        
+
         <span class="n">mscale</span><span class="o">.</span><span class="n">ScaleBase</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">get_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -5263,7 +5263,7 @@ CogxxhhjAmcVEGOMMcYE7v8uEaHP69qoSwAAAABJRU5ErkJggg==
         <div><span class="p">}</span></div>
 <div>
     <span class="p">}</span>
-    
+
     <span class="n">pf_group_by_age</span> <span class="o">=</span> <span class="n">pf</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">groupCol</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">aggregations</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;&#39;</span><span class="p">:</span><span class="n">groupCol</span><span class="p">})</span>
     <span class="n">pf_group_by_age</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">pf_group_by_age</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">droplevel</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">pf_group_by_age</span>
@@ -7434,7 +7434,7 @@ zQAAAABJRU5ErkJggg==
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We can also have other measures of relationship. For example, a measure of monotonic relationship would be done using Spearman coefficient. Similarly, a measure of strength of dependence between two variables can be done using the “Kendall Rank Coefficient”. A more detailed description about these can be found at <a href="http://www.statisticssolutions.com/correlation-pearson-kendall-spearman/">http://www.statisticssolutions.com/correlation-pearson-kendall-spearman/</a>.</p>
+<p>We can also have other measures of relationship. For example, a measure of monotonic relationship would be done using Spearman coefficient. Similarly, a measure of strength of dependence between two variables can be done using the “Kendall Rank Coefficient”. A more detailed description about these can be found at <a href="https://www.statisticssolutions.com/correlation-pearson-kendall-spearman/">https://www.statisticssolutions.com/correlation-pearson-kendall-spearman/</a>.</p>
 <p>We will now look at variables that are strictly correlated using scatter plots.</p>
 <p>One such example in our dataset would be a relationship between likes_received (y) vs. www_likes_received (x).</p>
 

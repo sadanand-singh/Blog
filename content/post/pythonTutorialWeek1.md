@@ -59,11 +59,11 @@ To follow these tutorials, please run any code and observe output that you see i
 
 ### Installing Python
 
-Go to the following website to get access to [python](http://repl.it/languages/python3).
+Go to the following website to get access to [python](https://repl.it/languages/python3).
 
 You should get a window like this:
 
-{{< figure src="http://i.imgur.com/evctFLa.jpg" alt="Python Online" class="figure img-responsive align-center" >}}
+{{< figure src="https://res.cloudinary.com/sadanandsingh/image/upload/v1545502114/project/python-online-editor.jpg" alt="Python Online" class="figure img-responsive align-center" >}}
 
 You can work with this system in two ways:
 A. Write your code interactively (one command at a time) on the dark screen on the left. Pressing `ENTER` will show you the output of that particular command.

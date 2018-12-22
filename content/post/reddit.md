@@ -18,7 +18,7 @@ description:
 
 The data set used here is part of a project from [UD651](https://www.udacity.com/course/data-analysis-with-r--ud651) course on [udacity](https://www.udacity.com/) by [Facebook](https://www.facebook.com).
 
-The data from the project corresponds to a survey from [reddit.com](https://reddit.com). You can load the data through the following command. We will first look at the different attributes of this data using the `summary()` and `describe()` [pandas](http://pandas.pydata.org) methods.
+The data from the project corresponds to a survey from [reddit.com](https://reddit.com). You can load the data through the following command. We will first look at the different attributes of this data using the `summary()` and `describe()` [pandas](https://pandas.pydata.org) methods.
 
 <!--more-->
 

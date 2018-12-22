@@ -72,4 +72,4 @@ That's quite bad monkey :see_no_evil:. Moral of the story is, avoid dealing with
 Thank you all who tried this.
 
 **Disclaimer:** This puzzle has been inspired by a problem at the
-[Blog](http://www.mytechinterviews.com/) on Technical Interviews.
+[Blog](https://www.mytechinterviews.com/) on Technical Interviews.

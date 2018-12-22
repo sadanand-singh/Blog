@@ -1,4 +1,4 @@
-<article class=" mw-100 post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article">
+<article class=" mw-100 post-text h-entry hentry postpage" itemscope="itemscope" itemtype="https://schema.org/Article">
     {{ partial "post/header.html" . }}
     <div class="mw-100 e-content entry-content" itemprop="articleBody text">
         {{ (replaceRE "<!--\\s*[t|T][o|O][c|C]\\s*-->" (printf "<strong id=\"table-of-contents\">%s</strong>%s" (i18n "post.toc") .TableOfContents) .Content) | safeHTML }}

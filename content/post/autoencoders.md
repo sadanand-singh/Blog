@@ -116,7 +116,7 @@ In this article we will build different types of autoencoders for the
 I prefer to use [fashion MNIST] dataset for the [reasons described here][2].
 
 [fashion MNIST]: https://github.com/zalandoresearch/fashion-mnist
-[MNIST]: http://yann.lecun.com/exdb/mnist/
+[MNIST]: https://yann.lecun.com/exdb/mnist/
 [2]: https://github.com/zalandoresearch/fashion-mnist#to-serious-machine-learning-researchers
 
 For example using [MNIST] data, please have a look at the [article] by
@@ -645,7 +645,7 @@ written as,
 
 [lvm]: https://en.wikipedia.org/wiki/Latent_variable_model
 [vae]: https://ermongroup.github.io/cs228-notes/extras/vae/
-[vae1]: http://kvfrans.com/variational-autoencoders-explained/
+[vae1]: https://kvfrans.com/variational-autoencoders-explained/
 [vae2]: https://wiseodd.github.io/techblog/2016/12/10/variational-autoencoder/
 [vae3]: https://jaan.io/what-is-variational-autoencoder-vae-tutorial/
 [vae_ref1]: https://arxiv.org/pdf/1312.6114.pdf
@@ -1030,7 +1030,7 @@ reconstruction error is probabilistic and hence easier to generalize. See this
 article by [FICO][fico] where they use autoencoders for detecting anomalies in
 credit scores.
 
-[fico]: http://www.fico.com/en/blogs/analytics-optimization/improving-model-data-governance-auto-encoders/
+[fico]: https://www.fico.com/en/blogs/analytics-optimization/improving-model-data-governance-auto-encoders/
 [anamoly]: https://arxiv.org/pdf/1802.03903.pdf
 [fraud]: https://www.kaggle.com/mlg-ulb/creditcardfraud
 [gen]: https://blog.openai.com/generative-models/

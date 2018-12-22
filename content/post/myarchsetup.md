@@ -43,7 +43,7 @@ and a more complete version of my previous posts on
 [KDE Plasma 5]: https://en.wikipedia.org/wiki/KDE_Plasma_5
 [btrfs]: https://en.wikipedia.org/wiki/Btrfs
 
-{{< figure src="http://i.imgur.com/Jrt0ZyL.jpg?1" width="680pt" alt="My Current Desktop" class="figure img-responsive align-center" >}}
+{{< figure src="https://res.cloudinary.com/sadanandsingh/image/upload/v1545501807/project/plasma_install.jpg" width="680pt" alt="My Current Desktop" class="figure img-responsive align-center" >}}
 
 
 System Details

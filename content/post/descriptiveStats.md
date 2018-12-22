@@ -280,15 +280,15 @@ must know the [mean], [mode] (or [median]) and
 that information; Instead you might have information about
 your [quartiles].
 
-[pms]: http://mathworld.wolfram.com/PearsonModeSkewness.html
-[bskew]: http://mathworld.wolfram.com/BowleySkewness.html
-[pskew]: http://mathworld.wolfram.com/Skewness.html
+[pms]: https://mathworld.wolfram.com/PearsonModeSkewness.html
+[bskew]: https://mathworld.wolfram.com/BowleySkewness.html
+[pskew]: https://mathworld.wolfram.com/Skewness.html
 
 Bowley skewness is an important quantity, if you have extreme data
 values (outliers) or if you have an
 [open-ended distribution][oedist].
 
-[oedist]: http://stats.oecd.org/glossary/detail.asp?ID=3770
+[oedist]: https://stats.oecd.org/glossary/detail.asp?ID=3770
 
 Mathematically, Bowley Skewness is defined as :
 

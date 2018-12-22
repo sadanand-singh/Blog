@@ -70,4 +70,4 @@ Interesting Facts
 =================
 
 -   More about [Tilapia Fish](https://en.wikipedia.org/wiki/Tilapia)
--   Nutritional Value of [Tilapia Fish](http://nutritiondata.self.com/facts/finfish-and-shellfish-products/9244/2)
+-   Nutritional Value of [Tilapia Fish](https://nutritiondata.self.com/facts/finfish-and-shellfish-products/9244/2)

@@ -98,6 +98,6 @@ Let it cool before serving. It can be served with Indian Breads or rice.
 Interesting Facts
 =================
 
--   [Nutritional Value](http://nutritiondata.self.com/facts/recipe/1770692/2) of *Paneer*.
+-   [Nutritional Value](https://nutritiondata.self.com/facts/recipe/1770692/2) of *Paneer*.
 -   More about [Paneer](https://en.wikipedia.org/wiki/Paneer)
--   [Nutritional Value](http://www.whfoods.com/genpage.php?tname=foodspice&dbid=43) of Spinach.
+-   [Nutritional Value](https://www.whfoods.com/genpage.php?tname=foodspice&dbid=43) of Spinach.

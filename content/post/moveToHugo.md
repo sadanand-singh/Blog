@@ -36,7 +36,7 @@ for their development). They are heavily tied to the [plugin] system
 with light support for template based shortcodes.
 
 [nikola]: https://getnikola.com
-[rst]: http://docutils.sourceforge.net/rst.html
+[rst]: https://docutils.sourceforge.net/rst.html
 [shortcodes]: https://getnikola.com/handbook.html#shortcodes
 [plugin]: https://plugins.getnikola.com
 
@@ -64,7 +64,7 @@ Developing a theme from scratch (*Well, the implementation from scratch, as I al
 Hugo uses [go templates] with many extra functions and set of variables provided by Hugo. I personally feel Hugo's template-ing system to be more flexible and easier than [Mako] - the one used by default by Nikola.
 
 [go templates]: https://golang.org/pkg/text/template/
-[Mako]: http://www.makotemplates.org
+[Mako]: https://www.makotemplates.org
 [documentation]: https://gohugo.io/overview/introduction/
 
 I converted almost all of Mako theme from Nikola website to Hugo's format and architecture with additions (copied features and code) from a nice theme called [TranqilPeak](https://themes.gohugo.io/hugo-tranquilpeak-theme/). In particular, I liked their fonts, search feature for taxonomies pages. Copying these features also meant I had to learn a bit of `javascript` and `css`. You can find a working copy of my theme in the `src` branch of [gihub repository](https://github.com/sadanand-singh/sadanand-singh.github.io) of my blog. I plan to release this theme as a standalone theme in near future though.
@@ -76,7 +76,7 @@ Given I am using a [bootstrap] based theme, I like having a lot of its features 
 Some of my shortcodes are basically based on [bootstrap] classes like
 panel, label, emphasis, highlighted text, and block quotes. I also liked the figure command provided by restructured text in Nikola. Luckily, same features are available in Hugo using a default shortcode called `figure`. Hugo also provides several other useful default shortcodes like `youtube`, `ref/relref` for referencing other posts etc.
 
-[bootstrap]: http://getbootstrap.com
+[bootstrap]: https://getbootstrap.com
 
 I have also some additional shortcodes for code-blocks and math. I will be detailing about them in a bit more detail in the next section. All of my shortcodes are available with the theme in the same [github repo](https://github.com/sadanand-singh/sadanand-singh.github.io).
 
@@ -193,11 +193,11 @@ And, of course you will need a form/input for performing the search:
 
 ## Code Highlighting
 
-Although, by default Hugo provides code highlighting using the [pygments](http://pygments.org), I prefer to use client-side highlighting using [prism.js](http://prismjs.com). I also use the following [plugins](http://prismjs.com/#plugins) of `prism.js` for line numbers, highlighting and cleanup of white space:
+Although, by default Hugo provides code highlighting using the [pygments](https://pygments.org), I prefer to use client-side highlighting using [prism.js](https://prismjs.com). I also use the following [plugins](https://prismjs.com/#plugins) of `prism.js` for line numbers, highlighting and cleanup of white space:
 
-- [Line Highlight](http://prismjs.com/plugins/line-highlight/)
-- [Line Numbers](http://prismjs.com/plugins/line-numbers/)
-- [Normalize Whitespace](http://prismjs.com/plugins/normalize-whitespace/)
+- [Line Highlight](https://prismjs.com/plugins/line-highlight/)
+- [Line Numbers](https://prismjs.com/plugins/line-numbers/)
+- [Normalize Whitespace](https://prismjs.com/plugins/normalize-whitespace/)
 
 Finally, I create a shortcode called _code-block_ to add relevant classes and variables around `<code>` and `<pre>` tags so that prism could highlight code correctly.
 
@@ -207,7 +207,7 @@ One of the advantages of  using Nikola is that, it provides native support for w
 
 But, on some Google search, I found this neat [solution](https://sharmamohit.com/post/jupyter-notebooks-in-blog/).
 
-In summary, the setup is very simple - Use the linked [jupyter.css](http://sharmamohit.com/css/jupyter.css) file in your template, then
+In summary, the setup is very simple - Use the linked [jupyter.css](https://sharmamohit.com/css/jupyter.css) file in your template, then
 add this `css` file to relevant pages. I do the this based on a
 _metadata_ variable `notebook: true` via the following template code:
 

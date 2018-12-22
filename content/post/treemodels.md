@@ -18,13 +18,13 @@ disqus_identifier: "treebasedmodels.sadanand"
 description:
 ---
 
-Tree based learning algorithms are quite [common in data science competitions](http://www.datasciencecentral.com/profiles/blogs/want-to-win-at-kaggle-pay-attention-to-your-ensembles).
+Tree based learning algorithms are quite [common in data science competitions](https://www.datasciencecentral.com/profiles/blogs/want-to-win-at-kaggle-pay-attention-to-your-ensembles).
 These algorithms empower predictive models with high accuracy, stability and ease of
 interpretation. Unlike linear models, they map non-linear relationships
 quite well. Common examples of tree based models are:
 [decision trees](https://en.wikipedia.org/wiki/Decision_tree),
 [random forest](https://en.wikipedia.org/wiki/Random_forest), and
-[boosted trees](http://machinelearningmastery.com/gentle-introduction-gradient-boosting-algorithm-machine-learning/).
+[boosted trees](https://machinelearningmastery.com/gentle-introduction-gradient-boosting-algorithm-machine-learning/).
 
 <!--more-->
 
@@ -61,7 +61,7 @@ iVBORw0KGgoAAAANSUhEUgAABDoAAAIPCAYAAACSSr6dAAAKqmlDQ1BJQ0MgUHJvZmlsZQAASImVlgdU
 {{< /png >}}
 
 Classification and Regression Trees or [CART](https://en.wikipedia.org/wiki/Predictive_analytics#Classification_and_regression_trees_.28CART.29) for short is a term introduced by [Leo Breiman](https://en.wikipedia.org/wiki/Leo_Breiman) to refer to Decision Tree algorithms that can used for classification or regression predictive modeling problems. CART is one of the most common algorithms used for generating decision trees.
-It is used in the scikit-learn implementation of decision trees - [sklearn.tree.DecisionTreeClassifier](http://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html) and [sklearn.tree.DecisionTreeRegressor](http://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeRegressor.html) for classification and regression, respectively.
+It is used in the scikit-learn implementation of decision trees - [sklearn.tree.DecisionTreeClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html) and [sklearn.tree.DecisionTreeRegressor](https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeRegressor.html) for classification and regression, respectively.
 
 # CART Model
 
@@ -3054,8 +3054,8 @@ AABJRU5ErkJggg==
 
 ## Tree Classifier
 
-Now that we understand some relationship in our data, let us build a simple tree classifier model using [sklearn.tree.DecisionTreeClassifier](http://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html).
-However, in order to use this module, we need to convert all of our non-numeric data to numeric ones. This can be quite easily achieved using the [sklearn.preprocessing.LabelEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html) module along with the [sklearn_pandas](https://github.com/pandas-dev/sklearn-pandas) module to apply this on pandas data-frames directly.
+Now that we understand some relationship in our data, let us build a simple tree classifier model using [sklearn.tree.DecisionTreeClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html).
+However, in order to use this module, we need to convert all of our non-numeric data to numeric ones. This can be quite easily achieved using the [sklearn.preprocessing.LabelEncoder](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html) module along with the [sklearn_pandas](https://github.com/pandas-dev/sklearn-pandas) module to apply this on pandas data-frames directly.
 
 ```python
 mapper = DataFrameMapper([
@@ -3370,7 +3370,7 @@ RU5ErkJggg==
 
 We find that the majority class (<=50K Income) has an accuracy of 90.5%, while the minority class (>50K Income) has an accuracy of only 60.8%.
 
-Let us look at ways of tuning this simple classifier. We can use [GridSearchCV()](http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html) with 5-fold cross-validation to tune various important parameters of tree classifiers.
+Let us look at ways of tuning this simple classifier. We can use [GridSearchCV()](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html) with 5-fold cross-validation to tune various important parameters of tree classifiers.
 
 ```python
 from sklearn.model_selection import GridSearchCV
@@ -3640,7 +3640,7 @@ Even though decision tree models have numerous advantages,
 
 - Very simple to understand and easy to interpret
 - Can be visualized
-- Requires little data preparation. Note however that [sklearn.tree](http://scikit-learn.org/stable/modules/classes.html#module-sklearn.tree) module does not support missing values.
+- Requires little data preparation. Note however that [sklearn.tree](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.tree) module does not support missing values.
 - The cost of using the tree (i.e., predicting data) is logarithmic in the number of data points used to train the tree.
 
 These models are NOT common in use directly. Some common drawbacks of decision tree are:
@@ -3664,7 +3664,7 @@ associated with $R\_m$, i.e., the mean (or mode in the case of classification tr
 As $\alpha$ increases, there is a price to pay for having a tree with
 many terminal nodes, and so the above equation will tend to be minimized for a smaller subtree. The pruning parameter $\alpha$ can be selected using some kind of cross validation.
 {{< marker warning >}}
-Note that [sklearn.tree](http://scikit-learn.org/stable/modules/classes.html#module-sklearn.tree) decision tree classifier (and regressor) does not currently support pruning.
+Note that [sklearn.tree](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.tree) decision tree classifier (and regressor) does not currently support pruning.
 {{< /marker >}}
 
 {{< /card >}}
@@ -3696,7 +3696,7 @@ trees, it is no longer possible to represent the resulting statistical learning 
 Interestingly, one can obtain an overall summary of the importance of
 each predictor using the RSS (for bagging regression trees) or the [Gini index]((https://en.wikipedia.org/wiki/Gini_coefficient)) (for bagging classification trees). In the case of bagging regression trees, we can record the total amount that the RSS is decreased due to splits over a given predictor, averaged over all $B$ trees. A large value indicates an important predictor. Similarly, in the context of bagging classification trees, we can add up the total amount that the Gini index is decreased by splits over a given predictor, averaged over all $B$ trees.
 
-[sklearn](http://scikit-learn.org/stable/auto_examples/ensemble/plot_forest_importances.html) module's different bagged tree-based learning methods provide direct access to feature importance data as properties once the training has finished.
+[sklearn](https://scikit-learn.org/stable/auto_examples/ensemble/plot_forest_importances.html) module's different bagged tree-based learning methods provide direct access to feature importance data as properties once the training has finished.
 
 # Random Forest Models
 
