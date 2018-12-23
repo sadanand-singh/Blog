@@ -24,9 +24,9 @@ disableLiveReload:          false
 # disable selectinve rendering
 disableKinds:               ["RSS"]
 # Enable GitInfo feature
-enableGitInfo:              false
+enableGitInfo:              true
 # Build robots.txt file
-enableRobotsTXT:            false
+enableRobotsTXT:            true
 # Do not inject generator meta tag on homepage
 disableHugoGeneratorInject: false
 # Enable Emoji emoticons support for page content.
@@ -139,7 +139,7 @@ params:
   bootswatch:              "cosmo"
   menubarColor:            "primary"
   # Use options from https://highlightjs.org/static/demo/
-  highlightTheme:           "default"
+  highlightTheme:           "rainbow"
   logoURL:                 "logo.png"
   socialButtonsCode:       "ra-53f6d74a591ace8f"
   license:                 '<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>'
@@ -160,7 +160,7 @@ params:
   cta:
     enable: true
     title: "SO WHAT DO YOU THINK ?"
-    content: "Would you like me to write on any particular topics in machine learning, deep learning? Do you like aything here or have any suggestions? Please leave me a note at any of the social links. You may also leave comments at any specific pages/posts."
+    content: "Would you like me to write on any particular topics in machine learning, deep learning? If you have any suggestions or comments, please leave me a note at any of the social links. You may also leave comments at any specific pages/posts."
     btnText: "Visit my Github Page"
     btnURL: "https://github.com/sadanand-singh"
 

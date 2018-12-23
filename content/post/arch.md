@@ -252,8 +252,7 @@ tmpfs /dev/shm tmpfs rw,nodev,nosuid,noexec 0 0
 {{< card "primary" "**Wifi at First Boot**" >}}
 Copy our current _wifi_ setup file into the
 new system. This will enable _wifi_ at first boot. Next, _chroot_ into
-our newly installed system:
-```bash
+our newly installed system.
 {{< /card >}}
 
 Finally bind root for installation.
@@ -293,14 +292,6 @@ sed -i 's/^\(HOOKS=.*fsck\)\(.*$\)/\1 btrfs\2/g' /etc/mkinitcpio.conf
 mkinitcpio -p linux
 passwd
 ```
-
-{{< card warning "**Wifi Packages**" >}}
-We also need to install following packages for
-wifi to work at first boot:
-
-```bash
-{{< /card >}}
-
 
 We will also add *hostname* to our /etc/hosts file:
 
@@ -363,8 +354,6 @@ options root=UUID=$UUID rw rootfstype=btrfs rootflags=subvol=ROOT
 {{< card danger "**IMPORTANT**" >}}
 Please note that you will to need manually run
 `bootctl` command every time `systemd-boot` gets updated.
-
-```bash
 {{< /card >}}
 
 
