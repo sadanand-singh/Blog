@@ -95,12 +95,12 @@ Linear regression needs the relationship between the independent and dependent v
 <div class="row content-justify-between">
     <div class="col-md-6 col-12">
         <figure class="figure img-responsive">
-    <img src="http://www.statisticssolutions.com/wp-content/uploads/2010/01/linearregression01.jpg" width="360px"/>
+    <img src="https://www.statisticssolutions.com/wp-content/uploads/2010/01/linearregression01.jpg" width="360px"/>
 </figure>
 </div>
 <div class="col-md-6 col-12">
     <figure class="figure img-responsive">
-    <img src="http://www.statisticssolutions.com/wp-content/uploads/2010/01/linearregression02.jpg" width="360px"/>
+    <img src="https://www.statisticssolutions.com/wp-content/uploads/2010/01/linearregression02.jpg" width="360px"/>
 </figure>
 </div>
 </div>
@@ -160,12 +160,12 @@ While a scatter plot allows you to check for autocorrelations, you can test the 
 <div class="row content-justify-between">
     <div class="col-md-6 col-12">
         <figure class="figure img-responsive">
-    <img src="http://www.statisticssolutions.com/wp-content/uploads/2010/01/linearregression06.jpg" width="360px"/>
+    <img src="https://www.statisticssolutions.com/wp-content/uploads/2010/01/linearregression06.jpg" width="360px"/>
 </figure>
 </div>
 <div class="col-md-6 col-12">
     <figure class="figure img-responsive">
-    <img src="http://www.statisticssolutions.com/wp-content/uploads/2010/01/linearregression07.jpg" width="360px"/>
+    <img src="https://www.statisticssolutions.com/wp-content/uploads/2010/01/linearregression07.jpg" width="360px"/>
 </figure>
 </div>
 </div>
@@ -337,17 +337,9 @@ $$ \lVert \mathbf y - \mathbf x \rVert^2 + \lambda \lVert D \mathbf x \rVert^2$$
 
 This can be solved by the same mathematical tools that we used above to solve for ordinary least squares.
 
-
 Hopefully, this has been able to provide more clarity for linear regression methods. You can use scikit-learn to make
 linear regression models with your data. Given the simplicity of these API, I have omitted any example from this post.
 Please let me know in comments below, if you have any suggestions for improving this article.
-
-
-
-
-
-
-
 
 
 [qqplot]: https://en.wikipedia.org/wiki/Q%E2%80%93Q_plot
@@ -357,5 +349,5 @@ Please let me know in comments below, if you have any suggestions for improving 
 [dwtest]: https://en.wikipedia.org/wiki/Durbin%E2%80%93Watson_statistic
 [Homoscedasticity]: https://en.wikipedia.org/wiki/Homoscedasticity
 [gqtest]: https://en.wikipedia.org/wiki/Goldfeld%E2%80%93Quandt_test
-[sklearn-metrics]: http://scikit-learn.org/stable/modules/model_evaluation.html#regression-metrics
-[blasso]: http://www.stat.ufl.edu/archived/casella/Papers/Lasso.pdf
+[sklearn-metrics]: https://scikit-learn.org/stable/modules/model_evaluation.html#regression-metrics
+[blasso]: https://www.stat.ufl.edu/archived/casella/Papers/Lasso.pdf
