@@ -74,7 +74,7 @@ the solution to the weights vector $w$ can be given by,
 This approach of estimating weights for linear regression is called **Ordinary Least Squares** ([OLS]).
 
 In the above solution, we made a big assumption that the matrix $\mathbf{X}^T\mathbf{X}$ is invertible. However, in practice,
-this problem is typically solved using [Guassian Elimination](https://en.wikipedia.org/wiki/Gaussian_elimination), which is roughly an $\mathbf{O}(n^3)$ algorithm. Alternatively, this can be also solved using [stochastic gradient descent][sgd], specially when $n$ is extremly large, as stochastic gradient descent is an [online algorithm][olg] where only a batch of data is required at a time.
+this problem is typically solved using [Gaussian Elimination](https://en.wikipedia.org/wiki/Gaussian_elimination), which is roughly an $\mathbf{O}(n^3)$ algorithm. Alternatively, this can be also solved using [stochastic gradient descent][sgd], specially when $n$ is extremely large, as stochastic gradient descent is an [online algorithm][olg] where only a batch of data is required at a time.
 
 [OLS]: https://en.wikipedia.org/wiki/Ordinary_least_squares
 [sgd]: https://en.wikipedia.org/wiki/Stochastic_gradient_descent
@@ -234,7 +234,7 @@ Also called as coefficient of determination, It determines how much of the total
 
 {{< tex display="R^2 = \frac{\sum \big ( \hat{y}_i - \bar{y} \big)^2 }{\sum \big ( y_i - \bar{y} \big)^2}" >}}
 
-The value of R-square is always between 0 and 1, where 0 means that the model does not model explain any variability in the target variable (Y) and 1 meaning it explains full variability in the target variable.
+where, $\bar{y}$ is the average response. The value of R-square is always between 0 and 1, where 0 means that the model does not model explain any variability in the target variable (Y) and 1 meaning it explains full variability in the target variable.
 
 ## Adjusted R-squared
 
@@ -288,7 +288,7 @@ Although a complete Bayesian perspective of linear regression is complete post i
 
 In the Bayesian framework, the choice of the regularizer is analogous to the choice of prior over the weights. If a Gaussian prior is used, then the Maximum a Posteriori (MAP) solution will be the same as if an L2 penalty was used (Ridge Regression). Whilst not directly equivalent, the Laplace prior (which is sharply peaked around zero, unlike the Gaussian which is smooth around zero), produces the same shrinkage effect to the L1 penalty (Lasso Regression).
 
-You can read about the bayesian Lasso in more detail [here][blasso].
+You can read about the Bayesian Lasso in more detail [here][blasso].
 
 # Generalization of Linear Regression
 
@@ -297,11 +297,45 @@ you the wide application of these methods across different fields.
 
 ## Polynomial Regression
 
+{{< figure src="https://res.cloudinary.com/sadanandsingh/image/upload/v1545780650/poly_regress_srbjmr.png" class="figure img-responsive align-left" width="420px" >}}
+
+Polynomial regression is a form of regression analysis in which the relationship between the independent variable $x$ and the dependent variable $y$ is modelled as an n-th degree polynomial in $x$. Polynomial regression fits a nonlinear relationship between the value of $x$ and the corresponding conditional mean of $y$.
+
+Mathematically, suppose the N-point data is of form $(x_i, y_i)$ for $1 \leqslant i \leqslant N$.
+The goal is to find a polynomial approximation of the data by minimizing the residual:
+
+$$RSS = \sum_{i=1}^N \big ( y_i - a_0 - a_1 x_i - a_2 x_i^2 \big)^2$$
+
+Similar to the OLS problem, this can be viewed as the problem of solving overdetermined system:
+
+{{< tex display="\begin{bmatrix} y_1 \\ y_2 \\ \vdots \\ y_n \end{bmatrix} \approx \begin{bmatrix} 1 & x_1 & x_1^2 \\ 1 & x_2 & x_2^2\\ \vdots & \vdots & \vdots \\ 1 & x_n & x_n^2 \end{bmatrix} \begin{bmatrix} a_0 \\ a_1 \\ a_2 \end{bmatrix}" >}}
+
+This can be solved by the same mathematical tools as the OLS problem. The same set of regression techniques as above can be
+also applied here. The equation have been used for a polynomial of degree 2, but cam be easily expanded to higher orders.
+In practice, the choice of order of polynomial is just an additional hyper parameter of the model.
 
 ## Signal Smoothing
 
+{{< figure src="https://res.cloudinary.com/sadanandsingh/image/upload/v1545780346/smooth_rhpllc.png" class="figure img-responsive align-right" width="420px" >}}
 
-## Deconvolution
+One approach to smooth a noisy signal is based on least squares weighted
+regularization. The idea is to obtain a signal similar to the noisy one, but
+smoother. The smoothness of a signal can be measured by the energy of
+its derivative (or second-order derivative). The smoother a signal is, the
+smaller the energy of its derivative is.
+
+Let us define a matrix D as,
+
+{{< tex display="D = \begin{bmatrix} 1 & -2 & 1 &  & \\  & 1 & -2 & 1 & \\ \vdots & \vdots & \vdots & \vdots \\  &  & 1 & -2 & 1 \end{bmatrix}" >}}
+
+Then $D\mathbf x$ is the second-order difference (a discrete form of the second-order
+derivative) of the signal $\mathbf x$.  If $\mathbf x$ is smooth, then $\lVert D \mathbf x \rVert^2$
+is small in value. Hence, we can propose the signal smothing as a linear regression problem, where $\mathbf y$ is a noisy
+signal, that can be smoothened by $\mathbf x$, if we minimize the following loss function:
+
+$$ \lVert \mathbf y - \mathbf x \rVert^2 + \lambda \lVert D \mathbf x \rVert^2$$
+
+This can be solved by the same mathematical tools that we used above to solve for ordinary least squares.
 
 
 Hopefully, this has been able to provide more clarity for linear regression methods. You can use scikit-learn to make
