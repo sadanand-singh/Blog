@@ -1,10 +1,8 @@
 ---
 title: "My Deep Learning Workstation Setup"
-date: 2018-12-30T20:33:52-08:00
+date: 2018-12-31T12:30:00-00:00
 tags:
     - "Linux"
-    - "Pytorch"
-    - "Ubuntu"
     - "Python"
     - "Deep Learning"
 categories:
@@ -310,5 +308,5 @@ Overall my details setup can be found at the following gist.
 
 {{< gist e32edc4045983cccee264789d0db8cb1 >}}
 
-So this a summary of my setup. Its pretty easy to get started and maintain! Let me know your
-preferences in the comments below. And with that lets all celebrate a Happy New Year!!
+So this is a summary of my full setup. Its pretty easy to get started and maintain! Let me know your
+preferences in the comments below. And with that, lets all celebrate a Happy New Year!!
