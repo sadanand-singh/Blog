@@ -1,7 +1,7 @@
 ---
 title: "My Arch Linux Setup with GNOME 3"
 slug: "CompleteSetupArchGnome"
-date: 2018-11-25
+date: 2017-11-25
 tags:
     - "Linux"
     - "Arch Linux"
@@ -21,7 +21,7 @@ my love for [Arch Linux] is still going strong. However, I have moved on to [Gno
 desktop. This post is an updated version of my [previous post]({{< relref "myarchsetup.md" >}})
 with the latest configuration of my machine. I have also update my
 GPU to 1080 Ti to be able to run some computer vision models at reasonable speeds. I use this desktop
-for some audio processing and some kaggle-level computer vision/deep learning.
+for some audio processing and some Kaggle-level computer vision/deep learning.
 
 <!-- more -->
 {{< load-photoswipe >}}

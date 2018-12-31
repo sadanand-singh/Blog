@@ -1,7 +1,7 @@
 ---
 title: "Sublime Text Setup"
 slug: "sublimetext"
-date: 2018-11-10
+date: 2017-11-10
 tags:
     - "Editor"
 categories:
