@@ -91,6 +91,22 @@ Following are the themes, icons and wallpapers that I use. The GTK theme is [can
 [Planets on Acid](https://www.deviantart.com/dpcdpc11/art/Planets-on-Acid-ALTURE-Wallpaper-5120X2880px-752965913).
 You can follow the links above to install these using Gnome Tweaks.
 
+If you also want to change the background image of the login screen, you will have to modify the
+following file with the following:
+```bash
+sudo gedit /usr/share/gnome-shell/theme/ubuntu.css
+# Now replace the lockDialogGroup section with the following.
+# of course you would need to change the png image to something else!
+---
+#lockDialogGroup {
+  background: #2c001e url(file:///usr/share/backgrounds/solar_twins_jupiter_5120x2880.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+---
+```
+
 I prefer google chrome as my default web browser, and can be installed using the following ppa.
 ```bash
 # first download and install the key
