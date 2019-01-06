@@ -53,13 +53,14 @@ Here is a list of packages that I currently use:
 -   [Bracket Highlighter](https://github.com/facelessuser/BracketHighlighter)
 -   [C++11](https://github.com/noct/sublime-cpp11)
 -   [Column Select](https://github.com/ehuss/Sublime-Column-Select)
--   [DocBlockr Python](https://github.com/adambullmer/sublime_docblockr_python)
+-   [AutoDocString](hhttps://github.com/KristoforMaynard/SublimeAutoDocstring)
+-   [FileIcons](https://github.com/braver/FileIcons)
 -   [GitGutter](https://github.com/jisaacks/GitGutter)
--   [Anaconda](https://damnwidget.github.io/anaconda/)
+-   [Jedi](https://github.com/srusskih/SublimeJEDI)
 -   [MagicPython](https://github.com/MagicStack/MagicPython)
+-   [Markdown Editing](https://github.com/SublimeText-Markdown/MarkdownEditing)
 -   [rsub](https://github.com/henrikpersson/rsub)
 -   [Sidebar Enhancements](https://github.com/SideBarEnhancements-org/SideBarEnhancements)
--   [A File Icon](https://github.com/ihodev/a-file-icon)
 -   [sublack](https://github.com/jgirardet/sublack)
 -   [SublimeLinter](https://github.com/SublimeLinter/SublimeLinter3)
 -   [SublimeLinter flake8](https://github.com/SublimeLinter/SublimeLinter-flake8)
@@ -81,18 +82,13 @@ The major differences are:
 -   If you start at the end of a line, then it will stay at the end of
     each line.
 
-**DocBlockr_Python** makes writing documentation a breeze for python
+**AutoDocString** makes writing documentation a breeze for python
 code. I typically use google docstring format, so I modify settings as follows:
 
 ```json
 {
-    /**
-     * This option dictates which style of docstrings to use, when parsing docstrings
-     *
-     * Available Options:
-     * [PEP0257, docblock, google, numpy, sphinx]
-     */
-    "formatter": "google"
+    "style": "google",
+    "extra_class_newlines": false,
 }
 ```
 
@@ -104,35 +100,29 @@ in a git repository. Main Features are:
 -   Status Bar Text with information about file and repository
 -   Jumping Between Changes to easily navigate between modified lines
 
+My custom settings are:
+```json
+// GitGutter Settings - User
+{
+    "show_line_annotation": "auto",
+    "diff_popup_default_mode": "diff"
+}
+```
 
-**Anaconda** is a plugin that turns your SublimeText 3 into a rich featured Python development
+**Jedi** is a plugin that turns your SublimeText 3 into a rich featured Python development
 stack that boost your productivity and helps you to ensure the quality and style of your code.
 The plugin works out of the box with no configuration but, I prefer to specify the python
-interpreter explicitly. I also like to use SublimeLinter with flake for linting, hence I disable
-linting via Anaconda.
+interpreter explicitly. You can download a copy of [my completion file](https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/Completion%20Rules.tmPreferences).
 
 ```json
 {
-    /*
-        Default python interpreter
-
-        This can (and should) be overridden by project settings.
-
-        NOTE: if you want anaconda to lint and complete using a remote
-        python interpreter that runs the anaconda's minserver.py script
-        in a remote machine just use it's address:port as interpreter
-        for example:
-
-            "python_interpreter": "tcp://my_remote.machine.com:19360"
-    */
-    "python_interpreter": "python",
-
-    /*
-        Set to false to disable Anaconda linting entirely.
-    */
-    "anaconda_linting": false,
+    "python_interpreter": "/Users/sadanand/anaconda3/envs/py3.7-dev/bin/python3",
 }
 ```
+Please note that autocompletion doesn't work well for the import statements by default in sublime
+text 3. Please follow these
+[instructions](https://packagecontrol.io/packages/Jedi%20-%20Python%20autocompletion)
+to make it work properly.
 
 **MagicPython** is a package with preferences and syntax highlighter for
 cutting edge Python 3. It is meant to be a drop-in replacement for the
@@ -160,6 +150,9 @@ configuration is needed for these modifications:
       // uses black default, if not modified
       "black_line_length": 99,
 
+      // If --fast given, skip temporary sanity checks.
+      "black_fast": false,
+
       // prevent black from changing single quote to double quotes
       // default is false
       // add --black_skip_string_normalization
@@ -169,14 +162,43 @@ configuration is needed for these modifications:
       "black_skip_numeric_underscore_normalization": false,
 
       // force py36 syntax mode
-      "black_py36": true,
+      "black_py36": null,
 
       // ##########################
       // Sublack specific options #
       // ##########################
 
+      // full path and command to run black
+      "black_command": "/Users/sadanand/anaconda3/envs/py3.7-dev/bin/black",
+
       // run black before saving document
-      "black_on_save": true
+      "black_on_save": true,
+
+      // set debug mode. default is info.
+      // choices : debug > info > error
+      "black_log": "info",
+
+      // default encoding for never saved file, if not specified un  first 2 lines (pep 263):
+      // default is "utf-8". Change this only if you want override default behaviour.
+      "black_default_encoding": "utf-8",
+
+      // use blackd server instead of black
+      "black_use_blackd": false,
+
+      // blackd server host
+      "black_blackd_host": "localhost",
+
+      // blackd server port, default is like black, should be string
+      "black_blackd_port": "45484",
+
+      // Start blackdserver on start. shuts down at sublimetext exit.
+      "black_blackd_autostart": false,
+
+      // Use pre-commit if possible
+      "black_use_precommit": false,
+
+      // Disable formatll command
+      "black_confirm_formatall": false
 }
 ```
 
@@ -199,8 +221,9 @@ paste, paste in parent, rename, move, delete, refresh etc.
 embedding into CSS! ), copy as tags img/a/script/style, duplicate etc.
 - Allows to display "file modified date" and "file size" on status bar.
 
-**A File Icon** is a further enhancement to SidebarEnhancements plugin to provide fancy icons for
-different types of files and folders.
+**FileIcons** is a further enhancement to SidebarEnhancements plugin to provide fancy icons for
+different types of files and folders. Please follow [instructions](https://packagecontrol.io/packages/FileIcons)
+to make it work for your theme.
 
 **SublimeLinter** and **SublimeLinter-flake8** is plug-in that provides
 an interface to [flake8](https://flake8.pycqa.org/en/latest/). It will be
@@ -212,12 +235,106 @@ add-on package to make sublack fully compatible with flake linter.
 {
     "linters": {
         "flake8": {
+            "executable": "/Users/sadanand/anaconda3/envs/py3.7-dev/bin/flake8",
             "args": [
                 "--max-line-length=99",
                 "--exclude=.git,__pycache__,.direnv,node_modules"
             ]
         }
     }
+}
+```
+
+**Markdown Editing** For writing markdown files, Agila theme provides alternative color schemes.
+We can take advantage of them by using the Markdown Editing package and modifying the user settings of MultiMarkdown.
+
+```json
+{
+  "auto_match_enabled": true,
+  "caret_extra_bottom": 3,
+  "caret_extra_top": 3,
+  "caret_style": "wide",
+  "color_scheme": "Packages/Agila Theme/Markdown/Oceanic Next Markdown.tmTheme",
+  "draw_centered": false,
+  "extensions":
+  [
+    "mmd",
+    "md"
+  ],
+  "highlight_line": true,
+  "line_numbers": true,
+  "line_padding_bottom": 2,
+  "line_padding_top": 2,
+  "mde.auto_increment_ordered_list_number": true,
+  "mde.distraction_free_mode":
+  {
+    "mde.keep_centered": true
+  },
+  "mde.keep_centered": false,
+  "mde.keymap_disable.fold_section": false,
+  "mde.keymap_disable.goto_next_heading": false,
+  "mde.keymap_disable.goto_previous_heading": false,
+  "mde.keymap_disable.list_back_links": true,
+  "mde.keymap_disable.make_page_reference": true,
+  "mde.keymap_disable.open_home_page": true,
+  "mde.keymap_disable.open_journal": true,
+  "mde.keymap_disable.open_page": true,
+  "mde.keymap_disable.reference_jump": false,
+  "mde.keymap_disable.reference_new_footnote": false,
+  "mde.keymap_disable.reference_new_inline_image": false,
+  "mde.keymap_disable.reference_new_inline_link": false,
+  "mde.keymap_disable.reference_new_reference": false,
+  "mde.keymap_disable.show_fold_all_sections": false,
+  "mde.lint":
+  {
+    "disable":
+    [
+      "md013"
+    ],
+    "md003": "any",
+    "md004": "cyclic",
+    "md007": 0,
+    "md013": 0,
+    "md026": ".,;:!",
+    "md029": "any",
+    "md030":
+    {
+      "ol_multi": 1,
+      "ol_single": 1,
+      "ul_multi": 1,
+      "ul_single": 1
+    },
+    "mdl":
+    {
+      "additional_arguments":
+      [
+      ],
+      "executable": ""
+    }
+  },
+  "mde.list_indent_auto_switch_bullet": true,
+  "mde.list_indent_bullets":
+  [
+    "*",
+    "-",
+    "+"
+  ],
+  "mde.match_header_hashes": false,
+  "mde.wikilinks.homepage": "HomePage",
+  "mde.wikilinks.markdown_extension": ".md",
+  "mde.wikilinks.templates":
+  {
+    "default_page": "templates/PageTemplate.md"
+  },
+  "rulers":
+  [
+    100
+  ],
+  "tab_size": 4,
+  "translate_tabs_to_spaces": true,
+  "trim_trailing_white_space_on_save": false,
+  "word_wrap": true,
+  "wrap_width": 99
 }
 ```
 
@@ -244,11 +361,12 @@ Here is a summary of my key map:
 Theme and Color Scheme
 ======================
 
-I like a simple and clean UI for my editors. [AYU] provides the perfect minimal theme and
-color scheme for my purpose. Please see above screen shots to see if this attracts you!
+I like a simple and clean UI for my editors. [Guna] provides the perfect minimal theme that is
+adaptive to any color scheme you prefer. I prefer color schemes from the [Agila theme].
 The settings related to this can be found in my settings below.
 
-[AYU]: https://github.com/dempfi/ayu
+[Guna]: https://packagecontrol.io/packages/Guna
+[Agila theme]: https://github.com/arvi/Agila-Theme
 
 User Settings / Preferences
 ===========================
@@ -262,19 +380,19 @@ to leave comments below for any questions or suggestions.
     "auto_complete": true,
     "bold_folder_labels": true,
     "caret_extra_width": 1.5,
-    "color_scheme": "Packages/ayu/ayu-mirage.tmTheme",
+    "color_scheme": "Packages/Agila Theme/Agila Oceanic Next.tmTheme",
     "default_line_ending": "unix",
     "drag_text": false,
     "draw_white_space": "all",
     "enable_tab_scrolling": false,
-    "font_face": "Roboto mono",
+    "font_face": "Roboto Mono",
     "font_options":
     [
         "directwrite",
         "gray_antialias",
         "subpixel_antialias"
     ],
-    "font_size": 15,
+    "font_size": 16,
     "hot_exit": false,
     "ignored_packages":
     [
@@ -287,8 +405,8 @@ to leave comments below for any questions or suggestions.
         "draw_normal",
         "draw_active"
     ],
-    "line_padding_bottom": 1,
-    "line_padding_top": 1,
+    "line_padding_bottom": 3,
+    "line_padding_top": 3,
     "overlay_scroll_bars": "enabled",
     "remember_open_files": false,
     "rulers":
@@ -300,16 +418,9 @@ to leave comments below for any questions or suggestions.
     "soda_folder_icons": true,
     "tab_completion": false,
     "tab_size": 4,
-    "theme": "ayu-mirage.sublime-theme",
+    "theme": "Guna.sublime-theme",
     "translate_tabs_to_spaces": true,
     "trim_trailing_white_space_on_save": true,
-    "ui_big_tabs": true,
-    "ui_fix_tab_labels": true,
-    "ui_font_default": true,
-    "ui_font_size_small": true,
-    "ui_font_source_code_pro": true,
-    "ui_separator": true,
-    "ui_wide_scrollbars": true,
     "word_wrap": true
 }
 ```
