@@ -112,7 +112,7 @@ My custom settings are:
 **Jedi** is a plugin that turns your SublimeText 3 into a rich featured Python development
 stack that boost your productivity and helps you to ensure the quality and style of your code.
 The plugin works out of the box with no configuration but, I prefer to specify the python
-interpreter explicitly. You can download a copy of [my completion file](https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/Completion%20Rules.tmPreferences).
+interpreter explicitly.
 
 ```json
 {
@@ -122,7 +122,7 @@ interpreter explicitly. You can download a copy of [my completion file](https://
 Please note that autocompletion doesn't work well for the import statements by default in sublime
 text 3. Please follow these
 [instructions](https://packagecontrol.io/packages/Jedi%20-%20Python%20autocompletion)
-to make it work properly.
+to make it work properly. You can download a copy of [my completion file](https://filedn.com/lSuvfdBS7StB1VENIoS8hjj/Blog-Static-Contents/Completion%20Rules.tmPreferences).
 
 **MagicPython** is a package with preferences and syntax highlighter for
 cutting edge Python 3. It is meant to be a drop-in replacement for the
@@ -397,7 +397,7 @@ to leave comments below for any questions or suggestions.
     "ignored_packages":
     [
         "C++",
-        "Python",
+        "Markdown",
         "Vintage"
     ],
     "indent_guide_options":
